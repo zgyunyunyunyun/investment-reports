@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家电行业深度研究报告 2025</title>
+<style>
+  :root {
+    --primary: #1a3a5c;
+    --secondary: #2e6da4;
+    --accent: #e8a020;
+    --accent2: #c0392b;
+    --green: #27ae60;
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e2e8f0;
+    --gold: #d4a520;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* COVER */
+  .cover {
+    background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 40%, #2e6da4 100%);
+    color: white;
+    padding: 80px 60px 60px;
+    position: relative;
+    overflow: hidden;
+    min-height: 340px;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+  .cover::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 200px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(232,160,32,0.12);
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.6); font-size: 13px;
+    text-decoration: none; margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .back-link:hover { color: white; }
+  .cover-label {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cover h1 span { color: var(--accent); }
+  .cover .subtitle {
+    font-size: 17px;
+    color: rgba(255,255,255,0.75);
+    max-width: 660px;
+    margin-bottom: 40px;
+    position: relative; z-index: 1;
+  }
+  .cover-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    position: relative; z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 24px;
+  }
+  .cover-meta-item { text-align: left; }
+  .cover-meta-item .label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1px; text-transform: uppercase; }
+  .cover-meta-item .value { font-size: 22px; font-weight: 700; color: var(--accent); }
+  .cover-meta-item .unit { font-size: 13px; color: rgba(255,255,255,0.6); }
+
+  /* MAIN */
+  .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* SECTION */
+  .section { margin-bottom: 56px; }
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 24px; font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--secondary);
+  }
+  .section-title .icon {
+    width: 36px; height: 36px;
+    background: var(--secondary);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px;
+  }
+  .section-num {
+    font-size: 13px; font-weight: 700;
+    color: var(--secondary);
+    background: rgba(46,109,164,0.1);
+    padding: 2px 8px; border-radius: 4px;
+  }
+
+  /* DATA CARDS */
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .data-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .data-card .dc-label { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .data-card .dc-value { font-size: 26px; font-weight: 800; color: var(--primary); }
+  .data-card .dc-value span { font-size: 14px; font-weight: 500; }
+  .data-card .dc-sub { font-size: 12px; margin-top: 6px; }
+  .dc-up { color: var(--green); }
+  .dc-down { color: var(--accent2); }
+
+  /* DEBATE */
+  .debate {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .debate-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 28px;
+    border: 1px solid var(--border);
+  }
+  .debate-card.bull { border-top: 4px solid var(--green); }
+  .debate-card.bear { border-top: 4px solid var(--accent2); }
+  .debate-title {
+    font-size: 18px; font-weight: 800;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .debate-title.bull { color: var(--green); }
+  .debate-title.bear { color: var(--accent2); }
+  .debate-item {
+    display: flex; gap: 10px;
+    margin-bottom: 14px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--bg);
+    font-size: 14px;
+  }
+  .debate-item .di-icon { font-size: 18px; flex-shrink: 0; }
+  .debate-item .di-title { font-weight: 700; color: var(--text); margin-bottom: 3px; }
+  .debate-item .di-desc { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+  /* GLOBAL COMPARE TABLE */
+  .table-wrap {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--primary); color: white;
+    padding: 14px 16px; text-align: left;
+    font-size: 13px; font-weight: 700;
+  }
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .td-highlight { font-weight: 700; color: var(--primary); }
+  .td-green { color: var(--green); font-weight: 600; }
+  .td-red { color: var(--accent2); font-weight: 600; }
+  .td-amber { color: var(--gold); font-weight: 600; }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 10px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--secondary);
+  }
+  .tl-item {
+    position: relative;
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px 24px 24px 28px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .tl-item::before {
+    content: '';
+    position: absolute; left: -26px; top: 28px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--secondary);
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--secondary);
+  }
+  .tl-year {
+    font-size: 13px; font-weight: 700;
+    color: var(--secondary);
+    background: rgba(46,109,164,0.1);
+    display: inline-block;
+    padding: 2px 10px; border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .tl-title { font-size: 17px; font-weight: 800; color: var(--primary); margin-bottom: 8px; }
+  .tl-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .tl-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .tl-tag {
+    font-size: 11px; font-weight: 600;
+    padding: 3px 10px; border-radius: 12px;
+    background: rgba(46,109,164,0.1);
+    color: var(--secondary);
+  }
+
+  /* SEGMENT GRID */
+  .segment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .segment-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--secondary);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .segment-card.seg-blue { border-top-color: #2e6da4; }
+  .segment-card.seg-green { border-top-color: #27ae60; }
+  .segment-card.seg-amber { border-top-color: #e8a020; }
+  .segment-card.seg-purple { border-top-color: #8e44ad; }
+  .segment-title {
+    font-size: 16px; font-weight: 800;
+    color: var(--primary); margin-bottom: 12px;
+  }
+  .segment-metric { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .segment-metric .sm-key { font-size: 13px; color: var(--muted); }
+  .segment-metric .sm-val { font-size: 13px; font-weight: 700; color: var(--text); }
+  .segment-note { font-size: 12px; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* RATING */
+  .rating-list { display: flex; flex-direction: column; gap: 16px; }
+  .rating-item {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .rating-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+  .rating-name { font-size: 16px; font-weight: 800; color: var(--primary); }
+  .rating-badge {
+    font-size: 12px; font-weight: 700;
+    padding: 4px 12px; border-radius: 20px;
+  }
+  .badge-buy { background: rgba(39,174,96,0.1); color: var(--green); }
+  .badge-hold { background: rgba(232,160,32,0.1); color: var(--gold); }
+  .badge-watch { background: rgba(46,109,164,0.1); color: var(--secondary); }
+  .rating-bars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .rating-bar-item { }
+  .rb-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .rb-track {
+    height: 6px; background: var(--bg);
+    border-radius: 3px; overflow: hidden;
+  }
+  .rb-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+  }
+  .rb-score { font-size: 12px; font-weight: 700; color: var(--primary); margin-top: 3px; }
+  .rating-desc { font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+  /* STRATEGY */
+  .strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+  .strategy-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  .strategy-label {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .sl-dividend { background: rgba(39,174,96,0.1); color: var(--green); }
+  .sl-growth { background: rgba(46,109,164,0.1); color: var(--secondary); }
+  .sl-revert { background: rgba(232,160,32,0.1); color: var(--gold); }
+  .strategy-title { font-size: 16px; font-weight: 800; color: var(--primary); margin-bottom: 10px; }
+  .strategy-targets { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .st-tag {
+    font-size: 12px; font-weight: 600;
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 8px; color: var(--text);
+  }
+  .strategy-returns { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
+  .strategy-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* RISK TABLE */
+  .risk-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 8px;
+  }
+  .risk-high { background: rgba(192,57,43,0.1); color: var(--accent2); }
+  .risk-mid { background: rgba(232,160,32,0.1); color: var(--gold); }
+  .risk-low { background: rgba(39,174,96,0.1); color: var(--green); }
+  .trend-up { color: var(--green); font-weight: 700; }
+  .trend-down { color: var(--accent2); font-weight: 700; }
+  .trend-stable { color: var(--muted); font-weight: 700; }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(46,109,164,0.08);
+    border-left: 4px solid var(--secondary);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14px; color: var(--text);
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--primary); }
+
+  /* CHART BAR (CSS-only horizontal) */
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { font-size: 13px; color: var(--text); width: 90px; flex-shrink: 0; text-align: right; }
+  .bar-track { flex: 1; height: 24px; background: var(--bg); border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill {
+    height: 100%; border-radius: 6px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    display: flex; align-items: center; padding-left: 10px;
+    font-size: 12px; font-weight: 700; color: white;
+    white-space: nowrap;
+    transition: width 0.8s;
+  }
+  .bar-fill.green { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+  .bar-fill.amber { background: linear-gradient(90deg, #e8a020, #f39c12); }
+  .bar-fill.red { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+
+  /* OVERVIEW GRID */
+  .overview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .overview-text { font-size: 14px; line-height: 1.8; color: var(--text); }
+  .overview-text p { margin-bottom: 12px; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--primary);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 28px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .footer a { color: rgba(255,255,255,0.8); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .cover { padding: 40px 20px; }
+    .cover h1 { font-size: 28px; }
+    .debate { grid-template-columns: 1fr; }
+    .data-grid { grid-template-columns: repeat(2, 1fr); }
+    .overview-grid { grid-template-columns: 1fr; }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .segment-grid { grid-template-columns: 1fr; }
+    .rating-bars { grid-template-columns: repeat(3, 1fr); }
+    .cover-meta { gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <a href="index.html" class="back-link">← 返回报告中心</a>
+  <div class="cover-label">行业深度研究报告 · 报告一</div>
+  <h1>中国<span>家电行业</span><br>深度研究报告 2025</h1>
+  <p class="subtitle">从白电三巨头到新兴赛道：行业格局重塑下的投资机会全景分析<br>
+  空调产量突破历史新高 · 出口逆势爆发 · PB估值处历史低位 · 高股息时代来临</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">行业总产值</div>
+      <div class="value">9000<span>亿+</span></div>
+      <div class="unit">人民币（白电三巨头合计）</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">空调出口增速</div>
+      <div class="value">+40.4%</div>
+      <div class="unit">2024年同比增速</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">行业整体PE</div>
+      <div class="value">~16x</div>
+      <div class="unit">历史后31%低分位</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">白电CR3</div>
+      <div class="value">>70%</div>
+      <div class="unit">格力/美的/海尔三足鼎立</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">更新日期</div>
+      <div class="value" style="font-size:16px">2025.04</div>
+      <div class="unit">数据截止2024年</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="container">
+
+  <!-- SECTION 1: 行业现状数据速览 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📊</div>
+      <span class="section-num">01</span>
+      行业现状数据速览
+    </div>
+
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="dc-label">空调年产量</div>
+        <div class="dc-value">19508<span>万台</span></div>
+        <div class="dc-sub dc-up">↑ +19.5%（2024年）</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">内销首破亿台</div>
+        <div class="dc-value">1.01<span>亿台</span></div>
+        <div class="dc-sub dc-up">↑ 内销历史新高</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">空调出口量</div>
+        <div class="dc-value">9326<span>万台</span></div>
+        <div class="dc-sub dc-up">↑ +40.4%（2024年）</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">白电CR3集中度</div>
+        <div class="dc-value">>70<span>%</span></div>
+        <div class="dc-sub">格力/美的/海尔三巨头</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">板块整体PE</div>
+        <div class="dc-value">~16<span>×</span></div>
+        <div class="dc-sub dc-down">历史后31%低分位</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">格力电器ROE</div>
+        <div class="dc-value">25.4<span>%</span></div>
+        <div class="dc-sub dc-up">↑ 白电最高ROE</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">清洁电器增速</div>
+        <div class="dc-value">+24.4<span>%</span></div>
+        <div class="dc-sub dc-up">↑ 子赛道增速最快</div>
+      </div>
+      <div class="data-card">
+        <div class="dc-label">美的集团营收</div>
+        <div class="dc-value">4091<span>亿</span></div>
+        <div class="dc-sub">行业龙头，多元扩张</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:20px">
+      <strong>行业核心逻辑一句话：</strong>中国家电行业已进入"国内存量更新+出口份额扩张"双轮驱动阶段，以旧换新政策催化内需，全球制造竞争力驱动出口，而估值仍处历史低位，安全边际充足。
+    </div>
+  </div>
+
+  <!-- SECTION 2: 多空核心论据 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">⚖️</div>
+      <span class="section-num">02</span>
+      多空核心论据体系
+    </div>
+
+    <div class="debate">
+      <div class="debate-card bull">
+        <div class="debate-title bull">🟢 做多论据（Bull Case）</div>
+
+        <div class="debate-item">
+          <div class="di-icon">🏆</div>
+          <div>
+            <div class="di-title">寡头垄断格局已形成，护城河极深</div>
+            <div class="di-desc">白电CR3超过70%，格力空调国内市占率约40%，新进入者几乎无法撼动。规模效应+渠道壁垒+品牌溢价形成三重护城河。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">📦</div>
+          <div>
+            <div class="di-title">以旧换新政策持续催化，内需弹性大</div>
+            <div class="di-desc">国家"以旧换新"补贴政策延续至2025年，空调内销2024年已突破1亿台历史新高，政策尾部效应仍在释放。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🌍</div>
+          <div>
+            <div class="di-title">出口爆发式增长，全球份额持续扩张</div>
+            <div class="di-desc">2024年空调出口9326万台，同比+40.4%，中国家电凭借性价比和供应链能力持续抢占欧美/东南亚市场份额。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">💰</div>
+          <div>
+            <div class="di-title">高股息+回购，股东回报大幅提升</div>
+            <div class="di-desc">格力股息率超过6%，美的连续多年分红，行业整体股息率明显高于历史均值。高股息策略在低利率环境下极具吸引力。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">📉</div>
+          <div>
+            <div class="di-title">估值处历史底部，安全边际充足</div>
+            <div class="di-desc">板块PE约16倍，处历史后31%低分位；格力PB仅1.43倍，近5年历史0.8%分位，极度低估。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🔋</div>
+          <div>
+            <div class="di-title">新能源+智能化转型开辟第二曲线</div>
+            <div class="di-desc">格力布局储能+光伏，美的拓展工业机器人+楼宇科技，海尔数字家庭生态持续推进，成长空间不再局限于家电。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🏗️</div>
+          <div>
+            <div class="di-title">房地产企稳将带来后周期需求</div>
+            <div class="di-desc">家电与地产密切相关，随着房地产政策转向、二手房交易活跃，装修和家电换新需求将周期性回升。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="debate-card bear">
+        <div class="debate-title bear">🔴 做空论据（Bear Case）</div>
+
+        <div class="debate-item">
+          <div class="di-icon">📊</div>
+          <div>
+            <div class="di-title">国内市场趋于饱和，增速天花板临近</div>
+            <div class="di-desc">空调、冰箱、洗衣机等大家电城镇普及率已超90%，存量更新周期长（8-12年），自然增量有限，依赖政策刺激。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">⚔️</div>
+          <div>
+            <div class="di-title">白电巨头内部竞争加剧，价格战风险</div>
+            <div class="di-desc">美的持续扩张压缩格力份额，海尔通过高端化抢利润，三者之间的价格/渠道博弈周期性加剧，影响盈利质量。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🌐</div>
+          <div>
+            <div class="di-title">出口依赖低端制造，附加值有限</div>
+            <div class="di-desc">出口爆发的驱动力主要是低价竞争力，高端品牌海外渗透率仍低；贸易摩擦、关税风险可能快速压制出口利润。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🏠</div>
+          <div>
+            <div class="di-title">房地产长期萎缩，拖累家电新增需求</div>
+            <div class="di-desc">新房竣工面积仍在底部，开发商交付能力存疑，精装房配套家电受拖累；一线城市人口流入放缓压制新增购买。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">💸</div>
+          <div>
+            <div class="di-title">原材料成本波动，毛利率存压力</div>
+            <div class="di-desc">铜、钢材、压缩机等核心原材料成本占比30-40%，国际大宗商品价格波动直接影响毛利率，成本传导能力有限。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🤖</div>
+          <div>
+            <div class="di-title">智能化转型尚未形成规模盈利</div>
+            <div class="di-desc">美的工业机器人、格力储能等第二曲线投入期长，短期拉低整体ROE，且与成熟竞争对手差距仍大。</div>
+          </div>
+        </div>
+
+        <div class="debate-item">
+          <div class="di-icon">🧑‍💼</div>
+          <div>
+            <div class="di-title">格力公司治理历史问题，管理层不确定性</div>
+            <div class="di-desc">格力历史上股权之争和管理层变动曾引发估值大幅折价，管理层稳定性和股东利益对齐程度是长期隐忧。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: 全球横向对比 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🌍</div>
+      <span class="section-num">03</span>
+      全球家电市场横向对比
+    </div>
+
+    <div class="callout">
+      中国家电企业在规模和盈利效率上已超越日韩，与欧美高端品牌的差距正在缩小，但品牌溢价能力和高端市场渗透仍是最大短板。
+    </div>
+
+    <div class="table-wrap" style="margin-top:20px">
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th>中国（格力/美的/海尔）</th>
+            <th>日本（大金/松下/三菱）</th>
+            <th>韩国（三星/LG）</th>
+            <th>欧美（惠而浦/伊莱克斯）</th>
+            <th>评价</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>产量/市场份额</td>
+            <td class="td-highlight">全球第一（空调&gt;50%）</td>
+            <td>日本市场为主，出口中高端</td>
+            <td>全球白电约15-20%</td>
+            <td>欧美传统品牌，份额下降</td>
+            <td class="td-green">中国优势</td>
+          </tr>
+          <tr>
+            <td>净利润率</td>
+            <td class="td-highlight">格力17% / 美的9%</td>
+            <td>大金约9-11%</td>
+            <td>LG家电约7-9%</td>
+            <td>惠而浦约3-5%</td>
+            <td class="td-green">中国持平或领先</td>
+          </tr>
+          <tr>
+            <td>ROE水平</td>
+            <td class="td-highlight">格力25% / 美的28%</td>
+            <td>大金约12-15%</td>
+            <td>三星家电约15%</td>
+            <td>惠而浦约10-12%</td>
+            <td class="td-green">中国明显领先</td>
+          </tr>
+          <tr>
+            <td>估值PE</td>
+            <td>格力10x / 美的15x</td>
+            <td>大金约25-30x</td>
+            <td>LG约15-18x</td>
+            <td>惠而浦约10-12x</td>
+            <td class="td-amber">中国低估明显</td>
+          </tr>
+          <tr>
+            <td>品牌溢价</td>
+            <td>国内强，海外一般</td>
+            <td>日本品牌全球高端</td>
+            <td>三星LG全球强势</td>
+            <td>欧美本土强</td>
+            <td class="td-red">中国最大短板</td>
+          </tr>
+          <tr>
+            <td>技术研发投入</td>
+            <td>格力R&amp;D约5% / 美的约4%</td>
+            <td>约5-7%</td>
+            <td>约5-6%</td>
+            <td>约2-3%</td>
+            <td class="td-amber">中国追赶中</td>
+          </tr>
+          <tr>
+            <td>股息率</td>
+            <td class="td-highlight">格力6.4% / 美的3%+</td>
+            <td>大金约1-2%</td>
+            <td>约1-2%</td>
+            <td>约2-3%</td>
+            <td class="td-green">中国高股息突出</td>
+          </tr>
+          <tr>
+            <td>出口战略</td>
+            <td>全球扩张、性价比为主</td>
+            <td>东南亚+中高端市场</td>
+            <td>全球高端品牌</td>
+            <td>本土+欧洲为主</td>
+            <td class="td-amber">中国规模快增</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:24px">
+      <div style="font-size:15px;font-weight:700;color:var(--primary);margin-bottom:12px">产量份额对比（全球空调市场）</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">中国品牌</div>
+          <div class="bar-track"><div class="bar-fill green" style="width:65%">65%+</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">日本品牌</div>
+          <div class="bar-track"><div class="bar-fill" style="width:15%">15%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">韩国品牌</div>
+          <div class="bar-track"><div class="bar-fill amber" style="width:10%">10%</div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">欧美其他</div>
+          <div class="bar-track"><div class="bar-fill red" style="width:10%">10%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: 行业历史演变 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">📅</div>
+      <span class="section-num">04</span>
+      中国家电行业历史演变五阶段
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">1980s — 1995年</div>
+        <div class="tl-title">🌱 草创期：本土品牌崛起，从无到有</div>
+        <div class="tl-desc">改革开放后家电行业从零起步，荣事达、海尔、格力等本土品牌相继成立。消费者从"无家电"进入"家电时代"。国产品牌与日本进口产品激烈竞争，依靠价格取胜，产品质量参差不齐。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">格力1991年成立</span>
+          <span class="tl-tag">海尔1984年成立</span>
+          <span class="tl-tag">日资合资竞争</span>
+          <span class="tl-tag">低价策略</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">1996年 — 2005年</div>
+        <div class="tl-title">🏭 整合期：行业洗牌，寡头格局形成</div>
+        <div class="tl-desc">激烈竞争淘汰大批弱势品牌，格力、美的、海尔逐步脱颖而出建立规模优势。渠道建设成为核心竞争力，格力"专卖店模式"、海尔"海尔专柜"形成差异化竞争。白电CR3从不足40%快速提升至55%以上。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">行业整合浪潮</span>
+          <span class="tl-tag">渠道为王</span>
+          <span class="tl-tag">外资退出竞争</span>
+          <span class="tl-tag">格力市占率突破</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2006年 — 2015年</div>
+        <div class="tl-title">🚀 黄金期：地产周期驱动，量价齐升</div>
+        <div class="tl-desc">房地产大周期带动家电强劲需求，"家电下乡"政策额外刺激农村市场。格力、美的净利润年化增速超15%。行业整体进入高盈利时代，ROE普遍超过20%。上游议价能力提升，毛利率不断改善。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">家电下乡政策</span>
+          <span class="tl-tag">地产大周期</span>
+          <span class="tl-tag">格力净利率提升至15%+</span>
+          <span class="tl-tag">节能惠民</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2016年 — 2021年</div>
+        <div class="tl-title">⚡ 转型期：线上冲击、互联网家电崛起</div>
+        <div class="tl-desc">小米生态链、互联网家电品牌冲击传统渠道。美的率先拥抱线上，格力坚守线下渠道受到挑战。海外并购加速（海尔收购GE家电、美的收购库卡机器人）。小家电爆发，清洁电器/厨房小家电高速增长。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">线上渠道崛起</span>
+          <span class="tl-tag">小米生态挑战</span>
+          <span class="tl-tag">海外并购</span>
+          <span class="tl-tag">小家电爆发</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-year">2022年 — 2025年</div>
+        <div class="tl-title">🔄 新周期：存量更新+出口爆发+高股息时代</div>
+        <div class="tl-desc">国内市场从增量转入存量更新逻辑，以旧换新政策成为主要催化剂。出口端受益于全球供应链重塑，中国家电大幅抢占份额，2024年出口增速达40%+。行业整体盈利改善，高股息策略吸引价值投资者大规模流入，估值中枢有望修复。</div>
+        <div class="tl-tags">
+          <span class="tl-tag">以旧换新政策</span>
+          <span class="tl-tag">出口爆发+40%</span>
+          <span class="tl-tag">高股息策略</span>
+          <span class="tl-tag">格力PB历史底部</span>
+          <span class="tl-tag">估值修复预期</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: 子赛道分层 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🔀</div>
+      <span class="section-num">05</span>
+      行业子赛道分层分析
+    </div>
+
+    <div class="segment-grid">
+      <div class="segment-card seg-blue">
+        <div class="segment-title">🏠 白色家电（大家电）</div>
+        <div class="segment-metric"><span class="sm-key">代表公司</span><span class="sm-val">格力 / 美的 / 海尔</span></div>
+        <div class="segment-metric"><span class="sm-key">市场规模</span><span class="sm-val">~8000亿元</span></div>
+        <div class="segment-metric"><span class="sm-key">增速</span><span class="sm-val">+5~10%（存量更新）</span></div>
+        <div class="segment-metric"><span class="sm-key">集中度</span><span class="sm-val">CR3>70%（寡头垄断）</span></div>
+        <div class="segment-metric"><span class="sm-key">典型ROE</span><span class="sm-val">20~28%</span></div>
+        <div class="segment-metric"><span class="sm-key">估值区间</span><span class="sm-val">PE 10~20x / PB 1.2~3x</span></div>
+        <div class="segment-note">✅ 护城河最深、最稳定的子赛道，高股息+低估值是核心投资逻辑。适合价值投资者长期持有。</div>
+      </div>
+
+      <div class="segment-card seg-green">
+        <div class="segment-title">🍳 厨房电器（厨电）</div>
+        <div class="segment-metric"><span class="sm-key">代表公司</span><span class="sm-val">苏泊尔 / 九阳 / 方太</span></div>
+        <div class="segment-metric"><span class="sm-key">市场规模</span><span class="sm-val">~1500亿元</span></div>
+        <div class="segment-metric"><span class="sm-key">增速</span><span class="sm-val">-5~+5%（地产后周期）</span></div>
+        <div class="segment-metric"><span class="sm-key">集中度</span><span class="sm-val">较分散，CR5约50%</span></div>
+        <div class="segment-metric"><span class="sm-key">典型ROE</span><span class="sm-val">苏泊尔20% / 九阳下滑</span></div>
+        <div class="segment-metric"><span class="sm-key">估值区间</span><span class="sm-val">PE 15~25x</span></div>
+        <div class="segment-note">⚠️ 高度依赖房地产新装修周期，精装房减少是长期压力；苏泊尔依托SEB集团有外资护城河，九阳业绩出现下滑。</div>
+      </div>
+
+      <div class="segment-card seg-amber">
+        <div class="segment-title">🧹 清洁电器（新兴）</div>
+        <div class="segment-metric"><span class="sm-key">代表公司</span><span class="sm-val">科沃斯 / 追觅 / 石头科技</span></div>
+        <div class="segment-metric"><span class="sm-key">市场规模</span><span class="sm-val">~800亿元</span></div>
+        <div class="segment-metric"><span class="sm-key">增速</span><span class="sm-val">+24.4%（增速最快）</span></div>
+        <div class="segment-metric"><span class="sm-key">集中度</span><span class="sm-val">高集中，科沃斯/追觅双雄</span></div>
+        <div class="segment-metric"><span class="sm-key">典型ROE</span><span class="sm-val">差异大，盈利分化</span></div>
+        <div class="segment-metric"><span class="sm-key">估值区间</span><span class="sm-val">PE 20~40x（成长溢价）</span></div>
+        <div class="segment-note">🚀 扫地机器人/洗地机高速渗透期，技术迭代快，先发优势关键。适合成长型投资者，但需承受高估值和竞争加剧风险。</div>
+      </div>
+
+      <div class="segment-card seg-purple">
+        <div class="segment-title">📺 黑色家电（消费电子）</div>
+        <div class="segment-metric"><span class="sm-key">代表公司</span><span class="sm-val">TCL / 海信 / 康佳</span></div>
+        <div class="segment-metric"><span class="sm-key">市场规模</span><span class="sm-val">~2000亿元</span></div>
+        <div class="segment-metric"><span class="sm-key">增速</span><span class="sm-val">-5~+5%（存量替换）</span></div>
+        <div class="segment-metric"><span class="sm-key">集中度</span><span class="sm-val">CR3约60%</span></div>
+        <div class="segment-metric"><span class="sm-key">典型ROE</span><span class="sm-val">海信家电23%（偏高）</span></div>
+        <div class="segment-metric"><span class="sm-key">估值区间</span><span class="sm-val">PE 8~15x（低估值）</span></div>
+        <div class="segment-note">⚠️ 彩电行业整体低迷，面板周期影响大；TCL通过半导体显示布局上游；海信通过高端海外品牌战略突围，但盈利能力弱于白电。</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px">
+      <strong>子赛道投资优先级：</strong>白电（最优先，护城河+高股息+低估值）> 清洁电器（次优先，高成长但高估值）> 厨电（需等地产复苏催化）> 黑电（低优先级，弱盈利+周期性强）
+    </div>
+  </div>
+
+  <!-- SECTION 6: 投资评级 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">🎯</div>
+      <span class="section-num">06</span>
+      主要公司投资价值评级
+    </div>
+
+    <div class="rating-list">
+      <div class="rating-item">
+        <div class="rating-header">
+          <div class="rating-name">🏭 格力电器（000651）</div>
+          <div class="rating-badge badge-buy">强烈推荐买入</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rb-label">ROE稳定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:90%"></div></div>
+            <div class="rb-score">90/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">护城河深度</div>
+            <div class="rb-track"><div class="rb-fill" style="width:85%"></div></div>
+            <div class="rb-score">85/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">安全边际</div>
+            <div class="rb-track"><div class="rb-fill" style="width:95%"></div></div>
+            <div class="rb-score">95/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">分红确定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:88%"></div></div>
+            <div class="rb-score">88/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">成长潜力</div>
+            <div class="rb-track"><div class="rb-fill amber" style="width:50%"></div></div>
+            <div class="rb-score">50/100</div>
+          </div>
+        </div>
+        <div class="rating-desc">空调国内市占率约40%，ROE25.4%行业最高，PB仅1.43×处近5年0.8%分位，股息率超6%。核心逻辑：极度低估+高股息+出口增长三重催化。主要风险：管理层不确定性和多元化转型未见成效。</div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-header">
+          <div class="rating-name">🏢 美的集团（000333）</div>
+          <div class="rating-badge badge-buy">推荐买入</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rb-label">ROE稳定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:85%"></div></div>
+            <div class="rb-score">85/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">护城河深度</div>
+            <div class="rb-track"><div class="rb-fill" style="width:88%"></div></div>
+            <div class="rb-score">88/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">安全边际</div>
+            <div class="rb-track"><div class="rb-fill" style="width:70%"></div></div>
+            <div class="rb-score">70/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">分红确定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:80%"></div></div>
+            <div class="rb-score">80/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">成长潜力</div>
+            <div class="rb-track"><div class="rb-fill" style="width:78%"></div></div>
+            <div class="rb-score">78/100</div>
+          </div>
+        </div>
+        <div class="rating-desc">营收4091亿元中国家电第一，多元化布局（工业自动化/楼宇科技/机器人）提供成长弹性，ROE约28%。比格力贵但更多元，适合希望兼顾成长和价值的投资者。主要风险：多元化成效未知。</div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-header">
+          <div class="rating-name">🌐 海尔智家（600690）</div>
+          <div class="rating-badge badge-hold">持有观察</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rb-label">ROE稳定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:65%"></div></div>
+            <div class="rb-score">65/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">护城河深度</div>
+            <div class="rb-track"><div class="rb-fill" style="width:75%"></div></div>
+            <div class="rb-score">75/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">安全边际</div>
+            <div class="rb-track"><div class="rb-fill" style="width:60%"></div></div>
+            <div class="rb-score">60/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">分红确定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:65%"></div></div>
+            <div class="rb-score">65/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">成长潜力</div>
+            <div class="rb-track"><div class="rb-fill" style="width:72%"></div></div>
+            <div class="rb-score">72/100</div>
+          </div>
+        </div>
+        <div class="rating-desc">国际化最强（收购GEA/Fisher&amp;Paykel），营收2860亿，但净利率偏低约5%，ROE约16%逊于格力美的。国际化是核心差异化优势，但同时意味着更复杂的管理和更低的盈利效率。估值不算便宜。</div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-header">
+          <div class="rating-name">🍳 苏泊尔（002032）</div>
+          <div class="rating-badge badge-watch">关注，暂不介入</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rb-label">ROE稳定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:75%"></div></div>
+            <div class="rb-score">75/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">护城河深度</div>
+            <div class="rb-track"><div class="rb-fill" style="width:70%"></div></div>
+            <div class="rb-score">70/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">安全边际</div>
+            <div class="rb-track"><div class="rb-fill" style="width:55%"></div></div>
+            <div class="rb-score">55/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">分红确定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:72%"></div></div>
+            <div class="rb-score">72/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">成长潜力</div>
+            <div class="rb-track"><div class="rb-fill" style="width:48%"></div></div>
+            <div class="rb-score">48/100</div>
+          </div>
+        </div>
+        <div class="rating-desc">厨电龙头，SEB集团控股提供国际化背书，净利率约10%，ROE约20%。但精装房减少严重压制新房配套厨电需求，增长逻辑需等待地产复苏。估值偏贵，建议等待更好买点。</div>
+      </div>
+
+      <div class="rating-item">
+        <div class="rating-header">
+          <div class="rating-name">📺 海信家电（000921）</div>
+          <div class="rating-badge badge-watch">关注，等待机会</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-item">
+            <div class="rb-label">ROE稳定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:70%"></div></div>
+            <div class="rb-score">70/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">护城河深度</div>
+            <div class="rb-track"><div class="rb-fill" style="width:62%"></div></div>
+            <div class="rb-score">62/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">安全边际</div>
+            <div class="rb-track"><div class="rb-fill" style="width:68%"></div></div>
+            <div class="rb-score">68/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">分红确定性</div>
+            <div class="rb-track"><div class="rb-fill" style="width:60%"></div></div>
+            <div class="rb-score">60/100</div>
+          </div>
+          <div class="rating-bar-item">
+            <div class="rb-label">成长潜力</div>
+            <div class="rb-track"><div class="rb-fill" style="width:65%"></div></div>
+            <div class="rb-score">65/100</div>
+          </div>
+        </div>
+        <div class="rating-desc">ROE约23%，估值低，主要通过三电品牌国际化切入高端市场。但彩电行业长期萎缩是结构性挑战，能否通过品牌升级实现溢价仍是观察重点。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: 投资策略框架 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">💼</div>
+      <span class="section-num">07</span>
+      投资逻辑框架与策略分类
+    </div>
+
+    <div class="strategy-grid">
+      <div class="strategy-card">
+        <div class="strategy-label sl-dividend">高股息策略</div>
+        <div class="strategy-title">以格力为核心的高股息配置</div>
+        <div class="strategy-targets">
+          <span class="st-tag">格力电器</span>
+          <span class="st-tag">美的集团</span>
+        </div>
+        <div class="strategy-returns">预期年化收益：10~15%（股息+估值修复）</div>
+        <div class="strategy-note">核心逻辑：格力股息率6.4%，远超10年期国债2.3%，利差驱动资金流入。持有期间靠分红积累安全垫，等待PB均值回归（当前1.43×→历史均值约2.5×意味着75%空间）。适合低风险偏好长线投资者，持有期限建议2~4年。</div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-label sl-growth">成长策略</div>
+        <div class="strategy-title">出口扩张+新赛道布局</div>
+        <div class="strategy-targets">
+          <span class="st-tag">美的集团</span>
+          <span class="st-tag">科沃斯</span>
+          <span class="st-tag">石头科技</span>
+        </div>
+        <div class="strategy-returns">预期年化收益：15~25%（高弹性成长）</div>
+        <div class="strategy-note">核心逻辑：出口爆发+清洁电器高渗透率提升。美的工业自动化+机器人，清洁电器品类智能升级。适合愿意承受更高波动的成长型投资者，需密切跟踪行业渗透率数据和出口增速。</div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-label sl-revert">均值回归策略</div>
+        <div class="strategy-title">估值底部建仓，等待均值修复</div>
+        <div class="strategy-targets">
+          <span class="st-tag">格力电器</span>
+          <span class="st-tag">海信家电</span>
+        </div>
+        <div class="strategy-returns">预期年化收益：20~40%（估值修复主导）</div>
+        <div class="strategy-note">核心逻辑：格力PB在近5年最低0.8%分位，历史上类似低估后12-24个月均有30~50%修复行情。需要的不是乐观预期，只需基本面不继续恶化即可。分批建仓，充分利用市场悲观情绪提供的买入机会。</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:24px">
+      <strong>📌 当前时点（2025年）优先推荐：</strong>均值回归策略+高股息策略双线并行。格力电器在当前37元附近处于历史底部区间，以旧换新+出口双引擎驱动，配合6.4%股息率，是A股少见的"高ROE×低PB×高股息"三合一标的。
+    </div>
+  </div>
+
+  <!-- SECTION 8: 风险矩阵 -->
+  <div class="section">
+    <div class="section-title">
+      <div class="icon">⚠️</div>
+      <span class="section-num">08</span>
+      主要风险与趋势判断
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>风险类型</th>
+            <th>具体风险</th>
+            <th>当前状态</th>
+            <th>影响程度</th>
+            <th>趋势</th>
+            <th>应对建议</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-highlight">宏观经济</td>
+            <td>消费萎靡，居民购买力不足</td>
+            <td>2024年有所改善</td>
+            <td><span class="risk-mid">中等</span></td>
+            <td><span class="trend-up">↑ 改善</span></td>
+            <td>关注社零数据，政策补贴是重要缓冲</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">房地产</td>
+            <td>新房交付减少，配套家电需求下滑</td>
+            <td>持续低迷</td>
+            <td><span class="risk-high">较高</span></td>
+            <td><span class="trend-stable">→ 企稳</span></td>
+            <td>关注月度新屋竣工数据；重点跟踪二手房活跃度</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">贸易摩擦</td>
+            <td>美国/欧洲对中国家电加征关税</td>
+            <td>风险上升（2025年）</td>
+            <td><span class="risk-high">较高</span></td>
+            <td><span class="trend-down">↓ 恶化</span></td>
+            <td>企业海外建厂分散风险；关注企业出口订单结构</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">竞争加剧</td>
+            <td>白电三巨头价格战，利润率承压</td>
+            <td>温和竞争</td>
+            <td><span class="risk-mid">中等</span></td>
+            <td><span class="trend-stable">→ 稳定</span></td>
+            <td>观察三者毛利率季度变化；价格战时减少仓位</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">原材料</td>
+            <td>铜/钢材价格大幅上涨</td>
+            <td>2024年有所回落</td>
+            <td><span class="risk-mid">中等</span></td>
+            <td><span class="trend-up">↑ 改善</span></td>
+            <td>关注LME铜价；头部企业有套期保值能力</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">政策退坡</td>
+            <td>以旧换新补贴政策退出</td>
+            <td>政策延续至2025年</td>
+            <td><span class="risk-mid">中等</span></td>
+            <td><span class="trend-stable">→ 观察</span></td>
+            <td>注意政策预期差；退坡后需求可能短期下滑</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">公司治理</td>
+            <td>格力管理层变动，战略执行风险</td>
+            <td>董明珠仍在任</td>
+            <td><span class="risk-high">较高（个股）</span></td>
+            <td><span class="trend-stable">→ 观察</span></td>
+            <td>关注公司管理层年度报告；重大治理变化时重新评估</td>
+          </tr>
+          <tr>
+            <td class="td-highlight">技术颠覆</td>
+            <td>AI家居替代传统家电产品形态</td>
+            <td>长期潜在风险</td>
+            <td><span class="risk-low">低（3~5年内）</span></td>
+            <td><span class="trend-stable">→ 远期</span></td>
+            <td>跟踪各家电企业智能化投入和IoT生态进展</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout" style="margin-top:20px">
+      <strong>综合风险评估：</strong>家电行业当前整体处于中低风险状态，主要风险集中在贸易摩擦和房地产两端。但当前估值已充分反映了悲观预期（格力PB近5年0.8%分位），意味着大多数风险已被"price in"。对中长期价值投资者而言，当前是风险/回报比最佳的买入窗口之一。
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>家电行业深度研究报告 2025 | 格力电器研究套装 · 报告一</p>
+  <p style="margin-top:6px">
+    <a href="index.html">← 返回报告中心</a> ·
+    <a href="家电股深度财报分析与投资图谱2025.html">报告二：家电股全市场扫描 →</a> ·
+    <a href="格力电器深度投资分析与交易策略2025.html">报告三：格力电器个股策略 →</a>
+  </p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.6">本报告仅供学习研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+</div>
+
+</body>
+</html>

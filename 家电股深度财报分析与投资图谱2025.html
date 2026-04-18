@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>家电股深度财报分析与投资图谱 2025</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --card2: #1c2128;
+    --border: #21262d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --blue: #58a6ff;
+    --green: #3fb950;
+    --amber: #d29922;
+    --orange: #f0883e;
+    --red: #f85149;
+    --purple: #a371f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #0a0e1a 0%, #0d1117 50%, #111827 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 64px 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; right: -80px; top: -80px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(88,166,255,0.05) 0%, transparent 70%);
+  }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--muted); font-size: 13px;
+    text-decoration: none; margin-bottom: 24px;
+    position: relative; z-index: 1;
+  }
+  .back-link:hover { color: var(--text); }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.3);
+    color: var(--blue);
+    font-size: 12px; font-weight: 700;
+    padding: 4px 14px; border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 {
+    font-size: 40px; font-weight: 800; line-height: 1.25;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 .hl { color: var(--orange); }
+  .hero .subtitle {
+    font-size: 16px; color: var(--muted);
+    max-width: 640px; margin-bottom: 40px;
+    line-height: 1.6; position: relative; z-index: 1;
+  }
+  .hero-stats {
+    display: flex; gap: 40px; flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 28px;
+    position: relative; z-index: 1;
+  }
+  .hs-item .hs-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .hs-item .hs-val { font-size: 22px; font-weight: 800; color: var(--orange); }
+  .hs-item .hs-sub { font-size: 12px; color: var(--muted); }
+
+  /* CONTAINER */
+  .container { max-width: 1100px; margin: 0 auto; padding: 48px 32px; }
+
+  /* SECTION */
+  .section { margin-bottom: 60px; }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-size: 12px; font-weight: 700; color: var(--orange);
+    background: rgba(240,136,62,0.1);
+    border: 1px solid rgba(240,136,62,0.2);
+    padding: 2px 8px; border-radius: 4px;
+  }
+  .section-title { font-size: 22px; font-weight: 800; color: var(--text); }
+  .section-sub { font-size: 14px; color: var(--muted); margin-left: auto; }
+
+  /* TABLE */
+  .table-wrap {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--card2);
+    color: var(--muted);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 13px 16px;
+    border-bottom: 1px solid rgba(33,38,45,0.8);
+    font-size: 14px; color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .td-name { font-weight: 700; color: var(--text); }
+  .td-green { color: var(--green); font-weight: 600; }
+  .td-amber { color: var(--amber); font-weight: 600; }
+  .td-red { color: var(--red); font-weight: 600; }
+  .td-blue { color: var(--blue); font-weight: 600; }
+  .td-muted { color: var(--muted); }
+  .td-highlight { color: var(--orange); font-weight: 700; }
+
+  /* BADGE */
+  .badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 6px;
+  }
+  .badge-top { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+  .badge-mid { background: rgba(210,153,34,0.15); color: var(--amber); border: 1px solid rgba(210,153,34,0.3); }
+  .badge-low { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .badge-new { background: rgba(88,166,255,0.15); color: var(--blue); border: 1px solid rgba(88,166,255,0.3); }
+
+  /* RANK */
+  .rank-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .rank-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border);
+  }
+  .rank-title {
+    font-size: 14px; font-weight: 700; color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .rank-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .rank-pos {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; flex-shrink: 0;
+  }
+  .rank-pos.p1 { background: rgba(210,153,34,0.2); color: var(--amber); border: 1px solid var(--amber); }
+  .rank-pos.p2 { background: rgba(139,148,158,0.15); color: var(--muted); border: 1px solid var(--muted); }
+  .rank-pos.p3 { background: rgba(240,136,62,0.15); color: var(--orange); border: 1px solid var(--orange); }
+  .rank-pos.pn { background: rgba(33,38,45,0.8); color: var(--muted); border: 1px solid var(--border); }
+  .rank-label { font-size: 14px; color: var(--text); flex: 1; }
+  .rank-value { font-size: 14px; font-weight: 700; color: var(--blue); white-space: nowrap; }
+  .rank-bar-track { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .rank-bar-fill { height: 100%; border-radius: 3px; }
+  .fill-green { background: linear-gradient(90deg, #238636, #3fb950); }
+  .fill-amber { background: linear-gradient(90deg, #9e6a03, #d29922); }
+  .fill-blue { background: linear-gradient(90deg, #1f6feb, #58a6ff); }
+  .fill-orange { background: linear-gradient(90deg, #bd561d, #f0883e); }
+
+  /* BIZ */
+  .biz-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .biz-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border);
+  }
+  .biz-name { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+  .biz-code { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+  .biz-segment { margin-bottom: 10px; }
+  .biz-seg-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .biz-seg-name { font-size: 13px; color: var(--muted); }
+  .biz-seg-pct { font-size: 13px; font-weight: 700; color: var(--text); }
+  .biz-bar { height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .biz-bar-fill { height: 100%; border-radius: 4px; }
+  .biz-total { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  .biz-total strong { color: var(--orange); }
+
+  /* MATRIX */
+  .matrix-wrap {
+    background: var(--card);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 380px;
+  }
+  .quadrant { background: var(--card2); padding: 20px; }
+  .q-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 12px;
+    padding: 4px 10px; border-radius: 8px;
+    display: inline-block;
+  }
+  .q-best { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+  .q-growth { background: rgba(88,166,255,0.15); color: var(--blue); border: 1px solid rgba(88,166,255,0.3); }
+  .q-trap { background: rgba(248,81,73,0.15); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+  .q-decay { background: rgba(139,148,158,0.15); color: var(--muted); border: 1px solid rgba(139,148,158,0.3); }
+  .q-desc { font-size: 12px; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+  .q-stocks { display: flex; flex-wrap: wrap; gap: 8px; }
+  .q-stock {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .q-stock .qs-name { font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .q-stock .qs-data { font-size: 11px; color: var(--muted); }
+  .q-stock.best-stock { border-color: rgba(63,185,80,0.4); background: rgba(63,185,80,0.05); }
+  .q-stock.best-stock .qs-name { color: var(--green); }
+  .matrix-axes {
+    display: flex; justify-content: space-between;
+    padding: 8px 0;
+    font-size: 12px; color: var(--muted); font-weight: 600;
+  }
+
+  /* PROFILE */
+  .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .profile-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid var(--border);
+  }
+  .profile-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+  .profile-name { font-size: 17px; font-weight: 800; color: var(--text); }
+  .profile-code { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .pr-score { font-size: 24px; font-weight: 800; color: var(--orange); text-align: right; }
+  .pr-label { font-size: 11px; color: var(--muted); text-align: right; }
+  .pb-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .pb-name { font-size: 12px; color: var(--muted); width: 80px; flex-shrink: 0; }
+  .pb-track { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .pb-fill { height: 100%; border-radius: 4px; }
+  .pb-score { font-size: 12px; font-weight: 700; color: var(--text); width: 36px; text-align: right; flex-shrink: 0; }
+  .profile-moat {
+    font-size: 13px; color: var(--muted);
+    padding: 10px 14px;
+    background: var(--bg);
+    border-radius: 8px;
+    line-height: 1.5;
+    border-left: 3px solid var(--orange);
+    margin-top: 12px;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .portfolio-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 22px;
+    border: 1px solid var(--border);
+  }
+  .port-type {
+    font-size: 12px; font-weight: 700;
+    padding: 3px 10px; border-radius: 8px;
+    margin-bottom: 12px; display: inline-block;
+  }
+  .port-conservative { background: rgba(63,185,80,0.1); color: var(--green); border: 1px solid rgba(63,185,80,0.2); }
+  .port-balanced { background: rgba(88,166,255,0.1); color: var(--blue); border: 1px solid rgba(88,166,255,0.2); }
+  .port-aggressive { background: rgba(163,113,247,0.1); color: var(--purple); border: 1px solid rgba(163,113,247,0.2); }
+  .port-title { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 14px; }
+  .pa-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+  .pa-stock { font-size: 13px; color: var(--muted); }
+  .pa-pct { font-size: 13px; font-weight: 700; color: var(--text); }
+  .pa-bar { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 10px; overflow: hidden; }
+  .pa-bar-fill { height: 100%; border-radius: 2px; }
+  .port-expect { font-size: 12px; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--border); }
+  .port-expect strong { color: var(--green); }
+
+  /* CALLOUT */
+  .callout {
+    background: rgba(88,166,255,0.05);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7; margin: 16px 0;
+  }
+  .callout strong { color: var(--text); }
+
+  /* FOOTER */
+  .footer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 28px;
+    font-size: 13px; color: var(--muted);
+    line-height: 1.7;
+  }
+  .footer a { color: var(--blue); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 40px 20px; }
+    .hero h1 { font-size: 26px; }
+    .rank-grid { grid-template-columns: 1fr; }
+    .biz-grid { grid-template-columns: 1fr; }
+    .matrix-grid { grid-template-columns: 1fr; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .portfolio-wrap { grid-template-columns: 1fr; }
+    .hero-stats { gap: 20px; }
+    table { font-size: 12px; }
+    th, td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="index.html" class="back-link">← 返回报告中心</a>
+  <div class="hero-badge">🔍 行业全市场扫描报告 · 报告二</div>
+  <h1>家电股深度财报分析<br>与<span class="hl">投资图谱</span> 2025</h1>
+  <p class="subtitle">白电/厨电/清洁电器/黑电全赛道扫描 · 20家主要上市公司横向对比<br>
+  PB-ROE四象限定位 · 核心指标排行 · 标杆公司深度画像 · 组合配置建议</p>
+  <div class="hero-stats">
+    <div class="hs-item">
+      <div class="hs-label">覆盖公司数</div>
+      <div class="hs-val">20家</div>
+      <div class="hs-sub">主要A股家电上市公司</div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-label">最高ROE</div>
+      <div class="hs-val">25.4%</div>
+      <div class="hs-sub">格力电器（行业最高）</div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-label">最优安全边际</div>
+      <div class="hs-val">PB 1.43×</div>
+      <div class="hs-sub">格力（近5年0.8%分位）</div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-label">最高股息率</div>
+      <div class="hs-val">6.4%</div>
+      <div class="hs-sub">格力（远超10年期国债）</div>
+    </div>
+    <div class="hs-item">
+      <div class="hs-label">数据更新</div>
+      <div class="hs-val" style="font-size:16px">2025.04</div>
+      <div class="hs-sub">基于2024年年报</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 01 全市场总览 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">全市场公司总览</span>
+      <span class="section-sub">20家主要家电上市公司核心指标</span>
+    </div>
+    <div class="callout">
+      <strong>数据说明：</strong>财务数据基于2024年年报，估值数据为2025年4月市场水平。综合评分为ROE稳定性/护城河/安全边际/股息/成长五维加权评分。
+    </div>
+    <div class="table-wrap" style="margin-top:16px">
+      <table>
+        <thead>
+          <tr>
+            <th>公司</th><th>代码</th><th>赛道</th><th>营收（亿）</th><th>净利润（亿）</th><th>净利率</th><th>ROE</th><th>PB</th><th>PE</th><th>股息率</th><th>综合评分</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-name">格力电器</td><td class="td-muted">000651</td><td>白电</td><td>1892</td><td>321.9</td>
+            <td class="td-green">17.0%</td><td class="td-highlight">25.4%</td><td class="td-highlight">1.43×</td>
+            <td>5.6×</td><td class="td-green">6.4%</td><td><span class="badge badge-top">91/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">美的集团</td><td class="td-muted">000333</td><td>白电</td><td>4091</td><td>~337</td>
+            <td class="td-amber">~8.2%</td><td class="td-green">~28%</td><td>3.8×</td>
+            <td>~14×</td><td>3.2%</td><td><span class="badge badge-top">87/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">海尔智家</td><td class="td-muted">600690</td><td>白电</td><td>2860</td><td>~152</td>
+            <td class="td-amber">~5.3%</td><td class="td-amber">~16%</td><td>2.1×</td>
+            <td>~13×</td><td>2.8%</td><td><span class="badge badge-mid">72/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">海信家电</td><td class="td-muted">000921</td><td>白电/黑电</td><td>~900</td><td>~40</td>
+            <td class="td-amber">~4.4%</td><td class="td-green">23.3%</td><td>1.6×</td>
+            <td>~7×</td><td>3.5%</td><td><span class="badge badge-mid">74/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">苏泊尔</td><td class="td-muted">002032</td><td>厨电</td><td>~210</td><td>~21</td>
+            <td class="td-green">10.0%</td><td class="td-amber">~20%</td><td>4.2×</td>
+            <td>~21×</td><td>4.5%</td><td><span class="badge badge-mid">70/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">九阳股份</td><td class="td-muted">002242</td><td>厨电/小家电</td><td>~78</td><td>~1.2</td>
+            <td class="td-red">~1.5%</td><td class="td-red">~3%</td><td>1.2×</td>
+            <td>~80×</td><td>0.5%</td><td><span class="badge badge-low">28/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">科沃斯</td><td class="td-muted">603486</td><td>清洁电器</td><td>~155</td><td>~12</td>
+            <td class="td-amber">7.7%</td><td class="td-amber">~18%</td><td>2.8×</td>
+            <td>~15×</td><td>2.1%</td><td><span class="badge badge-mid">65/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">石头科技</td><td class="td-muted">688169</td><td>清洁电器</td><td>~110</td><td>~25</td>
+            <td class="td-green">~22.7%</td><td class="td-green">~22%</td><td>4.5×</td>
+            <td>~20×</td><td>1.8%</td><td><span class="badge badge-mid">68/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">TCL科技</td><td class="td-muted">000100</td><td>黑电/面板</td><td>~1700</td><td>~55</td>
+            <td class="td-red">~3.2%</td><td class="td-amber">~8%</td><td>1.4×</td>
+            <td>~17×</td><td>1.5%</td><td><span class="badge badge-low">48/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">老板电器</td><td class="td-muted">002508</td><td>厨电</td><td>~43</td><td>~7</td>
+            <td class="td-green">~16%</td><td class="td-amber">~15%</td><td>2.6×</td>
+            <td>~17×</td><td>5.2%</td><td><span class="badge badge-mid">66/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">华帝股份</td><td class="td-muted">002035</td><td>厨电</td><td>~36</td><td>~3.5</td>
+            <td class="td-amber">~9.7%</td><td class="td-amber">~11%</td><td>1.5×</td>
+            <td>~14×</td><td>3.8%</td><td><span class="badge badge-mid">55/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">小熊电器</td><td class="td-muted">002959</td><td>小家电</td><td>~42</td><td>~4.8</td>
+            <td class="td-green">~11.4%</td><td class="td-amber">~19%</td><td>3.1×</td>
+            <td>~16×</td><td>3.5%</td><td><span class="badge badge-mid">60/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">飞科电器</td><td class="td-muted">603868</td><td>小家电</td><td>~25</td><td>~4.5</td>
+            <td class="td-green">~18%</td><td class="td-amber">~18%</td><td>5.3×</td>
+            <td>~30×</td><td>2.5%</td><td><span class="badge badge-mid">58/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">浙江美大</td><td class="td-muted">002677</td><td>集成灶</td><td>~14</td><td>~3</td>
+            <td class="td-green">~21%</td><td class="td-amber">~15%</td><td>2.2×</td>
+            <td>~15×</td><td>5.8%</td><td><span class="badge badge-mid">63/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">三花智控</td><td class="td-muted">002050</td><td>制冷零部件</td><td>~220</td><td>~22</td>
+            <td class="td-amber">~10%</td><td class="td-amber">~17%</td><td>3.6×</td>
+            <td>~21×</td><td>1.2%</td><td><span class="badge badge-mid">67/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">四川长虹</td><td class="td-muted">600839</td><td>黑电/综合</td><td>~870</td><td>~5</td>
+            <td class="td-red">~0.6%</td><td class="td-red">~2%</td><td>0.9×</td>
+            <td>~45×</td><td>0.8%</td><td><span class="badge badge-low">22/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">海信视像</td><td class="td-muted">600060</td><td>黑电</td><td>~230</td><td>~8</td>
+            <td class="td-red">~3.5%</td><td class="td-amber">~12%</td><td>1.3×</td>
+            <td>~10×</td><td>2.2%</td><td><span class="badge badge-mid">52/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">澳柯玛</td><td class="td-muted">600378</td><td>白电商用</td><td>~80</td><td>~3</td>
+            <td class="td-amber">~3.8%</td><td class="td-amber">~8%</td><td>1.2×</td>
+            <td>~15×</td><td>1.5%</td><td><span class="badge badge-low">42/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">拓邦股份</td><td class="td-muted">002139</td><td>智能控制器</td><td>~60</td><td>~4.5</td>
+            <td class="td-amber">~7.5%</td><td class="td-amber">~12%</td><td>2.0×</td>
+            <td>~16×</td><td>2.0%</td><td><span class="badge badge-mid">55/100</span></td>
+          </tr>
+          <tr>
+            <td class="td-name">康冠科技</td><td class="td-muted">001308</td><td>智能显示</td><td>~110</td><td>~7</td>
+            <td class="td-amber">~6.4%</td><td class="td-amber">~14%</td><td>2.4×</td>
+            <td>~17×</td><td>1.2%</td><td><span class="badge badge-mid">50/100</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 02 排行榜 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">核心指标排行榜</span>
+      <span class="section-sub">ROE · 净利率 · 安全边际 · 股息率</span>
+    </div>
+    <div class="rank-grid">
+      <div class="rank-card">
+        <div class="rank-title">🏆 ROE排行（2024年报）</div>
+        <div class="rank-item"><div class="rank-pos p1">1</div><div class="rank-label">美的集团</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:100%"></div></div><div class="rank-value">~28%</div></div>
+        <div class="rank-item"><div class="rank-pos p2">2</div><div class="rank-label">格力电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:91%"></div></div><div class="rank-value">25.4%</div></div>
+        <div class="rank-item"><div class="rank-pos p3">3</div><div class="rank-label">海信家电</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:83%"></div></div><div class="rank-value">23.3%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">4</div><div class="rank-label">石头科技</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:79%"></div></div><div class="rank-value">~22%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">5</div><div class="rank-label">苏泊尔</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:71%"></div></div><div class="rank-value">~20%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">6</div><div class="rank-label">海尔智家</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:57%"></div></div><div class="rank-value">~16%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">7</div><div class="rank-label">TCL科技</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:29%"></div></div><div class="rank-value">~8%</div></div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-title">💰 净利率排行（2024年报）</div>
+        <div class="rank-item"><div class="rank-pos p1">1</div><div class="rank-label">石头科技</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:100%"></div></div><div class="rank-value">~22.7%</div></div>
+        <div class="rank-item"><div class="rank-pos p2">2</div><div class="rank-label">格力电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:75%"></div></div><div class="rank-value">17.0%</div></div>
+        <div class="rank-item"><div class="rank-pos p3">3</div><div class="rank-label">飞科电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:79%"></div></div><div class="rank-value">~18%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">4</div><div class="rank-label">老板电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:71%"></div></div><div class="rank-value">~16%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">5</div><div class="rank-label">苏泊尔</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:44%"></div></div><div class="rank-value">~10%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">6</div><div class="rank-label">科沃斯</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:34%"></div></div><div class="rank-value">~7.7%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">7</div><div class="rank-label">美的集团</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:36%"></div></div><div class="rank-value">~8.2%</div></div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-title">🛡️ 安全边际（低PB最佳）</div>
+        <div class="rank-item"><div class="rank-pos p1">1</div><div class="rank-label">格力电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:100%"></div></div><div class="rank-value">PB 1.43×</div></div>
+        <div class="rank-item"><div class="rank-pos p2">2</div><div class="rank-label">海信家电</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:88%"></div></div><div class="rank-value">PB 1.6×</div></div>
+        <div class="rank-item"><div class="rank-pos p3">3</div><div class="rank-label">海尔智家</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:68%"></div></div><div class="rank-value">PB 2.1×</div></div>
+        <div class="rank-item"><div class="rank-pos pn">4</div><div class="rank-label">华帝股份</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:62%"></div></div><div class="rank-value">PB 1.5×</div></div>
+        <div class="rank-item"><div class="rank-pos pn">5</div><div class="rank-label">老板电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:54%"></div></div><div class="rank-value">PB 2.6×</div></div>
+        <div class="rank-item"><div class="rank-pos pn">6</div><div class="rank-label">三花智控</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:38%"></div></div><div class="rank-value">PB 3.6×</div></div>
+        <div class="rank-item"><div class="rank-pos pn">7</div><div class="rank-label">美的集团</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:28%"></div></div><div class="rank-value">PB 3.8×</div></div>
+      </div>
+
+      <div class="rank-card">
+        <div class="rank-title">🎁 股息率排行（2024年报）</div>
+        <div class="rank-item"><div class="rank-pos p1">1</div><div class="rank-label">格力电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:100%"></div></div><div class="rank-value">6.4%</div></div>
+        <div class="rank-item"><div class="rank-pos p2">2</div><div class="rank-label">浙江美大</div><div class="rank-bar-track"><div class="rank-bar-fill fill-green" style="width:91%"></div></div><div class="rank-value">5.8%</div></div>
+        <div class="rank-item"><div class="rank-pos p3">3</div><div class="rank-label">老板电器</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:81%"></div></div><div class="rank-value">5.2%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">4</div><div class="rank-label">苏泊尔</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:70%"></div></div><div class="rank-value">4.5%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">5</div><div class="rank-label">海信家电</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:55%"></div></div><div class="rank-value">3.5%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">6</div><div class="rank-label">美的集团</div><div class="rank-bar-track"><div class="rank-bar-fill fill-amber" style="width:50%"></div></div><div class="rank-value">3.2%</div></div>
+        <div class="rank-item"><div class="rank-pos pn">7</div><div class="rank-label">海尔智家</div><div class="rank-bar-track"><div class="rank-bar-fill fill-orange" style="width:44%"></div></div><div class="rank-value">2.8%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 业务结构 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">TOP6公司业务结构拆解</span>
+      <span class="section-sub">各业务板块营收占比（2024年报）</span>
+    </div>
+    <div class="biz-grid">
+      <div class="biz-card">
+        <div class="biz-name">格力电器</div>
+        <div class="biz-code">000651 · 营收1892亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">空调业务</span><span class="biz-seg-pct">76%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:76%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">生活电器</span><span class="biz-seg-pct">8%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:8%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">智能装备</span><span class="biz-seg-pct">5%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:5%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">储能/其他</span><span class="biz-seg-pct">11%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-orange" style="width:11%"></div></div></div>
+        <div class="biz-total">护城河：<strong>空调国内约40%市占率，自研压缩机封锁供应链</strong></div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-name">美的集团</div>
+        <div class="biz-code">000333 · 营收4091亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">暖通空调</span><span class="biz-seg-pct">45%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:45%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">消费电器</span><span class="biz-seg-pct">26%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:26%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">工业技术</span><span class="biz-seg-pct">18%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:18%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">楼宇科技</span><span class="biz-seg-pct">11%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-orange" style="width:11%"></div></div></div>
+        <div class="biz-total">护城河：<strong>全品类平台战略，工业自动化提供第二增长曲线</strong></div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-name">海尔智家</div>
+        <div class="biz-code">600690 · 营收2860亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">中国区家电</span><span class="biz-seg-pct">48%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:48%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">北美（GEA）</span><span class="biz-seg-pct">22%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:22%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">欧洲（F&amp;P）</span><span class="biz-seg-pct">15%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:15%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">其他海外</span><span class="biz-seg-pct">15%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-orange" style="width:15%"></div></div></div>
+        <div class="biz-total">护城河：<strong>全球化最强，三大洲高端品牌矩阵，中国同行难复制</strong></div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-name">苏泊尔</div>
+        <div class="biz-code">002032 · 营收~210亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">炊具（锅具）</span><span class="biz-seg-pct">55%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:55%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">厨房小家电</span><span class="biz-seg-pct">30%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:30%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">SEB出口代工</span><span class="biz-seg-pct">15%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:15%"></div></div></div>
+        <div class="biz-total">护城河：<strong>SEB控股42%，厨具品类领导+出口代工双轨道</strong></div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-name">石头科技</div>
+        <div class="biz-code">688169 · 营收~110亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">国内扫地机</span><span class="biz-seg-pct">45%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:45%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">海外出口</span><span class="biz-seg-pct">38%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:38%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">洗地机/新品</span><span class="biz-seg-pct">17%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:17%"></div></div></div>
+        <div class="biz-total">护城河：<strong>净利率22.7%极高，AI算法迭代+海外直销先行</strong></div>
+      </div>
+      <div class="biz-card">
+        <div class="biz-name">科沃斯</div>
+        <div class="biz-code">603486 · 营收~155亿</div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">扫地机器人</span><span class="biz-seg-pct">58%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-green" style="width:58%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">洗地机/清洁</span><span class="biz-seg-pct">28%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-blue" style="width:28%"></div></div></div>
+        <div class="biz-segment"><div class="biz-seg-header"><span class="biz-seg-name">海外出口</span><span class="biz-seg-pct">14%</span></div><div class="biz-bar"><div class="biz-bar-fill fill-amber" style="width:14%"></div></div></div>
+        <div class="biz-total">护城河：<strong>国内清洁份额第一品牌，多产品线全覆盖</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 PB-ROE四象限 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">PB-ROE 四象限矩阵</span>
+      <span class="section-sub">筛选"高ROE×低PB"最佳买入区标的</span>
+    </div>
+    <div class="callout">
+      <strong>投资核心逻辑：</strong><span style="color:var(--green)">左上角（高ROE×低PB）= 最优买入区</span>，高盈利能力被市场低估。右上角（高ROE×高PB）= 成长溢价区，质地好但贵。左下角（低ROE×低PB）= 价值陷阱，便宜有便宜的理由。右下角（低ROE×高PB）= 危险区，最差选择。
+    </div>
+    <div class="matrix-wrap" style="margin-top:16px">
+      <div style="text-align:center;font-size:13px;color:var(--muted);margin-bottom:16px">纵轴：ROE（高ROE在上 ↑ / 低ROE在下 ↓）　横轴：PB（低PB在左 ← / 高PB在右 →）</div>
+      <div class="matrix-grid">
+        <div class="quadrant">
+          <div class="q-label q-best">⭐ 最佳买入区 · 高ROE × 低PB</div>
+          <div class="q-desc">ROE&gt;20% 且 PB&lt;2.5×，高盈利被低估，价值投资核心猎场</div>
+          <div class="q-stocks">
+            <div class="q-stock best-stock"><div class="qs-name">格力电器</div><div class="qs-data">ROE 25.4% · PB 1.43×</div></div>
+            <div class="q-stock best-stock"><div class="qs-name">海信家电</div><div class="qs-data">ROE 23.3% · PB 1.6×</div></div>
+          </div>
+        </div>
+        <div class="quadrant">
+          <div class="q-label q-growth">📈 成长溢价区 · 高ROE × 高PB</div>
+          <div class="q-desc">ROE&gt;20% 且 PB&gt;2.5×，市场给予成长预期，质地优秀但估值偏贵</div>
+          <div class="q-stocks">
+            <div class="q-stock"><div class="qs-name">美的集团</div><div class="qs-data">ROE ~28% · PB 3.8×</div></div>
+            <div class="q-stock"><div class="qs-name">石头科技</div><div class="qs-data">ROE ~22% · PB 4.5×</div></div>
+            <div class="q-stock"><div class="qs-name">苏泊尔</div><div class="qs-data">ROE ~20% · PB 4.2×</div></div>
+          </div>
+        </div>
+        <div class="quadrant">
+          <div class="q-label q-trap">⚠️ 价值陷阱 · 低ROE × 低PB</div>
+          <div class="q-desc">ROE&lt;15% 且 PB&lt;2×，看似便宜但ROE不支撑估值，需谨慎</div>
+          <div class="q-stocks">
+            <div class="q-stock"><div class="qs-name">四川长虹</div><div class="qs-data">ROE ~2% · PB 0.9×</div></div>
+            <div class="q-stock"><div class="qs-name">九阳股份</div><div class="qs-data">ROE ~3% · PB 1.2×</div></div>
+            <div class="q-stock"><div class="qs-name">澳柯玛</div><div class="qs-data">ROE ~8% · PB 1.2×</div></div>
+          </div>
+        </div>
+        <div class="quadrant">
+          <div class="q-label q-decay">🚫 危险区 · 低ROE × 高PB</div>
+          <div class="q-desc">ROE&lt;15% 且 PB&gt;2×，既不便宜也无盈利支撑，最差区间</div>
+          <div class="q-stocks">
+            <div class="q-stock"><div class="qs-name">TCL科技</div><div class="qs-data">ROE ~8% · PB 1.4×</div></div>
+            <div class="q-stock"><div class="qs-name">飞科电器</div><div class="qs-data">ROE ~18% · PB 5.3×</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="matrix-axes">
+        <span>← PB较低（安全边际充足）</span>
+        <span>PB较高（估值溢价）→</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 标杆深度画像 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">TOP5标杆公司深度画像</span>
+      <span class="section-sub">多维度综合评分 + 护城河解析</span>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-header">
+          <div><div class="profile-name">🏭 格力电器</div><div class="profile-code">000651 · 白电龙头</div></div>
+          <div><div class="pr-score">91</div><div class="pr-label">综合评分</div></div>
+        </div>
+        <div class="profile-bars">
+          <div class="pb-row"><div class="pb-name">ROE稳定性</div><div class="pb-track"><div class="pb-fill fill-green" style="width:90%"></div></div><div class="pb-score">90</div></div>
+          <div class="pb-row"><div class="pb-name">护城河</div><div class="pb-track"><div class="pb-fill fill-green" style="width:85%"></div></div><div class="pb-score">85</div></div>
+          <div class="pb-row"><div class="pb-name">安全边际</div><div class="pb-track"><div class="pb-fill fill-green" style="width:95%"></div></div><div class="pb-score">95</div></div>
+          <div class="pb-row"><div class="pb-name">股息确定性</div><div class="pb-track"><div class="pb-fill fill-green" style="width:90%"></div></div><div class="pb-score">90</div></div>
+          <div class="pb-row"><div class="pb-name">成长潜力</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:52%"></div></div><div class="pb-score">52</div></div>
+        </div>
+        <div class="profile-moat">核心优势：空调国内约40%份额不可撼动，自研压缩机封锁技术，15000+专卖店渠道，净利率17%行业最高。主要风险：管理层集权与多元化转型成效待验证。</div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header">
+          <div><div class="profile-name">🏢 美的集团</div><div class="profile-code">000333 · 多元化龙头</div></div>
+          <div><div class="pr-score">87</div><div class="pr-label">综合评分</div></div>
+        </div>
+        <div class="profile-bars">
+          <div class="pb-row"><div class="pb-name">ROE稳定性</div><div class="pb-track"><div class="pb-fill fill-green" style="width:85%"></div></div><div class="pb-score">85</div></div>
+          <div class="pb-row"><div class="pb-name">护城河</div><div class="pb-track"><div class="pb-fill fill-green" style="width:88%"></div></div><div class="pb-score">88</div></div>
+          <div class="pb-row"><div class="pb-name">安全边际</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:68%"></div></div><div class="pb-score">68</div></div>
+          <div class="pb-row"><div class="pb-name">股息确定性</div><div class="pb-track"><div class="pb-fill fill-green" style="width:80%"></div></div><div class="pb-score">80</div></div>
+          <div class="pb-row"><div class="pb-name">成长潜力</div><div class="pb-track"><div class="pb-fill fill-green" style="width:78%"></div></div><div class="pb-score">78</div></div>
+        </div>
+        <div class="profile-moat">核心优势：营收4091亿中国家电第一，工业机器人（库卡）+楼宇科技提供成长弹性，供应链整合能力全行业最强，ROE连续30年高位。主要风险：多元化管理复杂性。</div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header">
+          <div><div class="profile-name">🌐 海尔智家</div><div class="profile-code">600690 · 全球化领跑</div></div>
+          <div><div class="pr-score">72</div><div class="pr-label">综合评分</div></div>
+        </div>
+        <div class="profile-bars">
+          <div class="pb-row"><div class="pb-name">ROE稳定性</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:62%"></div></div><div class="pb-score">62</div></div>
+          <div class="pb-row"><div class="pb-name">护城河</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:75%"></div></div><div class="pb-score">75</div></div>
+          <div class="pb-row"><div class="pb-name">安全边际</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:60%"></div></div><div class="pb-score">60</div></div>
+          <div class="pb-row"><div class="pb-name">股息确定性</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:65%"></div></div><div class="pb-score">65</div></div>
+          <div class="pb-row"><div class="pb-name">成长潜力</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:72%"></div></div><div class="pb-score">72</div></div>
+        </div>
+        <div class="profile-moat">核心优势：唯一真正全球化中国家电企业，GEA/F&P欧美高端品牌，中国同行无法复制。净利率仅5%是最大弱点，长期期待品牌溢价带动利润改善。</div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header">
+          <div><div class="profile-name">🍳 苏泊尔</div><div class="profile-code">002032 · 厨电第一</div></div>
+          <div><div class="pr-score">70</div><div class="pr-label">综合评分</div></div>
+        </div>
+        <div class="profile-bars">
+          <div class="pb-row"><div class="pb-name">ROE稳定性</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:75%"></div></div><div class="pb-score">75</div></div>
+          <div class="pb-row"><div class="pb-name">护城河</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:68%"></div></div><div class="pb-score">68</div></div>
+          <div class="pb-row"><div class="pb-name">安全边际</div><div class="pb-track"><div class="pb-fill fill-orange" style="width:52%"></div></div><div class="pb-score">52</div></div>
+          <div class="pb-row"><div class="pb-name">股息确定性</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:72%"></div></div><div class="pb-score">72</div></div>
+          <div class="pb-row"><div class="pb-name">成长潜力</div><div class="pb-track"><div class="pb-fill fill-orange" style="width:45%"></div></div><div class="pb-score">45</div></div>
+        </div>
+        <div class="profile-moat">SEB集团持股42%提供国际背书，厨具+小家电净利率10%。主要压力：精装房减少，厨电新装需求持续下滑，等待地产复苏才有更好入场机会。</div>
+      </div>
+      <div class="profile-card" style="grid-column: span 2;">
+        <div class="profile-header">
+          <div><div class="profile-name">🧹 石头科技</div><div class="profile-code">688169 · 清洁电器新贵</div></div>
+          <div><div class="pr-score">68</div><div class="pr-label">综合评分</div></div>
+        </div>
+        <div class="profile-bars" style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+          <div><div class="pb-name" style="width:auto;margin-bottom:6px">ROE稳定性</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:72%"></div></div><div class="pb-score" style="width:auto">72</div></div>
+          <div><div class="pb-name" style="width:auto;margin-bottom:6px">护城河</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:60%"></div></div><div class="pb-score" style="width:auto">60</div></div>
+          <div><div class="pb-name" style="width:auto;margin-bottom:6px">安全边际</div><div class="pb-track"><div class="pb-fill fill-amber" style="width:55%"></div></div><div class="pb-score" style="width:auto">55</div></div>
+          <div><div class="pb-name" style="width:auto;margin-bottom:6px">股息确定性</div><div class="pb-track"><div class="pb-fill fill-orange" style="width:40%"></div></div><div class="pb-score" style="width:auto">40</div></div>
+          <div><div class="pb-name" style="width:auto;margin-bottom:6px">成长潜力</div><div class="pb-track"><div class="pb-fill fill-green" style="width:80%"></div></div><div class="pb-score" style="width:auto">80</div></div>
+        </div>
+        <div class="profile-moat" style="margin-top:14px">核心优势：净利率22.7%在家电赛道极罕见，海外营收占比38%（直接面向欧美消费者），AI算法迭代节奏最快。适合成长型投资者，承受更高估值（PB 4.5×）换取高成长弹性。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 差异化分析 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">核心差异化分析</span>
+      <span class="section-sub">商业模式 · 护城河来源 · 风险因子 · 适合人群</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>商业模式核心差异</th><th>护城河来源</th><th>最大风险</th><th>适合投资者</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-name">格力电器</td>
+            <td>单品类极度专注，空调垂直整合（压缩机→整机→渠道），高利润率优先</td>
+            <td>品牌+技术+渠道三重护城河，最深最宽</td>
+            <td>空调集中度过高，多元化转型不确定</td>
+            <td class="td-green">价值投资者（高股息+深度低估）</td>
+          </tr>
+          <tr>
+            <td class="td-name">美的集团</td>
+            <td>多元化平台，全品类+工业B端，持续并购外延（库卡机器人）</td>
+            <td>规模+效率护城河，供应链整合能力最强</td>
+            <td>多元化管理复杂，海外并购消化</td>
+            <td class="td-blue">价值+成长结合型</td>
+          </tr>
+          <tr>
+            <td class="td-name">海尔智家</td>
+            <td>全球化优先，国内+北美+欧洲三大区域均衡</td>
+            <td>唯一全球高端品牌矩阵，无法被国内同行复制</td>
+            <td>净利率仅5%，整合成本高，ROE改善缓慢</td>
+            <td class="td-amber">长期战略型，耐心等待利润改善</td>
+          </tr>
+          <tr>
+            <td class="td-name">苏泊尔</td>
+            <td>SEB子公司，双轨（国内销售+法国代工出口）</td>
+            <td>SEB品牌背书+厨具龙头地位</td>
+            <td>精装房减少，新房配套厨电需求下滑</td>
+            <td class="td-amber">等待地产复苏催化</td>
+          </tr>
+          <tr>
+            <td class="td-name">石头科技</td>
+            <td>技术驱动，高端AI扫地机，海外直销（亚马逊+独立站）</td>
+            <td>AI算法+海外渠道先发，成长期护城河</td>
+            <td>清洁赛道竞争白热（追觅/小米），估值偏高</td>
+            <td class="td-blue">成长型，接受高估值高波动</td>
+          </tr>
+          <tr>
+            <td class="td-name">海信家电</td>
+            <td>白电为主+黑电，国内+三电品牌高端化突围</td>
+            <td>ROE 23.3%异常高，估值只有PB1.6×，性价比高</td>
+            <td>彩电结构下行，品牌溢价尚未形成</td>
+            <td class="td-amber">低估值机会型，高风险承受</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 07 组合配置建议 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <span class="section-title">投资组合配置建议</span>
+      <span class="section-sub">三种风险偏好的家电板块仓位建议</span>
+    </div>
+    <div class="callout">
+      <strong>配置原则：</strong>家电作为整体建议占总仓位10~20%。三巨头（格力/美的/海尔）为核心仓位提供稳定性，清洁电器（石头/科沃斯）为成长弹性仓位，厨电（苏泊尔/老板）为地产复苏预期仓位。
+    </div>
+    <div class="portfolio-wrap" style="margin-top:20px">
+      <div class="portfolio-card">
+        <div class="port-type port-conservative">保守型</div>
+        <div class="port-title">高股息+低估值核心组合</div>
+        <div>
+          <div class="pa-row"><span class="pa-stock">格力电器</span><span class="pa-pct">60%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-green" style="width:60%"></div></div>
+          <div class="pa-row"><span class="pa-stock">美的集团</span><span class="pa-pct">30%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-blue" style="width:30%"></div></div>
+          <div class="pa-row"><span class="pa-stock">老板电器</span><span class="pa-pct">10%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-amber" style="width:10%"></div></div>
+        </div>
+        <div class="port-expect">预期年化：<strong>10~15%</strong>（股息+估值修复）<br>适合低风险偏好，持有2~4年</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="port-type port-balanced">均衡型</div>
+        <div class="port-title">价值+成长均衡组合</div>
+        <div>
+          <div class="pa-row"><span class="pa-stock">格力电器</span><span class="pa-pct">40%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-green" style="width:40%"></div></div>
+          <div class="pa-row"><span class="pa-stock">美的集团</span><span class="pa-pct">35%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-blue" style="width:35%"></div></div>
+          <div class="pa-row"><span class="pa-stock">石头科技</span><span class="pa-pct">15%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-amber" style="width:15%"></div></div>
+          <div class="pa-row"><span class="pa-stock">海信家电</span><span class="pa-pct">10%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-orange" style="width:10%"></div></div>
+        </div>
+        <div class="port-expect">预期年化：<strong>12~20%</strong>（价值安全垫+成长弹性）<br>适合中风险偏好，持有1~3年</div>
+      </div>
+      <div class="portfolio-card">
+        <div class="port-type port-aggressive">进取型</div>
+        <div class="port-title">成长弹性+均值回归组合</div>
+        <div>
+          <div class="pa-row"><span class="pa-stock">格力电器</span><span class="pa-pct">30%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-green" style="width:30%"></div></div>
+          <div class="pa-row"><span class="pa-stock">石头科技</span><span class="pa-pct">30%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-blue" style="width:30%"></div></div>
+          <div class="pa-row"><span class="pa-stock">科沃斯</span><span class="pa-pct">20%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-amber" style="width:20%"></div></div>
+          <div class="pa-row"><span class="pa-stock">美的集团</span><span class="pa-pct">20%</span></div>
+          <div class="pa-bar"><div class="pa-bar-fill fill-orange" style="width:20%"></div></div>
+        </div>
+        <div class="port-expect">预期年化：<strong>18~30%</strong>（高弹性，高波动）<br>适合高风险偏好，持有1~2年，密切跟踪</div>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:24px">
+      <strong>📌 当前最优策略（2025年4月）：</strong>以60~70%家电仓位集中配置格力（PB 1.43×，近5年最低分位，股息率6.4%），30~40%配置美的（多元化成长）。清洁电器作为卫星仓小比例参与。厨电等待地产复苏信号。
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>家电股深度财报分析与投资图谱 2025 | 格力电器研究套装 · 报告二</p>
+  <p style="margin-top:6px">
+    <a href="家电行业深度研究报告2025.html">← 报告一：家电行业深度研究</a> ·
+    <a href="index.html">报告中心</a> ·
+    <a href="格力电器深度投资分析与交易策略2025.html">报告三：格力电器个股策略 →</a>
+  </p>
+  <p style="margin-top:8px;font-size:11px;opacity:0.6">本报告仅供学习研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+</div>
+
+</body>
+</html>
