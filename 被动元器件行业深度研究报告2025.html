@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被动元器件行业深度研究报告2025 | 投资研究中心</title>
+<style>
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --primary: #1a3a5c;
+  --secondary: #2e6da4;
+  --accent: #e8a020;
+  --text: #1e293b;
+  --muted: #64748b;
+  --green: #16a34a;
+  --red: #dc2626;
+  --tag-bg: #eef2ff;
+  --tag-text: #3730a3;
+  --bull: #dcfce7;
+  --bear: #fee2e2;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; line-height: 1.6; }
+
+/* NAV */
+nav { background: var(--primary); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.nav-brand { color: #fff; font-size: 1rem; font-weight: 700; padding: 1rem 0; white-space: nowrap; }
+.nav-links { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 4px; font-size: 0.82rem; transition: all 0.2s; }
+.nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.nav-links a.active { background: var(--accent); color: #fff; font-weight: 600; }
+
+/* HERO */
+.hero { background: linear-gradient(135deg, var(--primary) 0%, #1e4d8c 60%, #2e6da4 100%); color: #fff; padding: 3.5rem 2rem 2.5rem; }
+.hero-inner { max-width: 1100px; margin: 0 auto; }
+.hero-badge { display: inline-block; background: var(--accent); color: #fff; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.5px; }
+.hero h1 { font-size: 2rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.75rem; }
+.hero-sub { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 1.75rem; }
+.hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat .val { font-size: 1.8rem; font-weight: 800; color: #fbbf24; display: block; }
+.hero-stat .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+
+/* MAIN */
+main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); border-left: 4px solid var(--accent); padding-left: 0.75rem; margin-bottom: 1.25rem; }
+
+/* KPI GRID */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1rem; }
+.kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 1rem; text-align: center; transition: transform 0.2s, box-shadow 0.2s; }
+.kpi-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); }
+.kpi-card .kpi-icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+.kpi-card .kpi-val { font-size: 1.45rem; font-weight: 800; color: var(--primary); }
+.kpi-card .kpi-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+.kpi-card .kpi-change { font-size: 0.72rem; font-weight: 600; margin-top: 0.15rem; }
+.kpi-card .kpi-change.up { color: var(--green); }
+.kpi-card .kpi-change.down { color: var(--red); }
+
+/* BULL BEAR */
+.bull-bear { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.bb-box { border-radius: 10px; padding: 1.25rem; }
+.bb-box.bull { background: var(--bull); border: 1px solid #86efac; }
+.bb-box.bear { background: var(--bear); border: 1px solid #fca5a5; }
+.bb-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+.bb-box.bull h3 { color: var(--green); }
+.bb-box.bear h3 { color: var(--red); }
+.bb-box ul { list-style: none; }
+.bb-box ul li { font-size: 0.82rem; padding: 0.3rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); color: var(--text); }
+.bb-box ul li::before { margin-right: 0.4rem; }
+.bb-box.bull ul li::before { content: "▲"; color: var(--green); }
+.bb-box.bear ul li::before { content: "▼"; color: var(--red); }
+
+/* TABLE */
+.tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+thead th { background: var(--primary); color: #fff; padding: 0.75rem 1rem; text-align: left; font-weight: 600; white-space: nowrap; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+tbody td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: middle; }
+tbody tr:hover { background: #eff6ff; }
+.highlight { color: var(--accent); font-weight: 700; }
+.good { color: var(--green); font-weight: 600; }
+.warn { color: var(--red); font-weight: 600; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0.6rem; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--primary), var(--secondary), var(--accent)); }
+.tl-item { position: relative; margin-bottom: 1.5rem; }
+.tl-dot { position: absolute; left: -2rem; top: 0.2rem; width: 14px; height: 14px; background: var(--accent); border: 3px solid var(--primary); border-radius: 50%; }
+.tl-content { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; }
+.tl-era { font-size: 0.78rem; font-weight: 700; color: var(--accent); margin-bottom: 0.3rem; }
+.tl-title { font-size: 0.93rem; font-weight: 700; color: var(--primary); margin-bottom: 0.4rem; }
+.tl-desc { font-size: 0.8rem; color: var(--muted); }
+
+/* SUBTRACK CARDS */
+.track-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.track-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; border-top: 4px solid var(--secondary); }
+.track-card.accent-top { border-top-color: var(--accent); }
+.track-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+.track-card .track-size { font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+.track-card .track-growth { font-size: 0.8rem; color: var(--green); font-weight: 600; margin-bottom: 0.6rem; }
+.track-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+.track-tag { display: inline-block; font-size: 0.7rem; background: var(--tag-bg); color: var(--tag-text); border-radius: 4px; padding: 0.15rem 0.5rem; margin: 0.15rem 0.1rem 0; }
+
+/* RATING BAR */
+.rating-list { display: flex; flex-direction: column; gap: 1rem; }
+.rating-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; }
+.rating-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.rating-name { font-weight: 700; font-size: 0.93rem; color: var(--primary); }
+.rating-score { font-size: 1.2rem; font-weight: 800; color: var(--accent); }
+.rating-bar-bg { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+.rating-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.6s; }
+.rating-tags { margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+
+/* STRATEGY CARDS */
+.strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.strategy-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+.strategy-card .s-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+.strategy-card h3 { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+.strategy-card p { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.75rem; }
+.s-target { background: #eff6ff; border-radius: 6px; padding: 0.6rem 0.9rem; font-size: 0.8rem; }
+.s-target strong { color: var(--primary); }
+
+/* RISK GRID */
+.risk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.risk-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+.risk-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.35rem; }
+.risk-card p { font-size: 0.76rem; color: var(--muted); }
+.risk-level { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 0.15rem 0.5rem; border-radius: 4px; margin-top: 0.4rem; }
+.risk-high { background: #fee2e2; color: #b91c1c; }
+.risk-mid { background: #fef9c3; color: #854d0e; }
+.risk-low { background: #dcfce7; color: #15803d; }
+
+/* FOOTER */
+footer { background: var(--primary); color: rgba(255,255,255,0.7); padding: 2rem; text-align: center; font-size: 0.8rem; }
+footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin: 0 0.5rem; }
+footer a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; flex-wrap: wrap; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero-stats { gap: 1rem; }
+  .hero-stat .val { font-size: 1.4rem; }
+  main { padding: 1rem; }
+  .bull-bear { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .track-grid { grid-template-columns: 1fr; }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .risk-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">📊 投资研究中心</div>
+  <div class="nav-links">
+    <a href="index.html">报告中心</a>
+    <a href="被动元器件行业深度研究报告2025.html" class="active">行业研究</a>
+    <a href="被动元器件股深度财报分析与投资图谱2025.html">全市场扫描</a>
+    <a href="顺络电子投资分析与交易策略2025.html">顺络电子</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔌 顺络电子研究套装 · 报告一 · 被动元器件行业</div>
+    <h1>被动元器件行业深度研究报告<br>2025</h1>
+    <p class="hero-sub">全球391亿美元市场 · AI算力×汽车电子×国产替代三重驱动 · 中国厂商加速突围</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="val">391亿$</span><span class="lbl">2024全球市场规模</span></div>
+      <div class="hero-stat"><span class="val">+10%</span><span class="lbl">2025年预测增速</span></div>
+      <div class="hero-stat"><span class="val">1604亿¥</span><span class="lbl">2025中国市场规模</span></div>
+      <div class="hero-stat"><span class="val">44%</span><span class="lbl">中国占全球份额</span></div>
+      <div class="hero-stat"><span class="val">5000颗</span><span class="lbl">AI服务器单台电感用量</span></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- 1. KPI -->
+<section>
+  <div class="section-title">一、行业核心数据速览</div>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-icon">🌐</div>
+      <div class="kpi-val">391亿$</div>
+      <div class="kpi-label">2024全球被动元器件市场</div>
+      <div class="kpi-change up">↑ +7.7% YoY</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🇨🇳</div>
+      <div class="kpi-val">1604亿</div>
+      <div class="kpi-label">2025中国市场规模(¥)</div>
+      <div class="kpi-change up">↑ +15% CAGR</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">💾</div>
+      <div class="kpi-val">4.90万亿</div>
+      <div class="kpi-label">2024全球MLCC需求量(只)</div>
+      <div class="kpi-change up">↑ +6.3% YoY</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🤖</div>
+      <div class="kpi-val">5000颗</div>
+      <div class="kpi-label">AI服务器单台电感用量</div>
+      <div class="kpi-change up">↑ 传统服务器5×</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🚗</div>
+      <div class="kpi-val">18000颗</div>
+      <div class="kpi-label">新能源汽车单车MLCC用量</div>
+      <div class="kpi-change up">↑ 燃油车6×</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🏭</div>
+      <div class="kpi-val">28%+</div>
+      <div class="kpi-label">国内MLCC市占率(中国厂商)</div>
+      <div class="kpi-change up">↑ 持续提升</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🔋</div>
+      <div class="kpi-val">65%</div>
+      <div class="kpi-label">电容类占被动元件总量</div>
+      <div class="kpi-change">MLCC为核心</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-icon">🎯</div>
+      <div class="kpi-val">&lt;30%</div>
+      <div class="kpi-label">高端被动件国产化率</div>
+      <div class="kpi-change up">↑ 替代空间巨大</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. BULL BEAR -->
+<section>
+  <div class="section-title">二、多空核心论据</div>
+  <div class="bull-bear">
+    <div class="bb-box bull">
+      <h3>🐂 看多逻辑（7条）</h3>
+      <ul>
+        <li>AI服务器爆发，电感用量是传统服务器5倍，大客户订单饱满</li>
+        <li>新能源汽车渗透率持续提升，单车用量6倍于燃油车</li>
+        <li>国产替代深化：高端MLCC/电感车规认证加速，村田TDK替代窗口期</li>
+        <li>中国被动元件CAGR 15%，高于全球7.8%，市场份额持续扩大</li>
+        <li>消费电子复苏+手机换机周期，传统市场稳健基盘</li>
+        <li>涨价周期有望重来：2025年MLCC、电感供需趋于紧张</li>
+        <li>龙头厂商研发投入领先，技术壁垒持续构建</li>
+      </ul>
+    </div>
+    <div class="bb-box bear">
+      <h3>🐻 看空风险（7条）</h3>
+      <ul>
+        <li>日系巨头（村田、TDK、太阳诱电）三家合计市占超40%，难以撼动</li>
+        <li>高端产品良率提升慢，车规认证周期长（3~5年），替代速度受限</li>
+        <li>消费电子需求周期波动，库存去化压力仍存</li>
+        <li>重资产行业持续扩产，折旧压力影响利润率</li>
+        <li>地缘政治风险：出口管制可能波及关键设备采购</li>
+        <li>国内竞争加剧，三环/风华/麦捷等多家扩产，价格竞争加剧</li>
+        <li>人民币汇率波动影响出口型企业盈利</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 全球对比 -->
+<section>
+  <div class="section-title">三、全球被动元器件竞争格局横向对比</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>日本（村田/TDK/太阳诱电）</th>
+          <th>台湾（国巨/华新科）</th>
+          <th>韩国（三星电机）</th>
+          <th>中国（三环/顺络/风华）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>市场地位</td><td class="highlight">高端绝对主导</td><td>中高端稳健</td><td>MLCC全球第三</td><td class="good">快速崛起</td></tr>
+        <tr><td>MLCC技术</td><td>1μm以下超薄层</td><td>2~3μm中高端</td><td>1~2μm高端</td><td>3~5μm中端为主</td></tr>
+        <tr><td>电感技术</td><td class="highlight">铜磁共烧领先</td><td>中端</td><td>-</td><td>追赶中</td></tr>
+        <tr><td>车规份额</td><td class="highlight">>70%</td><td>~15%</td><td>~8%</td><td><30%</td></tr>
+        <tr><td>AI服务器供给</td><td class="highlight">主力供应</td><td>参与</td><td>参与</td><td class="good">快速切入</td></tr>
+        <tr><td>国产替代空间</td><td>高</td><td>中</td><td>中</td><td class="good">自我替代</td></tr>
+        <tr><td>毛利率水平</td><td>40~50%</td><td>30~40%</td><td>25~35%</td><td>25~38%</td></tr>
+        <tr><td>增长潜力</td><td>稳健</td><td>稳健</td><td>中</td><td class="highlight">最高</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 4. TIMELINE -->
+<section>
+  <div class="section-title">四、中国被动元器件产业演变历程</div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-era">1980s — 1994</div>
+        <div class="tl-title">萌芽期：政策驱动引进外资</div>
+        <div class="tl-desc">技术完全依赖进口，国内厂商以分立元件为主，外资主导市场格局。村田、TDK等率先在华建厂。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-era">1995 — 2005</div>
+        <div class="tl-title">成长期：片式化浪潮，本土厂商起步</div>
+        <div class="tl-desc">电子产品小型化推动片式元器件需求爆发。风华高科（1994）、顺络电子（2000）、三环集团等相继成立，以中低端市场切入。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-era">2006 — 2016</div>
+        <div class="tl-title">规模化：消费电子驱动，格局分化</div>
+        <div class="tl-desc">智能手机爆发带来超级周期。国内厂商规模快速扩张，顺络在片式电感领域确立国内龙头地位。日系企业持续主导高端。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-era">2017 — 2022</div>
+        <div class="tl-title">涨价超级周期：MLCC大缺货，高速成长</div>
+        <div class="tl-desc">2018年MLCC全球性缺货涨价，国内厂商加速扩产。中美贸易摩擦触发国产替代意识觉醒。汽车电子开始纳入战略布局。</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-era">2023 — 至今</div>
+        <div class="tl-title">升级期：AI+汽车驱动，高端突围</div>
+        <div class="tl-desc">AI算力需求带动服务器电感/电容高端需求激增；新能源汽车普及加速车规产品认证；国产替代从中低端向高端持续渗透。顺络、三环进入英伟达/比亚迪供应链体系。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 细分赛道 -->
+<section>
+  <div class="section-title">五、四大细分赛道深度拆解</div>
+  <div class="track-grid">
+    <div class="track-card accent-top">
+      <h3>🔌 电感器</h3>
+      <div class="track-size">~15%市场占比</div>
+      <div class="track-growth">↑ AI服务器需求爆发</div>
+      <p>功率电感是AI服务器核心元件，单台服务器用量5000颗（传统服务器5倍）。铜磁共烧超薄电感是下一代GPU的关键配套。顺络电子全球市占率约7%，国内龙头地位稳固。</p>
+      <div>
+        <span class="track-tag">AI服务器</span>
+        <span class="track-tag">汽车电子</span>
+        <span class="track-tag">DDR5电源</span>
+        <span class="track-tag">工业电源</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <h3>🔲 MLCC（多层陶瓷电容）</h3>
+      <div class="track-size">~65%市场核心</div>
+      <div class="track-growth">↑ 2024全球1042亿元规模</div>
+      <p>新能源汽车单车用量18000颗（燃油车6倍），AI服务器20000颗+。三环集团是国内MLCC龙头，风华高科持续扩产。日系三巨头市占率仍超60%，高端国产化率不足30%。</p>
+      <div>
+        <span class="track-tag">新能源车</span>
+        <span class="track-tag">5G通信</span>
+        <span class="track-tag">工业</span>
+        <span class="track-tag">AI算力</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <h3>🔀 滤波器/磁性元件</h3>
+      <div class="track-size">通信核心元件</div>
+      <div class="track-growth">↑ 5G、WiFi7驱动</div>
+      <p>滤波器广泛用于手机基带、WiFi模块、蓝牙等通信场景。顺络电子在信号处理类产品（前三季度18.2亿元）是主要营收支柱。磁性元件在新能源车充电桩中用量大。</p>
+      <div>
+        <span class="track-tag">5G基站</span>
+        <span class="track-tag">WiFi7</span>
+        <span class="track-tag">消费电子</span>
+      </div>
+    </div>
+    <div class="track-card">
+      <h3>⚡ 钽电容/其他</h3>
+      <div class="track-size">军工/高可靠领域</div>
+      <div class="track-growth">↑ 国产替代空间最大</div>
+      <p>钽电容用于军事、航天、医疗等高可靠场景，日美垄断明显。顺络已布局钽电容并获客户认可，是其业务差异化的重要方向。国产化率极低，替代空间最为广阔。</p>
+      <div>
+        <span class="track-tag">军工</span>
+        <span class="track-tag">航天</span>
+        <span class="track-tag">医疗</span>
+        <span class="track-tag">高可靠</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 主要上市公司评级 -->
+<section>
+  <div class="section-title">六、A股主要上市公司投资评级</div>
+  <div class="rating-list">
+    <div class="rating-item">
+      <div class="rating-header">
+        <span class="rating-name">⚡ 顺络电子（002138）— 电感龙头 × AI+汽车双轮驱动</span>
+        <span class="rating-score">91 / 100</span>
+      </div>
+      <div class="rating-bar-bg"><div class="rating-bar-fill" style="width:91%"></div></div>
+      <div class="rating-tags">
+        <span class="track-tag">全球电感前五</span>
+        <span class="track-tag">AI服务器订单饱满</span>
+        <span class="track-tag">毛利率36.6%</span>
+        <span class="track-tag">净利润+22.7%</span>
+        <span class="track-tag">ROE 16.3%</span>
+        <span class="track-tag">强烈推荐</span>
+      </div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-header">
+        <span class="rating-name">🔲 三环集团（300408）— MLCC国内绝对龙头</span>
+        <span class="rating-score">87 / 100</span>
+      </div>
+      <div class="rating-bar-bg"><div class="rating-bar-fill" style="width:87%"></div></div>
+      <div class="rating-tags">
+        <span class="track-tag">MLCC国内龙头</span>
+        <span class="track-tag">营收90亿+</span>
+        <span class="track-tag">净利润26.18亿</span>
+        <span class="track-tag">净利率高</span>
+        <span class="track-tag">推荐</span>
+      </div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-header">
+        <span class="rating-name">📻 麦捷科技（300319）— AI电感新锐 高增速高弹性</span>
+        <span class="rating-score">72 / 100</span>
+      </div>
+      <div class="rating-bar-bg"><div class="rating-bar-fill" style="width:72%"></div></div>
+      <div class="rating-tags">
+        <span class="track-tag">AI电感弹性标的</span>
+        <span class="track-tag">营收高增</span>
+        <span class="track-tag">盈利改善中</span>
+        <span class="track-tag">关注</span>
+      </div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-header">
+        <span class="rating-name">🏭 风华高科（000636）— 全品类平台型 国资背书</span>
+        <span class="rating-score">68 / 100</span>
+      </div>
+      <div class="rating-bar-bg"><div class="rating-bar-fill" style="width:68%"></div></div>
+      <div class="rating-tags">
+        <span class="track-tag">国资背景</span>
+        <span class="track-tag">全品类布局</span>
+        <span class="track-tag">毛利率承压</span>
+        <span class="track-tag">中性</span>
+      </div>
+    </div>
+    <div class="rating-item">
+      <div class="rating-header">
+        <span class="rating-name">🔥 火炬电子（603678）— 军工被动件专精特新</span>
+        <span class="rating-score">65 / 100</span>
+      </div>
+      <div class="rating-bar-bg"><div class="rating-bar-fill" style="width:65%"></div></div>
+      <div class="rating-tags">
+        <span class="track-tag">军工资质</span>
+        <span class="track-tag">高端小批量</span>
+        <span class="track-tag">高毛利</span>
+        <span class="track-tag">关注</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap" style="margin-top:1.25rem">
+    <table>
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>代码</th>
+          <th>2025营收</th>
+          <th>2025净利润</th>
+          <th>增速</th>
+          <th>毛利率</th>
+          <th>研发费率</th>
+          <th>核心产品</th>
+          <th>评级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>顺络电子</strong></td>
+          <td>002138</td>
+          <td class="highlight">67.45亿</td>
+          <td class="highlight">10.21亿</td>
+          <td class="good">+22.7%</td>
+          <td>36.6%</td>
+          <td>8.6%</td>
+          <td>功率电感、信号滤波</td>
+          <td class="good">强烈推荐</td>
+        </tr>
+        <tr>
+          <td><strong>三环集团</strong></td>
+          <td>300408</td>
+          <td>90.07亿</td>
+          <td class="highlight">26.18亿</td>
+          <td class="good">+19.5%</td>
+          <td>~40%+</td>
+          <td>~5%</td>
+          <td>MLCC、电感、光纤陶瓷</td>
+          <td class="good">推荐</td>
+        </tr>
+        <tr>
+          <td><strong>风华高科</strong></td>
+          <td>000636</td>
+          <td>~56亿</td>
+          <td>~3.5亿</td>
+          <td>+7%</td>
+          <td>~25%</td>
+          <td>~6%</td>
+          <td>MLCC、电阻、电感</td>
+          <td>中性</td>
+        </tr>
+        <tr>
+          <td><strong>麦捷科技</strong></td>
+          <td>300319</td>
+          <td>~38亿</td>
+          <td>~3亿</td>
+          <td>+25%</td>
+          <td>~28%</td>
+          <td>~7%</td>
+          <td>电感、AI功率电感</td>
+          <td>关注</td>
+        </tr>
+        <tr>
+          <td><strong>火炬电子</strong></td>
+          <td>603678</td>
+          <td>~18亿</td>
+          <td>~2.5亿</td>
+          <td>+12%</td>
+          <td>~35%</td>
+          <td>~6%</td>
+          <td>军用被动元件</td>
+          <td>关注</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. 策略框架 -->
+<section>
+  <div class="section-title">七、三种投资策略框架</div>
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <div class="s-icon">🤖</div>
+      <h3>AI驱动成长型</h3>
+      <p>重点布局AI算力基础设施受益标的，抢占算力电感/MLCC放量红利。注重订单可见度和技术壁垒。</p>
+      <div class="s-target">
+        <strong>核心配置：</strong>顺络电子（AI电感龙头）+ 三环集团（MLCC算力受益）<br>
+        <strong>预期收益：</strong>3年期年化15~25%
+      </div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">🚗</div>
+      <h3>汽车电子主题型</h3>
+      <p>聚焦新能源汽车用被动元件的国产替代机会，受益于BYD/特斯拉供应链深度绑定。</p>
+      <div class="s-target">
+        <strong>核心配置：</strong>顺络电子（汽车电子营收+36%）+ 三环集团（车规MLCC）<br>
+        <strong>预期收益：</strong>3年期年化12~20%
+      </div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">🎯</div>
+      <h3>国产替代确定性</h3>
+      <p>押注日系巨头被替代的长期逻辑，重视技术突破进度和大客户认证进展。波动大但空间最广。</p>
+      <div class="s-target">
+        <strong>核心配置：</strong>三环集团（高端MLCC）+ 顺络电子（铜磁共烧电感）<br>
+        <strong>预期收益：</strong>5年期年化20~35%
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. RISK -->
+<section>
+  <div class="section-title">八、风险矩阵全览</div>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <h4>⚠️ AI需求不及预期</h4>
+      <p>AI服务器资本开支放缓，电感/MLCC订单大幅下滑，冲击龙头估值</p>
+      <span class="risk-level risk-high">高风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>🇯🇵 日系反攻降价</h4>
+      <p>村田TDK主动降价争夺市场，压缩国内厂商毛利空间</p>
+      <span class="risk-level risk-high">高风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>🔁 库存周期波动</h4>
+      <p>消费电子需求周期性波动，库存去化拖累价格和出货</p>
+      <span class="risk-level risk-mid">中风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>🏭 扩产价格竞争</h4>
+      <p>国内多家同时扩产，供过于求压低价格，行业整体利润承压</p>
+      <span class="risk-level risk-mid">中风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>🚗 车规认证延迟</h4>
+      <p>汽车客户认证周期长达3~5年，新产品导入进度慢于预期</p>
+      <span class="risk-level risk-mid">中风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>💱 汇率风险</h4>
+      <p>人民币升值影响出口收入，部分材料进口成本上升</p>
+      <span class="risk-level risk-mid">中风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>🔌 设备采购受限</h4>
+      <p>高端生产设备可能受出口管制影响，扩产节奏受阻</p>
+      <span class="risk-level risk-mid">中风险</span>
+    </div>
+    <div class="risk-card">
+      <h4>📱 消费电子复苏不及</h4>
+      <p>全球智能手机需求弱于预期，传统业务基本盘承压</p>
+      <span class="risk-level risk-low">低风险</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>本报告为顺络电子研究套装·报告一 | 数据来源：公司年报、行业研究机构、东方财富、华经产业研究院</p>
+  <p style="margin-top:0.5rem">
+    <a href="index.html">报告中心</a>
+    <a href="被动元器件行业深度研究报告2025.html">行业研究（本文）</a>
+    <a href="被动元器件股深度财报分析与投资图谱2025.html">全市场扫描</a>
+    <a href="顺络电子投资分析与交易策略2025.html">顺络电子策略</a>
+  </p>
+  <p style="margin-top:0.5rem; font-size:0.72rem; opacity:0.6">⚠️ 本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+</footer>
+
+</body>
+</html>

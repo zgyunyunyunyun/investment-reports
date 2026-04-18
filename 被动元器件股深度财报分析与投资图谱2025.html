@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>被动元器件股深度财报分析与投资图谱2025 | 投资研究中心</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --card2: #1c2128;
+  --border: #21262d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --primary: #58a6ff;
+  --orange: #f0883e;
+  --green: #3fb950;
+  --red: #f85149;
+  --yellow: #d29922;
+  --purple: #bc8cff;
+  --teal: #39d353;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; line-height: 1.6; }
+
+/* NAV */
+nav { background: #010409; border-bottom: 1px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+.nav-brand { color: var(--primary); font-size: 1rem; font-weight: 700; padding: 1rem 0; white-space: nowrap; }
+.nav-links { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+.nav-links a { color: var(--muted); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 6px; font-size: 0.82rem; transition: all 0.2s; }
+.nav-links a:hover { background: var(--card2); color: var(--text); }
+.nav-links a.active { background: rgba(88,166,255,0.15); color: var(--primary); font-weight: 600; }
+
+/* HERO */
+.hero { background: linear-gradient(135deg, #010409 0%, #0d1117 50%, #161b22 100%); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 2.5rem; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+.hero-badge { display: inline-block; background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.78rem; font-weight: 600; margin-bottom: 1rem; }
+.hero h1 { font-size: 2rem; font-weight: 800; line-height: 1.3; margin-bottom: 0.75rem; color: var(--text); }
+.hero-sub { font-size: 1rem; color: var(--muted); margin-bottom: 1.75rem; }
+.hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+.hero-stat .val { font-size: 1.8rem; font-weight: 800; color: var(--yellow); display: block; }
+.hero-stat .lbl { font-size: 0.75rem; color: var(--muted); }
+
+/* MAIN */
+main { max-width: 1100px; margin: 0 auto; padding: 2rem; }
+section { margin-bottom: 2.5rem; }
+.section-title { font-size: 1.15rem; font-weight: 700; color: var(--primary); border-left: 4px solid var(--orange); padding-left: 0.75rem; margin-bottom: 1.25rem; }
+
+/* TABLE */
+.tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+thead th { background: var(--card2); color: var(--muted); padding: 0.7rem 1rem; text-align: left; font-weight: 600; white-space: nowrap; border-bottom: 1px solid var(--border); }
+tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+tbody tr:hover { background: rgba(88,166,255,0.04); }
+tbody td { padding: 0.7rem 1rem; color: var(--text); vertical-align: middle; }
+.highlight { color: var(--yellow); font-weight: 700; }
+.good { color: var(--green); font-weight: 600; }
+.warn { color: var(--red); font-weight: 600; }
+.blue { color: var(--primary); font-weight: 600; }
+.purple { color: var(--purple); font-weight: 600; }
+.orange { color: var(--orange); font-weight: 600; }
+.badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 4px; font-size: 0.7rem; font-weight: 700; }
+.badge-green { background: rgba(63,185,80,0.15); color: var(--green); }
+.badge-blue { background: rgba(88,166,255,0.15); color: var(--primary); }
+.badge-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+.badge-red { background: rgba(248,81,73,0.15); color: var(--red); }
+.badge-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+
+/* RANK CARDS */
+.rank-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.rank-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+.rank-card h3 { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }
+.rank-item { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+.rank-num { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
+.rank-1 { background: #d4af37; color: #000; }
+.rank-2 { background: #9ea0a0; color: #000; }
+.rank-3 { background: #cd7f32; color: #fff; }
+.rank-other { background: var(--card2); color: var(--muted); }
+.rank-bar-bg { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.rank-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--primary), var(--purple)); }
+.rank-name { font-size: 0.78rem; color: var(--text); min-width: 60px; }
+.rank-val { font-size: 0.78rem; color: var(--yellow); font-weight: 700; min-width: 55px; text-align: right; }
+
+/* BUSI STRUCTURE */
+.busi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.busi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+.busi-card h3 { font-size: 0.93rem; font-weight: 700; color: var(--text); margin-bottom: 0.9rem; }
+.busi-segment { margin-bottom: 0.6rem; }
+.busi-seg-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.2rem; }
+.busi-seg-name { color: var(--muted); }
+.busi-seg-pct { color: var(--yellow); font-weight: 700; }
+.busi-seg-bar { height: 5px; border-radius: 3px; }
+
+/* QUADRANT */
+.quadrant-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.quadrant-title { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; text-align: center; }
+.quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 1rem; min-height: 320px; }
+.quadrant-cell { border: 1px solid var(--border); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; }
+.quadrant-cell.best { background: rgba(63,185,80,0.06); border-color: rgba(63,185,80,0.3); }
+.quadrant-cell.growth { background: rgba(88,166,255,0.06); border-color: rgba(88,166,255,0.3); }
+.quadrant-cell.value { background: rgba(210,153,34,0.06); border-color: rgba(210,153,34,0.3); }
+.quadrant-cell.caution { background: rgba(248,81,73,0.06); border-color: rgba(248,81,73,0.3); }
+.q-label { font-size: 0.72rem; font-weight: 700; margin-bottom: 0.6rem; }
+.best .q-label { color: var(--green); }
+.growth .q-label { color: var(--primary); }
+.value .q-label { color: var(--yellow); }
+.caution .q-label { color: var(--red); }
+.q-company { background: var(--card2); border-radius: 6px; padding: 0.5rem 0.75rem; margin-bottom: 0.4rem; }
+.q-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+.q-metrics { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; }
+.quadrant-axes { display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--muted); margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+
+/* PORTRAIT */
+.portrait-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+.portrait-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.portrait-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.portrait-info h3 { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+.portrait-info p { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+.portrait-score { text-align: right; }
+.portrait-score .score-val { font-size: 2rem; font-weight: 800; color: var(--yellow); }
+.portrait-score .score-label { font-size: 0.72rem; color: var(--muted); display: block; }
+.portrait-dims { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.6rem; }
+.dim-item { }
+.dim-top { display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.2rem; }
+.dim-name { color: var(--muted); }
+.dim-score { color: var(--primary); font-weight: 700; }
+.dim-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.dim-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--primary), var(--purple)); }
+
+/* DIFF TABLE */
+.diff-tbl td, .diff-tbl th { padding: 0.8rem 1rem; }
+
+/* PORTFOLIO */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
+.portfolio-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+.portfolio-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+.portfolio-card .p-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; }
+.alloc-item { margin-bottom: 0.75rem; }
+.alloc-top { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.2rem; }
+.alloc-name { color: var(--text); }
+.alloc-pct { color: var(--yellow); font-weight: 700; }
+.alloc-bar { height: 7px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.alloc-fill { height: 100%; border-radius: 4px; }
+.fill-blue { background: linear-gradient(90deg, var(--primary), #4ec9fb); }
+.fill-green { background: linear-gradient(90deg, var(--green), #7ee787); }
+.fill-orange { background: linear-gradient(90deg, var(--orange), #ffa657); }
+.fill-purple { background: linear-gradient(90deg, var(--purple), #d2a8ff); }
+.p-expect { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: var(--muted); }
+.p-expect strong { color: var(--green); }
+
+/* FOOTER */
+footer { background: #010409; border-top: 1px solid var(--border); color: var(--muted); padding: 2rem; text-align: center; font-size: 0.8rem; }
+footer a { color: var(--muted); text-decoration: none; margin: 0 0.5rem; transition: color 0.2s; }
+footer a:hover { color: var(--primary); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav { padding: 0 1rem; flex-wrap: wrap; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero-stats { gap: 1.25rem; }
+  main { padding: 1rem; }
+  .rank-grid { grid-template-columns: 1fr 1fr; }
+  .busi-grid { grid-template-columns: 1fr; }
+  .quadrant-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">📊 投资研究中心</div>
+  <div class="nav-links">
+    <a href="index.html">报告中心</a>
+    <a href="被动元器件行业深度研究报告2025.html">行业研究</a>
+    <a href="被动元器件股深度财报分析与投资图谱2025.html" class="active">全市场扫描</a>
+    <a href="顺络电子投资分析与交易策略2025.html">顺络电子</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🔌 顺络电子研究套装 · 报告二 · 被动元器件全市场扫描</div>
+    <h1>被动元器件股深度财报分析<br>与投资图谱 2025</h1>
+    <p class="hero-sub">A股5大龙头全覆盖 · 顺络/三环/风华/麦捷/火炬 · PE×ROE四象限矩阵 · 组合配置建议</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="val">5家</span><span class="lbl">A股主要被动元件龙头</span></div>
+      <div class="hero-stat"><span class="val">91分</span><span class="lbl">顺络电子综合评分</span></div>
+      <div class="hero-stat"><span class="val">28倍</span><span class="lbl">顺络当前PE（TTM）</span></div>
+      <div class="hero-stat"><span class="val">+22.7%</span><span class="lbl">顺络净利润增速</span></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- 1. 全市场总览 -->
+<section>
+  <div class="section-title">一、A股五大被动元器件企业全市场总览</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>代码</th>
+          <th>2025营收</th>
+          <th>营收增速</th>
+          <th>2025净利润</th>
+          <th>净利润增速</th>
+          <th>毛利率</th>
+          <th>研发费率</th>
+          <th>PE(TTM)</th>
+          <th>PB</th>
+          <th>评级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>顺络电子</strong></td>
+          <td><span class="badge badge-green">002138</span></td>
+          <td class="highlight">67.45亿</td>
+          <td class="good">+14.4%</td>
+          <td class="highlight">10.21亿</td>
+          <td class="good">+22.7%</td>
+          <td class="good">36.6%</td>
+          <td>8.6%</td>
+          <td>~28×</td>
+          <td>~4.2×</td>
+          <td><span class="badge badge-green">强烈推荐</span></td>
+        </tr>
+        <tr>
+          <td><strong>三环集团</strong></td>
+          <td><span class="badge badge-blue">300408</span></td>
+          <td>90.07亿</td>
+          <td class="good">+22.1%</td>
+          <td class="highlight">26.18亿</td>
+          <td class="good">+19.5%</td>
+          <td>~40%+</td>
+          <td>~5%</td>
+          <td>~25×</td>
+          <td>~4.8×</td>
+          <td><span class="badge badge-blue">推荐</span></td>
+        </tr>
+        <tr>
+          <td><strong>风华高科</strong></td>
+          <td><span class="badge badge-yellow">000636</span></td>
+          <td>~56亿</td>
+          <td>+7%</td>
+          <td>~3.5亿</td>
+          <td>+7%</td>
+          <td>~25%</td>
+          <td>~6%</td>
+          <td>~40×</td>
+          <td>~2.8×</td>
+          <td><span class="badge badge-yellow">中性</span></td>
+        </tr>
+        <tr>
+          <td><strong>麦捷科技</strong></td>
+          <td><span class="badge badge-purple">300319</span></td>
+          <td>~38亿</td>
+          <td class="good">+25%</td>
+          <td>~3亿</td>
+          <td>+20%</td>
+          <td>~28%</td>
+          <td>~7%</td>
+          <td>~35×</td>
+          <td>~3.5×</td>
+          <td><span class="badge badge-purple">关注</span></td>
+        </tr>
+        <tr>
+          <td><strong>火炬电子</strong></td>
+          <td><span class="badge badge-yellow">603678</span></td>
+          <td>~18亿</td>
+          <td>+12%</td>
+          <td>~2.5亿</td>
+          <td>+12%</td>
+          <td>~35%</td>
+          <td>~6%</td>
+          <td>~20×</td>
+          <td>~2.2×</td>
+          <td><span class="badge badge-yellow">关注</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 2. 四维排行榜 -->
+<section>
+  <div class="section-title">二、四维综合排行榜</div>
+  <div class="rank-grid">
+    <!-- 净利润规模 -->
+    <div class="rank-card">
+      <h3>💰 净利润规模排名</h3>
+      <div class="rank-item">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name">三环集团</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%"></div></div>
+        <div class="rank-val">26.18亿</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name">顺络电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:39%"></div></div>
+        <div class="rank-val">10.21亿</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name">风华高科</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:13%"></div></div>
+        <div class="rank-val">~3.5亿</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">4</div>
+        <div class="rank-name">麦捷科技</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:11%"></div></div>
+        <div class="rank-val">~3亿</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">5</div>
+        <div class="rank-name">火炬电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:10%"></div></div>
+        <div class="rank-val">~2.5亿</div>
+      </div>
+    </div>
+
+    <!-- 毛利率排名 -->
+    <div class="rank-card">
+      <h3>📊 毛利率排名</h3>
+      <div class="rank-item">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name">三环集团</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%"></div></div>
+        <div class="rank-val">~41%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name">顺络电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:89%"></div></div>
+        <div class="rank-val">36.6%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name">火炬电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:85%"></div></div>
+        <div class="rank-val">~35%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">4</div>
+        <div class="rank-name">麦捷科技</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:68%"></div></div>
+        <div class="rank-val">~28%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">5</div>
+        <div class="rank-name">风华高科</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:61%"></div></div>
+        <div class="rank-val">~25%</div>
+      </div>
+    </div>
+
+    <!-- 研发投入 -->
+    <div class="rank-card">
+      <h3>🔬 研发费率排名</h3>
+      <div class="rank-item">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name">顺络电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%"></div></div>
+        <div class="rank-val">8.6%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name">麦捷科技</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:81%"></div></div>
+        <div class="rank-val">~7%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name">风华高科</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:70%"></div></div>
+        <div class="rank-val">~6%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">4</div>
+        <div class="rank-name">火炬电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:70%"></div></div>
+        <div class="rank-val">~6%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">5</div>
+        <div class="rank-name">三环集团</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:58%"></div></div>
+        <div class="rank-val">~5%</div>
+      </div>
+    </div>
+
+    <!-- 净利润增速 -->
+    <div class="rank-card">
+      <h3>🚀 净利润增速排名(2025)</h3>
+      <div class="rank-item">
+        <div class="rank-num rank-1">1</div>
+        <div class="rank-name">顺络电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%"></div></div>
+        <div class="rank-val">+22.7%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-2">2</div>
+        <div class="rank-name">三环集团</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:86%"></div></div>
+        <div class="rank-val">+19.5%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-3">3</div>
+        <div class="rank-name">麦捷科技</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:88%"></div></div>
+        <div class="rank-val">+20%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">4</div>
+        <div class="rank-name">火炬电子</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:53%"></div></div>
+        <div class="rank-val">+12%</div>
+      </div>
+      <div class="rank-item">
+        <div class="rank-num rank-other">5</div>
+        <div class="rank-name">风华高科</div>
+        <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:31%"></div></div>
+        <div class="rank-val">+7%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 业务结构 -->
+<section>
+  <div class="section-title">三、TOP4企业业务结构拆解（按营收结构）</div>
+  <div class="busi-grid">
+    <div class="busi-card">
+      <h3>⚡ 顺络电子（67.45亿）</h3>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">信号处理（滤波器/变压器）</span><span class="busi-seg-pct">~36%</span></div>
+        <div class="busi-seg-bar" style="width:36%; background:linear-gradient(90deg,#58a6ff,#4ec9fb);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">电源管理（功率电感）</span><span class="busi-seg-pct">~35%</span></div>
+        <div class="busi-seg-bar" style="width:35%; background:linear-gradient(90deg,#bc8cff,#d2a8ff);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">汽车电子/储能专用</span><span class="busi-seg-pct">~21%</span></div>
+        <div class="busi-seg-bar" style="width:21%; background:linear-gradient(90deg,#3fb950,#7ee787);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">其他（钽电容/AI定制）</span><span class="busi-seg-pct">~8%</span></div>
+        <div class="busi-seg-bar" style="width:8%; background:linear-gradient(90deg,#f0883e,#ffa657);height:5px;border-radius:3px;"></div>
+      </div>
+    </div>
+    <div class="busi-card">
+      <h3>🔲 三环集团（90.07亿）</h3>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">MLCC（多层陶瓷电容）</span><span class="busi-seg-pct">~55%</span></div>
+        <div class="busi-seg-bar" style="width:55%; background:linear-gradient(90deg,#58a6ff,#4ec9fb);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">光纤陶瓷（光通信）</span><span class="busi-seg-pct">~20%</span></div>
+        <div class="busi-seg-bar" style="width:20%; background:linear-gradient(90deg,#bc8cff,#d2a8ff);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">电感/磁性材料</span><span class="busi-seg-pct">~15%</span></div>
+        <div class="busi-seg-bar" style="width:15%; background:linear-gradient(90deg,#3fb950,#7ee787);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">SOFC/其他</span><span class="busi-seg-pct">~10%</span></div>
+        <div class="busi-seg-bar" style="width:10%; background:linear-gradient(90deg,#f0883e,#ffa657);height:5px;border-radius:3px;"></div>
+      </div>
+    </div>
+    <div class="busi-card">
+      <h3>🏭 风华高科（~56亿）</h3>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">MLCC</span><span class="busi-seg-pct">~50%</span></div>
+        <div class="busi-seg-bar" style="width:50%; background:linear-gradient(90deg,#58a6ff,#4ec9fb);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">电阻器</span><span class="busi-seg-pct">~25%</span></div>
+        <div class="busi-seg-bar" style="width:25%; background:linear-gradient(90deg,#bc8cff,#d2a8ff);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">电感及其他</span><span class="busi-seg-pct">~25%</span></div>
+        <div class="busi-seg-bar" style="width:25%; background:linear-gradient(90deg,#3fb950,#7ee787);height:5px;border-radius:3px;"></div>
+      </div>
+    </div>
+    <div class="busi-card">
+      <h3>📻 麦捷科技（~38亿）</h3>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">电感（功率+信号）</span><span class="busi-seg-pct">~60%</span></div>
+        <div class="busi-seg-bar" style="width:60%; background:linear-gradient(90deg,#58a6ff,#4ec9fb);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">AI服务器专用电感</span><span class="busi-seg-pct">~25%</span></div>
+        <div class="busi-seg-bar" style="width:25%; background:linear-gradient(90deg,#bc8cff,#d2a8ff);height:5px;border-radius:3px;"></div>
+      </div>
+      <div class="busi-segment">
+        <div class="busi-seg-top"><span class="busi-seg-name">其他被动元件</span><span class="busi-seg-pct">~15%</span></div>
+        <div class="busi-seg-bar" style="width:15%; background:linear-gradient(90deg,#3fb950,#7ee787);height:5px;border-radius:3px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. QUADRANT -->
+<section>
+  <div class="section-title">四、PE×增速四象限矩阵（成长性 vs 估值）</div>
+  <div class="quadrant-wrap">
+    <div class="quadrant-title">横轴：PE倍数（越低越好） | 纵轴：净利润增速（越高越好）</div>
+    <div class="quadrant-grid">
+      <!-- 高增速 低PE -->
+      <div class="quadrant-cell best">
+        <div class="q-label">⭐ 最佳区：高增速 × 低估值（PEG优秀）</div>
+        <div class="q-company">
+          <div class="q-name">⚡ 顺络电子</div>
+          <div class="q-metrics">PE ~28× | 净利润+22.7% | PEG ~1.18</div>
+        </div>
+        <div class="q-company">
+          <div class="q-name">🔥 火炬电子</div>
+          <div class="q-metrics">PE ~20× | 净利润+12% | 军工高壁垒</div>
+        </div>
+      </div>
+      <!-- 高增速 高PE -->
+      <div class="quadrant-cell growth">
+        <div class="q-label">🚀 成长溢价区：高增速 × 高估值（需验证持续性）</div>
+        <div class="q-company">
+          <div class="q-name">📻 麦捷科技</div>
+          <div class="q-metrics">PE ~35× | 净利润+20% | AI电感弹性大</div>
+        </div>
+      </div>
+      <!-- 低增速 低PE -->
+      <div class="quadrant-cell value">
+        <div class="q-label">💎 价值待挖区：低增速 × 低估值（等待拐点）</div>
+        <div class="q-company">
+          <div class="q-name">🔲 三环集团</div>
+          <div class="q-metrics">PE ~25× | 净利润+19.5% | MLCC龙头折价</div>
+        </div>
+      </div>
+      <!-- 低增速 高PE -->
+      <div class="quadrant-cell caution">
+        <div class="q-label">⚠️ 谨慎区：低增速 × 高估值</div>
+        <div class="q-company">
+          <div class="q-name">🏭 风华高科</div>
+          <div class="q-metrics">PE ~40× | 净利润+7% | 估值偏贵</div>
+        </div>
+      </div>
+    </div>
+    <div class="quadrant-axes">
+      <span>← PE更低（估值更便宜）</span>
+      <span>增速更高 ↑</span>
+      <span>PE更高（估值更贵）→</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 深度画像 -->
+<section>
+  <div class="section-title">五、TOP3企业深度画像</div>
+  <div class="portrait-grid">
+    <!-- 顺络 -->
+    <div class="portrait-card">
+      <div class="portrait-header">
+        <div class="portrait-info">
+          <h3>⚡ 顺络电子（002138）</h3>
+          <p>全球电感前五 · AI算力+汽车电子双引擎 · 研发密集型龙头</p>
+        </div>
+        <div class="portrait-score">
+          <div class="score-val">91</div>
+          <span class="score-label">综合评分/100</span>
+        </div>
+      </div>
+      <div class="portrait-dims">
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">盈利能力</span><span class="dim-score">19/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:95%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">成长潜力</span><span class="dim-score">18/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:90%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">竞争壁垒</span><span class="dim-score">17/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:85%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">研发创新</span><span class="dim-score">19/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:95%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">财务健康</span><span class="dim-score">9/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:90%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">股东回报</span><span class="dim-score">9/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- 三环 -->
+    <div class="portrait-card">
+      <div class="portrait-header">
+        <div class="portrait-info">
+          <h3>🔲 三环集团（300408）</h3>
+          <p>国内MLCC绝对龙头 · 高净利率 · 光纤陶瓷额外护城河</p>
+        </div>
+        <div class="portrait-score">
+          <div class="score-val">85</div>
+          <span class="score-label">综合评分/100</span>
+        </div>
+      </div>
+      <div class="portrait-dims">
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">盈利能力</span><span class="dim-score">20/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:100%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">成长潜力</span><span class="dim-score">16/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:80%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">竞争壁垒</span><span class="dim-score">18/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:90%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">研发创新</span><span class="dim-score">14/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:70%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">财务健康</span><span class="dim-score">9/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:90%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">股东回报</span><span class="dim-score">8/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- 麦捷 -->
+    <div class="portrait-card">
+      <div class="portrait-header">
+        <div class="portrait-info">
+          <h3>📻 麦捷科技（300319）</h3>
+          <p>AI电感新锐 · 细分市场高弹性 · 盈利能力仍需提升</p>
+        </div>
+        <div class="portrait-score">
+          <div class="score-val">68</div>
+          <span class="score-label">综合评分/100</span>
+        </div>
+      </div>
+      <div class="portrait-dims">
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">盈利能力</span><span class="dim-score">12/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:60%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">成长潜力</span><span class="dim-score">17/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:85%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">竞争壁垒</span><span class="dim-score">12/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:60%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">研发创新</span><span class="dim-score">14/20</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:70%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">财务健康</span><span class="dim-score">7/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:70%"></div></div>
+        </div>
+        <div class="dim-item">
+          <div class="dim-top"><span class="dim-name">股东回报</span><span class="dim-score">6/10</span></div>
+          <div class="dim-bar"><div class="dim-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 差异化对比 -->
+<section>
+  <div class="section-title">六、五大企业差异化全景对比</div>
+  <div class="tbl-wrap">
+    <table class="diff-tbl">
+      <thead>
+        <tr>
+          <th>维度</th>
+          <th>顺络电子</th>
+          <th>三环集团</th>
+          <th>风华高科</th>
+          <th>麦捷科技</th>
+          <th>火炬电子</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>核心赛道</strong></td>
+          <td class="good">电感龙头</td>
+          <td class="blue">MLCC龙头</td>
+          <td>全品类</td>
+          <td class="purple">AI电感</td>
+          <td class="orange">军工</td>
+        </tr>
+        <tr>
+          <td><strong>商业模式</strong></td>
+          <td>技术深度绑定客户，嵌入系统设计</td>
+          <td>规模化低成本，高端MLCC垄断</td>
+          <td>国产替代平台，国资兜底</td>
+          <td>细分专精，AI快速切入</td>
+          <td>军工小批量高毛利</td>
+        </tr>
+        <tr>
+          <td><strong>核心护城河</strong></td>
+          <td class="good">860项专利+工艺平台+客户绑定</td>
+          <td class="blue">材料配方+高端工艺壁垒</td>
+          <td>国资+产能规模</td>
+          <td>AI电感细分技术</td>
+          <td>军工资质认证</td>
+        </tr>
+        <tr>
+          <td><strong>主要风险</strong></td>
+          <td>AI需求波动、扩产竞争</td>
+          <td>日系高端降价、扩产节奏</td>
+          <td>毛利率低、增速慢</td>
+          <td>规模偏小、盈利不稳</td>
+          <td>军费预算、体量小</td>
+        </tr>
+        <tr>
+          <td><strong>适合人群</strong></td>
+          <td class="good">成长+价值均衡投资者</td>
+          <td class="blue">价值投资者首选</td>
+          <td>国产替代主题投资者</td>
+          <td>高弹性进取型投资者</td>
+          <td>军工主题投资者</td>
+        </tr>
+        <tr>
+          <td><strong>股息率</strong></td>
+          <td class="good">~2.1%（分红率72%）</td>
+          <td>~1.5%</td>
+          <td>~0.8%</td>
+          <td>~0.5%</td>
+          <td>~1.5%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. 组合配置 -->
+<section>
+  <div class="section-title">七、三种被动元器件组合配置建议</div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card">
+      <h3>🛡️ 保守均衡型</h3>
+      <p class="p-sub">追求稳健成长，兼顾分红，低波动</p>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">顺络电子（002138）</span><span class="alloc-pct">60%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-blue" style="width:60%"></div></div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">三环集团（300408）</span><span class="alloc-pct">40%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-green" style="width:40%"></div></div>
+      </div>
+      <p class="p-expect">预期年化收益：<strong>15~22%</strong>（3年） | 最大回撤：~20%</p>
+    </div>
+    <div class="portfolio-card">
+      <h3>⚖️ 均衡成长型</h3>
+      <p class="p-sub">兼顾确定性与弹性，适合大多数投资者</p>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">顺络电子（002138）</span><span class="alloc-pct">50%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-blue" style="width:50%"></div></div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">三环集团（300408）</span><span class="alloc-pct">30%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-green" style="width:30%"></div></div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">麦捷科技（300319）</span><span class="alloc-pct">20%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-purple" style="width:20%"></div></div>
+      </div>
+      <p class="p-expect">预期年化收益：<strong>18~28%</strong>（3年） | 最大回撤：~28%</p>
+    </div>
+    <div class="portfolio-card">
+      <h3>🚀 进取弹性型</h3>
+      <p class="p-sub">押注AI+汽车最高弹性，承担更高波动</p>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">麦捷科技（300319）</span><span class="alloc-pct">40%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-purple" style="width:40%"></div></div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">顺络电子（002138）</span><span class="alloc-pct">35%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-blue" style="width:35%"></div></div>
+      </div>
+      <div class="alloc-item">
+        <div class="alloc-top"><span class="alloc-name">三环集团（300408）</span><span class="alloc-pct">25%</span></div>
+        <div class="alloc-bar"><div class="alloc-fill fill-green" style="width:25%"></div></div>
+      </div>
+      <p class="p-expect">预期年化收益：<strong>22~38%</strong>（3年） | 最大回撤：~40%</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>本报告为顺络电子研究套装·报告二 | 数据来源：各公司年报、东方财富、集微咨询、华经产业研究院</p>
+  <p style="margin-top:0.5rem">
+    <a href="index.html">报告中心</a>
+    <a href="被动元器件行业深度研究报告2025.html">行业研究</a>
+    <a href="被动元器件股深度财报分析与投资图谱2025.html">全市场扫描（本文）</a>
+    <a href="顺络电子投资分析与交易策略2025.html">顺络电子策略</a>
+  </p>
+  <p style="margin-top:0.5rem; font-size:0.72rem; opacity:0.5">⚠️ 本报告仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+</footer>
+
+</body>
+</html>
