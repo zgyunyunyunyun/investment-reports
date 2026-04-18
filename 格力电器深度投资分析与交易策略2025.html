@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>格力电器深度投资分析与交易策略 2025</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  background: #0d1117; color: #e6edf3; min-height: 100vh; line-height: 1.6;
+}
+
+/* ── Hero ── */
+.hero {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #1a2236 100%);
+  border-bottom: 1px solid #21262d;
+  padding: 40px 20px 32px; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 360px;
+  background: radial-gradient(ellipse, rgba(63,185,80,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(63,185,80,0.12); border: 1px solid rgba(63,185,80,0.3);
+  border-radius: 20px; padding: 4px 14px; font-size: 12px; color: #3fb950;
+  margin-bottom: 14px;
+}
+.hero h1 { font-size: 24px; font-weight: 700; color: #e6edf3; margin-bottom: 6px; letter-spacing: -0.3px; }
+.hero-sub { color: #8b949e; font-size: 13px; margin-bottom: 20px; }
+.hero-meta {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+}
+.meta-item { text-align: center; }
+.meta-val { font-size: 22px; font-weight: 700; color: #e6edf3; display: block; }
+.meta-val.green { color: #3fb950; }
+.meta-val.red   { color: #f85149; }
+.meta-val.amber { color: #d29922; }
+.meta-val.blue  { color: #58a6ff; }
+.meta-label { font-size: 11px; color: #8b949e; margin-top: 2px; }
+
+/* ── 研究流程标 ── */
+.process-nav {
+  background: #161b22; border-bottom: 1px solid #21262d;
+  padding: 12px 20px; overflow-x: auto; white-space: nowrap; text-align: center;
+}
+.process-steps { display: inline-flex; align-items: center; gap: 0; }
+.pstep {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px; border-radius: 7px; font-size: 11px; font-weight: 600;
+  color: #484f58;
+}
+.pstep.done  { background: rgba(63,185,80,0.1);  color: #3fb950; }
+.pstep.active{ background: rgba(240,136,62,0.12); color: #f0883e; }
+.parrow { color: #30363d; margin: 0 3px; font-size: 14px; }
+
+/* ── 容器 ── */
+.container { max-width: 820px; margin: 0 auto; padding: 24px 16px 60px; }
+
+/* ── 章节标题 ── */
+.sec-head {
+  display: flex; align-items: center; gap: 10px; margin: 36px 0 16px;
+}
+.sec-num {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #0d1117;
+}
+.sec-head h2 { font-size: 17px; font-weight: 700; color: #e6edf3; }
+.sec-line { flex: 1; height: 1px; background: #21262d; }
+
+/* ── 评分卡 ── */
+.score-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px;
+  margin-bottom: 16px;
+}
+.score-card {
+  background: #161b22; border: 1px solid #21262d; border-radius: 10px; padding: 14px 16px;
+}
+.score-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.score-label { font-size: 12px; color: #8b949e; }
+.score-val { font-size: 18px; font-weight: 700; }
+.score-bar-bg { height: 4px; background: #21262d; border-radius: 2px; }
+.score-bar { height: 4px; border-radius: 2px; transition: width 0.3s; }
+.score-desc { font-size: 11px; color: #484f58; margin-top: 6px; }
+
+/* ── 通用卡片 ── */
+.card {
+  background: #161b22; border: 1px solid #21262d; border-radius: 12px;
+  padding: 20px; margin-bottom: 12px;
+}
+.card-title {
+  font-size: 14px; font-weight: 600; color: #e6edf3; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title::before {
+  content: ''; width: 3px; height: 14px; border-radius: 2px;
+  background: var(--accent, #58a6ff); flex-shrink: 0;
+}
+
+/* ── 数据表格 ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table th {
+  background: #0d1117; color: #8b949e; font-weight: 600;
+  padding: 9px 12px; text-align: left; font-size: 11px;
+  border-bottom: 1px solid #21262d;
+}
+.data-table td { padding: 9px 12px; border-bottom: 1px solid #161b22; color: #e6edf3; }
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.num-good { color: #3fb950; font-weight: 600; }
+.num-bad  { color: #f85149; }
+.num-mid  { color: #d29922; }
+
+/* ── 估值尺 ── */
+.valuation-bar {
+  background: #0d1117; border-radius: 8px; padding: 16px 20px; margin: 12px 0;
+}
+.vbar-track {
+  position: relative; height: 8px; border-radius: 4px; margin: 20px 0 10px;
+  background: linear-gradient(to right, #3fb950 0%, #d29922 40%, #f85149 100%);
+}
+.vbar-marker {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 16px; height: 16px; border-radius: 50%;
+  background: #e6edf3; border: 2px solid #0d1117;
+  box-shadow: 0 0 0 3px #f0883e;
+}
+.vbar-labels {
+  display: flex; justify-content: space-between; font-size: 10px; color: #484f58;
+}
+.vbar-current {
+  text-align: center; font-size: 13px; font-weight: 700; color: #f0883e; margin-top: 4px;
+}
+
+/* ── 情景卡片 ── */
+.scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.scenario-card {
+  border-radius: 10px; padding: 16px; text-align: center; border: 1px solid transparent;
+}
+.scenario-card.bear { background: rgba(248,81,73,0.07);  border-color: rgba(248,81,73,0.2); }
+.scenario-card.base { background: rgba(88,166,255,0.07); border-color: rgba(88,166,255,0.2); }
+.scenario-card.bull { background: rgba(63,185,80,0.07);  border-color: rgba(63,185,80,0.2); }
+.scenario-label { font-size: 11px; font-weight: 600; margin-bottom: 8px; }
+.scenario-card.bear .scenario-label { color: #f85149; }
+.scenario-card.base .scenario-label { color: #58a6ff; }
+.scenario-card.bull .scenario-label { color: #3fb950; }
+.scenario-price { font-size: 24px; font-weight: 700; color: #e6edf3; }
+.scenario-upside { font-size: 13px; font-weight: 600; margin: 4px 0; }
+.scenario-card.bear .scenario-upside { color: #f85149; }
+.scenario-card.base .scenario-upside { color: #58a6ff; }
+.scenario-card.bull .scenario-upside { color: #3fb950; }
+.scenario-desc { font-size: 11px; color: #8b949e; margin-top: 6px; line-height: 1.5; }
+.scenario-prob {
+  font-size: 10px; color: #484f58; margin-top: 8px;
+  background: rgba(255,255,255,0.04); border-radius: 4px; padding: 2px 6px;
+  display: inline-block;
+}
+
+/* ── 交易策略卡 ── */
+.strategy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.strategy-card {
+  border-radius: 12px; padding: 18px; border: 1px solid transparent;
+}
+.strategy-card.buy  { background: rgba(63,185,80,0.07);  border-color: rgba(63,185,80,0.25); }
+.strategy-card.hold { background: rgba(88,166,255,0.07); border-color: rgba(88,166,255,0.25); }
+.strategy-card.sell { background: rgba(248,81,73,0.07);  border-color: rgba(248,81,73,0.25); }
+.strategy-icon { font-size: 26px; margin-bottom: 10px; }
+.strategy-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+.strategy-card.buy  .strategy-title { color: #3fb950; }
+.strategy-card.hold .strategy-title { color: #58a6ff; }
+.strategy-card.sell .strategy-title { color: #f85149; }
+.strategy-list { list-style: none; }
+.strategy-list li {
+  font-size: 12.5px; color: #8b949e; padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; align-items: flex-start; gap: 8px;
+}
+.strategy-list li:last-child { border-bottom: none; }
+.strategy-list li::before {
+  content: '›'; font-size: 14px; flex-shrink: 0; margin-top: 0px;
+}
+.strategy-card.buy  .strategy-list li::before { color: #3fb950; }
+.strategy-card.hold .strategy-list li::before { color: #58a6ff; }
+.strategy-card.sell .strategy-list li::before { color: #f85149; }
+
+/* ── 催化剂 ── */
+.catalyst-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.catalyst-box { background: #0d1117; border-radius: 8px; padding: 14px; }
+.catalyst-box h4 { font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+.catalyst-box.pos h4 { color: #3fb950; }
+.catalyst-box.neg h4 { color: #f85149; }
+.catalyst-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 12px; color: #8b949e; padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.catalyst-item:last-child { border-bottom: none; }
+.ci-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.catalyst-box.pos .ci-dot { background: #3fb950; }
+.catalyst-box.neg .ci-dot { background: #f85149; }
+
+/* ── 巴菲特评分 ── */
+.bf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.bf-item {
+  background: #0d1117; border-radius: 8px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.bf-score-circle {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; flex-shrink: 0;
+  border: 2px solid transparent;
+}
+.bf-score-circle.high { background: rgba(63,185,80,0.15);  border-color: rgba(63,185,80,0.4);  color: #3fb950; }
+.bf-score-circle.mid  { background: rgba(210,153,34,0.15); border-color: rgba(210,153,34,0.4); color: #d29922; }
+.bf-score-circle.low  { background: rgba(248,81,73,0.15);  border-color: rgba(248,81,73,0.4);  color: #f85149; }
+.bf-item-body { flex: 1; }
+.bf-item-name { font-size: 12px; font-weight: 600; color: #e6edf3; }
+.bf-item-desc { font-size: 11px; color: #8b949e; margin-top: 2px; }
+
+/* ── 公司 vs 竞争对手 ── */
+.compare-row td:first-child { color: #8b949e; font-size: 11px; }
+.compare-row td { padding: 8px 12px !important; }
+.best { background: rgba(63,185,80,0.08) !important; }
+.mid-val { background: rgba(210,153,34,0.06) !important; }
+
+/* ── 风险评分 ── */
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.risk-item {
+  background: #0d1117; border-radius: 8px; padding: 12px 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.risk-bar-wrap { flex: 1; }
+.risk-name { font-size: 12px; color: #e6edf3; margin-bottom: 5px; }
+.risk-bar-bg { height: 5px; background: #21262d; border-radius: 3px; }
+.risk-bar-fill { height: 5px; border-radius: 3px; }
+.risk-level { font-size: 11px; color: #8b949e; margin-top: 4px; }
+
+/* ── 信息 pill ── */
+.info-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.info-pill {
+  background: rgba(255,255,255,0.04); border: 1px solid #30363d;
+  border-radius: 6px; padding: 4px 10px; font-size: 11.5px; color: #8b949e;
+}
+.info-pill span { color: #e6edf3; font-weight: 600; }
+
+/* ── 结论 Banner ── */
+.verdict-banner {
+  background: linear-gradient(135deg, rgba(63,185,80,0.1), rgba(63,185,80,0.05));
+  border: 1px solid rgba(63,185,80,0.3); border-radius: 12px;
+  padding: 20px; margin: 24px 0; text-align: center;
+}
+.verdict-rating { font-size: 32px; font-weight: 800; color: #3fb950; margin-bottom: 6px; }
+.verdict-sub { font-size: 14px; color: #8b949e; line-height: 1.7; }
+.verdict-sub strong { color: #e6edf3; }
+
+/* ── 底部 ── */
+.footer {
+  text-align: center; padding: 24px 20px; border-top: 1px solid #21262d;
+  color: #484f58; font-size: 11.5px; line-height: 1.9;
+}
+.footer a { color: #58a6ff; text-decoration: none; }
+
+@media (max-width: 580px) {
+  .scenario-grid   { grid-template-columns: 1fr; }
+  .catalyst-grid   { grid-template-columns: 1fr; }
+  .bf-grid         { grid-template-columns: 1fr; }
+  .risk-grid       { grid-template-columns: 1fr; }
+  .strategy-grid   { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">🏭 格力电器 · 000651 · 深度投资报告</div>
+  <h1>格力电器：价值重估还是价值陷阱？</h1>
+  <p class="hero-sub">基于2024年报最新数据 · 五种估值法交叉验证 · 完整交易策略</p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-val">¥37.0</span>
+      <div class="meta-label">当前股价</div>
+    </div>
+    <div class="meta-item">
+      <span class="meta-val amber">PB 1.43×</span>
+      <div class="meta-label">近5年0.8%分位</div>
+    </div>
+    <div class="meta-item">
+      <span class="meta-val amber">PE 6.53×</span>
+      <div class="meta-label">近5年8.6%分位</div>
+    </div>
+    <div class="meta-item">
+      <span class="meta-val green">6.4%</span>
+      <div class="meta-label">股息率</div>
+    </div>
+    <div class="meta-item">
+      <span class="meta-val">ROE 25%</span>
+      <div class="meta-label">2024年净资产收益率</div>
+    </div>
+    <div class="meta-item">
+      <span class="meta-val">2,060亿</span>
+      <div class="meta-label">总市值</div>
+    </div>
+  </div>
+</div>
+
+<!-- 研究流程 -->
+<div class="process-nav">
+  <div class="process-steps">
+    <div class="pstep done">✅ Step1 理念校验</div>
+    <div class="parrow">→</div>
+    <div class="pstep done">✅ Step2 行业深研</div>
+    <div class="parrow">→</div>
+    <div class="pstep done">✅ Step3 全市场扫描</div>
+    <div class="parrow">→</div>
+    <div class="pstep active">🎯 Step4 个股+策略</div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ── STEP 1：理念校验 ── -->
+<div class="sec-head">
+  <div class="sec-num" style="background:#3fb950">1</div>
+  <h2>Step 1 · 理念校验：巴菲特六条法则评分</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="verdict-banner" style="background:linear-gradient(135deg,rgba(210,153,34,0.1),rgba(210,153,34,0.05));border-color:rgba(210,153,34,0.35)">
+  <div class="verdict-rating" style="color:#d29922">综合评分：76 / 100</div>
+  <div class="verdict-sub">
+    <strong>结论：值得深入研究</strong><br>
+    ROE高达25%、护城河清晰（品牌+技术+渠道）、盈利质量优秀。核心隐忧：营收连续两年下滑、多元化进展缓慢、依赖单一品类（空调占78%）。
+  </div>
+</div>
+
+<div class="bf-grid">
+  <div class="bf-item">
+    <div class="bf-score-circle high">18</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">ROE 持续性（20分）</div>
+      <div class="bf-item-desc">近5年ROE均值约23%，2024年25.42%，连续高位。极为突出，超越行业均值一倍以上。</div>
+    </div>
+  </div>
+  <div class="bf-item">
+    <div class="bf-score-circle high">13</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">净利润率（15分）</div>
+      <div class="bf-item-desc">净利率约17%，远高于美的(9.5%)和海尔(6.85%)，体现高端定价权和成本管控能力。</div>
+    </div>
+  </div>
+  <div class="bf-item">
+    <div class="bf-score-circle high">20</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">护城河类型（25分）</div>
+      <div class="bf-item-desc">品牌价值1882亿(行业第一)、6959项发明专利、线下渠道网络，三重护城河叠加。</div>
+    </div>
+  </div>
+  <div class="bf-item">
+    <div class="bf-score-circle mid">10</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">管理层质量（15分）</div>
+      <div class="bf-item-desc">董明珠积极增持（+4500万股），5年累计分红超600亿元。但接班人不明确，强人风险显著。</div>
+    </div>
+  </div>
+  <div class="bf-item">
+    <div class="bf-score-circle high">12</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">竞争格局（15分）</div>
+      <div class="bf-item-desc">空调双寡头CR2达57%，格力单品牌线上25%第一，竞争格局稳定，小米等新进者线下极弱。</div>
+    </div>
+  </div>
+  <div class="bf-item">
+    <div class="bf-score-circle low">3</div>
+    <div class="bf-item-body">
+      <div class="bf-item-name">长期增长空间（10分）</div>
+      <div class="bf-item-desc">国内空调渗透率高、市场趋于饱和；出口爆发(+40%)是亮点但出海品牌力弱；多元化进展缓慢。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 段永平四问 -->
+<div class="card" style="--accent:#d29922; margin-top:12px">
+  <div class="card-title">段永平商业模式四问</div>
+  <table class="data-table">
+    <tr>
+      <th style="width:28%">问题</th>
+      <th>格力电器的答案</th>
+    </tr>
+    <tr>
+      <td>这家公司的生意是什么？</td>
+      <td>空调为核心（78%营收），延伸至生活电器、工业品、绿色能源。本质是制造业+品牌溢价的结合体。</td>
+    </tr>
+    <tr>
+      <td>为什么客户选它而不选竞争对手？</td>
+      <td>品牌信任（"好空调，格力造"20年积累）、经销商体系深入下沉市场、核心压缩机技术自研。</td>
+    </tr>
+    <tr>
+      <td>10年后这家公司会比现在更强吗？</td>
+      <td>❓<strong>存疑</strong>。空调主业天花板逼近，多元化（手机、汽车、绿能）尚未突破，出口是最大变量。</td>
+    </tr>
+    <tr>
+      <td>管理层会替股东着想吗？</td>
+      <td>✅ <strong>是</strong>。上市以来累计分红1253亿元，分红率高，董明珠持续增持，行为与股东利益一致。</td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- ── STEP 2：行业深研 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#bc8cff">2</div>
+  <h2>Step 2 · 行业深研：中国空调行业2024</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="card" style="--accent:#bc8cff">
+  <div class="card-title">行业核心数据快照（2024年）</div>
+  <div class="info-row">
+    <div class="info-pill">全国产量 <span>19,508万台 +19.5%</span></div>
+    <div class="info-pill">内销 <span>10,200万台（首破亿台）</span></div>
+    <div class="info-pill">出口 <span>9,326万台 +40.4%（近十年最高）</span></div>
+    <div class="info-pill">出口金额 <span>206亿美元（首破200亿）</span></div>
+    <div class="info-pill">CR2市占率 <span>57%（格力+美的）</span></div>
+    <div class="info-pill">全球产量占比 <span>80%+</span></div>
+  </div>
+</div>
+
+<div class="card" style="--accent:#bc8cff; margin-top:10px">
+  <div class="card-title">竞争格局：双寡头 + 小米搅局</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>企业</th><th>线上份额</th><th>线下份额</th><th>净利率</th><th>核心优势</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="compare-row best">
+        <td>格力电器</td>
+        <td class="num-good">25.4%（单品牌第一）</td>
+        <td>第二</td>
+        <td class="num-good">~17%（最高）</td>
+        <td>品牌+技术+线下渠道</td>
+      </tr>
+      <tr class="compare-row">
+        <td>美的集团</td>
+        <td>33.2%（多品牌合并）</td>
+        <td>第一</td>
+        <td>9.5%</td>
+        <td>多元化+规模+出海</td>
+      </tr>
+      <tr class="compare-row">
+        <td>海尔智家</td>
+        <td>前五</td>
+        <td>前五</td>
+        <td>6.85%</td>
+        <td>全球化（海外50%）</td>
+      </tr>
+      <tr class="compare-row">
+        <td>小米空调</td>
+        <td class="num-mid">11.8%（线上第三）</td>
+        <td class="num-bad">0.08%（极弱）</td>
+        <td>低</td>
+        <td>互联网生态+低价</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" style="--accent:#bc8cff; margin-top:10px">
+  <div class="card-title">行业关键结构性趋势</div>
+  <table class="data-table">
+    <tr><th>趋势</th><th>影响</th><th>格力受益程度</th></tr>
+    <tr>
+      <td>出口爆发（+40%，近10年最强）</td>
+      <td>新增市场空间，缓解内卷</td>
+      <td class="num-mid">中等（出海品牌弱于美的）</td>
+    </tr>
+    <tr>
+      <td>内销量升价跌（均价-2.5%）</td>
+      <td>收入压力，需靠高端化对冲</td>
+      <td class="num-bad">负面（营收已-7.3%）</td>
+    </tr>
+    <tr>
+      <td>渠道变革（线下→线上）</td>
+      <td>线下优势受侵蚀</td>
+      <td class="num-mid">中性（正在转型"健康家"门店）</td>
+    </tr>
+    <tr>
+      <td>以旧换新政策刺激</td>
+      <td>国内更换需求集中释放</td>
+      <td class="num-good">正面（第一品牌受益最大）</td>
+    </tr>
+    <tr>
+      <td>双碳目标/高效空调政策</td>
+      <td>技术门槛提升，利好龙头</td>
+      <td class="num-good">正面（专利技术护城河加深）</td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- ── STEP 3：全市场扫描 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#58a6ff">3</div>
+  <h2>Step 3 · 全市场扫描：白电三巨头横向对比</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="card" style="--accent:#58a6ff">
+  <div class="card-title">2024年报核心财务对比</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>指标</th><th>格力电器</th><th>美的集团</th><th>海尔智家</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>营业收入</td>
+        <td class="num-bad">1,891亿元 (-7.3%)</td>
+        <td class="num-good">4,091亿元 (+9.4%)</td>
+        <td>2,860亿元 (+4.3%)</td>
+      </tr>
+      <tr>
+        <td>归母净利润</td>
+        <td class="num-good">321.85亿元 (+10.9%)</td>
+        <td class="num-good">385.37亿元 (+14.3%)</td>
+        <td>187.41亿元 (+12.9%)</td>
+      </tr>
+      <tr>
+        <td>净利率</td>
+        <td class="num-good">~17%（最高）</td>
+        <td>9.5%</td>
+        <td>6.85%</td>
+      </tr>
+      <tr>
+        <td>ROE</td>
+        <td class="num-good">25.42%（最高）</td>
+        <td>~24%</td>
+        <td>~14%</td>
+      </tr>
+      <tr>
+        <td>PE（TTM）</td>
+        <td class="num-good">6.53×（最低）</td>
+        <td>13.5×</td>
+        <td>10.0×</td>
+      </tr>
+      <tr>
+        <td>PB</td>
+        <td class="num-good">1.43×（最低）</td>
+        <td>~3.5×</td>
+        <td>~1.65×</td>
+      </tr>
+      <tr>
+        <td>股息率</td>
+        <td class="num-good">~6.4%（最高）</td>
+        <td>~3.5%</td>
+        <td>~2.5%</td>
+      </tr>
+      <tr>
+        <td>海外收入占比</td>
+        <td class="num-bad">~15%（最低）</td>
+        <td>~40%</td>
+        <td>~50%（最高）</td>
+      </tr>
+      <tr>
+        <td>单一品类依赖</td>
+        <td class="num-bad">空调78%（最集中）</td>
+        <td>多元化</td>
+        <td>多元化</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card" style="--accent:#58a6ff; margin-top:10px">
+  <div class="card-title">PB-ROE 四象限定位</div>
+  <div style="padding:16px 0; text-align:center">
+    <div style="display:inline-grid; grid-template-columns:1fr 1fr; gap:2px; width:320px; max-width:100%">
+      <div style="background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.15);border-radius:8px 0 0 0;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:8px">高ROE · 低PB</div>
+        <div style="font-size:13px;font-weight:700;color:#3fb950">⭐ 最佳区间</div>
+        <div style="font-size:12px;color:#e6edf3;margin-top:6px">格力电器</div>
+        <div style="font-size:11px;color:#8b949e">ROE25% · PB1.43×</div>
+      </div>
+      <div style="background:rgba(88,166,255,0.04);border:1px solid #21262d;border-radius:0 8px 0 0;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:8px">高ROE · 高PB</div>
+        <div style="font-size:13px;font-weight:600;color:#58a6ff">合理估值区</div>
+        <div style="font-size:12px;color:#e6edf3;margin-top:6px">美的集团</div>
+        <div style="font-size:11px;color:#8b949e">ROE24% · PB3.5×</div>
+      </div>
+      <div style="background:rgba(248,81,73,0.04);border:1px solid #21262d;border-radius:0 0 0 8px;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:8px">低ROE · 低PB</div>
+        <div style="font-size:13px;font-weight:600;color:#484f58">价值陷阱区</div>
+        <div style="font-size:12px;color:#e6edf3;margin-top:6px">—</div>
+        <div style="font-size:11px;color:#8b949e">ROE低 · 低估值</div>
+      </div>
+      <div style="background:rgba(248,81,73,0.04);border:1px solid #21262d;border-radius:0 0 8px 0;padding:16px;text-align:center">
+        <div style="font-size:11px;color:#8b949e;margin-bottom:8px">低ROE · 高PB</div>
+        <div style="font-size:13px;font-weight:600;color:#f85149">高估区</div>
+        <div style="font-size:12px;color:#e6edf3;margin-top:6px">海尔智家</div>
+        <div style="font-size:11px;color:#8b949e">ROE14% · PB1.65×</div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:#484f58;margin-top:10px">格力处于"高ROE×低PB"最佳象限，是三者中估值最具性价比的标的</div>
+  </div>
+</div>
+
+
+<!-- ── STEP 4：个股深度 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#f0883e">4</div>
+  <h2>Step 4 · 个股深度：财务历史趋势</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="card" style="--accent:#f0883e">
+  <div class="card-title">近5年核心财务数据（2020-2024）</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>年份</th><th>营收（亿）</th><th>净利润（亿）</th><th>净利率</th><th>ROE</th><th>EPS</th><th>每股分红</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2020</td>
+        <td>1,704</td>
+        <td>221.8</td>
+        <td>13.0%</td>
+        <td class="num-good">18.5%</td>
+        <td>3.73元</td>
+        <td>1.20元</td>
+      </tr>
+      <tr>
+        <td>2021</td>
+        <td>1,896</td>
+        <td>230.6</td>
+        <td>12.2%</td>
+        <td class="num-good">19.0%</td>
+        <td>3.97元</td>
+        <td>3.00元</td>
+      </tr>
+      <tr>
+        <td>2022</td>
+        <td>1,892</td>
+        <td>245.1</td>
+        <td>13.0%</td>
+        <td class="num-good">21.0%</td>
+        <td>4.32元</td>
+        <td>2.00元</td>
+      </tr>
+      <tr>
+        <td>2023</td>
+        <td>2,040</td>
+        <td>293.0</td>
+        <td>14.4%</td>
+        <td class="num-good">23.5%</td>
+        <td>5.19元</td>
+        <td>2.00元</td>
+      </tr>
+      <tr style="background:rgba(240,136,62,0.04)">
+        <td><strong>2024</strong></td>
+        <td class="num-bad"><strong>1,892</strong>（-7.3%）</td>
+        <td class="num-good"><strong>321.9</strong>（+10.9%）</td>
+        <td class="num-good"><strong>~17%</strong></td>
+        <td class="num-good"><strong>25.4%</strong></td>
+        <td><strong>5.83元</strong></td>
+        <td class="num-good"><strong>2.38元</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:10px;font-size:12px;color:#8b949e">
+    ⚠️ 关键矛盾：2024年营收同比-7.3%（渠道改革阵痛+竞争），但净利润逆势+10.9%，净利率创5年新高。<br>
+    说明：格力通过提升产品结构、压缩费用、改善混合所有制来提升盈利质量，是真实的"以利润换营收"战略。
+  </div>
+</div>
+
+<div class="card" style="--accent:#f0883e; margin-top:10px">
+  <div class="card-title">业务结构拆解（2024年）</div>
+  <table class="data-table">
+    <thead><tr><th>业务板块</th><th>营收</th><th>占比</th><th>趋势判断</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>🌡️ 空调业务（核心）</td>
+        <td>1,485.6亿元</td>
+        <td class="num-mid">78.54%</td>
+        <td>国内饱和但出口爆发，护城河稳固</td>
+      </tr>
+      <tr>
+        <td>🏠 生活电器</td>
+        <td>172.5亿元</td>
+        <td>9.12%</td>
+        <td>格局分散，竞争激烈，难突破</td>
+      </tr>
+      <tr>
+        <td>⚡ 绿色能源（光伏/储能）</td>
+        <td>约100亿元</td>
+        <td>~5%</td>
+        <td>战略新增长点，但规模尚小</td>
+      </tr>
+      <tr>
+        <td>🔧 工业品及其他</td>
+        <td>134亿元</td>
+        <td>~7%</td>
+        <td>稳定贡献，非核心</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ── 估值定位 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#d29922">5</div>
+  <h2>Step 4 · 估值定位：五种方法交叉验证</h2>
+  <div class="sec-line"></div>
+</div>
+
+<!-- PB尺 -->
+<div class="card" style="--accent:#d29922">
+  <div class="card-title">PB历史分位可视化（近5年）</div>
+  <div class="valuation-bar">
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:#8b949e;margin-bottom:4px">
+      <span>极度低估</span><span>低估</span><span>合理</span><span>高估</span><span>极度高估</span>
+    </div>
+    <div class="vbar-track">
+      <!-- 当前PB1.43，近5年0.8%分位，标记在最左侧 -->
+      <div class="vbar-marker" style="left:5%"></div>
+    </div>
+    <div class="vbar-labels">
+      <span>1.42× 历史最低</span>
+      <span>1.91× 历史均值</span>
+      <span>3.24× 历史最高</span>
+    </div>
+    <div class="vbar-current">当前 PB 1.43× · 近5年 0.8% 分位 · 历史极低</div>
+  </div>
+</div>
+
+<!-- PE尺 -->
+<div class="card" style="--accent:#d29922; margin-top:10px">
+  <div class="card-title">PE历史分位可视化（近5年）</div>
+  <div class="valuation-bar">
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:#8b949e;margin-bottom:4px">
+      <span>极度低估</span><span>低估</span><span>合理</span><span>高估</span><span>极度高估</span>
+    </div>
+    <div class="vbar-track">
+      <div class="vbar-marker" style="left:12%"></div>
+    </div>
+    <div class="vbar-labels">
+      <span>5.71× 历史最低</span>
+      <span>7.92× 历史均值</span>
+      <span>15.22× 历史最高</span>
+    </div>
+    <div class="vbar-current">当前 PE 6.53× · 近5年 8.6% 分位 · 历史低位</div>
+  </div>
+</div>
+
+<!-- 五种估值法 -->
+<div class="card" style="--accent:#d29922; margin-top:10px">
+  <div class="card-title">五种估值法交叉验证</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>估值方法</th><th>计算依据</th><th>估算内在价值</th><th>当前安全边际</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>① PB历史均值法</td>
+        <td>BPS≈25.9元 × 均值PB 1.91×</td>
+        <td class="num-good">49.5元</td>
+        <td class="num-good">+33.8%</td>
+      </tr>
+      <tr>
+        <td>② PB-ROE法</td>
+        <td>ROE25% ÷ 要求回报率10% = PB 2.5× → 价值≈65元<br>保守用12% → PB 2.08× → 53.9元</td>
+        <td class="num-good">54~65元</td>
+        <td class="num-good">+46%~+76%</td>
+      </tr>
+      <tr>
+        <td>③ PE历史均值法</td>
+        <td>EPS 5.83元 × 均值PE 7.92×</td>
+        <td class="num-good">46.2元</td>
+        <td class="num-good">+24.9%</td>
+      </tr>
+      <tr>
+        <td>④ DDM股息折现</td>
+        <td>股息2.38元 × (1+3%) ÷ (8%-3%)</td>
+        <td class="num-good">49.1元</td>
+        <td class="num-good">+32.7%</td>
+      </tr>
+      <tr>
+        <td>⑤ 机构目标价均值</td>
+        <td>15家机构（14家买入/增持），目标价均值</td>
+        <td class="num-good">52~54元</td>
+        <td class="num-good">+40%~+46%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="margin-top:14px;background:#0d1117;border-radius:8px;padding:14px">
+    <div style="font-size:12px;color:#8b949e;margin-bottom:8px">综合内在价值区间（五法中位数）</div>
+    <div style="font-size:28px;font-weight:800;color:#d29922">46 ~ 55元</div>
+    <div style="font-size:12px;color:#8b949e;margin-top:4px">当前股价约37元，处于内在价值下方 <span style="color:#3fb950;font-weight:600">20~32%</span> 的低估区间</div>
+  </div>
+</div>
+
+<!-- 安全边际 -->
+<div class="card" style="--accent:#3fb950; margin-top:10px">
+  <div class="card-title">安全边际量化（基于内在价值中枢50元）</div>
+  <table class="data-table">
+    <thead><tr><th>区间</th><th>价格区间</th><th>操作信号</th><th>当前状态</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>极度低估（强烈买入）</td>
+        <td>< 32.5元（内在价值×0.65）</td>
+        <td class="num-good">重仓买入</td>
+        <td>—</td>
+      </tr>
+      <tr style="background:rgba(63,185,80,0.05)">
+        <td>低估（可买入）</td>
+        <td>32.5 ~ 40元（×0.65~0.80）</td>
+        <td class="num-good">分批买入</td>
+        <td class="num-good">✅ 当前37元在此区间</td>
+      </tr>
+      <tr>
+        <td>合理（持有）</td>
+        <td>40 ~ 50元（×0.80~1.00）</td>
+        <td>持有不加仓</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>溢价（观望）</td>
+        <td>50 ~ 60元（×1.00~1.20）</td>
+        <td class="num-mid">减仓1/3</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>高估（减仓）</td>
+        <td>> 60元（×1.20+）</td>
+        <td class="num-bad">大幅减仓</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- ── 情景分析 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#f0883e">6</div>
+  <h2>三年情景上涨空间测算</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="scenario-grid">
+  <div class="scenario-card bear">
+    <div class="scenario-label">😟 悲观情景</div>
+    <div class="scenario-price">30元</div>
+    <div class="scenario-upside">-18.9%</div>
+    <div class="scenario-desc">营收持续萎缩，多元化彻底失败，ROE降至15%以下，PE维持5~6×低位，估值继续受压。</div>
+    <div class="scenario-prob">概率 20%</div>
+  </div>
+  <div class="scenario-card base">
+    <div class="scenario-label">📊 基准情景</div>
+    <div class="scenario-price">50元</div>
+    <div class="scenario-upside">+35.1%</div>
+    <div class="scenario-desc">营收企稳回升，ROE维持22%+，PE回归历史均值7.9×，股息+资本增值总回报约45%。</div>
+    <div class="scenario-prob">概率 55%</div>
+  </div>
+  <div class="scenario-card bull">
+    <div class="scenario-label">🚀 乐观情景</div>
+    <div class="scenario-price">65元</div>
+    <div class="scenario-upside">+75.7%</div>
+    <div class="scenario-desc">出口市场突破+国内以旧换新政策持续发力，ROE提升，PE修复至10×，品牌溢价重回高位。</div>
+    <div class="scenario-prob">概率 25%</div>
+  </div>
+</div>
+<div style="margin-top:10px;font-size:12px;color:#8b949e;text-align:center">
+  预期价值（概率加权）：0.2×30 + 0.55×50 + 0.25×65 = <strong style="color:#d29922">49.75元</strong>，较当前隐含约 <strong style="color:#3fb950">+34%</strong> 上涨空间（3年维度，不含股息）
+</div>
+
+
+<!-- ── 催化剂 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#58a6ff">7</div>
+  <h2>催化剂清单</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="catalyst-grid">
+  <div class="catalyst-box pos">
+    <h4>✅ 正面催化剂（6项）</h4>
+    <div class="catalyst-item"><div class="ci-dot"></div>出口市场继续爆发，格力出海品牌力建设突破</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>国内"以旧换新"政策延续，刺激存量替换需求</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>渠道改革完成，营收重回增长轨道</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>绿色能源/储能业务规模化突破，打开新增量</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>分红进一步提升（2024年已+19%），股息率吸引力增强</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>管理层增持+回购，稳定市场信心，PE估值修复</div>
+  </div>
+  <div class="catalyst-box neg">
+    <h4>⚠️ 负面催化剂（5项）</h4>
+    <div class="catalyst-item"><div class="ci-dot"></div>营收连续下滑，市场担忧基本面持续恶化</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>美的/小米等竞争加剧，价格战侵蚀利润</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>董明珠退休或接班人风险，管理层稳定性存疑</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>多元化屡次受阻（手机/汽车），战略执行力存疑</div>
+    <div class="catalyst-item"><div class="ci-dot"></div>宏观消费疲软，地产深度下行拖累家电需求</div>
+  </div>
+</div>
+
+
+<!-- ── 完整交易策略 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#3fb950">8</div>
+  <h2>完整交易策略</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="strategy-grid">
+  <div class="strategy-card buy">
+    <div class="strategy-icon">🟢</div>
+    <div class="strategy-title">买入策略</div>
+    <ul class="strategy-list">
+      <li><strong>第一批（30%仓位）</strong><br>35~39元区间，当前价附近。PE &lt; 7×，股息率 &gt; 6%</li>
+      <li><strong>第二批（20%仓位）</strong><br>下跌至31~35元时加仓，对应PE约5.5×，接近历史极值</li>
+      <li><strong>第三批（20%仓位）</strong><br>下跌至28~31元极端低估区，重仓。此时股息率逼近8%</li>
+      <li>总建仓上限70%，保留30%应对更极端情况</li>
+    </ul>
+  </div>
+  <div class="strategy-card hold">
+    <div class="strategy-icon">🔵</div>
+    <div class="strategy-title">持有条件</div>
+    <ul class="strategy-list">
+      <li>ROE保持在 20% 以上（近5年均值）</li>
+      <li>空调核心业务市占率未被显著侵蚀</li>
+      <li>分红政策持续稳定或增长</li>
+      <li>PE低于历史均值 7.9× 时不减仓</li>
+      <li>营收下滑但净利润稳健（可接受）</li>
+    </ul>
+  </div>
+  <div class="strategy-card sell">
+    <div class="strategy-icon">🔴</div>
+    <div class="strategy-title">卖出信号</div>
+    <ul class="strategy-list">
+      <li><strong>部分减仓（-30%）</strong><br>股价达到50~55元，PE超9×，接近历史均值</li>
+      <li><strong>大幅减仓（-50%）</strong><br>股价突破60~65元，PB超2.5×</li>
+      <li><strong>清仓信号</strong><br>ROE连续3年 &lt; 15%，或空调市占率大幅下滑，或董明珠离任引发管理层动荡</li>
+      <li>发现更优质高ROE低估值替代标的</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 核心逻辑小结 -->
+<div class="card" style="margin-top:16px; --accent:#d29922">
+  <div class="card-title">📌 投资核心逻辑（一句话）</div>
+  <div style="font-size:14px;color:#e6edf3;line-height:1.8;padding:4px 0">
+    格力是一家<strong>ROE持续25%+、股息率6.4%、净利率行业最高</strong>的优质制造业龙头，当前估值（PB1.43×）处于近5年历史0.8%极低分位，市场因营收下滑而过度悲观——
+    只要空调护城河不被实质性破坏，当前价格买入持有3年的<strong>预期回报超40%（含股息）</strong>，是典型的"用便宜的价格买优质公司"机会。
+    核心风险是：多元化失败导致长期增长故事彻底破灭，以及管理层接班不确定性。
+  </div>
+</div>
+
+
+<!-- ── 风险评分 ── -->
+<div class="sec-head" style="margin-top:44px">
+  <div class="sec-num" style="background:#f85149">9</div>
+  <h2>风险评分矩阵</h2>
+  <div class="sec-line"></div>
+</div>
+
+<div class="risk-grid">
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">营收持续下滑风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:70%;background:#d29922"></div></div>
+      <div class="risk-level">⚠️ 中高风险 · 70 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">竞争格局恶化风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:50%;background:#d29922"></div></div>
+      <div class="risk-level">📊 中等风险 · 50 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">管理层接班人风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:65%;background:#f85149"></div></div>
+      <div class="risk-level">⚠️ 中高风险 · 65 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">多元化失败风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:60%;background:#d29922"></div></div>
+      <div class="risk-level">⚠️ 中等风险 · 60 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">宏观消费疲软风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:45%;background:#d29922"></div></div>
+      <div class="risk-level">📊 中等风险 · 45 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">护城河实质性受损</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:25%;background:#3fb950"></div></div>
+      <div class="risk-level">✅ 低风险 · 25 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">分红削减风险</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:20%;background:#3fb950"></div></div>
+      <div class="risk-level">✅ 低风险 · 20 / 100</div>
+    </div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-bar-wrap">
+      <div class="risk-name">出口受阻（贸易摩擦）</div>
+      <div class="risk-bar-bg"><div class="risk-bar-fill" style="width:40%;background:#d29922"></div></div>
+      <div class="risk-level">📊 中等风险 · 40 / 100</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 最终结论 -->
+<div class="verdict-banner" style="margin-top:36px">
+  <div class="verdict-rating">⭐ 低估买入</div>
+  <div class="verdict-sub">
+    当前股价 <strong>约37元</strong>，处于内在价值（46~55元）下方约 <strong>25%</strong><br>
+    三年预期回报（含股息）约 <strong>+45%~+60%</strong> · 14/15家机构正面评级<br>
+    建议分批建仓：<strong>35~39元第一批（30%），下跌至32元以下加仓</strong><br>
+    目标价：<strong>50元（基准）/ 65元（乐观）</strong> · 止损参考：<strong>28元（PE破5×）</strong>
+  </div>
+</div>
+
+</div><!-- container end -->
+
+<div class="footer">
+  <strong>格力电器深度投资分析与交易策略 2025</strong><br>
+  数据来源：格力电器2024年年报、同花顺、东方财富、理杏仁、奥维云网、前瞻产业研究院、各券商研报<br>
+  数据截止：2025年4月 · 以上内容仅供研究参考，不构成投资建议<br>
+  <a href="index.html">← 返回报告中心</a>
+</div>
+
+</body>
+</html>
