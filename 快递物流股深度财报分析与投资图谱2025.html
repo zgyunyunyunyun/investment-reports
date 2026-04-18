@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>快递物流股深度财报分析与投资图谱 2025</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --surface3: #30363d;
+  --primary: #58a6ff;
+  --accent: #79c0ff;
+  --accent2: #ff6b35;
+  --text: #e6edf3;
+  --text2: #b1bac4;
+  --text3: #8b949e;
+  --border: #30363d;
+  --green: #3fb950;
+  --red: #f85149;
+  --yellow: #d29922;
+  --purple: #bc8cff;
+  --card-shadow: 0 2px 16px rgba(0,0,0,0.4);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; font-size: 15px; line-height: 1.7; }
+
+.nav { background: #161b22; border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+.nav-brand { color: var(--accent2); font-weight: 700; font-size: 16px; text-decoration: none; }
+.nav-sep { color: var(--text3); }
+.nav-link { color: var(--text2); font-size: 13px; text-decoration: none; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; }
+.nav-link:hover, .nav-link.active { background: var(--surface3); color: var(--text); }
+.nav-tag { background: var(--accent2); color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 10px; margin-left: 4px; }
+
+.hero { background: linear-gradient(135deg,#161b22 0%,#0d1117 100%); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%,rgba(255,107,53,0.08) 0%,transparent 60%),radial-gradient(ellipse at 70% 30%,rgba(88,166,255,0.06) 0%,transparent 55%); pointer-events: none; }
+.hero-badge { display: inline-block; background: rgba(255,107,53,0.1); border: 1px solid rgba(255,107,53,0.3); color: var(--accent2); padding: 6px 18px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-bottom: 16px; }
+.hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(90deg,#ff6b35,#58a6ff,#3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-sub { font-size: 1rem; color: var(--text2); margin-bottom: 32px; }
+.hero-kpi { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.kpi-card { background: var(--surface); border: 1px solid var(--border); padding: 16px 22px; border-radius: 12px; min-width: 140px; }
+.kpi-val { font-size: 1.7rem; font-weight: 800; color: var(--accent2); }
+.kpi-label { font-size: 11px; color: var(--text3); margin-top: 4px; }
+.kpi-change { font-size: 12px; color: var(--green); margin-top: 2px; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 48px 0; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+.section-num { background: var(--accent2); color: #fff; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.section-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+.section-desc { color: var(--text3); font-size: 13px; margin-left: auto; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--card-shadow); }
+.card-title { font-size: 0.95rem; font-weight: 700; color: var(--accent2); margin-bottom: 10px; }
+
+.table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { background: var(--surface2); color: var(--accent2); padding: 12px 16px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--border); }
+td { padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--border); color: var(--text2); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface2); }
+.tag-green { background: rgba(63,185,80,0.15); color: var(--green); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.tag-red { background: rgba(248,81,73,0.15); color: var(--red); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.tag-blue { background: rgba(88,166,255,0.15); color: var(--primary); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+.tag-orange { background: rgba(255,107,53,0.15); color: var(--accent2); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+
+.rank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.rank-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+.rank-card-title { font-weight: 700; color: var(--accent2); margin-bottom: 14px; font-size: 0.95rem; }
+.rank-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.rank-badge { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.rank-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+.rank-bar-fill { height: 100%; border-radius: 4px; }
+.rank-val { font-size: 13px; font-weight: 700; min-width: 70px; text-align: right; color: var(--text); }
+
+.quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--surface3); border-radius: 14px; overflow: hidden; }
+.quad { padding: 24px; min-height: 180px; }
+.quad-title { font-size: 11px; color: var(--text3); margin-bottom: 12px; font-weight: 600; letter-spacing: 0.5px; }
+.quad-dot { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 4px; font-size: 13px; font-weight: 600; }
+
+.profile-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.profile-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.profile-header { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+.profile-score { font-size: 2rem; font-weight: 800; }
+.profile-body { padding: 18px 20px; }
+.dim-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.dim-label { font-size: 12px; color: var(--text3); width: 60px; flex-shrink: 0; }
+.dim-bar-bg { flex: 1; height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; }
+.dim-bar-fill { height: 100%; border-radius: 3px; }
+.dim-val { font-size: 12px; font-weight: 700; width: 30px; text-align: right; }
+
+.portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.portfolio-card { background: var(--surface); border-radius: 14px; border: 1px solid var(--border); padding: 22px; }
+.pc-title { font-weight: 700; color: var(--text); margin-bottom: 14px; }
+.alloc-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.alloc-pct { font-size: 1.4rem; font-weight: 800; min-width: 52px; }
+.alloc-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+.alloc-bar-fill { height: 100%; border-radius: 4px; }
+.alloc-name { font-size: 13px; color: var(--text2); }
+
+.footer { background: var(--surface); border-top: 1px solid var(--border); color: var(--text3); padding: 32px 24px; text-align: center; font-size: 13px; }
+.footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+.footer-link { color: var(--accent2); text-decoration: none; padding: 4px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; transition: all 0.2s; }
+.footer-link:hover { background: var(--surface2); }
+.footer-disc { font-size: 11px; opacity: 0.5; margin-top: 12px; }
+
+.highlight-box { background: rgba(255,107,53,0.05); border: 1px solid rgba(255,107,53,0.2); border-radius: 14px; padding: 22px 26px; margin-bottom: 24px; }
+.highlight-box p { font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+@media (max-width:768px) {
+  .hero h1 { font-size: 1.4rem; }
+  .grid-2,.grid-3 { grid-template-columns: 1fr; }
+  .rank-grid,.profile-grid,.portfolio-grid,.quadrant-grid { grid-template-columns: 1fr; }
+  .hero-kpi { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">📊 投研中心</a>
+  <span class="nav-sep">›</span>
+  <a href="快递物流行业深度研究报告2025.html" class="nav-link">行业研究</a>
+  <a href="快递物流股深度财报分析与投资图谱2025.html" class="nav-link active">财报图谱</a>
+  <a href="顺丰控股投资分析与交易策略2025.html" class="nav-link">顺丰策略 <span class="nav-tag">个股</span></a>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">📊 快递物流 · 财报深度分析 2025</div>
+    <h1>快递物流股深度财报分析<br>与投资图谱 2025</h1>
+    <p class="hero-sub">顺丰 · 中通 · 圆通 · 韵达 · 申通 五巨头全维度扫描</p>
+    <div class="hero-kpi">
+      <div class="kpi-card">
+        <div class="kpi-val">5家</div>
+        <div class="kpi-label">主要龙头公司</div>
+        <div class="kpi-change">覆盖行业CR5</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">1.4万亿</div>
+        <div class="kpi-label">行业总收入</div>
+        <div class="kpi-change">↑ +13.8%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--green)">101.7亿</div>
+        <div class="kpi-label">顺丰净利润（最高）</div>
+        <div class="kpi-change">↑ +23.5%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--green)">0.77元</div>
+        <div class="kpi-label">顺丰票均利润（最高）</div>
+        <div class="kpi-change">行业均值约0.2元</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">全市场总览</div>
+      <div class="section-desc">2024年年报数据</div>
+    </div>
+    <hr class="divider">
+    <div class="highlight-box">
+      <p>2024年快递行业量价持续背离：件量增21.5%，但票均收入降12.3%，只有<strong>顺丰控股</strong>凭借中高端定位实现票均利润0.77元/票的行业最高水平，净利润101.7亿元创A股上市以来新高。中通以件量340亿票稳居第一，但净利润增速几乎停滞仅+1%。韵达因低基数净利润暴增205%，实际绝对值仅10.4亿元。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>代码</th><th>2024净利润</th><th>YoY</th><th>2024件量</th><th>票均利润</th><th>PE(TTM)</th><th>商业模式</th><th>核心看点</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--accent2)">顺丰控股 ⭐</td><td>002352</td>
+            <td><strong>101.7亿</strong></td><td><span class="tag-green">+23.5%</span></td>
+            <td>133亿票</td><td><span class="tag-green">0.77元</span></td>
+            <td><span class="tag-orange">~18×</span></td><td>直营</td>
+            <td><span class="tag-orange">质量最优+国际化</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">中通快递</td><td>ZTO/2057</td>
+            <td><strong>88.2亿</strong></td><td><span class="tag-yellow">+1%</span></td>
+            <td>340亿票</td><td>0.26元</td>
+            <td><span class="tag-blue">~15×</span></td><td>加盟</td>
+            <td><span class="tag-blue">件量第一+低PE</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">圆通速递</td><td>600233</td>
+            <td>40.1亿</td><td><span class="tag-yellow">+8%</span></td>
+            <td>266亿票</td><td>0.15元</td>
+            <td><span class="tag-blue">~10×</span></td><td>加盟</td>
+            <td><span class="tag-yellow">稳健克制定价</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">申通快递</td><td>002468</td>
+            <td>19.1亿</td><td><span class="tag-yellow">+18%</span></td>
+            <td>227亿票</td><td>0.05元</td>
+            <td><span class="tag-yellow">~18×</span></td><td>加盟</td>
+            <td><span class="tag-red">以价换量风险</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">韵达股份</td><td>002120</td>
+            <td>10.4亿</td><td><span class="tag-green">+205%</span></td>
+            <td>238亿票</td><td>0.08元</td>
+            <td><span class="tag-red">~20×</span></td><td>加盟</td>
+            <td><span class="tag-red">低基数高增速</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">四维排行榜</div>
+      <div class="section-desc">净利润 · 件量 · 票均利润 · 净利增速</div>
+    </div>
+    <hr class="divider">
+    <div class="rank-grid">
+      <div class="rank-card">
+        <div class="rank-card-title">💰 净利润排行</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(255,107,53,0.2);color:var(--accent2)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">顺丰控股</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--accent2)"></div></div>
+          <div class="rank-val" style="color:var(--accent2)">101.7亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">中通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:87%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">88.2亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">圆通速递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:39%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">40.1亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(139,148,158,0.2);color:var(--text3)">4️⃣</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">申通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:19%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">19.1亿</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">📦 件量排行（亿票）</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">中通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">340亿票</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">圆通速递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:78%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">266亿票</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(139,148,158,0.2);color:var(--text3)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">韵达股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:70%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">238亿票</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(255,107,53,0.2);color:var(--accent2)">5️⃣</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">顺丰控股</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:39%;background:var(--accent2)"></div></div>
+          <div class="rank-val" style="color:var(--accent2)">133亿票</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">🎯 票均利润（质量排行）</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(255,107,53,0.2);color:var(--accent2)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">顺丰控股</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--accent2)"></div></div>
+          <div class="rank-val" style="color:var(--accent2)">0.77元</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">中通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:34%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">0.26元</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">圆通速递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:19%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">0.15元</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(248,81,73,0.2);color:var(--red)">4️⃣</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">韵达/申通</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:10%;background:var(--red)"></div></div>
+          <div class="rank-val" style="color:var(--red)">≤0.08元</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">📈 净利润增速（2024 YoY）</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">韵达股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">+205%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(255,107,53,0.2);color:var(--accent2)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">顺丰控股</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:12%;background:var(--accent2)"></div></div>
+          <div class="rank-val" style="color:var(--accent2)">+23.5%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(139,148,158,0.2);color:var(--text3)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">申通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:9%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">+18%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">4️⃣</div>
+          <div style="font-size:13px;color:var(--text);min-width:80px">中通快递</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:1%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">+1%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">业务结构深度拆解</div>
+      <div class="section-desc">顺丰 vs 通达系核心差异</div>
+    </div>
+    <hr class="divider">
+    <div class="grid-2">
+      <div class="card" style="border-top:3px solid var(--accent2)">
+        <div class="card-title">🚀 顺丰控股 002352 — 多元化高利润</div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>时效件（核心利润支柱）</span><span style="color:var(--accent2)">43%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:43%;height:100%;background:var(--accent2);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">1222亿元，票均收入~18元，利润最高</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>供应链及国际（第二曲线）</span><span style="color:var(--primary)">25%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:25%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">704.9亿元，增速+17.5%，增速最快</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>快运（B端工业大件）</span><span style="color:var(--purple)">13%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:13%;height:100%;background:var(--purple);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">376.4亿元，增速+13.8%</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>经济件（C端电商）</span><span style="color:var(--green)">10%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:10%;height:100%;background:var(--green);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">272.5亿元，增速+8.8%</div>
+        </div>
+        <div style="margin-top:14px;padding:10px;background:var(--surface2);border-radius:8px;font-size:13px">
+          <span style="color:var(--accent2)">★ 业务多元，供应链国际是长期看点</span><br>
+          <span style="color:var(--green)">✓ 净利率3.59%，ROIC 8.06%，行业最优</span>
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--yellow)">
+        <div class="card-title">📦 通达系典型 — 以件量为核心</div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>电商快递（主要收入）</span><span style="color:var(--yellow)">~90%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:90%;height:100%;background:var(--yellow);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">高度依赖电商件，单价低但量大</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>快运/其他增值（少量）</span><span style="color:var(--text3)">~10%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:10%;height:100%;background:var(--text3);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-top:14px;padding:10px;background:var(--surface2);border-radius:8px;font-size:13px">
+          <span style="color:var(--yellow)">★ 件量大、加盟网络广，规模效应强</span><br>
+          <span style="color:var(--red)">△ 票均利润极低，价格战压力大</span><br>
+          <div style="margin-top:10px">
+            <strong style="color:var(--text2)">2024年通达系票均利润对比：</strong><br>
+            <div style="font-size:12px;color:var(--text3);margin-top:4px">
+              圆通 0.15元 &gt; 韵达 0.08元 &gt; 申通 0.05元
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">PE × 票均利润四象限矩阵</div>
+      <div class="section-desc">估值 vs 盈利质量 · 快递行业特有指标</div>
+    </div>
+    <hr class="divider">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px">
+      <div style="text-align:center;margin-bottom:8px;font-size:12px;color:var(--text3)">↑ 票均利润（高盈利质量）</div>
+      <div class="quadrant-grid" style="border:1px solid var(--border)">
+        <div class="quad" style="background:rgba(63,185,80,0.06);border-right:1px solid var(--border)">
+          <div class="quad-title">🟢 最佳区 — 合理估值 × 高票均</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--accent2);color:var(--accent2)">
+              <span>✈️</span><span>顺丰控股</span>
+              <span style="color:var(--text3);font-size:11px">PE~18× · 票均0.77元</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">PE处历史低位（6.9%-11.6%分位），票均利润行业最高，盈利质量与估值性价比双优，是最值得关注的标的</div>
+        </div>
+        <div class="quad" style="background:rgba(188,140,255,0.04)">
+          <div class="quad-title">🟣 成长溢价区 — 高PE × 高票均</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--purple);color:var(--purple)">
+              <span>📈</span><span>顺丰（国际放量后）</span>
+              <span style="color:var(--text3);font-size:11px">若PE修复至25×+仍具支撑</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">若顺丰国际业务超预期，市场给予更高成长溢价，股价目标价可达50-60元区间</div>
+        </div>
+        <div class="quad" style="background:rgba(210,153,34,0.04);border-right:1px solid var(--border)">
+          <div class="quad-title">🟡 价值待挖区 — 低PE × 中票均</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--yellow);color:var(--yellow)">
+              <span>📦</span><span>中通快递</span>
+              <span style="color:var(--text3);font-size:11px">PE~15× · 票均0.26元</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">PE最低，票均利润虽不及顺丰但远超通达其他，件量规模效应强，是稳健价值投资选择</div>
+        </div>
+        <div class="quad" style="background:rgba(248,81,73,0.04)">
+          <div class="quad-title">🔴 谨慎区 — 高PE × 低票均</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--red);color:var(--red)">
+              <span>⚠️</span><span>韵达股份</span>
+              <span style="color:var(--text3);font-size:11px">PE~20× · 票均仅0.08元</span>
+            </div>
+            <div class="quad-dot" style="border-color:var(--text3);color:var(--text3)">
+              <span>⚠️</span><span>申通快递</span>
+              <span style="color:var(--text3);font-size:11px">PE~18× · 票均仅0.05元</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">PE并不低但票均极薄，韵达+205%净利增速系低基数，实际盈利绝对值小，估值性价比最差</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text3)">← 低PE（低估值）　　　　　　　　　高PE（高估值） →</div>
+      <div style="margin-top:16px;padding:14px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--text2)">
+        <strong style="color:var(--accent2)">投资结论：</strong>当前时点，<strong style="color:var(--green)">顺丰控股综合性价比最优</strong>，PE处历史低位+票均利润行业最高+国际化第二曲线，三重逻辑叠加；中通快递PE~15×是稳健备选；韵达/申通估值合理性存疑，不建议追高。
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">TOP 3 深度画像评分</div>
+      <div class="section-desc">6维度综合评估 · 满分100</div>
+    </div>
+    <hr class="divider">
+    <div class="profile-grid">
+      <div class="profile-card" style="border-top:3px solid var(--accent2)">
+        <div class="profile-header" style="background:rgba(255,107,53,0.08)">
+          <div style="font-size:1rem;font-weight:700;color:var(--accent2)">✈️ 顺丰控股 002352</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <span class="profile-score" style="color:var(--accent2)">94</span>
+            <span style="color:var(--text3);font-size:13px">/ 100 · S级</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:90%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">18/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:95%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">19/20</span></div>
+          <div class="dim-row"><span class="dim-label">现金流</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:90%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">18/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--accent2)"></div></div><span class="dim-val" style="color:var(--accent2)">17/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 时效龙头+航空自营+嘉里国际，三重护城河不可复制<br>✓ 自由现金流+70%，分红+回购106亿<br>△ 净利率偏低（代工/服务业天花板）
+          </div>
+        </div>
+      </div>
+      <div class="profile-card" style="border-top:3px solid var(--yellow)">
+        <div class="profile-header" style="background:rgba(210,153,34,0.08)">
+          <div style="font-size:1rem;font-weight:700;color:var(--yellow)">📦 中通快递 ZTO</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <span class="profile-score" style="color:var(--yellow)">80</span>
+            <span style="color:var(--text3);font-size:13px">/ 100 · A级</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">现金流</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">17/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">17/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">16/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 件量第一，PE~15×最低，现金流好<br>✓ 加盟制成本优势，规模壁垒高<br>△ 净利增速仅+1%，成长性短期疲软
+          </div>
+        </div>
+      </div>
+      <div class="profile-card" style="border-top:3px solid var(--green)">
+        <div class="profile-header" style="background:rgba(63,185,80,0.08)">
+          <div style="font-size:1rem;font-weight:700;color:var(--green)">🚚 圆通速递 600233</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <span class="profile-score" style="color:var(--green)">68</span>
+            <span style="color:var(--text3);font-size:13px">/ 100 · B级</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:70%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">14/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">现金流</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:70%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">14/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:70%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">14/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:50%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">10/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 通达系中票均收入最高（2.30元），克制降价<br>✓ 稳健经营，PE~10×<br>△ 成长空间有限，国际化布局不足
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">五大龙头差异化深度对比</div>
+      <div class="section-desc">10个维度横向拉通</div>
+    </div>
+    <hr class="divider">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>对比维度</th><th>顺丰控股 ⭐</th><th>中通快递</th><th>圆通速递</th><th>韵达/申通</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">商业模式</td><td>直营（高质量）</td><td>加盟（高效率）</td><td>加盟</td><td>加盟</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">定位</td><td>中高端时效+国际</td><td>低成本高量</td><td>稳健中端</td><td>以价换量</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">净利润</td><td><strong>101.7亿（最高）</strong></td><td>88.2亿</td><td>40.1亿</td><td>≤19亿</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">票均利润</td><td><strong>0.77元（最高）</strong></td><td>0.26元</td><td>0.15元</td><td>≤0.08元</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">PE估值</td><td>~18×（历史低位）</td><td><strong>~15×（最低）</strong></td><td>~10×</td><td>~18-20×</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">自由现金流</td><td><strong>223亿（+70%）</strong></td><td>良好</td><td>一般</td><td>较弱</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">国际化</td><td><span class="tag-green">嘉里+鄂州，领跑</span></td><td><span class="tag-yellow">有限</span></td><td><span class="tag-red">弱</span></td><td><span class="tag-red">无</span></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">航空资产</td><td><span class="tag-green">自营机队+鄂州机场</span></td><td><span class="tag-red">无</span></td><td><span class="tag-red">无</span></td><td><span class="tag-red">无</span></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">股东回报</td><td>分红+回购106.6亿</td><td>持续分红</td><td>少量分红</td><td>少量/无</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">综合评分</td><td><span class="tag-orange">94/100 S级</span></td><td><span class="tag-yellow">80/100 A级</span></td><td><span class="tag-blue">68/100 B级</span></td><td><span class="tag-red">≤55/100</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">组合配置建议</div>
+      <div class="section-desc">三种风险偏好 · 差异化配置方案</div>
+    </div>
+    <hr class="divider">
+    <div class="portfolio-grid">
+      <div class="portfolio-card" style="border-top:3px solid var(--green)">
+        <div class="pc-title">🛡️ 保守均衡型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">追求确定性，降低波动风险</p>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--accent2)">70%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:70%;background:var(--accent2)"></div></div></div>
+          <div class="alloc-name">顺丰控股</div>
+        </div>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--yellow)">30%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:30%;background:var(--yellow)"></div></div></div>
+          <div class="alloc-name">中通快递</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：价值型 · 追求确定性回报</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--primary)">
+        <div class="pc-title">⚖️ 均衡成长型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">兼顾质量与弹性</p>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--accent2)">60%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:60%;background:var(--accent2)"></div></div></div>
+          <div class="alloc-name">顺丰控股</div>
+        </div>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--yellow)">25%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:25%;background:var(--yellow)"></div></div></div>
+          <div class="alloc-name">中通快递</div>
+        </div>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--green)">15%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:15%;background:var(--green)"></div></div></div>
+          <div class="alloc-name">圆通速递</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：均衡型 · 兼顾质量与弹性</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--accent2)">
+        <div class="pc-title">🚀 进取集中型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">重仓顺丰，押注国际化大突破</p>
+        <div class="alloc-item">
+          <div class="alloc-pct" style="color:var(--accent2)">100%</div>
+          <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:100%;background:var(--accent2)"></div></div></div>
+          <div class="alloc-name">顺丰控股</div>
+        </div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：高确信度投资者 · 长期重仓持有</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="快递物流行业深度研究报告2025.html" class="footer-link">📋 行业研究</a>
+    <a href="快递物流股深度财报分析与投资图谱2025.html" class="footer-link">📊 财报图谱</a>
+    <a href="顺丰控股投资分析与交易策略2025.html" class="footer-link">🎯 顺丰策略</a>
+    <a href="index.html" class="footer-link">🏠 投研中心</a>
+  </div>
+  <div>快递物流股深度财报分析与投资图谱 2025 · 数据截至2025年4月</div>
+  <div class="footer-disc">本报告仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</div>
+</footer>
+
+</body>
+</html>
