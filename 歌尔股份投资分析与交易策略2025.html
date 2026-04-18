@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>歌尔股份投资分析与交易策略 2025</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --surface3: #30363d;
+    --primary: #58a6ff;
+    --accent: #79c0ff;
+    --accent2: #ff7b72;
+    --gold: #f0c040;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --purple: #bc8cff;
+    --cyan: #56d364;
+    --text: #e6edf3;
+    --text2: #b1bac4;
+    --text3: #8b949e;
+    --border: #30363d;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.5);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; font-size: 15px; line-height: 1.7; }
+
+  /* NAV */
+  .nav { background: #161b22; border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { color: var(--purple); font-weight: 700; font-size: 16px; text-decoration: none; }
+  .nav-sep { color: var(--text3); }
+  .nav-link { color: var(--text2); font-size: 13px; text-decoration: none; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; }
+  .nav-link:hover, .nav-link.active { background: var(--surface3); color: var(--text); }
+  .nav-tag { background: var(--purple); color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 10px; margin-left: 4px; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #0d1117 0%, #161b22 100%); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(188,140,255,0.10) 0%, transparent 55%), radial-gradient(ellipse at 70% 30%, rgba(88,166,255,0.07) 0%, transparent 55%); pointer-events: none; }
+  .hero-badge { display: inline-block; background: rgba(188,140,255,0.12); border: 1px solid rgba(188,140,255,0.35); color: var(--purple); padding: 6px 18px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-bottom: 16px; }
+  .hero h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(90deg, #bc8cff, #79c0ff, #56d364); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1rem; color: var(--text2); margin-bottom: 32px; }
+  .hero-kpi { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); padding: 16px 22px; border-radius: 12px; min-width: 140px; position: relative; }
+  .kpi-card.highlight { border-color: rgba(188,140,255,0.4); box-shadow: 0 0 20px rgba(188,140,255,0.1); }
+  .kpi-val { font-size: 1.65rem; font-weight: 800; color: var(--purple); }
+  .kpi-val.green { color: var(--green); }
+  .kpi-val.blue { color: var(--primary); }
+  .kpi-label { font-size: 11px; color: var(--text3); margin-top: 4px; }
+  .kpi-change { font-size: 12px; color: var(--cyan); margin-top: 2px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 48px 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .section-num { background: var(--purple); color: #0d1117; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .section-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .section-desc { color: var(--text3); font-size: 13px; margin-left: auto; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--card-shadow); }
+  .card-title { font-size: 0.95rem; font-weight: 700; color: var(--purple); margin-bottom: 10px; }
+
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: var(--surface2); color: var(--purple); padding: 12px 16px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--border); color: var(--text2); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+
+  .tag { padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-block; }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--primary); }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .kpi-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .kpi-item-val { font-size: 1.6rem; font-weight: 800; }
+  .kpi-item-label { font-size: 12px; color: var(--text3); margin-top: 4px; }
+  .kpi-item-sub { font-size: 12px; margin-top: 4px; }
+
+  /* ENGINE */
+  .engine-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .engine-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .engine-header { padding: 14px 18px; font-weight: 700; font-size: 0.95rem; }
+  .engine-body { padding: 16px 18px; }
+  .engine-body p { font-size: 13px; color: var(--text2); margin-bottom: 6px; }
+  .engine-bar-bg { height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; margin: 6px 0; }
+  .engine-bar-fill { height: 100%; border-radius: 3px; }
+
+  /* BUFFETT */
+  .buffett-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .buffett-item { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .buffett-label { font-size: 13px; color: var(--text3); margin-bottom: 8px; }
+  .buffett-score { font-size: 2rem; font-weight: 800; color: var(--purple); }
+  .buffett-max { font-size: 13px; color: var(--text3); }
+  .buffett-bar-bg { height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+  .buffett-bar-fill { height: 100%; border-radius: 3px; background: var(--purple); }
+  .buffett-comment { font-size: 12px; color: var(--text2); margin-top: 8px; }
+
+  /* VALUATION */
+  .val-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 24px; }
+  .val-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .val-method { font-size: 12px; color: var(--text3); margin-bottom: 8px; font-weight: 600; }
+  .val-range { font-size: 1.4rem; font-weight: 800; color: var(--purple); }
+  .val-upside { font-size: 13px; color: var(--green); margin-top: 4px; }
+  .val-note { font-size: 12px; color: var(--text3); margin-top: 6px; }
+
+  /* SCENARIO */
+  .scenario-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .scenario-card { background: var(--surface); border-radius: 14px; padding: 22px; }
+  .scenario-prob { font-size: 0.85rem; color: var(--text3); margin-bottom: 8px; }
+  .scenario-price { font-size: 1.7rem; font-weight: 800; }
+  .scenario-upside { font-size: 13px; margin-top: 4px; }
+  .scenario-desc { font-size: 13px; color: var(--text2); margin-top: 10px; }
+
+  /* BATCH */
+  .batch-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+  .batch-card { background: var(--surface); border-radius: 14px; padding: 22px; border: 1px solid var(--border); }
+  .batch-num { font-size: 0.8rem; color: var(--text3); margin-bottom: 4px; }
+  .batch-price { font-size: 1.6rem; font-weight: 800; }
+  .batch-pct { font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
+  .batch-body { font-size: 13px; color: var(--text2); }
+  .batch-body p { margin-bottom: 5px; }
+
+  /* CATALYST TIMELINE */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .cat-list { list-style: none; }
+  .cat-item { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .cat-item:last-child { border-bottom: none; }
+  .cat-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .cat-time { font-size: 12px; color: var(--text3); width: 60px; flex-shrink: 0; }
+  .cat-text { font-size: 14px; color: var(--text2); flex: 1; }
+
+  /* STOP */
+  .stop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .stop-list { list-style: none; }
+  .stop-item { display: flex; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text2); }
+  .stop-item:last-child { border-bottom: none; }
+
+  /* PHILOSOPHY */
+  .philosophy-box { background: rgba(188,140,255,0.06); border: 1px solid rgba(188,140,255,0.25); border-radius: 16px; padding: 32px; text-align: center; }
+  .philosophy-quote { font-size: 1.15rem; color: var(--text); font-style: italic; line-height: 1.9; max-width: 780px; margin: 0 auto; }
+  .philosophy-attr { font-size: 13px; color: var(--text3); margin-top: 16px; }
+
+  /* FOOTER */
+  .footer { background: var(--surface); border-top: 1px solid var(--border); color: var(--text3); padding: 32px 24px; text-align: center; font-size: 13px; }
+  .footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-link { color: var(--purple); text-decoration: none; padding: 4px 12px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-size: 13px; }
+  .footer-link:hover { background: var(--surface2); }
+  .footer-disc { font-size: 11px; opacity: 0.5; margin-top: 12px; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.4rem; }
+    .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; }
+    .kpi-grid,.engine-grid,.buffett-grid,.val-grid,.scenario-grid,.batch-grid { grid-template-columns: 1fr; }
+    .stop-grid,.cat-grid { grid-template-columns: 1fr; }
+    .hero-kpi { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">📊 投研中心</a>
+  <span class="nav-sep">›</span>
+  <a href="消费电子精密制造行业深度研究报告2025.html" class="nav-link">行业研究</a>
+  <a href="消费电子精密制造股深度财报分析与投资图谱2025.html" class="nav-link">财报图谱</a>
+  <a href="歌尔股份投资分析与交易策略2025.html" class="nav-link active">歌尔策略 <span class="nav-tag">个股</span></a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">🎯 歌尔股份 002241 · 投资分析与交易策略 2025</div>
+    <h1>全球XR制造之王<br>AI眼镜浪潮中的隐形霸主</h1>
+    <p class="hero-sub">VR代工70%全球份额 · Meta AI眼镜独供 · 声光电精密制造护城河</p>
+    <div class="hero-kpi">
+      <div class="kpi-card highlight">
+        <div class="kpi-val">1010亿</div>
+        <div class="kpi-label">2024年营收</div>
+        <div class="kpi-change">↑ +2.4%</div>
+      </div>
+      <div class="kpi-card highlight">
+        <div class="kpi-val green">26.7亿</div>
+        <div class="kpi-label">2024年归母净利润</div>
+        <div class="kpi-change">↑ +144.9%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val blue">~30×</div>
+        <div class="kpi-label">当前PE（TTM）</div>
+        <div class="kpi-change">AI眼镜溢价</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--gold)">~24元</div>
+        <div class="kpi-label">当前股价（约）</div>
+        <div class="kpi-change">市值~850亿</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--cyan)">70%+</div>
+        <div class="kpi-label">全球VR代工市占率</div>
+        <div class="kpi-change">垄断地位</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- S1: 核心财务KPI -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">核心财务 KPI 全景</div>
+      <div class="section-desc">2024年年报 · 最新数据</div>
+    </div>
+    <hr class="divider">
+    <div class="kpi-grid">
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--purple)">1009.5亿元</div>
+        <div class="kpi-item-label">营业总收入</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↑ +2.4% YoY</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--green)">26.65亿元</div>
+        <div class="kpi-item-label">归母净利润</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↑ +144.9% YoY 🔥</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--primary)">11.09%</div>
+        <div class="kpi-item-label">综合毛利率</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↑ 同比+23.9%改善</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--gold)">0.79元</div>
+        <div class="kpi-item-label">每股收益（EPS）</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↑ +146.9% YoY</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--cyan)">23.5%</div>
+        <div class="kpi-item-label">精密零组件毛利率</div>
+        <div class="kpi-item-sub" style="color:var(--text3)">利润压舱石业务</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--text)">9.52元</div>
+        <div class="kpi-item-label">每股净资产</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↑ +5.7% YoY</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--yellow)">5.84%</div>
+        <div class="kpi-item-label">ROIC（资本回报率）</div>
+        <div class="kpi-item-sub" style="color:var(--text3)">代工行业正常水平</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--purple)">2.86%</div>
+        <div class="kpi-item-label">三费/营收占比</div>
+        <div class="kpi-item-sub" style="color:var(--green)">↓ 同比-8.4%（费控好）</div>
+      </div>
+      <div class="kpi-item">
+        <div class="kpi-item-val" style="color:var(--gold)">44.9亿</div>
+        <div class="kpi-item-label">上市累计分红</div>
+        <div class="kpi-item-sub" style="color:var(--green)">超融资总额（34.7亿）</div>
+      </div>
+    </div>
+    <!-- Q4亮点 -->
+    <div style="margin-top:20px;background:rgba(188,140,255,0.06);border:1px solid rgba(188,140,255,0.2);border-radius:12px;padding:18px 22px">
+      <div style="font-weight:700;color:var(--purple);margin-bottom:8px">📊 Q4 2024 单季亮点</div>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:14px;color:var(--text2)">
+        <span>营收 <strong style="color:var(--text)">313.1亿元</strong> <span style="color:var(--green)">↑+27.1%</span></span>
+        <span>净利润 <strong style="color:var(--text)">3.2亿元</strong> <span style="color:var(--green)">↑+63.2%</span></span>
+        <span>连续3季度正增长 <span style="color:var(--green)">✓</span></span>
+        <span>AI眼镜订单逐季放量 <span style="color:var(--purple)">🔥</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S2: 三大业务引擎 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">三大业务引擎深度拆解</div>
+      <div class="section-desc">各业务线战略地位与增长逻辑</div>
+    </div>
+    <hr class="divider">
+    <div class="engine-grid">
+      <!-- 智能硬件 -->
+      <div class="engine-card" style="border-top:3px solid var(--purple)">
+        <div class="engine-header" style="background:rgba(188,140,255,0.1);color:var(--purple)">
+          🥽 智能硬件（VR/AR/AI眼镜）
+        </div>
+        <div class="engine-body">
+          <p><strong>营收占比：54.2%</strong>（第一大业务）</p>
+          <p>毛利率：~11.5%</p>
+          <div class="engine-bar-bg"><div class="engine-bar-fill" style="width:54%;background:var(--purple)"></div></div>
+          <p style="margin-top:10px;font-weight:700;color:var(--text)">核心产品阵列：</p>
+          <p>• <strong>Meta Quest VR</strong>：全球独供，70%+份额</p>
+          <p>• <strong>Meta Ray-Ban AI眼镜</strong>：独家代工，2024年出货180万台，2025年爆发</p>
+          <p>• <strong>小米AI眼镜</strong>：30万台，占小米70%份额</p>
+          <p>• <strong>华为AR眼镜</strong>：70%订单份额</p>
+          <p>• 索尼PSVR2、谷歌等</p>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px">
+            <span style="color:var(--purple);font-weight:700">★ AI眼镜是未来3年最大增量引擎</span><br>
+            <span style="font-size:12px;color:var(--text3)">2025E出货量或达500万台以上，2026E有望超千万台</span>
+          </div>
+        </div>
+      </div>
+      <!-- 智能声学整机 -->
+      <div class="engine-card" style="border-top:3px solid var(--primary)">
+        <div class="engine-header" style="background:rgba(88,166,255,0.1);color:var(--primary)">
+          🎧 智能声学整机（TWS/耳机）
+        </div>
+        <div class="engine-body">
+          <p><strong>营收占比：25.6%</strong>（第二大业务）</p>
+          <p>毛利率：~15%</p>
+          <div class="engine-bar-bg"><div class="engine-bar-fill" style="width:25%;background:var(--primary)"></div></div>
+          <p style="margin-top:10px;font-weight:700;color:var(--text)">核心产品阵列：</p>
+          <p>• <strong>AirPods相关代工</strong>（苹果供应商）</p>
+          <p>• 国内品牌TWS耳机（华为/小米/vivo）</p>
+          <p>• 智能音箱系列</p>
+          <p>• 有线耳机/降噪耳机</p>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px">
+            <span style="color:var(--primary);font-weight:700">✓ 稳健基本盘，收入结构优化中</span><br>
+            <span style="font-size:12px;color:var(--text3)">苹果2026新AirPods产品已进入NPI供应商名单</span>
+          </div>
+        </div>
+      </div>
+      <!-- 精密零组件 -->
+      <div class="engine-card" style="border-top:3px solid var(--green)">
+        <div class="engine-header" style="background:rgba(63,185,80,0.1);color:var(--green)">
+          🔬 精密零组件（声学/光学/MEMS）
+        </div>
+        <div class="engine-body">
+          <p><strong>营收占比：20.2%</strong>（第三大业务）</p>
+          <p>毛利率：<strong style="color:var(--green)">23.5%（最高）</strong></p>
+          <div class="engine-bar-bg"><div class="engine-bar-fill" style="width:20%;background:var(--green)"></div></div>
+          <p style="margin-top:10px;font-weight:700;color:var(--text)">核心产品阵列：</p>
+          <p>• <strong>MEMS麦克风/声学传感器</strong>：高壁垒精密器件</p>
+          <p>• <strong>光学元件</strong>（衍射光波导/Pancake透镜）</p>
+          <p>• <strong>微型扬声器单元</strong></p>
+          <p>• AI眼镜专用光声学组件（增速最快）</p>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px">
+            <span style="color:var(--green);font-weight:700">★ 23.5%毛利率是利润压舱石</span><br>
+            <span style="font-size:12px;color:var(--text3)">AI眼镜渗透率提升，零组件ASP持续上行</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3: 巴菲特六大法则评分 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">巴菲特六大法则评分</div>
+      <div class="section-desc">6维 × 20分 = 120分满分 → 折算百分制</div>
+    </div>
+    <hr class="divider">
+    <!-- 总分展示 -->
+    <div style="background:rgba(188,140,255,0.06);border:1px solid rgba(188,140,255,0.25);border-radius:16px;padding:24px;text-align:center;margin-bottom:24px">
+      <div style="font-size:3rem;font-weight:900;background:linear-gradient(90deg,#bc8cff,#79c0ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">97 / 120</div>
+      <div style="font-size:1.1rem;color:var(--text2);margin-top:4px">折算 <strong style="color:var(--purple)">81 / 100</strong> · A级 · 优质成长制造龙头</div>
+      <div style="font-size:13px;color:var(--text3);margin-top:8px">盈利能力偏弱（代工属性），但竞争壁垒与成长性均为高分</div>
+    </div>
+    <div class="buffett-grid">
+      <div class="buffett-item">
+        <div class="buffett-label">① 生意可理解性</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">15</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:75%"></div></div>
+        <div class="buffett-comment">VR/AR/AI眼镜代工模式清晰；精密制造工艺复杂但商业逻辑简单，大客户下单→制造交付→收款</div>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-label">② 可持续竞争优势</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">18</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:90%"></div></div>
+        <div class="buffett-comment">VR代工70%全球垄断，AI眼镜Meta独供，苹果/小米/华为供应商认证壁垒，12年以上XR研发积累</div>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-label">③ 优秀管理层</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">16</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:80%"></div></div>
+        <div class="buffett-comment">创始人姜滨深耕消费电子20年+，2022年危机后快速转型AI眼镜，战略敏锐；累计分红44.9亿超融资额</div>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-label">④ 盈利能力</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">13</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:65%"></div></div>
+        <div class="buffett-comment">代工模式天花板：净利率仅2.6%、ROIC 5.84%，与精密零组件23.5%毛利率形成鲜明对比；高营收低利润</div>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-label">⑤ 内在价值增长</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">19</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:95%"></div></div>
+        <div class="buffett-comment">2024净利润+145%，AI眼镜2025-2026将爆发式增长，2025E净利润~36亿（+35%），内在价值增速极强</div>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-label">⑥ 合理估值</div>
+        <div style="display:flex;align-items:baseline;gap:6px"><span class="buffett-score">16</span><span class="buffett-max">/ 20</span></div>
+        <div class="buffett-bar-bg"><div class="buffett-bar-fill" style="width:80%"></div></div>
+        <div class="buffett-comment">PE~30×含AI眼镜成长溢价；若2026E净利润50亿，则当前市值对应PE~17×，估值合理偏低；PEG约0.19</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4: 五维估值 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">五维估值体系</div>
+      <div class="section-desc">当前股价约24元 · 综合目标价区间</div>
+    </div>
+    <hr class="divider">
+    <div class="val-grid">
+      <div class="val-card">
+        <div class="val-method">① PE 估值法</div>
+        <div class="val-range">28 ~ 40元</div>
+        <div class="val-upside">↑ +17% ~ +67%</div>
+        <div class="val-note">基于2025E净利润36亿，给予20-28×PE区间（成长+AI溢价），对应市值720-1008亿</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">② PEG 估值法</div>
+        <div class="val-range">30 ~ 45元</div>
+        <div class="val-upside">↑ +25% ~ +88%</div>
+        <div class="val-note">PEG=0.19极低，净利润复合增速30%+，给予PEG=0.6~0.9对应，具备显著低估空间</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">③ PB 估值法</div>
+        <div class="val-range">22 ~ 32元</div>
+        <div class="val-upside">↑ -8% ~ +33%</div>
+        <div class="val-note">每股净资产9.52元，PB=2.3~3.4×，制造业合理区间，偏保守，适合底部参考</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">④ DCF 内在价值法</div>
+        <div class="val-range">25 ~ 38元</div>
+        <div class="val-upside">↑ +4% ~ +58%</div>
+        <div class="val-note">基于AI眼镜驱动3年净利润CAGR 25-35%，折现率9%，永续增长率3%，内在价值中枢约31元</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">⑤ 历史估值百分位</div>
+        <div class="val-range">26 ~ 40元</div>
+        <div class="val-upside">↑ +8% ~ +67%</div>
+        <div class="val-note">历史PE中枢约35×，当前30×处于历史偏低分位，考虑AI眼镜增量，估值有修复空间</div>
+      </div>
+    </div>
+    <!-- 综合目标价 -->
+    <div style="background:rgba(188,140,255,0.08);border:1.5px solid rgba(188,140,255,0.35);border-radius:16px;padding:26px;text-align:center">
+      <div style="font-size:0.9rem;color:var(--text3);margin-bottom:8px">五维综合目标价区间（12-18个月）</div>
+      <div style="font-size:2.5rem;font-weight:900;color:var(--purple)">28 ~ 42元</div>
+      <div style="font-size:1rem;color:var(--green);margin-top:6px">较当前~24元，隐含上涨空间 +17% ~ +75%</div>
+      <div style="font-size:13px;color:var(--text3);margin-top:8px">中间值约35元 · AI眼镜超预期时目标价上限可看至50+</div>
+    </div>
+  </section>
+
+  <!-- S5: 三种情景分析 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">三情景分析</div>
+      <div class="section-desc">基于2025-2026年AI眼镜出货量预测</div>
+    </div>
+    <hr class="divider">
+    <div class="scenario-grid">
+      <div class="scenario-card" style="border:1.5px solid rgba(63,185,80,0.4);background:rgba(63,185,80,0.05)">
+        <div class="scenario-prob">🟢 乐观情景 · 概率 35%</div>
+        <div class="scenario-price" style="color:var(--green)">45 ~ 60元</div>
+        <div class="scenario-upside" style="color:var(--green)">↑ +88% ~ +150%</div>
+        <div class="scenario-desc">
+          <p><strong>触发条件：</strong></p>
+          <p>• AI眼镜2025年出货量超800万台（Meta+国内爆发）</p>
+          <p>• 苹果AR眼镜2026年发布，歌尔进入供应链</p>
+          <p>• 净利润2025E超45亿，2026E超70亿</p>
+          <p>• 市场给予AI眼镜赛道30-35×PE溢价</p>
+        </div>
+      </div>
+      <div class="scenario-card" style="border:1.5px solid rgba(188,140,255,0.4);background:rgba(188,140,255,0.05)">
+        <div class="scenario-prob">🟣 基准情景 · 概率 50%</div>
+        <div class="scenario-price" style="color:var(--purple)">32 ~ 42元</div>
+        <div class="scenario-upside" style="color:var(--purple)">↑ +33% ~ +75%</div>
+        <div class="scenario-desc">
+          <p><strong>触发条件：</strong></p>
+          <p>• AI眼镜2025年出货量350-500万台，稳步增长</p>
+          <p>• VR整机需求温和复苏</p>
+          <p>• 净利润2025E约36亿（+35%）</p>
+          <p>• 市场给予20-25×合理PE区间</p>
+        </div>
+      </div>
+      <div class="scenario-card" style="border:1.5px solid rgba(248,81,73,0.3);background:rgba(248,81,73,0.04)">
+        <div class="scenario-prob">🔴 悲观情景 · 概率 15%</div>
+        <div class="scenario-price" style="color:var(--red)">16 ~ 22元</div>
+        <div class="scenario-upside" style="color:var(--red)">↓ -8% ~ -33%</div>
+        <div class="scenario-desc">
+          <p><strong>触发条件：</strong></p>
+          <p>• Meta砍单AI眼镜或竞争对手抢份额</p>
+          <p>• 中美贸易战升级，供应链被迫外迁</p>
+          <p>• AI眼镜需求不及预期，市场给予15×PE</p>
+          <p>• 净利润增速回落至10%以下</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:18px 22px">
+      <div style="font-weight:700;color:var(--purple);margin-bottom:8px">📐 期望收益率计算</div>
+      <div style="font-size:14px;color:var(--text2)">
+        期望收益 = 35%×(+119%) + 50%×(+54%) + 15%×(-20%) = <strong style="color:var(--green)">+41.65% ~ +65%</strong>
+        <span style="color:var(--text3);font-size:12px;margin-left:12px">（基于当前~24元测算，12-18个月视角）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6: 三批建仓策略 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">三批建仓交易策略</div>
+      <div class="section-desc">分批买入 · 降低择时风险</div>
+    </div>
+    <hr class="divider">
+    <div class="batch-grid">
+      <div class="batch-card" style="border-top:3px solid var(--purple)">
+        <div class="batch-num">第一批 · 30%仓位</div>
+        <div class="batch-price" style="color:var(--purple)">20 ~ 26元</div>
+        <div class="batch-pct" style="color:var(--cyan)">PE约 25~33×  ✅ 当前区间</div>
+        <div class="batch-body">
+          <p><strong>买入条件：</strong>股价在20-26元区间，AI眼镜订单持续放量，基本面无重大恶化</p>
+          <p><strong>仓位：</strong>总计划仓位的30%</p>
+          <p><strong>逻辑：</strong>当前估值合理，AI眼镜元年兑现，适合首次建仓，分享基础收益</p>
+          <p><strong>状态：</strong><span class="tag tag-purple">当前价位 · 可开始布局</span></p>
+        </div>
+      </div>
+      <div class="batch-card" style="border-top:3px solid var(--primary)">
+        <div class="batch-num">第二批 · 40%仓位</div>
+        <div class="batch-price" style="color:var(--primary)">16 ~ 20元</div>
+        <div class="batch-pct" style="color:var(--text3)">PE约 20~25×  ⏳ 等待</div>
+        <div class="batch-body">
+          <p><strong>买入条件：</strong>市场情绪悲观导致股价回调至16-20元，PE压缩至20×附近</p>
+          <p><strong>仓位：</strong>总计划仓位的40%</p>
+          <p><strong>逻辑：</strong>此价位性价比极高，AI眼镜长逻辑未变，逢调加仓核心持仓</p>
+          <p><strong>状态：</strong><span class="tag tag-blue">等待回调机会</span></p>
+        </div>
+      </div>
+      <div class="batch-card" style="border-top:3px solid var(--green)">
+        <div class="batch-num">第三批 · 30%仓位</div>
+        <div class="batch-price" style="color:var(--green)">&lt;16元</div>
+        <div class="batch-pct" style="color:var(--text3)">PE约 &lt;20×  🔍 极值机会</div>
+        <div class="batch-body">
+          <p><strong>买入条件：</strong>黑天鹅事件或市场极度恐慌，股价跌至16元以下，PE低于20×</p>
+          <p><strong>仓位：</strong>总计划仓位的30%</p>
+          <p><strong>逻辑：</strong>历史极低估值，AI眼镜长逻辑无根本性破坏，重仓加码</p>
+          <p><strong>状态：</strong><span class="tag tag-green">极端低估时重仓</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7: 催化剂时间表 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">催化剂时间表</div>
+      <div class="section-desc">2025-2026 关键事件跟踪</div>
+    </div>
+    <hr class="divider">
+    <div class="cat-grid">
+      <div class="card">
+        <div class="card-title">🔥 近期催化剂（2025上半年）</div>
+        <ul class="cat-list">
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--green)"></div>
+            <div class="cat-time">已兑现</div>
+            <div class="cat-text"><strong style="color:var(--green)">2024年报净利润+145%</strong> — 验证基本面强劲复苏，AI眼镜与VR双轮驱动格局确立</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--purple)"></div>
+            <div class="cat-time">2025Q1</div>
+            <div class="cat-text"><strong>2025年一季报</strong> — 关注AI眼镜订单放量是否体现在营收中，毛利率是否持续改善</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--yellow)"></div>
+            <div class="cat-time">2025上半</div>
+            <div class="cat-text"><strong>Meta Q2出货数据</strong> — Ray-Ban系列2025H1出货若达200万台，将大超市场预期</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--primary)"></div>
+            <div class="cat-time">2025年中</div>
+            <div class="cat-text"><strong>小米AI眼镜2代发布</strong> — 预计放量至百万级，歌尔作为核心代工方受益</div>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">🚀 中期催化剂（2025下半-2026）</div>
+        <ul class="cat-list">
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--purple)"></div>
+            <div class="cat-time">2025H2</div>
+            <div class="cat-text"><strong>苹果AR眼镜风声</strong> — 若苹果正式确认AR眼镜路线图且歌尔进入供应链，是最大催化剂</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--green)"></div>
+            <div class="cat-time">2025Q3</div>
+            <div class="cat-text"><strong>华为AI眼镜放量</strong> — 华为AR眼镜歌尔占70%代工，华为生态系统放量直接受益</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--gold)"></div>
+            <div class="cat-time">2026年</div>
+            <div class="cat-text"><strong>AI眼镜全球破千万台</strong> — 若2026年AI眼镜出货量突破1000万台，歌尔将迎来利润拐点</div>
+          </li>
+          <li class="cat-item">
+            <div class="cat-dot" style="background:var(--cyan)"></div>
+            <div class="cat-time">长期</div>
+            <div class="cat-text"><strong>光学波导国产突破</strong> — 歌尔在光学元件研发持续投入，AR光波导国产化将大幅提升零组件价值量</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- S8: 止盈止损 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title">止盈止损纪律</div>
+      <div class="section-desc">严守纪律 · 避免情绪化决策</div>
+    </div>
+    <hr class="divider">
+    <div class="stop-grid">
+      <div class="card">
+        <div class="card-title" style="color:var(--green)">✅ 止盈规则（5条）</div>
+        <ul class="stop-list">
+          <li class="stop-item"><span style="color:var(--green)">①</span>股价涨至42元以上（PE>45×），分批减仓30%，锁定部分利润</li>
+          <li class="stop-item"><span style="color:var(--green)">②</span>股价突破55元（PE>60×），大幅减仓至30%仓位，保留核心仓</li>
+          <li class="stop-item"><span style="color:var(--green)">③</span>连续两个季报净利润增速跌破20%，重新评估成长逻辑</li>
+          <li class="stop-item"><span style="color:var(--green)">④</span>更好标的出现（更高确定性+更低估值），切换仓位</li>
+          <li class="stop-item"><span style="color:var(--green)">⑤</span>持仓满3年进行全面重新评估，AI眼镜兑现预期后可获利了结</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--red)">❌ 止损规则（5条）</div>
+        <ul class="stop-list">
+          <li class="stop-item"><span style="color:var(--red)">①</span>Meta宣布AI眼镜大幅砍单或更换代工商，立即评估减仓</li>
+          <li class="stop-item"><span style="color:var(--red)">②</span>连续两个季度净利润同比下滑（非季节性），减仓50%</li>
+          <li class="stop-item"><span style="color:var(--red)">③</span>综合毛利率连续2季度低于9%（持续恶化），考虑清仓</li>
+          <li class="stop-item"><span style="color:var(--red)">④</span>中美技术封锁升级，苹果/Meta要求全面转移供应链至东南亚</li>
+          <li class="stop-item"><span style="color:var(--red)">⑤</span>创始人重大变故或公司治理出现重大问题，立即清仓</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- S9: 核心投资理念 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div class="section-title">核心投资理念</div>
+    </div>
+    <hr class="divider">
+    <div class="philosophy-box">
+      <div class="philosophy-quote">
+        "以合理甚至低估的价格，买入全球XR制造领域垄断地位的中国精密制造龙头，坐享AI眼镜爆发、VR/AR普及、苹果供应链深化三重长期逻辑的复利收益。歌尔股份不是一家普通的代工厂，而是下一代空间计算时代的核心基础设施制造商——每一台AI眼镜、每一个VR头显、每一只AirPods的背后，都有歌尔精密制造的声学与光学之魂。"
+      </div>
+      <div class="philosophy-attr">— 歌尔股份投资逻辑核心框架 2025</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px">
+        <span class="tag tag-purple">声光电全栈能力</span>
+        <span class="tag tag-green">VR代工垄断70%</span>
+        <span class="tag tag-blue">AI眼镜独供Meta</span>
+        <span class="tag tag-yellow">苹果2026 NPI</span>
+        <span class="tag tag-purple">上市17年累计分红44.9亿</span>
+      </div>
+    </div>
+
+    <!-- 关键假设跟踪 -->
+    <div style="margin-top:24px" class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>核心假设</th><th>当前状态</th><th>验证指标</th><th>跟踪频率</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:left">AI眼镜出货量持续增长</td><td><span class="tag tag-green">进行中</span></td><td>Meta季度出货量、国内品牌发布节奏</td><td>每季度</td></tr>
+          <tr><td style="text-align:left">VR代工份额不被蚕食</td><td><span class="tag tag-green">稳定</span></td><td>Meta供应商公告、竞争对手动向</td><td>半年度</td></tr>
+          <tr><td style="text-align:left">毛利率持续改善</td><td><span class="tag tag-yellow">观察中</span></td><td>季报毛利率环比/同比变化</td><td>每季度</td></tr>
+          <tr><td style="text-align:left">苹果供应链深化合作</td><td><span class="tag tag-green">有进展</span></td><td>苹果供应商名单年度更新</td><td>年度</td></tr>
+          <tr><td style="text-align:left">净利润增速保持20%+</td><td><span class="tag tag-green">已验证</span></td><td>季报归母净利润增速</td><td>每季度</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="消费电子精密制造行业深度研究报告2025.html" class="footer-link">📋 行业研究</a>
+    <a href="消费电子精密制造股深度财报分析与投资图谱2025.html" class="footer-link">📊 财报图谱</a>
+    <a href="歌尔股份投资分析与交易策略2025.html" class="footer-link">🎯 歌尔策略</a>
+    <a href="index.html" class="footer-link">🏠 投研中心</a>
+  </div>
+  <div>歌尔股份投资分析与交易策略 2025 · 数据截至2025年4月</div>
+  <div class="footer-disc">本报告仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</div>
+</footer>
+
+</body>
+</html>

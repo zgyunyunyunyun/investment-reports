@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>消费电子精密制造股深度财报分析与投资图谱 2025</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --surface3: #30363d;
+    --primary: #58a6ff;
+    --accent: #79c0ff;
+    --accent2: #ff7b72;
+    --text: #e6edf3;
+    --text2: #b1bac4;
+    --text3: #8b949e;
+    --border: #30363d;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --purple: #bc8cff;
+    --cyan: #39d353;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.4);
+    --glow-blue: 0 0 20px rgba(88,166,255,0.15);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; font-size: 15px; line-height: 1.7; }
+
+  /* NAV */
+  .nav { background: #161b22; border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { color: var(--primary); font-weight: 700; font-size: 16px; text-decoration: none; }
+  .nav-sep { color: var(--text3); }
+  .nav-link { color: var(--text2); font-size: 13px; text-decoration: none; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; }
+  .nav-link:hover, .nav-link.active { background: var(--surface3); color: var(--text); }
+  .nav-tag { background: var(--accent2); color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 10px; margin-left: 4px; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 30% 50%, rgba(88,166,255,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 50%, rgba(255,123,114,0.05) 0%, transparent 60%); }
+  .hero-badge { display: inline-block; background: rgba(88,166,255,0.1); border: 1px solid rgba(88,166,255,0.3); color: var(--primary); padding: 6px 18px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-bottom: 16px; }
+  .hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(90deg, #58a6ff, #79c0ff, #bc8cff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1rem; color: var(--text2); margin-bottom: 32px; }
+  .hero-kpi { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); padding: 16px 22px; border-radius: 12px; min-width: 140px; }
+  .kpi-val { font-size: 1.7rem; font-weight: 800; color: var(--primary); }
+  .kpi-label { font-size: 11px; color: var(--text3); margin-top: 4px; }
+  .kpi-change { font-size: 12px; color: var(--green); margin-top: 2px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 48px 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .section-num { background: var(--primary); color: #0d1117; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .section-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .section-desc { color: var(--text3); font-size: 13px; margin-left: auto; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+
+  /* CARD */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--card-shadow); }
+  .card-title { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+  .card-body { color: var(--text2); font-size: 14px; }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: var(--surface2); color: var(--primary); padding: 12px 16px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--border); color: var(--text2); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--primary); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+
+  /* RANK */
+  .rank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rank-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .rank-card-title { font-weight: 700; color: var(--primary); margin-bottom: 14px; font-size: 0.95rem; }
+  .rank-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .rank-badge { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .rank-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+  .rank-bar-fill { height: 100%; border-radius: 4px; }
+  .rank-val { font-size: 13px; font-weight: 700; min-width: 60px; text-align: right; color: var(--text); }
+
+  /* MATRIX */
+  .matrix-wrap { position: relative; }
+  .quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--surface3); border-radius: 14px; overflow: hidden; }
+  .quad { padding: 24px; min-height: 180px; }
+  .quad-title { font-size: 11px; color: var(--text3); margin-bottom: 12px; font-weight: 600; letter-spacing: 0.5px; }
+  .quad-dot { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 4px; font-size: 13px; font-weight: 600; }
+
+  /* PROFILE */
+  .profile-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .profile-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .profile-header { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+  .profile-name { font-size: 1.1rem; font-weight: 700; }
+  .profile-score { font-size: 2rem; font-weight: 800; }
+  .profile-body { padding: 18px 20px; }
+  .dim-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .dim-label { font-size: 12px; color: var(--text3); width: 60px; flex-shrink: 0; }
+  .dim-bar-bg { flex: 1; height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; }
+  .dim-bar-fill { height: 100%; border-radius: 3px; }
+  .dim-val { font-size: 12px; font-weight: 700; width: 30px; text-align: right; }
+
+  /* PORTFOLIO */
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .portfolio-card { background: var(--surface); border-radius: 14px; border: 1px solid var(--border); padding: 22px; }
+  .pc-title { font-weight: 700; color: var(--text); margin-bottom: 14px; }
+  .pc-alloc { display: flex; flex-direction: column; gap: 8px; }
+  .alloc-item { display: flex; align-items: center; gap: 10px; }
+  .alloc-pct { font-size: 1.4rem; font-weight: 800; min-width: 52px; }
+  .alloc-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+  .alloc-bar-fill { height: 100%; border-radius: 4px; }
+  .alloc-name { font-size: 13px; color: var(--text2); }
+
+  /* FOOTER */
+  .footer { background: var(--surface); border-top: 1px solid var(--border); color: var(--text3); padding: 32px 24px; text-align: center; font-size: 13px; }
+  .footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-link { color: var(--primary); text-decoration: none; padding: 4px 12px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-size: 13px; }
+  .footer-link:hover { background: var(--surface2); }
+  .footer-disc { font-size: 11px; opacity: 0.5; margin-top: 12px; }
+
+  /* HIGHLIGHT */
+  .highlight-box { background: rgba(88,166,255,0.05); border: 1px solid rgba(88,166,255,0.2); border-radius: 14px; padding: 22px 26px; margin-bottom: 24px; }
+  .highlight-box p { font-size: 14px; color: var(--text2); line-height: 1.8; }
+
+  @media (max-width:768px) {
+    .hero h1 { font-size: 1.4rem; }
+    .grid-2,.grid-3,.grid-4 { grid-template-columns: 1fr; }
+    .rank-grid { grid-template-columns: 1fr; }
+    .profile-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .quadrant-grid { grid-template-columns: 1fr; }
+    .hero-kpi { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">📊 投研中心</a>
+  <span class="nav-sep">›</span>
+  <a href="消费电子精密制造行业深度研究报告2025.html" class="nav-link">行业研究</a>
+  <a href="消费电子精密制造股深度财报分析与投资图谱2025.html" class="nav-link active">财报图谱</a>
+  <a href="歌尔股份投资分析与交易策略2025.html" class="nav-link">歌尔策略 <span class="nav-tag">个股</span></a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">📊 消费电子精密制造 · 财报深度分析 2025</div>
+    <h1>消费电子精密制造股<br>深度财报分析与投资图谱</h1>
+    <p class="hero-sub">立讯精密 · 歌尔股份 · 蓝思科技 三大龙头全维度扫描</p>
+    <div class="hero-kpi">
+      <div class="kpi-card">
+        <div class="kpi-val">3家</div>
+        <div class="kpi-label">主要龙头公司</div>
+        <div class="kpi-change">↑ 全市场TOP3</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">4395亿</div>
+        <div class="kpi-label">三家合计营收（元）</div>
+        <div class="kpi-change">↑ 同比+13%均值</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">196亿</div>
+        <div class="kpi-label">三家合计净利润（元）</div>
+        <div class="kpi-change">↑ 大幅改善</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val">~30×</div>
+        <div class="kpi-label">歌尔股份PE(TTM)</div>
+        <div class="kpi-change">↑ AI眼镜溢价</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- S1: 全市场总览 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">全市场总览：消费电子精密制造 A 股主要标的</div>
+      <div class="section-desc">2024年年报数据</div>
+    </div>
+    <hr class="divider">
+    <div class="highlight-box">
+      <p>消费电子精密制造赛道以<strong>立讯精密、歌尔股份、蓝思科技</strong>为核心三巨头。2024年三家合计营收约4395亿元，合计净利润约196亿元。其中立讯精密营收体量最大，歌尔股份净利润增速最为亮眼（+145%），蓝思科技毛利率最高（15.89%）。三家各有差异化定位，共同构成消费电子精密制造投资版图。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>代码</th><th>2024营收</th><th>YoY</th><th>净利润</th><th>YoY</th><th>毛利率</th><th>净利率</th><th>PE(TTM)</th><th>主要客户</th><th>核心看点</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">立讯精密</td>
+            <td>002475</td>
+            <td><strong>2688亿</strong></td>
+            <td><span class="tag-green">+15.9%</span></td>
+            <td><strong>133.7亿</strong></td>
+            <td><span class="tag-green">+22.0%</span></td>
+            <td>~12%</td>
+            <td>4.97%</td>
+            <td><span class="tag-blue">~20×</span></td>
+            <td>苹果(75%)</td>
+            <td><span class="tag-green">苹果深绑+汽车</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--primary)">歌尔股份 ⭐</td>
+            <td>002241</td>
+            <td><strong>1010亿</strong></td>
+            <td><span class="tag-green">+2.4%</span></td>
+            <td><strong>26.7亿</strong></td>
+            <td><span class="tag-green">+145%</span></td>
+            <td>11.09%</td>
+            <td>2.64%</td>
+            <td><span class="tag-purple">~30×</span></td>
+            <td>苹果+Meta+小米</td>
+            <td><span class="tag-purple">AI眼镜+VR龙头</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">蓝思科技</td>
+            <td>300433</td>
+            <td><strong>699亿</strong></td>
+            <td><span class="tag-green">+28.3%</span></td>
+            <td><strong>36.2亿</strong></td>
+            <td><span class="tag-green">+19.9%</span></td>
+            <td>15.89%</td>
+            <td>5.18%</td>
+            <td><span class="tag-yellow">~22×</span></td>
+            <td>苹果(58%)</td>
+            <td><span class="tag-yellow">汽车玻璃转型</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S2: 四维排行榜 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">四维排行榜</div>
+      <div class="section-desc">营收规模 · 盈利能力 · 成长速度 · 估值性价比</div>
+    </div>
+    <hr class="divider">
+    <div class="rank-grid">
+      <div class="rank-card">
+        <div class="rank-card-title">📦 营收规模排行</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">立讯精密</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">2688亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(88,166,255,0.2);color:var(--primary)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">歌尔股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:37%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">1010亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">蓝思科技</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:26%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">699亿</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">💰 净利润排行</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">立讯精密</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">133.7亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">蓝思科技</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:27%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">36.2亿</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(88,166,255,0.2);color:var(--primary)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">歌尔股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:20%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">26.7亿</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">📈 净利润增速排行（2024 YoY）</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(188,140,255,0.2);color:var(--purple)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">歌尔股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--purple)"></div></div>
+          <div class="rank-val" style="color:var(--purple)">+145%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">立讯精密</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:15%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">+22%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">蓝思科技</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:14%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">+20%</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="rank-card-title">🔬 毛利率排行（盈利质量）</div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(63,185,80,0.2);color:var(--green)">🥇</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">蓝思科技</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">15.89%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(210,153,34,0.2);color:var(--yellow)">🥈</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">立讯精密</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:75%;background:var(--yellow)"></div></div>
+          <div class="rank-val" style="color:var(--yellow)">~12%</div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-badge" style="background:rgba(88,166,255,0.2);color:var(--primary)">🥉</div>
+          <div style="font-size:13px;color:var(--text);min-width:70px">歌尔股份</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:70%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">11.09%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3: 业务结构 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">三大龙头业务结构拆解</div>
+      <div class="section-desc">各业务线营收占比与毛利率</div>
+    </div>
+    <hr class="divider">
+    <div class="grid-3">
+      <!-- 歌尔业务拆解 -->
+      <div class="card" style="border-top:3px solid var(--purple)">
+        <div class="card-title" style="color:var(--purple)">🎯 歌尔股份 002241</div>
+        <div class="card-body">
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>智能硬件（VR/AR/AI眼镜）</span><span style="color:var(--purple)">54.2%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:54%;height:100%;background:var(--purple);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">毛利率 11.5% · Meta/索尼/Pico核心赛道</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>智能声学整机（TWS/耳机）</span><span style="color:var(--primary)">25.6%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:25%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">毛利率 ~15% · AirPods相关/国内品牌</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>精密零组件（声学/光学）</span><span style="color:var(--green)">20.2%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:20%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">毛利率 23.5% · 利润压舱石</div>
+          </div>
+          <div style="margin-top:14px;padding:10px;background:var(--surface2);border-radius:8px;font-size:13px">
+            <span style="color:var(--green)">✓ 精密零组件毛利最高</span><br>
+            <span style="color:var(--purple)">★ AI眼镜将成最大增量赛道</span>
+          </div>
+        </div>
+      </div>
+      <!-- 立讯业务拆解 -->
+      <div class="card" style="border-top:3px solid var(--yellow)">
+        <div class="card-title" style="color:var(--yellow)">🏭 立讯精密 002475</div>
+        <div class="card-body">
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>消费电子（苹果为核心）</span><span style="color:var(--yellow)">83.4%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:83%;height:100%;background:var(--yellow);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">AirPods/Apple Watch/iPhone整机代工</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>汽车电子</span><span style="color:var(--green)">~5%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:5%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">汽车连接器/线束，增速40%+</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>通信+其他</span><span style="color:var(--text3)">~11.6%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:12%;height:100%;background:var(--text3);border-radius:4px"></div></div>
+          </div>
+          <div style="margin-top:14px;padding:10px;background:var(--surface2);border-radius:8px;font-size:13px">
+            <span style="color:var(--yellow)">★ 苹果依赖度极高（75%）</span><br>
+            <span style="color:var(--green)">✓ 汽车电子是长期增长引擎</span>
+          </div>
+        </div>
+      </div>
+      <!-- 蓝思业务拆解 -->
+      <div class="card" style="border-top:3px solid var(--green)">
+        <div class="card-title" style="color:var(--green)">🔲 蓝思科技 300433</div>
+        <div class="card-body">
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>智能手机玻璃盖板</span><span style="color:var(--green)">~55%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:55%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">苹果iPhone+华为+小米屏幕盖板</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>新能源汽车玻璃/大屏</span><span style="color:var(--primary)">~9%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:9%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+            <div style="font-size:11px;color:var(--text3);margin-top:2px">增速40%+，战略转型核心</div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px">
+              <span>电脑/平板/可穿戴</span><span style="color:var(--text3)">~36%</span>
+            </div>
+            <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:36%;height:100%;background:var(--text3);border-radius:4px"></div></div>
+          </div>
+          <div style="margin-top:14px;padding:10px;background:var(--surface2);border-radius:8px;font-size:13px">
+            <span style="color:var(--green)">✓ 毛利率最高（15.89%）</span><br>
+            <span style="color:var(--primary)">★ 汽车玻璃是估值修复核心</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4: PE×增速四象限矩阵 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">PE × 净利润增速四象限矩阵</div>
+      <div class="section-desc">估值 vs 成长性 · 精密制造版</div>
+    </div>
+    <hr class="divider">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px">
+      <!-- Y轴标签 -->
+      <div style="text-align:center;margin-bottom:8px;font-size:12px;color:var(--text3)">↑ 净利润增速（高成长性）</div>
+      <div class="quadrant-grid" style="border:1px solid var(--border)">
+        <!-- 左上：最佳区 高增速+低估值 -->
+        <div class="quad" style="background:rgba(63,185,80,0.06);border-right:1px solid var(--border)">
+          <div class="quad-title">🟢 最佳区 — 低估值 × 高增速</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--green);color:var(--green)">
+              <span>📈</span><span>歌尔股份</span>
+              <span style="color:var(--text3);font-size:11px">PE~30× · 净利+145%</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">虽PE偏高，但145%净利增速给予溢价合理性；AI眼镜带来额外成长预期，实质性价比最优</div>
+        </div>
+        <!-- 右上：成长溢价区 高增速+高估值 -->
+        <div class="quad" style="background:rgba(188,140,255,0.04)">
+          <div class="quad-title">🟣 成长溢价区 — 高估值 × 高增速</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--purple);color:var(--purple)">
+              <span>🚀</span><span>歌尔股份（AI眼镜预期）</span>
+              <span style="color:var(--text3);font-size:11px">若按2026E盈利，PE估值更合理</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">若AI眼镜2026年出货量超预期，当前PE30×实际将压缩至15-20×，存在显著估值重估机会</div>
+        </div>
+        <!-- 左下：价值待挖区 低增速+低估值 -->
+        <div class="quad" style="background:rgba(210,153,34,0.04);border-right:1px solid var(--border)">
+          <div class="quad-title">🟡 价值待挖区 — 低估值 × 低增速</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--yellow);color:var(--yellow)">
+              <span>💼</span><span>立讯精密</span>
+              <span style="color:var(--text3);font-size:11px">PE~20× · 净利+22%</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">盈利规模最大，估值最低，苹果深度绑定提供稳定性；若汽车电子加速放量，有估值修复空间</div>
+        </div>
+        <!-- 右下：谨慎区 低增速+高估值 -->
+        <div class="quad" style="background:rgba(248,81,73,0.04)">
+          <div class="quad-title">🔴 谨慎区 — 高估值 × 低增速</div>
+          <div>
+            <div class="quad-dot" style="border-color:var(--text3);color:var(--text3)">
+              <span>⚠️</span><span>蓝思科技（短期）</span>
+              <span style="color:var(--text3);font-size:11px">PE~22× · 净利+20%（尚可）</span>
+            </div>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">蓝思科技整体增速20%尚可，PE~22×并不算贵，但汽车玻璃转型仍需验证，短期谨慎观察</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text3)">← 低PE（低估值）　　　　　　　　　　　高PE（高估值） →</div>
+      <div style="margin-top:16px;padding:14px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--text2)">
+        <strong style="color:var(--primary)">投资结论：</strong>当前时点，<strong style="color:var(--green)">歌尔股份综合性价比最优</strong>，AI眼镜爆发赋予成长预期，145%净利增速验证了基本面改善；立讯精密是稳健选择，蓝思科技需等待汽车玻璃放量验证。
+      </div>
+    </div>
+  </section>
+
+  <!-- S5: 深度画像 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">TOP 3 深度画像评分</div>
+      <div class="section-desc">6维度综合评估 · 满分100</div>
+    </div>
+    <hr class="divider">
+    <div class="profile-grid">
+      <!-- 歌尔股份 -->
+      <div class="profile-card" style="border-top:3px solid var(--purple)">
+        <div class="profile-header" style="background:rgba(188,140,255,0.08)">
+          <div class="profile-name" style="color:var(--purple)">🎯 歌尔股份 002241</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--purple)">92</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · S级 · AI眼镜核心标的</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:70%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">14/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:95%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">19/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:95%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">19/20</span></div>
+          <div class="dim-row"><span class="dim-label">研发投入</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">17/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:50%;background:var(--purple)"></div></div><span class="dim-val" style="color:var(--purple)">10/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ VR代工70%垄断+AI眼镜独供Meta，竞争壁垒极强<br>✓ 净利润+145%，成长性最高分<br>△ 净利率偏低，应收账款偏高，财务质量需跟踪
+          </div>
+        </div>
+      </div>
+      <!-- 立讯精密 -->
+      <div class="profile-card" style="border-top:3px solid var(--yellow)">
+        <div class="profile-header" style="background:rgba(210,153,34,0.08)">
+          <div class="profile-name" style="color:var(--yellow)">🏭 立讯精密 002475</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--yellow)">85</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · A级 · 规模与稳健</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:75%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">15/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:90%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">18/20</span></div>
+          <div class="dim-row"><span class="dim-label">研发投入</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">17/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:75%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">15/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 苹果深度绑定，壁垒评分行业最高<br>✓ PE~20×是三家中最低，估值性价比高<br>△ 75%客户集中度是最大风险
+          </div>
+        </div>
+      </div>
+      <!-- 蓝思科技 -->
+      <div class="profile-card" style="border-top:3px solid var(--green)">
+        <div class="profile-header" style="background:rgba(63,185,80,0.08)">
+          <div class="profile-name" style="color:var(--green)">🔲 蓝思科技 300433</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--green)">70</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · B级 · 转型中</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:60%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">12/20</span></div>
+          <div class="dim-row"><span class="dim-label">竞争壁垒</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">研发投入</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:60%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">12/20</span></div>
+          <div class="dim-row"><span class="dim-label">财务质量</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:50%;background:var(--green)"></div></div><span class="dim-val" style="color:var(--green)">10/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 毛利率最高（15.89%），财务质量稳健<br>✓ 汽车玻璃是长期价值点<br>△ 汽车转型验证节点尚早，估值偏高
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6: 差异化对比 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">三大龙头差异化深度对比</div>
+      <div class="section-desc">10个维度横向拉通</div>
+    </div>
+    <hr class="divider">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>对比维度</th><th>歌尔股份 002241</th><th>立讯精密 002475</th><th>蓝思科技 300433</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">核心定位</td><td>XR代工龙头+AI眼镜独家</td><td>苹果产业链综合一体化</td><td>玻璃盖板+汽车大屏</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">营收体量</td><td>1010亿</td><td><strong>2688亿（最大）</strong></td><td>699亿</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">净利润增速</td><td><strong>+145%（最强）</strong></td><td>+22%</td><td>+20%</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">毛利率</td><td>11.09%</td><td>~12%</td><td><strong>15.89%（最高）</strong></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">PE估值</td><td>~30×（含AI溢价）</td><td><strong>~20×（最低）</strong></td><td>~22×</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">最大客户集中度</td><td>苹果~32%</td><td><strong>苹果75%（最高风险）</strong></td><td>苹果58%</td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">AI眼镜布局</td><td><span class="tag-green">Meta独家+小米70%</span></td><td><span class="tag-yellow">无直接代工</span></td><td><span class="tag-red">无</span></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">VR/XR代工</td><td><span class="tag-green">全球70%+垄断</span></td><td><span class="tag-red">无</span></td><td><span class="tag-red">无</span></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">汽车电子</td><td><span class="tag-yellow">小量布局</span></td><td><span class="tag-green">快速增长（40%+）</span></td><td><span class="tag-green">核心转型赛道</span></td></tr>
+          <tr><td style="font-weight:700;text-align:left;color:var(--text)">分红记录</td><td>17年上市累计分红44.9亿</td><td>多年持续分红</td><td>较少分红</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S7: 组合配置建议 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">组合配置建议</div>
+      <div class="section-desc">三种风险偏好 · 差异化配置方案</div>
+    </div>
+    <hr class="divider">
+    <div class="portfolio-grid">
+      <div class="portfolio-card" style="border-top:3px solid var(--green)">
+        <div class="pc-title">🛡️ 保守均衡型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">以规模龙头为主，降低波动，牺牲部分弹性换取稳定性</p>
+        <div class="pc-alloc">
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--yellow)">60%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:60%;background:var(--yellow)"></div></div></div>
+            <div class="alloc-name">立讯精密</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--purple)">40%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:40%;background:var(--purple)"></div></div></div>
+            <div class="alloc-name">歌尔股份</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-size:12px;color:var(--text3)">适合：价值型投资者 · 追求确定性</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--primary)">
+        <div class="pc-title">⚖️ 均衡成长型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">兼顾稳健与成长，分散大客户风险，捕捉AI眼镜弹性</p>
+        <div class="pc-alloc">
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--purple)">50%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:50%;background:var(--purple)"></div></div></div>
+            <div class="alloc-name">歌尔股份</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--yellow)">30%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:30%;background:var(--yellow)"></div></div></div>
+            <div class="alloc-name">立讯精密</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--green)">20%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:20%;background:var(--green)"></div></div></div>
+            <div class="alloc-name">蓝思科技</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-size:12px;color:var(--text3)">适合：均衡型投资者 · 兼顾稳健与成长</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--purple)">
+        <div class="pc-title">🚀 进取弹性型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">重仓AI眼镜+VR龙头，押注2025-2026爆发行情</p>
+        <div class="pc-alloc">
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--purple)">80%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:80%;background:var(--purple)"></div></div></div>
+            <div class="alloc-name">歌尔股份</div>
+          </div>
+          <div class="alloc-item">
+            <div class="alloc-pct" style="color:var(--yellow)">20%</div>
+            <div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:20%;background:var(--yellow)"></div></div></div>
+            <div class="alloc-name">立讯精密（对冲）</div>
+          </div>
+        </div>
+        <div style="margin-top:14px;font-size:12px;color:var(--text3)">适合：成长型投资者 · 高弹性高风险</div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="消费电子精密制造行业深度研究报告2025.html" class="footer-link">📋 行业研究</a>
+    <a href="消费电子精密制造股深度财报分析与投资图谱2025.html" class="footer-link">📊 财报图谱</a>
+    <a href="歌尔股份投资分析与交易策略2025.html" class="footer-link">🎯 歌尔策略</a>
+    <a href="index.html" class="footer-link">🏠 投研中心</a>
+  </div>
+  <div>消费电子精密制造股深度财报分析与投资图谱 2025 · 数据截至2025年4月</div>
+  <div class="footer-disc">本报告仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</div>
+</footer>
+
+</body>
+</html>
