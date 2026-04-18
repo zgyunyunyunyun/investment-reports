@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投资研究报告中心</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    min-height: 100vh;
+  }
+
+  /* ── 顶部 Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1c2128 100%);
+    border-bottom: 1px solid #21262d;
+    padding: 48px 20px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(88,166,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .hero p {
+    color: #8b949e;
+    font-size: 14px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    background: rgba(88,166,255,0.1);
+    border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 20px;
+    padding: 6px 16px;
+    font-size: 13px;
+    color: #58a6ff;
+  }
+
+  /* ── 主体内容 ── */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* ── 分类标题 ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 14px;
+  }
+  .section-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #8b949e;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: #21262d;
+  }
+
+  /* ── 报告卡片 ── */
+  .report-card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .report-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--card-color, #58a6ff);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .report-card:hover {
+    border-color: var(--card-color, #58a6ff);
+    background: #1c2128;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .report-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .card-emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #e6edf3;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: #8b949e;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: #8b949e;
+  }
+  .card-arrow {
+    color: #8b949e;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .report-card:hover .card-arrow {
+    transform: translateX(4px);
+    color: var(--card-color, #58a6ff);
+  }
+
+  /* ── 颜色主题 ── */
+  .color-blue  { --card-color: #58a6ff; }
+  .color-green { --card-color: #3fb950; }
+  .color-amber { --card-color: #d29922; }
+  .color-pink  { --card-color: #f78166; }
+  .color-purple{ --card-color: #bc8cff; }
+  .color-teal  { --card-color: #39d353; }
+
+  /* ── 底部 ── */
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    border-top: 1px solid #21262d;
+    color: #484f58;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong {
+    color: #8b949e;
+  }
+
+  /* ── 置顶徽章 ── */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(210,153,34,0.12);
+    border: 1px solid rgba(210,153,34,0.3);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: #d29922;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .badge-new {
+    background: rgba(63,185,80,0.12);
+    border-color: rgba(63,185,80,0.3);
+    color: #3fb950;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <span class="hero-icon">📊</span>
+  <h1>投资研究报告中心</h1>
+  <p>深度研究 · 价值投资 · 长期视角<br>涵盖银行、保险、支付、商业模式等核心赛道</p>
+  <div class="hero-stats">
+    <span class="stat-pill">📑 8篇深度研究</span>
+    <span class="stat-pill">🏦 多行业覆盖</span>
+    <span class="stat-pill">🔍 巴菲特视角</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 板块一：银行研究 -->
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(88,166,255,0.1)">🏦</div>
+    <h2>银行研究</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <a href="招商银行投资分析与交易策略2026.html" class="report-card color-blue" style="--card-color:#f0883e">
+    <div class="card-top">
+      <div class="card-emoji">🎯</div>
+      <div class="card-body">
+        <div class="card-title">
+          招商银行深度投资分析与交易策略 2026
+          <span class="badge badge-new">✨ 最新</span>
+        </div>
+        <div class="card-desc">
+          基于2025年报最新数据。五种估值法内在价值测算、PB历史分位分析、安全边际量化、三种情景上涨空间，以及分批建仓、持有、卖出的完整交易策略。
+        </div>
+        <div class="card-tags">
+          <span class="tag">PB 0.91×历史10%分位</span>
+          <span class="tag">内在价值48~55元</span>
+          <span class="tag">股息率5.1%</span>
+          <span class="tag">交易策略</span>
+          <span class="tag">安全边际</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a href="三大银行深度分析报告2025.html" class="report-card color-blue">
+    <div class="card-top">
+      <div class="card-emoji">🔬</div>
+      <div class="card-body">
+        <div class="card-title">
+          招商·杭州·成都三大银行深度分析 2025
+          <span class="badge badge-new">✨ 最新</span>
+        </div>
+        <div class="card-desc">
+          三家银行2024年报全面拆解：业务板块收入来源、利润引擎、贷款结构对比、长期战略展望。巴菲特六条法则评分与组合配置建议。
+        </div>
+        <div class="card-tags">
+          <span class="tag">零售之王</span>
+          <span class="tag">科创金融</span>
+          <span class="tag">成渝基建</span>
+          <span class="tag">财富管理AUM</span>
+          <span class="tag">拨备蓄水池</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a href="银行股深度财报分析与投资图谱2025.html" class="report-card color-blue">
+    <div class="card-top">
+      <div class="card-emoji">📈</div>
+      <div class="card-body">
+        <div class="card-title">
+          银行股深度财报分析与投资图谱 2025
+        </div>
+        <div class="card-desc">
+          42家A股银行2024年报深度解析。ROE排名、净息差对比、各业务板块拆解（零售/对公/金融市场）、PB-ROE估值矩阵，找出符合巴菲特六条法则的优质银行。
+        </div>
+        <div class="card-tags">
+          <span class="tag">ROE排名</span>
+          <span class="tag">PB-ROE估值矩阵</span>
+          <span class="tag">净息差对比</span>
+          <span class="tag">招商/成都/杭州银行</span>
+          <span class="tag">巴菲特六条法则</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a href="银行投资价值深度研究报告.html" class="report-card color-blue">
+    <div class="card-top">
+      <div class="card-emoji">🔍</div>
+      <div class="card-body">
+        <div class="card-title">银行投资价值深度研究报告</div>
+        <div class="card-desc">
+          两种核心观点深度对比：体量天花板论 vs 银行是所有行业最终归宿论。从宏观逻辑到选股框架，系统建立银行股投资认知。
+        </div>
+        <div class="card-tags">
+          <span class="tag">两大核心观点对比</span>
+          <span class="tag">银行商业模式</span>
+          <span class="tag">存贷利差</span>
+          <span class="tag">行业天花板分析</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <!-- 板块二：巴菲特研究 -->
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(210,153,34,0.1)">🎩</div>
+    <h2>巴菲特研究</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <a href="巴菲特最新持仓深度解读2025.html" class="report-card color-amber">
+    <div class="card-top">
+      <div class="card-emoji">🎩</div>
+      <div class="card-body">
+        <div class="card-title">
+          巴菲特最新持仓深度解读 2025
+          <span class="badge">🔥 热门</span>
+        </div>
+        <div class="card-desc">
+          基于2024-2025年13F最新数据，逐一解析苹果、美国运通、可口可乐、雪佛龙等核心持仓的买入逻辑，揭示巴菲特选股框架的底层思维。
+        </div>
+        <div class="card-tags">
+          <span class="tag">13F持仓数据</span>
+          <span class="tag">苹果/可口可乐</span>
+          <span class="tag">美国运通</span>
+          <span class="tag">集中持仓哲学</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <a href="美国运通与中国类比公司深度研究.html" class="report-card color-amber">
+    <div class="card-top">
+      <div class="card-emoji">💳</div>
+      <div class="card-body">
+        <div class="card-title">
+          美国运通与中国类比公司深度研究
+          <span class="badge badge-new">✨ 最新</span>
+        </div>
+        <div class="card-desc">
+          解密巴菲特1963年色拉油丑闻中的逆向买入逻辑。闭环支付网络 vs 开环模式深度对比，寻找中国版"美国运通"——招商银行、腾讯、蚂蚁、银联横向评估。
+        </div>
+        <div class="card-tags">
+          <span class="tag">闭环支付网络</span>
+          <span class="tag">色拉油丑闻</span>
+          <span class="tag">飞轮效应</span>
+          <span class="tag">中国类比公司</span>
+          <span class="tag">ROE ~35%</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <!-- 板块三：行业深度 -->
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(188,140,255,0.1)">🏢</div>
+    <h2>行业深度</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <a href="中国保险行业深度研究报告.html" class="report-card color-purple">
+    <div class="card-top">
+      <div class="card-emoji">🛡️</div>
+      <div class="card-body">
+        <div class="card-title">中国保险行业深度研究报告</div>
+        <div class="card-desc">
+          保险行业核心运作逻辑（浮存金、承保盈利、投资收益三层结构）、主要上市险企深度对比，以及巴菲特如何利用保险浮存金构建投资帝国。
+        </div>
+        <div class="card-tags">
+          <span class="tag">浮存金</span>
+          <span class="tag">综合成本率</span>
+          <span class="tag">中国人寿/平安/太保</span>
+          <span class="tag">寿险 vs 财险</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <!-- 板块四：投资框架 -->
+  <div class="section-header">
+    <div class="section-icon" style="background:rgba(63,185,80,0.1)">🧭</div>
+    <h2>投资框架</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <a href="好商业模式投资框架与赛道选择.html" class="report-card color-green">
+    <div class="card-top">
+      <div class="card-emoji">🧭</div>
+      <div class="card-body">
+        <div class="card-title">好商业模式投资框架与赛道选择</div>
+        <div class="card-desc">
+          段永平+巴菲特双视角建立好商业模式判断框架。行业认知复杂度评估体系，帮你系统找到适合自己的投资赛道，避开认知盲区。
+        </div>
+        <div class="card-tags">
+          <span class="tag">护城河</span>
+          <span class="tag">段永平视角</span>
+          <span class="tag">行业认知复杂度</span>
+          <span class="tag">赛道选择方法论</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+  <strong>投资研究报告中心</strong><br>
+  以上内容仅供研究参考，不构成投资建议<br>
+  数据来源：公司年报、监管披露文件、公开财经资讯
+</div>
+
+</body>
+</html>

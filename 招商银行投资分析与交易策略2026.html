@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>招商银行深度投资分析 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  line-height: 1.7;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 60%, #1c2128 100%);
+  border-bottom: 1px solid #21262d;
+  padding: 52px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(88,166,255,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+.badge { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 4px 12px; font-size: 12px; color: #8b949e; }
+.hero h1 { font-size: 28px; font-weight: 800; color: #e6edf3; margin-bottom: 8px; letter-spacing: -0.5px; }
+.hero h2 { font-size: 15px; font-weight: 400; color: #8b949e; margin-bottom: 24px; }
+.price-display {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  background: rgba(88,166,255,0.1);
+  border: 1px solid rgba(88,166,255,0.25);
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin-bottom: 12px;
+}
+.price-num { font-size: 36px; font-weight: 800; color: #58a6ff; }
+.price-label { font-size: 13px; color: #8b949e; }
+.price-meta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; font-size: 13px; color: #8b949e; }
+.price-meta span { display: flex; gap: 4px; align-items: center; }
+
+/* 导航 */
+.nav {
+  background: #161b22; border-bottom: 1px solid #21262d;
+  padding: 0 20px; display: flex; gap: 0; overflow-x: auto;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav a {
+  text-decoration: none; color: #8b949e; font-size: 13px;
+  padding: 14px 16px; white-space: nowrap;
+  border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.nav a:hover { color: #e6edf3; border-bottom-color: #58a6ff; }
+
+/* 主体 */
+.container { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+
+/* 章节 */
+.section { margin-bottom: 48px; }
+.section-title {
+  font-size: 20px; font-weight: 700; color: #e6edf3;
+  padding-bottom: 12px; border-bottom: 1px solid #21262d;
+  margin-bottom: 6px; display: flex; align-items: center; gap: 10px;
+}
+.section-sub { color: #8b949e; font-size: 13px; margin-bottom: 20px; }
+
+/* 卡片 */
+.card { background: #161b22; border: 1px solid #21262d; border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+.card-title { font-size: 16px; font-weight: 700; color: #e6edf3; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+
+/* 指标格子 */
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.metric-box { background: rgba(255,255,255,0.03); border: 1px solid #21262d; border-radius: 8px; padding: 14px; text-align: center; }
+.metric-label { font-size: 11px; color: #8b949e; margin-bottom: 6px; }
+.metric-value { font-size: 20px; font-weight: 700; color: #e6edf3; line-height: 1.2; }
+.metric-sub { font-size: 11px; color: #8b949e; margin-top: 4px; }
+.m-up .metric-value { color: #3fb950; }
+.m-down .metric-value { color: #f78166; }
+.m-blue .metric-value { color: #58a6ff; }
+.m-amber .metric-value { color: #d29922; }
+
+/* 表格 */
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+th { background: rgba(255,255,255,0.04); color: #8b949e; font-weight: 500; padding: 10px 12px; text-align: left; border-bottom: 1px solid #21262d; }
+td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); color: #c9d1d9; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.t-up { color: #3fb950; font-weight: 600; }
+.t-down { color: #f78166; font-weight: 600; }
+.t-num { font-weight: 600; color: #e6edf3; }
+.t-hi { background: rgba(88,166,255,0.08) !important; }
+.t-lo { background: rgba(247,129,102,0.08) !important; }
+
+/* 进度条 */
+.bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+.bar-label { width: 130px; flex-shrink: 0; color: #c9d1d9; font-size: 12px; }
+.bar-track { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; position: relative; }
+.bar-fill { height: 100%; border-radius: 4px; }
+.bf-blue  { background: linear-gradient(90deg,#1f6feb,#58a6ff); }
+.bf-green { background: linear-gradient(90deg,#238636,#3fb950); }
+.bf-amber { background: linear-gradient(90deg,#9e6a03,#d29922); }
+.bf-red   { background: linear-gradient(90deg,#b91c1c,#f78166); }
+.bf-purple{ background: linear-gradient(90deg,#6e40c9,#bc8cff); }
+.bar-pct  { width: 48px; text-align: right; color: #8b949e; font-size: 12px; }
+
+/* 估值仪表盘 */
+.gauge-container { display: flex; justify-content: center; margin: 20px 0; }
+.gauge-wrap { text-align: center; }
+.gauge-track {
+  width: 260px; height: 130px;
+  border-radius: 130px 130px 0 0;
+  background: conic-gradient(
+    #f78166 0deg 36deg,
+    #d29922 36deg 90deg,
+    #3fb950 90deg 144deg,
+    #d29922 144deg 162deg,
+    #f78166 162deg 180deg
+  );
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 8px;
+}
+.gauge-inner {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 210px; height: 105px;
+  background: #161b22;
+  border-radius: 105px 105px 0 0;
+}
+.gauge-needle {
+  position: absolute;
+  bottom: 0; left: 50%;
+  width: 3px; height: 115px;
+  background: #e6edf3;
+  transform-origin: bottom center;
+  transform: translateX(-50%) rotate(-60deg);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 6px rgba(255,255,255,0.3);
+}
+.gauge-label { font-size: 22px; font-weight: 800; color: #3fb950; }
+.gauge-sub { font-size: 12px; color: #8b949e; }
+.gauge-zones {
+  display: flex; justify-content: space-between;
+  width: 260px; margin: 0 auto;
+  font-size: 10px; color: #8b949e;
+}
+
+/* 估值区间尺 */
+.valuation-ruler {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.ruler-track {
+  position: relative;
+  height: 20px;
+  background: linear-gradient(90deg, #f78166 0%, #d29922 25%, #3fb950 50%, #d29922 75%, #f78166 100%);
+  border-radius: 10px;
+  margin: 12px 0 6px;
+}
+.ruler-pointer {
+  position: absolute;
+  top: -6px;
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #e6edf3;
+  transform: translateX(-50%);
+}
+.ruler-labels { display: flex; justify-content: space-between; font-size: 11px; color: #8b949e; }
+.ruler-title { font-size: 12px; color: #8b949e; margin-bottom: 4px; }
+.ruler-value { font-size: 18px; font-weight: 700; color: #3fb950; }
+
+/* 安全边际卡 */
+.safety-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.safety-box {
+  border-radius: 10px; padding: 16px; text-align: center; border: 1px solid;
+}
+.sb-danger { background: rgba(247,129,102,0.08); border-color: rgba(247,129,102,0.3); }
+.sb-safe   { background: rgba(63,185,80,0.08);  border-color: rgba(63,185,80,0.3); }
+.sb-ideal  { background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.3); }
+.sb-price  { font-size: 22px; font-weight: 800; margin-bottom: 4px; }
+.sb-danger .sb-price { color: #f78166; }
+.sb-safe   .sb-price { color: #3fb950; }
+.sb-ideal  .sb-price { color: #58a6ff; }
+.sb-label  { font-size: 12px; color: #8b949e; margin-bottom: 6px; }
+.sb-desc   { font-size: 11px; color: #8b949e; line-height: 1.5; }
+
+/* 分析块 */
+.insight { background: rgba(88,166,255,0.06); border-left: 3px solid #58a6ff; border-radius: 0 8px 8px 0; padding: 14px 16px; font-size: 13px; color: #c9d1d9; margin-bottom: 16px; line-height: 1.7; }
+.insight-green  { border-left-color: #3fb950; background: rgba(63,185,80,0.06); }
+.insight-amber  { border-left-color: #d29922; background: rgba(210,153,34,0.06); }
+.insight-red    { border-left-color: #f78166; background: rgba(247,129,102,0.06); }
+
+/* 策略卡 */
+.strategy-card { border: 1px solid; border-radius: 12px; padding: 22px; margin-bottom: 16px; }
+.sc-buy   { border-color: rgba(63,185,80,0.4);  background: rgba(63,185,80,0.05); }
+.sc-hold  { border-color: rgba(88,166,255,0.4); background: rgba(88,166,255,0.05); }
+.sc-sell  { border-color: rgba(247,129,102,0.4);background: rgba(247,129,102,0.05); }
+.sc-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+.sc-buy .sc-title  { color: #3fb950; }
+.sc-hold .sc-title { color: #58a6ff; }
+.sc-sell .sc-title { color: #f78166; }
+.sc-sub   { font-size: 12px; color: #8b949e; margin-bottom: 14px; }
+.sc-body  { font-size: 13px; color: #c9d1d9; line-height: 1.7; }
+
+/* 列表 */
+.ul-list { padding-left: 0; list-style: none; }
+.ul-list li { padding: 7px 0 7px 18px; position: relative; font-size: 13px; color: #c9d1d9; border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.6; }
+.ul-list li::before { content: '›'; position: absolute; left: 3px; color: #58a6ff; font-weight: 700; }
+.ul-list li strong { color: #e6edf3; }
+
+/* 两栏 */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media(max-width:600px) { .two-col { grid-template-columns: 1fr; } .metrics-grid { grid-template-columns:repeat(2,1fr); } .safety-grid { grid-template-columns: 1fr; } }
+
+/* 时间线 */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before { content:''; position:absolute; left:8px; top:0; bottom:0; width:2px; background:#21262d; }
+.tl-item { position: relative; margin-bottom: 20px; }
+.tl-dot { position:absolute; left:-20px; top:4px; width:10px; height:10px; border-radius:50%; border:2px solid; }
+.tl-dot-buy  { background:rgba(63,185,80,0.3);  border-color:#3fb950; }
+.tl-dot-warn { background:rgba(210,153,34,0.3); border-color:#d29922; }
+.tl-dot-sell { background:rgba(247,129,102,0.3);border-color:#f78166; }
+.tl-year  { font-size:12px; color:#8b949e; margin-bottom:4px; }
+.tl-event { font-size:13px; color:#c9d1d9; line-height:1.6; }
+.tl-price { font-size:15px; font-weight:700; margin-bottom:4px; }
+
+/* 分隔线 */
+.divider { height:1px; background: linear-gradient(90deg,transparent,#30363d,transparent); margin: 40px 0; }
+
+/* 评分圆圈 */
+.score-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
+.score-box { flex:1; min-width:80px; background:rgba(255,255,255,0.03); border:1px solid #30363d; border-radius:10px; padding:14px 10px; text-align:center; }
+.score-num { font-size:26px; font-weight:800; line-height:1; margin-bottom:4px; }
+.score-dim { font-size:11px; color:#8b949e; }
+.sc-s { color:#d29922; }
+.sc-a { color:#3fb950; }
+.sc-b { color:#58a6ff; }
+.sc-c { color:#8b949e; }
+
+/* 页脚 */
+.footer { text-align:center; padding:24px 20px; border-top:1px solid #21262d; color:#484f58; font-size:12px; line-height:2; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badges">
+    <span class="badge">🔵 招商银行 600036</span>
+    <span class="badge">📊 2025年报数据</span>
+    <span class="badge">🎯 交易策略</span>
+    <span class="badge">⚖️ 安全边际分析</span>
+  </div>
+  <h1>招商银行深度投资分析报告</h1>
+  <h2>股价估值 · 安全边际 · 上涨空间 · 交易策略</h2>
+  <div class="price-display">
+    <span class="price-label">A股最新股价</span>
+    <span class="price-num">≈39.5元</span>
+    <span class="price-label">（2026年4月）</span>
+  </div>
+  <div class="price-meta">
+    <span>📊 PB：0.91×</span>
+    <span>📈 PE：6.6×</span>
+    <span>💰 股息率：约5.1%</span>
+    <span>🏦 总市值：约9,970亿</span>
+  </div>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <a href="#snapshot">快照</a>
+  <a href="#valuation">估值定位</a>
+  <a href="#fundamental">基本面趋势</a>
+  <a href="#safety">安全边际</a>
+  <a href="#upside">上涨空间</a>
+  <a href="#catalyst">催化剂</a>
+  <a href="#strategy">交易策略</a>
+  <a href="#risk">风险</a>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════
+     §0 核心快照
+═══════════════════════════ -->
+<div class="section" id="snapshot">
+  <div class="section-title">⚡ 核心数据快照</div>
+  <div class="section-sub">2025年报 + 2026年4月最新市场数据</div>
+
+  <div class="card">
+    <div class="metrics-grid">
+      <div class="metric-box m-blue">
+        <div class="metric-label">当前股价(A)</div>
+        <div class="metric-value">≈39.5<span style="font-size:12px">元</span></div>
+        <div class="metric-sub">3月高点约43元</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">市净率 PB</div>
+        <div class="metric-value">0.91×</div>
+        <div class="metric-sub">近5年10%分位</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">市盈率 PE</div>
+        <div class="metric-value">6.6×</div>
+        <div class="metric-sub">历史低位</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">股息率（A）</div>
+        <div class="metric-value">~5.1%</div>
+        <div class="metric-sub">每股分红2.016元</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">每股净资产</div>
+        <div class="metric-value">43.43<span style="font-size:12px">元</span></div>
+        <div class="metric-sub">2025年末</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">每股收益EPS</div>
+        <div class="metric-value">5.66<span style="font-size:12px">元</span></div>
+        <div class="metric-sub">2025年全年</div>
+      </div>
+      <div class="metric-box m-down">
+        <div class="metric-label">ROE（加权）</div>
+        <div class="metric-value">13.44%</div>
+        <div class="metric-sub">同比-1.05pp</div>
+      </div>
+      <div class="metric-box m-down">
+        <div class="metric-label">净息差 NIM</div>
+        <div class="metric-value">1.87%</div>
+        <div class="metric-sub">同比-11bp，Q4企稳</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">归母净利润</div>
+        <div class="metric-value">1,502<span style="font-size:12px">亿</span></div>
+        <div class="metric-sub">同比+1.21%</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">不良贷款率</div>
+        <div class="metric-value">0.94%</div>
+        <div class="metric-sub">同比-1bp</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">拨备覆盖率</div>
+        <div class="metric-value">392%</div>
+        <div class="metric-sub">风险缓冲厚</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">财富管理收入</div>
+        <div class="metric-value">440<span style="font-size:12px">亿</span></div>
+        <div class="metric-sub">同比+16.9% 🚀</div>
+      </div>
+    </div>
+    <div class="insight insight-green">
+      <strong>一句话总结当前位置：</strong>招商银行当前PB（0.91×）处于近5年历史的最低10%分位，叠加约5.1%的股息率，当前股价体现的是"悲观预期定价"——市场已充分price in了NIM收窄、消费疲弱、资产质量承压等负面因素。对于长期投资者，这是历史上少有的低位窗口。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §1 估值定位
+═══════════════════════════ -->
+<div class="section" id="valuation">
+  <div class="section-title">📊 估值历史定位：你在哪个位置买入？</div>
+  <div class="section-sub">PB/PE历史分位数分析 — 理解当前价格在历史上的位置</div>
+
+  <!-- PB历史区间 -->
+  <div class="card">
+    <div class="card-title">📐 PB（市净率）历史区间分析</div>
+
+    <div class="valuation-ruler" style="margin-bottom:20px">
+      <div class="ruler-title">近5年PB历史区间尺</div>
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:#8b949e;margin-bottom:4px">
+        <span>极度低估</span><span>低估</span><span>合理</span><span>高估</span><span>极度高估</span>
+      </div>
+      <div class="ruler-track">
+        <!-- 当前PB 0.91 在 0.75~2.20 区间中，位置 = (0.91-0.75)/(2.20-0.75) = 0.16/1.45 = 11% -->
+        <div class="ruler-pointer" style="left:11%"></div>
+      </div>
+      <div class="ruler-labels">
+        <span>0.75（历史低点）</span>
+        <span style="color:#3fb950;font-weight:700">▲ 当前0.91×</span>
+        <span>2.20（历史高点）</span>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>时间周期</th><th>PB最高</th><th>PB最低</th><th>PB均值</th><th>当前位置</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>近1年（2025-2026）</td>
+          <td>1.15×</td>
+          <td>0.86×</td>
+          <td>1.02×</td>
+          <td class="t-down">16.5%分位（偏低）</td>
+        </tr>
+        <tr>
+          <td>近3年（2023-2026）</td>
+          <td>1.28×</td>
+          <td>0.75×</td>
+          <td>0.98×</td>
+          <td>40.2%分位（适中）</td>
+        </tr>
+        <tr class="t-hi">
+          <td><strong>近5年（2021-2026）</strong></td>
+          <td><strong>2.20×</strong></td>
+          <td><strong>0.75×</strong></td>
+          <td><strong>1.16×</strong></td>
+          <td class="t-down"><strong>10.9%分位（历史极低）⭐</strong></td>
+        </tr>
+        <tr>
+          <td>对应股价参考</td>
+          <td>≈95元（2021高峰）</td>
+          <td>≈32元（2024低点）</td>
+          <td>≈50元</td>
+          <td class="t-down"><strong>当前≈39.5元</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;color:#8b949e;margin-bottom:10px">各年度PB区间对照</p>
+    <div class="bar-row">
+      <div class="bar-label">2021年（牛市峰顶）</div>
+      <div class="bar-track"><div class="bar-fill bf-red" style="width:100%"></div></div>
+      <div class="bar-pct">1.60~2.20×</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2022年（下行初期）</div>
+      <div class="bar-track"><div class="bar-fill bf-amber" style="width:82%"></div></div>
+      <div class="bar-pct">0.85~1.82×</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2023年（震荡磨底）</div>
+      <div class="bar-track"><div class="bar-fill bf-amber" style="width:52%"></div></div>
+      <div class="bar-pct">0.76~1.28×</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2024年（历史最低）</div>
+      <div class="bar-track"><div class="bar-fill bf-blue" style="width:26%"></div></div>
+      <div class="bar-pct">0.75~1.01×</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">2025年（缓慢修复）</div>
+      <div class="bar-track"><div class="bar-fill bf-blue" style="width:27%"></div></div>
+      <div class="bar-pct">0.93~1.15×</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label" style="color:#58a6ff;font-weight:600">2026年至今（当前）</div>
+      <div class="bar-track">
+        <div class="bar-fill bf-green" style="width:11%"></div>
+      </div>
+      <div class="bar-pct" style="color:#3fb950">0.86~0.98×</div>
+    </div>
+  </div>
+
+  <!-- PE历史分析 -->
+  <div class="card">
+    <div class="card-title">📈 PE（市盈率）历史区间分析</div>
+    <table>
+      <thead>
+        <tr><th>年份</th><th>PE范围</th><th>股价对应范围</th><th>市场情绪</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2021年峰值</td>
+          <td class="t-down">13~18×</td>
+          <td>70~95元</td>
+          <td>🔴 极度乐观，显著高估</td>
+        </tr>
+        <tr>
+          <td>2022年</td>
+          <td>8~13×</td>
+          <td>45~70元</td>
+          <td>🟡 逐步回归合理</td>
+        </tr>
+        <tr>
+          <td>2023年</td>
+          <td>6~9×</td>
+          <td>35~50元</td>
+          <td>🟡 偏低，悲观情绪</td>
+        </tr>
+        <tr>
+          <td>2024年</td>
+          <td>5~7×</td>
+          <td>30~38元</td>
+          <td>🔵 历史低位，极度悲观</td>
+        </tr>
+        <tr class="t-hi">
+          <td><strong>2026年当前</strong></td>
+          <td class="t-down"><strong>6.6×</strong></td>
+          <td><strong>≈39.5元</strong></td>
+          <td>🔵 <strong>偏低，依然悲观区间</strong></td>
+        </tr>
+        <tr>
+          <td>合理中枢估算</td>
+          <td class="t-up">8~10×</td>
+          <td>45~57元</td>
+          <td>🟢 历史中枢估值区间</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight">
+      <strong>PE vs 历史对比的关键洞察：</strong>在2016-2020年利率正常化时期，招商银行PE合理中枢在<span style="color:#58a6ff;font-weight:600">8~10×</span>之间。当前6.6×的PE意味着：市场预期未来几年净利润将几乎零增长，或者要求更高的风险溢价。如果利率预期稳定、资产质量不再恶化，仅靠PE回归历史均值（8×），股价即可从39.5元涨至约48元（+21%），叠加每年5%+股息，回报相当可观。
+    </div>
+  </div>
+
+  <!-- PB-ROE估值锚 -->
+  <div class="card">
+    <div class="card-title">⚓ PB-ROE内在价值锚：股价"应该"在哪里？</div>
+    <div class="insight insight-amber">
+      <strong>巴菲特逻辑：合理PB = ROE ÷ 要求回报率</strong><br>
+      若要求10%回报率：合理PB = 13.44% ÷ 10% = <strong>1.34×</strong> → 对应股价 = 43.43 × 1.34 = <span style="color:#d29922;font-weight:700">约58元</span><br>
+      若要求12%回报率：合理PB = 13.44% ÷ 12% = <strong>1.12×</strong> → 对应股价 = 43.43 × 1.12 = <span style="color:#58a6ff;font-weight:700">约49元</span><br>
+      当前PB 0.91×意味着市场隐含要求回报率高达：13.44% ÷ 0.91 = <strong>14.8%</strong>，远高于实际风险水平，说明存在<span style="color:#3fb950;font-weight:700">明显低估</span>。
+    </div>
+    <table>
+      <thead>
+        <tr><th>情景</th><th>假设要求回报率</th><th>合理PB</th><th>对应股价</th><th>较当前涨幅</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>保守场景</td>
+          <td>13%</td>
+          <td>1.03×</td>
+          <td>约45元</td>
+          <td class="t-up">+14%</td>
+        </tr>
+        <tr class="t-hi">
+          <td><strong>基准场景</strong></td>
+          <td><strong>11%</strong></td>
+          <td><strong>1.22×</strong></td>
+          <td><strong>约53元</strong></td>
+          <td class="t-up"><strong>+34%</strong></td>
+        </tr>
+        <tr>
+          <td>乐观场景</td>
+          <td>9%</td>
+          <td>1.49×</td>
+          <td>约65元</td>
+          <td class="t-up">+64%</td>
+        </tr>
+        <tr>
+          <td>历史峰值（2021）</td>
+          <td>7%</td>
+          <td>1.92×</td>
+          <td>约83元</td>
+          <td class="t-up">+110%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §2 基本面趋势
+═══════════════════════════ -->
+<div class="section" id="fundamental">
+  <div class="section-title">📉 基本面趋势：压力与拐点信号并存</div>
+  <div class="section-sub">理解过去3年的下行逻辑，判断是否已见底</div>
+
+  <div class="card">
+    <div class="card-title">📊 关键指标趋势（2021→2025年）</div>
+    <table>
+      <thead>
+        <tr><th>指标</th><th>2021峰值</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>趋势判断</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>净利润(亿)</td>
+          <td>1,199</td>
+          <td>1,380</td>
+          <td>1,466</td>
+          <td>1,484</td>
+          <td class="t-num">1,502</td>
+          <td class="t-up">↗ 持续增长但放缓</td>
+        </tr>
+        <tr>
+          <td>ROE（加权）</td>
+          <td>17.0%</td>
+          <td>16.8%</td>
+          <td>16.2%</td>
+          <td>14.49%</td>
+          <td class="t-down">13.44%</td>
+          <td class="t-down">↘ 下行趋势明显</td>
+        </tr>
+        <tr>
+          <td>净息差NIM</td>
+          <td>2.48%</td>
+          <td>2.40%</td>
+          <td>2.15%</td>
+          <td>1.98%</td>
+          <td class="t-down">1.87%</td>
+          <td class="t-down">↘ 收窄压力持续</td>
+        </tr>
+        <tr>
+          <td>不良贷款率</td>
+          <td>0.91%</td>
+          <td>0.96%</td>
+          <td>0.95%</td>
+          <td>0.95%</td>
+          <td class="t-up">0.94%</td>
+          <td>→ 基本稳定</td>
+        </tr>
+        <tr>
+          <td>拨备覆盖率</td>
+          <td>483%</td>
+          <td>450%</td>
+          <td>437%</td>
+          <td>412%</td>
+          <td>392%</td>
+          <td>↘ 消耗但仍厚实</td>
+        </tr>
+        <tr>
+          <td>财富管理收入(亿)</td>
+          <td>～300</td>
+          <td>～320</td>
+          <td>～330</td>
+          <td>376</td>
+          <td class="t-up">440</td>
+          <td class="t-up">↗ 拐点已现 🚀</td>
+        </tr>
+        <tr>
+          <td>股价 (元)</td>
+          <td>~85</td>
+          <td>~50</td>
+          <td>~37</td>
+          <td>~34</td>
+          <td>~43（高）</td>
+          <td>→ 底部震荡</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 两大拖累 -->
+  <div class="card">
+    <div class="card-title">🔍 下行的三大核心压力</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#f78166;font-weight:600;margin-bottom:10px">① NIM持续收窄（最大压力）</p>
+        <ul class="ul-list">
+          <li>2021年2.48% → 2025年1.87%，4年共<strong>下降61bp</strong></li>
+          <li>主因：LPR多次下调，存量贷款重定价压低资产收益率</li>
+          <li>2025年Q4 NIM环比<strong>上升3bp</strong>至1.86%，边际企稳信号出现</li>
+          <li>2026年存款降息效果将继续释放，NIM有望稳定在1.85~1.90%</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;font-weight:600;margin-bottom:10px">② 信用卡&零售不良上升</p>
+        <ul class="ul-list">
+          <li>信用卡不良率<strong>1.74%</strong>，仍处偏高水平</li>
+          <li>小微贷款不良率<strong>1.22%</strong>（2024年0.79%，跳升43bp）</li>
+          <li>但对公不良率从1.01%降至<strong>0.84%</strong>，持续改善</li>
+          <li>房地产对公不良<strong>4.78%</strong>，较上年末降16bp，风险出清中</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:14px">
+      <p style="font-size:13px;color:#f78166;font-weight:600;margin-bottom:10px">③ ROE下行（短期趋势未逆转）</p>
+      <ul class="ul-list">
+        <li>ROE从2021年17%下降至2025年<strong>13.44%</strong>，主因是NIM收窄压缩净利润率</li>
+        <li>但仍处于A股银行中<strong>绝对领先位置</strong>（行业均值约10%）</li>
+        <li>机构预测2026-2027年ROE将稳定在12.9%~13.1%区间，下行趋势有望企稳</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 拐点信号 -->
+  <div class="card">
+    <div class="card-title">🌅 基本面拐点信号：三个关键变化</div>
+    <div class="insight insight-green">
+      <strong>不要只看压力，更要看边际变化。2025年有三个重要的积极信号：</strong>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+      <div style="background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.25);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">📈</div>
+        <div style="font-size:14px;font-weight:700;color:#3fb950;margin-bottom:6px">财富管理强势反弹</div>
+        <div style="font-size:12px;color:#8b949e">大财富管理收入440亿<br><strong style="color:#3fb950">+16.9%</strong><br>扭转2024年-16.8%的下跌<br>代理基金+40%，代理理财+继续增长</div>
+      </div>
+      <div style="background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.25);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">🏦</div>
+        <div style="font-size:14px;font-weight:700;color:#3fb950;margin-bottom:6px">NIM单季企稳</div>
+        <div style="font-size:12px;color:#8b949e">Q4单季NIM环比+3bp<br>至<strong style="color:#3fb950">1.86%</strong><br>4年来首次单季改善<br>存款降息效果释放</div>
+      </div>
+      <div style="background:rgba(63,185,80,0.06);border:1px solid rgba(63,185,80,0.25);border-radius:8px;padding:14px;text-align:center">
+        <div style="font-size:24px;margin-bottom:8px">🏢</div>
+        <div style="font-size:14px;font-weight:700;color:#3fb950;margin-bottom:6px">对公不良持续好转</div>
+        <div style="font-size:12px;color:#8b949e">对公不良率0.84%<br><strong style="color:#3fb950">较上年-17bp</strong><br>房地产不良出清进度加快<br>对公新生不良-39.9亿</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §3 安全边际
+═══════════════════════════ -->
+<div class="section" id="safety">
+  <div class="section-title">🛡️ 安全边际分析：最坏情况能跌多少？</div>
+  <div class="section-sub">从多个维度计算下行保护空间</div>
+
+  <div class="card">
+    <div class="card-title">⚖️ 三档买入价位参考</div>
+    <div class="safety-grid">
+      <div class="safety-box sb-ideal">
+        <div class="sb-label">🎯 极佳介入价（PB 0.75~0.80×）</div>
+        <div class="sb-price">32~35元</div>
+        <div class="sb-desc">历史绝对底部区间。2024年最低价约32元，这是市场最极端悲观时的价格。此价位买入，股息率超过6%，安全边际极高。</div>
+      </div>
+      <div class="safety-box sb-safe">
+        <div class="sb-label">✅ 合理买入区（PB 0.85~0.95×）</div>
+        <div class="sb-price">37~41元</div>
+        <div class="sb-desc">当前价位恰好在此区间内。PB低于1×本身已提供充足安全边际（相当于以低于账面净资产价格买入）。股息率超5%。</div>
+      </div>
+      <div class="safety-box sb-danger">
+        <div class="sb-label">⚠️ 谨慎区间（PB 1.1×以上）</div>
+        <div class="sb-price">48元+</div>
+        <div class="sb-desc">PB超过1.1×后，需要基本面确定性改善来支撑，安全边际明显下降。市场情绪驱动时可能出现超买。</div>
+      </div>
+    </div>
+
+    <div class="insight">
+      <strong>当前价位的安全边际来自三个维度：</strong><br>
+      ① <strong>净资产兜底</strong>：每股净资产43.43元，当前股价39.5元，相当于以91折购买银行净资产，公司清算都不亏（银行净资产本质是高质量金融资产）<br>
+      ② <strong>高股息保护</strong>：5%+的股息率意味着即使股价不涨，持有3年仅靠分红就能回收15%+的成本<br>
+      ③ <strong>估值地板支撑</strong>：PB历史最低0.75×对应约32.5元，当前价距历史底部仅约18%，而上行空间（至均值1.16×）约为55%，赔率不对称
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔢 五种估值方法的内在价值测算</div>
+    <table>
+      <thead>
+        <tr><th>估值方法</th><th>核心假设</th><th>内在价值估算</th><th>较当前涨幅</th><th>可信度</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>PB历史均值法</td>
+          <td>PB回归5年均值1.16×</td>
+          <td class="t-num">50~51元</td>
+          <td class="t-up">+27%</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+        <tr class="t-hi">
+          <td><strong>PB-ROE内在价值法</strong></td>
+          <td>ROE=13.4%，要求回报11%</td>
+          <td class="t-num"><strong>52~54元</strong></td>
+          <td class="t-up"><strong>+32~37%</strong></td>
+          <td>⭐⭐⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>PE历史均值法</td>
+          <td>PE回归历史中枢8×</td>
+          <td class="t-num">45~46元</td>
+          <td class="t-up">+14~16%</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>DDM股息折现法</td>
+          <td>股息2元+，增速3%，折现率8%</td>
+          <td class="t-num">40~48元</td>
+          <td class="t-up">+1~21%</td>
+          <td>⭐⭐⭐</td>
+        </tr>
+        <tr>
+          <td>机构目标价均值</td>
+          <td>22家机构综合预测</td>
+          <td class="t-num">48~55元</td>
+          <td class="t-up">+21~39%</td>
+          <td>⭐⭐⭐⭐</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight insight-green">
+      <strong>五种方法指向同一个结论：</strong>招商银行合理内在价值在<span style="color:#3fb950;font-weight:700">48~55元</span>之间，以当前39.5元计算，存在约<strong>21~39%的价值回归空间</strong>，叠加3年累计约15%的股息收入，总潜在回报率约<strong>36~54%</strong>。
+    </div>
+  </div>
+
+  <!-- 下行风险量化 -->
+  <div class="card">
+    <div class="card-title">📉 下行风险量化：最坏能跌到哪里？</div>
+    <table>
+      <thead>
+        <tr><th>压力场景</th><th>触发条件</th><th>对应PB</th><th>对应股价</th><th>较当前跌幅</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>轻度压力</td>
+          <td>NIM再降10bp，ROE降至12%</td>
+          <td>0.82×</td>
+          <td>约35.6元</td>
+          <td class="t-down">-10%</td>
+        </tr>
+        <tr>
+          <td>中度压力</td>
+          <td>系统性风险，不良率升至1.5%</td>
+          <td>0.75×</td>
+          <td>约32.6元（历史低点）</td>
+          <td class="t-down">-18%</td>
+        </tr>
+        <tr class="t-lo">
+          <td>极端压力</td>
+          <td>经济危机+房地产再暴雷</td>
+          <td>0.65×</td>
+          <td>约28.2元</td>
+          <td class="t-down">-29%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight insight-amber">
+      <strong>赔率分析（不对称性）：</strong>下行最坏情景约-29%（极端压力），上行基准回归约+32%。即：潜在盈利/潜在亏损 ≈ 1.1:1（不含股息）；若计入3年股息收益15%，则调整后赔率约 1.6:1，属于偏有利的不对称赔率。当然，极端压力场景概率较低。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §4 上涨空间
+═══════════════════════════ -->
+<div class="section" id="upside">
+  <div class="section-title">🚀 上涨空间：催化剂驱动的三个情景</div>
+  <div class="section-sub">量化不同市场情景下的回报空间</div>
+
+  <div class="card">
+    <div class="card-title">🎯 三种情景回报测算（3年维度）</div>
+    <table>
+      <thead>
+        <tr><th>情景</th><th>条件</th><th>目标PB</th><th>3年末股价</th><th>3年股息</th><th><strong>总回报</strong></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>😐 保守（基础）</td>
+          <td>ROE维持13%，NIM企稳，经济缓慢复苏</td>
+          <td>1.00×</td>
+          <td>约47元</td>
+          <td>约6元</td>
+          <td class="t-up"><strong>+34%</strong></td>
+        </tr>
+        <tr class="t-hi">
+          <td>😊 <strong>基准（最可能）</strong></td>
+          <td>NIM略回升，财富管理超预期增长，ROE稳在13%+</td>
+          <td>1.15×</td>
+          <td>约55元</td>
+          <td>约7元</td>
+          <td class="t-up"><strong>+57%</strong></td>
+        </tr>
+        <tr>
+          <td>😄 乐观</td>
+          <td>市场情绪修复，ROE重回14%+，外资回流</td>
+          <td>1.40×</td>
+          <td>约67元</td>
+          <td>约8元</td>
+          <td class="t-up"><strong>+90%</strong></td>
+        </tr>
+        <tr>
+          <td>🚀 极度乐观（小概率）</td>
+          <td>牛市+财富管理大爆发，估值重评</td>
+          <td>1.80×</td>
+          <td>约86元</td>
+          <td>约9元</td>
+          <td class="t-up"><strong>+140%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight insight-green">
+      <strong>机构共识目标价：</strong>22家覆盖机构给出的目标价均值约53元（华创57元、广发53元、中金53元），对应未来12个月涨幅约34%（+股息率5.1%），综合潜在回报约39%。
+    </div>
+  </div>
+
+  <!-- 1年回报预测 -->
+  <div class="card">
+    <div class="card-title">📅 1年维度回报测算（更具体）</div>
+    <div class="metrics-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="metric-box">
+        <div class="metric-label">机构目标价均值</div>
+        <div class="metric-value" style="color:#58a6ff">~53元</div>
+        <div class="metric-sub">较当前+34%</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">预期股息（1年）</div>
+        <div class="metric-value">~2元</div>
+        <div class="metric-sub">股息率约5.1%</div>
+      </div>
+      <div class="metric-box m-up">
+        <div class="metric-label">综合预期回报（1年）</div>
+        <div class="metric-value">~39%</div>
+        <div class="metric-sub">含股息的总回报</div>
+      </div>
+    </div>
+    <div class="insight insight-amber">
+      <strong>⚠️ 重要提示：</strong>以上仅为估值回归驱动的"均值回归"预测。实际股价受宏观政策、市场情绪、竞争对手表现等多重因素影响，存在较大不确定性。短期（1年内）市场可能持续在底部震荡，需要有足够的耐心。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §5 催化剂
+═══════════════════════════ -->
+<div class="section" id="catalyst">
+  <div class="section-title">⚡ 催化剂清单：什么会触发股价重估？</div>
+  <div class="section-sub">监控这些事件，判断买入/加仓的时机</div>
+
+  <div class="card">
+    <div class="card-title">🔔 正面催化剂（触发上涨的信号）</div>
+    <table>
+      <thead>
+        <tr><th>催化剂</th><th>预期时间</th><th>影响程度</th><th>触发逻辑</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>💰 LPR停止下调/利率企稳</td>
+          <td>2026年内</td>
+          <td class="t-up">★★★★★</td>
+          <td>NIM压力根源消除，市场重评银行估值</td>
+        </tr>
+        <tr class="t-hi">
+          <td>📈 <strong>财富管理手续费继续高增</strong></td>
+          <td>每季度财报</td>
+          <td class="t-up"><strong>★★★★★</strong></td>
+          <td>2025年已+16.9%，若延续高增，证明收入结构转型成功，提升估值中枢</td>
+        </tr>
+        <tr>
+          <td>🏠 房地产风险出清完成</td>
+          <td>2026-2027年</td>
+          <td class="t-up">★★★★</td>
+          <td>对公房地产不良已降至4.78%，出清完成后消除最大资产质量担忧</td>
+        </tr>
+        <tr>
+          <td>📊 Q1/Q2财报超预期</td>
+          <td>2026年4/8月</td>
+          <td class="t-up">★★★★</td>
+          <td>若NIM环比持续回升+财富管理保持强势，市场情绪快速反转</td>
+        </tr>
+        <tr>
+          <td>💎 提高分红比例</td>
+          <td>年报季（3月）</td>
+          <td class="t-up">★★★</td>
+          <td>当前35.3%分红率，若提升至40%+，吸引高息投资者扩大持仓</td>
+        </tr>
+        <tr>
+          <td>🌊 外资回流A股</td>
+          <td>不确定</td>
+          <td class="t-up">★★★</td>
+          <td>招商银行是MSCI核心成份股，外资增配时首选标的</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚠️ 负面催化剂（需要警惕的下行风险）</div>
+    <table>
+      <thead>
+        <tr><th>风险因素</th><th>当前状态</th><th>影响程度</th><th>应对方式</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NIM持续下行破1.8%</td>
+          <td>Q4已企稳，但仍在下行通道</td>
+          <td class="t-down">★★★★★</td>
+          <td>跟踪每季度NIM数据，跌破1.8%需重新评估</td>
+        </tr>
+        <tr>
+          <td>小微贷款不良率继续跳升</td>
+          <td>已从0.79%升至1.22%</td>
+          <td class="t-down">★★★★</td>
+          <td>关注中小企业景气度，若继续恶化需警惕</td>
+        </tr>
+        <tr>
+          <td>经济下行超预期</td>
+          <td>当前经济缓慢复苏</td>
+          <td class="t-down">★★★★</td>
+          <td>分批建仓，不一次性重仓</td>
+        </tr>
+        <tr>
+          <td>监管要求再次降低贷款利率</td>
+          <td>短期可能性较低</td>
+          <td class="t-down">★★★</td>
+          <td>政策层面跟踪，影响NIM</td>
+        </tr>
+        <tr>
+          <td>ROE继续下行至11%以下</td>
+          <td>当前13.44%，有下行压力</td>
+          <td class="t-down">★★★</td>
+          <td>ROE若低于12%，需重新评估护城河强度</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §6 交易策略
+═══════════════════════════ -->
+<div class="section" id="strategy">
+  <div class="section-title">🎯 交易策略：如何买、买多少、何时卖？</div>
+  <div class="section-sub">基于价值投资框架的实操建议</div>
+
+  <!-- 买入策略 -->
+  <div class="strategy-card sc-buy">
+    <div class="sc-title">📥 买入策略：分批建仓，越跌越买</div>
+    <div class="sc-sub">当前价位（39.5元）已在合理买入区，可以开始建仓，但不建议一次全仓</div>
+    <div class="sc-body">
+      <table style="margin-bottom:12px">
+        <thead>
+          <tr><th>批次</th><th>触发条件</th><th>价位参考</th><th>建议仓位</th><th>策略说明</th></tr>
+        </thead>
+        <tbody>
+          <tr class="t-hi">
+            <td><strong>第1批（现在）</strong></td>
+            <td>PB ≤ 0.95×（当前满足）</td>
+            <td><strong>37~41元</strong></td>
+            <td><strong>30~40%</strong></td>
+            <td>当前价位已进入合理区间，可建立初始仓位</td>
+          </tr>
+          <tr>
+            <td>第2批（下跌加仓）</td>
+            <td>股价跌至35~37元（PB≈0.82×）</td>
+            <td>35~37元</td>
+            <td>再加20~30%</td>
+            <td>如市场出现系统性下跌，加仓摊薄成本</td>
+          </tr>
+          <tr>
+            <td>第3批（极端低位）</td>
+            <td>股价跌至32~34元（PB≈0.75×）</td>
+            <td>32~34元</td>
+            <td>再加20~30%</td>
+            <td>历史绝对底部区域，超跌加仓，股息率超6%</td>
+          </tr>
+          <tr>
+            <td>持有阶段</td>
+            <td>PB 0.95×~1.2×</td>
+            <td>41~52元</td>
+            <td>持有不动</td>
+            <td>等待基本面改善驱动价值回归</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background:rgba(63,185,80,0.08);border:1px solid rgba(63,185,80,0.2);border-radius:8px;padding:12px;font-size:12px;color:#c9d1d9">
+        <strong style="color:#3fb950">💡 巴菲特式操作参考：</strong>巴菲特对于银行股的买入纪律是——找到护城河极深的银行，在市场恐慌（PB低于1×）时开始买入，并将其视为"比债券更好的定息资产"长期持有。招商银行的股息率（5%+）已超过10年期国债（约2.3%），本身就提供了相当好的持有理由。
+      </div>
+    </div>
+  </div>
+
+  <!-- 持有策略 -->
+  <div class="strategy-card sc-hold">
+    <div class="sc-title">⏳ 持有策略：不要轻易卖出，等待价值实现</div>
+    <div class="sc-sub">买入之后，如何管理持仓情绪和判断继续持有的理由</div>
+    <div class="sc-body">
+      <ul class="ul-list">
+        <li><strong>核心持仓期：3~5年</strong>。银行股价值回归是以"年"为单位的过程，不要期望3个月内翻倍</li>
+        <li><strong>每年领取分红，复利再投入</strong>：5%的年息再投招商银行，10年后以复利计算，仅分红就可以回收约63%的本金</li>
+        <li><strong>每季度检查三个指标</strong>：NIM走势、财富管理收入增速、不良贷款率变化——只要这三个方向没有根本性恶化，就继续持有</li>
+        <li><strong>PB在0.95×以下不用担心</strong>：低于净资产价格买银行，历史上几乎没有长期亏损的先例</li>
+        <li><strong>不要因为短期股价波动而卖出</strong>：银行股可能在底部反复震荡1~2年，期间分红才是真实的回报</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 卖出策略 -->
+  <div class="strategy-card sc-sell">
+    <div class="sc-title">📤 卖出策略：什么时候该减仓或清仓？</div>
+    <div class="sc-sub">价值投资的卖出原则：高估时卖出，基本面恶化时卖出</div>
+    <div class="sc-body">
+      <table style="margin-bottom:12px">
+        <thead>
+          <tr><th>卖出信号</th><th>触发条件</th><th>操作建议</th><th>优先级</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>估值高估减仓</td>
+            <td>PB突破1.5×（对应股价约65元）</td>
+            <td>分批减仓30~50%，锁定收益</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr class="t-lo">
+            <td><strong>护城河受损</strong></td>
+            <td>ROE连续3年低于10%，或财富管理AUM持续萎缩</td>
+            <td><strong>清仓，重新评估</strong></td>
+            <td><strong>⭐⭐⭐⭐⭐</strong></td>
+          </tr>
+          <tr>
+            <td>估值接近合理上限</td>
+            <td>PB超过1.2×（约52元），基本面无明显改善</td>
+            <td>减仓20~30%，保留核心仓位</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr class="t-lo">
+            <td><strong>系统性风险爆发</strong></td>
+            <td>不良率超过2%，房地产系统性危机</td>
+            <td><strong>大幅减仓，保留底仓观察</strong></td>
+            <td><strong>⭐⭐⭐⭐</strong></td>
+          </tr>
+          <tr>
+            <td>更好的机会出现</td>
+            <td>出现ROE更高、估值更低的优质标的</td>
+            <td>逐步置换，不需要死守</td>
+            <td>⭐⭐</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background:rgba(247,129,102,0.06);border:1px solid rgba(247,129,102,0.2);border-radius:8px;padding:12px;font-size:12px;color:#c9d1d9">
+        <strong style="color:#f78166">🚨 最重要的卖出条件：</strong>如果招商银行的护城河开始实质性受损——即2亿零售客户的忠诚度下降（例如微众银行等互联网银行大幅抢夺客户）、AUM出现持续性净流出、或者ROE跌破10%——这才是真正需要重新审视持仓的时候。单纯的NIM压力和短期不良上升，不是清仓的理由。
+      </div>
+    </div>
+  </div>
+
+  <!-- 仓位管理 -->
+  <div class="card">
+    <div class="card-title">⚖️ 仓位管理建议</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#58a6ff;margin-bottom:10px">📊 适合招商银行的投资者画像</p>
+        <ul class="ul-list">
+          <li>投资期限<strong>3年以上</strong></li>
+          <li>能够接受短期浮亏（最坏-30%），不会中途割肉</li>
+          <li>需要稳定的<strong>现金流收益</strong>（年息5%+）</li>
+          <li>认同"财富管理是未来十年最大金融增量"这一判断</li>
+          <li>总体风险偏好：<strong>稳健型到成长型</strong></li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#d29922;margin-bottom:10px">⚠️ 仓位控制建议</p>
+        <ul class="ul-list">
+          <li>单个银行股建议不超过个人总资产的<strong>20~25%</strong></li>
+          <li>若已持有其他银行股，总银行仓位不超过<strong>40%</strong></li>
+          <li>留存20%现金，应对可能的加仓机会（跌至35元以下时）</li>
+          <li>不建议使用杠杆，银行股波动性需要"本金的安全感"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════
+     §7 风险提示
+═══════════════════════════ -->
+<div class="section" id="risk">
+  <div class="section-title">⚠️ 主要风险与应对</div>
+
+  <div class="card">
+    <div class="card-title">🎯 综合投资评分</div>
+    <div class="score-row">
+      <div class="score-box">
+        <div class="score-num sc-s">A+</div>
+        <div class="score-dim">护城河深度</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num sc-b">B</div>
+        <div class="score-dim">当前增速</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num sc-a">A</div>
+        <div class="score-dim">估值安全边际</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num sc-a">A</div>
+        <div class="score-dim">股息可持续性</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num sc-b">B+</div>
+        <div class="score-dim">长期成长性</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num sc-a">A</div>
+        <div class="score-dim">综合评级</div>
+      </div>
+    </div>
+    <div class="insight insight-green">
+      <strong>最终结论：</strong>当前价位（PB 0.91×，PE 6.6×，股息率5.1%）买入招商银行，是一笔赔率相当合理的投资。护城河（2亿客户+15万亿AUM）是十年内最难被颠覆的竞争优势，当前的NIM和ROE压力是行业性周期因素而非结构性损坏。耐心持有3~5年，价值回归路径清晰。
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>风险类型</th><th>当前状态</th><th>影响</th><th>建议应对</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>利率风险（NIM）</td>
+          <td>Q4单季已企稳，但全年仍在下行</td>
+          <td>中等</td>
+          <td>分批买入，不一次重仓</td>
+        </tr>
+        <tr>
+          <td>信用风险（小微不良）</td>
+          <td>小微不良率上升明显（0.79%→1.22%）</td>
+          <td>中等</td>
+          <td>每季度跟踪，看是否企稳</td>
+        </tr>
+        <tr>
+          <td>竞争风险（互联网银行）</td>
+          <td>微众、蚂蚁持续侵蚀消费信贷</td>
+          <td>中低</td>
+          <td>跟踪财富管理AUM是否受影响</td>
+        </tr>
+        <tr>
+          <td>估值风险（市场情绪）</td>
+          <td>PB已在历史低位，继续大幅下跌概率有限</td>
+          <td>较低</td>
+          <td>利用下跌加仓而非止损</td>
+        </tr>
+        <tr>
+          <td>黑天鹅（系统性危机）</td>
+          <td>概率低，但不可排除</td>
+          <td>高</td>
+          <td>控制仓位，不押注单一标的</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>招商银行深度投资分析报告 2026</strong><br>
+  数据来源：招商银行2025年年报、东方财富、同花顺、华创/广发/中信/太平洋等券商研报<br>
+  本报告仅供个人研究参考，不构成任何投资建议。股市有风险，投资需谨慎，请结合自身风险承受能力做出决策。<br>
+  报告生成时间：2026年4月
+</div>
+
+</body>
+</html>

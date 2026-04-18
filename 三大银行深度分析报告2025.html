@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>三大银行深度分析：招商·杭州·成都 2025</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  line-height: 1.7;
+}
+
+/* ── 顶部 Hero ── */
+.hero {
+  background: linear-gradient(135deg, #0d1117 0%, #1c2128 60%, #21262d 100%);
+  border-bottom: 1px solid #21262d;
+  padding: 52px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(88,166,255,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badges {
+  display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: #8b949e;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #e6edf3;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.hero p {
+  color: #8b949e;
+  font-size: 14px;
+  max-width: 500px;
+  margin: 0 auto 24px;
+}
+.bank-trio {
+  display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+}
+.bank-chip {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid;
+}
+.chip-cmb  { background: rgba(88,166,255,0.12); border-color: rgba(88,166,255,0.35); color: #58a6ff; }
+.chip-hzb  { background: rgba(63,185,80,0.12);  border-color: rgba(63,185,80,0.35);  color: #3fb950; }
+.chip-cdb  { background: rgba(210,153,34,0.12); border-color: rgba(210,153,34,0.35); color: #d29922; }
+
+/* ── 导航 ── */
+.nav {
+  background: #161b22;
+  border-bottom: 1px solid #21262d;
+  padding: 0 20px;
+  display: flex; gap: 0; overflow-x: auto;
+  position: sticky; top: 0; z-index: 100;
+}
+.nav a {
+  text-decoration: none;
+  color: #8b949e;
+  font-size: 13px;
+  padding: 14px 16px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav a:hover { color: #e6edf3; border-bottom-color: #58a6ff; }
+
+/* ── 主体 ── */
+.container { max-width: 900px; margin: 0 auto; padding: 32px 16px 80px; }
+
+/* ── 章节标题 ── */
+.section {
+  margin-bottom: 48px;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e6edf3;
+  margin-bottom: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #21262d;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-sub {
+  color: #8b949e;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+/* ── 卡片 ── */
+.card {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.card-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 20px;
+}
+.bank-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-cmb { background: #58a6ff; }
+.dot-hzb { background: #3fb950; }
+.dot-cdb { background: #d29922; }
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #e6edf3;
+}
+.card-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: auto;
+  font-weight: 500;
+}
+.tag-cmb { background: rgba(88,166,255,0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.25); }
+.tag-hzb { background: rgba(63,185,80,0.15);  color: #3fb950; border: 1px solid rgba(63,185,80,0.25);  }
+.tag-cdb { background: rgba(210,153,34,0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.25); }
+
+/* ── 数据表格 ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+th {
+  background: rgba(255,255,255,0.04);
+  color: #8b949e;
+  font-weight: 500;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #21262d;
+}
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: #c9d1d9;
+}
+tr:hover td { background: rgba(255,255,255,0.02); }
+.td-up   { color: #3fb950; font-weight: 500; }
+.td-down { color: #f78166; font-weight: 500; }
+.td-num  { font-weight: 600; color: #e6edf3; }
+.td-head { font-weight: 600; color: #e6edf3; }
+
+/* ── 指标格子 ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.metric-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  padding: 14px;
+  text-align: center;
+}
+.metric-label {
+  font-size: 11px;
+  color: #8b949e;
+  margin-bottom: 6px;
+}
+.metric-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e6edf3;
+  line-height: 1.2;
+}
+.metric-sub {
+  font-size: 11px;
+  color: #8b949e;
+  margin-top: 4px;
+}
+.metric-up   .metric-value { color: #3fb950; }
+.metric-down .metric-value { color: #f78166; }
+.metric-blue .metric-value { color: #58a6ff; }
+.metric-amber .metric-value { color: #d29922; }
+
+/* ── 进度条 ── */
+.bar-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+.bar-label { width: 140px; flex-shrink: 0; color: #c9d1d9; }
+.bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.bar-fill-blue  { background: linear-gradient(90deg, #1f6feb, #58a6ff); }
+.bar-fill-green { background: linear-gradient(90deg, #238636, #3fb950); }
+.bar-fill-amber { background: linear-gradient(90deg, #9e6a03, #d29922); }
+.bar-fill-red   { background: linear-gradient(90deg, #b91c1c, #f78166); }
+.bar-pct { width: 44px; text-align: right; color: #8b949e; font-size: 12px; }
+
+/* ── 双栏文本 ── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── 分析文本块 ── */
+.insight {
+  background: rgba(88,166,255,0.06);
+  border-left: 3px solid #58a6ff;
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  color: #c9d1d9;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.insight-green { border-left-color: #3fb950; background: rgba(63,185,80,0.06); }
+.insight-amber { border-left-color: #d29922; background: rgba(210,153,34,0.06); }
+.insight-red   { border-left-color: #f78166; background: rgba(247,129,102,0.06); }
+
+/* ── 列表 ── */
+.list-block {
+  padding-left: 0;
+  list-style: none;
+}
+.list-block li {
+  padding: 8px 0 8px 20px;
+  position: relative;
+  font-size: 13px;
+  color: #c9d1d9;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  line-height: 1.6;
+}
+.list-block li::before {
+  content: '›';
+  position: absolute;
+  left: 4px;
+  color: #58a6ff;
+  font-weight: 700;
+}
+.list-block li strong { color: #e6edf3; }
+
+/* ── 飞轮 / 流程 ── */
+.flow-row {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.flow-step {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #c9d1d9;
+}
+.flow-arrow { color: #58a6ff; font-size: 16px; }
+
+/* ── 对比卡 ── */
+.compare-header {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 2px;
+}
+.compare-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 1fr;
+  gap: 1px;
+  margin-bottom: 2px;
+}
+.cmp-cell {
+  background: rgba(255,255,255,0.03);
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+}
+.cmp-head { background: rgba(255,255,255,0.06); color: #8b949e; font-weight: 500; font-size: 12px; }
+.cmp-label { color: #8b949e; font-size: 12px; }
+.cmp-cmb { color: #58a6ff; font-weight: 600; }
+.cmp-hzb { color: #3fb950; font-weight: 600; }
+.cmp-cdb { color: #d29922; font-weight: 600; }
+
+/* ── 标注 ── */
+.highlight { color: #d29922; font-weight: 600; }
+.hl-blue   { color: #58a6ff; font-weight: 600; }
+.hl-green  { color: #3fb950; font-weight: 600; }
+
+/* ── 评级圆圈 ── */
+.rating-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.rating-box {
+  flex: 1; min-width: 80px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  padding: 16px 12px;
+  text-align: center;
+}
+.rating-score {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.rating-dim { font-size: 11px; color: #8b949e; }
+.score-s  { color: #d29922; }
+.score-a  { color: #3fb950; }
+.score-b  { color: #58a6ff; }
+.score-c  { color: #8b949e; }
+
+/* ── 章节分隔 ── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #30363d, transparent);
+  margin: 40px 0;
+}
+
+/* ── 结论卡 ── */
+.conclusion-card {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.cc-cmb { border-color: rgba(88,166,255,0.3);  background: rgba(88,166,255,0.06); }
+.cc-hzb { border-color: rgba(63,185,80,0.3);   background: rgba(63,185,80,0.06); }
+.cc-cdb { border-color: rgba(210,153,34,0.3);  background: rgba(210,153,34,0.06); }
+.cc-title {
+  font-size: 16px; font-weight: 700;
+  margin-bottom: 10px;
+}
+.cc-sub {
+  font-size: 12px;
+  color: #8b949e;
+  margin-bottom: 12px;
+}
+.cc-body {
+  font-size: 13px;
+  color: #c9d1d9;
+  line-height: 1.7;
+}
+
+/* ── 页脚 ── */
+.footer {
+  text-align: center;
+  padding: 24px 20px;
+  border-top: 1px solid #21262d;
+  color: #484f58;
+  font-size: 12px;
+  line-height: 2;
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badges">
+    <span class="badge">📊 2024年报数据</span>
+    <span class="badge">🔍 业务深度拆解</span>
+    <span class="badge">🔮 长期战略展望</span>
+  </div>
+  <h1>三大银行深度分析报告</h1>
+  <p>招商银行 · 杭州银行 · 成都银行<br>业务收入来源 · 利润引擎 · 长期发展方向</p>
+  <div class="bank-trio">
+    <span class="bank-chip chip-cmb">🔵 招商银行</span>
+    <span class="bank-chip chip-hzb">🟢 杭州银行</span>
+    <span class="bank-chip chip-cdb">🟡 成都银行</span>
+  </div>
+</div>
+
+<!-- 导航 -->
+<nav class="nav">
+  <a href="#overview">总览对比</a>
+  <a href="#cmb">招商银行</a>
+  <a href="#hzb">杭州银行</a>
+  <a href="#cdb">成都银行</a>
+  <a href="#profit">利润来源</a>
+  <a href="#future">长期方向</a>
+  <a href="#verdict">投资结论</a>
+</nav>
+
+<div class="container">
+
+<!-- ════════════════════════════════════════════
+     §0 三行总览对比
+════════════════════════════════════════════ -->
+<div class="section" id="overview">
+  <div class="section-title">📊 三行核心指标总览</div>
+  <div class="section-sub">2024年度财报数据横向对比</div>
+
+  <div class="card">
+    <div class="compare-header">
+      <div class="cmp-cell cmp-head">指标</div>
+      <div class="cmp-cell cmp-head" style="color:#58a6ff">🔵 招商银行</div>
+      <div class="cmp-cell cmp-head" style="color:#3fb950">🟢 杭州银行</div>
+      <div class="cmp-cell cmp-head" style="color:#d29922">🟡 成都银行</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">总资产</div>
+      <div class="cmp-cell cmp-cmb">11.03万亿</div>
+      <div class="cmp-cell cmp-hzb">2.11万亿</div>
+      <div class="cmp-cell cmp-cdb">1.25万亿</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">营业收入</div>
+      <div class="cmp-cell cmp-cmb">3,374亿（-0.5%）</div>
+      <div class="cmp-cell cmp-hzb">383亿（+9.6%）</div>
+      <div class="cmp-cell cmp-cdb">229亿（+5.9%）</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">归母净利润</div>
+      <div class="cmp-cell cmp-cmb">1,484亿（+1.2%）</div>
+      <div class="cmp-cell cmp-hzb">169亿（+18.1%）</div>
+      <div class="cmp-cell cmp-cdb">128亿（+10.2%）</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">加权ROE</div>
+      <div class="cmp-cell cmp-cmb">14.49%</div>
+      <div class="cmp-cell cmp-hzb">16.0%（真实ROE≈19%）</div>
+      <div class="cmp-cell cmp-cdb" style="color:#d29922;font-weight:700">17.81% ⭐</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">净息差(NIM)</div>
+      <div class="cmp-cell cmp-cmb">1.98%（行业最高）</div>
+      <div class="cmp-cell cmp-hzb">1.41%</div>
+      <div class="cmp-cell cmp-cdb">1.66%</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">不良贷款率</div>
+      <div class="cmp-cell cmp-cmb">0.95%</div>
+      <div class="cmp-cell cmp-hzb">0.76%</div>
+      <div class="cmp-cell cmp-cdb" style="color:#3fb950;font-weight:700">0.66% ⭐</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">拨备覆盖率</div>
+      <div class="cmp-cell cmp-cmb">412%</div>
+      <div class="cmp-cell cmp-hzb" style="color:#3fb950;font-weight:700">541% ⭐</div>
+      <div class="cmp-cell cmp-cdb">479%</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">贷款增速</div>
+      <div class="cmp-cell cmp-cmb">+5.8%</div>
+      <div class="cmp-cell cmp-hzb">+16.2%</div>
+      <div class="cmp-cell cmp-cdb" style="color:#d29922;font-weight:700">+18.7% ⭐</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">非息收入占比</div>
+      <div class="cmp-cell cmp-cmb" style="color:#58a6ff;font-weight:700">37.4% ⭐</div>
+      <div class="cmp-cell cmp-hzb">36.3%</div>
+      <div class="cmp-cell cmp-cdb">～18%</div>
+    </div>
+    <div class="compare-row">
+      <div class="cmp-cell cmp-label">零售贷款占比</div>
+      <div class="cmp-cell cmp-cmb" style="color:#58a6ff;font-weight:700">约55% ⭐</div>
+      <div class="cmp-cell cmp-hzb">约45%</div>
+      <div class="cmp-cell cmp-cdb" style="color:#f78166">约18%（以对公为主）</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <strong>三行定位一句话总结：</strong>招商银行是"零售之王"，靠财富管理和信用卡构建高价值护城河；杭州银行是"科创对公新星"，靠浙江经济圈高质量贷款实现高增速；成都银行是"基建驱动的极致增长机器"，靠成渝双城经济圈的基础设施红利持续放量。
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §1 招商银行深度分析
+════════════════════════════════════════════ -->
+<div class="section" id="cmb">
+  <div class="section-title">🔵 招商银行深度剖析</div>
+  <div class="section-sub">中国最赚钱的股份制银行，"零售之王"的护城河在哪里？</div>
+
+  <!-- 1.1 核心数据 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">2024年核心财务数据</div>
+      <span class="card-tag tag-cmb">招商银行 600036</span>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-box">
+        <div class="metric-label">总营收</div>
+        <div class="metric-value">3,374<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 -0.5%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">归母净利润</div>
+        <div class="metric-value">1,484<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 +1.2%</div>
+      </div>
+      <div class="metric-box metric-blue">
+        <div class="metric-label">加权ROE</div>
+        <div class="metric-value">14.49%</div>
+        <div class="metric-sub">行业领先</div>
+      </div>
+      <div class="metric-box metric-blue">
+        <div class="metric-label">净息差NIM</div>
+        <div class="metric-value">1.98%</div>
+        <div class="metric-sub">股份行最高</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">不良贷款率</div>
+        <div class="metric-value">0.95%</div>
+        <div class="metric-sub">自2021Q3起＜1%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">拨备覆盖率</div>
+        <div class="metric-value">412%</div>
+        <div class="metric-sub">风险缓冲厚</div>
+      </div>
+      <div class="metric-box metric-blue">
+        <div class="metric-label">非息收入占比</div>
+        <div class="metric-value">37.4%</div>
+        <div class="metric-sub">A股银行第一</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">成本收入比</div>
+        <div class="metric-value">31.89%</div>
+        <div class="metric-sub">同比↓1.07pp</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.2 三大业务板块 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">三大业务板块：收入与利润贡献</div>
+    </div>
+
+    <p style="font-size:13px;color:#8b949e;margin-bottom:14px">税前利润贡献占比（2024年）</p>
+    <div class="bar-row">
+      <div class="bar-label">🏠 零售金融</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-blue" style="width:50.7%"></div></div>
+      <div class="bar-pct">50.7%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🏢 公司金融</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:34%"></div></div>
+      <div class="bar-pct">~34%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">📈 金融市场</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:15%"></div></div>
+      <div class="bar-pct">~15%</div>
+    </div>
+
+    <div class="divider" style="margin:16px 0"></div>
+
+    <table>
+      <thead>
+        <tr><th>板块</th><th>营收（亿元）</th><th>增速</th><th>核心产品</th><th>2024趋势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-head">零售金融</td>
+          <td class="td-num">1,968</td>
+          <td class="td-up">+1.3%</td>
+          <td>财富管理、信用卡、消费贷、房贷</td>
+          <td>财富管理AUM创历史新高</td>
+        </tr>
+        <tr>
+          <td class="td-head">公司金融</td>
+          <td class="td-num">~1,100</td>
+          <td>持平</td>
+          <td>对公贷款、结算、投行、供应链</td>
+          <td>对公贷款+10.1%</td>
+        </tr>
+        <tr>
+          <td class="td-head">金融市场</td>
+          <td class="td-num">~500</td>
+          <td class="td-up">+34%</td>
+          <td>债券投资、同业、衍生品</td>
+          <td>投资收益暴增34.7%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <strong>零售业务承压但地位稳固：</strong>2024年零售税前利润占比从2023年的56.6%降至50.7%，主因是信用卡不良生成额居高（394亿元），以及代理保险收入因"报行合一"政策大降52.7%。但零售客户数突破<span class="hl-blue">2亿户</span>、AUM达<span class="hl-blue">14.93万亿</span>，这个基盘是任何竞争对手无法在短期内复制的。
+    </div>
+  </div>
+
+  <!-- 1.3 零售护城河深度拆解 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">零售护城河深度拆解：三个层次</div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#8b949e;margin-bottom:10px">💎 私人银行（顶层）</p>
+        <div class="metric-box metric-amber" style="margin-bottom:10px">
+          <div class="metric-label">私人银行客户数</div>
+          <div class="metric-value">16.91<span style="font-size:14px">万户</span></div>
+          <div class="metric-sub">同比 +13.6%</div>
+        </div>
+        <ul class="list-block">
+          <li>门槛：金融资产≥1000万元</li>
+          <li>户均AUM约<strong>2,800万元</strong></li>
+          <li>贡献超高客均收益，是低成本营销的"口碑发动机"</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#8b949e;margin-bottom:10px">🌸 金葵花客户（中层）</p>
+        <div class="metric-box metric-blue" style="margin-bottom:10px">
+          <div class="metric-label">金葵花+客户数</div>
+          <div class="metric-value">523<span style="font-size:14px">万户</span></div>
+          <div class="metric-sub">同比 +12.8%</div>
+        </div>
+        <ul class="list-block">
+          <li>门槛：金融资产≥50万元</li>
+          <li>金葵花+以上客户AUM占全行零售<strong>超80%</strong></li>
+          <li>这5%的客户贡献80%的AUM，是核心盈利来源</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:10px">📱 数字化生态（基础层）</p>
+      <div class="metrics-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="metric-box">
+          <div class="metric-label">App月活(MAU)</div>
+          <div class="metric-value">1.23<span style="font-size:14px">亿</span></div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">理财产品余额</div>
+          <div class="metric-value">3.93<span style="font-size:14px">万亿</span></div>
+          <div class="metric-sub">+12.4%</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">非货基金销售额</div>
+          <div class="metric-value">5,980<span style="font-size:14px">亿</span></div>
+          <div class="metric-sub">同比翻倍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1.4 财富管理收入拆解 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">财富管理手续费收入拆解（2024年）</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>产品线</th><th>收入（亿元）</th><th>同比增速</th><th>驱动因素</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>代理理财</td>
+          <td class="td-num">78.6</td>
+          <td class="td-up" style="font-size:15px;font-weight:800">+44.8% 🚀</td>
+          <td>规模增长+产品结构优化</td>
+        </tr>
+        <tr>
+          <td>代理保险</td>
+          <td class="td-num">64.3</td>
+          <td class="td-down">-52.7%</td>
+          <td>"报行合一"政策导致渠道费率下调</td>
+        </tr>
+        <tr>
+          <td>代理基金</td>
+          <td class="td-num">41.7</td>
+          <td class="td-down">-19.6%</td>
+          <td>基金降费+权益基金保有量下降</td>
+        </tr>
+        <tr>
+          <td>代理信托</td>
+          <td class="td-num">21.3</td>
+          <td class="td-down">-33.7%</td>
+          <td>信托监管趋严</td>
+        </tr>
+        <tr>
+          <td><strong>财富管理合计</strong></td>
+          <td class="td-num">220</td>
+          <td class="td-down">-22.7%</td>
+          <td>保险降费拖累，但理财逆势增长</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight insight-amber">
+      <strong>⚠️ 这是短期压力还是长期问题？</strong>代理保险费率下降是监管推动的行业性事件，不影响客户数和AUM规模；代理基金降费是行业趋势，但销售额已翻倍，未来当权益市场回暖时，佣金收入有较大修复空间。核心的"代理理财"增长44.8%，说明招行在核心财富管理能力上仍在强化。
+    </div>
+  </div>
+
+  <!-- 1.5 招行的信用卡业务 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">信用卡业务：双面刃</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#3fb950;margin-bottom:8px">✅ 优势</p>
+        <ul class="list-block">
+          <li>信用卡是招行与<strong>年轻高净值人群</strong>建立关系的核心入口</li>
+          <li>信用卡持卡人是未来私人银行客户的最大"培育池"</li>
+          <li>消费数据形成财富管理精准营销的信息优势</li>
+          <li>累计发卡量超过1亿张，覆盖面广</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;margin-bottom:8px">⚠️ 当前压力</p>
+        <ul class="list-block">
+          <li>2024年信用卡不良生成额<strong>394亿元</strong>，同比微增7亿</li>
+          <li>不良生成率1.05%，偏高但较同业仍有优势</li>
+          <li>2024年消费降级背景下，信用卡消费额增速放缓</li>
+          <li>互联网消费信贷（花呗/借呗）持续分流</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §2 杭州银行深度分析
+════════════════════════════════════════════ -->
+<div class="section" id="hzb">
+  <div class="section-title">🟢 杭州银行深度剖析</div>
+  <div class="section-sub">增速最快的城商行，科创金融是它的差异化武器</div>
+
+  <!-- 2.1 核心数据 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-hzb"></div>
+      <div class="card-title">2024年核心财务数据</div>
+      <span class="card-tag tag-hzb">杭州银行 600926</span>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-box metric-up">
+        <div class="metric-label">总营收</div>
+        <div class="metric-value">383<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 +9.6%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">归母净利润</div>
+        <div class="metric-value">169<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 +18.1%</div>
+      </div>
+      <div class="metric-box" style="">
+        <div class="metric-label">报表ROE</div>
+        <div class="metric-value" style="color:#3fb950">16.0%</div>
+        <div class="metric-sub">真实ROE≈19.1%</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">净息差NIM</div>
+        <div class="metric-value">1.41%</div>
+        <div class="metric-sub">较上年-9BP</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">不良贷款率</div>
+        <div class="metric-value">0.76%</div>
+        <div class="metric-sub">稳定持平</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">拨备覆盖率</div>
+        <div class="metric-value" style="color:#3fb950">541%</div>
+        <div class="metric-sub">三行中最高 ⭐</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">非息收入占比</div>
+        <div class="metric-value">36.3%</div>
+        <div class="metric-sub">同比+20.2%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">存款增速</div>
+        <div class="metric-value">+21.7%</div>
+        <div class="metric-sub">三行中最快</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2.2 收入来源拆解 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-hzb"></div>
+      <div class="card-title">营收结构：利息 vs 非息</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">💰 利息净收入</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-blue" style="width:63.7%"></div></div>
+      <div class="bar-pct">244亿</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">📊 非息净收入</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:36.3%"></div></div>
+      <div class="bar-pct">139亿</div>
+    </div>
+
+    <table style="margin-top:16px">
+      <thead>
+        <tr><th>收入来源</th><th>金额（亿元）</th><th>同比增速</th><th>说明</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>利息净收入</td>
+          <td class="td-num">244.6</td>
+          <td>+4.4%</td>
+          <td>NIM收窄，但规模扩张弥补了部分损失</td>
+        </tr>
+        <tr>
+          <td>非息净收入</td>
+          <td class="td-num">139.2</td>
+          <td class="td-up">+20.2%</td>
+          <td>增速显著高于利息收入，收入结构改善</td>
+        </tr>
+        <tr>
+          <td>手续费及佣金</td>
+          <td>～30+</td>
+          <td class="td-up">+7.2%</td>
+          <td>投行、中间业务稳步增长</td>
+        </tr>
+        <tr>
+          <td>投资收益</td>
+          <td>持续增长</td>
+          <td class="td-up">+14%+</td>
+          <td>债券投资贡献较多</td>
+        </tr>
+        <tr>
+          <td>公允价值变动</td>
+          <td>爆发式</td>
+          <td class="td-up">+338%</td>
+          <td>2024年债市牛市受益</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight insight-green">
+      <strong>杭州银行的"低息差高增长"悖论：</strong>NIM只有1.41%（低于招行0.57pp），但净利润却增长18%，秘诀在于<span class="hl-green">贷款高速扩张+拨备释放+非息收入爆发</span>的三重叠加效应。2024年债市大牛市让公允价值变动收益暴增338%，是当年非息收入超预期的最大贡献者。
+    </div>
+  </div>
+
+  <!-- 2.3 贷款结构 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-hzb"></div>
+      <div class="card-title">贷款结构：对公主导，科创为矛</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🏢 对公贷款</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:60%"></div></div>
+      <div class="bar-pct">约55%+</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🏠 零售贷款</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-blue" style="width:44%"></div></div>
+      <div class="bar-pct">约44%</div>
+    </div>
+
+    <p style="font-size:13px;color:#8b949e;margin:14px 0 10px">对公贷款行业分布（2024年末）</p>
+    <div class="bar-row">
+      <div class="bar-label">水利/公共设施</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:70%"></div></div>
+      <div class="bar-pct">26.0%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">电力/能源</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-blue" style="width:38%"></div></div>
+      <div class="bar-pct">14.5%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">建筑业</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:26%"></div></div>
+      <div class="bar-pct">9.8%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">制造业</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:26%"></div></div>
+      <div class="bar-pct">9.8%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">绿色贷款</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:22%"></div></div>
+      <div class="bar-pct">828亿</div>
+    </div>
+
+    <div style="margin-top:16px">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:10px">🚀 科创金融：1+7+N战略布局</p>
+      <div class="flow-row">
+        <div class="flow-step">1个科创总部</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">7家区域科创分行</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">N个专精特新团队</div>
+      </div>
+      <ul class="list-block">
+        <li><strong>深耕浙江科创生态</strong>：杭州是中国互联网/数字经济/生物医药最活跃的城市之一</li>
+        <li>制造业、绿色贷款增速<strong>超25%</strong>，远高于全行平均</li>
+        <li>绑定科创企业早期成长阶段，形成<strong>强客户黏性</strong></li>
+        <li>科创贷款不良率低于传统对公贷款，风险质量反而更优</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2.4 真实ROE分析 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-hzb"></div>
+      <div class="card-title">真实ROE ≈ 19.1%：拨备掩盖了真实盈利能力</div>
+    </div>
+    <div class="insight insight-green">
+      杭州银行拨备覆盖率高达<span class="hl-green">541%</span>，是行业平均水平的2倍以上。这意味着它每年将大量利润以"减值准备"形式储存起来，导致报表ROE（16%）显著低于真实盈利能力。还原超额拨备后，真实ROE高达<strong>19.1%</strong>，是三家银行中实际盈利能力最强的。<br><br>
+      换句话说：杭州银行的利润表里"藏"着未来的利润，这也是其净利润增速能持续高于营收增速的核心原因——未来只需放缓拨备计提速度，利润增速便能轻松维持双位数。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §3 成都银行深度分析
+════════════════════════════════════════════ -->
+<div class="section" id="cdb">
+  <div class="section-title">🟡 成都银行深度剖析</div>
+  <div class="section-sub">成渝经济圈的"基建银行"，极致对公模式的利弊</div>
+
+  <!-- 3.1 核心数据 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cdb"></div>
+      <div class="card-title">2024年核心财务数据</div>
+      <span class="card-tag tag-cdb">成都银行 601838</span>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-box metric-up">
+        <div class="metric-label">总营收</div>
+        <div class="metric-value">229<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 +5.9%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">归母净利润</div>
+        <div class="metric-value">128<span style="font-size:14px">亿</span></div>
+        <div class="metric-sub">同比 +10.2%</div>
+      </div>
+      <div class="metric-box metric-amber">
+        <div class="metric-label">加权ROE</div>
+        <div class="metric-value">17.81%</div>
+        <div class="metric-sub">三行最高 ⭐</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">净息差NIM</div>
+        <div class="metric-value">1.66%</div>
+        <div class="metric-sub">较上年-15BP</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">不良贷款率</div>
+        <div class="metric-value" style="color:#3fb950">0.66%</div>
+        <div class="metric-sub">三行最低，9年连降 ⭐</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">拨备覆盖率</div>
+        <div class="metric-value">479%</div>
+        <div class="metric-sub">风险缓冲厚</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">贷款增速</div>
+        <div class="metric-value" style="color:#d29922">+18.7%</div>
+        <div class="metric-sub">三行最高 ⭐</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">资产增速</div>
+        <div class="metric-value">+14.6%</div>
+        <div class="metric-sub">连续四年千亿级增长</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.2 贷款结构：极致对公 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cdb"></div>
+      <div class="card-title">贷款结构：极致对公，零售转型滞后</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🏢 对公贷款</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:81%"></div></div>
+      <div class="bar-pct">81%+</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">🏠 个人贷款</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-blue" style="width:18%"></div></div>
+      <div class="bar-pct">~18%</div>
+    </div>
+
+    <p style="font-size:13px;color:#8b949e;margin:14px 0 10px">对公贷款行业分布（前两大行业）</p>
+    <div class="bar-row">
+      <div class="bar-label">租赁/商务服务</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:90%"></div></div>
+      <div class="bar-pct">46.9%</div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">水利/公共设施</div>
+      <div class="bar-track"><div class="bar-fill bar-fill-amber" style="width:28%"></div></div>
+      <div class="bar-pct">14.6%</div>
+    </div>
+
+    <div class="insight insight-amber">
+      <strong>⚠️ 高度集中的客户结构是最大风险点：</strong>前十大贷款客户占资本净额比例高达<span class="highlight">38.31%</span>，且这一数字从2019年的22.69%持续攀升。对比杭州银行（23.49%）、南京银行（9.35%）可以看出，成都银行的客户集中度风险在城商行中处于偏高水平。好消息是，这些大客户基本上是成都市基础设施项目，违约概率极低；坏消息是，一旦基建投资放缓，信贷增长将面临明显的瓶颈。
+    </div>
+
+    <p style="font-size:13px;color:#8b949e;margin:14px 0 10px">零售转型进度（历史对比）</p>
+    <table>
+      <thead>
+        <tr><th>年份</th><th>对公利润占比</th><th>个人利润占比</th><th>趋势</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2018年</td>
+          <td>33.1%</td>
+          <td>30.5%</td>
+          <td>较为均衡</td>
+        </tr>
+        <tr>
+          <td>2023年</td>
+          <td>49.7%</td>
+          <td>16.6%</td>
+          <td class="td-down">零售占比持续下降</td>
+        </tr>
+        <tr>
+          <td>2024年</td>
+          <td class="td-num">51.4%</td>
+          <td>17.5%</td>
+          <td class="td-down">零售转型实质上在退步</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3.3 成渝双城经济圈红利 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cdb"></div>
+      <div class="card-title">成渝双城经济圈：成都银行的核心Alpha来源</div>
+    </div>
+    <div class="insight insight-amber">
+      成都银行几乎就是"成渝双城经济圈"的金融代理人。区域内信贷投放超<span class="highlight">3,000亿元</span>（较年初+20%），省内异地分行贷款余额突破<span class="highlight">1,000亿元</span>（+30%）。全年信贷投放近4,000亿元，创历史新高。
+    </div>
+    <div class="metrics-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="metric-box metric-amber">
+        <div class="metric-label">区域信贷投放</div>
+        <div class="metric-value">3,000+<span style="font-size:12px">亿</span></div>
+        <div class="metric-sub">较年初+20%</div>
+      </div>
+      <div class="metric-box metric-up">
+        <div class="metric-label">省内异地贷款</div>
+        <div class="metric-value">1,000+<span style="font-size:12px">亿</span></div>
+        <div class="metric-sub">较年初+30%</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-label">绿色信贷余额</div>
+        <div class="metric-value">497<span style="font-size:12px">亿</span></div>
+        <div class="metric-sub">+22.9%</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:#8b949e;margin:14px 0 10px">支持的重大基础设施项目</p>
+    <ul class="list-block">
+      <li><strong>轨道交通</strong>：成都-资阳线、成都-眉山线、成都-德阳线，累计参与银团资金超450亿元</li>
+      <li><strong>天府机场</strong>：累计支持金额超380亿元，深度绑定成都对外门户枢纽</li>
+      <li><strong>先进制造业</strong>：16条产业链研究，科技型企业授信超150亿元</li>
+      <li><strong>消费升级</strong>：融资支持超280亿元，绑定成都消费市场扩张</li>
+    </ul>
+  </div>
+
+  <!-- 3.4 盈利质量：ROE高的真实原因 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cdb"></div>
+      <div class="card-title">ROE 17.81%：为何成为三行最高？</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#3fb950;margin-bottom:8px">✅ 高ROE的底层逻辑</p>
+        <ul class="list-block">
+          <li><strong>贷款增速快（+18.7%）</strong>：分母（净资产）扩张慢于分子（净利润）增长</li>
+          <li><strong>低不良（0.66%）</strong>：减值损失计提少，净利润留存率高</li>
+          <li><strong>高拨备（479%）</strong>：已充分计提，未来利润释放空间大</li>
+          <li><strong>对公贷款运营效率高</strong>：对公大客户管理成本低于零售分散客户</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;margin-bottom:8px">⚠️ ROE可持续性风险</p>
+        <ul class="list-block">
+          <li><strong>NIM持续收窄</strong>：1.66%较前年-15BP，且仍在下降通道</li>
+          <li><strong>利息收入占比超80%</strong>：缺乏非息收入缓冲，NIM每降1BP对利润冲击大</li>
+          <li><strong>基建投资减速风险</strong>：若成渝基建投资放缓，高增速难以持续</li>
+          <li><strong>资本消耗</strong>：快速扩张需要持续补充资本（可转债在途）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §4 利润来源深度对比
+════════════════════════════════════════════ -->
+<div class="section" id="profit">
+  <div class="section-title">💡 三行利润来源深度对比</div>
+  <div class="section-sub">钱从哪里来？利润结构决定长期竞争力</div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot" style="background:#e6edf3"></div>
+      <div class="card-title">利润来源结构一览</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>利润来源</th><th style="color:#58a6ff">招商银行</th><th style="color:#3fb950">杭州银行</th><th style="color:#d29922">成都银行</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-head">① 利息收入（NII）</td>
+          <td>62.6%<br><small>NIM 1.98%，股份行最高</small></td>
+          <td>63.7%<br><small>NIM 1.41%，靠规模补量</small></td>
+          <td>~82%<br><small>NIM 1.66%，高度依赖</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">② 财富管理手续费</td>
+          <td class="td-up">★★★★★<br><small>220亿元，全国银行前列</small></td>
+          <td>★★☆<br><small>起步阶段</small></td>
+          <td>★☆<br><small>非常初期</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">③ 投资收益</td>
+          <td>299亿元<br><small>+34.7%</small></td>
+          <td>占非息比重大<br><small>债市牛市受益</small></td>
+          <td>有一定规模<br><small>贡献相对有限</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">④ 信用卡收入</td>
+          <td class="td-up">★★★★★<br><small>最大信用卡银行之一</small></td>
+          <td>★★<br><small>有但非重点</small></td>
+          <td>★☆<br><small>基本没有重点布局</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">⑤ 对公贷款利息</td>
+          <td>★★★<br><small>+10.1%</small></td>
+          <td class="td-up">★★★★<br><small>+19.9%，质量高</small></td>
+          <td class="td-up">★★★★★<br><small>+20.3%，主要利润来源</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">⑥ 零售贷款利息</td>
+          <td class="td-up">★★★★★<br><small>消费贷/房贷/小微</small></td>
+          <td>★★★<br><small>零售贷款占比提升中</small></td>
+          <td>★<br><small>约18%占比，弱项</small></td>
+        </tr>
+        <tr>
+          <td class="td-head">⑦ 拨备释放潜力</td>
+          <td>412% → 可适度释放</td>
+          <td class="td-up">541% → 释放空间最大</td>
+          <td>479% → 中等</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot" style="background:#e6edf3"></div>
+      <div class="card-title">ROE分解：杜邦分析</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>指标</th><th style="color:#58a6ff">招商银行</th><th style="color:#3fb950">杭州银行</th><th style="color:#d29922">成都银行</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>净利润率</td>
+          <td>44.0%</td>
+          <td>44.2%</td>
+          <td>55.9%</td>
+        </tr>
+        <tr>
+          <td>资产周转率（ROA）</td>
+          <td>1.38%</td>
+          <td>0.86%</td>
+          <td>1.10%</td>
+        </tr>
+        <tr>
+          <td>权益乘数（杠杆）</td>
+          <td>~10.5×</td>
+          <td>~18.6×</td>
+          <td>~16.2×</td>
+        </tr>
+        <tr>
+          <td><strong>ROE</strong></td>
+          <td class="td-num">14.49%</td>
+          <td class="td-num">16.0%</td>
+          <td class="td-num" style="color:#d29922">17.81%</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight">
+      <strong>三种ROE路径对比：</strong>招商银行靠的是<span class="hl-blue">高利润率×适度杠杆</span>（ROA行业最高1.38%）；杭州银行靠的是<span class="hl-green">高杠杆扩张</span>（净资产扩张慢，资产扩张快）；成都银行靠的是<span class="highlight">高利润率（55.9%）×适度杠杆</span>，净利润占收入比例在三行中最高，说明它的成本控制最优或者减值损失计提最少。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §5 长期发展方向
+════════════════════════════════════════════ -->
+<div class="section" id="future">
+  <div class="section-title">🔮 长期发展方向：未来5年各自的路</div>
+  <div class="section-sub">当前战略布局如何决定未来增长空间</div>
+
+  <!-- 招行未来 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cmb"></div>
+      <div class="card-title">招商银行：从"零售之王"迈向"财富管理银行"</div>
+    </div>
+    <div class="insight">
+      招行的长期战略方向是成为中国的"摩根士丹利+高盛"的结合体——不仅做贷款，更做资产管理和财富规划。随着中国中产阶级财富积累和老龄化加速，财富管理需求将是未来十年最大的金融增量市场。
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#58a6ff;margin-bottom:8px">📈 增长引擎（未来5年）</p>
+        <ul class="list-block">
+          <li><strong>财富管理AUM持续扩大</strong>：从14.9万亿迈向20万亿+，代理理财手续费有望翻倍</li>
+          <li><strong>私人银行深化</strong>：中国私人银行渗透率仍低，16万户私行客户还有巨大扩容空间</li>
+          <li><strong>消费金融反弹</strong>：信用卡不良周期见顶后，这块资产将重新释放高收益</li>
+          <li><strong>企业金融升级</strong>：从贷款→投行→资管的生态延伸，提升手续费收入占比</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;margin-bottom:8px">⚠️ 长期挑战</p>
+        <ul class="list-block">
+          <li><strong>NIM继续承压</strong>：利率市场化大趋势不可逆，1.98%会继续向下</li>
+          <li><strong>消费信贷竞争激烈</strong>：蚂蚁、微众等互联网银行持续侵蚀市场份额</li>
+          <li><strong>营收增速放缓</strong>：体量太大，双位数营收增长已基本不可能</li>
+          <li><strong>年轻客户迁移</strong>：00后金融行为与招行传统客群存在代际差异</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:16px">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:8px">战略转型路径</p>
+      <div class="flow-row">
+        <div class="flow-step">存贷利差</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">财富管理手续费</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">综合金融服务费</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">中国版"美林模式"</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 杭州未来 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-hzb"></div>
+      <div class="card-title">杭州银行：科创金融深化，"专精特新"的首选银行</div>
+    </div>
+    <div class="insight insight-green">
+      杭州银行的战略卡位非常清晰：在浙江"数字经济+先进制造"的生态圈内，做科创企业从初创到上市的全生命周期金融服务商。这个定位既差异化，又与中国产业升级的国家战略高度契合。
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#3fb950;margin-bottom:8px">📈 增长引擎（未来5年）</p>
+        <ul class="list-block">
+          <li><strong>科创贷款市场扩大</strong>：浙江"专精特新"企业数量全国前列，增量持续</li>
+          <li><strong>绿色金融</strong>：828亿绿色贷款规模继续快速增长，政策红利持续</li>
+          <li><strong>存款增速保持高位</strong>：+21.7%存款增速为扩张提供低成本弹药</li>
+          <li><strong>拨备释放</strong>：541%拨备覆盖率蕴含巨大利润"蓄水池"</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;margin-bottom:8px">⚠️ 长期挑战</p>
+        <ul class="list-block">
+          <li><strong>NIM偏低（1.41%）</strong>：在所有城商行中属于偏低，议价能力弱</li>
+          <li><strong>规模约束</strong>：2万亿资产规模继续扩张需要补充核心资本</li>
+          <li><strong>科创贷款尾部风险</strong>：科创企业失败率高，若经济下行，不良率可能快速跳升</li>
+          <li><strong>区域集中</strong>：业务高度集中浙江，地域分散化程度低</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:8px">战略转型路径</p>
+      <div class="flow-row">
+        <div class="flow-step">基建对公贷款</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">科创企业全周期服务</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">浙江版"硅谷银行"（但更稳健）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 成都未来 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot dot-cdb"></div>
+      <div class="card-title">成都银行："大零售转型"是关键变量，成渝基建是核心底盘</div>
+    </div>
+    <div class="insight insight-amber">
+      成都银行面临的核心战略命题是：当成渝基建红利边际递减时，如何找到下一个增长引擎？管理层已明确提出"大零售转型"（财富管理、消费贷款、异地分行），这将决定5年后成都银行是持续高增长还是走向瓶颈。
+    </div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:#d29922;margin-bottom:8px">📈 增长引擎（未来5年）</p>
+        <ul class="list-block">
+          <li><strong>成渝双城建设持续</strong>：2035年前有大量基建项目在规划落地中</li>
+          <li><strong>大零售转型破局</strong>：个人存款创历史峰值，零售客户基础在积累</li>
+          <li><strong>省内异地扩张</strong>：省内异地分行贷款余额+30%，扩张空间大</li>
+          <li><strong>五篇大文章</strong>：科技/绿色/普惠/养老/数字金融全面布局</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:#f78166;margin-bottom:8px">⚠️ 长期挑战</p>
+        <ul class="list-block">
+          <li><strong>零售转型实质滞后</strong>：对公利润占比从33%→51%，方向相反</li>
+          <li><strong>客户高度集中</strong>：前十大客户占38.3%资本净额，抗风险能力弱</li>
+          <li><strong>非息收入薄弱</strong>：中间业务占比低，NIM下行压力难以对冲</li>
+          <li><strong>竞争加剧</strong>：农行、建行等大行和新兴城商行在成都争夺优质客户</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <p style="font-size:13px;color:#8b949e;margin-bottom:8px">战略转型路径（理想 vs 现实）</p>
+      <div class="flow-row">
+        <div class="flow-step">基建贷款（当前）</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">基建+制造业+消费贷</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">对公+零售均衡发展</div>
+      </div>
+      <p style="font-size:12px;color:#8b949e;margin-top:6px">⚠️ 当前现实：对公比例仍在上升，零售转型尚未实质性突破</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════
+     §6 投资结论
+════════════════════════════════════════════ -->
+<div class="section" id="verdict">
+  <div class="section-title">⚖️ 投资结论：三行各值几钱？</div>
+  <div class="section-sub">基于巴菲特六条法则的综合评分与建议</div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot" style="background:#e6edf3"></div>
+      <div class="card-title">巴菲特六条法则评分</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>巴菲特法则</th><th style="color:#58a6ff">招商</th><th style="color:#3fb950">杭州</th><th style="color:#d29922">成都</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>① ROE持续≥15%</td>
+          <td>❌ 14.49%</td>
+          <td>⚠️ 16.0%（勉强达标）</td>
+          <td class="td-up">✅ 17.81%</td>
+        </tr>
+        <tr>
+          <td>② 管理层保守稳健</td>
+          <td class="td-up">✅ 极为保守</td>
+          <td class="td-up">✅ 高拨备说明保守</td>
+          <td>⚠️ 扩张较激进</td>
+        </tr>
+        <tr>
+          <td>③ 低不良+高拨备</td>
+          <td>✅ 0.95%/412%</td>
+          <td class="td-up">✅✅ 0.76%/541% 最优</td>
+          <td class="td-up">✅✅ 0.66%/479% 最优</td>
+        </tr>
+        <tr>
+          <td>④ 非息收入≥30%</td>
+          <td class="td-up">✅ 37.4%</td>
+          <td class="td-up">✅ 36.3%</td>
+          <td>❌ ~18%（差距大）</td>
+        </tr>
+        <tr>
+          <td>⑤ 危机折价买入机会</td>
+          <td>⚠️ 当前PB约0.9×</td>
+          <td>⚠️ 当前PB约0.7×</td>
+          <td>⚠️ 当前PB约0.8×</td>
+        </tr>
+        <tr>
+          <td>⑥ 持续分红+回购</td>
+          <td class="td-up">✅ 35.3%分红率</td>
+          <td>⚠️ 分红率偏低</td>
+          <td class="td-up">✅ 写入章程的高分红率</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三行评级 -->
+  <div class="conclusion-card cc-cmb">
+    <div class="cc-title" style="color:#58a6ff">🔵 招商银行 — 核心持仓，护城河最深</div>
+    <div class="cc-sub">适合：稳健型长期投资者 | PB约0.9× | 股息率约4-5%</div>
+    <div class="rating-row">
+      <div class="rating-box">
+        <div class="rating-score score-s">A+</div>
+        <div class="rating-dim">护城河</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-b">B+</div>
+        <div class="rating-dim">成长性</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-a">A</div>
+        <div class="rating-dim">稳健性</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-a">A</div>
+        <div class="rating-dim">综合评级</div>
+      </div>
+    </div>
+    <div class="cc-body">
+      招行的护城河是三行中最宽最深的：<strong>2亿零售客户+14.93万亿AUM+1.23亿MAU</strong>，这个客户生态护城河需要竞争对手至少10-15年才能追上。短期问题（NIM收窄、信用卡不良、财富管理手续费承压）属于行业性逆风，不改变长期竞争格局。<br><br>
+      <strong>核心逻辑</strong>：当中国进入老龄化社会、居民财富积累加速，招行将是最大的受益者——财富管理需求爆发，招行的客户基础是无可替代的"蓄水池"。当前PB约0.9×，历史低位，长期性价比突出。
+    </div>
+  </div>
+
+  <div class="conclusion-card cc-hzb">
+    <div class="cc-title" style="color:#3fb950">🟢 杭州银行 — 高成长，拨备蓄水池是隐藏价值</div>
+    <div class="cc-sub">适合：成长型投资者 | PB约0.7× | 净利润增速+18%</div>
+    <div class="rating-row">
+      <div class="rating-box">
+        <div class="rating-score score-b">B+</div>
+        <div class="rating-dim">护城河</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-s">S</div>
+        <div class="rating-dim">成长性</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-a">A+</div>
+        <div class="rating-dim">稳健性</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-a">A</div>
+        <div class="rating-dim">综合评级</div>
+      </div>
+    </div>
+    <div class="cc-body">
+      杭州银行的真正价值在于被市场低估的<strong>真实ROE（19.1%）</strong>和<strong>541%拨备覆盖率</strong>。PB仅0.7×，几乎是在用历史成本价买入一家真实盈利能力远超账面的资产。<br><br>
+      <strong>核心逻辑</strong>：浙江是中国私营经济最活跃的省份，科创金融的差异化定位与中国"制造业升级+专精特新"的国家战略高度契合。18%净利润增速+541%拨备覆盖率意味着即使在经济下行周期，杭州银行也有足够的"利润蓄水池"维持增速。<strong>主要风险</strong>是NIM偏低（1.41%），对利率环境较为敏感。
+    </div>
+  </div>
+
+  <div class="conclusion-card cc-cdb">
+    <div class="cc-title" style="color:#d29922">🟡 成都银行 — 高ROE高分红，但转型是悬念</div>
+    <div class="cc-sub">适合：高分红偏好型投资者 | PB约0.8× | ROE 17.81%</div>
+    <div class="rating-row">
+      <div class="rating-box">
+        <div class="rating-score score-b">B</div>
+        <div class="rating-dim">护城河</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-a">A</div>
+        <div class="rating-dim">当前增速</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-b">B</div>
+        <div class="rating-dim">长期持续性</div>
+      </div>
+      <div class="rating-box">
+        <div class="rating-score score-b">B+</div>
+        <div class="rating-dim">综合评级</div>
+      </div>
+    </div>
+    <div class="cc-body">
+      成都银行最大的吸引力是<strong>17.81% ROE + 高分红率（写入章程）</strong>，是防御型分红投资者的好选择。但核心风险也非常明显：极度依赖基建贷款（前十大客户占38%资本净额），零售转型方向相反（对公利润占比从33%升至51%），非息收入薄弱（NIM下行缺乏对冲）。<br><br>
+      <strong>核心逻辑</strong>：3-5年内成渝双城经济圈仍有大量基建项目，护住基本盘没有问题。但若零售转型迟迟无法实质性推进，市场最终会给成都银行打上"成长天花板"的标签，估值溢价将难以维持。观察指标：个人贷款占比是否能在5年内回升至25%以上。
+    </div>
+  </div>
+
+  <!-- 最终建议 -->
+  <div class="card">
+    <div class="card-header">
+      <div class="bank-dot" style="background:#e6edf3"></div>
+      <div class="card-title">💼 组合配置建议</div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>投资目标</th><th>推荐配置</th><th>逻辑</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🏆 长期复利（10年+）</td>
+          <td class="td-num" style="color:#58a6ff">招商银行 为主</td>
+          <td>护城河最深，财富管理是未来十年最确定的增量市场</td>
+        </tr>
+        <tr>
+          <td>📈 成长+价值（3-5年）</td>
+          <td class="td-num" style="color:#3fb950">杭州银行 为主</td>
+          <td>PB 0.7×+真实ROE 19%，拨备蓄水池提供安全边际</td>
+        </tr>
+        <tr>
+          <td>💰 高分红防御型</td>
+          <td class="td-num" style="color:#d29922">成都银行 为辅</td>
+          <td>高ROE高分红适合收息，但需密切关注零售转型进展</td>
+        </tr>
+        <tr>
+          <td>🎯 三行均衡持有</td>
+          <td>招商40% + 杭州40% + 成都20%</td>
+          <td>兼顾护城河深度、成长速度和高分红，平衡风险收益</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="insight">
+      <strong>巴菲特视角的最终判断：</strong>如果只能选一家，选<span class="hl-blue">招商银行</span>——它最接近巴菲特最爱的"坐在钱流经的高速公路收费站"模式：两亿客户每天的每一笔金融行为，都流经招行的生态系统，而招行收取一层又一层的服务费。这种生意模式的经济特性，让它几乎不可能被复制。
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- 页脚 -->
+<div class="footer">
+  <strong>三大银行深度分析报告 2025</strong><br>
+  数据来源：招商银行/杭州银行/成都银行2024年年度报告、各大券商研究报告<br>
+  本报告仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。<br>
+  报告生成时间：2025年
+</div>
+
+</body>
+</html>

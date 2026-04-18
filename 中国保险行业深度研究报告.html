@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国保险行业深度研究报告 2025</title>
+<style>
+  :root {
+    --ink: #0d1b2a;
+    --navy: #0f3460;
+    --blue: #1a6bb5;
+    --teal: #0d9488;
+    --amber: #d97706;
+    --gold: #f59e0b;
+    --rose: #e11d48;
+    --green: #16a34a;
+    --violet: #7c3aed;
+    --slate: #64748b;
+    --bg: #f0f4f8;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(150deg, #060d1a 0%, #0f2040 50%, #0f3460 100%);
+    color: #fff; padding: 72px 60px 56px; position: relative; overflow: hidden;
+  }
+  .hero::before { content:''; position:absolute; right:-100px; top:-100px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(245,158,11,.16) 0%,transparent 68%); }
+  .hero::after  { content:''; position:absolute; left:80px; bottom:-120px; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle,rgba(26,107,181,.22) 0%,transparent 68%); }
+  .hero-chip { display:inline-flex; align-items:center; gap:8px; background:rgba(245,158,11,.2); border:1px solid rgba(245,158,11,.4); color:var(--gold); font-size:11px; font-weight:800; padding:5px 14px; border-radius:20px; letter-spacing:1.5px; margin-bottom:22px; }
+  .hero h1 { font-size:44px; font-weight:900; line-height:1.15; margin-bottom:16px; position:relative; z-index:1; }
+  .hero h1 em { color:var(--gold); font-style:normal; }
+  .hero .lead { font-size:16px; color:rgba(255,255,255,.72); max-width:620px; margin-bottom:48px; line-height:1.85; position:relative; z-index:1; }
+  .hero-kpis { display:flex; gap:0; flex-wrap:wrap; position:relative; z-index:1; border-top:1px solid rgba(255,255,255,.1); padding-top:28px; }
+  .kpi { padding:0 36px 0 0; }
+  .kpi:not(:last-child) { border-right:1px solid rgba(255,255,255,.12); margin-right:36px; }
+  .kpi-lbl { font-size:10px; color:rgba(255,255,255,.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+  .kpi-val { font-size:24px; font-weight:800; color:var(--gold); line-height:1.1; }
+  .kpi-sub { font-size:12px; color:rgba(255,255,255,.45); margin-top:2px; }
+
+  /* ── LAYOUT ── */
+  .wrap { max-width:1140px; margin:0 auto; padding:52px 32px; }
+  .sec { margin-bottom:64px; }
+  .sec-hd { display:flex; align-items:center; gap:14px; font-size:22px; font-weight:800; color:var(--navy); margin-bottom:30px; padding-bottom:14px; border-bottom:3px solid var(--blue); }
+  .sn { width:36px; height:36px; border-radius:50%; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; flex-shrink:0; }
+
+  /* ── CARDS ── */
+  .cards3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .cards2 { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+  .card { background:var(--card); border-radius:14px; border:1px solid var(--border); padding:24px; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+  .card-icon { font-size:28px; margin-bottom:10px; }
+  .card-title { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:8px; }
+  .card-body { font-size:13px; color:var(--slate); line-height:1.75; }
+  .card-val { font-size:28px; font-weight:900; color:var(--blue); margin:8px 0 4px; }
+  .card-sub { font-size:12px; color:var(--slate); }
+
+  /* ── FLOW ── */
+  .flow { display:flex; align-items:stretch; gap:0; background:var(--card); border-radius:14px; border:1px solid var(--border); overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.04); margin-bottom:20px; }
+  .flow-step { flex:1; padding:22px 18px; text-align:center; position:relative; }
+  .flow-step:not(:last-child)::after { content:'▶'; position:absolute; right:-12px; top:50%; transform:translateY(-50%); font-size:18px; color:var(--gold); z-index:2; }
+  .flow-step:nth-child(odd) { background:#f8faff; }
+  .flow-num { width:28px; height:28px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; margin:0 auto 8px; }
+  .flow-title { font-size:13px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+  .flow-desc { font-size:11px; color:var(--slate); line-height:1.6; }
+
+  /* ── TABLE ── */
+  .tbl-wrap { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border-radius:14px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.05); font-size:13px; }
+  thead { background:var(--navy); }
+  th { padding:13px 16px; text-align:left; font-size:11px; font-weight:700; color:rgba(255,255,255,.85); letter-spacing:.6px; white-space:nowrap; }
+  td { padding:12px 16px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:#f8fafc; }
+  tr.hl td { background:#fffbeb; }
+  tr.hl td:first-child { border-left:3px solid var(--gold); }
+  .badge { display:inline-block; padding:2px 10px; border-radius:10px; font-size:11px; font-weight:700; }
+  .bs  { background:var(--navy); color:#fff; }
+  .ba  { background:#dcfce7; color:#166534; }
+  .bb  { background:#fef9c3; color:#854d0e; }
+  .bc  { background:#fee2e2; color:#991b1b; }
+  .bv  { background:#f3e8ff; color:#6b21a8; }
+
+  /* ── COMPANY CARDS ── */
+  .co-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .co-card { background:var(--card); border-radius:14px; border:1px solid var(--border); overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,.04); }
+  .co-head { padding:18px 20px 14px; color:#fff; }
+  .co-ticker { font-size:22px; font-weight:900; }
+  .co-name   { font-size:12px; color:rgba(255,255,255,.65); margin-top:2px; }
+  .co-type   { display:inline-block; margin-top:8px; padding:3px 10px; border-radius:8px; font-size:11px; font-weight:700; background:rgba(255,255,255,.18); color:#fff; }
+  .co-body   { padding:16px 20px; }
+  .co-m { display:flex; justify-content:space-between; align-items:center; padding:6px 0; font-size:13px; border-bottom:1px solid #f1f5f9; }
+  .co-m:last-of-type { border-bottom:none; }
+  .co-m-lbl { color:var(--slate); }
+  .co-m-val { font-weight:700; }
+  .co-logic { margin-top:12px; padding:12px 14px; border-radius:8px; font-size:13px; line-height:1.7; }
+  .co-tags { margin-top:10px; display:flex; flex-wrap:wrap; gap:6px; }
+  .co-tag { font-size:11px; padding:3px 9px; border-radius:8px; font-weight:600; }
+
+  .hd-gslife { background:linear-gradient(135deg,#c0392b,#922b21); }
+  .hd-pa     { background:linear-gradient(135deg,#e67e22,#ca6f1e); }
+  .hd-cpic   { background:linear-gradient(135deg,#1a5276,#154360); }
+  .hd-picc   { background:linear-gradient(135deg,#1e8449,#196f3d); }
+  .hd-nci    { background:linear-gradient(135deg,#6c3483,#5b2c6f); }
+  .hd-aia    { background:linear-gradient(135deg,#0d47a1,#1565c0); }
+
+  /* ── RISK MATRIX ── */
+  .risk-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+  .risk-card { background:var(--card); border-radius:12px; border:1px solid var(--border); padding:22px; }
+  .risk-hd { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:14px; }
+  .risk-name { font-size:15px; font-weight:800; color:var(--navy); }
+  .risk-lvl  { padding:3px 10px; border-radius:8px; font-size:12px; font-weight:700; }
+  .lvl-high { background:#fee2e2; color:#991b1b; }
+  .lvl-mid  { background:#fef9c3; color:#854d0e; }
+  .lvl-low  { background:#dcfce7; color:#166534; }
+  .risk-bar-wrap { margin:10px 0; }
+  .risk-bar-lbl { font-size:11px; color:var(--slate); margin-bottom:4px; display:flex; justify-content:space-between; }
+  .risk-bar-track { background:#e5e7eb; border-radius:3px; height:7px; }
+  .risk-bar-fill  { height:7px; border-radius:3px; }
+  .risk-body { font-size:13px; color:var(--slate); line-height:1.7; }
+
+  /* ── TREND ── */
+  .trend-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; }
+  .trend-card { background:var(--card); border-radius:12px; border:1px solid var(--border); padding:22px; }
+  .trend-icon { font-size:26px; margin-bottom:8px; }
+  .trend-title { font-size:15px; font-weight:800; color:var(--navy); margin-bottom:10px; }
+  .trend-body  { font-size:13px; color:var(--slate); line-height:1.75; }
+  .trend-tag   { display:inline-block; margin-top:10px; padding:3px 10px; border-radius:8px; font-size:12px; font-weight:700; }
+
+  /* ── CALLOUT ── */
+  .callout { border-radius:10px; padding:16px 22px; margin:18px 0; font-size:14px; line-height:1.8; }
+  .c-info    { background:#eff6ff; border-left:4px solid var(--blue); }
+  .c-warn    { background:#fffbeb; border-left:4px solid var(--gold); }
+  .c-success { background:#f0fdf4; border-left:4px solid var(--green); }
+  .c-danger  { background:#fff5f5; border-left:4px solid var(--rose); }
+  .callout strong { display:block; margin-bottom:4px; font-size:15px; }
+
+  /* ── COMPARE BAR ── */
+  .cmp-row { display:flex; align-items:center; gap:12px; padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .cmp-row:last-child { border-bottom:none; }
+  .cmp-name { width:90px; color:var(--slate); flex-shrink:0; font-weight:600; }
+  .cmp-bar-wrap { flex:1; background:#e5e7eb; border-radius:4px; height:10px; }
+  .cmp-bar-fill { height:10px; border-radius:4px; }
+  .cmp-val { width:70px; text-align:right; font-weight:700; }
+
+  /* ── FINAL ── */
+  .final { background:linear-gradient(135deg,#060d1a,#0f2040); color:#fff; border-radius:16px; padding:44px; margin-top:52px; }
+  .final h2 { color:var(--gold); font-size:22px; margin-bottom:22px; }
+  .final-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+  .fi { background:rgba(255,255,255,.06); border-radius:10px; padding:20px; }
+  .fi h4 { color:var(--gold); font-size:14px; margin-bottom:8px; }
+  .fi p  { font-size:13px; color:rgba(255,255,255,.8); line-height:1.7; }
+  .final-quote { margin-top:24px; padding:20px 26px; background:rgba(245,158,11,.12); border-left:4px solid var(--gold); border-radius:0 10px 10px 0; font-size:14px; color:rgba(255,255,255,.9); line-height:1.85; }
+
+  /* ── MISC ── */
+  .footnote { font-size:12px; color:var(--slate); text-align:center; margin-top:48px; padding-top:20px; border-top:1px solid var(--border); }
+  @media(max-width:900px){
+    .hero{padding:40px 22px 36px;}
+    .hero h1{font-size:28px;}
+    .wrap{padding:28px 14px;}
+    .cards3,.co-grid,.final-grid,.trend-grid,.risk-grid{grid-template-columns:1fr;}
+    .cards2{grid-template-columns:1fr;}
+    .flow{flex-direction:column;}
+    .flow-step:not(:last-child)::after{content:'▼';right:50%;top:auto;bottom:-14px;transform:translateX(50%);}
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <div class="hero-chip">🛡️ 行业深度研究</div>
+  <h1>中国<em>保险行业</em><br>深度研究报告 2025</h1>
+  <p class="lead">从核心逻辑到运作原理，从发展趋势到行业风险，全面拆解中国保险业的投资价值与竞争格局。</p>
+  <div class="hero-kpis">
+    <div class="kpi">
+      <div class="kpi-lbl">2024年全行业保费</div>
+      <div class="kpi-val">5.7万亿</div>
+      <div class="kpi-sub">全球第二，增速+11.2%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">保险资金运用余额</div>
+      <div class="kpi-val">33.3万亿</div>
+      <div class="kpi-sub">同比+15.1%</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">行业综合投资收益率</div>
+      <div class="kpi-val">7.21%</div>
+      <div class="kpi-sub">历史最高水平</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">保险深度</div>
+      <div class="kpi-val">~3.7%</div>
+      <div class="kpi-sub">全球均值约6%，空间巨大</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════ 01 行业本质与核心逻辑 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">1</div>保险行业的本质：为什么保险是一门好生意？</div>
+
+  <div class="callout c-info">
+    <strong>💡 巴菲特眼中的保险业务</strong>
+    "保险公司预先收取保费，多年后才赔付损失。在这期间，保险公司持有并投资这笔钱，这就是'浮存金'（Float）。
+    如果承保纪律良好，浮存金实际上是<strong>免费甚至负成本的资金</strong>——你不仅不需要为这笔钱付利息，对方还在倒贴你。"
+    这正是伯克希尔把保险业务视为帝国基石的原因。
+  </div>
+
+  <div class="cards3" style="margin-bottom:24px">
+    <div class="card">
+      <div class="card-icon">🌊</div>
+      <div class="card-title">浮存金（Float）——保险的核心魔法</div>
+      <div class="card-val">33.3万亿</div>
+      <div class="card-sub">2024年中国保险资金运用余额</div>
+      <div class="card-body" style="margin-top:10px">保险公司先收保费、后赔付，这个"时间差"产生的资金池就是浮存金。这笔钱在赔付前可以自由投资，产生的投资收益归保险公司所有。规模越大、持有期越长，浮存金价值越高。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">⚖️</div>
+      <div class="card-title">综合成本率（Combined Ratio）——承保质量核心指标</div>
+      <div class="card-val">98~100%</div>
+      <div class="card-sub">中国财险行业2024年均值</div>
+      <div class="card-body" style="margin-top:10px">综合成本率 = 赔付率 + 费用率。低于100%代表承保盈利（每收100元保费，赔付和费用合计不到100元）；高于100%代表承保亏损，需靠投资收益弥补。顶尖险企追求长期低于95%。</div>
+    </div>
+    <div class="card">
+      <div class="card-icon">📈</div>
+      <div class="card-title">新业务价值（NBV）——寿险成长性核心指标</div>
+      <div class="card-val">+28.8%</div>
+      <div class="card-sub">中国平安2024年NBV同比增速</div>
+      <div class="card-body" style="margin-top:10px">NBV = 当年新签保单未来预计产生的精算现值，衡量保险公司当期"造血能力"。NBV增长说明未来利润在持续积累，是寿险公司最重要的前瞻性指标，相当于制造业的"新增订单"。</div>
+    </div>
+  </div>
+
+  <!-- 运作流程 -->
+  <div style="margin-bottom:20px">
+    <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:14px">🔄 保险公司盈利的完整运转逻辑</div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-title">收取保费</div>
+        <div class="flow-desc">客户缴纳保险费，形成保费收入，同时形成未来赔付义务（保险负债）</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-title">积累浮存金</div>
+        <div class="flow-desc">保费进入资金池，在赔付发生前作为"浮存金"由公司持有管理</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-title">投资运营</div>
+        <div class="flow-desc">浮存金投入债券、股票、不动产等资产，产生投资收益，这是利润主要来源</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-title">赔付理赔</div>
+        <div class="flow-desc">发生保险事故时支付赔款，同时收取费用覆盖运营成本</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-title">利润来源</div>
+        <div class="flow-desc">投资收益 + 承保利差（保费 - 赔付 - 费用）= 税前利润</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout c-warn">
+    <strong>⚠️ 中国保险业的特殊逻辑：投资收益 > 承保利润</strong>
+    与欧美成熟市场不同，中国保险公司当前利润<strong>高度依赖投资端</strong>。
+    2024年行业综合投资收益率达7.21%（历史最高），直接拉动行业利润突破4000亿。
+    这是A股"牛市效应"叠加债券收益率的综合结果，不可持续性是关键风险点。
+  </div>
+</div>
+
+<!-- ════════ 02 行业规模与全球对比 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">2</div>行业规模：全球第二，增速领跑，潜力深厚</div>
+
+  <div class="cards2" style="margin-bottom:24px">
+    <div class="card">
+      <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:16px">📊 2024年中国保险业规模结构</div>
+      <div class="cmp-row"><div class="cmp-name">寿险</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:56%;background:#0f3460"></div></div><div class="cmp-val" style="color:#0f3460">3.19万亿</div></div>
+      <div class="cmp-row"><div class="cmp-name">健康险</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:19%;background:#1a6bb5"></div></div><div class="cmp-val" style="color:#1a6bb5">约1.1万亿</div></div>
+      <div class="cmp-row"><div class="cmp-name">财产险</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:25%;background:#0d9488"></div></div><div class="cmp-val" style="color:#0d9488">1.43万亿</div></div>
+      <div class="cmp-row" style="margin-top:12px;padding-top:12px;border-top:2px solid var(--border)"><div class="cmp-name" style="color:var(--ink);font-weight:800">合计</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:100%;background:linear-gradient(90deg,#0f3460,#1a6bb5)"></div></div><div class="cmp-val" style="color:var(--ink)">5.70万亿</div></div>
+    </div>
+    <div class="card">
+      <div style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:16px">🌍 全球主要市场保险深度对比</div>
+      <div class="cmp-row"><div class="cmp-name">英国</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:95%;background:#c0392b"></div></div><div class="cmp-val" style="color:#c0392b">约9.5%</div></div>
+      <div class="cmp-row"><div class="cmp-name">美国</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:88%;background:#e74c3c"></div></div><div class="cmp-val" style="color:#e74c3c">约8.8%</div></div>
+      <div class="cmp-row"><div class="cmp-name">日本</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:78%;background:#e67e22"></div></div><div class="cmp-val" style="color:#e67e22">约7.8%</div></div>
+      <div class="cmp-row"><div class="cmp-name">全球均值</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:62%;background:#f59e0b"></div></div><div class="cmp-val" style="color:#d97706">约6.2%</div></div>
+      <div class="cmp-row" style="background:#f0fff4;border-radius:6px;padding:8px 6px"><div class="cmp-name" style="color:var(--green);font-weight:800">中国</div><div class="cmp-bar-wrap"><div class="cmp-bar-fill" style="width:38%;background:#16a34a"></div></div><div class="cmp-val" style="color:var(--green)">约3.7%</div></div>
+      <div style="font-size:12px;color:var(--slate);margin-top:10px">⬆ 中国保险深度仅为全球均值的60%，与发达市场差距巨大，<strong style="color:var(--green)">增长空间是全球最大的单一市场</strong>。</div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>险种</th><th>2024年保费</th><th>同比增速</th><th>主要驱动</th><th>未来展望</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td><strong>寿险</strong></td><td>3.19万亿元</td><td style="color:var(--green)">+15.6%</td><td>预定利率下调前的需求集中释放</td><td><span class="badge ba">持续增长</span></td></tr>
+        <tr><td><strong>健康险</strong></td><td>约1.1万亿元</td><td style="color:var(--green)">+6.2%</td><td>老龄化+健康意识提升+政策支持</td><td><span class="badge bs">最大潜力</span></td></tr>
+        <tr><td><strong>财产险</strong></td><td>1.43万亿元</td><td style="color:var(--green)">+5.3%</td><td>车险稳定增长+非车险快速扩张</td><td><span class="badge ba">稳健增长</span></td></tr>
+        <tr><td><strong>意外险</strong></td><td>约800亿元</td><td>持平</td><td>市场趋于成熟</td><td><span class="badge bb">平稳</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════ 03 主要险企深度分析 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">3</div>主要险企深度解析：六家核心公司逐一拆解</div>
+
+  <div class="co-grid">
+
+    <!-- 中国平安 -->
+    <div class="co-card">
+      <div class="co-head hd-pa">
+        <div class="co-ticker">中国平安</div>
+        <div class="co-name">综合金融集团 · 保费规模第一</div>
+        <span class="co-type">综合金融集团</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">2024年保费收入</span><span class="co-m-val" style="color:var(--green)">8,581亿元 ↑7.2%</span></div>
+        <div class="co-m"><span class="co-m-lbl">新业务价值NBV</span><span class="co-m-val" style="color:var(--green)">285亿元 ↑28.8%</span></div>
+        <div class="co-m"><span class="co-m-lbl">综合投资收益率</span><span class="co-m-val" style="color:var(--green)">5.8%（+2.2pp）</span></div>
+        <div class="co-m"><span class="co-m-lbl">年化营运ROE</span><span class="co-m-val" style="color:var(--green)">16.4%（行业最高）</span></div>
+        <div class="co-m"><span class="co-m-lbl">NBV率</span><span class="co-m-val">22.7%</span></div>
+        <div class="co-logic" style="background:#fff8f0">
+          <strong style="color:#c0550a">核心优势：</strong>平安是中国唯一真正实现"综合金融"的集团——保险+银行（平安银行）+投资（平安资管）形成协同飞轮。个险渠道代理人质量提升明显，NBV连续两年高增长说明新业务质量在显著改善。OCI股票浮盈超900亿元，未来分红确定性强。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#fff3e0;color:#c0550a">综合金融协同</span>
+          <span class="co-tag" style="background:#dcfce7;color:#166534">NBV高增长</span>
+          <span class="co-tag" style="background:#e0f2fe;color:#0369a1">高ROE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中国人寿 -->
+    <div class="co-card">
+      <div class="co-head hd-gslife">
+        <div class="co-ticker">中国人寿</div>
+        <div class="co-name">寿险市场龙头 · 国有大型险企</div>
+        <span class="co-type">纯寿险集团</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">2024年保费收入</span><span class="co-m-val" style="color:var(--green)">6,714亿元 ↑9.7%</span></div>
+        <div class="co-m"><span class="co-m-lbl">归属净利润</span><span class="co-m-val" style="color:var(--green)">突破1,000亿 ↑108.9%</span></div>
+        <div class="co-m"><span class="co-m-lbl">投资端总收益</span><span class="co-m-val" style="color:var(--green)">3,082亿元</span></div>
+        <div class="co-m"><span class="co-m-lbl">总资产</span><span class="co-m-val">突破6万亿（历史新高）</span></div>
+        <div class="co-m"><span class="co-m-lbl">投资收益率</span><span class="co-m-val">5.50%</span></div>
+        <div class="co-logic" style="background:#fff5f5">
+          <strong style="color:#922b21">核心特点：</strong>人寿是纯寿险机构，规模庞大（总资产6万亿），国有背书信用极强。2024年净利润翻倍主要靠投资端爆发（股市+债市双收益），但需警惕：这种利润不可持续，核心还要看承保端NBV的持续增长能力。银保渠道新单保费首破千亿，渠道改革成效初显。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#fee2e2;color:#991b1b">规模最大</span>
+          <span class="co-tag" style="background:#fef3c7;color:#92400e">国有背书</span>
+          <span class="co-tag" style="background:#e0f2fe;color:#0369a1">投资驱动</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中国人保 -->
+    <div class="co-card">
+      <div class="co-head hd-picc">
+        <div class="co-ticker">中国人保</div>
+        <div class="co-name">财险市场绝对龙头</div>
+        <span class="co-type">以财险为主</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">2024年归属净利润</span><span class="co-m-val" style="color:var(--green)">429亿元（历史新高）</span></div>
+        <div class="co-m"><span class="co-m-lbl">财险车险市场份额</span><span class="co-m-val" style="color:var(--green)">38.8%（绝对第一）</span></div>
+        <div class="co-m"><span class="co-m-lbl">人保财险保险服务收入</span><span class="co-m-val">2,947亿元</span></div>
+        <div class="co-m"><span class="co-m-lbl">寿险业务</span><span class="co-m-val">退保率大幅下降，转型成效显著</span></div>
+        <div class="co-m"><span class="co-m-lbl">综合成本率</span><span class="co-m-val" style="color:var(--amber)">略有抬升，承保压力存在</span></div>
+        <div class="co-logic" style="background:#f0fdf4">
+          <strong style="color:#166534">核心优势：</strong>人保财险的护城河是<strong>网络和规模</strong>。38.8%的车险市场份额相当于中国每3辆车就有1辆在人保投保，渠道网络和品牌认知度是后来者几乎无法复制的壁垒。非车险（农业险、责任险等）增速更快，是未来增长新引擎。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#dcfce7;color:#166534">财险垄断</span>
+          <span class="co-tag" style="background:#e0f2fe;color:#0369a1">规模护城河</span>
+          <span class="co-tag" style="background:#f3e8ff;color:#6b21a8">农险布局</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中国太保 -->
+    <div class="co-card">
+      <div class="co-head hd-cpic">
+        <div class="co-ticker">中国太保</div>
+        <div class="co-name">综合保险集团 · 全牌照</div>
+        <span class="co-type">全牌照综合险企</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">业务板块</span><span class="co-m-val">寿险+财险+养老+健康</span></div>
+        <div class="co-m"><span class="co-m-lbl">市场定位</span><span class="co-m-val">A+H股上市，全牌照经营</span></div>
+        <div class="co-m"><span class="co-m-lbl">寿险NBV</span><span class="co-m-val" style="color:var(--green)">持续正增长</span></div>
+        <div class="co-m"><span class="co-m-lbl">财险综合成本率</span><span class="co-m-val">行业中游水平</span></div>
+        <div class="co-logic" style="background:#eff6ff">
+          <strong style="color:#0f3460">核心特点：</strong>太保是五大险企中转型步伐相对稳健的一家，"健康险+养老险"双轮驱动战略清晰。旗下太保安联健康险、太平洋养老保险是行业内布局较完整的专业子公司矩阵。相较平安的激进创新，太保更偏保守稳健，适合长期稳定型投资者。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#dbeafe;color:#1d4ed8">全牌照</span>
+          <span class="co-tag" style="background:#dcfce7;color:#166534">健康+养老</span>
+          <span class="co-tag" style="background:#fef3c7;color:#92400e">稳健转型</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 新华保险 -->
+    <div class="co-card">
+      <div class="co-head hd-nci">
+        <div class="co-ticker">新华保险</div>
+        <div class="co-name">寿险公司 · 二梯队代表</div>
+        <span class="co-type">寿险专注型</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">业务定位</span><span class="co-m-val">纯寿险（无财险牌照）</span></div>
+        <div class="co-m"><span class="co-m-lbl">2024年利润</span><span class="co-m-val" style="color:var(--green)">大幅增长，投资驱动</span></div>
+        <div class="co-m"><span class="co-m-lbl">渠道结构</span><span class="co-m-val">银保+个险并重</span></div>
+        <div class="co-m"><span class="co-m-lbl">资产配置</span><span class="co-m-val">权益类比例相对较高</span></div>
+        <div class="co-logic" style="background:#f5f3ff">
+          <strong style="color:#5b21b6">特点与风险：</strong>新华保险是五大险企中规模最小、专注度最高的寿险公司。2024年业绩大幅改善主要靠投资端，权益资产占比较高使其在牛市弹性更大，但熊市波动也更大。渠道转型（提升个险质量、优化银保结构）是其核心挑战。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#f3e8ff;color:#6b21a8">纯寿险</span>
+          <span class="co-tag" style="background:#fee2e2;color:#991b1b">弹性较大</span>
+          <span class="co-tag" style="background:#fef3c7;color:#92400e">转型中</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 友邦保险 -->
+    <div class="co-card">
+      <div class="co-head hd-aia">
+        <div class="co-ticker">友邦 AIA</div>
+        <div class="co-name">跨国险企 · 高端市场标杆</div>
+        <span class="co-type">外资独资寿险</span>
+      </div>
+      <div class="co-body">
+        <div class="co-m"><span class="co-m-lbl">2024年新业务价值</span><span class="co-m-val" style="color:var(--green)">47.12亿美元 ↑17%</span></div>
+        <div class="co-m"><span class="co-m-lbl">中国内地新业务价值</span><span class="co-m-val" style="color:var(--green)">增长+20%</span></div>
+        <div class="co-m"><span class="co-m-lbl">市场定位</span><span class="co-m-val">高端客户、高保额产品</span></div>
+        <div class="co-m"><span class="co-m-lbl">NBV利润率</span><span class="co-m-val" style="color:var(--green)">远高于国内同行</span></div>
+        <div class="co-logic" style="background:#eff6ff">
+          <strong style="color:#1e3a8a">外资竞争优势：</strong>友邦是中国唯一外资独资寿险巨头，其核心优势是<strong>极高净值客户群</strong>和<strong>专业代理人文化</strong>。单张保单保额远高于本土险企，NBV利润率行业最高。对于高净值人群的保险保障和遗产规划需求，友邦是首选。其在华扩张仍受牌照地域限制，是增长的天花板。
+        </div>
+        <div class="co-tags">
+          <span class="co-tag" style="background:#dbeafe;color:#1d4ed8">外资独资</span>
+          <span class="co-tag" style="background:#dcfce7;color:#166534">高净值定位</span>
+          <span class="co-tag" style="background:#f3e8ff;color:#6b21a8">NBV率最高</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 对比表 -->
+  <div class="tbl-wrap" style="margin-top:24px">
+    <table>
+      <thead><tr><th>险企</th><th>2024年保费</th><th>净利润</th><th>NBV增速</th><th>ROE</th><th>核心护城河</th><th>投资评级</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td><strong>中国平安</strong></td><td>8,581亿</td><td>~800亿+</td><td style="color:var(--green)"><strong>+28.8%</strong></td><td style="color:var(--green)"><strong>16.4%</strong></td><td>综合金融协同</td><td><span class="badge bs">S级</span></td></tr>
+        <tr class="hl"><td><strong>中国人寿</strong></td><td>6,714亿</td><td>突破1000亿</td><td>正增长</td><td>—</td><td>规模+国有信用</td><td><span class="badge ba">A+</span></td></tr>
+        <tr><td><strong>中国人保</strong></td><td>7000亿+</td><td>429亿（历史新高）</td><td>—</td><td>—</td><td>财险38.8%市场份额</td><td><span class="badge ba">A+</span></td></tr>
+        <tr><td><strong>中国太保</strong></td><td>稳健增长</td><td>持续盈利</td><td>正增长</td><td>—</td><td>全牌照+养老布局</td><td><span class="badge ba">A</span></td></tr>
+        <tr><td><strong>新华保险</strong></td><td>增长中</td><td>大幅增长</td><td>改善中</td><td>—</td><td>—</td><td><span class="badge bb">B+</span></td></tr>
+        <tr><td><strong>友邦AIA</strong></td><td>亚太规模大</td><td>高利润率</td><td style="color:var(--green)">+20%（中国）</td><td>—</td><td>外资独资+高端定位</td><td><span class="badge bv">港股S</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════ 04 发展趋势 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">4</div>四大发展趋势：行业向何处去？</div>
+
+  <div class="trend-grid">
+    <div class="trend-card">
+      <div class="trend-icon">📉</div>
+      <div class="trend-title">预定利率三轮下调：利差损压力与定价重构</div>
+      <div class="trend-body">
+        <strong>历史路径：</strong>3.5% → 3.0%（2023年）→ 2.5%（2024年8月）→ 动态挂钩机制（与LPR、10年期国债收益率联动）。<br><br>
+        <strong>影响一（利好）：</strong>下调前的预期触发集中购买潮，寿险保费短期大幅增长，2024年人身险保费+13.3%。<br><br>
+        <strong>影响二（深远）：</strong>产品从"高收益储蓄险"向"保障型产品"结构转变，倒逼险企回归保险本质，长期利好行业健康度。<br><br>
+        <strong>影响三（双刃剑）：</strong>利率下调缓解利差损，但也使产品吸引力下降，代理人展业难度上升。
+      </div>
+      <span class="trend-tag" style="background:#dbeafe;color:#1d4ed8">结构性转变</span>
+    </div>
+
+    <div class="trend-card">
+      <div class="trend-icon">📋</div>
+      <div class="trend-title">报行合一：渠道费用规范，行业格局重塑</div>
+      <div class="trend-body">
+        <strong>政策内容：</strong>产品备案的费用假设必须与实际执行一致，杜绝"高报低用"的费用套利行为。主要针对银保、经代、兼业代理渠道。<br><br>
+        <strong>行业影响：</strong>累计降低费用支出3,500亿元；大型险企因规模优势仍能维持渠道竞争力，中小险企"以费用换保费"的粗放模式被打破。<br><br>
+        <strong>银保渠道变化：</strong>2025年银保渠道保费逆势大增，中国人寿银保新单首破千亿，说明规范后的银保反而更健康。<br><br>
+        <strong>长期逻辑：</strong>行业集中度提升，马太效应强化，龙头受益。
+      </div>
+      <span class="trend-tag" style="background:#dcfce7;color:#166534">龙头受益</span>
+    </div>
+
+    <div class="trend-card">
+      <div class="trend-icon">🏥</div>
+      <div class="trend-title">健康险与养老险：未来十年最大增量市场</div>
+      <div class="trend-body">
+        <strong>人口数据支撑：</strong>2025年中国60岁以上人口预计超3亿（占比约21%），正式进入深度老龄化社会。<br><br>
+        <strong>健康险机遇：</strong>政府医疗保障存在结构性缺口，商业健康险是最直接的补充。百万医疗险渗透率仍低，长期护理险处于起步阶段。<br><br>
+        <strong>养老险机遇：</strong>第三支柱商业养老（税优养老保险、个人养老金账户）政策驱动，10家养老险公司蓄势待发。养老金融规模估计在2030年将突破10万亿。<br><br>
+        <strong>谁受益最大：</strong>中国平安（平安好医生+健康险协同）、太保（专业健康险子公司）、友邦（高端医疗险）。
+      </div>
+      <span class="trend-tag" style="background:#fef3c7;color:#92400e">十年最大机遇</span>
+    </div>
+
+    <div class="trend-card">
+      <div class="trend-icon">🤖</div>
+      <div class="trend-title">科技赋能：AI定损、智能核保、数字化渠道</div>
+      <div class="trend-body">
+        <strong>AI在保险的应用：</strong>①自动定损（车险照片AI定损，人工成本下降80%）②智能核保（健康险风险评估）③客服机器人（理赔查询处理）④反欺诈（异常索赔模式识别）。<br><br>
+        <strong>平安科技领先优势：</strong>平安是国内保险公司中科技投入最大的，平安云、陆金所、平安好医生构成生态护城河。<br><br>
+        <strong>偿二代III级修订：</strong>对科技保险、创新投资给予风险因子优惠，政策层面鼓励保险科技创新。<br><br>
+        <strong>渠道数字化：</strong>直播卖保险、线上短期险爆发，互联网保险保费持续增长，倒逼传统险企加速数字化转型。
+      </div>
+      <span class="trend-tag" style="background:#f3e8ff;color:#6b21a8">科技驱动转型</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ 05 行业风险 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">5</div>四大核心风险：看清阴暗面才能做好投资</div>
+
+  <div class="risk-grid">
+
+    <div class="risk-card">
+      <div class="risk-hd">
+        <div>
+          <div class="risk-name">🔴 利差损风险（最核心风险）</div>
+          <div style="font-size:12px;color:var(--slate);margin-top:4px">承诺收益率 > 实际投资收益率</div>
+        </div>
+        <span class="risk-lvl lvl-high">高风险</span>
+      </div>
+      <div class="risk-bar-wrap">
+        <div class="risk-bar-lbl"><span>风险烈度</span><span>★★★★★</span></div>
+        <div class="risk-bar-track"><div class="risk-bar-fill" style="width:88%;background:linear-gradient(90deg,#c0392b,#e74c3c)"></div></div>
+      </div>
+      <div class="risk-body">
+        <strong>什么是利差损：</strong>寿险公司在高利率时代承诺了3.5%的预定利率，但当前10年期国债收益率已跌至2.0%以下。若投资端长期无法达到承诺收益，差值就要靠资本金填补。<br><br>
+        <strong>日本前车之鉴：</strong>1990年代日本险企大量销售高预定利率产品，后遭遇低利率环境，多家大型寿险公司破产（东邦人寿、协荣生命等）。<br><br>
+        <strong>中国应对：</strong>监管已三次下调预定利率（最新2.5%），并建立动态挂钩机制，系统性风险已大幅降低，但存量高利率保单仍有压力。
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-hd">
+        <div>
+          <div class="risk-name">🟠 投资端风险（利润波动主因）</div>
+          <div style="font-size:12px;color:var(--slate);margin-top:4px">权益+地产双重压力</div>
+        </div>
+        <span class="risk-lvl lvl-mid">中高风险</span>
+      </div>
+      <div class="risk-bar-wrap">
+        <div class="risk-bar-lbl"><span>风险烈度</span><span>★★★★</span></div>
+        <div class="risk-bar-track"><div class="risk-bar-fill" style="width:70%;background:linear-gradient(90deg,#e67e22,#f39c12)"></div></div>
+      </div>
+      <div class="risk-body">
+        <strong>地产风险：</strong>保险公司持有大量不动产和房地产相关债券，房地产市场下行导致部分资产减值，直接冲击投资收益。2022-2023年多家险企因此大幅减计资产。<br><br>
+        <strong>股市波动：</strong>2024年股市大涨推动行业投资收益率创新高（7.21%），但这种弹性是双向的——若股市回调，利润将大幅下滑。<br><br>
+        <strong>优质资产稀缺：</strong>险资体量超33万亿，但高质量长久期资产（匹配保险负债的30年债券等）严重不足，资产负债匹配压力长期存在。
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-hd">
+        <div>
+          <div class="risk-name">🟡 代理人渠道萎缩（增长瓶颈）</div>
+          <div style="font-size:12px;color:var(--slate);margin-top:4px">人力减少但人均产能提升</div>
+        </div>
+        <span class="risk-lvl lvl-mid">中等风险</span>
+      </div>
+      <div class="risk-bar-wrap">
+        <div class="risk-bar-lbl"><span>风险烈度</span><span>★★★</span></div>
+        <div class="risk-bar-track"><div class="risk-bar-fill" style="width:55%;background:linear-gradient(90deg,#f59e0b,#d97706)"></div></div>
+      </div>
+      <div class="risk-body">
+        <strong>数量下滑：</strong>2018年全行业代理人峰值达900万人，2024年已降至300万人以下，下滑幅度超60%。<br><br>
+        <strong>正向解读：</strong>监管主动清除低产能代理人，剩余代理人人均产能（NBV/人）显著提升。平安2024年代理人数量减少，但NBV增长28.8%，说明"减量提质"成效显著。<br><br>
+        <strong>负向担忧：</strong>若优质代理人持续流失、无法补充，个险渠道的长期增长将遇到天花板，银保渠道将扮演更重要角色（但利润率更低）。
+      </div>
+    </div>
+
+    <div class="risk-card">
+      <div class="risk-hd">
+        <div>
+          <div class="risk-name">🟢 监管政策风险（可控但持续变化）</div>
+          <div style="font-size:12px;color:var(--slate);margin-top:4px">偿二代升级+报行合一+利率动态管理</div>
+        </div>
+        <span class="risk-lvl lvl-low">较低风险</span>
+      </div>
+      <div class="risk-bar-wrap">
+        <div class="risk-bar-lbl"><span>风险烈度</span><span>★★</span></div>
+        <div class="risk-bar-track"><div class="risk-bar-fill" style="width:35%;background:linear-gradient(90deg,#16a34a,#22c55e)"></div></div>
+      </div>
+      <div class="risk-body">
+        <strong>偿二代III级：</strong>2024年升级修订，对科技保险、战略新兴产业投资给予风险因子优惠，整体方向是引导险资支持实体经济。<br><br>
+        <strong>报行合一：</strong>规范费用竞争，行业整体受益，不是风险而是机遇。<br><br>
+        <strong>潜在风险：</strong>若监管大幅提高偿付能力要求，可能触发险企大规模融资（股权稀释）；保险产品创新受限可能导致需求向非正规渠道转移。<br><br>
+        <strong>总体判断：</strong>监管框架持续完善，方向正确，对头部险企是保护伞，对中小险企是压力源。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════ 06 偿付能力与监管框架 ════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">6</div>读懂保险监管：偿二代体系与关键指标</div>
+
+  <div class="cards2">
+    <div class="card">
+      <div class="card-title">🏛️ 偿二代（C-ROSS）监管体系</div>
+      <div class="card-body" style="margin-top:10px">
+        <p style="margin-bottom:10px"><strong>三支柱架构：</strong></p>
+        <div style="padding:10px 14px;background:#f0f7ff;border-radius:8px;margin-bottom:8px;font-size:13px">
+          <strong style="color:var(--blue)">第一支柱（定量）：</strong>核心偿付能力充足率 ≥ 50%，综合偿付能力充足率 ≥ 100%，风险综合评级 ≥ B级。三项均满足方可正常经营。
+        </div>
+        <div style="padding:10px 14px;background:#f0fdf4;border-radius:8px;margin-bottom:8px;font-size:13px">
+          <strong style="color:var(--green)">第二支柱（定性）：</strong>风险管理能力评估，包括战略风险、声誉风险、流动性风险等的内控体系建设。
+        </div>
+        <div style="padding:10px 14px;background:#fffbeb;border-radius:8px;font-size:13px">
+          <strong style="color:var(--amber)">第三支柱（市场约束）：</strong>信息披露要求，强制险企向市场披露偿付能力状况，借助市场压力促进自律。
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">📐 看懂保险财报的核心指标速查</div>
+      <div class="card-body" style="margin-top:10px;font-size:13px">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="padding:8px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid var(--blue)">
+            <strong>NBV（新业务价值）</strong>：当年新签保单的未来利润精算现值，是寿险"造血能力"核心指标，越高越好。
+          </div>
+          <div style="padding:8px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid var(--green)">
+            <strong>综合成本率</strong>：财险赔付率+费用率，低于100%代表承保盈利，越低越好。优秀水平：&lt;95%。
+          </div>
+          <div style="padding:8px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid var(--amber)">
+            <strong>内含价值EV</strong>：保险公司资产净值+未来利润现值，反映公司真实经济价值，比账面净资产更准确。
+          </div>
+          <div style="padding:8px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid var(--violet)">
+            <strong>综合投资收益率</strong>：含公允价值变动的完整投资回报率，是影响当期利润的最重要变量。
+          </div>
+          <div style="padding:8px 12px;background:#f8fafc;border-radius:6px;border-left:3px solid var(--teal)">
+            <strong>P/EV（价格/内含价值）</strong>：保险股专用估值指标，低于1倍被认为低估，优质险企通常在1-2倍。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ FINAL ════════ -->
+<div class="final">
+  <h2>📌 核心结论：中国保险行业的长期投资判断</h2>
+  <div class="final-grid">
+    <div class="fi">
+      <h4>① 行业长期价值确定，但非均质</h4>
+      <p>保险深度3.7% vs 全球均值6.2%，意味着中国保险行业至少还有60%的成长空间。老龄化、健康意识觉醒、财富管理需求三重驱动，行业长期向上确定。但寿险、健康险、财险各有不同逻辑，需分别看待。</p>
+    </div>
+    <div class="fi">
+      <h4>② 首选中国平安：ROE最高、NBV最强</h4>
+      <p>综合来看，平安是当前最值得关注的险企：ROE 16.4%（行业最高）、NBV增速28.8%、综合金融协同护城河，当前P/EV估值在历史偏低区间。是"好商业模式+低估值"的结合体。</p>
+    </div>
+    <div class="fi">
+      <h4>③ 人保财险：财险绝对龙头</h4>
+      <p>38.8%的车险市场份额是极深的规模护城河，非车险（农险、责任险）是新增长点。若关注财险方向，人保财险是最优选择。综合成本率的改善空间是未来利润弹性的来源。</p>
+    </div>
+    <div class="fi">
+      <h4>④ 最大风险：利差损+投资端波动</h4>
+      <p>不要被2024年的"历史最高利润"迷惑——大部分来自股市大涨带来的投资收益爆发，不可持续。利差损是长期系统性风险，监管虽已降低预定利率，但存量高利率保单压力仍在，需要持续观察。</p>
+    </div>
+    <div class="fi">
+      <h4>⑤ 健康险+养老险是十年赛道</h4>
+      <p>这两个子行业是当前中国保险业增长确定性最高的方向。布局方式：持有平安（平安好医生+健康险）、关注太保健康险子公司、或直接购买健康险ETF，都是可行路径。</p>
+    </div>
+    <div class="fi">
+      <h4>⑥ 理解保险的正确姿势</h4>
+      <p>投资保险股 = 投资一个"先收钱、后赔付"的金融机器。核心是看两头：<strong>承保端</strong>（护城河、定价能力、成本率）和<strong>投资端</strong>（资产配置能力、收益稳定性）。两端都强，才是真正的好险企。</p>
+    </div>
+  </div>
+  <div class="final-quote">
+    保险的本质是<strong>管理风险</strong>，保险公司的本质是<strong>精确定价风险、高效投资浮存金</strong>。
+    在中国这个保险深度仍严重不足、老龄化加速推进的市场，
+    一家有纪律的保险公司，是时间和概率同时站在你这边的生意。
+    关键词是：<strong>承保纪律 × 投资能力 × 长期耐心</strong>。
+  </div>
+</div>
+
+<div class="footnote">
+  <p>数据来源：国家金融监督管理总局（NFRA）、各上市险企2024年年度报告、瑞士再保险Sigma报告、Wind金融终端。数据截至2025年。</p>
+  <p style="margin-top:6px">本报告仅供学习参考，不构成投资建议。</p>
+  <p style="margin-top:6px;font-weight:700">© 2025 中国保险行业深度研究报告</p>
+</div>
+
+</div>
+</body>
+</html>

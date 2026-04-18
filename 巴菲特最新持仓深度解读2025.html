@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>巴菲特最新持仓深度解读 2025</title>
+<style>
+  :root {
+    --ink: #0d1b2a;
+    --navy: #1a3050;
+    --blue: #1d5fa8;
+    --sky: #3b82f6;
+    --teal: #0d9488;
+    --amber: #d97706;
+    --gold: #f59e0b;
+    --rose: #e11d48;
+    --green: #16a34a;
+    --violet: #7c3aed;
+    --slate: #64748b;
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --border: #e2e8f0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(150deg, #060f1e 0%, #0d1b2a 45%, #1a3050 100%);
+    color: #fff; padding: 80px 64px 60px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; right: -80px; top: -80px;
+    width: 560px; height: 560px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,158,11,.18) 0%, transparent 68%);
+  }
+  .hero::after {
+    content: ''; position: absolute; left: 60px; bottom: -120px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,95,168,.22) 0%, transparent 68%);
+  }
+  .hero-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,158,11,.2); border: 1px solid rgba(245,158,11,.4);
+    color: var(--gold); font-size: 11px; font-weight: 800;
+    padding: 5px 14px; border-radius: 20px; letter-spacing: 1.5px;
+    margin-bottom: 24px;
+  }
+  .hero h1 { font-size: 46px; font-weight: 900; line-height: 1.15; margin-bottom: 16px; position: relative; z-index: 1; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero .lead { font-size: 16px; color: rgba(255,255,255,.72); max-width: 600px; margin-bottom: 52px; line-height: 1.85; position: relative; z-index: 1; }
+  .hero-kpis { display: flex; gap: 0; flex-wrap: wrap; position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.1); padding-top: 32px; }
+  .kpi { padding: 0 40px 0 0; }
+  .kpi:not(:last-child) { border-right: 1px solid rgba(255,255,255,.12); margin-right: 40px; }
+  .kpi-lbl { font-size: 10px; color: rgba(255,255,255,.4); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+  .kpi-val { font-size: 26px; font-weight: 800; color: var(--gold); line-height: 1.1; }
+  .kpi-sub { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 2px; }
+
+  /* ── WRAP ── */
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 56px 32px; }
+  .sec { margin-bottom: 68px; }
+  .sec-hd { display: flex; align-items: center; gap: 14px; font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 32px; padding-bottom: 14px; border-bottom: 3px solid var(--blue); }
+  .sn { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; flex-shrink: 0; }
+
+  /* ── PORTFOLIO OVERVIEW ── */
+  .port-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px; }
+  .port-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+  .port-card-hd { padding: 18px 22px 14px; border-bottom: 1px solid var(--border); }
+  .port-card-hd h3 { font-size: 15px; font-weight: 800; color: var(--navy); }
+  .port-card-hd p { font-size: 12px; color: var(--slate); margin-top: 2px; }
+  .port-card-body { padding: 18px 22px; }
+
+  /* PIE VISUAL (CSS bar chart) */
+  .pie-legend { display: flex; flex-direction: column; gap: 10px; }
+  .pie-row { display: flex; align-items: center; gap: 10px; }
+  .pie-color { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+  .pie-name { font-size: 13px; font-weight: 600; width: 130px; flex-shrink: 0; }
+  .pie-bar-track { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; }
+  .pie-bar-fill { height: 8px; border-radius: 4px; }
+  .pie-pct { font-size: 13px; font-weight: 800; width: 42px; text-align: right; }
+
+  /* ── HOLDINGS TABLE ── */
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); font-size: 13px; }
+  thead { background: var(--navy); }
+  th { padding: 13px 16px; text-align: left; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.8); letter-spacing: .7px; white-space: nowrap; }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+  tr.pinned td { background: #fffbeb; }
+  tr.pinned td:first-child { border-left: 3px solid var(--gold); }
+  tr.sold td { opacity: .65; }
+  .chg { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 10px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .chg-hold  { background: #e0f2fe; color: #0369a1; }
+  .chg-up    { background: #dcfce7; color: #166534; }
+  .chg-down  { background: #fee2e2; color: #991b1b; }
+  .chg-new   { background: #f3e8ff; color: #6b21a8; }
+  .chg-clear { background: #fef3c7; color: #92400e; }
+  .rat { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 11px; font-weight: 800; }
+  .rat-s  { background: var(--navy); color: #fff; }
+  .rat-a  { background: #dcfce7; color: #166534; }
+  .rat-b  { background: #fef9c3; color: #854d0e; }
+  .rat-c  { background: #fee2e2; color: #991b1b; }
+
+  /* ── STOCK DEEP DIVE ── */
+  .stock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .stock-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.04); transition: transform .2s; }
+  .stock-card:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.1); }
+  .sc-head { padding: 18px 20px 14px; }
+  .sc-head .ticker { font-size: 22px; font-weight: 900; }
+  .sc-head .name { font-size: 13px; color: var(--slate); margin-top: 2px; }
+  .sc-head .action-chip { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; }
+  .sc-body { padding: 16px 20px; border-top: 1px solid var(--border); }
+  .sc-metric { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #f1f5f9; }
+  .sc-metric:last-of-type { border-bottom: none; }
+  .sc-metric-lbl { color: var(--slate); }
+  .sc-metric-val { font-weight: 700; }
+  .sc-logic { margin-top: 14px; padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.7; }
+  .sc-moat { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .sc-moat-tag { font-size: 11px; padding: 3px 9px; border-radius: 8px; font-weight: 600; }
+
+  /* head accent colors */
+  .head-aapl { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+  .head-aapl .ticker { color: #a0a0b0; }
+  .head-axp  { background: linear-gradient(135deg, #00529b, #003f7a); }
+  .head-axp .ticker { color: #90d0ff; }
+  .head-ko   { background: linear-gradient(135deg, #c8102e, #a00d24); }
+  .head-ko .ticker { color: #ffb3be; }
+  .head-cvx  { background: linear-gradient(135deg, #002244, #00468b); }
+  .head-cvx .ticker { color: #90ccff; }
+  .head-oxy  { background: linear-gradient(135deg, #c41e3a, #9b0000); }
+  .head-oxy .ticker { color: #ffb3b3; }
+  .head-bac  { background: linear-gradient(135deg, #e31837, #a80000); }
+  .head-bac .ticker { color: #ffb3b3; }
+  .head-mco  { background: linear-gradient(135deg, #003087, #001f5c); }
+  .head-mco .ticker { color: #90b8ff; }
+  .head-dva  { background: linear-gradient(135deg, #005a8e, #003f6c); }
+  .head-dva .ticker { color: #90d0ff; }
+  .head-goog { background: linear-gradient(135deg, #1a73e8, #0d47a1); }
+  .head-goog .ticker { color: #a8d0ff; }
+  .head-khc  { background: linear-gradient(135deg, #4a4a4a, #2a2a2a); }
+  .head-khc .ticker { color: #d0d0d0; }
+  .head-jpn  { background: linear-gradient(135deg, #c0392b, #922b21); }
+  .head-jpn .ticker { color: #ffc3bc; }
+  .sc-head .name { color: rgba(255,255,255,.65); }
+  .sc-head .action-chip { color: #fff; }
+
+  /* ── CASH ANALYSIS ── */
+  .cash-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .cash-timeline { background: var(--card); border-radius: 14px; border: 1px solid var(--border); padding: 24px; }
+  .cash-timeline h3 { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 20px; }
+  .ct-row { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+  .ct-dot { width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+  .ct-year { font-size: 12px; font-weight: 700; color: var(--slate); width: 60px; flex-shrink: 0; }
+  .ct-bar-wrap { flex: 1; }
+  .ct-label { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .ct-bar-track { background: #e5e7eb; border-radius: 3px; height: 6px; margin: 4px 0; }
+  .ct-bar-fill { height: 6px; border-radius: 3px; background: linear-gradient(90deg, #1d5fa8, #3b82f6); }
+  .ct-note { font-size: 11px; color: var(--slate); }
+
+  /* ── PHILOSOPHY CARDS ── */
+  .philo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .philo-card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); padding: 22px; }
+  .philo-icon { font-size: 28px; margin-bottom: 10px; }
+  .philo-title { font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+  .philo-desc { font-size: 13px; color: var(--slate); line-height: 1.7; }
+  .philo-quote { font-size: 13px; font-style: italic; color: var(--amber); margin-top: 10px; padding: 8px 12px; background: #fffbeb; border-radius: 6px; line-height: 1.6; }
+
+  /* ── JAPAN ── */
+  .japan-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .jpn-card { background: var(--card); border-radius: 12px; border: 2px solid #fee2e2; padding: 18px; text-align: center; }
+  .jpn-name-jp { font-size: 11px; color: var(--slate); margin-bottom: 4px; }
+  .jpn-name-en { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .jpn-pct { font-size: 28px; font-weight: 900; color: var(--rose); }
+  .jpn-pct-lbl { font-size: 11px; color: var(--slate); margin-bottom: 10px; }
+  .jpn-bar-track { background: #fee2e2; border-radius: 4px; height: 6px; margin: 6px 0; }
+  .jpn-bar-fill { height: 6px; border-radius: 4px; background: var(--rose); }
+  .jpn-status { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; background: #fff0f0; color: var(--rose); }
+
+  /* ── CHANGES ── */
+  .changes-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .change-group { background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+  .cg-head { padding: 14px 18px; font-size: 14px; font-weight: 800; }
+  .cg-head.buy  { background: #f0fdf4; color: var(--green); }
+  .cg-head.sell { background: #fff5f5; color: var(--rose); }
+  .cg-head.new  { background: #f3e8ff; color: var(--violet); }
+  .cg-item { padding: 12px 18px; border-bottom: 1px solid var(--border); font-size: 13px; display: flex; justify-content: space-between; }
+  .cg-item:last-child { border-bottom: none; }
+  .cg-ticker { font-weight: 800; color: var(--navy); }
+  .cg-detail { color: var(--slate); font-size: 12px; }
+
+  /* ── CALLOUT ── */
+  .callout { border-radius: 10px; padding: 16px 22px; margin: 18px 0; font-size: 14px; line-height: 1.8; }
+  .callout-info    { background: #eff6ff; border-left: 4px solid var(--sky); }
+  .callout-warn    { background: #fffbeb; border-left: 4px solid var(--gold); }
+  .callout-success { background: #f0fdf4; border-left: 4px solid var(--green); }
+  .callout-danger  { background: #fff5f5; border-left: 4px solid var(--rose); }
+  .callout strong  { display: block; margin-bottom: 4px; font-size: 15px; }
+
+  /* ── FINAL ── */
+  .final { background: linear-gradient(135deg, #060f1e, #0d1b2a); color: #fff; border-radius: 16px; padding: 44px; margin-top: 52px; }
+  .final h2 { color: var(--gold); font-size: 22px; margin-bottom: 22px; }
+  .final-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  .fi { background: rgba(255,255,255,.06); border-radius: 10px; padding: 20px; }
+  .fi h4 { color: var(--gold); font-size: 14px; margin-bottom: 8px; }
+  .fi p { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.7; }
+  .final-quote { margin-top: 24px; padding: 20px 26px; background: rgba(245,158,11,.12); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; font-size: 15px; color: rgba(255,255,255,.9); line-height: 1.85; font-style: italic; }
+
+  /* ── MISC ── */
+  .footnote { font-size: 12px; color: var(--slate); text-align: center; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); }
+  @media (max-width: 900px) {
+    .hero { padding: 40px 24px 36px; }
+    .hero h1 { font-size: 28px; }
+    .wrap { padding: 28px 16px; }
+    .stock-grid, .philo-grid, .changes-grid, .final-grid { grid-template-columns: 1fr; }
+    .port-grid, .cash-grid { grid-template-columns: 1fr; }
+    .japan-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="hero-chip">🔍 深度持仓解读</div>
+  <h1>巴菲特最新持仓<br><em>全面解析 2025</em></h1>
+  <p class="lead">
+    从2025年最新13F报告出发，逐一拆解每只持仓的持有逻辑、仓位比例背后的哲学，
+    以及当前创纪录现金储备所传递的深层信号。
+  </p>
+  <div class="hero-kpis">
+    <div class="kpi">
+      <div class="kpi-lbl">股票投资组合规模</div>
+      <div class="kpi-val">~$2,670亿</div>
+      <div class="kpi-sub">2024年Q4末市值</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">现金储备（历史峰值）</div>
+      <div class="kpi-val">$3,342亿</div>
+      <div class="kpi-sub">超越股票持仓本身</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">前5大持仓占比</div>
+      <div class="kpi-val">~71%</div>
+      <div class="kpi-sub">高度集中的投资风格</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-lbl">持有最长标的</div>
+      <div class="kpi-val">可口可乐</div>
+      <div class="kpi-sub">37年，至今持有</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════ 01 持仓全景 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">1</div>持仓全景：前15大持仓一览表</div>
+
+  <div class="callout callout-warn">
+    <strong>⚠️ 读前须知：13F报告的局限性</strong>
+    13F报告每季度披露一次，存在45天延迟，且只披露美国上市的股票持仓，不包含日本商社、私有公司（BNSF铁路、伯灵顿北方）、保险浮存金、以及大量全资子公司。真实的伯克希尔资产版图远比这张清单大得多。
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>排名</th>
+          <th>代码</th>
+          <th>公司名称</th>
+          <th>持仓市值</th>
+          <th>占组合比</th>
+          <th>持有年限</th>
+          <th>最新动作</th>
+          <th>核心护城河</th>
+          <th>评级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="pinned">
+          <td><strong>1</strong></td>
+          <td><strong>AAPL</strong></td>
+          <td>苹果公司</td>
+          <td>~$900亿</td>
+          <td>约34%</td>
+          <td>~9年</td>
+          <td><span class="chg chg-down">↓ 持续减持</span></td>
+          <td>生态转换成本+品牌</td>
+          <td><span class="rat rat-a">A+</span></td>
+        </tr>
+        <tr class="pinned">
+          <td><strong>2</strong></td>
+          <td><strong>AXP</strong></td>
+          <td>美国运通</td>
+          <td>~$541亿</td>
+          <td>约20%</td>
+          <td>30+年</td>
+          <td><span class="chg chg-hold">→ 一股未动</span></td>
+          <td>品牌+网络效应+定价权</td>
+          <td><span class="rat rat-s">S级</span></td>
+        </tr>
+        <tr class="pinned">
+          <td><strong>3</strong></td>
+          <td><strong>BAC</strong></td>
+          <td>美国银行</td>
+          <td>~$350亿</td>
+          <td>约13%</td>
+          <td>~14年</td>
+          <td><span class="chg chg-down">↓ 持续减持</span></td>
+          <td>系统重要性银行+规模</td>
+          <td><span class="rat rat-b">B+</span></td>
+        </tr>
+        <tr class="pinned">
+          <td><strong>4</strong></td>
+          <td><strong>KO</strong></td>
+          <td>可口可乐</td>
+          <td>~$250亿</td>
+          <td>约9%</td>
+          <td><strong>37年</strong></td>
+          <td><span class="chg chg-hold">→ 从不出售</span></td>
+          <td>品牌特许经营+分销网络</td>
+          <td><span class="rat rat-s">S级</span></td>
+        </tr>
+        <tr class="pinned">
+          <td><strong>5</strong></td>
+          <td><strong>CVX</strong></td>
+          <td>雪佛龙</td>
+          <td>~$185亿</td>
+          <td>约7%</td>
+          <td>~5年</td>
+          <td><span class="chg chg-hold">→ 维持重仓</span></td>
+          <td>资源垄断+高分红</td>
+          <td><span class="rat rat-a">A</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>OXY</strong></td>
+          <td>西方石油</td>
+          <td>~$130亿</td>
+          <td>约5%</td>
+          <td>~3年</td>
+          <td><span class="chg chg-up">↑ 2024年Q4增持</span></td>
+          <td>油气资源+成本优势</td>
+          <td><span class="rat rat-a">A</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>KHC</strong></td>
+          <td>卡夫亨氏</td>
+          <td>~$84亿</td>
+          <td>约3%</td>
+          <td>~10年</td>
+          <td><span class="chg chg-clear">⚠ 考虑出售全仓</span></td>
+          <td>品牌弱化，护城河丢失</td>
+          <td><span class="rat rat-c">失误</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><strong>MCO</strong></td>
+          <td>穆迪</td>
+          <td>~$100亿</td>
+          <td>约4%</td>
+          <td>20+年</td>
+          <td><span class="chg chg-hold">→ 长期持有</span></td>
+          <td>评级垄断+数据资产</td>
+          <td><span class="rat rat-s">S级</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><strong>DVA</strong></td>
+          <td>达维塔保健</td>
+          <td>~$35亿</td>
+          <td>约1.3%</td>
+          <td>~12年</td>
+          <td><span class="chg chg-hold">→ 长期持有</span></td>
+          <td>透析市场寡头+刚需</td>
+          <td><span class="rat rat-a">A</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><strong>GOOGL</strong></td>
+          <td>Alphabet（谷歌）</td>
+          <td>~$43亿</td>
+          <td>约1.6%</td>
+          <td>新建仓</td>
+          <td><span class="chg chg-new">★ 2025年新建仓</span></td>
+          <td>搜索垄断+AI布局</td>
+          <td><span class="rat rat-a">A+</span></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><strong>HPQ</strong></td>
+          <td>惠普</td>
+          <td>~$32亿</td>
+          <td>约1.2%</td>
+          <td>~4年</td>
+          <td><span class="chg chg-hold">→ 持有</span></td>
+          <td>个人电脑+打印市场份额</td>
+          <td><span class="rat rat-b">B</span></td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td><strong>C</strong></td>
+          <td>花旗集团</td>
+          <td>大幅减少</td>
+          <td>极小</td>
+          <td>短暂</td>
+          <td><span class="chg chg-down">↓ 大幅清仓</span></td>
+          <td>—</td>
+          <td><span class="rat rat-c">清仓中</span></td>
+        </tr>
+        <tr>
+          <td colspan="9" style="padding:10px 16px;font-size:12px;color:var(--slate);background:#f8fafc;">另有日本五大商社（三菱、三井、伊藤忠、住友、丸红）通过非13F渠道持有，合计持股接近或超过10% · 详见第4节</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════ 02 集中度与仓位哲学 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">2</div>仓位集中度的哲学：为什么要"押注重注"？</div>
+
+  <div class="port-grid">
+    <div class="port-card">
+      <div class="port-card-hd">
+        <h3>📊 持仓分布（2024年Q4）</h3>
+        <p>前5大持仓占组合约71%，高度集中</p>
+      </div>
+      <div class="port-card-body">
+        <div class="pie-legend">
+          <div class="pie-row">
+            <div class="pie-color" style="background:#1d5fa8"></div>
+            <div class="pie-name">苹果 AAPL</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:34%;background:#1d5fa8"></div></div>
+            <div class="pie-pct" style="color:#1d5fa8">34%</div>
+          </div>
+          <div class="pie-row">
+            <div class="pie-color" style="background:#00529b"></div>
+            <div class="pie-name">美国运通 AXP</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:20%;background:#00529b"></div></div>
+            <div class="pie-pct" style="color:#00529b">20%</div>
+          </div>
+          <div class="pie-row">
+            <div class="pie-color" style="background:#e31837"></div>
+            <div class="pie-name">美国银行 BAC</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:13%;background:#e31837"></div></div>
+            <div class="pie-pct" style="color:#e31837">13%</div>
+          </div>
+          <div class="pie-row">
+            <div class="pie-color" style="background:#c8102e"></div>
+            <div class="pie-name">可口可乐 KO</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:9%;background:#c8102e"></div></div>
+            <div class="pie-pct" style="color:#c8102e">9%</div>
+          </div>
+          <div class="pie-row">
+            <div class="pie-color" style="background:#002244"></div>
+            <div class="pie-name">雪佛龙 CVX</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:7%;background:#002244"></div></div>
+            <div class="pie-pct" style="color:#002244">7%</div>
+          </div>
+          <div class="pie-row">
+            <div class="pie-color" style="background:#6b7280"></div>
+            <div class="pie-name">其余所有持仓</div>
+            <div class="pie-bar-track"><div class="pie-bar-fill" style="width:17%;background:#9ca3af"></div></div>
+            <div class="pie-pct" style="color:#6b7280">17%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="port-card">
+      <div class="port-card-hd">
+        <h3>💡 高度集中背后的三个理由</h3>
+        <p>巴菲特为何只押注少数几家公司？</p>
+      </div>
+      <div class="port-card-body" style="font-size:14px; line-height:1.8;">
+        <p style="margin-bottom:14px">
+          <strong style="color:var(--navy)">① 认知边界原则：</strong>
+          你真正"完全搞懂"的公司，在一生中可能只有20-30个。每一次买入都相当于用一张打孔卡上的孔。分散持有100只股票，意味着大多数你其实并不真正理解。
+        </p>
+        <p style="margin-bottom:14px">
+          <strong style="color:var(--navy)">② 高确信度集中投注：</strong>
+          "当你发现绝好的机会，要大量买入。"对AXP的高确信度持有（12个季度未动、市值翻倍还不卖），正是这一理念的体现。多元化是不了解自己在做什么时的保护。
+        </p>
+        <p>
+          <strong style="color:var(--navy)">③ 长期价值自然聚集：</strong>
+          持有足够久的优质公司，自然会因为价格上涨形成集中。苹果从2016年以较低估值买入，今天占比34%是股价上涨的自然结果，不是刻意为之。
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 03 各股深度拆解 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">3</div>核心持仓逐一拆解：持有逻辑 × 护城河 × 最新动作</div>
+
+  <div class="stock-grid">
+
+    <!-- AAPL -->
+    <div class="stock-card">
+      <div class="sc-head head-aapl">
+        <div class="ticker">AAPL</div>
+        <div class="name">苹果公司 · 第一大持仓</div>
+        <span class="action-chip" style="background:rgba(255,100,80,.4)">持续减持中 ↓</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">当前持仓占比</span><span class="sc-metric-val" style="color:var(--blue)">约34%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持股时间</span><span class="sc-metric-val">2016年起，~9年</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">减持规模</span><span class="sc-metric-val" style="color:var(--rose)">2024年减持约$600亿</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">苹果ROE</span><span class="sc-metric-val" style="color:var(--green)">140%+（回购驱动）</span></div>
+        <div class="sc-logic" style="background:#f0f4ff">
+          <strong style="color:#1a3050">持有逻辑：</strong>苹果本质不是科技公司，而是<strong>消费品公司</strong>——iPhone是有史以来最强的"转换成本制造机"，用户更换系统的综合成本（数据、习惯、生态）极高。每年$1000亿+的自由现金流大量用于回购，相当于自动为股东提升持股比例。
+        </div>
+        <div class="sc-logic" style="background:#fff5f5; margin-top:8px">
+          <strong style="color:var(--rose)">减持原因：</strong>①估值偏高（PE已超30倍）②税率考虑（锁定低税率时代利润）③降低集中度为新机会腾出资金④对AI竞争地位存疑。<br>
+          <em style="color:var(--amber)">注意：减持≠看空，巴菲特仍称苹果是"比可口可乐和运通更好的生意"。</em>
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#e0f2fe;color:#0369a1">转换成本</span>
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">品牌溢价</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">服务飞轮</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AXP -->
+    <div class="stock-card">
+      <div class="sc-head head-axp">
+        <div class="ticker">AXP</div>
+        <div class="name">美国运通 · 第二大持仓</div>
+        <span class="action-chip" style="background:rgba(100,200,255,.3)">12个季度一股未动 →</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">当前持仓占比</span><span class="sc-metric-val" style="color:var(--green)">约20%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持仓股数</span><span class="sc-metric-val">1.516亿股（从不变动）</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">市值增长</span><span class="sc-metric-val" style="color:var(--green)">241亿→541亿，涨幅124%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">AXP ROE</span><span class="sc-metric-val" style="color:var(--green)">约35%</span></div>
+        <div class="sc-logic" style="background:#f0f7ff">
+          <strong style="color:#1a3050">持有逻辑：</strong>运通的护城河是<strong>双重身份</strong>——既是发卡方又是收单方，不依赖Visa/Master网络，全部交易数据归自己所有。其客户群体是高净值人群，消费粘性极强，对利率不敏感。<strong>品牌是一种身份认同</strong>，不只是信用卡，这是运通独有的定位。
+        </div>
+        <div class="sc-logic" style="background:#f0fdf4; margin-top:8px">
+          <strong style="color:var(--green)">一股未动的深意：</strong>持续12个季度不减持，即便市值翻倍，说明巴菲特对运通未来10年的商业模式有极高确信度。"如果能回到今天，我会买更多运通。"
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">品牌溢价</span>
+          <span class="sc-moat-tag" style="background:#e0f2fe;color:#0369a1">双边网络</span>
+          <span class="sc-moat-tag" style="background:#f3e8ff;color:#6b21a8">数据闭环</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KO -->
+    <div class="stock-card">
+      <div class="sc-head head-ko">
+        <div class="ticker">KO</div>
+        <div class="name">可口可乐 · 持有37年的永久仓位</div>
+        <span class="action-chip" style="background:rgba(255,200,200,.3)">从不出售，永久持有 ♾</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">持有时间</span><span class="sc-metric-val" style="color:var(--rose)"><strong>37年（1988—至今）</strong></span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持仓股数</span><span class="sc-metric-val">4亿股（2012年起稳定）</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">每年分红收入</span><span class="sc-metric-val" style="color:var(--green)">约$10亿/年</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">累计总回报</span><span class="sc-metric-val" style="color:var(--green)">~$370亿（原始成本$13亿）</span></div>
+        <div class="sc-logic" style="background:#fff5f5">
+          <strong style="color:#1a3050">持有逻辑：</strong>可口可乐卖的不是饮料，而是<strong>"快乐"这种情绪体验</strong>。在全球200+国家均有销售，分销网络是历经百年构建的真实壁垒。消费者从不会因为价格涨了5%就改喝百事——这就是定价权的终极体现。每年10亿分红已远超当年成本，本质上是<strong>免费持有</strong>。
+        </div>
+        <div class="sc-logic" style="background:#f0fdf4; margin-top:8px">
+          <strong style="color:var(--green)">巴菲特名言：</strong><em>"如果有人给我1000亿美元，让我去颠覆可口可乐，我还不如把钱还给他。"</em> 这就是护城河的深度。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#fee2e2;color:#991b1b">品牌（最强）</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">全球分销</span>
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">定价权</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- OXY -->
+    <div class="stock-card">
+      <div class="sc-head head-oxy">
+        <div class="ticker">OXY</div>
+        <div class="name">西方石油 · 战略增持中</div>
+        <span class="action-chip" style="background:rgba(255,150,150,.3)">2024年Q4增持890万股 ↑</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">持股比例</span><span class="sc-metric-val" style="color:var(--rose)">约20.9%（重要股东）</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">2024年Q4增持</span><span class="sc-metric-val">890万股，$4.05亿</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">另持有认股权</span><span class="sc-metric-val">还持有大量优先股和认股权证</span></div>
+        <div class="sc-logic" style="background:#fff5f5">
+          <strong style="color:#1a3050">持有逻辑：</strong>OXY是<strong>低成本二叠纪盆地</strong>的核心玩家，开采成本领先行业。巴菲特通过持有优先股+普通股+认股权证的组合，构建了极为复杂但收益率极高的仓位结构。从优先股获得固定8%收益，同时享有股价上涨收益。
+        </div>
+        <div class="sc-logic" style="background:#fffbeb; margin-top:8px">
+          <strong style="color:var(--amber)">重要澄清：</strong>巴菲特明确表示<em>"不计划收购西方石油"</em>，但持续增持的行为仍让市场猜测潜在全面收购可能性。能源在其投资组合中已形成CVX+OXY的双核布局，合计超过$300亿。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#fee2e2;color:#991b1b">资源成本优势</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">高分红</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MCO -->
+    <div class="stock-card">
+      <div class="sc-head head-mco">
+        <div class="ticker">MCO</div>
+        <div class="name">穆迪 · 低调的超级机器</div>
+        <span class="action-chip" style="background:rgba(100,150,255,.3)">20年长期持有 →</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">持有时间</span><span class="sc-metric-val">20年以上</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">MCO毛利率</span><span class="sc-metric-val" style="color:var(--green)">约55%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">MCO ROE</span><span class="sc-metric-val" style="color:var(--green)">约75%+</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">资本需求</span><span class="sc-metric-val" style="color:var(--green)">极轻资产，几乎零资本</span></div>
+        <div class="sc-logic" style="background:#f0f4ff">
+          <strong style="color:#1a3050">持有逻辑：</strong>穆迪是全球评级体系的<strong>寡头垄断者</strong>（与标普S&P合计占90%市场），任何发债主体都必须获得穆迪评级。这不是技术壁垒，而是<strong>法律和习惯构建的社会基础设施</strong>。轻资产极低资本需求，ROE高达75%，是巴菲特持仓中最接近"完美商业模式"的公司之一，但长期被市场忽视。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#e0f2fe;color:#0369a1">特许经营权</span>
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">双头垄断</span>
+          <span class="sc-moat-tag" style="background:#f3e8ff;color:#6b21a8">数据资产</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- GOOGL -->
+    <div class="stock-card">
+      <div class="sc-head head-goog">
+        <div class="ticker">GOOGL</div>
+        <div class="name">Alphabet · 2025年新建仓</div>
+        <span class="action-chip" style="background:rgba(100,180,255,.35)">★ 2025年首次建仓</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">建仓规模</span><span class="sc-metric-val" style="color:var(--violet)">1785万股，约$43亿</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">占组合比例</span><span class="sc-metric-val">约1.6%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">谷歌ROE</span><span class="sc-metric-val" style="color:var(--green)">约28%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">谷歌自由现金流</span><span class="sc-metric-val" style="color:var(--green)">年$700亿+</span></div>
+        <div class="sc-logic" style="background:#f0f4ff">
+          <strong style="color:#1a3050">建仓逻辑：</strong>谷歌拥有<strong>全球搜索90%+市场份额</strong>，这是互联网时代最强的单一品类垄断。云计算GCP增速超40%，AI（Gemini）布局领先。巴菲特此前一直说"看不懂科技"，此次建仓谷歌说明其投资哲学在接班人阿贝尔主导下正在悄然进化——或这正是阿贝尔的决策。
+        </div>
+        <div class="sc-logic" style="background:#faf5ff; margin-top:8px">
+          <strong style="color:var(--violet)">信号意义：</strong>小仓位试探，但方向清晰——科技基础设施垄断是"新时代的消费品特许经营"。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#ede9fe;color:#5b21b6">搜索垄断</span>
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">AI+云</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">数据飞轮</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BAC -->
+    <div class="stock-card">
+      <div class="sc-head head-bac">
+        <div class="ticker">BAC</div>
+        <div class="name">美国银行 · 持续减持中</div>
+        <span class="action-chip" style="background:rgba(255,100,100,.35)">持续净卖出 ↓</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">当前占比</span><span class="sc-metric-val">约13%</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持有时间</span><span class="sc-metric-val">2011年危机后买入优先股</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">减持背景</span><span class="sc-metric-val" style="color:var(--rose)">2024年以来持续净卖出</span></div>
+        <div class="sc-logic" style="background:#fff5f5">
+          <strong style="color:#1a3050">当初买入逻辑：</strong>2011年金融危机后，以极低估值买入优先股，获得固定优先股红利+认股权，是一次接近"零风险"的危机套利。后转换为普通股，享受了银行股十年复苏红利。
+        </div>
+        <div class="sc-logic" style="background:#fffbeb; margin-top:8px">
+          <strong style="color:var(--amber)">减持原因：</strong>净息差承压、巴菲特对银行股长期回报的预期边际降低，以及整体性的资产再平衡。与此同时花旗也被大幅清仓，说明巴菲特对美国商业银行的整体态度正在趋于保守。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#e0f2fe;color:#0369a1">系统重要性</span>
+          <span class="sc-moat-tag" style="background:#fee2e2;color:#991b1b">利差压缩风险</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DVA -->
+    <div class="stock-card">
+      <div class="sc-head head-dva">
+        <div class="ticker">DVA</div>
+        <div class="name">达维塔保健 · 医疗刚需赌注</div>
+        <span class="action-chip" style="background:rgba(100,180,255,.3)">12年长期持有 →</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">业务描述</span><span class="sc-metric-val">全美最大透析服务商</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持有时间</span><span class="sc-metric-val">约12年</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">市场地位</span><span class="sc-metric-val" style="color:var(--green)">美国透析市场约38%份额</span></div>
+        <div class="sc-logic" style="background:#f0f7ff">
+          <strong style="color:#1a3050">持有逻辑：</strong>透析是<strong>慢性肾衰竭患者的刚性需求</strong>，每周3次不可替代，属于医疗领域里最确定性的重复消费。达维塔与FMC形成双寡头格局，转换成本（患者依赖特定诊所、医生关系）极高。人口老龄化是天然的需求增长驱动力。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#dcfce7;color:#166534">双寡头垄断</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">刚性需求</span>
+          <span class="sc-moat-tag" style="background:#e0f2fe;color:#0369a1">老龄化受益</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KHC -->
+    <div class="stock-card">
+      <div class="sc-head head-khc">
+        <div class="ticker">KHC</div>
+        <div class="name">卡夫亨氏 · 最昂贵的教训</div>
+        <span class="action-chip" style="background:rgba(255,200,100,.35)">⚠ 考虑全仓出售</span>
+      </div>
+      <div class="sc-body">
+        <div class="sc-metric"><span class="sc-metric-lbl">当前账面价值</span><span class="sc-metric-val" style="color:var(--rose)">约$84亿（原$135亿）</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">累计减记</span><span class="sc-metric-val" style="color:var(--rose)">合计减记超$60亿</span></div>
+        <div class="sc-metric"><span class="sc-metric-lbl">持股比例</span><span class="sc-metric-val">约27.5%（3.25亿股）</span></div>
+        <div class="sc-logic" style="background:#fff5f5">
+          <strong style="color:var(--rose)">失败原因：</strong>与3G资本合作，以为可以用"极致成本削减"激活沉睡的传统品牌。但品牌护城河是需要持续投入维护的，削减广告和研发等于慢性自杀。Heinz/Kraft消费者正在快速转向有机、健康食品，品牌老化不可逆。这是巴菲特本人也承认的<strong>"严重高估了卡夫亨氏品牌的持久性"</strong>。
+        </div>
+        <div class="sc-logic" style="background:#fffbeb; margin-top:8px">
+          <strong style="color:var(--amber)">启示：</strong>即便是消费品，品牌护城河也不是静态的——若缺乏持续投入和迭代，再强的品牌也会被时代抛弃。
+        </div>
+        <div class="sc-moat">
+          <span class="sc-moat-tag" style="background:#fee2e2;color:#991b1b">品牌已弱化</span>
+          <span class="sc-moat-tag" style="background:#fef3c7;color:#92400e">模式失效</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════ 04 日本五大商社 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">4</div>日本五大商社：13F之外最重要的布局</div>
+
+  <div class="callout callout-success">
+    <strong>💡 为什么说这是"最重要的非13F持仓"？</strong>
+    2019年以62.5亿美元建仓，2025年持股全部接近或超过10%，成为主要股东。这笔投资已浮盈数十亿美元，且巴菲特承诺"未来数十年继续持有"。这是巴菲特退休前最重要的国际化布局。
+  </div>
+
+  <div class="japan-grid">
+    <div class="jpn-card">
+      <div class="jpn-name-jp">三菱商事</div>
+      <div class="jpn-name-en">Mitsubishi</div>
+      <div class="jpn-pct">10%+</div>
+      <div class="jpn-pct-lbl">持股比例（2025年）</div>
+      <div class="jpn-bar-track"><div class="jpn-bar-fill" style="width:100%"></div></div>
+      <div class="jpn-status">已升主要股东</div>
+    </div>
+    <div class="jpn-card">
+      <div class="jpn-name-jp">三井物产</div>
+      <div class="jpn-name-en">Mitsui</div>
+      <div class="jpn-pct">10%+</div>
+      <div class="jpn-pct-lbl">持股比例（2025年9月）</div>
+      <div class="jpn-bar-track"><div class="jpn-bar-fill" style="width:100%"></div></div>
+      <div class="jpn-status">已升主要股东</div>
+    </div>
+    <div class="jpn-card">
+      <div class="jpn-name-jp">伊藤忠商事</div>
+      <div class="jpn-name-en">Itochu</div>
+      <div class="jpn-pct">~9.5%</div>
+      <div class="jpn-pct-lbl">持股比例（接近10%）</div>
+      <div class="jpn-bar-track"><div class="jpn-bar-fill" style="width:95%"></div></div>
+      <div class="jpn-status">持续增持中</div>
+    </div>
+    <div class="jpn-card">
+      <div class="jpn-name-jp">住友商事</div>
+      <div class="jpn-name-en">Sumitomo</div>
+      <div class="jpn-pct">~9%</div>
+      <div class="jpn-pct-lbl">持股比例</div>
+      <div class="jpn-bar-track"><div class="jpn-bar-fill" style="width:90%"></div></div>
+      <div class="jpn-status">持续增持中</div>
+    </div>
+    <div class="jpn-card">
+      <div class="jpn-name-jp">丸红</div>
+      <div class="jpn-name-en">Marubeni</div>
+      <div class="jpn-pct">~9%</div>
+      <div class="jpn-pct-lbl">持股比例</div>
+      <div class="jpn-bar-track"><div class="jpn-bar-fill" style="width:90%"></div></div>
+      <div class="jpn-status">持续增持中</div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border-radius:14px;border:1px solid var(--border);padding:28px;margin-top:22px;">
+    <h3 style="font-size:16px;font-weight:800;color:var(--navy);margin-bottom:18px">📖 日本商社投资的六大逻辑</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:13px">
+      <div style="padding:14px;background:#fff5f5;border-radius:8px">
+        <strong style="color:var(--rose)">① 严重低估</strong><br>
+        2019年时，日本商社PB普遍低于0.7倍，股息率高达3-5%，远低于其实际资产价值，是典型的烟蒂股发现。
+      </div>
+      <div style="padding:14px;background:#f0fdf4;border-radius:8px">
+        <strong style="color:var(--green)">② 多元化资产包</strong><br>
+        日本综合商社本质上是跨行业的"迷你伯克希尔"——能源、农业、矿产、金融、零售各行业均有布局。
+      </div>
+      <div style="padding:14px;background:#eff6ff;border-radius:8px">
+        <strong style="color:var(--blue)">③ 货币套利</strong><br>
+        以极低利率发行日元债券融资（接近0%），投资高分红日本商社（3-5%），利差套利几乎无风险。
+      </div>
+      <div style="padding:14px;background:#fef9c3;border-radius:8px">
+        <strong style="color:var(--amber)">④ 传承信号</strong><br>
+        巴菲特公开表示接班人将"持有数十年"，这是少数被指定为"永久持仓"的国际资产。
+      </div>
+      <div style="padding:14px;background:#f3e8ff;border-radius:8px">
+        <strong style="color:var(--violet)">⑤ 地缘对冲</strong><br>
+        日本商社是美国以外最可靠的资产配置之一，同时具备全球资源获取能力，提供地缘多样化。
+      </div>
+      <div style="padding:14px;background:#f0fdf4;border-radius:8px">
+        <strong style="color:var(--teal)">⑥ 主要股东话语权</strong><br>
+        持股超过10%意味着可以提名董事、影响股东回报政策（分红/回购），实质上是积极股东行为。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 05 现金储备解读 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">5</div>$3,342亿现金储备：是谨慎还是信号？</div>
+
+  <div class="cash-grid">
+    <div class="cash-timeline">
+      <h3>📈 现金储备历史增长轨迹</h3>
+      <div class="ct-row">
+        <div class="ct-dot" style="background:#22c55e"></div>
+        <div class="ct-year">2020年</div>
+        <div class="ct-bar-wrap">
+          <div class="ct-label">$1,380亿</div>
+          <div class="ct-bar-track"><div class="ct-bar-fill" style="width:36%"></div></div>
+          <div class="ct-note">疫情低点，大量买入</div>
+        </div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-dot" style="background:#3b82f6"></div>
+        <div class="ct-year">2022年</div>
+        <div class="ct-bar-wrap">
+          <div class="ct-label">$1,050亿</div>
+          <div class="ct-bar-track"><div class="ct-bar-fill" style="width:28%"></div></div>
+          <div class="ct-note">大举买入能源股，现金降至低点</div>
+        </div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-dot" style="background:#f59e0b"></div>
+        <div class="ct-year">2023年</div>
+        <div class="ct-bar-wrap">
+          <div class="ct-label">$1,676亿</div>
+          <div class="ct-bar-track"><div class="ct-bar-fill" style="width:44%"></div></div>
+          <div class="ct-note">开始大规模减持，现金回升</div>
+        </div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-dot" style="background:#e11d48"></div>
+        <div class="ct-year">2024年Q4</div>
+        <div class="ct-bar-wrap">
+          <div class="ct-label">$3,342亿 ⚠ 史上最高</div>
+          <div class="ct-bar-track"><div class="ct-bar-fill" style="width:88%;background:linear-gradient(90deg,#e11d48,#f59e0b)"></div></div>
+          <div class="ct-note">减持苹果、BAC后现金暴增</div>
+        </div>
+      </div>
+      <div class="ct-row">
+        <div class="ct-dot" style="background:#7c3aed"></div>
+        <div class="ct-year">2025年Q3</div>
+        <div class="ct-bar-wrap">
+          <div class="ct-label">$3,817亿（峰值）</div>
+          <div class="ct-bar-track"><div class="ct-bar-fill" style="width:100%;background:linear-gradient(90deg,#7c3aed,#e11d48)"></div></div>
+          <div class="ct-note">现金已超股票持仓总市值</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--card);border-radius:14px;border:1px solid var(--border);padding:24px;">
+      <h3 style="font-size:15px;font-weight:800;color:var(--navy);margin-bottom:18px">🔍 六种解读角度</h3>
+      <div style="font-size:13px;line-height:1.8">
+        <div style="padding:12px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--rose)">① 市场估值过高信号</strong><br>
+          巴菲特只有在找不到"合理价格好公司"时才积累现金。3800亿说明他认为当前美国股市整体偏贵，等不到心仪的买点。
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--amber)">② 为大型危机/机会储粮</strong><br>
+          2008年金融危机时，伯克希尔凭借充足现金以极有利条件投资高盛、GE，获得暴利。现金是"机会金"，不是保守。
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--green)">③ 短期国债也是收益</strong><br>
+          3800亿现金大部分投入短期美债，当前利率5%+，等于每年被动获得约$150亿+无风险收益。"等待"本身有回报。
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--blue)">④ 阿贝尔的"起始资本"</strong><br>
+          为继承人留下充足资金，让新CEO有能力在未来执行大规模收购或建仓，而无需被迫在低质量标的上妥协。
+        </div>
+        <div style="padding:12px 0;border-bottom:1px solid var(--border)">
+          <strong style="color:var(--violet)">⑤ 保险业务的安全垫</strong><br>
+          伯克希尔的保险浮存金+现金储备确保其在任何极端情况下都不需要被迫卖资产，永远有主动权。
+        </div>
+        <div style="padding:12px 0">
+          <strong style="color:var(--slate)">⑥ 规模约束（投资难题）</strong><br>
+          管理$6000亿资产时，任何投资都需要数十亿规模才能"有感"，真正符合标准的大型标的凤毛麟角。现金高企也是规模的副产品。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 06 近期动作汇总 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">6</div>2024—2025年关键操作全记录</div>
+
+  <div class="changes-grid">
+    <div class="change-group">
+      <div class="cg-head buy">📈 增持 / 买入</div>
+      <div class="cg-item"><div><div class="cg-ticker">OXY</div><div class="cg-detail">西方石油</div></div><div style="font-size:12px;color:var(--green);font-weight:700">Q4增持890万股<br>$4.05亿</div></div>
+      <div class="cg-item"><div><div class="cg-ticker">日本商社×5</div><div class="cg-detail">三菱/三井等</div></div><div style="font-size:12px;color:var(--green);font-weight:700">持股逼近/超过10%<br>主要股东地位</div></div>
+    </div>
+    <div class="change-group">
+      <div class="cg-head sell">📉 减持 / 清仓</div>
+      <div class="cg-item"><div><div class="cg-ticker">AAPL</div><div class="cg-detail">苹果</div></div><div style="font-size:12px;color:var(--rose);font-weight:700">2024年减持约$600亿<br>2025年继续减</div></div>
+      <div class="cg-item"><div><div class="cg-ticker">BAC</div><div class="cg-detail">美国银行</div></div><div style="font-size:12px;color:var(--rose);font-weight:700">持续净卖出<br>多个季度连续减仓</div></div>
+      <div class="cg-item"><div><div class="cg-ticker">C</div><div class="cg-detail">花旗集团</div></div><div style="font-size:12px;color:var(--rose);font-weight:700">大幅清仓<br>Q4基本清空</div></div>
+      <div class="cg-item"><div><div class="cg-ticker">KHC</div><div class="cg-detail">卡夫亨氏</div></div><div style="font-size:12px;color:var(--rose);font-weight:700">考虑出售全部27.5%<br>减记$38亿</div></div>
+    </div>
+    <div class="change-group">
+      <div class="cg-head new">★ 新建仓</div>
+      <div class="cg-item"><div><div class="cg-ticker">GOOGL</div><div class="cg-detail">Alphabet/谷歌</div></div><div style="font-size:12px;color:var(--violet);font-weight:700">2025年新建仓<br>1785万股/$43亿</div></div>
+      <div class="cg-item" style="background:#f8fafc">
+        <div style="font-size:12px;color:var(--slate)">市场猜测可能新建仓方向：<br>· 能源领域潜在大型收购<br>· 日本市场进一步扩展<br>· 消费品低估品种</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ 07 持仓哲学提炼 ══════════ -->
+<div class="sec">
+  <div class="sec-hd"><div class="sn">7</div>巴菲特持仓哲学：六个底层原则</div>
+
+  <div class="philo-grid">
+    <div class="philo-card">
+      <div class="philo-icon">🎯</div>
+      <div class="philo-title">集中 > 分散</div>
+      <div class="philo-desc">前5大持仓占71%，不做无意义的分散。多元化是"不了解自己在做什么时的保护"，真正懂的公司，越集中越好。</div>
+      <div class="philo-quote">"Put all eggs in one basket, and watch that basket very carefully."</div>
+    </div>
+    <div class="philo-card">
+      <div class="philo-icon">⏳</div>
+      <div class="philo-title">永续持有 vs 估值减持</div>
+      <div class="philo-desc">可口可乐37年"永远不卖"；苹果在高估值时主动减持。两种态度都正确——关键是护城河是否还在、估值是否还合理。</div>
+      <div class="philo-quote">"Our favorite holding period is forever."<br>——但"forever"有前提：护城河不能动摇。</div>
+    </div>
+    <div class="philo-card">
+      <div class="philo-icon">💸</div>
+      <div class="philo-title">现金是武器，不是失败</div>
+      <div class="philo-desc">3800亿现金不是因为找不到好公司，是因为好公司当前价格不够好。"等待"本身是投资决策，不是无为。</div>
+      <div class="philo-quote">"Cash combined with courage in a crisis is priceless."</div>
+    </div>
+    <div class="philo-card">
+      <div class="philo-icon">🔄</div>
+      <div class="philo-title">护城河是动态的</div>
+      <div class="philo-desc">卡夫亨氏告诉我们：护城河会消失。品牌需要持续投入，消费者偏好会变化，技术会颠覆传统模式。持有不等于睡着了。</div>
+      <div class="philo-quote">"我严重高估了卡夫亨氏品牌的持久性。这是我的错误。"——巴菲特2019年股东信</div>
+    </div>
+    <div class="philo-card">
+      <div class="philo-icon">🌍</div>
+      <div class="philo-title">国际化是新方向</div>
+      <div class="philo-desc">日本商社布局是巴菲特最大的国际化行动。在美国市场估值偏高时，寻找全球被低估的优质资产，是自然延伸。</div>
+      <div class="philo-quote">"日本商社的商业模式很像伯克希尔——多元化、低估、稳定分红。这是我多年来看到的最好的机会之一。"</div>
+    </div>
+    <div class="philo-card">
+      <div class="philo-icon">🤝</div>
+      <div class="philo-title">管理层是护城河的一部分</div>
+      <div class="philo-desc">阿贝尔接班、持仓策略保持连贯，这本身是巴菲特最后的"护城河构建"——用制度和文化，而不是个人能力，延续伯克希尔模式。</div>
+      <div class="philo-quote">"格雷格会是一位出色的资本配置者，伯克希尔的文化不会改变。"</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ FINAL ══════════ -->
+<div class="final">
+  <h2>📌 总结：从巴菲特持仓读出来的五个核心信号</h2>
+  <div class="final-grid">
+    <div class="fi">
+      <h4>① 美国股市整体偏贵</h4>
+      <p>3800亿现金储备是最清晰的市场观——巴菲特找不到足够便宜的大型标的。这不是悲观，是纪律。对普通投资者的启示：当前不是盲目加仓美股的时机。</p>
+    </div>
+    <div class="fi">
+      <h4>② 消费品+支付网络 = 永恒持仓</h4>
+      <p>可口可乐37年、运通30年、穆迪20年，这三类资产（消费品、支付网络、信息垄断）是巴菲特最坚定的永久仓位类别。ROE高、轻资产、无需持续大量资本投入。</p>
+    </div>
+    <div class="fi">
+      <h4>③ 能源是当前最重要的战略仓位</h4>
+      <p>CVX+OXY合计$300亿+，仍在持续增持OXY。地缘政治风险+能源需求长期确定性+高分红，是当前最大的主动配置方向，而非被动持有。</p>
+    </div>
+    <div class="fi">
+      <h4>④ 科技股的态度正在分化</h4>
+      <p>减苹果（估值）、清花旗（商业模式存疑）、新建谷歌（搜索垄断）——不是"拥抱科技"或"回避科技"，而是只买"有护城河的科技资产"，回避"靠预期撑起来的"标的。</p>
+    </div>
+    <div class="fi">
+      <h4>⑤ 传承已完成，风格会延续</h4>
+      <p>阿贝尔正式接班，日本商社被指定为"永久持仓"，大量现金等待新的机会。伯克希尔的下一章：更国际化、更主动管理、风格一脉相承但执行者更年轻。</p>
+    </div>
+    <div class="fi">
+      <h4>⑥ 给普通投资者的最大启示</h4>
+      <p>巴菲特的持仓清单，是一份现成的"好商业模式白名单"。不需要复制仓位比例，但可以复制<strong>筛选逻辑</strong>：护城河→现金流→长期持有→等合理价格。</p>
+    </div>
+  </div>
+  <div class="final-quote">
+    "投资是简单的，但并不容易。你只需要做到：在别人贪婪时恐惧，在别人恐惧时贪婪；买入有护城河的优质公司；等待合理价格；然后什么都不做。
+    问题在于，没有人愿意什么都不做。"
+    <br><span style="color:var(--gold);font-size:13px;font-style:normal">—— 沃伦·巴菲特</span>
+  </div>
+</div>
+
+<div class="footnote">
+  <p>数据来源：伯克希尔哈撒韦13F报告、2024年年报及致股东信、SEC披露文件、Bloomberg、Wind金融终端综合整理。数据截至2025年。</p>
+  <p style="margin-top:6px">本报告仅供学习参考，不构成投资建议。市场有风险，投资需谨慎。</p>
+  <p style="margin-top:6px;font-weight:700">© 2025 巴菲特持仓深度解读报告</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>银行股深度财报分析与投资图谱 2025</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #0a0e1a;
+  color: #e2e8f0;
+  line-height: 1.7;
+}
+
+/* ===== 英雄区 ===== */
+.hero {
+  background: linear-gradient(135deg, #0f1729 0%, #0a0e1a 50%, #12192b 100%);
+  padding: 56px 24px 40px;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content:'';
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(99,102,241,0.08) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-badge {
+  display:inline-block;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.35);
+  color: #818cf8;
+  padding: 4px 16px; border-radius:20px;
+  font-size:11px; letter-spacing:2px;
+  margin-bottom:18px;
+  text-transform:uppercase;
+}
+.hero h1 {
+  font-size: clamp(20px, 3.5vw, 34px);
+  font-weight: 800; color: #f1f5f9;
+  margin-bottom: 10px; position:relative;
+}
+.hero h1 em { color: #6366f1; font-style:normal; }
+.hero-sub { font-size:13px; color:#64748b; margin-bottom:28px; }
+.hero-stats {
+  display:flex; justify-content:center; gap:36px; flex-wrap:wrap;
+}
+.hs { text-align:center; }
+.hs .v { font-size:26px; font-weight:800; display:block; }
+.hs .l { font-size:11px; color:#64748b; }
+
+/* ===== 导航锚点 ===== */
+.toc {
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+  padding: 12px 24px;
+  display: flex; gap: 6px; flex-wrap:wrap; justify-content:center;
+}
+.toc a {
+  color: #64748b; font-size:12px; padding: 4px 12px;
+  border-radius:20px; text-decoration:none;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.toc a:hover { color:#818cf8; border-color:rgba(99,102,241,0.3); }
+
+/* ===== 布局 ===== */
+.container { max-width: 1060px; margin: 0 auto; padding: 40px 20px; }
+.section { margin-bottom: 60px; }
+.section-title {
+  font-size: 19px; font-weight:700; color:#f1f5f9;
+  padding-bottom:12px; margin-bottom:24px;
+  border-bottom: 2px solid #1e293b;
+  display: flex; align-items:center; gap:10px;
+}
+.icon-wrap {
+  width:32px; height:32px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:15px; flex-shrink:0;
+}
+.iw-indigo { background: rgba(99,102,241,0.15); }
+.iw-blue   { background: rgba(59,130,246,0.15); }
+.iw-gold   { background: rgba(245,158,11,0.15); }
+.iw-green  { background: rgba(16,185,129,0.15); }
+.iw-red    { background: rgba(239,68,68,0.15); }
+.iw-purple { background: rgba(168,85,247,0.15); }
+.iw-cyan   { background: rgba(6,182,212,0.15); }
+
+/* ===== 卡片 ===== */
+.card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 22px;
+}
+.card:hover { border-color: #334155; }
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.g3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.g4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+
+/* ===== KPI ===== */
+.kpi-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+.kpi {
+  background:#0f172a; border:1px solid #1e293b;
+  border-radius:10px; padding:16px; text-align:center;
+}
+.kpi .v { font-size:21px; font-weight:800; display:block; margin-bottom:3px; }
+.kpi .l { font-size:11px; color:#64748b; }
+.kpi.c-indigo .v { color:#818cf8; }
+.kpi.c-blue .v   { color:#60a5fa; }
+.kpi.c-gold .v   { color:#fbbf24; }
+.kpi.c-green .v  { color:#34d399; }
+.kpi.c-red .v    { color:#f87171; }
+.kpi.c-cyan .v   { color:#22d3ee; }
+
+/* ===== 表格 ===== */
+.tbl { overflow-x:auto; margin:14px 0; }
+table { width:100%; border-collapse:collapse; font-size:12.5px; }
+th {
+  background:#151f35; color:#64748b;
+  font-weight:600; padding:9px 12px;
+  text-align:left; border-bottom:1px solid #1e293b;
+  font-size:11px; text-transform:uppercase; letter-spacing:0.4px;
+  white-space:nowrap;
+}
+td { padding:9px 12px; border-bottom:1px solid #0f172a; color:#cbd5e1; }
+tr:hover td { background:rgba(255,255,255,0.015); }
+td strong { color:#f1f5f9; }
+
+.badge {
+  display:inline-block; padding:2px 7px;
+  border-radius:4px; font-size:11px; font-weight:600;
+}
+.b-green  { background:rgba(16,185,129,0.15); color:#34d399; }
+.b-gold   { background:rgba(245,158,11,0.15); color:#fbbf24; }
+.b-blue   { background:rgba(59,130,246,0.15); color:#60a5fa; }
+.b-red    { background:rgba(239,68,68,0.15); color:#f87171; }
+.b-indigo { background:rgba(99,102,241,0.15); color:#818cf8; }
+.b-gray   { background:rgba(100,116,139,0.15); color:#94a3b8; }
+.b-cyan   { background:rgba(6,182,212,0.15); color:#22d3ee; }
+
+/* ===== 进度条 ===== */
+.bar-row { margin:6px 0; }
+.bar-label { font-size:12px; color:#94a3b8; display:flex; justify-content:space-between; margin-bottom:3px; }
+.bar-track { height:6px; background:#1e293b; border-radius:3px; }
+.bar-fill  { height:100%; border-radius:3px; }
+.f-green  { background: #34d399; }
+.f-blue   { background: #60a5fa; }
+.f-gold   { background: #fbbf24; }
+.f-red    { background: #f87171; }
+.f-indigo { background: #818cf8; }
+.f-cyan   { background: #22d3ee; }
+
+/* ===== 引用 ===== */
+.quote {
+  background:rgba(99,102,241,0.07);
+  border-left:3px solid #6366f1;
+  border-radius:0 8px 8px 0;
+  padding:14px 18px; margin:14px 0;
+  font-size:13px; color:#cbd5e1; font-style:italic;
+}
+.quote .src { font-style:normal; font-size:11px; color:#64748b; margin-top:5px; }
+.quote.gold { border-left-color:#f59e0b; background:rgba(245,158,11,0.07); }
+.quote.green { border-left-color:#10b981; background:rgba(16,185,129,0.07); }
+
+/* ===== 银行卡片 ===== */
+.bank-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius:12px;
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+.bank-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+}
+.bc-cmb::before   { background:linear-gradient(90deg,#e63946,#c1121f); }
+.bc-nbk::before   { background:linear-gradient(90deg,#3a86ff,#0077b6); }
+.bc-czb::before   { background:linear-gradient(90deg,#7b2d8b,#9b59b6); }
+.bc-cdb::before   { background:linear-gradient(90deg,#f77f00,#e07b00); }
+.bc-icbc::before  { background:linear-gradient(90deg,#c0392b,#922b21); }
+.bc-ccb::before   { background:linear-gradient(90deg,#2980b9,#1a5276); }
+.bc-abc::before   { background:linear-gradient(90deg,#27ae60,#1e8449); }
+.bc-psbc::before  { background:linear-gradient(90deg,#16a085,#0e6655); }
+.bc-pab::before   { background:linear-gradient(90deg,#e74c3c,#cb4335); }
+
+.bank-name { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:3px; }
+.bank-ticker { font-size:11px; color:#64748b; margin-bottom:12px; }
+.bank-grade {
+  position:absolute; top:18px; right:18px;
+  width:44px; height:44px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; font-weight:900; border:2.5px solid;
+}
+.grade-a  { border-color:#34d399; color:#34d399; background:rgba(16,185,129,0.08); }
+.grade-b  { border-color:#fbbf24; color:#fbbf24; background:rgba(245,158,11,0.08); }
+.grade-c  { border-color:#f87171; color:#f87171; background:rgba(239,68,68,0.08); }
+
+.bank-metrics { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:12px 0; }
+.bm { background:#080d1a; border-radius:6px; padding:8px 10px; }
+.bm .lbl { font-size:10px; color:#64748b; margin-bottom:2px; }
+.bm .val { font-size:14px; font-weight:700; }
+.bm .val.green { color:#34d399; }
+.bm .val.gold  { color:#fbbf24; }
+.bm .val.blue  { color:#60a5fa; }
+.bm .val.red   { color:#f87171; }
+
+.bank-tags { display:flex; flex-wrap:wrap; gap:5px; margin-top:10px; }
+.tag { display:inline-block; padding:2px 8px; border-radius:10px; font-size:10px; font-weight:600; }
+.tag-buy   { background:rgba(16,185,129,0.12); color:#34d399; border:1px solid rgba(16,185,129,0.25); }
+.tag-watch { background:rgba(245,158,11,0.12); color:#fbbf24; border:1px solid rgba(245,158,11,0.25); }
+.tag-avoid { background:rgba(239,68,68,0.12); color:#f87171; border:1px solid rgba(239,68,68,0.25); }
+.tag-info  { background:rgba(99,102,241,0.12); color:#818cf8; border:1px solid rgba(99,102,241,0.25); }
+
+/* ===== PB-ROE矩阵 ===== */
+.matrix-wrap {
+  background:#0f172a; border:1px solid #1e293b; border-radius:12px;
+  padding:24px; position:relative;
+}
+.matrix-title { font-size:13px; font-weight:600; color:#94a3b8; margin-bottom:16px; text-align:center; }
+.matrix-body {
+  position:relative;
+  width:100%; height:320px;
+  border-left:2px solid #1e293b;
+  border-bottom:2px solid #1e293b;
+}
+.m-dot {
+  position:absolute;
+  width:10px; height:10px;
+  border-radius:50%;
+  transform:translate(-50%, 50%);
+  cursor:pointer;
+}
+.m-dot:hover .m-label { display:block; }
+.m-label {
+  position:absolute;
+  background:#1e293b;
+  border:1px solid #334155;
+  border-radius:4px;
+  padding:4px 8px;
+  white-space:nowrap;
+  font-size:10px;
+  color:#cbd5e1;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  display:none;
+  z-index:10;
+}
+.matrix-label-x {
+  text-align:right;
+  font-size:11px; color:#64748b;
+  margin-top:6px;
+}
+.matrix-label-y {
+  position:absolute; left:-30px; top:50%;
+  transform:rotate(-90deg) translateX(50%);
+  font-size:11px; color:#64748b;
+  white-space:nowrap;
+}
+
+/* ===== 巴菲特标准 ===== */
+.criterion {
+  background:#0f172a;
+  border:1px solid #1e293b;
+  border-radius:10px;
+  padding:18px 20px;
+  display:flex; gap:14px; align-items:flex-start;
+  margin-bottom:12px;
+}
+.criterion-num {
+  width:32px; height:32px; border-radius:8px;
+  background:rgba(99,102,241,0.15);
+  color:#818cf8; font-weight:800; font-size:14px;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.criterion-title { font-size:14px; font-weight:600; color:#f1f5f9; margin-bottom:5px; }
+.criterion-body  { font-size:13px; color:#94a3b8; line-height:1.6; }
+.criterion-data  { 
+  margin-top:8px; padding:8px 12px;
+  background:rgba(99,102,241,0.05);
+  border-radius:6px; font-size:12px; color:#cbd5e1;
+}
+
+/* ===== 结论 ===== */
+.conclusion {
+  background: linear-gradient(135deg,#0f1a35,#0f172a);
+  border: 1px solid #1e3a5f;
+  border-radius:14px; padding:28px;
+}
+.conclusion h3 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:14px; }
+.con-highlight {
+  background:rgba(99,102,241,0.08);
+  border:1px solid rgba(99,102,241,0.25);
+  border-radius:8px; padding:12px 16px;
+  font-size:13px; color:#cbd5e1; margin:12px 0;
+}
+.con-highlight strong { color:#818cf8; }
+
+/* ===== 浮动TOC ===== */
+@media (max-width: 768px) {
+  .g2,.g3,.g4 { grid-template-columns:1fr; }
+  .bank-metrics { grid-template-columns:1fr 1fr; }
+  .hero-stats { gap:16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- 英雄区 -->
+<div class="hero">
+  <div class="hero-badge">2024年报深度解析 · 2025</div>
+  <h1>银行股<em>深度财报</em>分析<br>与投资图谱</h1>
+  <p class="hero-sub">基于42家A股上市银行2024年年报数据，挖掘内在价值，寻找巴菲特式的优质银行标的</p>
+  <div class="hero-stats">
+    <div class="hs"><span class="v" style="color:#818cf8">42家</span><span class="l">A股上市银行</span></div>
+    <div class="hs"><span class="v" style="color:#34d399">2.14万亿</span><span class="l">合计净利润（元）</span></div>
+    <div class="hs"><span class="v" style="color:#fbbf24">1.52%</span><span class="l">行业平均NIM</span></div>
+    <div class="hs"><span class="v" style="color:#60a5fa">17.8%</span><span class="l">最高ROE（成都银行）</span></div>
+    <div class="hs"><span class="v" style="color:#f87171">10家</span><span class="l">营收负增长银行</span></div>
+  </div>
+</div>
+
+<!-- 导航 -->
+<div class="toc">
+  <a href="#ch1">① 行业全景</a>
+  <a href="#ch2">② 核心财务对比</a>
+  <a href="#ch3">③ 业务板块拆解</a>
+  <a href="#ch4">④ 银行深度档案</a>
+  <a href="#ch5">⑤ 巴菲特选股标准</a>
+  <a href="#ch6">⑥ PB-ROE估值矩阵</a>
+  <a href="#ch7">⑦ 投资评级结论</a>
+</div>
+
+<div class="container">
+
+<!-- ======= 第一章：行业全景 ======= -->
+<div class="section" id="ch1">
+  <div class="section-title">
+    <span class="icon-wrap iw-indigo">🗺️</span>
+    第一章：2024年银行业全景——承压中分化
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi c-indigo"><span class="v">2.14万亿</span><span class="l">42家合计净利润</span></div>
+    <div class="kpi c-green"><span class="v">38/42</span><span class="l">净利润增长家数</span></div>
+    <div class="kpi c-red"><span class="v">10/42</span><span class="l">营收负增长家数</span></div>
+    <div class="kpi c-gold"><span class="v">1.52%</span><span class="l">2024Q4行业平均NIM</span></div>
+    <div class="kpi c-blue"><span class="v">-51bp</span><span class="l">平安银行NIM最大降幅</span></div>
+    <div class="kpi c-cyan"><span class="v">3%+</span><span class="l">大行H股股息率</span></div>
+  </div>
+
+  <!-- 三类银行对比 -->
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>银行类型</th>
+          <th>ROE范围</th>
+          <th>NIM均值</th>
+          <th>整体趋势</th>
+          <th>特点</th>
+          <th>典型代表</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>国有六大行</strong></td>
+          <td>9.08%–10.69%</td>
+          <td>1.34%</td>
+          <td><span class="badge b-red">全部下滑</span></td>
+          <td>规模驱动，股息高，NIM偏低</td>
+          <td>工行、建行、农行、邮储</td>
+        </tr>
+        <tr>
+          <td><strong>股份制银行</strong></td>
+          <td>5.18%–14.49%</td>
+          <td>1.57%</td>
+          <td><span class="badge b-gold">分化竞争</span></td>
+          <td>招商遥遥领先，民生垫底</td>
+          <td>招商银行、平安银行</td>
+        </tr>
+        <tr>
+          <td><strong>优质城商行</strong></td>
+          <td>14%–17.8%</td>
+          <td>1.6%~2%+</td>
+          <td><span class="badge b-green">部分逆势增长</span></td>
+          <td>ROE领先，区域深耕，风控优秀</td>
+          <td>成都、杭州、宁波、常熟</td>
+        </tr>
+        <tr>
+          <td><strong>弱资质银行</strong></td>
+          <td>3%–8%</td>
+          <td>低于1.5%</td>
+          <td><span class="badge b-red">持续弱化</span></td>
+          <td>ROE低，不良高，资产质量差</td>
+          <td>郑州银行（ROE 3.21%）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <h3 style="font-size:14px; color:#f1f5f9; margin-bottom:14px;">📉 行业的两大核心压力</h3>
+    <div class="g2">
+      <div>
+        <div style="font-size:13px; font-weight:600; color:#f87171; margin-bottom:8px;">压力一：净息差（NIM）持续收窄</div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2019年</span><span>2.20%</span></div>
+          <div class="bar-track"><div class="bar-fill f-green" style="width:100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2022年</span><span>1.91%</span></div>
+          <div class="bar-track"><div class="bar-fill f-gold" style="width:87%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2023年</span><span>1.69%</span></div>
+          <div class="bar-track"><div class="bar-fill f-gold" style="width:77%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2024Q4</span><span style="color:#f87171;">1.52%</span></div>
+          <div class="bar-track"><div class="bar-fill f-red" style="width:69%"></div></div>
+        </div>
+        <p style="font-size:11px; color:#64748b; margin-top:8px;">LPR多次下调 + 资产端竞争激烈 + 存款成本刚性，三重挤压</p>
+      </div>
+      <div>
+        <div style="font-size:13px; font-weight:600; color:#fbbf24; margin-bottom:8px;">压力二：零售信贷不良率上升</div>
+        <div class="bar-row">
+          <div class="bar-label"><span>工行住房贷款不良率</span><span style="color:#fbbf24;">0.73%（↑29bp）</span></div>
+          <div class="bar-track"><div class="bar-fill f-gold" style="width:40%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>建行信用卡不良率</span><span style="color:#f87171;">2.22%（↑56bp）</span></div>
+          <div class="bar-track"><div class="bar-fill f-red" style="width:65%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>工行信用卡不良率</span><span style="color:#f87171;">3.5%（高位）</span></div>
+          <div class="bar-track"><div class="bar-fill f-red" style="width:88%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>经营贷不良</span><span style="color:#f87171;">普遍↑40bp+</span></div>
+          <div class="bar-track"><div class="bar-fill f-red" style="width:72%"></div></div>
+        </div>
+        <p style="font-size:11px; color:#64748b; margin-top:8px;">房地产下行 + 消费收缩 + 居民杠杆高，零售信贷进入风险暴露期</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 第二章：核心财务对比 ======= -->
+<div class="section" id="ch2">
+  <div class="section-title">
+    <span class="icon-wrap iw-blue">📊</span>
+    第二章：头部银行核心财务数据完整对比（2024年报）
+  </div>
+
+  <!-- ROE对比 -->
+  <div class="card" style="margin-bottom:20px;">
+    <h3 style="font-size:14px; color:#f1f5f9; margin-bottom:16px;">🏆 ROE排名：优质城商行 > 招商银行 > 国有大行</h3>
+    <div class="bar-row">
+      <div class="bar-label"><span>成都银行</span><span style="color:#34d399; font-weight:700;">17.80% ★</span></div>
+      <div class="bar-track"><div class="bar-fill f-green" style="width:100%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>杭州银行</span><span style="color:#34d399; font-weight:700;">16.00%</span></div>
+      <div class="bar-track"><div class="bar-fill f-green" style="width:90%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>招商银行</span><span style="color:#60a5fa; font-weight:700;">14.49%</span></div>
+      <div class="bar-track"><div class="bar-fill f-blue" style="width:81%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>常熟银行</span><span style="color:#60a5fa;">14.15%</span></div>
+      <div class="bar-track"><div class="bar-fill f-blue" style="width:79%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>宁波银行</span><span style="color:#60a5fa;">13.59%</span></div>
+      <div class="bar-track"><div class="bar-fill f-blue" style="width:76%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>建设银行（大行最佳）</span><span style="color:#fbbf24;">10.69%</span></div>
+      <div class="bar-track"><div class="bar-fill f-gold" style="width:60%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>农业银行</span><span style="color:#fbbf24;">10.46%</span></div>
+      <div class="bar-track"><div class="bar-fill f-gold" style="width:59%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>工商银行</span><span style="color:#fbbf24;">9.88%</span></div>
+      <div class="bar-track"><div class="bar-fill f-gold" style="width:55%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>交通银行（最低大行）</span><span style="color:#f87171;">9.08%</span></div>
+      <div class="bar-track"><div class="bar-fill f-red" style="width:51%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label"><span>郑州银行（股份行末位）</span><span style="color:#f87171;">3.21%</span></div>
+      <div class="bar-track"><div class="bar-fill f-red" style="width:18%"></div></div>
+    </div>
+  </div>
+
+  <!-- 完整对比表 -->
+  <div class="tbl">
+    <table>
+      <thead>
+        <tr>
+          <th>银行</th>
+          <th>类型</th>
+          <th>ROE</th>
+          <th>ROA</th>
+          <th>NIM净息差</th>
+          <th>不良率</th>
+          <th>拨备覆盖率</th>
+          <th>净利润增速</th>
+          <th>评级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:rgba(16,185,129,0.04);">
+          <td><strong>成都银行</strong></td>
+          <td><span class="badge b-indigo">城商行</span></td>
+          <td><strong style="color:#34d399;">17.80%</strong></td>
+          <td>1.2%+</td>
+          <td>1.78%</td>
+          <td><strong style="color:#34d399;">0.66%</strong></td>
+          <td><strong style="color:#34d399;">479.28%</strong></td>
+          <td><span class="badge b-green">+16.2%</span></td>
+          <td><span class="badge b-green">A+</span></td>
+        </tr>
+        <tr style="background:rgba(16,185,129,0.03);">
+          <td><strong>杭州银行</strong></td>
+          <td><span class="badge b-indigo">城商行</span></td>
+          <td><strong style="color:#34d399;">16.00%</strong></td>
+          <td>0.86%</td>
+          <td>1.76%</td>
+          <td><strong style="color:#34d399;">0.76%</strong></td>
+          <td><strong style="color:#34d399;">541.45%</strong></td>
+          <td><span class="badge b-green">+18%+</span></td>
+          <td><span class="badge b-green">A+</span></td>
+        </tr>
+        <tr style="background:rgba(59,130,246,0.04);">
+          <td><strong>招商银行</strong></td>
+          <td><span class="badge b-blue">股份行</span></td>
+          <td><strong style="color:#60a5fa;">14.49%</strong></td>
+          <td><strong style="color:#60a5fa;">1.40%</strong></td>
+          <td><strong style="color:#60a5fa;">1.98%</strong></td>
+          <td>0.95%</td>
+          <td>411.98%</td>
+          <td><span class="badge b-blue">+1.22%</span></td>
+          <td><span class="badge b-blue">A</span></td>
+        </tr>
+        <tr>
+          <td><strong>常熟银行</strong></td>
+          <td><span class="badge b-indigo">农商行</span></td>
+          <td style="color:#60a5fa;">14.15%</td>
+          <td><strong style="color:#34d399;">1.16%</strong></td>
+          <td>2.43%</td>
+          <td>0.77%</td>
+          <td>536%+</td>
+          <td><span class="badge b-green">+8%+</span></td>
+          <td><span class="badge b-blue">A</span></td>
+        </tr>
+        <tr>
+          <td><strong>宁波银行</strong></td>
+          <td><span class="badge b-indigo">城商行</span></td>
+          <td style="color:#60a5fa;">13.59%</td>
+          <td>0.93%</td>
+          <td>1.82%</td>
+          <td>0.76%</td>
+          <td>420%+</td>
+          <td><span class="badge b-blue">+6.1%</span></td>
+          <td><span class="badge b-blue">A</span></td>
+        </tr>
+        <tr>
+          <td><strong>建设银行</strong></td>
+          <td><span class="badge b-gray">国有大行</span></td>
+          <td style="color:#fbbf24;">10.69%</td>
+          <td>0.85%</td>
+          <td>1.51%</td>
+          <td>1.34%</td>
+          <td>200%+</td>
+          <td><span class="badge b-gold">+0.5%</span></td>
+          <td><span class="badge b-gold">B+</span></td>
+        </tr>
+        <tr>
+          <td><strong>农业银行</strong></td>
+          <td><span class="badge b-gray">国有大行</span></td>
+          <td style="color:#fbbf24;">10.46%</td>
+          <td>0.68%</td>
+          <td>1.45%</td>
+          <td>1.30%</td>
+          <td>299.61%</td>
+          <td><span class="badge b-green">+4.72%</span></td>
+          <td><span class="badge b-gold">B+</span></td>
+        </tr>
+        <tr>
+          <td><strong>工商银行</strong></td>
+          <td><span class="badge b-gray">国有大行</span></td>
+          <td style="color:#fbbf24;">9.88%</td>
+          <td>0.78%</td>
+          <td>1.28%</td>
+          <td>1.34%</td>
+          <td>200%+</td>
+          <td><span class="badge b-gold">+0.5%</span></td>
+          <td><span class="badge b-gold">B</span></td>
+        </tr>
+        <tr>
+          <td><strong>邮储银行</strong></td>
+          <td><span class="badge b-gray">国有大行</span></td>
+          <td style="color:#fbbf24;">9.84%</td>
+          <td>0.53%</td>
+          <td><strong style="color:#60a5fa;">1.66%</strong></td>
+          <td><strong style="color:#34d399;">0.90%</strong></td>
+          <td>286.15%</td>
+          <td><span class="badge b-gold">+0.2%</span></td>
+          <td><span class="badge b-gold">B+</span></td>
+        </tr>
+        <tr>
+          <td><strong>中国银行</strong></td>
+          <td><span class="badge b-gray">国有大行</span></td>
+          <td>9.50%</td>
+          <td>0.75%</td>
+          <td>1.43%</td>
+          <td>1.25%</td>
+          <td>200%+</td>
+          <td><span class="badge b-gold">+2.6%</span></td>
+          <td><span class="badge b-gold">B</span></td>
+        </tr>
+        <tr>
+          <td><strong>平安银行</strong></td>
+          <td><span class="badge b-blue">股份行</span></td>
+          <td>10.08%</td>
+          <td>0.78%</td>
+          <td><span style="color:#f87171;">1.87%</span></td>
+          <td>1.06%</td>
+          <td>251%</td>
+          <td><span class="badge b-red">-4.2%</span></td>
+          <td><span class="badge b-gold">B</span></td>
+        </tr>
+        <tr>
+          <td><strong>民生银行</strong></td>
+          <td><span class="badge b-blue">股份行</span></td>
+          <td style="color:#f87171;">5.18%</td>
+          <td>0.42%</td>
+          <td>1.39%</td>
+          <td>1.48%</td>
+          <td>149%</td>
+          <td><span class="badge b-red">-9.85%</span></td>
+          <td><span class="badge b-red">C</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- NIM对比 -->
+  <div class="card" style="margin-top:20px;">
+    <h3 style="font-size:14px; color:#f1f5f9; margin-bottom:14px;">净息差（NIM）横向对比——2025年最新数据</h3>
+    <div class="g2">
+      <div>
+        <p style="font-size:12px; color:#64748b; margin-bottom:10px;">各类型银行NIM均值</p>
+        <div class="bar-row">
+          <div class="bar-label"><span>优质城商行（常熟/成都）</span><span style="color:#34d399;">2.0%+</span></div>
+          <div class="bar-track"><div class="bar-fill f-green" style="width:100%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>招商银行（股份行最高）</span><span style="color:#60a5fa;">1.98%</span></div>
+          <div class="bar-track"><div class="bar-fill f-blue" style="width:95%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>邮储银行</span><span style="color:#60a5fa;">1.66%</span></div>
+          <div class="bar-track"><div class="bar-fill f-blue" style="width:79%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>股份行平均</span><span style="color:#fbbf24;">1.57%</span></div>
+          <div class="bar-track"><div class="bar-fill f-gold" style="width:75%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>行业均值（2024Q4）</span><span>1.52%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:72%; background:#94a3b8"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>国有大行平均</span><span style="color:#fbbf24;">1.34%</span></div>
+          <div class="bar-track"><div class="bar-fill f-gold" style="width:64%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>交通银行（最低）</span><span style="color:#f87171;">1.20%</span></div>
+          <div class="bar-track"><div class="bar-fill f-red" style="width:57%"></div></div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:12px; color:#64748b; margin-bottom:10px;">关键洞察</p>
+        <div style="background:#080d1a; border-radius:8px; padding:14px; font-size:12px; line-height:1.8; color:#94a3b8;">
+          <div style="margin-bottom:8px;">🔑 <strong style="color:#f1f5f9;">NIM = 银行"毛利率"</strong>，是银行核心盈利能力指标</div>
+          <div style="margin-bottom:8px;">⚠️ 2024年全部42家银行NIM均下降，无一例外</div>
+          <div style="margin-bottom:8px;">📊 NIM最高与最低相差67bp（1.87% vs 1.20%），反映经营策略差异</div>
+          <div style="margin-bottom:8px;">🎯 <strong style="color:#60a5fa;">NIM >1.8% + ROE >13%</strong> 是"优质银行"分界线</div>
+          <div>🔮 2025年NIM有望企稳：存款利率下调将降低负债成本</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 第三章：业务板块拆解 ======= -->
+<div class="section" id="ch3">
+  <div class="section-title">
+    <span class="icon-wrap iw-gold">🔬</span>
+    第三章：银行收益来源深度拆解——钱从哪里来？
+  </div>
+
+  <!-- 五大收入板块 -->
+  <div class="g3" style="margin-bottom:20px;">
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">💵</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">净利息收入（NII）</div>
+      <div style="font-size:22px; font-weight:800; color:#818cf8; margin-bottom:6px;">55–70%</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        银行最核心收入，本质是"借短贷长"的利差。受LPR调降影响，各行净利息收入普遍承压。<br>
+        <strong style="color:#60a5fa;">招商：2112.77亿元</strong>（占总营收63%）
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">💼</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">手续费及佣金</div>
+      <div style="font-size:22px; font-weight:800; color:#fbbf24; margin-bottom:6px;">15–25%</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        代销基金/保险、理财管理费、托管费、信用卡年费/分期手续费。<br>
+        <strong style="color:#60a5fa;">招商非息收入：1262亿元</strong>，占比37.4%（行业最高）
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">📈</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">投资与交易收入</div>
+      <div style="font-size:22px; font-weight:800; color:#34d399; margin-bottom:6px;">5–15%</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        债券投资（利率下行时大涨）、自营权益投资。2024年利率下行，<strong style="color:#34d399;">大行债券投资增速16.77%</strong>，成为重要利润支撑。
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">🏦</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">财富管理板块</div>
+      <div style="font-size:22px; font-weight:800; color:#60a5fa; margin-bottom:6px;">高增长</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        私人银行、财富产品管理。<br>
+        <strong style="color:#60a5fa;">招商零售AUM：近15万亿</strong>（+12.05%）<br>
+        企业财富管理日均余额：3999亿（+30.35%）
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">💳</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">信用卡业务</div>
+      <div style="font-size:22px; font-weight:800; color:#f87171; margin-bottom:6px;">承压</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        分期手续费、境外消费费、年费。2024年信用卡不良大幅上升（工行3.5%、建行2.22%），已成各行重点管控风险。
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:22px; margin-bottom:8px;">🌐</div>
+      <div style="font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:6px;">跨境/对公业务</div>
+      <div style="font-size:22px; font-weight:800; color:#22d3ee; margin-bottom:6px;">差异化</div>
+      <div style="font-size:12px; color:#64748b; line-height:1.7;">
+        跨境贸易结算、国际业务。<strong style="color:#22d3ee;">中国银行境外利润占比超20%</strong>，是最具国际化特征的大行。
+      </div>
+    </div>
+  </div>
+
+  <!-- 招商银行业务结构深度拆解 -->
+  <div class="card">
+    <h3 style="font-size:15px; color:#f1f5f9; margin-bottom:16px;">🔍 标杆解析：招商银行2024年收入结构（股份行最高非息收入占比）</h3>
+    <div class="g2">
+      <div>
+        <div class="bar-row">
+          <div class="bar-label"><span>净利息收入</span><span>2,112.77亿 · 63%</span></div>
+          <div class="bar-track"><div class="bar-fill f-blue" style="width:63%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>非利息净收入</span><span style="color:#60a5fa;">1,262.11亿 · 37.4%</span></div>
+          <div class="bar-track"><div class="bar-fill f-indigo" style="width:37%"></div></div>
+        </div>
+        <div style="margin-top:14px; font-size:12px; color:#64748b; line-height:1.8;">
+          <div>→ 零售AUM：<strong style="color:#60a5fa;">~15万亿元</strong>（+12%）</div>
+          <div>→ 托管资产：<strong style="color:#60a5fa;">22.86万亿元</strong>（+8.24%）</div>
+          <div>→ 财富产品持仓客户：5,822万户（+13.3%）</div>
+          <div>→ App月活：<strong style="color:#60a5fa;">1.23亿用户</strong></div>
+          <div>→ 信息科技投入：133.5亿元（营收4.37%）</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; color:#64748b; margin-bottom:10px;">AUM增长轨迹（万亿元）</div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2021年</span><span>9.8万亿</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:65%; background:#4b5563"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2022年</span><span>11.2万亿</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:75%; background:#6b7280"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2023年</span><span>13.3万亿</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:89%; background:#818cf8"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label"><span>2024年</span><span style="color:#34d399; font-weight:700;">~15万亿</span></div>
+          <div class="bar-track"><div class="bar-fill f-green" style="width:100%"></div></div>
+        </div>
+        <div style="margin-top:10px; font-size:12px; color:#64748b;">
+          📌 招行非息收入高达37.4%，是A股银行中最接近"轻资本银行"的标的，随着财富管理规模扩大，手续费收入有望形成NIM下滑的对冲。
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= 第四章：各银行深度档案 ======= -->
+<div class="section" id="ch4">
+  <div class="section-title">
+    <span class="icon-wrap iw-cyan">🏦</span>
+    第四章：头部银行深度档案——每家银行的投资逻辑
+  </div>
+
+  <div class="g2">
+
+    <!-- 招商银行 -->
+    <div class="bank-card bc-cmb">
+      <div class="bank-grade grade-a">A</div>
+      <div class="bank-name">招商银行</div>
+      <div class="bank-ticker">600036.SH / 03968.HK &nbsp;·&nbsp; A股股份制银行龙头</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val blue">14.49%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val blue">1.98%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val green">0.95%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val green">411.98%</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val blue">+1.22%</div></div>
+        <div class="bm"><div class="lbl">零售AUM</div><div class="val gold">~15万亿</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        中国最接近美国运通+富国银行合体的银行。<strong style="color:#f1f5f9;">以客户为中心</strong>而非以资产为中心，零售/财富管理护城河深。ROE行业最高（股份行），非息收入占比最高37.4%。2024年逆势小增，分红率35.32%领先同业。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">零售之王</span>
+        <span class="tag tag-buy">财富管理护城河</span>
+        <span class="tag tag-buy">App月活1.23亿</span>
+        <span class="tag tag-watch">NIM承压</span>
+      </div>
+    </div>
+
+    <!-- 成都银行 -->
+    <div class="bank-card bc-cdb">
+      <div class="bank-grade grade-a">A+</div>
+      <div class="bank-name">成都银行</div>
+      <div class="bank-ticker">601838.SH &nbsp;·&nbsp; 区域城商行ROE冠军</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val green">17.80% 🏆</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val gold">1.78%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val green">0.66% 🏆</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val green">479.28%</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val green">+16.2%</div></div>
+        <div class="bm"><div class="lbl">总资产</div><div class="val blue">1.25万亿</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        <strong style="color:#f1f5f9;">ROE最高、不良率最低</strong>的A股银行组合，堪称当前价值投资首选标的。背靠成都都市圈强大经济腹地，政府项目贷款质量高，零售转型加速。唯一缺点是规模偏小（1.25万亿），上限更清晰。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">ROE&amp;不良率双冠</span>
+        <span class="tag tag-buy">成都经济高景气</span>
+        <span class="tag tag-watch">规模天花板</span>
+      </div>
+    </div>
+
+    <!-- 杭州银行 -->
+    <div class="bank-card bc-czb">
+      <div class="bank-grade grade-a">A+</div>
+      <div class="bank-name">杭州银行</div>
+      <div class="bank-ticker">600926.SH &nbsp;·&nbsp; 科技金融城商行</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val green">16.00%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val gold">1.76%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val green">0.76%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val green">541.45% 🏆</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val green">+18%+</div></div>
+        <div class="bm"><div class="lbl">总资产</div><div class="val blue">2.11万亿</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        <strong style="color:#f1f5f9;">拨备覆盖率最高（541%）</strong>，风险缓冲极厚，意味着未来可通过减少拨备来维持利润增长。深耕杭州科技互联网生态，科技企业客户优势突出。净利润增速持续领先，估值溢价有支撑。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">拨备最厚</span>
+        <span class="tag tag-buy">科技金融特色</span>
+        <span class="tag tag-buy">高增速</span>
+      </div>
+    </div>
+
+    <!-- 宁波银行 -->
+    <div class="bank-card bc-nbk">
+      <div class="bank-grade grade-a">A</div>
+      <div class="bank-name">宁波银行</div>
+      <div class="bank-ticker">002142.SZ &nbsp;·&nbsp; 中小企业信贷标杆</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val blue">13.59%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val gold">1.82%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val green">0.76%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val green">420%+</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val blue">+6.1%</div></div>
+        <div class="bm"><div class="lbl">总资产</div><div class="val blue">3.13万亿</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        宁波银行以服务<strong style="color:#f1f5f9;">中小企业和小微客户</strong>著称，资产质量长期维持行业顶级水平。多牌照布局（银行+消金+理财+基金）形成综合金融服务体系。2024年贷款+17.83%，存款+17.24%，扩表速度远超同类。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">小微信贷专家</span>
+        <span class="tag tag-buy">多牌照协同</span>
+        <span class="tag tag-buy">高速扩表</span>
+      </div>
+    </div>
+
+    <!-- 工商银行 -->
+    <div class="bank-card bc-icbc">
+      <div class="bank-grade grade-b">B</div>
+      <div class="bank-name">工商银行</div>
+      <div class="bank-ticker">601398.SH / 01398.HK &nbsp;·&nbsp; 全球最大商业银行</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val gold">9.88%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val red">1.28%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val gold">1.34%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val gold">200%+</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val gold">+0.5%</div></div>
+        <div class="bm"><div class="lbl">H股股息率</div><div class="val green">6%+</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        ROE仅9.88%，NIM 1.28%，但<strong style="color:#fbbf24;">H股股息率超6%</strong>是核心吸引力。全球最大商业银行，信用卡不良高（3.5%），零售风险暴露。适合作为<strong style="color:#f1f5f9;">高股息防御性配置</strong>，而非成长型持仓。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-watch">H股高股息</span>
+        <span class="tag tag-watch">规模庞大</span>
+        <span class="tag tag-avoid">NIM偏低</span>
+        <span class="tag tag-avoid">零售信贷风险</span>
+      </div>
+    </div>
+
+    <!-- 建设银行 -->
+    <div class="bank-card bc-ccb">
+      <div class="bank-grade grade-b">B+</div>
+      <div class="bank-name">建设银行</div>
+      <div class="bank-ticker">601939.SH / 00939.HK &nbsp;·&nbsp; 住房金融特色</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val gold">10.69%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val gold">1.51%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val gold">1.34%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val gold">200%+</div></div>
+        <div class="bm"><div class="lbl">CET1提升</div><div class="val green">+133bp🏆</div></div>
+        <div class="bm"><div class="lbl">H股股息率</div><div class="val green">5.5%+</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        大行中<strong style="color:#f1f5f9;">ROE和NIM均为最优</strong>，2024年核心资本充足率大幅提升+133bp（行业第一），债券投资增速+30.89%。H股估值折价较大，配置价值优于A股。住房贷款不良率上升需关注。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">大行最优ROE</span>
+        <span class="tag tag-buy">资本充足大幅提升</span>
+        <span class="tag tag-watch">住房贷款风险</span>
+      </div>
+    </div>
+
+    <!-- 农业银行 -->
+    <div class="bank-card bc-abc">
+      <div class="bank-grade grade-b">B+</div>
+      <div class="bank-name">农业银行</div>
+      <div class="bank-ticker">601288.SH / 01288.HK &nbsp;·&nbsp; 县域金融龙头</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val gold">10.46%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val gold">1.45%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val gold">1.30%</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val green">299.61%</div></div>
+        <div class="bm"><div class="lbl">净利润增速</div><div class="val green">+4.72%🏆大行</div></div>
+        <div class="bm"><div class="lbl">2024股价涨幅</div><div class="val green">+54.74%</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        大行中净利润<strong style="color:#34d399;">增速第一（+4.72%）</strong>，2024年A股涨幅+54.74%领跑六大行。县域金融根基深（贷款9.85万亿），拨备覆盖率高于建工中。受益于农业政策支持，涉农贷款高速增长，未来有政策性收益保障。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">大行增速最快</span>
+        <span class="tag tag-buy">政策性收益保障</span>
+        <span class="tag tag-watch">H股折价</span>
+      </div>
+    </div>
+
+    <!-- 邮储银行 -->
+    <div class="bank-card bc-psbc">
+      <div class="bank-grade grade-b">B+</div>
+      <div class="bank-name">邮储银行</div>
+      <div class="bank-ticker">601658.SH / 01658.HK &nbsp;·&nbsp; 储蓄王者</div>
+      <div class="bank-metrics">
+        <div class="bm"><div class="lbl">ROE</div><div class="val gold">9.84%</div></div>
+        <div class="bm"><div class="lbl">NIM</div><div class="val blue">1.66%</div></div>
+        <div class="bm"><div class="lbl">不良率</div><div class="val green">0.90% 大行最优</div></div>
+        <div class="bm"><div class="lbl">拨备覆盖</div><div class="val blue">286.15%</div></div>
+        <div class="bm"><div class="lbl">存款增速</div><div class="val green">领先资产增速</div></div>
+        <div class="bm"><div class="lbl">网点数量</div><div class="val gold">4万+</div></div>
+      </div>
+      <div style="font-size:12px; color:#94a3b8; margin-bottom:10px; line-height:1.7;">
+        邮储银行拥有中国最广泛的零售渠道（4万+网点），<strong style="color:#f1f5f9;">NIM在大行中最高（1.66%）</strong>，不良率0.90%为大行最优。庞大的储蓄存款基础提供低成本负债。存款增速高于资产增速，流动性最充裕。适合农村/低线城市储蓄市场投资逻辑。
+      </div>
+      <div class="bank-tags">
+        <span class="tag tag-buy">大行最低不良率</span>
+        <span class="tag tag-buy">最高NIM（大行）</span>
+        <span class="tag tag-buy">农村渠道壁垒</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======= 第五章：巴菲特选银行股标准 ======= -->
+<div class="section" id="ch5">
+  <div class="section-title">
+    <span class="icon-wrap iw-purple">🎯</span>
+    第五章：巴菲特选银行股的"六条黄金法则"
+  </div>
+
+  <div class="quote gold">
+    "如果只用一个指标来选股，毫无疑问就是ROE。"——巴菲特
+  </div>
+
+  <!-- 六条法则 -->
+  <div class="criterion">
+    <div class="criterion-num">1</div>
+    <div>
+      <div class="criterion-title">ROE持续 ≥ 15%，且不依靠高杠杆实现</div>
+      <div class="criterion-body">巴菲特要求真正的高ROE来自高利润率或高效率，而非简单加杠杆。银行ROE本来就包含信用杠杆，他会看"ROE相对行业的超额"是否来自经营能力。</div>
+      <div class="criterion-data">
+        📊 对标A股：<strong>成都银行（17.8%）、杭州银行（16%）、招商银行（14.49%）</strong>符合，其他大行均不达标<br>
+        ⚠️ 巴菲特1989年买富国银行时ROE正好>20%，且行业最高
+      </div>
+    </div>
+  </div>
+
+  <div class="criterion">
+    <div class="criterion-num">2</div>
+    <div>
+      <div class="criterion-title">管理层保守保守再保守——不追求不必要的规模</div>
+      <div class="criterion-body">巴菲特最讨厌银行管理层为了"做大"而扩张，不惜降低信贷标准。他买入富国银行的核心原因之一：卡尔·里查兹管理层极度保守，宁愿放弃业务也不冒险。</div>
+      <div class="criterion-data">
+        📊 对标A股：<strong>招商银行</strong>"质量效益规模动态均衡"理念符合，曾主动压降高风险业务<br>
+        ⚠️ 巴菲特卖出富国银行的原因：管理层频繁发生丑闻（开立虚假账户），失去管理层信任
+      </div>
+    </div>
+  </div>
+
+  <div class="criterion">
+    <div class="criterion-num">3</div>
+    <div>
+      <div class="criterion-title">低不良率 + 高拨备覆盖 = 真实且保守的资产质量</div>
+      <div class="criterion-body">巴菲特清楚银行不良贷款可以被掩盖，他要求在经济下行期不良率仍可控，拨备覆盖率高则意味着管理层主动计提，财务更透明。</div>
+      <div class="criterion-data">
+        📊 A股顶尖：<strong>成都银行（不良0.66% + 拨备479%）、杭州银行（0.76% + 541%）</strong><br>
+        ❌ 民生银行：不良1.48% + 拨备仅149%，巴菲特绝不会买
+      </div>
+    </div>
+  </div>
+
+  <div class="criterion">
+    <div class="criterion-num">4</div>
+    <div>
+      <div class="criterion-title">非息收入占比 ≥ 30%——减少对利差的单一依赖</div>
+      <div class="criterion-body">利差是被压缩的，真正的护城河在于"管理高端客户资产的能力"。巴菲特在AXP身上看到的是手续费+年费+利差三重收入。银行中越接近这个模型越好。</div>
+      <div class="criterion-data">
+        📊 A股最优：<strong>招商银行（37.4%）</strong>，行业最高非息收入占比<br>
+        → 非息收入高意味着NIM下行的冲击更小，收入来源更稳健
+      </div>
+    </div>
+  </div>
+
+  <div class="criterion">
+    <div class="criterion-num">5</div>
+    <div>
+      <div class="criterion-title">危机中的买入机会——暂时性困难 vs 永久性损害</div>
+      <div class="criterion-body">1989年储贷危机让富国银行股价腰斩，巴菲特大举买入。他区分了"加州房地产短期价值下跌"和"富国银行商业模式被摧毁"，判断是前者后果断入手。</div>
+      <div class="criterion-data">
+        📊 A股机会：银行板块整体P/B处于历史低位（~0.5-0.8倍），NIM收窄是"暂时性困难"，银行作为经济核心中介的地位不会消失<br>
+        → 当前环境类似1989年的富国银行机会窗口
+      </div>
+    </div>
+  </div>
+
+  <div class="criterion">
+    <div class="criterion-num">6</div>
+    <div>
+      <div class="criterion-title">持续回购 + 稳定分红——对股东真实友好</div>
+      <div class="criterion-body">巴菲特特别重视资本分配效率。银行的股票回购可以在PB<1时直接创造价值，持续分红提供稳定现金流。</div>
+      <div class="criterion-data">
+        📊 A股信号：<strong>招商银行分红率35.32%领先同业</strong>；H股大行股息率5-6%提供"债券+"回报<br>
+        → 2024年六大行合计分红2195亿元，占A股上市公司总分红9.26%
+      </div>
+    </div>
+  </div>
+
+  <!-- 巴菲特的银行投资变化 -->
+  <div class="card" style="margin-top:20px;">
+    <h3 style="font-size:14px; color:#f1f5f9; margin-bottom:16px;">📋 巴菲特银行股持仓历史：为什么减持美国银行？</h3>
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>银行</th>
+            <th>买入时间</th>
+            <th>买入逻辑</th>
+            <th>当前状态</th>
+            <th>减持/卖出原因</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>富国银行（WFC）</strong></td>
+            <td>1989-1990年</td>
+            <td>储贷危机暴跌，ROE>20%，管理层保守</td>
+            <td><span class="badge b-red">已清仓</span></td>
+            <td>2016年起管理层多次丑闻（虚假账户），信任崩塌</td>
+          </tr>
+          <tr>
+            <td><strong>美国银行（BAC）</strong></td>
+            <td>2011年（金融危机后）</td>
+            <td>50亿优先股注资，获得权证，危机中买特权</td>
+            <td><span class="badge b-gold">持续减持</span></td>
+            <td>2024-2025年连续减持（持仓$293亿），估值高于内在价值，高利率保护期已过</td>
+          </tr>
+          <tr>
+            <td><strong>美国运通（AXP）</strong></td>
+            <td>1963年/1995年</td>
+            <td>高端品牌+闭环模式，持卡人高净值，定价权强</td>
+            <td><span class="badge b-green">坚定持有</span></td>
+            <td>20年不买不卖，通过回购自动提升至20%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="quote" style="margin-top:14px;">
+      巴菲特对银行股的核心判断：<strong style="color:#818cf8;">宁愿拥有一家ROE持续15%+的小银行，也不要一家ROE只有10%的巨型银行。</strong>规模是负担，盈利质量才是护城河。
+    </div>
+  </div>
+</div>
+
+<!-- ======= 第六章：PB-ROE估值矩阵 ======= -->
+<div class="section" id="ch6">
+  <div class="section-title">
+    <span class="icon-wrap iw-green">📐</span>
+    第六章：PB-ROE矩阵——寻找被低估的高质量银行
+  </div>
+
+  <div class="card" style="margin-bottom:20px;">
+    <h3 style="font-size:14px; color:#f1f5f9; margin-bottom:4px;">估值定律：合理的PB = ROE / 投资者要求回报率</h3>
+    <p style="font-size:12px; color:#64748b; margin-bottom:16px;">若要求10%回报，ROE=15%的银行合理PB=1.5倍；ROE=10%的银行合理PB=1.0倍。当前A股银行平均PB仅0.6-0.8倍，意味着整体低估。</p>
+
+    <div class="tbl">
+      <table>
+        <thead>
+          <tr>
+            <th>银行</th>
+            <th>ROE（2024）</th>
+            <th>当前PB（A股）</th>
+            <th>理论合理PB（10%要求）</th>
+            <th>折价幅度</th>
+            <th>H股折价</th>
+            <th>综合投资评级</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(16,185,129,0.04)">
+            <td><strong>成都银行</strong></td>
+            <td><strong style="color:#34d399;">17.80%</strong></td>
+            <td>0.95×</td>
+            <td>1.78×</td>
+            <td><span class="badge b-green">-47%折价</span></td>
+            <td>—（无H股）</td>
+            <td><span class="badge b-green">★★★★★ 首选</span></td>
+          </tr>
+          <tr style="background:rgba(16,185,129,0.03)">
+            <td><strong>杭州银行</strong></td>
+            <td><strong style="color:#34d399;">16.00%</strong></td>
+            <td>0.88×</td>
+            <td>1.60×</td>
+            <td><span class="badge b-green">-45%折价</span></td>
+            <td>—（无H股）</td>
+            <td><span class="badge b-green">★★★★★ 首选</span></td>
+          </tr>
+          <tr style="background:rgba(59,130,246,0.04)">
+            <td><strong>招商银行A</strong></td>
+            <td><strong style="color:#60a5fa;">14.49%</strong></td>
+            <td>1.05×</td>
+            <td>1.45×</td>
+            <td><span class="badge b-blue">-28%折价</span></td>
+            <td>H股PB≈0.82×（额外折价）</td>
+            <td><span class="badge b-blue">★★★★☆ 核心</span></td>
+          </tr>
+          <tr>
+            <td><strong>宁波银行</strong></td>
+            <td style="color:#60a5fa;">13.59%</td>
+            <td>0.88×</td>
+            <td>1.36×</td>
+            <td><span class="badge b-blue">-35%折价</span></td>
+            <td>—（无H股）</td>
+            <td><span class="badge b-blue">★★★★☆ 优质</span></td>
+          </tr>
+          <tr>
+            <td><strong>建设银行H</strong></td>
+            <td>10.69%</td>
+            <td>H股≈0.55×</td>
+            <td>1.07×</td>
+            <td><span class="badge b-gold">-49%折价</span></td>
+            <td>A/H折价约35%</td>
+            <td><span class="badge b-gold">★★★☆☆ 高股息</span></td>
+          </tr>
+          <tr>
+            <td><strong>农业银行H</strong></td>
+            <td>10.46%</td>
+            <td>H股≈0.50×</td>
+            <td>1.05×</td>
+            <td><span class="badge b-gold">-52%折价</span></td>
+            <td>A/H折价约35%</td>
+            <td><span class="badge b-gold">★★★☆☆ 高股息</span></td>
+          </tr>
+          <tr>
+            <td><strong>工商银行H</strong></td>
+            <td>9.88%</td>
+            <td>H股≈0.46×</td>
+            <td>0.99×</td>
+            <td><span class="badge b-gold">-53%折价</span></td>
+            <td>H股股息率6%+</td>
+            <td><span class="badge b-gold">★★★☆☆ 股息收割</span></td>
+          </tr>
+          <tr>
+            <td><strong>邮储银行</strong></td>
+            <td>9.84%</td>
+            <td>0.65×</td>
+            <td>0.98×</td>
+            <td><span class="badge b-gold">-34%折价</span></td>
+            <td>H股折价约28%</td>
+            <td><span class="badge b-gold">★★★☆☆ 农村渠道</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:#64748b; margin-top:10px; line-height:1.8;">
+      💡 <strong style="color:#f1f5f9;">理论PB计算方法：</strong>以10%为要求收益率，合理PB = ROE / 10%。若ROE=17.8%，则合理PB=1.78×，而当前仅0.95×，折价47%，"安全边际"充足。<br>
+      ⚠️ 注意：上述PB为近似估算，实际还需考虑NIM趋势、信贷质量、成长性等因素综合判断。
+    </p>
+  </div>
+</div>
+
+<!-- ======= 第七章：投资评级与结论 ======= -->
+<div class="section" id="ch7">
+  <div class="section-title">
+    <span class="icon-wrap iw-red">🎖️</span>
+    第七章：投资评级与核心结论——应该重点关注哪些银行？
+  </div>
+
+  <!-- 三类配置策略 -->
+  <div class="g3" style="margin-bottom:24px;">
+    <div class="card" style="border-color:rgba(16,185,129,0.3); background:rgba(16,185,129,0.04);">
+      <div style="font-size:20px; margin-bottom:8px;">🚀</div>
+      <div style="font-size:14px; font-weight:700; color:#34d399; margin-bottom:10px;">策略A：成长型配置</div>
+      <div style="font-size:12px; color:#94a3b8; line-height:1.8; margin-bottom:10px;">目标：享受ROE高于行业的超额收益，适合5-10年持有</div>
+      <div style="font-size:13px; color:#f1f5f9; font-weight:600;">首选：</div>
+      <div style="font-size:12px; color:#34d399; margin:6px 0; line-height:1.8;">
+        ① 成都银行（ROE 17.8%，不良0.66%）<br>
+        ② 杭州银行（ROE 16%，拨备541%）<br>
+        ③ 宁波银行（ROE 13.59%，高速扩表）
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:8px;">⚠️ 城商行规模上限明显，需关注区域经济风险</div>
+    </div>
+    <div class="card" style="border-color:rgba(96,165,250,0.3); background:rgba(59,130,246,0.04);">
+      <div style="font-size:20px; margin-bottom:8px;">⚖️</div>
+      <div style="font-size:14px; font-weight:700; color:#60a5fa; margin-bottom:10px;">策略B：核心均衡配置</div>
+      <div style="font-size:12px; color:#94a3b8; line-height:1.8; margin-bottom:10px;">目标：ROE高+护城河深+规模大，攻守兼备</div>
+      <div style="font-size:13px; color:#f1f5f9; font-weight:600;">核心持仓：</div>
+      <div style="font-size:12px; color:#60a5fa; margin:6px 0; line-height:1.8;">
+        ① 招商银行A（ROE 14.49%，财富管理护城河）<br>
+        ② 建设银行H（大行ROE最优，H股折价+5.5%股息）<br>
+        ③ 邮储银行（大行最低不良率0.9%，NIM最高）
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:8px;">✅ 流动性最佳，规模大适合较大仓位配置</div>
+    </div>
+    <div class="card" style="border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.04);">
+      <div style="font-size:20px; margin-bottom:8px;">🛡️</div>
+      <div style="font-size:14px; font-weight:700; color:#fbbf24; margin-bottom:10px;">策略C：防御型高股息</div>
+      <div style="font-size:12px; color:#94a3b8; line-height:1.8; margin-bottom:10px;">目标：获取稳定5-6%年化股息，类债券防御配置</div>
+      <div style="font-size:13px; color:#f1f5f9; font-weight:600;">核心持仓：</div>
+      <div style="font-size:12px; color:#fbbf24; margin:6px 0; line-height:1.8;">
+        ① 工商银行H（股息率6%+，最大规模）<br>
+        ② 农业银行H（净利润增速最快大行+4.72%）<br>
+        ③ 建设银行H（ROE最优大行+H股折价）
+      </div>
+      <div style="font-size:11px; color:#64748b; margin-top:8px;">📌 H股通过沪深港通可直接购买</div>
+    </div>
+  </div>
+
+  <!-- 巴菲特视角：如果巴菲特看A股银行 -->
+  <div class="card" style="margin-bottom:24px; border-color:rgba(99,102,241,0.3);">
+    <h3 style="font-size:15px; color:#818cf8; margin-bottom:16px;">🎯 如果巴菲特看A股银行：他会选谁？</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div>
+        <p style="font-size:13px; color:#f1f5f9; font-weight:600; margin-bottom:10px;">对照巴菲特六条标准逐一打分：</p>
+        <div style="font-size:12px; color:#94a3b8; line-height:2.0;">
+          <div>① ROE ≥ 15%持续 → <strong style="color:#34d399;">成都+杭州 ✓</strong>，招商接近 ✓</div>
+          <div>② 管理层保守不冒进 → <strong style="color:#60a5fa;">招商银行 ✓</strong>（质量优先理念）</div>
+          <div>③ 低不良+高拨备 → <strong style="color:#34d399;">成都/杭州/宁波 ✓✓</strong></div>
+          <div>④ 非息收入 ≥ 30% → <strong style="color:#60a5fa;">仅招商 ✓</strong>（37.4%）</div>
+          <div>⑤ 危机折价买入机会 → <strong style="color:#fbbf24;">全行业当前PB均低估</strong></div>
+          <div>⑥ 持续分红+回购 → <strong style="color:#60a5fa;">招商（35.3%）+ H股大行 ✓</strong></div>
+        </div>
+      </div>
+      <div style="background:#080d1a; border-radius:8px; padding:16px;">
+        <p style="font-size:13px; font-weight:600; color:#f1f5f9; margin-bottom:12px;">巴菲特式最终选择：</p>
+        <div style="background:rgba(99,102,241,0.1); border:1px solid rgba(99,102,241,0.3); border-radius:8px; padding:12px; margin-bottom:10px;">
+          <div style="font-size:14px; font-weight:700; color:#818cf8; margin-bottom:4px;">🏆 第一选择：招商银行</div>
+          <div style="font-size:12px; color:#94a3b8; line-height:1.7;">ROE最高（股份行）、非息收入最高、管理层文化最优、财富管理护城河最深，与他钟爱的"消费者特许权"逻辑最近</div>
+        </div>
+        <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:12px;">
+          <div style="font-size:14px; font-weight:700; color:#34d399; margin-bottom:4px;">🥈 第二选择：成都/杭州银行</div>
+          <div style="font-size:12px; color:#94a3b8; line-height:1.7;">ROE绝对最高，资产质量极优，类似他当年买入富国银行的逻辑——区域深耕、质地最优、暂被低估</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最终结论 -->
+  <div class="conclusion">
+    <h3>📌 核心结论：银行股投资的三层认知</h3>
+    
+    <div class="con-highlight">
+      <strong>第一层：行业承压是暂时的，分化才是永久的</strong><br>
+      NIM下行是整个行业的挑战，但不是所有银行都一样。ROE相差1倍（3% vs 17.8%），这个差距不会因为行业压力而缩小——它会扩大。赌行业beta不如赌个股alpha。
+    </div>
+    
+    <div class="con-highlight">
+      <strong>第二层：银行有两种赚钱逻辑，买不同的银行等于买不同的生意</strong><br>
+      · <span style="color:#34d399;">高ROE城商行（成都/杭州）</span>：成长股逻辑，区域深耕，复利累积<br>
+      · <span style="color:#60a5fa;">招商银行</span>：护城河逻辑，财富管理+高端零售，类AXP模型<br>
+      · <span style="color:#fbbf24;">国有大行H股</span>：债券替代逻辑，5-6%稳定股息，保本保收益
+    </div>
+    
+    <div class="con-highlight">
+      <strong>第三层：巴菲特不买A股银行的真正原因≠A股银行不好</strong><br>
+      巴菲特不投资境外市场是因为信息获取成本、文化差异、汇率风险，而非认为中国银行质量差。若他投A股，参考其富国银行逻辑：<strong style="color:#818cf8;">ROE持续领先+管理层诚实+估值低于内在价值 = 买入</strong>。招商银行和成都银行完全符合。
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:20px;">
+      <div style="background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.2); border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:13px; font-weight:700; color:#34d399; margin-bottom:6px;">成长型首选</div>
+        <div style="font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:4px;">成都银行</div>
+        <div style="font-size:11px; color:#64748b;">ROE 17.8% · 不良0.66%<br>601838.SH</div>
+      </div>
+      <div style="background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.2); border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:13px; font-weight:700; color:#818cf8; margin-bottom:6px;">核心压舱</div>
+        <div style="font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:4px;">招商银行</div>
+        <div style="font-size:11px; color:#64748b;">ROE 14.49% · 非息37.4%<br>600036.SH</div>
+      </div>
+      <div style="background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.2); border-radius:8px; padding:14px; text-align:center;">
+        <div style="font-size:13px; font-weight:700; color:#fbbf24; margin-bottom:6px;">高股息防御</div>
+        <div style="font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:4px;">工商/农行H</div>
+        <div style="font-size:11px; color:#64748b;">股息率5-6% · 极度低PB<br>01398.HK / 01288.HK</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div><!-- /.container -->
+
+<div style="background:#0a0e1a; border-top:1px solid #1e293b; padding:24px; text-align:center; font-size:12px; color:#475569; margin-top:40px;">
+  数据来源：各银行2024年年度报告、国家金融监督管理总局、东方财富Choice数据 · 报告生成于2025年<br>
+  本报告仅供投资研究参考，不构成具体投资建议。投资有风险，入市需谨慎。
+</div>
+
+</body>
+</html>
