@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>油气能源股深度财报分析与投资图谱 2025</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #21262d;
+    --surface3: #30363d;
+    --primary: #58a6ff;
+    --accent: #79c0ff;
+    --gold: #f0c040;
+    --gold2: #c8860a;
+    --text: #e6edf3;
+    --text2: #b1bac4;
+    --text3: #8b949e;
+    --border: #30363d;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --purple: #bc8cff;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'PingFang SC','Microsoft YaHei',sans-serif; font-size: 15px; line-height: 1.7; }
+
+  .nav { background: #161b22; border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+  .nav-brand { color: var(--gold); font-weight: 700; font-size: 16px; text-decoration: none; }
+  .nav-sep { color: var(--text3); }
+  .nav-link { color: var(--text2); font-size: 13px; text-decoration: none; padding: 4px 10px; border-radius: 4px; transition: all 0.2s; }
+  .nav-link:hover, .nav-link.active { background: var(--surface3); color: var(--text); }
+  .nav-tag { background: var(--gold2); color: #fff; font-size: 11px; padding: 2px 7px; border-radius: 10px; margin-left: 4px; }
+
+  .hero { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border-bottom: 1px solid var(--border); padding: 56px 24px 48px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(240,192,64,0.08) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(88,166,255,0.05) 0%, transparent 60%); }
+  .hero-badge { display: inline-block; background: rgba(240,192,64,0.1); border: 1px solid rgba(240,192,64,0.3); color: var(--gold); padding: 6px 18px; border-radius: 20px; font-size: 12px; letter-spacing: 1px; margin-bottom: 16px; }
+  .hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; background: linear-gradient(90deg, #f0c040, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 1rem; color: var(--text2); margin-bottom: 32px; }
+  .hero-kpi { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .kpi-card { background: var(--surface); border: 1px solid var(--border); padding: 16px 22px; border-radius: 12px; min-width: 140px; }
+  .kpi-val { font-size: 1.7rem; font-weight: 800; color: var(--gold); }
+  .kpi-label { font-size: 11px; color: var(--text3); margin-top: 4px; }
+  .kpi-change { font-size: 12px; color: var(--green); margin-top: 2px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  .section { padding: 48px 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+  .section-num { background: var(--gold2); color: #fff; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+  .section-title { font-size: 1.3rem; font-weight: 700; color: var(--text); }
+  .section-desc { color: var(--text3); font-size: 13px; margin-left: auto; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 0 24px; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--card-shadow); }
+  .card-title { font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; }
+
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { background: var(--surface2); color: var(--gold); padding: 12px 16px; text-align: center; font-weight: 600; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 16px; text-align: center; border-bottom: 1px solid var(--border); color: var(--text2); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--surface2); }
+  .tag { padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-block; }
+  .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+  .tag-yellow { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .tag-blue { background: rgba(88,166,255,0.15); color: var(--primary); }
+  .tag-gold { background: rgba(240,192,64,0.15); color: var(--gold); }
+
+  .rank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .rank-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
+  .rank-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .rank-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+  .rank-bar-fill { height: 100%; border-radius: 4px; }
+  .rank-val { font-size: 13px; font-weight: 700; min-width: 60px; text-align: right; }
+
+  /* QUAD */
+  .quadrant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--surface3); border-radius: 14px; overflow: hidden; }
+  .quad { padding: 24px; min-height: 180px; }
+  .quad-title { font-size: 11px; color: var(--text3); margin-bottom: 12px; font-weight: 600; letter-spacing: 0.5px; }
+  .quad-dot { display: inline-flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; margin: 4px; font-size: 13px; font-weight: 600; }
+
+  .profile-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .profile-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .profile-header { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+  .profile-name { font-size: 1.1rem; font-weight: 700; }
+  .profile-score { font-size: 2rem; font-weight: 800; }
+  .profile-body { padding: 18px 20px; }
+  .dim-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .dim-label { font-size: 12px; color: var(--text3); width: 60px; flex-shrink: 0; }
+  .dim-bar-bg { flex: 1; height: 6px; background: var(--surface3); border-radius: 3px; overflow: hidden; }
+  .dim-bar-fill { height: 100%; border-radius: 3px; }
+  .dim-val { font-size: 12px; font-weight: 700; width: 30px; text-align: right; }
+
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+  .portfolio-card { background: var(--surface); border-radius: 14px; border: 1px solid var(--border); padding: 22px; }
+  .alloc-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .alloc-pct { font-size: 1.4rem; font-weight: 800; min-width: 52px; }
+  .alloc-bar-bg { flex: 1; height: 8px; background: var(--surface3); border-radius: 4px; overflow: hidden; }
+  .alloc-bar-fill { height: 100%; border-radius: 4px; }
+  .alloc-name { font-size: 13px; color: var(--text2); }
+
+  .highlight-box { background: rgba(240,192,64,0.05); border: 1px solid rgba(240,192,64,0.2); border-radius: 14px; padding: 22px 26px; margin-bottom: 24px; }
+
+  .footer { background: var(--surface); border-top: 1px solid var(--border); color: var(--text3); padding: 32px 24px; text-align: center; font-size: 13px; }
+  .footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .footer-link { color: var(--gold); text-decoration: none; padding: 4px 12px; border: 1px solid var(--border); border-radius: 6px; transition: all 0.2s; font-size: 13px; }
+  .footer-link:hover { background: var(--surface2); }
+  .footer-disc { font-size: 11px; opacity: 0.5; margin-top: 12px; }
+
+  @media (max-width:768px) {
+    .hero h1 { font-size: 1.4rem; }
+    .grid-2,.grid-3 { grid-template-columns: 1fr; }
+    .rank-grid,.profile-grid,.portfolio-grid { grid-template-columns: 1fr; }
+    .quadrant-grid { grid-template-columns: 1fr; }
+    .hero-kpi { flex-direction: column; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">📊 投研中心</a>
+  <span class="nav-sep">›</span>
+  <a href="油气能源行业深度研究报告2025.html" class="nav-link">行业研究</a>
+  <a href="油气能源股深度财报分析与投资图谱2025.html" class="nav-link active">财报图谱</a>
+  <a href="中国海油投资分析与交易策略2025.html" class="nav-link">海油策略 <span class="nav-tag">个股</span></a>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">📊 油气能源 · 深度财报分析 2025</div>
+    <h1>三桶油深度财报分析<br>与投资图谱</h1>
+    <p class="hero-sub">中国海油 · 中国石油 · 中国石化 全维度对比扫描</p>
+    <div class="hero-kpi">
+      <div class="kpi-card"><div class="kpi-val">3家</div><div class="kpi-label">主要龙头</div><div class="kpi-change">↑ 三桶油全覆盖</div></div>
+      <div class="kpi-card"><div class="kpi-val">6.43万亿</div><div class="kpi-label">三家合计营收（元）</div><div class="kpi-change">↑ 全球最大能源集团群</div></div>
+      <div class="kpi-card"><div class="kpi-val">3529亿</div><div class="kpi-label">三家合计净利润（元）</div><div class="kpi-change">↑ 日均净赚近10亿</div></div>
+      <div class="kpi-card"><div class="kpi-val">19.36%</div><div class="kpi-label">中国海油ROE</div><div class="kpi-change">↑ 三桶油最高</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- S1 全市场总览 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title">全市场总览：三桶油 A股核心标的</div>
+      <div class="section-desc">2024年年报数据</div>
+    </div>
+    <hr class="divider">
+    <div class="highlight-box">
+      <p style="font-size:14px;color:var(--text2);line-height:1.8">三桶油2024年合计营收约<strong style="color:var(--gold)">6.43万亿元</strong>，净利润<strong style="color:var(--gold)">3529亿元</strong>。中国海油以最小的营收规模（4205亿）创造了最高的净利率（32.81%）和ROE（19.36%），是三桶油中<strong style="color:var(--gold)">盈利质量最高</strong>的企业，也是全球纯上游油气公司中竞争力最强之一。</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>公司</th><th>代码</th><th>2024营收</th><th>YoY</th><th>净利润</th><th>YoY</th><th>净利率</th><th>ROE</th><th>PE</th><th>股息率</th><th>定位</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="font-weight:700;color:var(--gold)">中国海油 ⭐</td><td>600938</td>
+            <td><strong>4205亿</strong></td><td><span class="tag tag-green">+0.94%</span></td>
+            <td><strong>1379亿</strong></td><td><span class="tag tag-green">+11.38%</span></td>
+            <td><span class="tag tag-gold">32.81%</span></td><td><span class="tag tag-gold">19.36%</span></td>
+            <td><span class="tag tag-green">~15×</span></td><td>~4%</td><td><span class="tag tag-gold">纯上游</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">中国石油</td><td>601857</td>
+            <td><strong>2.9万亿</strong></td><td><span class="tag tag-red">-2.5%</span></td>
+            <td>1647亿</td><td><span class="tag tag-green">+2%</span></td>
+            <td>~5.7%</td><td>~10%</td>
+            <td><span class="tag tag-blue">~10×</span></td><td>~5%</td><td><span class="tag tag-blue">上中下游</span></td>
+          </tr>
+          <tr>
+            <td style="font-weight:700;color:var(--text)">中国石化</td><td>600028</td>
+            <td><strong>3.07万亿</strong></td><td><span class="tag tag-red">-4.29%</span></td>
+            <td>503亿</td><td><span class="tag tag-red">-16.79%</span></td>
+            <td>~1.6%</td><td>~5%</td>
+            <td><span class="tag tag-yellow">~12×</span></td><td>~6%</td><td><span class="tag tag-yellow">炼化为主</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S2 四维排行榜 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title">四维排行榜</div>
+      <div class="section-desc">净利润 · 净利率 · ROE · 股息率</div>
+    </div>
+    <hr class="divider">
+    <div class="rank-grid">
+      <div class="rank-card">
+        <div class="card-title">💰 净利润排行</div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--text)">中国石油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">1647亿</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--gold)">中国海油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:83%;background:var(--gold)"></div></div>
+          <div class="rank-val" style="color:var(--gold)">1379亿</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--text2)">中国石化</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:30%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">503亿</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="card-title">📈 净利率排行（盈利质量）</div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--gold)">中国海油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--gold)"></div></div>
+          <div class="rank-val" style="color:var(--gold)">32.81%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--primary)">中国石油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:17%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">5.7%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--text2)">中国石化</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:5%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">1.6%</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="card-title">🔬 ROE排行（资本效率）</div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--gold)">中国海油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--gold)"></div></div>
+          <div class="rank-val" style="color:var(--gold)">19.36%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--primary)">中国石油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:52%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">~10%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--text2)">中国石化</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:26%;background:var(--text3)"></div></div>
+          <div class="rank-val" style="color:var(--text3)">~5%</div>
+        </div>
+      </div>
+      <div class="rank-card">
+        <div class="card-title">💵 股息率排行</div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--text2)">中国石化</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:100%;background:var(--green)"></div></div>
+          <div class="rank-val" style="color:var(--green)">~6%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--primary)">中国石油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:83%;background:var(--primary)"></div></div>
+          <div class="rank-val" style="color:var(--primary)">~5%</div>
+        </div>
+        <div class="rank-item">
+          <div style="font-size:12px;min-width:60px;color:var(--gold)">中国海油</div>
+          <div class="rank-bar-bg"><div class="rank-bar-fill" style="width:66%;background:var(--gold)"></div></div>
+          <div class="rank-val" style="color:var(--gold)">~4%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 业务结构 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title">三大龙头业务结构拆解</div>
+      <div class="section-desc">上中下游业务占比与毛利率对比</div>
+    </div>
+    <hr class="divider">
+    <div class="grid-3">
+      <div class="card" style="border-top:3px solid var(--gold)">
+        <div class="card-title">🛢️ 中国海油（纯上游）</div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>油气勘探开采（中国区）</span><span style="color:var(--gold)">~65%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:65%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">渤海/南海核心资产，毛利率53%+</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>海外勘探开采</span><span style="color:var(--primary)">~18%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:18%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>供应链及国际</span><span style="color:var(--green)">~17%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:17%;height:100%;background:var(--green);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px">
+          <span style="color:var(--gold)">★ 纯上游，无炼化拖累，净利率32.8%</span>
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--primary)">
+        <div class="card-title">⚙️ 中国石油（一体化）</div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>勘探与生产</span><span style="color:var(--gold)">~25%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:25%;height:100%;background:var(--gold);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>炼油化工</span><span style="color:var(--primary)">~40%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:40%;height:100%;background:var(--primary);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">拖累整体净利率至5.7%</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>天然气销售+管道</span><span style="color:var(--green)">~35%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:35%;height:100%;background:var(--green);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px">
+          <span style="color:var(--primary)">✓ 规模最大，股息率5%，天然气管道护城河</span>
+        </div>
+      </div>
+      <div class="card" style="border-top:3px solid var(--yellow)">
+        <div class="card-title">🏭 中国石化（炼化为主）</div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>炼油业务</span><span style="color:var(--yellow)">~55%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:55%;height:100%;background:var(--yellow);border-radius:4px"></div></div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">2024年炼化利润受压，净利润-16.8%</div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>化工业务</span><span style="color:var(--text3)">~20%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:20%;height:100%;background:var(--text3);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px"><span>上游+销售+其他</span><span style="color:var(--text3)">~25%</span></div>
+          <div style="background:var(--surface3);border-radius:4px;height:8px;overflow:hidden"><div style="width:25%;height:100%;background:var(--green);border-radius:4px"></div></div>
+        </div>
+        <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px">
+          <span style="color:var(--yellow)">★ 分红率73%最高，加油站网络最大</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 ROE × 桶油成本四象限矩阵 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title">ROE × 桶油成本四象限矩阵</div>
+      <div class="section-desc">油气行业专属估值框架</div>
+    </div>
+    <hr class="divider">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px">
+      <div style="text-align:center;margin-bottom:8px;font-size:12px;color:var(--text3)">↑ ROE（高资本效率）</div>
+      <div class="quadrant-grid">
+        <div class="quad" style="background:rgba(240,192,64,0.06);border-right:1px solid var(--border)">
+          <div class="quad-title">🟡 最佳区 — 高ROE × 低桶油成本</div>
+          <div class="quad-dot" style="border-color:var(--gold);color:var(--gold)">
+            <span>🛢️</span><span>中国海油</span>
+            <span style="color:var(--text3);font-size:11px">ROE 19% · 成本28$/桶</span>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">纯上游模式 + 全球最低成本：每桶油利润比同业高20$以上，ROE高出西方同业近10个百分点</div>
+        </div>
+        <div class="quad" style="background:rgba(63,185,80,0.04)">
+          <div class="quad-title">🟢 理想区 — 高ROE × 高桶油成本</div>
+          <div class="quad-dot" style="border-color:var(--text3);color:var(--text3)">
+            <span>🌍</span><span>沙特阿美（非A股）</span>
+            <span style="color:var(--text3);font-size:11px">ROE 28% · 成本15$/桶</span>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">若包含国有性质和政策负担，沙特阿美仍是全球最优质资产，但中国资本无法自由配置</div>
+        </div>
+        <div class="quad" style="background:rgba(88,166,255,0.04);border-right:1px solid var(--border)">
+          <div class="quad-title">🔵 价值等待区 — 低ROE × 低成本</div>
+          <div class="quad-dot" style="border-color:var(--primary);color:var(--primary)">
+            <span>⛽</span><span>中国石油</span>
+            <span style="color:var(--text3);font-size:11px">ROE ~10% · 成本偏高</span>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">一体化拖累ROE，但规模最大、股息5%、PE最低~10×；若炼化改革或分拆上游，估值有修复空间</div>
+        </div>
+        <div class="quad" style="background:rgba(248,81,73,0.04)">
+          <div class="quad-title">🔴 谨慎区 — 低ROE × 高桶油成本</div>
+          <div class="quad-dot" style="border-color:var(--red);color:var(--red)">
+            <span>🏭</span><span>中国石化</span>
+            <span style="color:var(--text3);font-size:11px">ROE ~5% · 炼化拖累</span>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-top:12px">炼化业务受国际裂解价差影响大，2024年净利润下滑17%；高分红率73%是核心吸引力，但成长性弱</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text3)">← 低桶油成本（成本优势）　　　　　　　高桶油成本（成本劣势） →</div>
+      <div style="margin-top:16px;padding:14px;background:var(--surface2);border-radius:10px;font-size:13px;color:var(--text2)">
+        <strong style="color:var(--gold)">投资结论：</strong>当前时点，<strong style="color:var(--gold)">中国海油综合性价比最优</strong>——最低桶油成本+最高ROE+历史低PE，三重优势叠加，是油气板块核心配置标的。
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 深度画像 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title">TOP3 深度画像评分</div>
+      <div class="section-desc">6维综合评估 · 满分100</div>
+    </div>
+    <hr class="divider">
+    <div class="profile-grid">
+      <div class="profile-card" style="border-top:3px solid var(--gold)">
+        <div class="profile-header" style="background:rgba(240,192,64,0.08)">
+          <div class="profile-name" style="color:var(--gold)">🛢️ 中国海油 600938</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--gold)">92</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · S级 · 油气投资首选</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:100%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">20/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:85%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">17/20</span></div>
+          <div class="dim-row"><span class="dim-label">成本优势</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:100%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">20/20</span></div>
+          <div class="dim-row"><span class="dim-label">储量规模</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:80%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">16/20</span></div>
+          <div class="dim-row"><span class="dim-label">分红回报</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:75%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">15/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:90%;background:var(--gold)"></div></div><span class="dim-val" style="color:var(--gold)">18/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 桶油成本28$/桶全球最低，ROE 19.36%三桶油最高<br>✓ PE~15×历史低分位，安全边际充足<br>△ 业绩受油价周期影响较大
+          </div>
+        </div>
+      </div>
+      <div class="profile-card" style="border-top:3px solid var(--primary)">
+        <div class="profile-header" style="background:rgba(88,166,255,0.08)">
+          <div class="profile-name" style="color:var(--primary)">⛽ 中国石油 601857</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--primary)">78</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · A级 · 规模与分红</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:65%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">13/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:60%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">12/20</span></div>
+          <div class="dim-row"><span class="dim-label">成本优势</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:50%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">10/20</span></div>
+          <div class="dim-row"><span class="dim-label">储量规模</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:100%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">20/20</span></div>
+          <div class="dim-row"><span class="dim-label">分红回报</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:90%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">18/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:75%;background:var(--primary)"></div></div><span class="dim-val" style="color:var(--primary)">15/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 储量规模全球前三，天然气管道护城河深<br>✓ PE~10×最低，股息率5%<br>△ 炼化业务拖累ROE，净利率偏低
+          </div>
+        </div>
+      </div>
+      <div class="profile-card" style="border-top:3px solid var(--yellow)">
+        <div class="profile-header" style="background:rgba(210,153,34,0.08)">
+          <div class="profile-name" style="color:var(--yellow)">🏭 中国石化 600028</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-top:6px">
+            <div class="profile-score" style="color:var(--yellow)">65</div>
+            <span style="color:var(--text3);font-size:13px">/ 100 · B级 · 高分红防御</span>
+          </div>
+        </div>
+        <div class="profile-body">
+          <div class="dim-row"><span class="dim-label">盈利能力</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:30%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">6/20</span></div>
+          <div class="dim-row"><span class="dim-label">成长性</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:30%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">6/20</span></div>
+          <div class="dim-row"><span class="dim-label">成本优势</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:30%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">6/20</span></div>
+          <div class="dim-row"><span class="dim-label">储量规模</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:75%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">15/20</span></div>
+          <div class="dim-row"><span class="dim-label">分红回报</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:100%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">20/20</span></div>
+          <div class="dim-row"><span class="dim-label">估值性价</span><div class="dim-bar-bg"><div class="dim-bar-fill" style="width:55%;background:var(--yellow)"></div></div><span class="dim-val" style="color:var(--yellow)">11/20</span></div>
+          <div style="margin-top:12px;padding:10px;background:var(--surface2);border-radius:8px;font-size:12px;color:var(--text2)">
+            ★ 分红率73%最高，约3万座加油站最大网络<br>✓ 股息率6%，防御性最强<br>△ ROE仅5%，净利润2024年下滑17%
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 差异化对比 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title">三大龙头差异化深度对比</div>
+      <div class="section-desc">10个维度横向拉通</div>
+    </div>
+    <hr class="divider">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>中国海油 600938</th><th>中国石油 601857</th><th>中国石化 600028</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">核心定位</td><td>纯上游·最低成本</td><td>一体化·规模最大</td><td>炼化为主·高分红</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">净利率</td><td><strong style="color:var(--gold)">32.81%（最高）</strong></td><td>~5.7%</td><td>~1.6%（最低）</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">ROE</td><td><strong style="color:var(--gold)">19.36%（最高）</strong></td><td>~10%</td><td>~5%（最低）</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">桶油成本</td><td><strong style="color:var(--gold)">28$/桶（最低）</strong></td><td>~40$/桶</td><td>~60$/桶（最高）</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">PE估值</td><td>~15×</td><td><strong style="color:var(--green)">~10×（最低）</strong></td><td>~12×</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">股息率</td><td>~4%</td><td>~5%</td><td><strong style="color:var(--green)">~6%（最高）</strong></td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">分红率</td><td>44.7%</td><td>52.2%</td><td><strong style="color:var(--green)">73.3%（最高）</strong></td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">净利润增速</td><td><strong style="color:var(--gold)">+11.38%（最快）</strong></td><td>+2%</td><td>-16.79%（下滑）</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">油价敏感性</td><td><strong>最高弹性（纯上游）</strong></td><td>中等（上下游对冲）</td><td>较低（炼化受保护）</td></tr>
+          <tr><td style="text-align:left;font-weight:700;color:var(--text)">适合投资者</td><td>均衡/成长型</td><td>价值/防御型</td><td>收息/防御型</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- S7 组合配置建议 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title">组合配置建议</div>
+      <div class="section-desc">三种风险偏好 · 差异化方案</div>
+    </div>
+    <hr class="divider">
+    <div class="portfolio-grid">
+      <div class="portfolio-card" style="border-top:3px solid var(--green)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:14px">🛡️ 保守高息型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">以高股息防御，规避油价波动，追求稳定现金回报</p>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--primary)">50%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:50%;background:var(--primary)"></div></div></div><div class="alloc-name">中国石油（股息5%）</div></div>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--yellow)">30%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:30%;background:var(--yellow)"></div></div></div><div class="alloc-name">中国石化（股息6%）</div></div>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--gold)">20%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:20%;background:var(--gold)"></div></div></div><div class="alloc-name">中国海油（弹性）</div></div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：价值型·追求5%+股息收益</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--gold)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:14px">⚖️ 均衡成长型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">兼顾成长弹性与防御性，核心配置最优质资产</p>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--gold)">60%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:60%;background:var(--gold)"></div></div></div><div class="alloc-name">中国海油（核心）</div></div>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--primary)">30%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:30%;background:var(--primary)"></div></div></div><div class="alloc-name">中国石油（对冲）</div></div>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--yellow)">10%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:10%;background:var(--yellow)"></div></div></div><div class="alloc-name">中国石化（防御）</div></div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：均衡型·兼顾收益与成长</div>
+      </div>
+      <div class="portfolio-card" style="border-top:3px solid var(--red)">
+        <div style="font-weight:700;color:var(--text);margin-bottom:14px">🚀 进取弹性型</div>
+        <p style="font-size:13px;color:var(--text3);margin-bottom:14px">重仓最优质纯上游资产，充分享受油价弹性</p>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--gold)">90%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:90%;background:var(--gold)"></div></div></div><div class="alloc-name">中国海油（主仓）</div></div>
+        <div class="alloc-item"><div class="alloc-pct" style="color:var(--primary)">10%</div><div><div class="alloc-bar-bg"><div class="alloc-bar-fill" style="width:10%;background:var(--primary)"></div></div></div><div class="alloc-name">中国石油（对冲）</div></div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">适合：进取型·押注油价上行周期</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-links">
+    <a href="油气能源行业深度研究报告2025.html" class="footer-link">📋 行业研究</a>
+    <a href="油气能源股深度财报分析与投资图谱2025.html" class="footer-link">📊 财报图谱</a>
+    <a href="中国海油投资分析与交易策略2025.html" class="footer-link">🎯 海油策略</a>
+    <a href="index.html" class="footer-link">🏠 投研中心</a>
+  </div>
+  <div>油气能源股深度财报分析与投资图谱 2025 · 数据截至2025年4月</div>
+  <div class="footer-disc">本报告仅供研究参考，不构成任何投资建议。投资有风险，入市需谨慎。</div>
+</footer>
+
+</body>
+</html>

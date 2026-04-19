@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国海油投资分析与交易策略2025</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --gold: #c8860a;
+    --gold-light: #f0c040;
+    --gold-dim: rgba(200,134,10,0.15);
+    --gold-dim2: rgba(200,134,10,0.08);
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #ff6b35;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; line-height: 1.7; }
+
+  /* NAV */
+  nav { background: rgba(13,17,23,0.95); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(12px); }
+  .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; height: 56px; flex-wrap: wrap; }
+  .nav-logo { font-weight: 700; color: var(--gold-light); font-size: 15px; margin-right: 8px; white-space: nowrap; }
+  .nav-sep { color: var(--border); margin: 0 4px; }
+  .nav-link { color: var(--text2); text-decoration: none; font-size: 13px; padding: 6px 12px; border-radius: 6px; transition: all .2s; white-space: nowrap; }
+  .nav-link:hover { background: var(--bg3); color: var(--text); }
+  .nav-link.active { background: var(--gold-dim); color: var(--gold-light); border: 1px solid var(--gold); }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #0d1117 0%, #1a1200 40%, #0d1117 100%); padding: 72px 24px 56px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,134,10,0.18) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { display: inline-block; background: var(--gold-dim); border: 1px solid var(--gold); color: var(--gold-light); padding: 4px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+  .hero h1 span { color: var(--gold-light); }
+  .hero-sub { color: var(--text2); font-size: 16px; margin-bottom: 40px; }
+  .hero-kpi { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 32px; }
+  .kpi-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 28px; text-align: center; min-width: 160px; }
+  .kpi-card.gold { border-color: var(--gold); background: linear-gradient(135deg, var(--bg2), rgba(200,134,10,0.08)); }
+  .kpi-val { font-size: 28px; font-weight: 800; color: var(--gold-light); }
+  .kpi-val.green { color: var(--green); }
+  .kpi-val.blue { color: var(--blue); }
+  .kpi-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+  .hero-score { display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, var(--bg2), rgba(200,134,10,0.12)); border: 2px solid var(--gold); border-radius: 16px; padding: 16px 32px; }
+  .score-num { font-size: 48px; font-weight: 900; color: var(--gold-light); }
+  .score-info { text-align: left; }
+  .score-grade { font-size: 22px; font-weight: 700; color: var(--gold-light); }
+  .score-desc { font-size: 13px; color: var(--text2); }
+
+  /* LAYOUT */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 60px 24px; }
+  section:nth-child(odd) { background: var(--bg); }
+  section:nth-child(even) { background: var(--bg2); }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: clamp(20px, 3vw, 28px); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+  .section-title .icon { font-size: 24px; }
+  .section-title .gold-dot { width: 4px; height: 28px; background: var(--gold); border-radius: 2px; }
+  .section-sub { color: var(--text2); font-size: 14px; margin-bottom: 32px; }
+
+  /* CARDS */
+  .card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+  .card.gold-card { border-color: var(--gold); background: linear-gradient(135deg, var(--bg3), rgba(200,134,10,0.06)); }
+  .card-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: var(--gold-light); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+  /* BUSINESS SEGMENTS */
+  .seg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .seg-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .2s; }
+  .seg-card:hover { border-color: var(--gold); }
+  .seg-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .seg-name { font-size: 15px; font-weight: 700; }
+  .seg-pct { font-size: 22px; font-weight: 800; color: var(--gold-light); }
+  .seg-bar-bg { height: 8px; background: var(--bg2); border-radius: 4px; margin-bottom: 12px; }
+  .seg-bar { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .seg-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; border-bottom: 1px solid var(--border); }
+  .seg-row:last-child { border: none; }
+  .seg-row .label { color: var(--text2); }
+  .seg-row .val { font-weight: 600; }
+  .seg-row .val.green { color: var(--green); }
+  .seg-row .val.gold { color: var(--gold-light); }
+
+  /* FINANCIAL TABLE */
+  .fin-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .fin-table th { background: var(--bg3); color: var(--text2); font-weight: 600; padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--gold); }
+  .fin-table td { padding: 11px 16px; border-bottom: 1px solid var(--border); }
+  .fin-table tr:hover td { background: var(--gold-dim2); }
+  .fin-table .highlight { color: var(--gold-light); font-weight: 700; }
+  .fin-table .green { color: var(--green); }
+  .fin-table .red { color: var(--red); }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+  .badge-gold { background: var(--gold-dim); color: var(--gold-light); border: 1px solid var(--gold); }
+  .badge-green { background: rgba(63,185,80,0.15); color: var(--green); }
+  .badge-blue { background: rgba(88,166,255,0.15); color: var(--blue); }
+  .badge-red { background: rgba(248,81,73,0.15); color: var(--red); }
+
+  /* BUFFETT SCORE */
+  .buffett-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .buffett-item { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .buffett-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .buffett-name { font-size: 14px; font-weight: 600; }
+  .buffett-score { font-size: 20px; font-weight: 800; color: var(--gold-light); }
+  .buffett-max { color: var(--text2); font-size: 14px; }
+  .bar-bg { height: 10px; background: var(--bg2); border-radius: 5px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 5px; transition: width 1s; }
+  .bar-fill.gold { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .bar-fill.green { background: var(--green); }
+  .buffett-comment { font-size: 12px; color: var(--text2); margin-top: 8px; }
+  .buffett-total { text-align: center; background: linear-gradient(135deg, var(--bg3), rgba(200,134,10,0.1)); border: 2px solid var(--gold); border-radius: 16px; padding: 32px; }
+  .buffett-total-score { font-size: 64px; font-weight: 900; color: var(--gold-light); line-height: 1; }
+  .buffett-total-grade { font-size: 28px; font-weight: 700; color: var(--gold); margin-top: 8px; }
+  .buffett-total-desc { color: var(--text2); font-size: 14px; margin-top: 8px; }
+
+  /* VALUATION */
+  .val-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .val-card { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+  .val-card.active { border-color: var(--gold); background: linear-gradient(135deg, var(--bg3), rgba(200,134,10,0.1)); }
+  .val-method { font-size: 13px; color: var(--text2); margin-bottom: 8px; }
+  .val-range { font-size: 22px; font-weight: 800; color: var(--gold-light); }
+  .val-basis { font-size: 11px; color: var(--text2); margin-top: 6px; }
+
+  /* SCENARIO TABLE */
+  .scenario-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sc-card { background: var(--bg3); border-radius: var(--radius); padding: 24px; border: 2px solid var(--border); text-align: center; }
+  .sc-card.bull { border-color: var(--green); }
+  .sc-card.base { border-color: var(--gold); }
+  .sc-card.bear { border-color: var(--red); }
+  .sc-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+  .sc-card.bull .sc-title { color: var(--green); }
+  .sc-card.base .sc-title { color: var(--gold-light); }
+  .sc-card.bear .sc-title { color: var(--red); }
+  .sc-price { font-size: 36px; font-weight: 900; }
+  .sc-card.bull .sc-price { color: var(--green); }
+  .sc-card.base .sc-price { color: var(--gold-light); }
+  .sc-card.bear .sc-price { color: var(--red); }
+  .sc-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid var(--border); }
+  .sc-row:last-child { border: none; }
+  .sc-row .k { color: var(--text2); }
+
+  /* POSITION STRATEGY */
+  .pos-steps { display: flex; flex-direction: column; gap: 16px; }
+  .pos-step { display: flex; gap: 20px; align-items: flex-start; background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .pos-step.active { border-color: var(--gold); background: linear-gradient(135deg, var(--bg3), rgba(200,134,10,0.08)); }
+  .pos-num { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .pos-step.active .pos-num { background: var(--gold); color: #000; }
+  .pos-step:not(.active) .pos-num { background: var(--bg2); color: var(--text2); border: 1px solid var(--border); }
+  .pos-content h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .pos-content p { font-size: 13px; color: var(--text2); }
+  .pos-pct { font-size: 24px; font-weight: 800; color: var(--gold-light); margin-left: auto; flex-shrink: 0; }
+
+  /* RISK */
+  .risk-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .risk-item { background: var(--bg3); border-radius: var(--radius); padding: 20px; border-left: 4px solid; }
+  .risk-item.high { border-color: var(--red); }
+  .risk-item.mid { border-color: #e3a008; }
+  .risk-item.low { border-color: var(--green); }
+  .risk-level { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .risk-item.high .risk-level { background: rgba(248,81,73,0.15); color: var(--red); }
+  .risk-item.mid .risk-level { background: rgba(227,160,8,0.15); color: #e3a008; }
+  .risk-item.low .risk-level { background: rgba(63,185,80,0.15); color: var(--green); }
+  .risk-name { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .risk-desc { font-size: 13px; color: var(--text2); }
+  .risk-coping { font-size: 12px; color: var(--gold-light); margin-top: 6px; }
+
+  /* CATALYST */
+  .catalyst-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .catalyst-item { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; display: flex; gap: 14px; align-items: flex-start; }
+  .catalyst-icon { font-size: 24px; flex-shrink: 0; }
+  .catalyst-title { font-size: 14px; font-weight: 600; color: var(--gold-light); margin-bottom: 4px; }
+  .catalyst-desc { font-size: 13px; color: var(--text2); }
+  .catalyst-time { font-size: 11px; color: var(--blue); margin-top: 4px; }
+
+  /* CHECKLIST */
+  .checklist { display: flex; flex-direction: column; gap: 10px; }
+  .check-item { display: flex; gap: 12px; align-items: center; background: var(--bg3); border-radius: var(--radius-sm); padding: 12px 16px; font-size: 14px; }
+  .check-item .icon { font-size: 18px; }
+  .check-item.buy .icon { color: var(--green); }
+  .check-item.sell .icon { color: var(--red); }
+  .check-item.cut .icon { color: #e3a008; }
+
+  /* MOAT */
+  .moat-bars { display: flex; flex-direction: column; gap: 14px; }
+  .moat-row { display: flex; align-items: center; gap: 16px; }
+  .moat-label { width: 140px; font-size: 13px; color: var(--text2); flex-shrink: 0; }
+  .moat-track { flex: 1; height: 12px; background: var(--bg2); border-radius: 6px; overflow: hidden; }
+  .moat-track-fill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .moat-val { width: 40px; text-align: right; font-size: 13px; font-weight: 700; color: var(--gold-light); }
+
+  /* FOOTER */
+  footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 24px; text-align: center; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 24px; }
+  .footer-link { color: var(--text2); text-decoration: none; font-size: 13px; padding: 6px 16px; border-radius: 6px; border: 1px solid var(--border); transition: all .2s; }
+  .footer-link:hover { border-color: var(--gold); color: var(--gold-light); }
+  .footer-link.active { border-color: var(--gold); color: var(--gold-light); background: var(--gold-dim); }
+  .footer-copy { font-size: 13px; color: var(--text2); }
+  .footer-disclaimer { font-size: 12px; color: var(--text2); opacity: 0.6; margin-top: 8px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .buffett-grid, .scenario-cards { grid-template-columns: 1fr; }
+    .pos-step { flex-direction: column; }
+    .pos-pct { margin-left: 0; }
+    section { padding: 40px 16px; }
+    .hero { padding: 48px 16px 40px; }
+    .hero-kpi { gap: 10px; }
+    .kpi-card { min-width: 130px; padding: 14px 16px; }
+    .nav-inner { height: auto; padding: 8px 0; }
+  }
+
+  /* PROFIT SENSITIVITY */
+  .sens-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .sens-table th { background: var(--bg3); color: var(--text2); padding: 10px 14px; text-align: center; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--border); }
+  .sens-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+  .sens-table td.row-head { text-align: left; font-weight: 600; color: var(--text2); background: var(--bg3); }
+  .sens-table td.best { background: rgba(63,185,80,0.12); color: var(--green); font-weight: 700; }
+  .sens-table td.good { background: rgba(200,134,10,0.1); color: var(--gold-light); font-weight: 600; }
+  .sens-table td.warn { background: rgba(248,81,73,0.1); color: var(--red); }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box { background: linear-gradient(135deg, var(--bg3), rgba(200,134,10,0.1)); border: 1px solid var(--gold); border-radius: var(--radius); padding: 24px; }
+  .highlight-box p { font-size: 15px; line-height: 1.8; }
+  .highlight-box strong { color: var(--gold-light); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">🛢️ 油气能源 · 三报告套装</span>
+    <span class="nav-sep">|</span>
+    <a href="油气能源行业深度研究报告2025.html" class="nav-link">📊 行业研究</a>
+    <a href="油气能源股深度财报分析与投资图谱2025.html" class="nav-link">📈 财报图谱</a>
+    <a href="中国海油投资分析与交易策略2025.html" class="nav-link active">🎯 海油策略</a>
+    <span class="nav-sep">|</span>
+    <a href="index.html" class="nav-link">🏠 总目录</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">🛢️ 个股深度 · S级标的</div>
+  <h1>中国海油<span>（600938 / 00883）</span><br>投资分析与交易策略</h1>
+  <p class="hero-sub">全球最低桶油成本 × 纯上游高利润率 × 高分红价值重估 · 2025年版</p>
+
+  <div class="hero-kpi">
+    <div class="kpi-card gold">
+      <div class="kpi-val">3893亿</div>
+      <div class="kpi-label">2024年营收（元）</div>
+    </div>
+    <div class="kpi-card gold">
+      <div class="kpi-val green">1276亿</div>
+      <div class="kpi-label">2024年净利润 +11.4%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">32.7%</div>
+      <div class="kpi-label">净利率（行业顶尖）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">19.4%</div>
+      <div class="kpi-label">ROE（连续稳定）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val gold">28$</div>
+      <div class="kpi-label">桶油成本（全球最低）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-val">4.2%</div>
+      <div class="kpi-label">股息率（A股）</div>
+    </div>
+  </div>
+
+  <div class="hero-score">
+    <div class="score-num">88</div>
+    <div class="score-info">
+      <div class="score-grade">S级 · 巴菲特综合评分 88/100</div>
+      <div class="score-desc">原始分105/120 → 折算88分 · 能源板块首位</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: 公司概况与竞争护城河 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">🏭</span> 公司概况与核心竞争优势</div>
+    <p class="section-sub">中国海油是中国最大、全球领先的独立纯上游油气公司，专注于勘探、开发、生产，无下游炼化拖累</p>
+
+    <div class="grid-2" style="gap:24px; margin-bottom: 28px;">
+      <div class="card gold-card">
+        <div class="card-title">🎯 公司定位</div>
+        <p style="font-size:14px; line-height:1.9; color:var(--text2);">
+          中国海油（CNOOC）成立于1982年，是中国最大的海洋石油生产商，也是全球重要的独立勘探开采公司（E&P）。相较于中石油、中石化的"一体化"模式，海油专注于<strong style="color:var(--gold-light)">纯上游</strong>，从而规避了毛利极低的炼化业务，实现了行业内罕见的32%+净利率水平。
+        </p>
+        <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
+          <span class="badge badge-gold">A股+H股双上市</span>
+          <span class="badge badge-blue">纯上游E&P</span>
+          <span class="badge badge-green">国家队战略资产</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">📊 2024年核心财务数据</div>
+        <table class="fin-table">
+          <tr><td>营收</td><td class="highlight">3893亿元</td><td class="green">+3.5%</td></tr>
+          <tr><td>净利润</td><td class="highlight">1276亿元</td><td class="green">+11.4%</td></tr>
+          <tr><td>净利率</td><td class="highlight">32.7%</td><td>行业最高</td></tr>
+          <tr><td>ROE</td><td class="highlight">19.4%</td><td>持续稳定</td></tr>
+          <tr><td>每股收益</td><td class="highlight">2.68元</td><td class="green">↑</td></tr>
+          <tr><td>每股股息</td><td class="highlight">1.58元</td><td>A股股息率~4.2%</td></tr>
+          <tr><td>资产负债率</td><td class="highlight">34.2%</td><td>低杠杆</td></tr>
+          <tr><td>净现金流</td><td class="highlight">1850亿元</td><td class="green">充沛</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="moat-bars" style="margin-bottom:28px;">
+      <div style="font-size:16px; font-weight:700; margin-bottom:16px; color:var(--gold-light);">🏰 五维护城河评估</div>
+      <div class="moat-row">
+        <span class="moat-label">成本优势</span>
+        <div class="moat-track"><div class="moat-track-fill" style="width:97%"></div></div>
+        <span class="moat-val">97</span>
+      </div>
+      <div class="moat-row">
+        <span class="moat-label">资源储量</span>
+        <div class="moat-track"><div class="moat-track-fill" style="width:92%"></div></div>
+        <span class="moat-val">92</span>
+      </div>
+      <div class="moat-row">
+        <span class="moat-label">国家资产壁垒</span>
+        <div class="moat-track"><div class="moat-track-fill" style="width:95%"></div></div>
+        <span class="moat-val">95</span>
+      </div>
+      <div class="moat-row">
+        <span class="moat-label">分红能力</span>
+        <div class="moat-track"><div class="moat-track-fill" style="width:88%"></div></div>
+        <span class="moat-val">88</span>
+      </div>
+      <div class="moat-row">
+        <span class="moat-label">技术能力</span>
+        <div class="moat-track"><div class="moat-track-fill" style="width:82%"></div></div>
+        <span class="moat-val">82</span>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p>中国海油的核心竞争力可以一句话概括：<strong>全球上市油气公司中最低的桶油完全成本（约28美元/桶）</strong>，叠加中国海洋油气"先天垄断"资源禀赋，构成了极高的进入壁垒。当布伦特原油价格在70美元/桶以上时，海油每桶净利润超过30美元，利润弹性远超沙特阿美以外的任何大型石油公司。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: 四大资产区 / 产量增长 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">🗺️</span> 四大资产区 · 产量增长路径</div>
+    <p class="section-sub">海油在中国近海、海外四大资产区拥有核心权益储量，支撑未来5年持续产量增长</p>
+
+    <div class="seg-grid" style="margin-bottom:28px;">
+      <div class="seg-card">
+        <div class="seg-header">
+          <span class="seg-name">🌊 中国海域（核心）</span>
+          <span class="seg-pct">65%</span>
+        </div>
+        <div class="seg-bar-bg"><div class="seg-bar" style="width:65%"></div></div>
+        <div class="seg-row"><span class="label">主要作业区</span><span class="val">渤海 / 南海 / 东海</span></div>
+        <div class="seg-row"><span class="label">产量占比</span><span class="val gold">约65%</span></div>
+        <div class="seg-row"><span class="label">主力项目</span><span class="val">渤中 / 流花 / 陵水</span></div>
+        <div class="seg-row"><span class="label">深水战略</span><span class="val green">深水700m+快速推进</span></div>
+      </div>
+      <div class="seg-card">
+        <div class="seg-header">
+          <span class="seg-name">🌍 非洲资产</span>
+          <span class="seg-pct">12%</span>
+        </div>
+        <div class="seg-bar-bg"><div class="seg-bar" style="width:12%"></div></div>
+        <div class="seg-row"><span class="label">主要区块</span><span class="val">乌干达 / 刚果 / 尼日利亚</span></div>
+        <div class="seg-row"><span class="label">产量占比</span><span class="val gold">约12%</span></div>
+        <div class="seg-row"><span class="label">增长亮点</span><span class="val green">乌干达油田2026投产</span></div>
+      </div>
+      <div class="seg-card">
+        <div class="seg-header">
+          <span class="seg-name">🌏 亚太资产</span>
+          <span class="seg-pct">13%</span>
+        </div>
+        <div class="seg-bar-bg"><div class="seg-bar" style="width:13%"></div></div>
+        <div class="seg-row"><span class="label">主要区块</span><span class="val">印尼 / 澳大利亚 / 英国</span></div>
+        <div class="seg-row"><span class="label">产量占比</span><span class="val gold">约13%</span></div>
+        <div class="seg-row"><span class="label">LNG资产</span><span class="val">澳洲西北架液化</span></div>
+      </div>
+      <div class="seg-card">
+        <div class="seg-header">
+          <span class="seg-name">🌎 美洲资产</span>
+          <span class="seg-pct">10%</span>
+        </div>
+        <div class="seg-bar-bg"><div class="seg-bar" style="width:10%"></div></div>
+        <div class="seg-row"><span class="label">主要区块</span><span class="val">加拿大油砂 / 墨西哥湾</span></div>
+        <div class="seg-row"><span class="label">产量占比</span><span class="val gold">约10%</span></div>
+        <div class="seg-row"><span class="label">战略意义</span><span class="val">多元化 + 美元收益</span></div>
+      </div>
+    </div>
+
+    <div class="card gold-card">
+      <div class="card-title">📈 产量增长五年路径（百万桶油当量/日）</div>
+      <div style="overflow-x:auto;">
+        <table class="fin-table">
+          <thead>
+            <tr>
+              <th>年份</th>
+              <th>净产量（BOE/日）</th>
+              <th>同比增速</th>
+              <th>重大事件</th>
+              <th>桶油成本</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>2022</td><td class="highlight">576万桶/日</td><td class="green">+9.2%</td><td>历史首次超越ExxonMobil产量增速</td><td>28.9$</td></tr>
+            <tr><td>2023</td><td class="highlight">611万桶/日</td><td class="green">+6.1%</td><td>陵水17-2深水气田投产</td><td>27.8$</td></tr>
+            <tr><td>2024</td><td class="highlight">656万桶/日</td><td class="green">+7.4%</td><td>超额完成年度产量目标</td><td>28.0$</td></tr>
+            <tr><td>2025E</td><td class="highlight">700~720万桶/日</td><td class="green">+7%~+10%</td><td>流花油田二期 / 渤中26-6投产</td><td>~27.5$</td></tr>
+            <tr><td>2026~2030E</td><td class="highlight">800万桶/日+</td><td class="green">CAGR~6%</td><td>乌干达项目+深水大气田集群</td><td>目标&lt;27$</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: 历年财务趋势 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">📊</span> 历年财务趋势与盈利质量</div>
+    <p class="section-sub">五年财务数据全景，验证中国海油的盈利稳定性与现金流质量</p>
+
+    <div style="overflow-x:auto; margin-bottom:28px;">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>指标</th>
+            <th>2020</th>
+            <th>2021</th>
+            <th>2022</th>
+            <th>2023</th>
+            <th>2024</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>营收（亿元）</td><td>1591</td><td>2462</td><td>4022</td><td>3760</td><td class="highlight">3893</td></tr>
+          <tr><td>净利润（亿元）</td><td>250</td><td>703</td><td>1417</td><td>1145</td><td class="highlight">1276</td></tr>
+          <tr><td>净利率</td><td>15.7%</td><td>28.6%</td><td>35.2%</td><td>30.5%</td><td class="highlight">32.7%</td></tr>
+          <tr><td>ROE</td><td>7.1%</td><td>17.8%</td><td>28.1%</td><td>18.9%</td><td class="highlight">19.4%</td></tr>
+          <tr><td>EPS（元）</td><td>0.53</td><td>1.48</td><td>2.98</td><td>2.41</td><td class="highlight">2.68</td></tr>
+          <tr><td>每股股息（元）</td><td>0.40</td><td>0.70</td><td>0.91</td><td>1.33</td><td class="highlight">1.58</td></tr>
+          <tr><td>股息增长</td><td>—</td><td class="green">+75%</td><td class="green">+30%</td><td class="green">+46%</td><td class="green">+18.8%</td></tr>
+          <tr><td>经营现金流（亿元）</td><td>700</td><td>1300</td><td>2100</td><td>1800</td><td class="highlight">1850</td></tr>
+          <tr><td>资本支出（亿元）</td><td>420</td><td>500</td><td>620</td><td>700</td><td>750</td></tr>
+          <tr><td>自由现金流（亿元）</td><td>280</td><td>800</td><td>1480</td><td>1100</td><td class="highlight">1100</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">💰 分红提升路径</div>
+        <p style="font-size:13px; color:var(--text2); line-height:1.8;">2024年每股股息1.58元，<strong style="color:var(--gold-light)">2020~2024年CAGR股息增速约40%</strong>。管理层承诺：未来三年股息支付率不低于40%（H股不低于30%），叠加持续增长的净利润，股息增长具有高可见度。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🛡️ 油价抗压能力</div>
+        <p style="font-size:13px; color:var(--text2); line-height:1.8;">盈亏平衡油价约<strong style="color:var(--gold-light)">47$/桶</strong>，远低于行业平均（60~65$）。即使油价回落至55$/桶，海油净利润仍可维持600亿+，仍然超越中石油/中石化的利润体量。</p>
+      </div>
+      <div class="card">
+        <div class="card-title">📦 资产质量</div>
+        <p style="font-size:13px; color:var(--text2); line-height:1.8;">资产负债率仅34.2%，<strong style="color:var(--gold-light)">净现金持有量超1500亿元</strong>，无商誉、无大规模应收账款，资产质量远优于同行，抗周期能力极强。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: 巴菲特六大法则评分 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">📐</span> 巴菲特六大法则评分</div>
+    <p class="section-sub">六维×20分 = 120分满分，折算百分制。中国海油105/120 → 88/100，能源板块最高分</p>
+
+    <div class="buffett-grid" style="margin-bottom:28px;">
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">① 可理解性</span>
+          <span><span class="buffett-score">16</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:80%"></div></div>
+        <p class="buffett-comment">纯上游E&P模式清晰，商业逻辑简单：钻井→采油→卖给市场。但油价受地缘政治、OPEC政策影响，略降分。</p>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">② 持久竞争优势</span>
+          <span><span class="buffett-score">19</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:95%"></div></div>
+        <p class="buffett-comment">中国近海石油资源的独家经营权、全球最低桶油成本28$/桶，两者共同构筑极深的资源壁垒和成本护城河，接近满分。</p>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">③ 卓越管理层</span>
+          <span><span class="buffett-score">16</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:80%"></div></div>
+        <p class="buffett-comment">国企背景，战略连贯性强，资本支出纪律优秀（桶油成本逐年下降）。但市场化激励不足，扣减4分。</p>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">④ 盈利能力与ROE</span>
+          <span><span class="buffett-score">19</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:95%"></div></div>
+        <p class="buffett-comment">ROE 19.4%、净利率32.7%，显著优于任何A股能源公司，自由现金流转化率80%+，接近满分。</p>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">⑤ 价值增长性</span>
+          <span><span class="buffett-score">17</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:85%"></div></div>
+        <p class="buffett-comment">产量CAGR约6%，股息CAGR约40%（近5年），每股净资产持续增长。未来产量增长路径清晰，但能源转型长期风险存在。</p>
+      </div>
+      <div class="buffett-item">
+        <div class="buffett-head">
+          <span class="buffett-name">⑥ 合理估值</span>
+          <span><span class="buffett-score">18</span><span class="buffett-max">/20</span></span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill gold" style="width:90%"></div></div>
+        <p class="buffett-comment">当前A股PE约14x、PB约2.5x，对应4.2%股息率，相对全球同业（埃克森14x、壳牌10x）估值合理偏低，具吸引力。</p>
+      </div>
+    </div>
+
+    <div class="buffett-total">
+      <div class="buffett-total-score">88 <span style="font-size:28px; color:var(--text2)">/ 100</span></div>
+      <div class="buffett-total-grade">S级 · 原始分105/120</div>
+      <div class="buffett-total-desc">原始105分 ÷ 1.2 = 折算88分 · 能源板块最高评级<br>六维均在80分以上，竞争优势与盈利能力维度接近满分</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: 五维估值模型 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">💎</span> 五维估值模型 · 目标价区间</div>
+    <p class="section-sub">基于五种不同估值方法综合测算，给出目标价区间，当前A股价格约38元</p>
+
+    <div class="val-grid" style="margin-bottom:28px;">
+      <div class="val-card">
+        <div class="val-method">PE法（12~15x目标PE）</div>
+        <div class="val-range">40~50元</div>
+        <div class="val-basis">EPS 2.68元 × 15x~18x</div>
+      </div>
+      <div class="val-card active">
+        <div class="val-method">PB法（2.5~3.5x目标PB）</div>
+        <div class="val-range">43~60元</div>
+        <div class="val-basis">BPS 15.5元 × 2.8x~3.9x</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">DCF（WACC 8%）</div>
+        <div class="val-range">45~55元</div>
+        <div class="val-basis">油价75$/桶基准假设</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">股息折现（DDM）</div>
+        <div class="val-range">42~52元</div>
+        <div class="val-basis">股息增速10%，折现率7%</div>
+      </div>
+      <div class="val-card">
+        <div class="val-method">EV/EBITDA对标</div>
+        <div class="val-range">44~58元</div>
+        <div class="val-basis">目标倍数5.5x~7x</div>
+      </div>
+    </div>
+
+    <div class="card gold-card" style="text-align:center; padding:32px;">
+      <div style="font-size:15px; color:var(--text2); margin-bottom:12px;">五维估值综合区间（基准油价75~85$/桶）</div>
+      <div style="font-size:52px; font-weight:900; color:var(--gold-light);">43~58元</div>
+      <div style="font-size:15px; color:var(--text2); margin-top:8px;">较当前价格（约38元）上涨空间：<strong style="color:var(--green)">+13%~+53%</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: 三情景分析 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">🔮</span> 三情景分析 · 油价敏感性</div>
+    <p class="section-sub">中国海油股价与油价高度相关，三情景涵盖近年来油价波动区间</p>
+
+    <div class="scenario-cards" style="margin-bottom:28px;">
+      <div class="sc-card bull">
+        <div class="sc-title">🚀 乐观情景</div>
+        <div class="sc-price">55~70元</div>
+        <p style="font-size:12px; color:var(--text2); margin: 10px 0 14px;">概率：25%</p>
+        <div class="sc-row"><span class="k">布伦特油价</span><span style="color:var(--green)">85~95$/桶</span></div>
+        <div class="sc-row"><span class="k">净利润</span><span style="color:var(--green)">1400~1600亿</span></div>
+        <div class="sc-row"><span class="k">EPS</span><span style="color:var(--green)">2.95~3.36元</span></div>
+        <div class="sc-row"><span class="k">目标PE</span><span>18~21x</span></div>
+        <div class="sc-row"><span class="k">触发因素</span><span>地缘紧张 + OPEC减产</span></div>
+      </div>
+      <div class="sc-card base">
+        <div class="sc-title">⚖️ 基准情景</div>
+        <div class="sc-price">43~58元</div>
+        <p style="font-size:12px; color:var(--text2); margin: 10px 0 14px;">概率：55%</p>
+        <div class="sc-row"><span class="k">布伦特油价</span><span style="color:var(--gold-light)">75~85$/桶</span></div>
+        <div class="sc-row"><span class="k">净利润</span><span style="color:var(--gold-light)">1200~1400亿</span></div>
+        <div class="sc-row"><span class="k">EPS</span><span style="color:var(--gold-light)">2.52~2.94元</span></div>
+        <div class="sc-row"><span class="k">目标PE</span><span>15~18x</span></div>
+        <div class="sc-row"><span class="k">触发因素</span><span>宏观平稳 + 产量增长</span></div>
+      </div>
+      <div class="sc-card bear">
+        <div class="sc-title">🐻 悲观情景</div>
+        <div class="sc-price">28~38元</div>
+        <p style="font-size:12px; color:var(--text2); margin: 10px 0 14px;">概率：20%</p>
+        <div class="sc-row"><span class="k">布伦特油价</span><span style="color:var(--red)">60~70$/桶</span></div>
+        <div class="sc-row"><span class="k">净利润</span><span style="color:var(--red)">700~900亿</span></div>
+        <div class="sc-row"><span class="k">EPS</span><span style="color:var(--red)">1.47~1.89元</span></div>
+        <div class="sc-row"><span class="k">目标PE</span><span>15~19x（高股息支撑）</span></div>
+        <div class="sc-row"><span class="k">触发因素</span><span>衰退+OPEC增产</span></div>
+      </div>
+    </div>
+
+    <!-- 油价利润敏感性矩阵 -->
+    <div class="card gold-card">
+      <div class="card-title">📊 油价-净利润敏感性矩阵</div>
+      <div style="overflow-x:auto;">
+        <table class="sens-table">
+          <thead>
+            <tr>
+              <th>油价区间</th>
+              <th>净利润估算</th>
+              <th>EPS（元）</th>
+              <th>PE=14x目标价</th>
+              <th>PE=16x目标价</th>
+              <th>股息预估</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="row-head">90~100$/桶</td><td class="best">1500~1700亿</td><td class="best">3.15~3.57元</td><td class="best">44~50元</td><td class="best">50~57元</td><td class="best">1.7~2.0元</td></tr>
+            <tr><td class="row-head">80~90$/桶</td><td class="good">1300~1500亿</td><td class="good">2.73~3.15元</td><td class="good">38~44元</td><td class="good">44~50元</td><td class="good">1.5~1.8元</td></tr>
+            <tr><td class="row-head">75~80$/桶</td><td class="good">1100~1300亿</td><td class="good">2.31~2.73元</td><td class="good">32~38元</td><td class="good">37~44元</td><td class="good">1.3~1.6元</td></tr>
+            <tr><td class="row-head">65~75$/桶</td><td>800~1100亿</td><td>1.68~2.31元</td><td>24~32元</td><td>27~37元</td><td>1.0~1.4元</td></tr>
+            <tr><td class="row-head">&lt;65$/桶</td><td class="warn">600~800亿</td><td class="warn">1.26~1.68元</td><td class="warn">18~24元</td><td class="warn">20~27元</td><td class="warn">0.8~1.1元</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: 建仓策略与仓位管理 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">🎯</span> 三批建仓策略 · 仓位管理</div>
+    <p class="section-sub">基于价格区间逐步建仓，纪律性操作，当前价格已进入第一批建仓区</p>
+
+    <div class="pos-steps" style="margin-bottom:28px;">
+      <div class="pos-step active">
+        <div class="pos-num">1</div>
+        <div class="pos-content">
+          <h4>第一批 · 35~40元区间 ✅ 当前价格</h4>
+          <p>当前A股价格约38元，已在第一批建仓区间内。对应PE约14x、股息率约4.2%，具有安全边际。适合开始布局，建议以沪深300中性配置为基准，海油配置30%仓位。</p>
+        </div>
+        <div class="pos-pct">30%</div>
+      </div>
+      <div class="pos-step">
+        <div class="pos-num">2</div>
+        <div class="pos-content">
+          <h4>第二批 · 28~35元区间（若油价回落55~65$/桶）</h4>
+          <p>油价若跌破70$，股价可能回落至此区间。对应PE约12x、股息率约5%+，极具价值。此时应加仓至总仓位70%，摊薄持仓成本。</p>
+        </div>
+        <div class="pos-pct">40%</div>
+      </div>
+      <div class="pos-step">
+        <div class="pos-num">3</div>
+        <div class="pos-content">
+          <h4>第三批 · 低于28元区间（极端恐慌/系统性风险）</h4>
+          <p>若全球衰退导致油价深跌至60$以下，股价可能短暂击穿28元。此时为极端布局机会，海油盈亏平衡点约47$/桶，股息仍可维持。满仓加至100%，长线视角。</p>
+        </div>
+        <div class="pos-pct">30%</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="gap:20px;">
+      <div class="card gold-card">
+        <div class="card-title">✅ 止盈纪律</div>
+        <div class="checklist">
+          <div class="check-item sell">
+            <span class="icon">🔴</span>
+            <span>股价触及58元，减持30%至总仓位70%</span>
+          </div>
+          <div class="check-item sell">
+            <span class="icon">🔴</span>
+            <span>股价触及70元（乐观情景高端），减持至50%仓位</span>
+          </div>
+          <div class="check-item sell">
+            <span class="icon">🟡</span>
+            <span>油价持续半年超过90$/桶，评估是否过热减仓20%</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">🛑 止损原则</div>
+        <div class="checklist">
+          <div class="check-item cut">
+            <span class="icon">⚠️</span>
+            <span>布伦特原油连续跌破60$/桶超3个月，减仓观望</span>
+          </div>
+          <div class="check-item cut">
+            <span class="icon">⚠️</span>
+            <span>公司管理层宣布大幅提升桶油成本目标（超35$）</span>
+          </div>
+          <div class="check-item cut">
+            <span class="icon">⚠️</span>
+            <span>股息政策出现重大逆转（股息率低于2%），重新评估</span>
+          </div>
+          <div class="check-item cut">
+            <span class="icon">⚠️</span>
+            <span>ROE持续低于12%超两年，基本面恶化确认后离场</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: 催化剂 & 风险矩阵 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">⚡</span> 催化剂与风险矩阵</div>
+    <p class="section-sub">识别近期价格催化剂和中长期潜在风险，双向均衡分析</p>
+
+    <div style="font-size:16px; font-weight:700; margin-bottom:16px; color:var(--gold-light);">🚀 近期价格催化剂（12~18个月）</div>
+    <div class="catalyst-list" style="margin-bottom:36px;">
+      <div class="catalyst-item">
+        <span class="catalyst-icon">📈</span>
+        <div>
+          <div class="catalyst-title">产量超预期增长</div>
+          <div class="catalyst-desc">渤中26-6大油田正式投产，预计贡献净产量3~5%，可能超出市场预期</div>
+          <div class="catalyst-time">预期时间：2025H2</div>
+        </div>
+      </div>
+      <div class="catalyst-item">
+        <span class="catalyst-icon">💰</span>
+        <div>
+          <div class="catalyst-title">特别股息/提高分红比例</div>
+          <div class="catalyst-desc">现金积累超1500亿，管理层曾暗示可能推出特别分红，股息率潜在提升至5%+</div>
+          <div class="catalyst-time">预期时间：2025年报/中期报</div>
+        </div>
+      </div>
+      <div class="catalyst-item">
+        <span class="catalyst-icon">🌍</span>
+        <div>
+          <div class="catalyst-title">地缘紧张推升油价</div>
+          <div class="catalyst-desc">中东供应中断或OPEC超预期减产，布伦特突破90$/桶，直接正向利润弹性</div>
+          <div class="catalyst-time">预期时间：随时可能</div>
+        </div>
+      </div>
+      <div class="catalyst-item">
+        <span class="catalyst-icon">🏦</span>
+        <div>
+          <div class="catalyst-title">A/H溢价收窄 + 南向资金</div>
+          <div class="catalyst-desc">港股H股长期折价30%+，若沪深港通资金持续南向，A股可受港股估值牵引上修</div>
+          <div class="catalyst-time">预期时间：持续进行中</div>
+        </div>
+      </div>
+      <div class="catalyst-item">
+        <span class="catalyst-icon">🔬</span>
+        <div>
+          <div class="catalyst-title">深水大发现公告</div>
+          <div class="catalyst-desc">南海深水区持续勘探，历史上每次大型储量发现公告均能带动股价5~15%的正向反应</div>
+          <div class="catalyst-time">预期时间：不定期</div>
+        </div>
+      </div>
+      <div class="catalyst-item">
+        <span class="catalyst-icon">📊</span>
+        <div>
+          <div class="catalyst-title">指数纳入/权重提升</div>
+          <div class="catalyst-desc">A股回归后权重逐步稳定，若纳入MSCI权重进一步提升，被动资金流入可带来正向催化</div>
+          <div class="catalyst-time">预期时间：2025~2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="font-size:16px; font-weight:700; margin-bottom:16px; color:var(--red);">⚠️ 风险矩阵</div>
+    <div class="risk-matrix">
+      <div class="risk-item high">
+        <span class="risk-level">高风险</span>
+        <div class="risk-name">油价暴跌风险</div>
+        <div class="risk-desc">若全球经济衰退导致布伦特跌破60$/桶，净利润下降40%~50%，股价对应大幅承压</div>
+        <div class="risk-coping">应对：分批建仓，40%仓位留有子弹；持仓期间对冲油价期货</div>
+      </div>
+      <div class="risk-item high">
+        <span class="risk-level">高风险</span>
+        <div class="risk-name">地缘政治/制裁风险</div>
+        <div class="risk-desc">海外资产（非洲/美洲）若遭受制裁或政策限制，可能影响项目推进和国际融资</div>
+        <div class="risk-coping">应对：中国海域产量占65%，地缘风险对主体业务影响有限</div>
+      </div>
+      <div class="risk-item mid">
+        <span class="risk-level">中风险</span>
+        <div class="risk-name">能源转型长期风险</div>
+        <div class="risk-desc">全球碳中和进程加速，2030~2040年石油需求或见顶，长期储量价值面临折价</div>
+        <div class="risk-coping">应对：公司战略涵盖LNG和海上风电布局，已着手转型</div>
+      </div>
+      <div class="risk-item mid">
+        <span class="risk-level">中风险</span>
+        <div class="risk-name">资本支出扩张风险</div>
+        <div class="risk-desc">年度资本支出750亿，若大型海外项目超支或延期，自由现金流和股息压力上升</div>
+        <div class="risk-coping">应对：历史资本支出纪律优秀，桶油成本持续下降证明效率</div>
+      </div>
+      <div class="risk-item low">
+        <span class="risk-level">低风险</span>
+        <div class="risk-name">汇率风险</div>
+        <div class="risk-desc">油价以美元计价，若人民币升值则以人民币计算的营收缩水，但成本亦部分美元化</div>
+        <div class="risk-coping">应对：天然对冲，净影响相对有限</div>
+      </div>
+      <div class="risk-item low">
+        <span class="risk-level">低风险</span>
+        <div class="risk-name">流动性风险</div>
+        <div class="risk-desc">净现金超1500亿，资产负债率34%，几乎不存在债务流动性压力</div>
+        <div class="risk-coping">应对：财务状况极为稳健，无需担忧</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: 投资结论与核心逻辑 -->
+<section>
+  <div class="section-inner">
+    <div class="section-title"><span class="gold-dot"></span><span class="icon">🏆</span> 投资结论与核心逻辑</div>
+    <p class="section-sub">综合所有维度，给出明确的投资结论与底层逻辑框架</p>
+
+    <div class="highlight-box" style="margin-bottom:28px;">
+      <p style="font-size:16px; line-height:2;">
+        核心投资理念：中国海油是<strong>石油时代最后一个"超级廉价产油机器"</strong>。<br>
+        当全球大多数油公司在70$以下挣扎的时候，海油在47$就能盈利，在80$可以赚钱如印钞机（净利1200亿+），在90$可以达到1500亿级净利。<br>
+        叠加持续增长的<strong>产量</strong>（每年+6%~+8%）和<strong>股息</strong>（近5年CAGR约40%），这是一只在油价非极端情景下具有极强复利属性的价值标的。<br>
+        巴菲特曾重仓西方石油（Occidental），其逻辑与中国海油高度相似——<strong>桶油成本护城河 + 高股息 + 净现金积累</strong>。
+      </p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom:28px;">
+      <div class="card gold-card">
+        <div class="card-title">📌 多头核心逻辑</div>
+        <ul style="font-size:13px; color:var(--text2); line-height:2; padding-left:16px;">
+          <li>桶油成本28$，全球上市油企最低</li>
+          <li>产量CAGR约6%，增长路径最清晰</li>
+          <li>股息CAGR约40%，分红意愿强烈</li>
+          <li>ROE 19%+，资本效率优异</li>
+          <li>净现金1500亿，财务极度稳健</li>
+          <li>A股/H股双轨，价值发现空间大</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">⚠️ 主要风险要点</div>
+        <ul style="font-size:13px; color:var(--text2); line-height:2; padding-left:16px;">
+          <li>油价周期性风险是最大变量</li>
+          <li>能源转型长期压力不可忽视</li>
+          <li>地缘政治对海外资产存在风险</li>
+          <li>国企激励机制效率偏低</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">💡 适合的投资者</div>
+        <ul style="font-size:13px; color:var(--text2); line-height:2; padding-left:16px;">
+          <li>价值/红利投资偏好者</li>
+          <li>看好能源周期3~5年复苏</li>
+          <li>追求稳定股息收入</li>
+          <li>具备商品周期认知框架</li>
+          <li>能承受30%~40%的波动</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="card gold-card">
+      <div class="card-title" style="font-size:16px; margin-bottom:16px;">📋 综合评级摘要</div>
+      <div style="overflow-x:auto;">
+        <table class="fin-table">
+          <thead>
+            <tr><th>维度</th><th>评估</th><th>评级</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>基本面质量</td><td>桶油成本28$/桶全球最低，净利率32.7%，ROE19.4%，远超同行</td><td><span class="badge badge-gold">S级</span></td></tr>
+            <tr><td>成长性</td><td>产量CAGR 6%，深水战略推进，乌干达2026投产提供增量</td><td><span class="badge badge-green">优秀</span></td></tr>
+            <tr><td>估值</td><td>PE约14x，PB约2.5x，股息率4.2%，相对全球同业合理偏低</td><td><span class="badge badge-green">低估</span></td></tr>
+            <tr><td>股息能力</td><td>分红政策透明，股息支付率40%+，承诺持续提升</td><td><span class="badge badge-gold">A级</span></td></tr>
+            <tr><td>风险</td><td>油价周期性风险最大，财务风险极低，地缘风险可控</td><td><span class="badge badge-blue">中等</span></td></tr>
+            <tr><td>综合评级</td><td><strong style="color:var(--gold-light)">强烈买入 · 目标价43~58元 · 当前约38元</strong></td><td><span class="badge badge-gold">S级 88/100</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="油气能源行业深度研究报告2025.html" class="footer-link">📊 油气能源行业研究</a>
+    <a href="油气能源股深度财报分析与投资图谱2025.html" class="footer-link">📈 油气能源财报图谱</a>
+    <a href="中国海油投资分析与交易策略2025.html" class="footer-link active">🎯 中国海油个股策略</a>
+    <a href="index.html" class="footer-link">🏠 返回总目录</a>
+  </div>
+  <p class="footer-copy">© 2025 Investment Research Suite · 中国海油三报告套装</p>
+  <p class="footer-disclaimer">本报告仅供学习研究参考，不构成任何投资建议。投资有风险，决策需谨慎。</p>
+</footer>
+
+</body>
+</html>
