@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医药价值投资精选个股策略2025</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --card2: #1c2128;
+  --text: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent: #1a7a4a;
+  --accent-light: #3fb950;
+  --accent-glow: rgba(26,122,74,0.25);
+  --border: #30363d;
+  --green: #3fb950;
+  --red: #f85149;
+  --blue: #58a6ff;
+  --amber: #c8860a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* NAV */
+nav {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent-light);
+  text-decoration: none;
+}
+.nav-link {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.nav-link:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+.nav-link.active { background: var(--accent-glow); color: var(--accent-light); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #0d1117 0%, #0d2818 50%, #161b22 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(26,122,74,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--accent-glow);
+  border: 1px solid rgba(63,185,80,0.3);
+  color: var(--accent-light);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+.hero p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 36px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 14px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.kpi-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(63,185,80,0.2);
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.kpi-card:hover { border-color: rgba(63,185,80,0.5); }
+.kpi-label { font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; letter-spacing: 0.3px; }
+.kpi-value { font-size: 22px; font-weight: 800; color: var(--accent-light); line-height: 1.1; }
+.kpi-sub { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+
+/* SECTION */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.section-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+.section-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  padding-left: 44px;
+}
+hr.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.card-accent { border-left: 3px solid var(--accent); }
+.card-amber { border-left: 3px solid var(--amber); }
+.card-blue { border-left: 3px solid var(--blue); }
+.card-red { border-left: 3px solid var(--red); }
+
+/* REASON GRID (Chapter 1) */
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.reason-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+}
+.reason-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-light);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.reason-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.reason-body {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.quote-block {
+  background: rgba(26,122,74,0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  font-size: 14px;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.7;
+  margin: 14px 0;
+}
+.reject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.reject-card {
+  background: var(--card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+}
+.reject-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--red);
+  background: rgba(248,81,73,0.1);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+.reject-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.reject-reason {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* FLYWHEEL */
+.flywheel {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  padding: 16px 0;
+  margin-bottom: 28px;
+}
+.fw-node {
+  background: var(--card2);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 12px 16px;
+  text-align: center;
+  min-width: 110px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-light);
+  flex-shrink: 0;
+}
+.fw-arrow {
+  color: var(--accent);
+  font-size: 20px;
+  padding: 0 6px;
+  flex-shrink: 0;
+}
+
+/* BUSINESS CARDS */
+.biz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.biz-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  border-top: 3px solid var(--accent);
+}
+.biz-name { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.biz-rev { font-size: 12px; color: var(--accent-light); margin-bottom: 12px; }
+.biz-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.biz-label { font-size: 12px; color: var(--text-secondary); }
+.biz-val { font-size: 13px; font-weight: 600; color: var(--text); }
+.biz-bar-wrap { margin-top: 4px; }
+.biz-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.biz-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+/* MOAT GRID */
+.moat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.moat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.moat-icon {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: var(--accent-glow);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.moat-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.moat-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
+
+/* RISK CARDS */
+.risk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.risk-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  border-left: 3px solid var(--amber);
+}
+.risk-level {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+.risk-high { background: rgba(248,81,73,0.15); color: var(--red); }
+.risk-mid { background: rgba(200,134,10,0.15); color: var(--amber); }
+.risk-low { background: rgba(63,185,80,0.15); color: var(--green); }
+.risk-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+.risk-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; }
+
+/* BUFFETT SCORE */
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.score-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+}
+.score-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.score-dim { font-size: 14px; font-weight: 700; color: var(--text); }
+.score-val { font-size: 20px; font-weight: 800; color: var(--accent-light); }
+.score-max { font-size: 12px; color: var(--text-secondary); }
+.score-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 8px; }
+.score-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-light)); border-radius: 3px; }
+.score-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
+.total-score-box {
+  background: linear-gradient(135deg, rgba(26,122,74,0.2), rgba(63,185,80,0.1));
+  border: 2px solid var(--accent);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  margin-top: 20px;
+}
+.total-label { font-size: 13px; color: var(--text-secondary); margin-bottom: 6px; }
+.total-num { font-size: 52px; font-weight: 900; color: var(--accent-light); line-height: 1; margin-bottom: 4px; }
+.total-sub { font-size: 15px; color: var(--accent); font-weight: 600; }
+.grade-badge {
+  display: inline-block;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  color: var(--accent-light);
+  font-size: 14px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+/* VALUATION */
+.val-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.val-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+.val-method { font-size: 11px; font-weight: 700; color: var(--accent-light); letter-spacing: 0.5px; margin-bottom: 8px; }
+.val-range { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.val-unit { font-size: 11px; color: var(--text-secondary); }
+.val-conclusion {
+  background: linear-gradient(135deg, rgba(26,122,74,0.15), rgba(26,122,74,0.05));
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.val-conclusion-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+.val-conclusion-range { font-size: 28px; font-weight: 800; color: var(--accent-light); }
+.val-conclusion-desc { font-size: 13px; color: var(--text-secondary); margin-top: 6px; }
+
+/* SCENARIO TABLE */
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+.scenario-table th {
+  background: var(--card2);
+  color: var(--text-secondary);
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.scenario-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(48,54,61,0.5);
+  color: var(--text);
+}
+.scenario-table tr:last-child td { border-bottom: none; }
+.scenario-table tr:nth-child(odd) td { background: rgba(255,255,255,0.01); }
+.bull-row td:first-child { border-left: 3px solid var(--green); }
+.base-row td:first-child { border-left: 3px solid var(--blue); }
+.bear-row td:first-child { border-left: 3px solid var(--red); }
+.tag-bull { background: rgba(63,185,80,0.15); color: var(--green); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+.tag-base { background: rgba(88,166,255,0.15); color: var(--blue); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+.tag-bear { background: rgba(248,81,73,0.15); color: var(--red); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+
+/* POSITION PLAN */
+.position-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pos-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 20px;
+  align-items: center;
+}
+.pos-batch {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  flex-shrink: 0;
+}
+.pos-batch-1 { background: rgba(26,122,74,0.2); color: var(--accent-light); border: 2px solid var(--accent); }
+.pos-batch-2 { background: rgba(88,166,255,0.15); color: var(--blue); border: 2px solid var(--blue); }
+.pos-batch-3 { background: rgba(200,134,10,0.15); color: var(--amber); border: 2px solid var(--amber); }
+.pos-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.pos-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.pos-pct { font-size: 28px; font-weight: 800; text-align: center; }
+.pos-active { border-left: 3px solid var(--accent); }
+
+/* STOP RULES */
+.stop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.stop-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+.stop-header {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.stop-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.stop-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dot-green { background: rgba(63,185,80,0.15); color: var(--green); }
+.dot-red { background: rgba(248,81,73,0.15); color: var(--red); }
+
+/* PZH SECTION */
+.pzh-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.pzh-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+.pzh-name { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+.pzh-grade { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 6px; margin-bottom: 14px; display: inline-block; }
+.grade-s { background: rgba(63,185,80,0.2); color: var(--green); }
+.grade-a { background: rgba(200,134,10,0.2); color: var(--amber); }
+.compare-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(48,54,61,0.5); font-size: 13px; }
+.compare-row:last-child { border-bottom: none; }
+.compare-label { color: var(--text-secondary); }
+.compare-val { font-weight: 600; color: var(--text); }
+.recommend-badge {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+.recommend-now { background: rgba(63,185,80,0.15); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+.recommend-wait { background: rgba(200,134,10,0.15); color: var(--amber); border: 1px solid rgba(200,134,10,0.3); }
+
+/* PHILOSOPHY */
+.philosophy-section {
+  background: linear-gradient(135deg, #0d2818, #0d1117);
+  border: 1px solid rgba(63,185,80,0.2);
+  border-radius: 16px;
+  padding: 40px 36px;
+  margin-bottom: 24px;
+}
+.phil-block { margin-bottom: 32px; }
+.phil-block:last-child { margin-bottom: 0; }
+.phil-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-light);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+.phil-quote {
+  font-size: 17px;
+  color: var(--text);
+  line-height: 1.8;
+  font-style: italic;
+  position: relative;
+  padding-left: 20px;
+  border-left: 3px solid var(--accent);
+}
+.phil-source { font-size: 12px; color: var(--text-secondary); margin-top: 8px; font-style: normal; }
+.disclaimer-box {
+  background: rgba(248,81,73,0.05);
+  border: 1px solid rgba(248,81,73,0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.disclaimer-title { font-size: 14px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+.disclaimer-text { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+/* FOOTER */
+footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 28px 24px;
+  text-align: center;
+}
+.footer-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.footer-link {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+.footer-link:hover { color: var(--accent-light); border-color: var(--accent); }
+.footer-link.active-link { color: var(--accent-light); background: var(--accent-glow); border-color: var(--accent); }
+.footer-note { font-size: 12px; color: var(--text-secondary); opacity: 0.6; }
+
+@media (max-width: 768px) {
+  .flywheel { flex-direction: column; align-items: flex-start; }
+  .fw-arrow { transform: rotate(90deg); }
+  .stop-grid { grid-template-columns: 1fr; }
+  .pzh-compare { grid-template-columns: 1fr; }
+  .pos-card { grid-template-columns: auto 1fr; }
+  .pos-pct { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">💊 医药价值投资精选</a>
+  <a class="nav-link" href="./医药行业深度研究报告2025.html">🏥 行业研究</a>
+  <a class="nav-link" href="./医药股深度财报分析与投资图谱2025.html">📊 财报图谱</a>
+  <a class="nav-link active" href="#">🎯 精选策略</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">💊 医药行业价值投资指南</div>
+  <h1>医药价值投资精选个股策略2025</h1>
+  <p>好生意甄别 · 段永平/巴菲特标准 · 核心标的深度解析<br>只推荐真正值得长期持有的好生意</p>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">精选标的</div>
+      <div class="kpi-value">2家</div>
+      <div class="kpi-sub">迈瑞医疗 + 片仔癀</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">迈瑞医疗 ROE</div>
+      <div class="kpi-value">27%</div>
+      <div class="kpi-sub">A股医药行业第一</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">迈瑞净利率</div>
+      <div class="kpi-value">31.7%</div>
+      <div class="kpi-sub">2024年报数据</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">迈瑞国际化</div>
+      <div class="kpi-value">47%</div>
+      <div class="kpi-sub">海外收入持续提升</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">片仔癀护城河</div>
+      <div class="kpi-value">绝密</div>
+      <div class="kpi-sub">国家级秘密配方</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">迈瑞当前PE</div>
+      <div class="kpi-value">~25×</div>
+      <div class="kpi-sub">历史低位区间</div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CHAPTER 1 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">1</span>为什么只精选2家？</div>
+  <div class="section-desc">诚实的价值投资者，必须先承认大多数公司不适合投资，才能找到真正值得持有的少数几家</div>
+
+  <div class="reason-grid">
+    <div class="reason-card" style="border-top:3px solid var(--red)">
+      <div class="reason-num">LAYER 01 · 行业本质困难</div>
+      <div class="reason-title">⚠️ 大多数医药公司并非好生意</div>
+      <div class="reason-body">
+        <p style="margin-bottom:10px;">当我们深入分析医药行业，一个令人不舒服的真相浮出水面：<strong style="color:var(--text)">大多数医药公司，从商业模式角度看，并不是好生意。</strong></p>
+        <p style="margin-bottom:8px;">• <strong style="color:var(--text)">创新药：</strong>研发赌博游戏。10年10亿美元，成功率不足10%。专利到期后，护城河随之消失——这是一种"有到期日的护城河"。</p>
+        <p style="margin-bottom:8px;">• <strong style="color:var(--text)">仿制药：</strong>集采时代来临，一纸中标通知可以把利润砍掉80%。没有定价权就是没有护城河。</p>
+        <p style="margin-bottom:8px;">• <strong style="color:var(--text)">CXO：</strong>本质是服务业，高度依赖客户关系和地缘政治稳定性。当外部风险不可控时，再好的基本面也是空中楼阁。</p>
+        <p>只有极少数公司，凭借独特资源或生态锁定，拥有真正持久的护城河。</p>
+      </div>
+    </div>
+    <div class="reason-card" style="border-top:3px solid var(--accent)">
+      <div class="reason-num">LAYER 02 · 段永平标准</div>
+      <div class="reason-title">🏰 好生意的核心：不需要每年重新证明</div>
+      <div class="reason-body">
+        <div class="quote-block">
+          "好生意就是你不需要每年都重新证明自己的价值。消费者/客户记得你、依赖你，而不是每次都要比价。"<br>
+          <span style="font-size:12px;color:var(--text-secondary);font-style:normal;">— 段永平</span>
+        </div>
+        <p style="margin-bottom:8px;">用这个标准看医药：</p>
+        <p style="margin-bottom:8px;">• <strong style="color:var(--accent-light)">迈瑞医疗：</strong>医院买了一台迈瑞的监护仪，下次采购时会第一个想到迈瑞的血压计、呼吸机。设备越多，换成本越高，这是真正的生态锁定。</p>
+        <p style="margin-bottom:8px;">• <strong style="color:var(--accent-light)">片仔癀：</strong>用过片仔癀的患者，只认片仔癀。没有可替代的产品，因为配方是国家机密，没有仿制品。</p>
+        <p>这两家公司，每年都不需要"重新证明自己"——这才是好生意的本质。</p>
+      </div>
+    </div>
+    <div class="reason-card" style="border-top:3px solid var(--amber)">
+      <div class="reason-num">LAYER 03 · 诚实的说明</div>
+      <div class="reason-title">📋 为什么不推荐其他公司</div>
+      <div class="reason-body">
+        <p style="margin-bottom:12px;">我们不推荐以下公司，不是因为它们不优秀，而是因为它们的不确定性超过了价值投资者的能力圈边界：</p>
+        <div class="reject-grid">
+          <div class="reject-card">
+            <div class="reject-tag">研发风险</div>
+            <div class="reject-name">恒瑞医药</div>
+            <div class="reject-reason">研发费用占收入29.4%。研发本质上是赌博——单项目Ⅲ期失败率30%+。若你无法评估每条管线的临床价值，就无法评估这家公司的内在价值。巴菲特说："在你不理解的领域投资，是在冒险，不是在投资。"</div>
+          </div>
+          <div class="reject-card">
+            <div class="reject-tag">政策风险</div>
+            <div class="reject-name">药明康德</div>
+            <div class="reject-reason">《生物安全法案》的风险来自美国国会，不可通过研究公司本身来评估或预测。这是段永平最反感的风险类型——"不确定性来自公司外部且无法量化"。好的价值投资，风险应该可识别、可管理。</div>
+          </div>
+          <div class="reject-card">
+            <div class="reject-tag">商誉风险</div>
+            <div class="reject-name">爱尔眼科</div>
+            <div class="reject-reason">商业模式本身优秀，但130亿商誉叠加并购驱动扩张，让公司的真实净资产存疑。2024年扣非净利下滑11.82%，核心盈利动力减弱。模式好不等于当前适合投资。</div>
+          </div>
+          <div class="reject-card">
+            <div class="reject-tag">结构性分裂</div>
+            <div class="reject-name">云南白药</div>
+            <div class="reject-reason">工业板块毛利率高达68%，是优秀生意；但商业板块毛利率仅6%，严重拖累整体ROE。整体ROE仅13%，低于我们对好生意的基本要求（>15%）。高股息有吸引力，但不符合"好生意"标准。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 2 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">2</span>核心标的一 — 迈瑞医疗深度分析</div>
+  <div class="section-desc">全球第10大医疗设备商 · A股唯一全线覆盖国产医疗设备龙头 · 三重护城河叠加</div>
+
+  <!-- 2.1 商业模式 -->
+  <div style="margin-bottom:28px;">
+    <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);">2.1 商业模式 — 飞轮效应</div>
+    <div class="flywheel">
+      <div class="fw-node">进入医院<br>首台设备</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">建立<br>品牌信任</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">追加采购<br>同品牌产品</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">维护+耗材<br>形成锁定</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">国际化<br>复制扩张</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">研发增强<br>更好产品</div>
+      <div class="fw-arrow">→</div>
+      <div class="fw-node">覆盖<br>更多医院</div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;font-size:13px;color:var(--text-secondary);border-left:3px solid var(--accent);">
+      💡 <strong style="color:var(--text)">飞轮核心逻辑：</strong>医院采购医疗设备是一个一旦建立就难以逆转的决策。迈瑞通过三大产品线互补、覆盖医院核心科室，形成"越用越多、越多越黏"的生态锁定。这是任何竞争对手都无法轻易打破的护城河。
+    </div>
+  </div>
+
+  <!-- 2.2 三大业务 -->
+  <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);">2.2 三大业务板块财务数据（2024）</div>
+  <div class="biz-grid">
+    <div class="biz-card">
+      <div class="biz-name">💓 生命信息与支持</div>
+      <div class="biz-rev">营收约162亿 · 占总营收44%</div>
+      <div class="biz-row"><span class="biz-label">毛利率</span><span class="biz-val" style="color:var(--accent-light);">~65%</span></div>
+      <div class="biz-bar-wrap"><div class="biz-bar"><div class="biz-bar-fill" style="width:65%;"></div></div></div>
+      <div class="biz-row" style="margin-top:8px;"><span class="biz-label">国产替代率</span><span class="biz-val" style="color:var(--green);">从&lt;5%→20%+</span></div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;line-height:1.6;">监护仪、呼吸机、麻醉机等。国产替代空间最大，且基本不在集采范围内，是最安全的护城河板块。</div>
+    </div>
+    <div class="biz-card">
+      <div class="biz-name">🔬 体外诊断</div>
+      <div class="biz-rev">营收约117亿 · 占总营收32%</div>
+      <div class="biz-row"><span class="biz-label">毛利率</span><span class="biz-val" style="color:var(--accent-light);">~68%</span></div>
+      <div class="biz-bar-wrap"><div class="biz-bar"><div class="biz-bar-fill" style="width:68%;"></div></div></div>
+      <div class="biz-row" style="margin-top:8px;"><span class="biz-label">国际化程度</span><span class="biz-val" style="color:var(--blue);">进入欧美中高端</span></div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;line-height:1.6;">检测仪器+配套试剂，试剂有持续耗材属性。仪器进入医院后，试剂收入具有极高的稳定性和可预测性。</div>
+    </div>
+    <div class="biz-card">
+      <div class="biz-name">🏥 医学影像</div>
+      <div class="biz-rev">营收约88亿 · 占总营收24%</div>
+      <div class="biz-row"><span class="biz-label">毛利率</span><span class="biz-val" style="color:var(--accent-light);">~65%</span></div>
+      <div class="biz-bar-wrap"><div class="biz-bar"><div class="biz-bar-fill" style="width:65%;"></div></div></div>
+      <div class="biz-row" style="margin-top:8px;"><span class="biz-label">全球竞争力</span><span class="biz-val" style="color:var(--amber);">超声系列达到国际标准</span></div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;line-height:1.6;">超声诊断、数字X射线等。中低端已实现全面国产替代，高端超声正在追赶GE/飞利浦，是未来成长的重要来源。</div>
+    </div>
+  </div>
+
+  <!-- 2.3 护城河 -->
+  <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);">2.3 六大护城河深度评估</div>
+  <div class="moat-grid">
+    <div class="moat-card">
+      <div class="moat-icon">🏆</div>
+      <div><div class="moat-title">规模护城河</div><div class="moat-desc">全球第10大医疗设备厂商，中国国产医疗设备绝对龙头。规模带来研发摊薄效应，同等研发投入，迈瑞每单位产品的研发成本远低于竞争对手。</div></div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">🔬</div>
+      <div><div class="moat-title">技术护城河</div><div class="moat-desc">研发人员超1万名，专利超5000项，年研发投入约30亿元。三大产品线全自研，核心技术平台自主可控，技术壁垒持续加高。</div></div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">🌍</div>
+      <div><div class="moat-title">渠道护城河</div><div class="moat-desc">覆盖全球190+国家和地区，建立了直销与代理相结合的全球销售网络。国际渠道建设需要10~15年，后来者极难复制。</div></div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">⭐</div>
+      <div><div class="moat-title">品牌护城河</div><div class="moat-desc">"迈瑞"在国内医院已成为国产医疗设备的行业标准符号。在中低端市场，医院采购时"迈瑞"是首选考虑品牌，无需额外说服。</div></div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">🔗</div>
+      <div><div class="moat-title">生态护城河</div><div class="moat-desc">三大产品线互补，覆盖医院ICU/手术室/检验科/影像科核心科室。一旦医院建立迈瑞的设备体系，更换全套设备的成本和麻烦极高，形成强锁定。</div></div>
+    </div>
+    <div class="moat-card">
+      <div class="moat-icon">💰</div>
+      <div><div class="moat-title">成本护城河</div><div class="moat-desc">中国工程师红利：同等技术水平，迈瑞的研发和制造成本比飞利浦/GE低40%以上。这使迈瑞在中端市场具有几乎无法撼动的性价比优势。</div></div>
+    </div>
+  </div>
+
+  <!-- 2.4 风险 -->
+  <div style="font-size:16px;font-weight:700;color:var(--text);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);">2.4 主要风险客观评估</div>
+  <div class="risk-grid">
+    <div class="risk-card">
+      <div class="risk-level risk-mid">中等风险</div>
+      <div class="risk-title">国产替代边际效益递减</div>
+      <div class="risk-desc">中低端国产替代已基本完成，高端（大型CT/MRI/高端超声）仍被西门子/GE垄断。未来增量来自高端突破，难度显著提升。但这是成长上限的约束，而非护城河的威胁。</div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-level risk-low">低风险（相对）</div>
+      <div class="risk-title">海外政治风险</div>
+      <div class="risk-desc">医疗设备不像CXO那样高度敏感，但仍面临个别市场进入壁垒。迈瑞已通过多年布局降低了单一市场依赖。国际收入47%的分散化也是保护。</div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-level risk-low">短期压力已缓解</div>
+      <div class="risk-title">医疗反腐影响</div>
+      <div class="risk-desc">2023~2024年医疗反腐对医院采购节奏有明显冲击，2024年已逐步修复。这是周期性压力，不影响迈瑞的竞争地位和长期价值，反而提供了更低估值的买入机会。</div>
+    </div>
+    <div class="risk-card">
+      <div class="risk-level risk-low">基本可控</div>
+      <div class="risk-title">集采风险</div>
+      <div class="risk-desc">监护仪、呼吸机等主力产品基本不在集采范围内（仪器设备类）。部分耗材有一定集采影响，但仪器的整体营收占比更高，集采对迈瑞的实质影响远小于骨科/支架类企业。</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 3 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">3</span>巴菲特六维评分 — 迈瑞医疗</div>
+  <div class="section-desc">满分120分（每维20分），折算百分制，综合评定投资等级</div>
+
+  <div class="score-grid">
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">🏰 护城河宽度</div>
+        <div><span class="score-val">19</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:95%;"></div></div>
+      <div class="score-desc">三重护城河（生态锁定+技术+品牌）叠加，仅次于垄断性资产。六大护城河中有五项具有高持久性，扣1分因高端市场仍未突破。</div>
+    </div>
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">👔 管理层质量</div>
+        <div><span class="score-val">18</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:90%;"></div></div>
+      <div class="score-desc">创始人李西廷仍在职（深圳大学教授出身），保持长期主义文化，研发投入多年维持高比例。管理层持股比例高，与股东利益一致。</div>
+    </div>
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">💎 财务健康度</div>
+        <div><span class="score-val">18</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:90%;"></div></div>
+      <div class="score-desc">ROE 27%连续多年，净利润现金含量高，资产负债率合理，几乎无有息负债。自由现金流强劲，财务质量A股医药顶级。</div>
+    </div>
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">📈 盈利能力</div>
+        <div><span class="score-val">18</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:90%;"></div></div>
+      <div class="score-desc">净利率31.7%，毛利率66%，均处全球医疗设备行业前列。盈利能力稳定且有可预测性，不依赖单一产品或客户。</div>
+    </div>
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">🌱 成长空间</div>
+        <div><span class="score-val">17</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:85%;"></div></div>
+      <div class="score-desc">全球医疗设备市场超5000亿美元，迈瑞市场份额不足2%。国际化收入占比47%持续提升，成长空间巨大。扣3分因高端突破不确定性。</div>
+    </div>
+    <div class="score-item">
+      <div class="score-header">
+        <div class="score-dim">🛡️ 安全边际</div>
+        <div><span class="score-val">15</span><span class="score-max">/20</span></div>
+      </div>
+      <div class="score-bar"><div class="score-bar-fill" style="width:75%;"></div></div>
+      <div class="score-desc">PE约25×处历史低位（历史均值~35×），有一定安全边际，但并非极度低估。合理估值区间，非击球甜区，适合分批建仓。</div>
+    </div>
+  </div>
+
+  <div class="total-score-box">
+    <div class="total-label">巴菲特六维总分（满分120分）</div>
+    <div class="total-num">105</div>
+    <div class="total-sub">折算百分制：88/100</div>
+    <div class="grade-badge">S级 — 医药行业价值投资首选</div>
+    <div style="font-size:13px;color:var(--text-secondary);margin-top:14px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">
+      迈瑞医疗是A股医药行业中，我们能找到的最接近"买了就不用担心"的公司。护城河持久、财务健康、成长空间大、管理层可信——四项核心标准全部达到优秀级别。
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 4 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">4</span>五维估值模型 — 迈瑞医疗</div>
+  <div class="section-desc">5种独立估值方法交叉验证，综合得出合理目标价区间</div>
+
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="val-method">📊 PE估值法</div>
+      <div class="val-range">117~187元</div>
+      <div class="val-unit">合理PE区间25~40× · EPS约4.68元</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;text-align:left;">当前PE约25×对应117元（当前价附近）；历史合理PE均值35×对应164元。</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">📐 PEG法</div>
+      <div class="val-range">125~165元</div>
+      <div class="val-unit">未来3年净利增速预计10~15%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;text-align:left;">PEG=1.5~2（优质成长给予溢价），对应PE 15%~30%，目标价125~165元。</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">📏 ROE/PB法</div>
+      <div class="val-range">175~280元</div>
+      <div class="val-unit">ROE 27% × PB 2.5~4× · 净资产~70元</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;text-align:left;">ROE持续27%，合理PB应在2.5~4×，对应175~280元（本方法偏乐观）。</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">💰 DCF自由现金流</div>
+      <div class="val-range">130~180元</div>
+      <div class="val-unit">FCF约100亿/年 · 折现率8% · 成长5%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;text-align:left;">稳态自由现金流100亿，永续成长5%，折现率8%，DCF内在价值对应约130~180元。</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">📈 历史估值百分位</div>
+      <div class="val-range">165~200元</div>
+      <div class="val-unit">历史PE中位数~35× · 当前25%分位</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:10px;text-align:left;">当前PE处历史低位，回归历史中位数（35×）对应165元，回归75%分位（42×）对应约200元。</div>
+    </div>
+  </div>
+
+  <div class="val-conclusion">
+    <div class="val-conclusion-label">五维综合目标价区间（3年维度）</div>
+    <div class="val-conclusion-range">125 ~ 175 元</div>
+    <div class="val-conclusion-desc">较当前约117元，资本增值空间 +7%~+50%<br>叠加高质量复利成长，3年综合期望收益 <strong style="color:var(--accent-light);">30%~80%</strong></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 5 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">5</span>三情景分析 — 迈瑞医疗</div>
+  <div class="section-desc">基于不同经营假设的股价区间测算，帮助投资者理解风险收益分布</div>
+
+  <div style="overflow-x:auto;">
+    <table class="scenario-table">
+      <thead>
+        <tr>
+          <th>情景</th>
+          <th>概率</th>
+          <th>核心假设</th>
+          <th>净利预测</th>
+          <th>对应目标价</th>
+          <th>涨跌幅</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bull-row">
+          <td><span class="tag-bull">乐观</span></td>
+          <td style="color:var(--green);font-weight:700;">25%</td>
+          <td>国际化超预期突破，海外收入占比升至55%；医疗反腐影响完全消散；PE修复至35×</td>
+          <td>140亿+，增速>15%</td>
+          <td style="color:var(--green);font-weight:700;">180~230元</td>
+          <td style="color:var(--green);font-weight:700;">+54%~+97%</td>
+        </tr>
+        <tr class="base-row">
+          <td><span class="tag-base">基准</span></td>
+          <td style="color:var(--blue);font-weight:700;">60%</td>
+          <td>国际化稳步推进，营收增速10~15%；PE维持25~30×；国内市场平稳回复</td>
+          <td>125~135亿</td>
+          <td style="color:var(--blue);font-weight:700;">130~175元</td>
+          <td style="color:var(--blue);font-weight:700;">+11%~+50%</td>
+        </tr>
+        <tr class="bear-row">
+          <td><span class="tag-bear">悲观</span></td>
+          <td style="color:var(--red);font-weight:700;">15%</td>
+          <td>医疗反腐持续冲击；国际化受地缘政治干扰；增速降至<5%；PE回落至20×</td>
+          <td>110~120亿</td>
+          <td style="color:var(--red);font-weight:700;">90~115元</td>
+          <td style="color:var(--red);font-weight:700;">-23%~-2%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;border-left:3px solid var(--accent-light);">
+    <div style="font-size:14px;font-weight:700;color:var(--accent-light);margin-bottom:10px;">📊 期望收益计算</div>
+    <div style="font-size:13px;color:var(--text-secondary);line-height:1.8;">
+      加权期望收益 = 25%×(+75%) + 60%×(+30%) + 15%×(-12%) ≈ <strong style="color:var(--text);font-size:16px;">+34%</strong>（3年）
+      <br>即便叠加最保守假设，只要迈瑞护城河未受实质威胁，持有3年的期望收益仍然正向且可观。
+      <br><strong style="color:var(--accent-light);">关键认知：悲观情景概率仅15%，且悲观情景中亏损有限（最大-23%），而乐观情景中收益高达+97%。风险收益比极为不对称。</strong>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 6 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">6</span>次要精选 — 片仔癀补充分析</div>
+  <div class="section-desc">中药界的爱马仕 · 独特资源垄断 · 消费者非理性偏爱 · 当前需等待合理价格</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;" class="responsive-grid">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:13px;font-weight:700;color:var(--accent-light);margin-bottom:12px;">片仔癀的价值投资逻辑</div>
+      <div style="font-size:13.5px;color:var(--text-secondary);line-height:1.8;">
+        <p style="margin-bottom:10px;">片仔癀是段永平最认可的那类生意：<strong style="color:var(--text)">消费者不理性地偏爱，且没有替代品。</strong></p>
+        <p style="margin-bottom:8px;">🔒 <strong style="color:var(--text)">护城河（极宽）：</strong>麝香+牛黄+田七的国家级绝密配方，任何人都无法复制。商务部独家出口许可，壁垒来自政策层面，几乎永久有效。</p>
+        <p style="margin-bottom:8px;">💰 <strong style="color:var(--text)">定价权（极强）：</strong>每粒760元，可持续提价，消费者认可度极高。每次提价后销量不减，这是真正的定价权。</p>
+        <p style="margin-bottom:8px;">⚠️ <strong style="color:var(--text)">缺点：</strong>成长性有限（靠提价不靠扩量），分红率极低（铁公鸡），PE 55×目前偏贵。</p>
+        <p>📌 <strong style="color:var(--amber);">结论：</strong>长期持有有价值，但需要在合理价格买入。</p>
+      </div>
+    </div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;">
+      <div style="font-size:13px;font-weight:700;color:var(--accent-light);margin-bottom:12px;">片仔癀估值分析</div>
+      <div style="font-size:13.5px;color:var(--text-secondary);line-height:1.8;">
+        <p style="margin-bottom:10px;">片仔癀的估值逻辑更接近消费品而非医药，参考茅台的PE定价框架：</p>
+        <p style="margin-bottom:8px;">📊 <strong style="color:var(--text)">当前PE：~55×</strong>（偏贵，但有品牌溢价支撑）</p>
+        <p style="margin-bottom:8px;">🎯 <strong style="color:var(--text)">合理PE区间：40~50×</strong>（基于独特性溢价）</p>
+        <p style="margin-bottom:8px;">💹 <strong style="color:var(--text)">2024净利润：~28亿，EPS约7.3元</strong></p>
+        <p style="margin-bottom:8px;">🎯 <strong style="color:var(--accent-light);">目标价：260~320元</strong>（对应PE 35~44×）</p>
+        <p style="margin-bottom:8px;">📉 <strong style="color:var(--amber);">当前价约420元</strong>，仍有~24%下行空间才到买入区</p>
+        <p>⏳ <strong style="color:var(--text);">建议：</strong>等待回调至260~320元区间再考虑布局</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+    <div style="background:var(--card2);padding:14px 20px;font-size:14px;font-weight:700;color:var(--text);border-bottom:1px solid var(--border);">迈瑞医疗 vs 片仔癀 — 综合对比</div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:var(--card2);">
+            <th style="padding:10px 16px;text-align:left;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border);">维度</th>
+            <th style="padding:10px 16px;text-align:center;color:var(--accent-light);font-weight:700;border-bottom:1px solid var(--border);">迈瑞医疗</th>
+            <th style="padding:10px 16px;text-align:center;color:var(--amber);font-weight:700;border-bottom:1px solid var(--border);">片仔癀</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">好生意质量评级</td>
+            <td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--green);border-bottom:1px solid rgba(48,54,61,0.5);">S级 · 88/100</td>
+            <td style="padding:10px 16px;text-align:center;font-weight:700;color:var(--amber);border-bottom:1px solid rgba(48,54,61,0.5);">A+级 · 82/100</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">ROE（2024）</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--text);border-bottom:1px solid rgba(48,54,61,0.5);">27%（行业第一）</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--text);border-bottom:1px solid rgba(48,54,61,0.5);">22%</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">成长性</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--green);border-bottom:1px solid rgba(48,54,61,0.5);">高（国际化+国产替代）</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--amber);border-bottom:1px solid rgba(48,54,61,0.5);">中（提价为主）</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">护城河可持续性</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--text);border-bottom:1px solid rgba(48,54,61,0.5);">技术+品牌+生态（持久）</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--text);border-bottom:1px solid rgba(48,54,61,0.5);">国家绝密配方（永久）</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">当前估值</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--green);border-bottom:1px solid rgba(48,54,61,0.5);">PE~25× · 合理偏低 ✅</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--red);border-bottom:1px solid rgba(48,54,61,0.5);">PE~55× · 偏贵 ⚠️</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);border-bottom:1px solid rgba(48,54,61,0.5);">分红慷慨度</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--text);border-bottom:1px solid rgba(48,54,61,0.5);">中等（50%+）</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--red);border-bottom:1px solid rgba(48,54,61,0.5);">低（铁公鸡）</td>
+          </tr>
+          <tr>
+            <td style="padding:10px 16px;color:var(--text-secondary);">当前操作建议</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--green);font-weight:700;">可分批建仓 ✅</td>
+            <td style="padding:10px 16px;text-align:center;color:var(--amber);font-weight:700;">等待回调至PE&lt;40× ⏳</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 7 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">7</span>三批建仓计划 — 迈瑞医疗</div>
+  <div class="section-desc">分批买入降低时机风险，用系统纪律代替情绪决策</div>
+
+  <div class="position-grid">
+    <div class="pos-card pos-active">
+      <div class="pos-batch pos-batch-1">第一批<br>30%</div>
+      <div>
+        <div class="pos-title">✅ 当前价位 110~125元 · PE 约23~27×</div>
+        <div class="pos-desc">
+          <strong style="color:var(--accent-light);">触发信号：</strong>PE≤25×，处历史低位30%分位以下<br>
+          <strong style="color:var(--text);">建仓逻辑：</strong>好公司在合理估值买入，长期确定性高。当前PE处历史区间底部，无需等待更低价格，先建立仓位。<br>
+          <span style="color:var(--green);font-size:12px;font-weight:700;">🟢 当前已触发，可开始布局</span>
+        </div>
+      </div>
+      <div class="pos-pct" style="color:var(--green);">30%</div>
+    </div>
+    <div class="pos-card">
+      <div class="pos-batch pos-batch-2">第二批<br>40%</div>
+      <div>
+        <div class="pos-title">⏳ 等待价位 90~110元 · PE 约19~23×</div>
+        <div class="pos-desc">
+          <strong style="color:var(--blue);">触发条件：</strong>市场恐慌性下跌 / 医疗政策短期冲击 / 整体系统性下行<br>
+          <strong style="color:var(--text);">建仓逻辑：</strong>优质公司下跌是加仓机会，不是逃跑信号。PE低于20×时，安全边际显著提升。<br>
+          <span style="color:var(--blue);font-size:12px;font-weight:700;">🔵 等待触发，备好资金</span>
+        </div>
+      </div>
+      <div class="pos-pct" style="color:var(--blue);">40%</div>
+    </div>
+    <div class="pos-card">
+      <div class="pos-batch pos-batch-3">第三批<br>30%</div>
+      <div>
+        <div class="pos-title">🎯 极低价位 &lt;90元 · PE &lt;19×</div>
+        <div class="pos-desc">
+          <strong style="color:var(--amber);">触发条件：</strong>系统性大跌 / 极端悲观情绪 / 非基本面原因暴跌<br>
+          <strong style="color:var(--text);">建仓逻辑：</strong>DCF内在价值约130~180元，低于90元时提供巨大安全边际，是历史性买入机会。<br>
+          <span style="color:var(--amber);font-size:12px;font-weight:700;">🟡 底仓准备，极端情况下全力布局</span>
+        </div>
+      </div>
+      <div class="pos-pct" style="color:var(--amber);">30%</div>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg,rgba(26,122,74,0.1),rgba(26,122,74,0.05));border:1px solid rgba(63,185,80,0.3);border-radius:12px;padding:20px;text-align:center;">
+    <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">满仓平均持仓成本目标</div>
+    <div style="font-size:24px;font-weight:800;color:var(--accent-light);">100 ~ 115 元</div>
+    <div style="font-size:13px;color:var(--text-secondary);margin-top:6px;">对应未来股息率+资本增值，综合年化回报预期 <strong style="color:var(--text);">15%~20%</strong></div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 8 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">8</span>持有策略与止盈止损规则</div>
+  <div class="section-desc">系统性规则优于临场判断，纪律保护投资者免于恐惧和贪婪</div>
+
+  <div style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:20px;border-left:3px solid var(--accent);">
+    <div style="font-size:14px;font-weight:700;color:var(--accent-light);margin-bottom:8px;">🧭 持有的核心判断标准</div>
+    <div style="font-size:13.5px;color:var(--text-secondary);line-height:1.8;">
+      持有迈瑞只需要每年确认三件事：<br>
+      ① <strong style="color:var(--text);">国际化是否在推进</strong>（海外收入是否持续增长）<br>
+      ② <strong style="color:var(--text);">ROE是否维持在20%以上</strong>（护城河是否稳固）<br>
+      ③ <strong style="color:var(--text);">管理层是否继续以股东利益为先</strong>（研发投入、分红政策是否正常）<br>
+      三项均满足 → 继续持有，不要因为短期股价波动而轻易动摇。
+    </div>
+  </div>
+
+  <div class="stop-grid">
+    <div class="stop-card" style="border-top:3px solid var(--green)">
+      <div class="stop-header" style="color:var(--green)">📈 止盈规则（5条）</div>
+      <div class="stop-item">
+        <div class="stop-dot dot-green">1</div>
+        <div>PE>45×（市值超4500亿）→ 分批减仓20%，锁定部分利润</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-green">2</div>
+        <div>PE>60×（明显泡沫迹象）→ 大幅减仓至底仓20%，防止情绪化持有</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-green">3</div>
+        <div>国际化受阻（海外收入连续2年负增长）→ 重新评估成长逻辑</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-green">4</div>
+        <div>ROE持续下滑至15%以下 → 审视护城河是否正在消退</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-green">5</div>
+        <div>持有5年累计回报（股价+股息）超过买入价100% → 可考虑兑现一部分</div>
+      </div>
+    </div>
+    <div class="stop-card" style="border-top:3px solid var(--red)">
+      <div class="stop-header" style="color:var(--red)">🛑 止损规则（5条）</div>
+      <div class="stop-item">
+        <div class="stop-dot dot-red">1</div>
+        <div>集采范围扩大至监护仪/超声主机 → 立即减仓50%，基本面发生根本性变化</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-red">2</div>
+        <div>净利润连续2季度同比下滑>20% → 深度调研，若非暂时性则减仓</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-red">3</div>
+        <div>重大质量事故（大规模产品召回）→ 立即评估护城河损伤程度</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-red">4</div>
+        <div>竞争对手在中低端实现技术反超（有实证数据）→ 竞争格局评估</div>
+      </div>
+      <div class="stop-item">
+        <div class="stop-dot dot-red">5</div>
+        <div>创始人李西廷突然离任且接班人不明 → 暂停加仓，观察管理层变化影响</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CHAPTER 9 -->
+<section class="section">
+  <div class="section-title"><span class="section-num">9</span>投资核心理念</div>
+  <div class="section-desc">价值投资在医药领域的应用哲学 · 诚实面对能力圈边界</div>
+
+  <div class="philosophy-section">
+    <div class="phil-block">
+      <div class="phil-label">💬 段永平视角</div>
+      <div class="phil-quote">
+        投资就是找到好生意，然后在合理价格买入，长期持有。迈瑞医疗是A股医药中少有的"买了就不用担心"的生意——它不需要你每天追踪新药管线，不需要担心专利悬崖，不需要理解复杂的化学结构。你只需要相信一件事：全球医院未来10年会购买越来越多的医疗设备，而迈瑞是最有竞争力的制造商之一。
+        <div class="phil-source">— 基于段永平"好生意"投资哲学的应用分析</div>
+      </div>
+    </div>
+
+    <div class="phil-block">
+      <div class="phil-label">💬 巴菲特式总结</div>
+      <div class="phil-quote">
+        在医药这个复杂的行业，真正适合普通价值投资者的公司很少。迈瑞医疗像是医疗设备行业的"可口可乐"——不是因为产品会让人上瘾，而是因为一旦医院建立了迈瑞的设备体系，更换的成本和麻烦极高，这就是真正的护城河。护城河不需要被每天证明，它每天都在发挥作用。
+        <div class="phil-source">— 基于巴菲特"护城河"投资哲学的应用分析</div>
+      </div>
+    </div>
+
+    <div class="phil-block">
+      <div class="phil-label">💡 关于片仔癀的价值哲学</div>
+      <div class="phil-quote">
+        片仔癀的逻辑更像奢侈品——它的价值来自稀缺性和消费者的"非理性偏爱"。在价值投资的世界里，这恰恰是最强大的护城河形式：消费者不因为价格而选择，而是因为别无选择。但好生意在错误的价格买入依然是坏投资，片仔癀需要在合理估值时才值得重仓持有。
+        <div class="phil-source">— 基于段永平"消费者认知壁垒"的应用分析</div>
+      </div>
+    </div>
+
+    <div class="disclaimer-box">
+      <div class="disclaimer-title">⚠️ 诚实的能力圈声明</div>
+      <div class="disclaimer-text">
+        我们不推荐恒瑞医药作为当前首选，不是因为公司不好，而是因为创新药的投资需要专业的医学背景来评估管线价值。每一条新药管线的临床数据，需要医学专家才能判断其真实意义。如果你没有这样的专业背景，押注创新药本质上是在不确定性上做赌博——这违背了价值投资"只在你能理解的生意上投资"的基本原则。
+        <br><br>
+        我们不推荐药明康德，不是因为公司经营差，而是因为其最大风险来自外部政策（美国《生物安全法案》），这种风险无法通过分析公司本身来评估或预测。巴菲特有一个原则：如果你的投资分析依赖于"政策不会变坏"这个假设，那这个分析从根基上就是脆弱的。
+        <br><br>
+        <strong style="color:var(--text);">承认自己的能力圈边界，不是弱点，而是价值投资者最重要的品质之一。</strong>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--card);border:1px solid rgba(63,185,80,0.25);border-radius:14px;padding:28px;text-align:center;">
+    <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">医药价值投资终极总结</div>
+    <div style="font-size:18px;font-weight:700;color:var(--text);line-height:1.7;max-width:680px;margin:0 auto 16px;">
+      在A股医药行业，我们找到了<span style="color:var(--accent-light);">2家</span>真正符合价值投资标准的公司。<br>
+      这不是因为医药行业机会少，而是因为好生意本来就是少数。
+    </div>
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <div style="background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.3);border-radius:10px;padding:16px 24px;min-width:200px;">
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;">首选标的</div>
+        <div style="font-size:18px;font-weight:800;color:var(--accent-light);">迈瑞医疗</div>
+        <div style="font-size:12px;color:var(--text-secondary);">当前可分批建仓</div>
+      </div>
+      <div style="background:rgba(200,134,10,0.1);border:1px solid rgba(200,134,10,0.3);border-radius:10px;padding:16px 24px;min-width:200px;">
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;">次要标的</div>
+        <div style="font-size:18px;font-weight:800;color:var(--amber);">片仔癀</div>
+        <div style="font-size:12px;color:var(--text-secondary);">等待PE&lt;40×再布局</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a class="footer-link" href="./医药行业深度研究报告2025.html">🏥 医药行业深度研究报告</a>
+    <a class="footer-link" href="./医药股深度财报分析与投资图谱2025.html">📊 医药股财报分析与投资图谱</a>
+    <a class="footer-link active-link" href="#">💊 医药价值投资精选策略</a>
+    <a class="footer-link" href="./index.html">🏠 返回总目录</a>
+  </div>
+  <div class="footer-note">本报告仅供学习研究参考，不构成任何投资建议。投资有风险，入市需谨慎。数据来源：各公司2024年年报及公开信息。</div>
+</footer>
+
+</body>
+</html>
