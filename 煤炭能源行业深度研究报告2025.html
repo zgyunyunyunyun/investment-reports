@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>煤炭能源行业深度研究报告2025</title>
+<style>
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #1a1a2e;
+  --text-secondary: #4a5568;
+  --primary: #1a3a5c;
+  --accent: #c8860a;
+  --accent2: #1a6b3c;
+  --border: #e2e8f0;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 32px rgba(0,0,0,0.14);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* NAV */
+.nav {
+  position: sticky;
+  top: 0;
+  background: var(--primary);
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nav-brand {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.nav-links a.active { background: var(--accent); color: #fff; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #0e2240 60%, #1a4a2e 100%);
+  color: #fff;
+  padding: 64px 24px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(200,134,10,0.15);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(26,107,60,0.12);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200,134,10,0.25);
+  border: 1px solid rgba(200,134,10,0.5);
+  color: #f0c040;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.hero h1 span { color: #f0c040; }
+.hero p {
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 40px;
+}
+.hero-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.hero-kpi {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hero-kpi:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+.hero-kpi .value {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  color: #f0c040;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.hero-kpi .label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+.hero-kpi .change {
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+.change-up { color: #4ade80; }
+.change-down { color: #f87171; }
+
+/* MAIN */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+.section { margin-bottom: 48px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.section-num {
+  width: 36px; height: 36px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.section-subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.section-divider {
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  width: 80px;
+}
+
+/* CARD */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+.card:hover { box-shadow: var(--shadow-hover); }
+
+/* KPI GRID */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+.kpi-card:hover { transform: translateY(-2px); }
+.kpi-card .kpi-icon { font-size: 24px; margin-bottom: 8px; }
+.kpi-card .kpi-val { font-size: 24px; font-weight: 800; color: var(--primary); }
+.kpi-card .kpi-label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.kpi-card .kpi-change { font-size: 12px; font-weight: 600; margin-top: 4px; }
+
+/* BULL BEAR */
+.bull-bear-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.bull-side { border-left: 4px solid #16a34a; }
+.bear-side { border-left: 4px solid #dc2626; }
+.side-title {
+  font-size: 15px;
+  font-weight: 700;
+  padding: 12px 16px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bull-side .side-title { color: #16a34a; }
+.bear-side .side-title { color: #dc2626; }
+.argument-list { list-style: none; padding: 0 16px 16px; }
+.argument-list li {
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.argument-list li:last-child { border-bottom: none; }
+.arg-icon { flex-shrink: 0; margin-top: 1px; }
+.arg-main { font-weight: 600; color: var(--text); }
+.arg-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  white-space: nowrap;
+}
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child { border-radius: 0 8px 0 0; }
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f8fafc; }
+.td-center { text-align: center; }
+.td-highlight { font-weight: 700; color: var(--primary); }
+.td-accent { color: var(--accent); font-weight: 700; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 36px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent), var(--accent2));
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 28px 20px;
+}
+.tl-dot {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px rgba(200,134,10,0.2);
+}
+.tl-year {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+.tl-title { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* TRACK BARS */
+.track-grid { display: grid; gap: 20px; }
+.track-item { }
+.track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.track-name { font-size: 15px; font-weight: 700; }
+.track-score {
+  font-size: 14px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.score-high { background: #dcfce7; color: #16a34a; }
+.score-mid { background: #fef9c3; color: #b45309; }
+.score-low { background: #fee2e2; color: #dc2626; }
+.track-bar-bg {
+  height: 10px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.track-bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 1s ease;
+}
+.track-desc { font-size: 12px; color: var(--text-secondary); margin-top: 6px; }
+
+/* COMPANY SCORES */
+.company-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.company-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s;
+}
+.company-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.company-card.top { border-top: 3px solid var(--accent); }
+.company-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.company-name { font-size: 16px; font-weight: 700; color: var(--primary); }
+.company-code { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.company-badge {
+  font-size: 13px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--primary);
+  color: #fff;
+}
+.company-badge.s { background: linear-gradient(135deg, var(--accent), #e8a020); }
+.company-badge.a { background: #1d4ed8; }
+.company-badge.b { background: #64748b; }
+.company-score-bar {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.company-score-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+.company-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.tag-accent { background: rgba(200,134,10,0.1); color: var(--accent); border-color: rgba(200,134,10,0.3); }
+
+/* RADAR */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.radar-legend { display: flex; flex-direction: column; gap: 10px; }
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* STRATEGY CARDS */
+.strategy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.strategy-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.strategy-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.strategy-card.a::before { background: #16a34a; }
+.strategy-card.b::before { background: var(--primary); }
+.strategy-card.c::before { background: #dc2626; }
+.strategy-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.strategy-type {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+.strategy-name { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+.strategy-alloc { margin-bottom: 14px; }
+.alloc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.alloc-item:last-child { border-bottom: none; }
+.alloc-pct { font-weight: 700; color: var(--accent); }
+.strategy-target {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+.strategy-target .target-val { font-size: 18px; font-weight: 800; color: var(--primary); }
+
+/* RISK MATRIX */
+.risk-matrix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+.risk-quad {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+.risk-quad.hh { border-left: 4px solid #dc2626; }
+.risk-quad.hl { border-left: 4px solid #f97316; }
+.risk-quad.lh { border-left: 4px solid #eab308; }
+.risk-quad.ll { border-left: 4px solid #22c55e; }
+.risk-quad-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.risk-quad.hh .risk-quad-label { color: #dc2626; }
+.risk-quad.hl .risk-quad-label { color: #f97316; }
+.risk-quad.lh .risk-quad-label { color: #eab308; }
+.risk-quad.ll .risk-quad-label { color: #22c55e; }
+.risk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  border-bottom: 1px dashed var(--border);
+}
+.risk-item:last-child { border-bottom: none; }
+.risk-icon { flex-shrink: 0; font-size: 14px; }
+.risk-text { }
+.risk-title { font-weight: 600; color: var(--text); }
+.risk-detail { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+
+/* FOOTER */
+.footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.7);
+  padding: 36px 24px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.footer-brand { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+.footer-links a:hover, .footer-links a.active { color: #f0c040; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+.footer-disclaimer {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 12px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .bull-bear-grid { grid-template-columns: 1fr; }
+  .company-grid { grid-template-columns: 1fr; }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .risk-matrix { grid-template-columns: 1fr; }
+  .nav-inner { height: auto; padding: 10px 16px; }
+  .main { padding: 24px 16px; }
+  .hero { padding: 40px 16px 36px; }
+  .radar-wrap { flex-direction: column; }
+}
+@media (max-width: 480px) {
+  .hero-kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-icon">⛏️</div>
+      <span>煤炭能源行业研究2025</span>
+    </div>
+    <div class="nav-links">
+      <a href="./煤炭能源行业深度研究报告2025.html" class="active">行业研究</a>
+      <a href="./煤炭能源股深度财报分析与投资图谱2025.html">财报图谱</a>
+      <a href="./中国神华投资分析与交易策略2025.html">投资策略</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⛏️ 煤炭能源行业 · 深度研究报告 · 2025版</div>
+    <h1>煤炭能源行业<span>深度研究报告</span>2025</h1>
+    <p>能源安全基石 · 高股息价值洼地 · 全行业格局深度解析</p>
+    <div class="hero-kpi-grid">
+      <div class="hero-kpi">
+        <div class="value">47.7亿吨</div>
+        <div class="label">中国煤炭产量（2024年）</div>
+        <div class="change change-up">↑ +1.1% YoY</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="value">54.8%</div>
+        <div class="label">煤炭占一次能源消费比</div>
+        <div class="change change-down">↓ 主体地位仍稳固</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="value">~780元/吨</div>
+        <div class="label">动力煤年均价（秦皇岛港）</div>
+        <div class="change change-down">↓ -约14% YoY</div>
+      </div>
+      <div class="hero-kpi">
+        <div class="value">-约15%</div>
+        <div class="label">行业总利润同比变化</div>
+        <div class="change change-down">↓ 煤价下行压力</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- SECTION 1: KPI Dashboard -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div>
+        <div class="section-title">行业宏观KPI仪表盘</div>
+        <div class="section-subtitle">2024年煤炭行业核心运营数据总览</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="kpi-grid" style="grid-template-columns: repeat(3,1fr);">
+      <div class="kpi-card">
+        <div class="kpi-icon">🏭</div>
+        <div class="kpi-val">47.7亿吨</div>
+        <div class="kpi-label">中国煤炭产量</div>
+        <div class="kpi-change change-up">+1.1% 同比</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🔥</div>
+        <div class="kpi-val">48.5亿吨</div>
+        <div class="kpi-label">全国煤炭消费量</div>
+        <div class="kpi-change">发电+工业需求支撑</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-val">780元/吨</div>
+        <div class="kpi-label">动力煤年均价（5500K）</div>
+        <div class="kpi-change change-down">-约14% 同比</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-val">CR5 ≈38%</div>
+        <div class="kpi-label">行业集中度（前5大煤企）</div>
+        <div class="kpi-change">集中度持续提升</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🌍</div>
+        <div class="kpi-val">14亿吨</div>
+        <div class="kpi-label">全球煤炭贸易量（2024）</div>
+        <div class="kpi-change">海运煤贸易活跃</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🚢</div>
+        <div class="kpi-val">5.5亿吨</div>
+        <div class="kpi-label">中国煤炭进口量</div>
+        <div class="kpi-change change-up">进口增势明显</div>
+      </div>
+    </div>
+    <!-- 分行业结构说明 -->
+    <div class="card" style="margin-top:16px;">
+      <div style="font-weight:700;font-size:15px;color:var(--primary);margin-bottom:12px;">📌 行业结构关键特征</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;">
+        <div>
+          <div style="font-weight:600;margin-bottom:6px;font-size:14px;">需求侧</div>
+          <ul style="list-style:none;font-size:13px;color:var(--text-secondary);">
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">🔌 电煤占比约70%（主体需求）</li>
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">🏗️ 冶金用煤约10%（钢铁行业）</li>
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">⚗️ 化工用煤约15%（增速最快）</li>
+            <li style="padding:4px 0;">🏠 民用及其他约5%（持续萎缩）</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-weight:600;margin-bottom:6px;font-size:14px;">供给侧</div>
+          <ul style="list-style:none;font-size:13px;color:var(--text-secondary);">
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">⛰️ 晋陕蒙新四省产量占比超75%</li>
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">🏢 国有大矿持续兼并整合</li>
+            <li style="padding:4px 0;border-bottom:1px solid var(--border);">🤖 智能化矿山加速推进</li>
+            <li style="padding:4px 0;">📦 进口煤补充调节市场</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Bull/Bear -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div>
+        <div class="section-title">多空论据深度分析</div>
+        <div class="section-subtitle">煤炭行业投资的核心正反方逻辑</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="bull-bear-grid">
+      <div class="card bull-side" style="padding:0;">
+        <div class="side-title">📈 多方论据（5大看涨理由）</div>
+        <ul class="argument-list">
+          <li>
+            <span class="arg-icon">🛡️</span>
+            <div>
+              <div class="arg-main">能源安全战略地位不可替代</div>
+              <div class="arg-desc">2024年煤电仍占发电量59%，新能源波动靠火电调峰，战略兜底地位短期无法撼动</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">💎</span>
+            <div>
+              <div class="arg-main">高股息红利资产稀缺性</div>
+              <div class="arg-desc">龙头企业股息率4~7%，远超无风险利率，是低利率时代稀缺的高息资产</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">🏰</span>
+            <div>
+              <div class="arg-main">一体化运营护城河难以复制</div>
+              <div class="arg-desc">神华"煤→电→铁路→港口→航运"全链路，协同降本效应显著，竞争壁垒极高</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">📉</span>
+            <div>
+              <div class="arg-main">头部企业成本控制领先行业</div>
+              <div class="arg-desc">神华吨煤完全成本约180元/吨，远低于行业均值，低价格下依然保持高利润率</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">💸</span>
+            <div>
+              <div class="arg-main">自由现金流强劲支撑持续分红</div>
+              <div class="arg-desc">神华2024年经营现金流约900亿元，2024年分红总额创历史新高（分红率超75%）</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card bear-side" style="padding:0;">
+        <div class="side-title">📉 空方论据（4大风险因素）</div>
+        <ul class="argument-list">
+          <li>
+            <span class="arg-icon">⬇️</span>
+            <div>
+              <div class="arg-main">煤价中枢下行压力持续</div>
+              <div class="arg-desc">新增产能持续释放（晋陕蒙新扩产），叠加需求增速放缓，供需平衡向宽松倾斜，煤价难以快速回升</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">☀️</span>
+            <div>
+              <div class="arg-main">能源转型构成长期威胁</div>
+              <div class="arg-desc">光伏/风电新增装机持续高速增长，新能源发电量占比快速提升，将逐步压缩煤电空间</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">⚖️</span>
+            <div>
+              <div class="arg-main">政策调控两难悖论</div>
+              <div class="arg-desc">保供保暖需要增产但压低煤价，煤炭企业利益与用煤企业/民生利益存在天然博弈矛盾</div>
+            </div>
+          </li>
+          <li>
+            <span class="arg-icon">🔄</span>
+            <div>
+              <div class="arg-main">需求结构不利变化</div>
+              <div class="arg-desc">非电用煤（建材/冶金）持续下降，电煤用量随气温波动大，高增长时代已结束，行业进入存量博弈</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Global Comparison -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div>
+        <div class="section-title">全球煤炭格局对比</div>
+        <div class="section-subtitle">主要煤炭国家产消格局与头部企业对比</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>国家/地区</th>
+              <th>年产量（亿吨）</th>
+              <th>年消费量</th>
+              <th>出口量</th>
+              <th>代表企业</th>
+              <th>行业特点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-highlight">🇨🇳 中国</td>
+              <td class="td-accent">47.7亿吨</td>
+              <td>48.5亿吨</td>
+              <td>净进口5.5亿吨</td>
+              <td>中国神华、陕西煤业</td>
+              <td>全球最大生产&消费国，自给为主</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">🇮🇳 印度</td>
+              <td>10.5亿吨</td>
+              <td>13.5亿吨</td>
+              <td>净进口</td>
+              <td>Coal India (国有)</td>
+              <td>需求高速增长，自给率不足，大量进口</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">🇺🇸 美国</td>
+              <td>5.2亿吨</td>
+              <td>4.7亿吨</td>
+              <td>约0.8亿吨</td>
+              <td>Peabody Energy</td>
+              <td>产能持续萎缩，天然气替代，净出口</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">🇦🇺 澳大利亚</td>
+              <td>4.9亿吨</td>
+              <td>少量自用</td>
+              <td>约3.5亿吨</td>
+              <td>BHP、Glencore</td>
+              <td>全球最大出口国，优质炼焦煤核心供应</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">🇷🇺 俄罗斯</td>
+              <td>4.5亿吨</td>
+              <td>2.5亿吨</td>
+              <td>约2.0亿吨</td>
+              <td>SUEK、SDS Coal</td>
+              <td>受制裁影响，转向亚洲市场，折价出口</td>
+            </tr>
+            <tr>
+              <td class="td-highlight">🇮🇩 印度尼西亚</td>
+              <td>7.5亿吨</td>
+              <td>1.3亿吨</td>
+              <td>约4.5亿吨</td>
+              <td>Adaro、PTBA</td>
+              <td>第二大出口国，低热值煤性价比高</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px;padding:12px;background:#fffbeb;border-radius:8px;border:1px solid #fde68a;font-size:13px;color:#92400e;">
+        <strong>💡 关键洞察：</strong>中国是全球唯一同时位居产量、消费量第一的煤炭大国，自给率约98%，对全球定价有重要影响力。澳大利亚炼焦煤全球定价基准，俄罗斯煤炭折价输亚洲，正逐步影响亚太煤价中枢。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Timeline -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div>
+        <div class="section-title">中国煤炭产业演变史</div>
+        <div class="section-subtitle">从计划经济到能源转型博弈的完整历程</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1949—1985</div>
+          <div class="tl-title">计划经济时代</div>
+          <div class="tl-desc">煤炭完全国有化，统购统销，价格由国家管控。煤炭价格长期低于成本，企业依靠财政补贴，技术改造滞后，矿难事故频发。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1985—2002</div>
+          <div class="tl-title">市场化改革阶段</div>
+          <div class="tl-desc">价格双轨制推进，乡镇煤矿大量涌现，行业产能过剩。1998年亚洲金融危机后，煤价长期低迷，大量企业亏损关停，行业整合加速。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--accent);"></div>
+          <div class="tl-year">2002—2012</div>
+          <div class="tl-title">🌟 黄金十年</div>
+          <div class="tl-desc">中国工业化城镇化提速，煤炭需求爆发式增长。动力煤价格从100元/吨涨至900元/吨，行业利润空间巨大，大型煤企快速扩张，资产注入重组进入证券市场。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2012—2016</div>
+          <div class="tl-title">深度调整期</div>
+          <div class="tl-desc">钢铁、建材等重工业产能过剩，煤炭需求快速萎缩。动力煤价格最低跌至370元/吨，全行业亏损，僵尸企业大量出现。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2016—2020</div>
+          <div class="tl-title">供给侧改革</div>
+          <div class="tl-desc">"去产能"政策去除落后产能，限制小煤矿，行业集中度快速提升。煤价企稳回升，龙头企业盈利修复，神华等央企借机整合优质资产。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--accent);"></div>
+          <div class="tl-year">2021—2022</div>
+          <div class="tl-title">🔥 超级行情</div>
+          <div class="tl-desc">能源短缺叠加地缘政治冲突，动力煤价格创历史新高（突破1000元/吨，期货最高2500元/吨）。国家启动"保供保暖"行动，煤炭企业盈利创历史记录。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023—2025</div>
+          <div class="tl-title">价格理性回归</div>
+          <div class="tl-desc">产能释放+需求增速放缓，煤价从高位回落。动力煤价格回归750~850元/吨区间，行业利润同比下滑，但龙头企业凭借低成本优势维持高盈利。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--accent2);"></div>
+          <div class="tl-year">2025年+</div>
+          <div class="tl-title">⚡ 能源转型博弈</div>
+          <div class="tl-desc">新能源装机持续提速，煤电定位逐渐从"主体"转为"调峰"，行业长期需求顶部已现。但龙头企业转型布局（发展绿电、氢能）提供新的成长空间。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Track Analysis -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div>
+        <div class="section-title">行业四大赛道景气度分析</div>
+        <div class="section-subtitle">不同煤炭赛道的当前景气度与投资机会</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div style="display:grid;gap:20px;">
+      <!-- 动力煤 -->
+      <div class="card">
+        <div class="track-header">
+          <div>
+            <div class="track-name">🔥 动力煤（发电用煤）</div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">占煤炭消费量约70%，主要客户：电力企业</div>
+          </div>
+          <div class="track-score score-mid">景气度 55/100</div>
+        </div>
+        <div class="track-bar-bg">
+          <div class="track-bar-fill" style="width:55%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div>
+        </div>
+        <div class="track-desc">需求稳定但价格承压：电力需求增速放缓，新能源替代加速，供应端新增产能持续释放。动力煤价格中枢下移，但长协价格机制（600~770元/吨区间）对企业提供一定保护。神华长协比例高，受益于价格波动缓冲。</div>
+      </div>
+      <!-- 炼焦煤 -->
+      <div class="card">
+        <div class="track-header">
+          <div>
+            <div class="track-name">🏗️ 炼焦煤（冶金用煤）</div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">占煤炭消费量约10%，主要客户：钢铁企业</div>
+          </div>
+          <div class="track-score score-low">景气度 45/100</div>
+        </div>
+        <div class="track-bar-bg">
+          <div class="track-bar-fill" style="width:45%;background:linear-gradient(90deg,#ef4444,#f97316);"></div>
+        </div>
+        <div class="track-desc">钢铁行业产能收缩拖累：房地产下行叠加粗钢产量下滑，炼焦煤需求疲软。优质炼焦煤稀缺性仍存（国内优质主焦煤集中在山西），但需求端走弱压制价格，山西焦煤等相关企业盈利承压。</div>
+      </div>
+      <!-- 化工用煤 -->
+      <div class="card">
+        <div class="track-header">
+          <div>
+            <div class="track-name">⚗️ 化工用煤（煤化工）</div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">占煤炭消费量约15%，增速最快赛道</div>
+          </div>
+          <div class="track-score score-high">景气度 68/100</div>
+        </div>
+        <div class="track-bar-bg">
+          <div class="track-bar-fill" style="width:68%;background:linear-gradient(90deg,var(--accent2),#4ade80);"></div>
+        </div>
+        <div class="track-desc">煤化工是成长最快赛道：煤制油、煤制烯烃、煤制乙二醇等产能快速扩张，对油气的替代路线在低油价压力下仍具竞争力。陕西、内蒙古大型煤化工基地建设持续推进，带动优质煤源需求增加。</div>
+      </div>
+      <!-- 煤矿装备 -->
+      <div class="card">
+        <div class="track-header">
+          <div>
+            <div class="track-name">🤖 煤矿开采装备（智能化）</div>
+            <div style="font-size:13px;color:var(--text-secondary);margin-top:2px;">受益于智能矿山建设加速</div>
+          </div>
+          <div class="track-score score-high">景气度 72/100</div>
+        </div>
+        <div class="track-bar-bg">
+          <div class="track-bar-fill" style="width:72%;background:linear-gradient(90deg,var(--primary),#2d7dd2);"></div>
+        </div>
+        <div class="track-desc">智能化改造需求旺盛：国家政策推动煤矿智能化建设，千米深矿、危险作业场所的无人化需求迫切。掘进机器人、智能采掘系统、矿山数字化平台等需求旺盛，天地科技、三一重装等受益。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Company Scores + Radar -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div>
+        <div class="section-title">主要上市公司综合评分</div>
+        <div class="section-subtitle">A股四大煤企多维度综合评估</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="company-grid">
+      <!-- 神华 -->
+      <div class="company-card top">
+        <div class="company-head">
+          <div>
+            <div class="company-name">中国神华</div>
+            <div class="company-code">601088.SH · 煤炭一体化龙头</div>
+          </div>
+          <div class="company-badge s">95分 S级</div>
+        </div>
+        <div class="company-score-bar">
+          <div class="company-score-fill" style="width:95%;"></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">综合竞争力评分：95/100（全行业最高）</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--accent);">S级</div>
+            <div style="color:var(--text-secondary);">一体化</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~5%</div>
+            <div style="color:var(--text-secondary);">股息率</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~14×</div>
+            <div style="color:var(--text-secondary);">PE估值</div>
+          </div>
+        </div>
+        <div class="company-tags">
+          <span class="tag tag-accent">一体化护城河</span>
+          <span class="tag tag-accent">央企高分红</span>
+          <span class="tag">煤电铁港航</span>
+          <span class="tag">低资产负债率</span>
+          <span class="tag">现金流强劲</span>
+        </div>
+      </div>
+      <!-- 陕煤 -->
+      <div class="company-card">
+        <div class="company-head">
+          <div>
+            <div class="company-name">陕西煤业</div>
+            <div class="company-code">601225.SH · 陕西省属特大型煤企</div>
+          </div>
+          <div class="company-badge a">82分 A级</div>
+        </div>
+        <div class="company-score-bar">
+          <div class="company-score-fill" style="width:82%;"></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">高ROE+高股息，周期韧性最强的区域龙头</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--accent);">25%+</div>
+            <div style="color:var(--text-secondary);">ROE</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~6.5%</div>
+            <div style="color:var(--text-secondary);">股息率</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~9×</div>
+            <div style="color:var(--text-secondary);">PE估值</div>
+          </div>
+        </div>
+        <div class="company-tags">
+          <span class="tag tag-accent">超高ROE</span>
+          <span class="tag tag-accent">最高股息率</span>
+          <span class="tag">低成本开采</span>
+          <span class="tag">陕西优质煤矿</span>
+        </div>
+      </div>
+      <!-- 中煤 -->
+      <div class="company-card">
+        <div class="company-head">
+          <div>
+            <div class="company-name">中煤能源</div>
+            <div class="company-code">601898.SH · 国内第二大煤企</div>
+          </div>
+          <div class="company-badge b">65分 B级</div>
+        </div>
+        <div class="company-score-bar">
+          <div class="company-score-fill" style="width:65%;background:linear-gradient(90deg,#94a3b8,#64748b);"></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">煤化工弹性大，产能储量丰富，现金流承压</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">770亿吨</div>
+            <div style="color:var(--text-secondary);">储量</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~4%</div>
+            <div style="color:var(--text-secondary);">股息率</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~11×</div>
+            <div style="color:var(--text-secondary);">PE估值</div>
+          </div>
+        </div>
+        <div class="company-tags">
+          <span class="tag">煤化工弹性</span>
+          <span class="tag">产能储量最大</span>
+          <span class="tag">现金流承压</span>
+        </div>
+      </div>
+      <!-- 兖矿 -->
+      <div class="company-card">
+        <div class="company-head">
+          <div>
+            <div class="company-name">兖矿能源</div>
+            <div class="company-code">600188.SH · 唯一拥有海外大型煤矿</div>
+          </div>
+          <div class="company-badge b">62分 B级</div>
+        </div>
+        <div class="company-score-bar">
+          <div class="company-score-fill" style="width:62%;background:linear-gradient(90deg,#94a3b8,#64748b);"></div>
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);margin:8px 0;">澳洲海外资产丰富，国际化程度最高，估值弹性大</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;">
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">1.42亿吨</div>
+            <div style="color:var(--text-secondary);">年产量</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~5%</div>
+            <div style="color:var(--text-secondary);">股息率</div>
+          </div>
+          <div style="text-align:center;padding:8px;background:#f8fafc;border-radius:8px;font-size:12px;">
+            <div style="font-weight:800;font-size:16px;color:var(--primary);">~8×</div>
+            <div style="color:var(--text-secondary);">PE估值</div>
+          </div>
+        </div>
+        <div class="company-tags">
+          <span class="tag">澳洲海外矿</span>
+          <span class="tag">国际化最强</span>
+          <span class="tag">煤化工升级</span>
+          <span class="tag">负债率偏高</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG Radar Chart -->
+    <div class="card" style="margin-top:24px;">
+      <div style="font-weight:700;font-size:15px;color:var(--primary);margin-bottom:20px;text-align:center;">📊 四大煤企六维雷达图对比</div>
+      <div class="radar-wrap">
+        <svg viewBox="0 0 340 320" width="340" height="320">
+          <!-- 背景网格 -->
+          <g opacity="0.15" stroke="#1a3a5c" fill="none">
+            <!-- 六边形 20% -->
+            <polygon points="170,110 195,122 195,148 170,160 145,148 145,122" stroke-width="1"/>
+            <!-- 六边形 40% -->
+            <polygon points="170,80 220,108 220,168 170,196 120,168 120,108" stroke-width="1"/>
+            <!-- 六边形 60% -->
+            <polygon points="170,50 245,92 245,188 170,230 95,188 95,92" stroke-width="1"/>
+            <!-- 六边形 80% -->
+            <polygon points="170,20 270,76 270,208 170,264 70,208 70,76" stroke-width="1"/>
+            <!-- 六边形 100% -->
+            <polygon points="170,0 294,60 294,228 170,288 46,228 46,60" stroke-width="1.5"/>
+          </g>
+          <!-- 轴线 -->
+          <g stroke="#1a3a5c" opacity="0.2" stroke-width="1">
+            <line x1="170" y1="144" x2="170" y2="0"/>
+            <line x1="170" y1="144" x2="294" y2="60"/>
+            <line x1="170" y1="144" x2="294" y2="228"/>
+            <line x1="170" y1="144" x2="170" y2="288"/>
+            <line x1="170" y1="144" x2="46" y2="228"/>
+            <line x1="170" y1="144" x2="46" y2="60"/>
+          </g>
+          <!-- 中国神华 (95,80,90,75,90,85) -->
+          <!-- 规模:95 盈利:80 股息:90 估值:75 安全:90 成长:85 -->
+          <!-- 各轴点：规模(上),盈利(右上),估值(右下),成长(下),安全(左下),股息(左上) -->
+          <polygon points="170,13 276,68 279,213 170,265 79,196 83,74"
+            fill="rgba(26,58,92,0.2)" stroke="#1a3a5c" stroke-width="2"/>
+          <!-- 陕西煤业 (60,88,92,85,80,65) -->
+          <polygon points="170,31 278,81 259,222 156,270 76,207 81,84"
+            fill="rgba(200,134,10,0.15)" stroke="#c8860a" stroke-width="2" stroke-dasharray="5,3"/>
+          <!-- 中煤能源 (75,55,60,70,60,45) -->
+          <polygon points="170,44 248,97 248,198 165,241 109,192 108,101"
+            fill="rgba(26,107,60,0.12)" stroke="#1a6b3c" stroke-width="1.5" stroke-dasharray="3,3"/>
+          <!-- 轴标签 -->
+          <text x="170" y="-8" text-anchor="middle" fill="#1a3a5c" font-size="12" font-weight="600" dy="8">规模体量</text>
+          <text x="305" y="56" text-anchor="start" fill="#1a3a5c" font-size="12" font-weight="600">盈利质量</text>
+          <text x="305" y="235" text-anchor="start" fill="#1a3a5c" font-size="12" font-weight="600">估值水平</text>
+          <text x="170" y="305" text-anchor="middle" fill="#1a3a5c" font-size="12" font-weight="600">成长潜力</text>
+          <text x="22" y="235" text-anchor="end" fill="#1a3a5c" font-size="12" font-weight="600">安全边际</text>
+          <text x="22" y="56" text-anchor="end" fill="#1a3a5c" font-size="12" font-weight="600">股息回报</text>
+        </svg>
+        <div class="radar-legend">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#1a3a5c;"></div>
+            <span><strong>中国神华</strong>（综合最强）</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#c8860a;"></div>
+            <span><strong>陕西煤业</strong>（股息/ROE最强）</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#1a6b3c;"></div>
+            <span><strong>中煤能源</strong>（储量/弹性）</span>
+          </div>
+          <div style="margin-top:12px;padding:12px;background:#f8fafc;border-radius:8px;font-size:13px;max-width:200px;">
+            <div style="font-weight:700;margin-bottom:6px;">评分维度说明</div>
+            <div style="color:var(--text-secondary);line-height:1.8;">
+              📦 规模体量<br>
+              💰 盈利质量<br>
+              💎 股息回报<br>
+              📊 估值水平<br>
+              🛡️ 安全边际<br>
+              📈 成长潜力
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Investment Strategies -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div>
+        <div class="section-title">三种投资策略</div>
+        <div class="section-subtitle">基于不同风险偏好的煤炭板块配置方案</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="strategy-grid">
+      <div class="strategy-card a">
+        <div class="strategy-type">STRATEGY A · 保守型</div>
+        <div class="strategy-name">🛡️ 防御收益型</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">以股息收益为核心目标，低波动稳健增值</div>
+        <div class="strategy-alloc">
+          <div class="alloc-item">
+            <span>中国神华</span>
+            <span class="alloc-pct">70%</span>
+          </div>
+          <div class="alloc-item">
+            <span>陕西煤业</span>
+            <span class="alloc-pct">30%</span>
+          </div>
+        </div>
+        <div class="strategy-target">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">目标年化股息率</div>
+          <div class="target-val">5.2%+</div>
+          <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">适合：红利型长线投资者</div>
+        </div>
+      </div>
+      <div class="strategy-card b">
+        <div class="strategy-type">STRATEGY B · 均衡型</div>
+        <div class="strategy-name">⚖️ 均衡配置型</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">兼顾股息与弹性，适合大多数投资者</div>
+        <div class="strategy-alloc">
+          <div class="alloc-item">
+            <span>中国神华</span>
+            <span class="alloc-pct">50%</span>
+          </div>
+          <div class="alloc-item">
+            <span>陕西煤业</span>
+            <span class="alloc-pct">30%</span>
+          </div>
+          <div class="alloc-item">
+            <span>中煤能源</span>
+            <span class="alloc-pct">20%</span>
+          </div>
+        </div>
+        <div class="strategy-target">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">目标年化综合回报</div>
+          <div class="target-val">8~12%</div>
+          <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">适合：均衡型投资者</div>
+        </div>
+      </div>
+      <div class="strategy-card c">
+        <div class="strategy-type">STRATEGY C · 进取型</div>
+        <div class="strategy-name">🎯 周期博弈型</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:14px;">等待煤价反弹催化剂，追求更大弹性</div>
+        <div class="strategy-alloc">
+          <div class="alloc-item">
+            <span>神华（压舱石）</span>
+            <span class="alloc-pct">40%</span>
+          </div>
+          <div class="alloc-item">
+            <span>兖矿能源</span>
+            <span class="alloc-pct">40%</span>
+          </div>
+          <div class="alloc-item">
+            <span>中煤能源</span>
+            <span class="alloc-pct">20%</span>
+          </div>
+        </div>
+        <div class="strategy-target">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">煤价反弹时潜在回报</div>
+          <div class="target-val">20~40%</div>
+          <div style="font-size:12px;color:var(--text-secondary);margin-top:4px;">适合：高风险偏好投资者</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,#fffbeb,#fef3c7);">
+      <div style="font-weight:700;font-size:14px;color:#92400e;margin-bottom:8px;">⚡ 煤价反弹催化剂监测清单</div>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:13px;">
+        <div style="display:flex;gap:6px;align-items:flex-start;"><span>❄️</span><span><strong>极寒天气：</strong>采暖用煤需求激增，电煤库存快速消耗</span></div>
+        <div style="display:flex;gap:6px;align-items:flex-start;"><span>🌊</span><span><strong>旱季缺水：</strong>水电发电量大幅下降，火电出力提升</span></div>
+        <div style="display:flex;gap:6px;align-items:flex-start;"><span>🏭</span><span><strong>经济回暖：</strong>工业用电需求显著恢复，冶金建材好转</span></div>
+        <div style="display:flex;gap:6px;align-items:flex-start;"><span>⚓</span><span><strong>安全监管：</strong>矿难事故后产能收紧，供给端突然减量</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Risk Matrix -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div>
+        <div class="section-title">行业风险矩阵</div>
+        <div class="section-subtitle">概率×影响四象限风险全景评估</div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+    <div class="risk-matrix">
+      <div class="risk-quad hh">
+        <div class="risk-quad-label">🔴 高概率 × 高影响（重点关注）</div>
+        <div class="risk-item">
+          <span class="risk-icon">💴</span>
+          <div class="risk-text">
+            <div class="risk-title">煤价中枢持续下移</div>
+            <div class="risk-detail">新增产能释放+新能源替代加速，动力煤价格难以快速回到900+元高位，压制行业盈利修复节奏</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <span class="risk-icon">⬇️</span>
+          <div class="risk-text">
+            <div class="risk-title">分红率被迫下调预期</div>
+            <div class="risk-detail">若煤价大幅下滑，高分红率难以维持，高股息逻辑面临动摇风险</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-quad hl">
+        <div class="risk-quad-label">🟠 高概率 × 低影响（需监测）</div>
+        <div class="risk-item">
+          <span class="risk-icon">🌡️</span>
+          <div class="risk-text">
+            <div class="risk-title">季节性需求波动</div>
+            <div class="risk-detail">夏季空调、冬季采暖的季节性波动影响阶段性煤价，但全年需求总量基本稳定</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <span class="risk-icon">🚢</span>
+          <div class="risk-text">
+            <div class="risk-title">进口煤冲击国内市场</div>
+            <div class="risk-detail">俄罗斯煤炭折价倾销、印尼煤性价比提升，对国内煤价形成阶段性压力</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-quad lh">
+        <div class="risk-quad-label">🟡 低概率 × 高影响（尾部风险）</div>
+        <div class="risk-item">
+          <span class="risk-icon">⚖️</span>
+          <div class="risk-text">
+            <div class="risk-title">能源政策突变</div>
+            <div class="risk-detail">若政策突然大幅限产（环保/安全）或强制压价，将对行业产生剧烈冲击</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <span class="risk-icon">⚡</span>
+          <div class="risk-text">
+            <div class="risk-title">新能源替代超预期加速</div>
+            <div class="risk-detail">储能技术突破导致新能源装机速度远超预期，提前终结煤电主体地位</div>
+          </div>
+        </div>
+      </div>
+      <div class="risk-quad ll">
+        <div class="risk-quad-label">🟢 低概率 × 低影响（可承受）</div>
+        <div class="risk-item">
+          <span class="risk-icon">🚂</span>
+          <div class="risk-text">
+            <div class="risk-title">运力瓶颈短期制约</div>
+            <div class="risk-detail">铁路/港口运力在极端需求高峰期可能形成短暂制约，通常自行消化</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <span class="risk-icon">💧</span>
+          <div class="risk-text">
+            <div class="risk-title">矿区环保整改</div>
+            <div class="risk-detail">个别矿区的环保整改可能造成短期减产，对大型央企影响有限</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">⛏️ 煤炭能源行业深度研究2025</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.55);">中国神华三报告套装 · 行业研究 Vol.1</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">套装报告导航</div>
+        <div class="footer-links">
+          <a href="./煤炭能源行业深度研究报告2025.html" class="active">📄 行业深度研究（本页）</a>
+          <a href="./煤炭能源股深度财报分析与投资图谱2025.html">📊 财报分析与投资图谱</a>
+          <a href="./中国神华投资分析与交易策略2025.html">🎯 中国神华投资策略</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      ⚠️ 投资风险提示：本报告基于公开数据整理分析，仅供学习研究参考，不构成任何投资建议。煤炭行业受宏观经济、政策调整、能源转型等多重因素影响，股票投资存在市场风险，请投资者依据自身风险承受能力独立决策，自主承担投资损益。
+    </div>
+    <div class="footer-bottom">
+      © 2025 Investment Research Reports · 数据来源：公开年报、行业协会、交易所披露
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

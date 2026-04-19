@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国神华投资分析与交易策略2025</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --card2: #1c2128;
+  --text: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent: #c8860a;
+  --accent-light: #f0c040;
+  --accent-glow: rgba(200,134,10,0.2);
+  --border: #30363d;
+  --green: #3fb950;
+  --red: #f85149;
+  --blue: #58a6ff;
+  --purple: #bc8cff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-light)}
+
+/* NAV */
+nav{background:#0a0e14;border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+.nav-brand{font-weight:700;color:var(--accent);padding:14px 0;margin-right:16px;font-size:15px;white-space:nowrap}
+.nav-link{padding:14px 12px;font-size:13px;color:var(--text-secondary);border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s}
+.nav-link:hover{color:var(--text)}
+.nav-link.active{color:var(--accent-light);border-bottom-color:var(--accent)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d1117 0%,#1a1200 50%,#0d1117 100%);padding:60px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(200,134,10,0.15) 0%,transparent 70%)}
+.hero-badge{display:inline-block;background:var(--accent-glow);border:1px solid var(--accent);color:var(--accent-light);padding:4px 16px;border-radius:20px;font-size:12px;margin-bottom:16px;letter-spacing:1px}
+.hero h1{font-size:clamp(24px,5vw,42px);font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--text-secondary);font-size:16px;margin-bottom:40px}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1100px;margin:0 auto}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px 16px;text-align:left;transition:border-color .2s;position:relative;overflow:hidden}
+.kpi-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent-light))}
+.kpi-card:hover{border-color:var(--accent)}
+.kpi-label{font-size:12px;color:var(--text-secondary);margin-bottom:6px}
+.kpi-value{font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--accent-light)}
+.kpi-change{font-size:12px;margin-top:4px}
+.kpi-change.down{color:var(--red)}
+.kpi-change.up{color:var(--green)}
+.kpi-change.neutral{color:var(--text-secondary)}
+
+/* SECTION */
+.section{max-width:1100px;margin:0 auto;padding:40px 24px}
+.section-title{font-size:22px;font-weight:700;color:var(--text);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.section-title::before{content:'';width:4px;height:24px;background:linear-gradient(180deg,var(--accent),var(--accent-light));border-radius:2px;flex-shrink:0}
+.section-num{background:var(--accent);color:#000;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px}
+.card2{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:12px}
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+
+/* PROGRESS BARS */
+.metric-row{margin-bottom:18px}
+.metric-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.metric-name{font-size:14px;color:var(--text-secondary)}
+.metric-val{font-size:14px;font-weight:600}
+.bar-track{background:#1c2128;border-radius:4px;height:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width 1s ease}
+.bar-gold{background:linear-gradient(90deg,var(--accent),var(--accent-light))}
+.bar-green{background:linear-gradient(90deg,#1a6b3c,var(--green))}
+.bar-blue{background:linear-gradient(90deg,#1a4a8c,var(--blue))}
+.bar-orange{background:linear-gradient(90deg,#7a3a00,var(--accent))}
+
+/* BUSINESS ENGINES */
+.engine-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative;overflow:hidden;transition:all .2s}
+.engine-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.engine-icon{font-size:32px;margin-bottom:10px}
+.engine-name{font-size:16px;font-weight:700;color:var(--accent-light);margin-bottom:6px}
+.engine-share{font-size:24px;font-weight:800;color:var(--accent)}
+.engine-desc{font-size:13px;color:var(--text-secondary);margin-top:8px;line-height:1.5}
+.engine-bar{height:4px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));margin-top:12px}
+
+/* VALUE CHAIN */
+.chain{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;padding:24px;background:var(--card2);border-radius:12px;margin-top:16px}
+.chain-node{background:var(--card);border:1px solid var(--accent);border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:var(--accent-light);white-space:nowrap}
+.chain-arrow{color:var(--accent);font-size:20px;font-weight:700}
+
+/* BUFFETT SCORE */
+.score-item{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px;background:var(--card2);border-radius:10px;margin-bottom:10px;border:1px solid var(--border)}
+.score-left{}
+.score-dim{font-size:15px;font-weight:600;margin-bottom:4px}
+.score-desc{font-size:12px;color:var(--text-secondary);line-height:1.4}
+.score-right{text-align:center;min-width:60px}
+.score-num{font-size:28px;font-weight:800;color:var(--accent-light)}
+.score-max{font-size:12px;color:var(--text-secondary)}
+.score-stars{color:var(--accent);font-size:14px;margin-top:2px}
+.total-score{background:linear-gradient(135deg,rgba(200,134,10,0.2),rgba(240,192,64,0.1));border:2px solid var(--accent);border-radius:16px;padding:28px;text-align:center;margin-top:20px}
+.total-num{font-size:56px;font-weight:900;background:linear-gradient(135deg,var(--accent-light),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.total-label{font-size:18px;color:var(--text-secondary);margin-top:4px}
+.s-badge{display:inline-block;background:var(--accent);color:#000;font-weight:900;padding:6px 20px;border-radius:20px;font-size:18px;margin-top:8px}
+
+/* VALUATION */
+.val-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;position:relative;overflow:hidden;transition:border-color .2s}
+.val-card:hover{border-color:var(--accent)}
+.val-method{font-size:12px;color:var(--text-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px}
+.val-range{font-size:24px;font-weight:800;color:var(--accent-light);margin-bottom:4px}
+.val-logic{font-size:12px;color:var(--text-secondary);line-height:1.4}
+.val-summary{background:linear-gradient(135deg,rgba(200,134,10,0.15),transparent);border:2px solid var(--accent);border-radius:16px;padding:24px;text-align:center;margin-top:20px}
+.val-target{font-size:42px;font-weight:900;color:var(--accent-light)}
+
+/* SCENARIOS */
+.scenario{border-radius:12px;padding:20px;margin-bottom:12px;border:1px solid}
+.scenario.bull{background:rgba(63,185,80,0.08);border-color:rgba(63,185,80,0.3)}
+.scenario.base{background:rgba(200,134,10,0.08);border-color:rgba(200,134,10,0.3)}
+.scenario.bear{background:rgba(248,81,73,0.08);border-color:rgba(248,81,73,0.3)}
+.scenario-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.scenario-title{font-size:16px;font-weight:700}
+.scenario-prob{font-size:13px;padding:3px 12px;border-radius:12px;font-weight:600}
+.bull .scenario-title{color:var(--green)}
+.bull .scenario-prob{background:rgba(63,185,80,0.2);color:var(--green)}
+.base .scenario-title{color:var(--accent-light)}
+.base .scenario-prob{background:rgba(200,134,10,0.2);color:var(--accent-light)}
+.bear .scenario-title{color:var(--red)}
+.bear .scenario-prob{background:rgba(248,81,73,0.2);color:var(--red)}
+.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.sdata{text-align:center}
+.sdata-label{font-size:11px;color:var(--text-secondary);margin-bottom:3px}
+.sdata-val{font-size:16px;font-weight:700}
+
+/* POSITION PLAN */
+.position-track{background:#0a0e14;border-radius:12px;padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+.price-scale{display:flex;justify-content:space-between;margin-bottom:8px;font-size:11px;color:var(--text-secondary)}
+.price-bar-wrap{height:36px;background:#1c2128;border-radius:8px;position:relative;overflow:hidden;margin-bottom:8px}
+.price-zone{height:100%;position:absolute;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+.zone-3{left:0;width:21.5%;background:rgba(248,81,73,0.3);color:var(--red)} /* <28 */
+.zone-2{left:21.5%;width:26.9%;background:rgba(200,134,10,0.4);color:var(--accent-light)} /* 28-35 */
+.zone-1{left:48.5%;width:26.9%;background:rgba(63,185,80,0.4);color:var(--green)} /* 35-42 */
+.zone-now{left:75.4%;width:15%;background:rgba(88,166,255,0.3);color:var(--blue)} /* >42 */
+.now-marker{position:absolute;top:-2px;height:calc(100% + 4px);width:2px;background:var(--blue);left:75.4%}
+.batch-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:16px}
+.batch{border-radius:12px;padding:18px;border:1px solid}
+.batch.b1{background:rgba(63,185,80,0.08);border-color:rgba(63,185,80,0.3)}
+.batch.b2{background:rgba(200,134,10,0.08);border-color:rgba(200,134,10,0.3)}
+.batch.b3{background:rgba(248,81,73,0.08);border-color:rgba(248,81,73,0.3)}
+.batch-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.b1 .batch-title{color:var(--green)}
+.b2 .batch-title{color:var(--accent-light)}
+.b3 .batch-title{color:var(--red)}
+.batch-pct{font-size:32px;font-weight:900;line-height:1}
+.b1 .batch-pct{color:var(--green)}
+.b2 .batch-pct{color:var(--accent-light)}
+.b3 .batch-pct{color:var(--red)}
+.batch-price{font-size:16px;font-weight:700;margin:6px 0}
+.batch-detail{font-size:12px;color:var(--text-secondary);line-height:1.5}
+
+/* CATALYST */
+.timeline{position:relative;padding-left:24px}
+.timeline::before{content:'';position:absolute;left:7px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),transparent)}
+.tl-item{position:relative;margin-bottom:20px;padding-left:20px}
+.tl-item::before{content:'';position:absolute;left:-17px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:2px solid var(--accent-light)}
+.tl-time{font-size:12px;color:var(--accent);font-weight:600;margin-bottom:3px}
+.tl-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px}
+.tl-desc{font-size:12px;color:var(--text-secondary)}
+
+/* RULES */
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rule-section{background:var(--card2);border-radius:12px;padding:20px}
+.rule-title{font-size:15px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rule-title.profit{color:var(--green)}
+.rule-title.loss{color:var(--red)}
+.rule-item{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start}
+.rule-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+.icon-profit{background:rgba(63,185,80,0.2);color:var(--green)}
+.icon-loss{background:rgba(248,81,73,0.2);color:var(--red)}
+.rule-text{font-size:13px;color:var(--text-secondary);line-height:1.5}
+
+/* PHILOSOPHY */
+.philosophy{background:linear-gradient(135deg,rgba(200,134,10,0.1),rgba(240,192,64,0.05));border:1px solid var(--accent);border-radius:16px;padding:32px;margin-top:16px}
+.quote{font-size:clamp(14px,2vw,17px);color:var(--text);line-height:1.8;margin-bottom:20px;padding-left:20px;border-left:3px solid var(--accent)}
+.quote-label{font-size:13px;font-weight:700;color:var(--accent-light);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--card2);padding:10px 14px;text-align:left;color:var(--text-secondary);font-weight:600;border-bottom:1px solid var(--border)}
+td{padding:10px 14px;border-bottom:1px solid rgba(48,54,61,0.5)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(200,134,10,0.04)}
+.td-bull{color:var(--green)}
+.td-base{color:var(--accent-light)}
+.td-bear{color:var(--red)}
+
+/* FOOTER */
+footer{background:#0a0e14;border-top:1px solid var(--border);padding:32px 24px;text-align:center;margin-top:40px}
+.footer-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-bottom:16px}
+.footer-link{font-size:13px;color:var(--text-secondary);padding:6px 14px;border:1px solid var(--border);border-radius:20px;transition:all .2s}
+.footer-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer-link.active-link{border-color:var(--accent);color:var(--accent-light)}
+footer p{font-size:12px;color:var(--text-secondary)}
+
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:32px 0}
+
+/* TAGS */
+.tag{display:inline-block;padding:2px 10px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-gold{background:rgba(200,134,10,0.2);color:var(--accent-light)}
+.tag-green{background:rgba(63,185,80,0.2);color:var(--green)}
+.tag-red{background:rgba(248,81,73,0.2);color:var(--red)}
+.tag-blue{background:rgba(88,166,255,0.2);color:var(--blue)}
+
+@media(max-width:768px){
+  .hero{padding:40px 16px 32px}
+  .section{padding:28px 16px}
+  .rules-grid{grid-template-columns:1fr}
+  .score-item{grid-template-columns:1fr}
+  .score-right{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">⚫ 中国神华研究套装</span>
+  <a class="nav-link" href="./煤炭能源行业深度研究报告2025.html">🏭 行业研究</a>
+  <a class="nav-link" href="./煤炭能源股深度财报分析与投资图谱2025.html">📊 财报图谱</a>
+  <a class="nav-link active" href="#">📈 投资策略</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">⚫ 601088 · 中国神华 · 2024年报深度解析</div>
+  <h1>中国神华投资分析与交易策略2025</h1>
+  <p>一体化能源巨舰 · 高股息价值标杆 · A股确定性之王</p>
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">营业收入</div>
+      <div class="kpi-value">3383.75亿</div>
+      <div class="kpi-change down">▼ -1.37% 同比</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">归母净利润</div>
+      <div class="kpi-value">586.71亿</div>
+      <div class="kpi-change down">▼ -1.71% 同比</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">基本每股收益</div>
+      <div class="kpi-value">2.953元</div>
+      <div class="kpi-change neutral">— /股</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">每股股息</div>
+      <div class="kpi-value">2.26元</div>
+      <div class="kpi-change up">▲ 分红率76.6% 历史新高</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">资产负债率</div>
+      <div class="kpi-value">23.4%</div>
+      <div class="kpi-change up">▲ 历史极低水平</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">A股股息率</div>
+      <div class="kpi-value">5.4%</div>
+      <div class="kpi-change up">▲ PE约14× 低位</div>
+    </div>
+  </div>
+</div>
+
+<!-- CH1: KPI DASHBOARD -->
+<div class="section">
+  <div class="section-title"><span class="section-num">1</span>核心财务KPI仪表盘</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">营业收入</span>
+          <span class="metric-val" style="color:var(--accent)">3383.75亿 <span style="color:var(--red);font-size:12px">-1.37%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-orange" style="width:85%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">归母净利润</span>
+          <span class="metric-val" style="color:var(--accent-light)">586.71亿 <span style="color:var(--red);font-size:12px">-1.71%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-gold" style="width:73%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">毛利率</span>
+          <span class="metric-val" style="color:var(--green)">34.06%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width:34%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">净利率</span>
+          <span class="metric-val" style="color:var(--blue)">17.34%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-blue" style="width:17.34%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">ROE（净资产收益率）</span>
+          <span class="metric-val" style="color:var(--accent-light)">16.5%</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-gold" style="width:55%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">资产负债率（越低越好）</span>
+          <span class="metric-val" style="color:var(--green)">23.4% ✅极低</span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width:23.4%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">商品煤产量</span>
+          <span class="metric-val" style="color:var(--accent)">3.27亿吨 <span style="color:var(--green);font-size:12px">+2.6%</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-orange" style="width:65%"></div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-header">
+          <span class="metric-name">现金及等价物</span>
+          <span class="metric-val" style="color:var(--green)">1554亿 <span style="color:var(--text-secondary);font-size:12px">净现金状态</span></span>
+        </div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width:80%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary row -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:16px">
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">每股净资产</div>
+      <div style="font-size:22px;font-weight:700;color:var(--accent-light)">~18元/股</div>
+    </div>
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">A股PE</div>
+      <div style="font-size:22px;font-weight:700;color:var(--accent-light)">~14×</div>
+      <div style="font-size:11px;color:var(--green)">历史低位</div>
+    </div>
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">分红总额</div>
+      <div style="font-size:22px;font-weight:700;color:var(--accent-light)">~449亿</div>
+      <div style="font-size:11px;color:var(--accent)">分红率76.6%</div>
+    </div>
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">自有铁路</div>
+      <div style="font-size:22px;font-weight:700;color:var(--accent-light)">1460km</div>
+      <div style="font-size:11px;color:var(--text-secondary)">垄断性资产</div>
+    </div>
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">港口吞吐量</div>
+      <div style="font-size:22px;font-weight:700;color:var(--accent-light)">~1.9亿吨</div>
+    </div>
+    <div class="card2" style="text-align:center">
+      <div style="font-size:11px;color:var(--text-secondary);margin-bottom:4px">吨煤完全成本</div>
+      <div style="font-size:22px;font-weight:700;color:var(--green)">~180元/吨</div>
+      <div style="font-size:11px;color:var(--green)">行业最低之一</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH2: 五大业务引擎 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">2</span>五大业务引擎·一体化护城河</div>
+  <div class="grid-3" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div class="engine-card">
+      <div class="engine-icon">⛏️</div>
+      <div class="engine-name">煤炭核心业务</div>
+      <div class="engine-share">~68%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">收入占比</div>
+      <div class="engine-desc">产量3.27亿吨，售量4.59亿吨<br>吨煤成本~180元，全球最低之列<br>保有资源量336.9亿吨</div>
+      <div class="engine-bar" style="width:68%"></div>
+    </div>
+    <div class="engine-card">
+      <div class="engine-icon">⚡</div>
+      <div class="engine-name">发电业务</div>
+      <div class="engine-share">~18%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">收入占比</div>
+      <div class="engine-desc">装机容量约39GW<br>为煤炭消纳提供内部保障<br>自发自用+向省级电网外售</div>
+      <div class="engine-bar" style="width:18%"></div>
+    </div>
+    <div class="engine-card">
+      <div class="engine-icon">🚂</div>
+      <div class="engine-name">铁路运输</div>
+      <div class="engine-share">~8%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">收入占比</div>
+      <div class="engine-desc">1460公里专用铁路<br>朔黄铁路年运量超2亿吨<br>垄断性基础设施资产</div>
+      <div class="engine-bar" style="width:8%"></div>
+    </div>
+    <div class="engine-card">
+      <div class="engine-icon">🏗️</div>
+      <div class="engine-name">港口装卸</div>
+      <div class="engine-share">~3%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">收入占比</div>
+      <div class="engine-desc">黄骅港+天津港<br>年吞吐量约1.9亿吨<br>北方重要煤炭中转枢纽</div>
+      <div class="engine-bar" style="width:3%"></div>
+    </div>
+    <div class="engine-card">
+      <div class="engine-icon">🚢</div>
+      <div class="engine-name">航运业务</div>
+      <div class="engine-share">~3%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">收入占比</div>
+      <div class="engine-desc">自有海运船队<br>沿海煤炭运输降本增效<br>完成全产业链闭环</div>
+      <div class="engine-bar" style="width:3%"></div>
+    </div>
+  </div>
+
+  <!-- Value Chain -->
+  <div class="chain">
+    <div class="chain-node">⛏️ 神东煤矿<br><span style="font-size:11px;color:var(--text-secondary)">3.27亿吨/年</span></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">🚂 朔黄铁路<br><span style="font-size:11px;color:var(--text-secondary)">1460公里</span></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">🏗️ 黄骅港<br><span style="font-size:11px;color:var(--text-secondary)">1.9亿吨/年</span></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">🚢 自有船队<br><span style="font-size:11px;color:var(--text-secondary)">沿海运输</span></div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">⚡ 自有电厂<br><span style="font-size:11px;color:var(--text-secondary)">39GW装机</span></div>
+    <div class="chain-arrow" style="font-size:13px;color:var(--text-secondary)">+</div>
+    <div class="chain-node">🏭 外部客户<br><span style="font-size:11px;color:var(--text-secondary)">电厂/钢厂</span></div>
+  </div>
+  <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--text-secondary)">
+    💡 <strong style="color:var(--accent-light)">全球独一无二的一体化煤炭帝国</strong>——从地下到用户，全程掌控，竞争对手无法复制
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH3: 巴菲特评分 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">3</span>巴菲特六维评分体系</div>
+
+  <div class="score-item">
+    <div class="score-left">
+      <div class="score-dim">🏰 经济护城河</div>
+      <div class="score-desc">一体化运营全球独一无二，从采矿→铁路→港口→发电全链条垄断。任何竞争对手若想复制，需数十年时间+数千亿资金。煤炭资源储量336.9亿吨，开采许可证壁垒极高。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num">18</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★★</div>
+    </div>
+  </div>
+
+  <div class="score-item">
+    <div class="score-left">
+      <div class="score-dim">👔 管理层质量</div>
+      <div class="score-desc">央企稳健治理，分红承诺清晰（不低于50%净利润），历史执行远超承诺（2024年达76.6%）。资本开支纪律良好，不进行高风险多元化扩张。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num">17</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="score-item">
+    <div class="score-left">
+      <div class="score-dim">💰 财务健康度</div>
+      <div class="score-desc">净现金状态（现金1554亿 > 有息负债），资产负债率23.4%创历史新低，ROE稳健16.5%。经营现金流约900亿/年，自由现金流充裕，无任何流动性风险。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num">18</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★★</div>
+    </div>
+  </div>
+
+  <div class="score-item">
+    <div class="score-left">
+      <div class="score-dim">📊 盈利能力</div>
+      <div class="score-desc">净利率17.34%在煤炭行业领先（远超中煤/兖矿），但受2024年煤价下行压制，净利同比微降1.71%。毛利率34%相对稳定，一体化运营有效对冲煤价波动。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num">16</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="score-item" style="border:1px solid rgba(200,134,10,0.4);background:rgba(200,134,10,0.05)">
+    <div class="score-left">
+      <div class="score-dim">💎 股息回报 <span class="tag tag-gold">满分</span></div>
+      <div class="score-desc">分红率76.6%历史新高（2024年），股息率5.4%（A股）。每年2.26元/股股息完全由真实现金流支撑，股息承诺可信度极高。持有10年累计股息超过22元，相当于当前股价53%。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num" style="color:var(--accent-light)">20</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★★</div>
+    </div>
+  </div>
+
+  <div class="score-item">
+    <div class="score-left">
+      <div class="score-dim">🛡️ 安全边际</div>
+      <div class="score-desc">PE约14×处历史低位，PB约2.3×，股息率5.4%提供高安全边际。煤价下行已充分反映，能源安全战略资产地位提供政策保底。净现金状态意味着极低破产风险。</div>
+    </div>
+    <div class="score-right">
+      <div class="score-num">17</div>
+      <div class="score-max">/ 20分</div>
+      <div class="score-stars">★★★★☆</div>
+    </div>
+  </div>
+
+  <div class="total-score">
+    <div style="font-size:15px;color:var(--text-secondary);margin-bottom:8px">18+17+18+16+20+17 = 106/120</div>
+    <div class="total-num">88</div>
+    <div class="total-label">/ 100 折算得分</div>
+    <div class="s-badge">⭐ S级 价值投资首选</div>
+    <div style="font-size:13px;color:var(--text-secondary);margin-top:12px">A股高股息价值投资标杆 · 确定性最强标的之一</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH4: 五维估值 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">4</span>五维估值模型</div>
+  <div class="grid-3">
+    <div class="val-card">
+      <div class="val-method">① 股息贴现模型 DDM</div>
+      <div class="val-range">28元</div>
+      <div class="val-logic">股息2.26元/折现率8%=28.3元<br>此为极度保守下限，假设股息零增长</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">② PE估值法</div>
+      <div class="val-range">35~47元</div>
+      <div class="val-logic">合理PE区间12~16×<br>EPS 2.953元 → 35.4~47.2元</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">③ PB估值法</div>
+      <div class="val-range">36~54元</div>
+      <div class="val-logic">历史PB区间2.0~3.0×<br>净资产~18元/股 → 36~54元</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">④ 历史股息率锚定</div>
+      <div class="val-range">45~65元</div>
+      <div class="val-logic">历史合理股息率3.5~5%<br>股息2.26元 → 45~64.6元</div>
+    </div>
+    <div class="val-card">
+      <div class="val-method">⑤ 现金流折现 DCF</div>
+      <div class="val-range">40~55元</div>
+      <div class="val-logic">稳态FCF约400亿/年<br>折现率8%，成长率2% → 40~55元</div>
+    </div>
+  </div>
+  <div class="val-summary">
+    <div style="font-size:14px;color:var(--text-secondary);margin-bottom:8px">五维综合目标价区间</div>
+    <div class="val-target">40 ~ 55元</div>
+    <div style="font-size:14px;color:var(--text-secondary);margin-top:8px">较当前约41元，空间 +0%~+34%</div>
+    <div style="font-size:13px;color:var(--accent);margin-top:8px">⚡ 核心回报来源：股息持续积累（5.4%/年）+ 估值修复弹性</div>
+    <div style="font-size:12px;color:var(--text-secondary);margin-top:8px">若煤价回升至850元/吨+，乐观目标价可达55~65元</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH5: 三情景分析 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">5</span>三情景分析·煤价敏感性</div>
+
+  <div class="scenario bull">
+    <div class="scenario-header">
+      <span class="scenario-title">🚀 乐观情景</span>
+      <span class="scenario-prob">概率 25%</span>
+    </div>
+    <div class="scenario-grid">
+      <div class="sdata">
+        <div class="sdata-label">煤价假设</div>
+        <div class="sdata-val td-bull">850+元/吨</div>
+        <div style="font-size:11px;color:var(--text-secondary)">冬季需求超预期</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">净利预测</div>
+        <div class="sdata-val td-bull">>650亿</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">目标股价</div>
+        <div class="sdata-val td-bull">50~65元</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">预期涨幅</div>
+        <div class="sdata-val td-bull">+22~+59%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario base">
+    <div class="scenario-header">
+      <span class="scenario-title">📊 基准情景</span>
+      <span class="scenario-prob">概率 60%</span>
+    </div>
+    <div class="scenario-grid">
+      <div class="sdata">
+        <div class="sdata-label">煤价假设</div>
+        <div class="sdata-val td-base">750~820元/吨</div>
+        <div style="font-size:11px;color:var(--text-secondary)">平稳运行</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">净利预测</div>
+        <div class="sdata-val td-base">560~600亿</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">目标股价</div>
+        <div class="sdata-val td-base">40~50元</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">预期涨幅</div>
+        <div class="sdata-val td-base">-2~+22%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario bear">
+    <div class="scenario-header">
+      <span class="scenario-title">🔻 悲观情景</span>
+      <span class="scenario-prob">概率 15%</span>
+    </div>
+    <div class="scenario-grid">
+      <div class="sdata">
+        <div class="sdata-label">煤价假设</div>
+        <div class="sdata-val td-bear">650~720元/吨</div>
+        <div style="font-size:11px;color:var(--text-secondary)">经济下行压力大</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">净利预测</div>
+        <div class="sdata-val td-bear">450~500亿</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">目标股价</div>
+        <div class="sdata-val td-bear">28~38元</div>
+      </div>
+      <div class="sdata">
+        <div class="sdata-label">预期涨幅</div>
+        <div class="sdata-val td-bear">-7~-31%</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;background:rgba(200,134,10,0.08);border-color:rgba(200,134,10,0.3)">
+    <div style="font-size:15px;font-weight:700;color:var(--accent-light);margin-bottom:12px">📐 期望收益率测算</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+      <div>
+        <div style="font-size:12px;color:var(--text-secondary)">加权期望股价涨幅</div>
+        <div style="font-size:22px;font-weight:700;color:var(--accent-light)">+15%~+25%</div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:var(--text-secondary)">年度股息贡献</div>
+        <div style="font-size:22px;font-weight:700;color:var(--green)">+5.4%</div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:var(--text-secondary)">综合年化回报预期</div>
+        <div style="font-size:22px;font-weight:700;color:var(--accent)">12%~18%</div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:var(--text-secondary);margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+      ⚠️ 即使悲观情景，凭借一体化护城河、净现金状态（现金>负债）及央企战略地位，公司无破产风险。股息仍有保障，等待煤价复苏即可。
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH6: 三批建仓 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">6</span>三批建仓计划·价格带可视化</div>
+
+  <div class="position-track">
+    <div style="font-size:13px;font-weight:600;color:var(--text-secondary);margin-bottom:12px">价格带分布（元/股）</div>
+    <div class="price-scale">
+      <span>&lt;28</span>
+      <span>28</span>
+      <span>35</span>
+      <span>42</span>
+      <span>55+</span>
+    </div>
+    <div class="price-bar-wrap">
+      <div class="price-zone zone-3">第三批<br>&lt;28</div>
+      <div class="price-zone zone-2">第二批<br>28~35</div>
+      <div class="price-zone zone-1">第一批<br>35~42</div>
+      <div class="price-zone zone-now">目标区<br>42+</div>
+      <div class="now-marker"></div>
+    </div>
+    <div style="display:flex;justify-content:75.4%;font-size:11px;color:var(--blue);margin-top:4px">
+      <span style="margin-left:72%">📍 当前约41元</span>
+    </div>
+  </div>
+
+  <div class="batch-cards">
+    <div class="batch b1">
+      <div class="batch-title">✅ 第一批建仓 · 当前可操作</div>
+      <div class="batch-pct">30%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin:4px 0">仓位</div>
+      <div class="batch-price" style="color:var(--green)">35~42元 / PE约12~14×</div>
+      <div class="batch-detail">
+        <strong>触发信号：</strong>股息率≥5.3%，PE≤14×<br>
+        <strong>✅ 当前价位已满足条件</strong><br>
+        <strong>操作逻辑：</strong>历史低估值区间，高股息保底，即使不涨也有5%+年化股息收益
+      </div>
+    </div>
+    <div class="batch b2">
+      <div class="batch-title">⏳ 第二批建仓 · 等待回调</div>
+      <div class="batch-pct">40%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin:4px 0">仓位（最大加仓）</div>
+      <div class="batch-price" style="color:var(--accent-light)">28~35元 / PE约9~12×</div>
+      <div class="batch-detail">
+        <strong>触发条件：</strong>煤价跌至700元以下，市场恐慌性抛售<br>
+        <strong>操作逻辑：</strong>超跌区间，股息率将超过6.5%，历史极稀少的极佳买点，需要耐心等待
+      </div>
+    </div>
+    <div class="batch b3">
+      <div class="batch-title">🎯 第三批建仓 · 极端备用</div>
+      <div class="batch-pct">30%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin:4px 0">仓位</div>
+      <div class="batch-price" style="color:var(--red)">&lt;28元 / PE&lt;9×</div>
+      <div class="batch-detail">
+        <strong>触发条件：</strong>极端宏观风险事件，市场极度恐慌<br>
+        <strong>操作逻辑：</strong>DDM底线价值约28元，低于此处为绝对低估。股息率届时将超过8%，参考DDM保底价值建仓
+      </div>
+    </div>
+  </div>
+
+  <div class="card2" style="margin-top:16px;text-align:center">
+    <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px">满仓平均持仓成本目标</div>
+    <div style="font-size:26px;font-weight:800;color:var(--accent-light)">32~38元</div>
+    <div style="font-size:13px;color:var(--green);margin-top:4px">股息率锁定在 6%~7%，真正的被动收益之王</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH7: 催化剂 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">7</span>催化剂日历</div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">2025年4月</div>
+          <div class="tl-title">一季报披露</div>
+          <div class="tl-desc">观察煤价企稳信号，一季度数据确认基本面底部</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2025年5月</div>
+          <div class="tl-title">📅 股息除权日</div>
+          <div class="tl-desc">按惯例约4~5月除权，每股2.26元股息落袋为安</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2025年夏季</div>
+          <div class="tl-title">☀️ 高温电煤需求</div>
+          <div class="tl-desc">夏季高温带动发电量激增，电煤需求大幅提升，支撑煤价</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2025年Q3</div>
+          <div class="tl-title">进口煤阶段性减少</div>
+          <div class="tl-desc">政策调控下进口量可能阶段性收紧，利好内煤价格</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">2025年Q4</div>
+          <div class="tl-title">❄️ 冬储需求旺季</div>
+          <div class="tl-desc">北方冬季取暖备煤需求推升电煤价格，季节性强催化剂</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">2026年</div>
+          <div class="tl-title">🏗️ 煤矿智能化补贴</div>
+          <div class="tl-desc">国家推进煤矿智能化改造政策，降本+安全双提升</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">长期持续</div>
+          <div class="tl-title">💰 股息再投资复利</div>
+          <div class="tl-desc">每年5.4%股息再投资，10年复利累计回报率超70%，真正的躺赢逻辑</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">长期战略</div>
+          <div class="tl-title">🛡️ 能源安全政策保底</div>
+          <div class="tl-desc">煤炭作为能源安全基石，政策端有天然托底，极端情景保供保暖使命不变</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH8: 止盈止损 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">8</span>止盈止损规则</div>
+  <div class="rules-grid">
+    <div class="rule-section">
+      <div class="rule-title profit">✅ 止盈规则（5条）</div>
+      <div class="rule-item">
+        <div class="rule-icon icon-profit">1</div>
+        <div class="rule-text"><strong>股价>55元（PE>18×）</strong>→ 分批减仓30%，锁定第一阶段收益</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-profit">2</div>
+        <div class="rule-text"><strong>股价>65元（PE>22×）</strong>→ 再减仓30%，保留20%底仓享受股息</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-profit">3</div>
+        <div class="rule-text"><strong>股息率降至3%以下</strong>（即股价>75元）→ 评估大幅减仓，估值已充分</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-profit">4</div>
+        <div class="rule-text"><strong>分红率大幅下调至50%以下</strong>→ 审视基本面是否恶化，考虑换仓</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-profit">5</div>
+        <div class="rule-text"><strong>持有3~5年累计股息回收>40%成本</strong>→ 实质上已保本，持仓风险极低</div>
+      </div>
+    </div>
+    <div class="rule-section">
+      <div class="rule-title loss">🔻 止损规则（5条）</div>
+      <div class="rule-item">
+        <div class="rule-icon icon-loss">1</div>
+        <div class="rule-text"><strong>煤价跌破650元/吨且持续超3个月</strong>→ 减仓50%，等待价格底部确认</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-loss">2</div>
+        <div class="rule-text"><strong>净利润连续2季度同比下滑>30%</strong>→ 重新评估基本面，可能产业逻辑已变</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-loss">3</div>
+        <div class="rule-text"><strong>公司宣布大额不相关收购</strong>→ 警惕财务稳健性受损，管理层风格改变</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-loss">4</div>
+        <div class="rule-text"><strong>资产负债率快速上升至40%以上</strong>→ 财务健康核心优势动摇，警示信号</div>
+      </div>
+      <div class="rule-item">
+        <div class="rule-icon icon-loss">5</div>
+        <div class="rule-text"><strong>政策突变（强制限价+强制大幅降价）</strong>→ 行业逻辑根本性改变，全面评估</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CH9: 核心理念 -->
+<div class="section">
+  <div class="section-title"><span class="section-num">9</span>投资核心理念</div>
+  <div class="philosophy">
+    <div style="margin-bottom:24px">
+      <div class="quote-label">🏰 核心逻辑</div>
+      <div class="quote">
+        中国神华不是纯煤炭公司，而是一家拥有煤矿、铁路、港口、电厂的<strong style="color:var(--accent-light)">一体化能源基础设施运营商</strong>。其竞争护城河在中国上市公司中独一无二，任何竞争者若想复制，需要数十年时间和数千亿资金。这种护城河的持久性，才是长期持有的根本理由。
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px">
+      <div class="quote-label">💰 股息复利逻辑</div>
+      <div class="quote">
+        以当前约41元股价持有10年，若维持2.26元/股年股息，<strong style="color:var(--accent-light)">累计股息将超过22元，超过当前股价的53%</strong>。这还不含股息再投资的复利效应。这就是价值投资的复利魔法——即使股价不涨，高股息也让你稳稳胜出。
+      </div>
+    </div>
+
+    <div>
+      <div class="quote-label">🛡️ 三重安全垫</div>
+      <div class="quote">
+        <strong style="color:var(--green)">净现金状态（现金1554亿 > 有息负债）</strong> + <strong style="color:var(--accent-light)">一体化不可复制的护城河</strong> + <strong style="color:var(--blue)">能源安全国家战略资产属性</strong> = 三重安全垫。这是A股最具确定性的高股息标的之一，适合作为组合的"压舱石"长期持有。
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)">
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:800;color:var(--accent-light)">5.4%</div>
+        <div style="font-size:12px;color:var(--text-secondary)">当前股息率</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:800;color:var(--green)">76.6%</div>
+        <div style="font-size:12px;color:var(--text-secondary)">历史最高分红率</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:800;color:var(--blue)">14×</div>
+        <div style="font-size:12px;color:var(--text-secondary)">历史低位PE</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:28px;font-weight:800;color:var(--accent)">88/100</div>
+        <div style="font-size:12px;color:var(--text-secondary)">巴菲特综合评分</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a class="footer-link" href="./煤炭能源行业深度研究报告2025.html">🏭 煤炭能源行业深度研究报告</a>
+    <a class="footer-link" href="./煤炭能源股深度财报分析与投资图谱2025.html">📊 煤炭能源股财报分析与投资图谱</a>
+    <a class="footer-link active-link" href="#">📈 中国神华投资分析与交易策略</a>
+  </div>
+  <p>本报告仅供研究学习参考，不构成任何投资建议。投资有风险，入市需谨慎。</p>
+  <p style="margin-top:6px">数据来源：中国神华2024年度报告 · 生成时间：2025年</p>
+</footer>
+
+</body>
+</html>
