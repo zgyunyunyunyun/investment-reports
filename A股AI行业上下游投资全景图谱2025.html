@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股AI行业上下游投资全景图谱 2025</title>
+<style>
+  :root {
+    --bg:#060d1a; --card:#0d1b2e; --card2:#112240;
+    --accent:#00d4ff; --accent2:#7c3aed; --accent3:#10b981;
+    --accent-gold:#f59e0b; --accent-red:#ef4444;
+    --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+    --border:#1e3a5f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Helvetica Neue',Arial,sans-serif;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#060d1a 0%,#0a1628 40%,#0d2040 100%);padding:64px 24px 48px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,212,255,0.12),transparent)}
+  .hero-badge{display:inline-block;background:linear-gradient(90deg,rgba(0,212,255,0.15),rgba(124,58,237,0.15));border:1px solid rgba(0,212,255,0.3);color:var(--accent);padding:6px 18px;border-radius:99px;font-size:13px;letter-spacing:1px;margin-bottom:20px}
+  .hero h1{font-size:clamp(26px,5vw,44px);font-weight:800;background:linear-gradient(135deg,#00d4ff,#7c3aed,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:16px}
+  .hero-sub{color:var(--text2);font-size:16px;max-width:680px;margin:0 auto 28px}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .stat-chip{background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);padding:8px 18px;border-radius:8px;font-size:13px;color:var(--accent)}
+
+  /* Nav */
+  .toc{background:rgba(13,27,46,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 16px;overflow-x:auto}
+  .toc-inner{display:flex;align-items:center;height:48px;gap:4px;min-width:max-content}
+  .toc-btn{padding:6px 14px;border-radius:6px;font-size:13px;color:var(--text2);cursor:pointer;white-space:nowrap;border:none;background:none;transition:all 0.2s}
+  .toc-btn:hover{color:var(--accent);background:rgba(0,212,255,0.08)}
+  .toc-btn.active{color:var(--accent);background:rgba(0,212,255,0.12);border-bottom:2px solid var(--accent)}
+
+  /* Layout */
+  .container{max-width:1000px;margin:0 auto;padding:0 20px}
+  .section{padding:56px 0 24px}
+  .section-title{font-size:clamp(20px,3.5vw,28px);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+  .section-title .icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .section-desc{color:var(--text2);font-size:15px;margin-bottom:32px;max-width:720px}
+  .divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:40px 0}
+
+  /* Cards */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:20px;transition:border-color 0.2s,transform 0.2s}
+  .card:hover{border-color:rgba(0,212,255,0.3);transform:translateY(-2px)}
+  .card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px}
+  .card-title{font-size:17px;font-weight:700;color:var(--text)}
+  .card-subtitle{font-size:13px;color:var(--text3);margin-top:4px}
+  .badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600;flex-shrink:0}
+  .badge-hot{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3)}
+  .badge-good{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3)}
+  .badge-watch{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)}
+  .badge-avoid{background:rgba(100,116,139,0.15);color:#94a3b8;border:1px solid rgba(100,116,139,0.3)}
+  .badge-blue{background:rgba(0,212,255,0.12);color:var(--accent);border:1px solid rgba(0,212,255,0.25)}
+
+  /* Metrics grid */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:16px 0}
+  .metric{background:var(--card2);border-radius:10px;padding:12px 14px;text-align:center}
+  .metric-val{font-size:18px;font-weight:700;color:var(--accent)}
+  .metric-val.red{color:#f87171}
+  .metric-val.green{color:#34d399}
+  .metric-val.gold{color:var(--accent-gold)}
+  .metric-val.purple{color:#a78bfa}
+  .metric-label{font-size:11px;color:var(--text3);margin-top:4px}
+
+  /* Tags */
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.15);color:var(--text2);padding:3px 10px;border-radius:6px;font-size:12px}
+  .tag.green{background:rgba(16,185,129,0.08);border-color:rgba(16,185,129,0.2);color:#6ee7b7}
+  .tag.purple{background:rgba(124,58,237,0.08);border-color:rgba(124,58,237,0.2);color:#c4b5fd}
+  .tag.gold{background:rgba(245,158,11,0.08);border-color:rgba(245,158,11,0.2);color:#fcd34d}
+  .tag.red{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.2);color:#fca5a5}
+
+  /* Logic list */
+  .logic-list{list-style:none;margin-top:12px}
+  .logic-list li{padding:7px 0 7px 20px;position:relative;font-size:14px;color:var(--text2);border-bottom:1px solid rgba(30,58,95,0.5)}
+  .logic-list li:last-child{border-bottom:none}
+  .logic-list li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px;top:9px}
+  .logic-list li strong{color:var(--text)}
+
+  /* Risk box */
+  .risk-box{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:10px;padding:14px 16px;margin-top:14px}
+  .risk-box-title{font-size:13px;color:#f87171;font-weight:600;margin-bottom:6px}
+  .risk-box p{font-size:13px;color:var(--text2);line-height:1.6}
+
+  /* Chain overview */
+  .chain-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:24px 0}
+  .chain-cell{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center;transition:all 0.2s}
+  .chain-cell:hover{border-color:rgba(0,212,255,0.3)}
+  .chain-cell-icon{font-size:26px;margin-bottom:8px}
+  .chain-cell-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+  .chain-cell-desc{font-size:11px;color:var(--text3)}
+  .chain-arrow{display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:20px}
+
+  /* Summary table */
+  .summary-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px}
+  .summary-table th{background:var(--card2);color:var(--text2);font-weight:600;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+  .summary-table td{padding:10px 14px;border-bottom:1px solid rgba(30,58,95,0.5);color:var(--text)}
+  .summary-table tr:hover td{background:rgba(0,212,255,0.03)}
+  .summary-table .code{color:var(--accent);font-family:monospace}
+  .summary-table .up{color:#34d399}
+  .summary-table .down{color:#f87171}
+  .summary-table .neu{color:var(--accent-gold)}
+
+  /* Sector header */
+  .sector-header{background:linear-gradient(135deg,var(--card) 0%,var(--card2) 100%);border:1px solid var(--border);border-radius:16px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:16px}
+  .sector-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+  .sector-icon.cyan{background:rgba(0,212,255,0.12)}
+  .sector-icon.purple{background:rgba(124,58,237,0.12)}
+  .sector-icon.green{background:rgba(16,185,129,0.12)}
+  .sector-icon.gold{background:rgba(245,158,11,0.12)}
+  .sector-title{font-size:18px;font-weight:700}
+  .sector-sub{font-size:13px;color:var(--text2);margin-top:4px}
+
+  /* Rating bar */
+  .rating{display:flex;align-items:center;gap:8px;margin-top:10px}
+  .rating-label{font-size:12px;color:var(--text3);width:60px;flex-shrink:0}
+  .rating-bar{flex:1;height:6px;background:var(--card2);border-radius:3px;overflow:hidden}
+  .rating-fill{height:100%;border-radius:3px;transition:width 0.5s}
+  .rating-fill.cyan{background:linear-gradient(90deg,var(--accent),rgba(0,212,255,0.4))}
+  .rating-fill.green{background:linear-gradient(90deg,#10b981,rgba(16,185,129,0.4))}
+  .rating-fill.gold{background:linear-gradient(90deg,var(--accent-gold),rgba(245,158,11,0.4))}
+  .rating-fill.red{background:linear-gradient(90deg,#ef4444,rgba(239,68,68,0.4))}
+  .rating-score{font-size:13px;font-weight:700;width:30px;text-align:right}
+
+  /* SVG charts */
+  .chart-wrap{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;margin:20px 0}
+  .chart-title{font-size:14px;font-weight:600;color:var(--text2);margin-bottom:14px}
+
+  /* Investment score */
+  .score-circle{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;flex-shrink:0}
+  .score-s{background:linear-gradient(135deg,rgba(16,185,129,0.25),rgba(16,185,129,0.1));border:2px solid #10b981;color:#34d399}
+  .score-a{background:linear-gradient(135deg,rgba(0,212,255,0.25),rgba(0,212,255,0.1));border:2px solid var(--accent);color:var(--accent)}
+  .score-b{background:linear-gradient(135deg,rgba(245,158,11,0.25),rgba(245,158,11,0.1));border:2px solid var(--accent-gold);color:var(--accent-gold)}
+  .score-c{background:linear-gradient(135deg,rgba(100,116,139,0.25),rgba(100,116,139,0.1));border:2px solid #64748b;color:#94a3b8}
+
+  /* Footer */
+  .footer{text-align:center;padding:48px 24px;color:var(--text3);font-size:13px;border-top:1px solid var(--border);margin-top:64px}
+  .footer a{color:var(--accent);opacity:0.7}
+  .footer a:hover{opacity:1}
+
+  @media(max-width:640px){
+    .card-header{flex-direction:column}
+    .metrics{grid-template-columns:repeat(2,1fr)}
+    .chain-arrow{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">🤖 A股AI产业链深度研究 · 2025</div>
+  <h1>A股AI行业上下游<br>投资全景图谱</h1>
+  <p class="hero-sub">算力底座 → 模型层 → 应用层 · 从芯片到终端的全链条投资机会解析<br>覆盖25家核心标的，聚焦真正有投资价值的确定性机会</p>
+  <div class="hero-stats">
+    <span class="stat-chip">📡 算力基础设施 9家</span>
+    <span class="stat-chip">🧠 模型与平台 4家</span>
+    <span class="stat-chip">💡 行业应用 12家</span>
+    <span class="stat-chip">🌊 DeepSeek重塑格局</span>
+    <span class="stat-chip">💰 全球AI资本开支$1186亿</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="toc">
+  <div class="toc-inner">
+    <button class="toc-btn active" onclick="scrollTo('overview')">🗺️ 全景概览</button>
+    <button class="toc-btn" onclick="scrollTo('upstream')">⚡ 算力基础设施</button>
+    <button class="toc-btn" onclick="scrollTo('midstream')">🧠 模型与平台</button>
+    <button class="toc-btn" onclick="scrollTo('downstream')">💡 行业应用</button>
+    <button class="toc-btn" onclick="scrollTo('summary')">🎯 投资总结</button>
+    <button class="toc-btn" onclick="scrollTo('risks')">⚠️ 风险清单</button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════════
+     SECTION 1: 全景概览
+════════════════════════════════════════════ -->
+<div class="section" id="overview">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(0,212,255,0.12)">🗺️</div>
+    全景概览：AI产业链的三层结构
+  </div>
+  <p class="section-desc">AI产业链由底层算力基础设施、中间模型与平台层、上层行业应用层构成。投资机会因层次不同而差异显著——越靠近底层越确定，越靠近应用层成长空间越大但不确定性也越高。</p>
+
+  <!-- 产业链全景 SVG -->
+  <div class="chart-wrap">
+    <div class="chart-title">AI产业链三层结构与A股核心标的分布</div>
+    <svg viewBox="0 0 900 340" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#0066aa;stop-opacity:0.4"/>
+        </linearGradient>
+        <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#4c1d95;stop-opacity:0.4"/>
+        </linearGradient>
+        <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#065f46;stop-opacity:0.4"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Layer 1: 算力基础设施 -->
+      <rect x="20" y="20" width="860" height="88" rx="12" fill="url(#g1)" opacity="0.15" stroke="#00d4ff" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="40" y="48" fill="#00d4ff" font-size="13" font-weight="700">⚡ 算力基础设施层（上游）— 确定性最高</text>
+      <!-- Sub boxes -->
+      <rect x="40" y="56" width="120" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="100" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">光模块</text>
+      <text x="100" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">中际旭创 新易盛</text>
+
+      <rect x="175" y="56" width="120" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="235" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">AI芯片/GPU</text>
+      <text x="235" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">海光信息 寒武纪</text>
+
+      <rect x="310" y="56" width="130" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="375" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">服务器/整机</text>
+      <text x="375" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">浪潮信息 中科曙光</text>
+
+      <rect x="455" y="56" width="120" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="515" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">液冷/散热</text>
+      <text x="515" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">英维克 申菱环境</text>
+
+      <rect x="590" y="56" width="120" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="650" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">PCB/连接器</text>
+      <text x="650" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">深南电路 沪电股份</text>
+
+      <rect x="725" y="56" width="130" height="40" rx="8" fill="rgba(0,212,255,0.12)" stroke="rgba(0,212,255,0.3)" stroke-width="1"/>
+      <text x="790" y="73" text-anchor="middle" fill="#e2e8f0" font-size="11">IDC/算力租赁</text>
+      <text x="790" y="87" text-anchor="middle" fill="#94a3b8" font-size="10">润泽科技 光环新网</text>
+
+      <!-- Layer 2: 模型与平台 -->
+      <rect x="20" y="128" width="860" height="80" rx="12" fill="url(#g2)" opacity="0.15" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="40" y="150" fill="#a78bfa" font-size="13" font-weight="700">🧠 模型与平台层（中游）— 成长期，商业化验证中</text>
+      <rect x="40" y="158" width="130" height="36" rx="8" fill="rgba(124,58,237,0.1)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+      <text x="105" y="173" text-anchor="middle" fill="#e2e8f0" font-size="11">大模型公司</text>
+      <text x="105" y="187" text-anchor="middle" fill="#94a3b8" font-size="10">科大讯飞 昆仑万维</text>
+
+      <rect x="190" y="158" width="130" height="36" rx="8" fill="rgba(124,58,237,0.1)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+      <text x="255" y="173" text-anchor="middle" fill="#e2e8f0" font-size="11">AI云服务平台</text>
+      <text x="255" y="187" text-anchor="middle" fill="#94a3b8" font-size="10">三六零 天翼云</text>
+
+      <rect x="340" y="158" width="130" height="36" rx="8" fill="rgba(124,58,237,0.1)" stroke="rgba(124,58,237,0.3)" stroke-width="1"/>
+      <text x="405" y="173" text-anchor="middle" fill="#e2e8f0" font-size="11">AI开发平台/工具</text>
+      <text x="405" y="187" text-anchor="middle" fill="#94a3b8" font-size="10">百度(H)  阿里云(H)</text>
+
+      <!-- Layer 3: 应用层 -->
+      <rect x="20" y="228" width="860" height="94" rx="12" fill="url(#g3)" opacity="0.15" stroke="#10b981" stroke-width="1" stroke-opacity="0.4"/>
+      <text x="40" y="250" fill="#34d399" font-size="13" font-weight="700">💡 行业应用层（下游）— 空间最大，落地验证期</text>
+
+      <rect x="40" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="95" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+办公</text>
+      <text x="95" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">金山办公</text>
+      <text x="95" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">用友网络</text>
+
+      <rect x="165" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="220" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+安防视觉</text>
+      <text x="220" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">海康威视</text>
+      <text x="220" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">大华股份</text>
+
+      <rect x="290" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="345" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+建筑工程</text>
+      <text x="345" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">广联达</text>
+      <text x="345" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">用友网络</text>
+
+      <rect x="415" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="470" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+医疗健康</text>
+      <text x="470" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">卫宁健康</text>
+      <text x="470" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">医渡科技(H)</text>
+
+      <rect x="540" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="595" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+自动驾驶</text>
+      <text x="595" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">地平线(H)</text>
+      <text x="595" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">四维图新</text>
+
+      <rect x="665" y="258" width="110" height="50" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+      <text x="720" y="276" text-anchor="middle" fill="#e2e8f0" font-size="11">AI+机器人</text>
+      <text x="720" y="290" text-anchor="middle" fill="#94a3b8" font-size="10">埃斯顿</text>
+      <text x="720" y="302" text-anchor="middle" fill="#94a3b8" font-size="10">汇川技术</text>
+    </svg>
+  </div>
+
+  <!-- 市场背景 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="card-title">📊 2025年AI产业链关键市场数据</div>
+        <div class="card-subtitle">宏观背景与投资环境</div>
+      </div>
+      <span class="badge badge-blue">宏观背景</span>
+    </div>
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-val gold">$1,186亿</div>
+        <div class="metric-label">全球四大云厂商AI资本开支(2025E)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val green">+64%</div>
+        <div class="metric-label">全球AI资本开支同比增速</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val cyan">259亿美元</div>
+        <div class="metric-label">中国AI算力市场规模(2025E)</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val purple">+38%</div>
+        <div class="metric-label">国内AI算力市场年均增速</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val gold">7500万+</div>
+        <div class="metric-label">DeepSeek累计下载量</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val green">+184%</div>
+        <div class="metric-label">A股AI ETF近1年涨幅</div>
+      </div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>DeepSeek效应：</strong>国产大模型推理成本大幅下降，AI应用普及速度显著加快，对算力需求利空但对应用层利好</li>
+      <li><strong>超大规模资本开支：</strong>微软/谷歌/Meta/亚马逊合计资本开支$1186亿，光模块等基础设施订单能见度高</li>
+      <li><strong>国产替代加速：</strong>出口管制倒逼国内AI芯片研发，海光信息/寒武纪迎来替代窗口</li>
+      <li><strong>AI应用落地提速：</strong>文心一言/通义千问/混元等用户规模突破亿级，B端商业化加速</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 2: 算力基础设施
+════════════════════════════════════════════ -->
+<div class="section" id="upstream">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(0,212,255,0.12)">⚡</div>
+    算力基础设施层（上游）
+  </div>
+  <p class="section-desc">最确定的投资主线。AI训练与推理对算力的需求持续暴增，光模块、服务器、芯片是受益最直接的环节。</p>
+
+  <!-- 光模块 -->
+  <div class="sector-header">
+    <div class="sector-icon cyan">📡</div>
+    <div>
+      <div class="sector-title">光模块：AI时代的"高速公路" · 景气度最高赛道</div>
+      <div class="sector-sub">800G→1.6T升级浪潮驱动，海外大客户订单锁定至2027年</div>
+    </div>
+  </div>
+
+  <!-- 中际旭创 -->
+  <div class="card" style="border-left:3px solid #00d4ff">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-s">S</div>
+        <div>
+          <div class="card-title">中际旭创 <span style="color:var(--text3);font-weight:400;font-size:14px">300308</span></div>
+          <div class="card-subtitle">全球光模块龙头 · 英伟达/Meta/微软直接供应商</div>
+        </div>
+      </div>
+      <span class="badge badge-hot">核心持仓</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+218%</div><div class="metric-label">2024年净利润增速</div></div>
+      <div class="metric"><div class="metric-val cyan">57.35亿</div><div class="metric-label">2025Q1净利润(超24全年)</div></div>
+      <div class="metric"><div class="metric-val gold">~28×</div><div class="metric-label">当前PE(TTM)</div></div>
+      <div class="metric"><div class="metric-val green">85%+</div><div class="metric-label">海外收入占比</div></div>
+      <div class="metric"><div class="metric-val cyan">800G/1.6T</div><div class="metric-label">主力产品世代</div></div>
+      <div class="metric"><div class="metric-val purple">A+</div><div class="metric-label">综合评级</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>独家供应护城河：</strong>1.6T光模块是英伟达Blackwell架构GPU集群的核心配套，中际旭创是全球少数具备量产能力的供应商之一</li>
+      <li><strong>利润爆发周期：</strong>2025Q1单季净利润已超2024年全年，ASP持续上升（800G→1.6T单价约2倍提升）</li>
+      <li><strong>订单能见度极高：</strong>头部云厂商AI资本开支确定性强，光模块作为刚需耗材，订单锁定至2027年</li>
+      <li><strong>估值相对合理：</strong>PE~28×，考虑到当前高速增长阶段，PEG远低于1，是AI赛道中性价比最优之一</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">光模块龙头</span>
+      <span class="tag green">利润爆发期</span>
+      <span class="tag">1.6T量产</span>
+      <span class="tag gold">订单锁定</span>
+    </div>
+    <div class="risk-box">
+      <div class="risk-box-title">⚠️ 主要风险</div>
+      <p>大客户集中度高（英伟达/Meta占比>60%），若超大规模云厂商资本开支节奏放缓将直接影响业绩；光模块技术迭代加速，硅光模块替代风险长期存在。</p>
+    </div>
+  </div>
+
+  <!-- 新易盛 -->
+  <div class="card" style="border-left:3px solid #10b981">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-a">A</div>
+        <div>
+          <div class="card-title">新易盛 <span style="color:var(--text3);font-weight:400;font-size:14px">300502</span></div>
+          <div class="card-subtitle">高端光模块专注者 · LPO技术领先 · 毛利率行业最高</div>
+        </div>
+      </div>
+      <span class="badge badge-good">重点关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+180%+</div><div class="metric-label">2024年净利润增速</div></div>
+      <div class="metric"><div class="metric-val cyan">58%</div><div class="metric-label">毛利率（行业最高）</div></div>
+      <div class="metric"><div class="metric-val gold">~19×</div><div class="metric-label">当前PE(更低估)</div></div>
+      <div class="metric"><div class="metric-val green">LPO领先</div><div class="metric-label">核心技术优势</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>LPO技术先发优势：</strong>线性驱动光模块（LPO）省去DSP芯片，成本降低20-30%，功耗更低，是1.6T+时代主流方向</li>
+      <li><strong>毛利率58%为行业天花板：</strong>技术壁垒驱动高盈利，远超中际旭创（约45%），盈利质量更优</li>
+      <li><strong>估值洼地：</strong>PE~19×低于中际旭创，业绩增速相当，是性价比更高的弹性标的</li>
+    </ul>
+    <div class="tags">
+      <span class="tag cyan">LPO技术</span>
+      <span class="tag green">高毛利率</span>
+      <span class="tag">估值洼地</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI芯片 -->
+  <div class="sector-header">
+    <div class="sector-icon purple">🔮</div>
+    <div>
+      <div class="sector-title">AI芯片：国产替代长坡赛道 · 估值偏高需择时</div>
+      <div class="sector-sub">出口管制倒逼国产化，但当前估值已充分反映未来预期</div>
+    </div>
+  </div>
+
+  <!-- 海光信息 -->
+  <div class="card" style="border-left:3px solid #7c3aed">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-b">B+</div>
+        <div>
+          <div class="card-title">海光信息 <span style="color:var(--text3);font-weight:400;font-size:14px">688041</span></div>
+          <div class="card-subtitle">国产GPU/CPU龙头 · 与AMD架构兼容 · 政府采购最大受益</div>
+        </div>
+      </div>
+      <span class="badge badge-watch">高估值谨慎</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+68%</div><div class="metric-label">2025Q1营收增速</div></div>
+      <div class="metric"><div class="metric-val red">221×</div><div class="metric-label">当前PE(估值极高)</div></div>
+      <div class="metric"><div class="metric-val cyan">深算系列</div><div class="metric-label">AI GPU产品线</div></div>
+      <div class="metric"><div class="metric-val gold">高确定性</div><div class="metric-label">国产替代逻辑</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>替代逻辑最硬：</strong>与AMD x86架构兼容，生态切换成本低，国内党政军/金融/运营商替代NVIDIA的首选</li>
+      <li><strong>增速加速：</strong>2025Q1营收增速68%创历史新高，印证替代进程加速</li>
+      <li><strong>估值是最大问题：</strong>PE 221×已透支未来3-5年增长，建议等待市场调整后再介入</li>
+    </ul>
+    <div class="tags">
+      <span class="tag purple">国产替代</span>
+      <span class="tag gold">AMD兼容</span>
+      <span class="tag red">高估值风险</span>
+    </div>
+    <div class="risk-box">
+      <div class="risk-box-title">⚠️ 估值风险提示</div>
+      <p>当前PE 221倍处于极度高估区间，任何业绩不及预期或宏观风险均可能导致估值大幅回撤。长期逻辑正确，但需等待合适买点（PE回到80×以下再考虑介入）。</p>
+    </div>
+  </div>
+
+  <!-- 寒武纪 -->
+  <div class="card" style="border-left:3px solid #64748b">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-c">C</div>
+        <div>
+          <div class="card-title">寒武纪 <span style="color:var(--text3);font-weight:400;font-size:14px">688256</span></div>
+          <div class="card-subtitle">AI芯片先驱 · 持续亏损 · 估值严重泡沫化</div>
+        </div>
+      </div>
+      <span class="badge badge-avoid">暂不推荐</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val red">亏损</div><div class="metric-label">连续6年亏损</div></div>
+      <div class="metric"><div class="metric-val red">273×</div><div class="metric-label">当前PS(无法用PE)</div></div>
+      <div class="metric"><div class="metric-val gold">云端AI</div><div class="metric-label">主要方向</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>技术能力有，商业化弱：</strong>MLU系列芯片技术先进，但生态建设滞后于英伟达CUDA，商业化进展缓慢</li>
+      <li><strong>持续亏损是硬伤：</strong>至今未能实现盈亏平衡，高度依赖股权融资，股东权益持续稀释</li>
+      <li><strong>炒作属性强：</strong>国家队与概念资金推动，基本面支撑不足，不适合价值投资框架</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">AI芯片</span>
+      <span class="tag red">持续亏损</span>
+      <span class="tag red">泡沫估值</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 服务器 -->
+  <div class="sector-header">
+    <div class="sector-icon gold">🖥️</div>
+    <div>
+      <div class="sector-title">AI服务器：量价齐升 · 国内算力基建核心受益</div>
+      <div class="sector-sub">AI服务器ASP是传统服务器5-10倍，利润弹性巨大</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #f59e0b">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-a">A</div>
+        <div>
+          <div class="card-title">浪潮信息 <span style="color:var(--text3);font-weight:400;font-size:14px">000977</span></div>
+          <div class="card-subtitle">国内AI服务器龙头 · 市占率52% · 利润拐点期</div>
+        </div>
+      </div>
+      <span class="badge badge-good">重点关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">52.3%</div><div class="metric-label">国内AI服务器市占率</div></div>
+      <div class="metric"><div class="metric-val gold">~18×</div><div class="metric-label">当前PE（估值合理）</div></div>
+      <div class="metric"><div class="metric-val cyan">30-35%</div><div class="metric-label">AI服务器当前收入占比</div></div>
+      <div class="metric"><div class="metric-val green">利润拐点</div><div class="metric-label">2025年利润预期加速</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>市场地位最稳固：</strong>国内AI服务器市占率超50%，与英伟达深度绑定（NVL72机柜指定合作伙伴）</li>
+      <li><strong>利润弹性巨大：</strong>AI服务器毛利率约10-12%，是传统服务器的2倍，随AI占比提升利润率将加速释放</li>
+      <li><strong>国内算力基建最直接受益：</strong>国家AI算力网络建设、三大运营商GPU采购均绕不开浪潮</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">服务器龙头</span>
+      <span class="tag green">利润拐点</span>
+      <span class="tag gold">估值合理</span>
+    </div>
+  </div>
+
+  <!-- 算力评级汇总图 -->
+  <div class="chart-wrap">
+    <div class="chart-title">算力层各细分赛道投资价值评分</div>
+    <svg viewBox="0 0 800 200" style="width:100%;height:auto">
+      <!-- 光模块 -->
+      <text x="20" y="30" fill="#94a3b8" font-size="12">光模块 (中际旭创)</text>
+      <rect x="180" y="18" width="500" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="180" y="18" width="460" height="16" rx="4" fill="url(#g1)" opacity="0.85"/>
+      <text x="695" y="30" fill="#00d4ff" font-size="12" font-weight="700">92/100</text>
+
+      <text x="20" y="65" fill="#94a3b8" font-size="12">光模块 (新易盛)</text>
+      <rect x="180" y="53" width="500" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="180" y="53" width="435" height="16" rx="4" fill="url(#g3)" opacity="0.85"/>
+      <text x="695" y="65" fill="#10b981" font-size="12" font-weight="700">87/100</text>
+
+      <text x="20" y="100" fill="#94a3b8" font-size="12">服务器 (浪潮信息)</text>
+      <rect x="180" y="88" width="500" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="180" y="88" width="390" height="16" rx="4" fill="url(#g3)" opacity="0.7"/>
+      <text x="695" y="100" fill="#10b981" font-size="12" font-weight="700">78/100</text>
+
+      <text x="20" y="135" fill="#94a3b8" font-size="12">AI芯片 (海光信息)</text>
+      <rect x="180" y="123" width="500" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="180" y="123" width="320" height="16" rx="4" fill="url(#g2)" opacity="0.7"/>
+      <text x="695" y="135" fill="#a78bfa" font-size="12" font-weight="700">64/100</text>
+
+      <text x="20" y="170" fill="#94a3b8" font-size="12">AI芯片 (寒武纪)</text>
+      <rect x="180" y="158" width="500" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="180" y="158" width="150" height="16" rx="4" fill="#ef4444" opacity="0.5"/>
+      <text x="695" y="170" fill="#f87171" font-size="12" font-weight="700">30/100</text>
+    </svg>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 3: 模型与平台
+════════════════════════════════════════════ -->
+<div class="section" id="midstream">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(124,58,237,0.12)">🧠</div>
+    模型与平台层（中游）
+  </div>
+  <p class="section-desc">商业化验证期，概念炒作与基本面改善并存。DeepSeek降低了模型门槛，应用层的商业化潜力被大幅释放，但纯模型公司的护城河面临挑战。</p>
+
+  <!-- 科大讯飞 -->
+  <div class="card" style="border-left:3px solid #7c3aed">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-b">B</div>
+        <div>
+          <div class="card-title">科大讯飞 <span style="color:var(--text3);font-weight:400;font-size:14px">002230</span></div>
+          <div class="card-subtitle">国内AI应用最广龙头 · 星火大模型 · 政府+教育+医疗三大场景</div>
+        </div>
+      </div>
+      <span class="badge badge-watch">谨慎关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+18.79%</div><div class="metric-label">2024年营收增速</div></div>
+      <div class="metric"><div class="metric-val cyan">233亿</div><div class="metric-label">2024年营收规模</div></div>
+      <div class="metric"><div class="metric-val red">133×</div><div class="metric-label">当前PE（高估值）</div></div>
+      <div class="metric"><div class="metric-val gold">中标第一</div><div class="metric-label">2024大模型政府采购</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>B端落地最深：</strong>星火大模型在政务、教育、医疗的落地是国内大模型公司中最扎实的，不依赖单一C端流量</li>
+      <li><strong>教育+医疗双引擎：</strong>AI辅助学习、AI辅助诊断是高壁垒场景，复购率高，生命周期价值大</li>
+      <li><strong>但PE 133×偏高：</strong>盈利增速与估值不匹配，需要持续兑现才能支撑当前估值，风险收益比不佳</li>
+    </ul>
+    <div class="tags">
+      <span class="tag purple">星火大模型</span>
+      <span class="tag">政务AI</span>
+      <span class="tag green">教育医疗</span>
+      <span class="tag red">高估值</span>
+    </div>
+  </div>
+
+  <!-- 昆仑万维 -->
+  <div class="card" style="border-left:3px solid #f59e0b">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-b">B+</div>
+        <div>
+          <div class="card-title">昆仑万维 <span style="color:var(--text3);font-weight:400;font-size:14px">300418</span></div>
+          <div class="card-subtitle">天工AI · 海外收入91% · 全球化变现能力强</div>
+        </div>
+      </div>
+      <span class="badge badge-watch">中等关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val cyan">91%</div><div class="metric-label">海外收入占比</div></div>
+      <div class="metric"><div class="metric-val green">天工AI</div><div class="metric-label">自研大模型</div></div>
+      <div class="metric"><div class="metric-val gold">北欧游戏</div><div class="metric-label">主营业务支撑</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>变现逻辑更清晰：</strong>北欧游戏等海外业务产生稳定现金流，AI是增量，而非纯AI概念股</li>
+      <li><strong>天工AI全球化：</strong>国内大模型出海的领先者，海外用户粘性高于国内市场</li>
+      <li><strong>风险：</strong>AI业务占比提升节奏不确定，主营游戏业务增速放缓</li>
+    </ul>
+    <div class="tags">
+      <span class="tag gold">全球化AI</span>
+      <span class="tag">天工大模型</span>
+      <span class="tag">游戏+AI</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 4: 行业应用层
+════════════════════════════════════════════ -->
+<div class="section" id="downstream">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(16,185,129,0.12)">💡</div>
+    行业应用层（下游）
+  </div>
+  <p class="section-desc">AI应用是最大的长期市场，但当前处于落地验证期。已有清晰盈利模式的传统龙头+AI赋能，往往比纯AI应用公司风险更低。</p>
+
+  <!-- 海康威视 -->
+  <div class="card" style="border-left:3px solid #10b981">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-a">A</div>
+        <div>
+          <div class="card-title">海康威视 <span style="color:var(--text3);font-weight:400;font-size:14px">002415</span></div>
+          <div class="card-subtitle">全球安防+AI视觉龙头 · 低估值高分红 · AI赋能最成熟</div>
+        </div>
+      </div>
+      <span class="badge badge-good">重点关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val cyan">924.96亿</div><div class="metric-label">2024年营收</div></div>
+      <div class="metric"><div class="metric-val green">+18.5%</div><div class="metric-label">2025年净利润增速</div></div>
+      <div class="metric"><div class="metric-val gold">~20×</div><div class="metric-label">当前PE（历史低位）</div></div>
+      <div class="metric"><div class="metric-val cyan">28%</div><div class="metric-label">海外收入占比</div></div>
+      <div class="metric"><div class="metric-val green">4%+</div><div class="metric-label">股息率</div></div>
+      <div class="metric"><div class="metric-val purple">AIGC视觉</div><div class="metric-label">AI新产品线</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>AI落地最成熟的公司之一：</strong>AI摄像头、智能分析已商业化多年，不是概念而是真实收入，2024年AI相关产品占比约40%</li>
+      <li><strong>估值低而业绩稳增：</strong>PE~20×处于历史低位，股息率4%+，在AI赛道中属于低风险高性价比选择</li>
+      <li><strong>全球布局海外增长：</strong>海外收入259亿（占28%），是罕见具备海外竞争力的AI应用公司</li>
+      <li><strong>隐患：</strong>美国制裁名单风险，部分政府采购市场受限</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">安防AI龙头</span>
+      <span class="tag green">低估值</span>
+      <span class="tag green">高分红</span>
+      <span class="tag">AI视觉成熟</span>
+    </div>
+  </div>
+
+  <!-- 金山办公 -->
+  <div class="card" style="border-left:3px solid #a78bfa">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-b">B</div>
+        <div>
+          <div class="card-title">金山办公 <span style="color:var(--text3);font-weight:400;font-size:14px">688111</span></div>
+          <div class="card-subtitle">AI办公国内第一 · WPS AI付费转化提速</div>
+        </div>
+      </div>
+      <span class="badge badge-watch">中等关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val cyan">51.21亿</div><div class="metric-label">2024年营收</div></div>
+      <div class="metric"><div class="metric-val green">16.55亿</div><div class="metric-label">2024年净利润</div></div>
+      <div class="metric"><div class="metric-val red">63×</div><div class="metric-label">当前PE</div></div>
+      <div class="metric"><div class="metric-val gold">WPS AI</div><div class="metric-label">AI核心产品</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>国内最大AI办公平台：</strong>月活用户5亿+，WPS AI嵌入文档/表格/PPT，AI付费升级潜力巨大</li>
+      <li><strong>付费率提升是核心逻辑：</strong>当前付费率~10%，若提升至20-25%（参考微软M365），营收可翻倍</li>
+      <li><strong>估值偏贵：</strong>PE 63×，需要AI付费转化持续提速才能支撑</li>
+    </ul>
+    <div class="tags">
+      <span class="tag purple">WPS AI</span>
+      <span class="tag">5亿月活</span>
+      <span class="tag gold">付费率提升</span>
+    </div>
+  </div>
+
+  <!-- 广联达 -->
+  <div class="card" style="border-left:3px solid #f59e0b">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-b">B-</div>
+        <div>
+          <div class="card-title">广联达 <span style="color:var(--text3);font-weight:400;font-size:14px">002410</span></div>
+          <div class="card-subtitle">建筑工程垂直SaaS龙头 · AI数字建筑转型</div>
+        </div>
+      </div>
+      <span class="badge badge-watch">观察等待</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val cyan">62.4亿</div><div class="metric-label">2024年营收</div></div>
+      <div class="metric"><div class="metric-val gold">~100×</div><div class="metric-label">当前PE（偏高）</div></div>
+      <div class="metric"><div class="metric-val green">云化转型</div><div class="metric-label">SaaS化进程中</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>建筑行业不可替代的基础软件：</strong>造价软件市占率超70%，客户粘性极高，AI改造潜力大</li>
+      <li><strong>云化转型承压：</strong>从买断制转SaaS订阅制，短期收入承压，但长期ARR质量更高</li>
+      <li><strong>估值偏高，关注业绩改善节奏：</strong>PE~100×，需要AI功能显著提升ARPU才能支撑</li>
+    </ul>
+    <div class="tags">
+      <span class="tag">建筑SaaS</span>
+      <span class="tag gold">AI+数字建筑</span>
+      <span class="tag red">估值偏高</span>
+    </div>
+  </div>
+
+  <!-- AI机器人 -->
+  <div class="sector-header" style="margin-top:24px">
+    <div class="sector-icon green">🦾</div>
+    <div>
+      <div class="sector-title">AI+机器人：最具想象力的下一个风口</div>
+      <div class="sector-sub">人形机器人2025-2026年将进入量产元年，AI赋予机器人真正"通用性"</div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left:3px solid #10b981">
+    <div class="card-header">
+      <div style="display:flex;align-items:flex-start;gap:14px">
+        <div class="score-a">A-</div>
+        <div>
+          <div class="card-title">汇川技术 <span style="color:var(--text3);font-weight:400;font-size:14px">300124</span></div>
+          <div class="card-subtitle">工业自动化+人形机器人关键零部件 · 国内工控龙头</div>
+        </div>
+      </div>
+      <span class="badge badge-good">重点关注</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val cyan">变频器第一</div><div class="metric-label">国内市占率</div></div>
+      <div class="metric"><div class="metric-val green">伺服/PLC</div><div class="metric-label">机器人关键零部件</div></div>
+      <div class="metric"><div class="metric-val gold">~35×</div><div class="metric-label">当前PE</div></div>
+      <div class="metric"><div class="metric-val purple">机器人布局</div><div class="metric-label">人形机器人供应链</div></div>
+    </div>
+    <ul class="logic-list">
+      <li><strong>工控基础扎实：</strong>变频器/伺服/PLC国内市占率第一，是AI机器人运动控制的核心供应商</li>
+      <li><strong>切入人形机器人时机好：</strong>现有产品线与人形机器人高度重叠，无需大规模投入即可受益</li>
+      <li><strong>估值合理：</strong>PE~35×考虑到AI机器人成长期溢价，相比纯AI概念股更有基本面支撑</li>
+    </ul>
+    <div class="tags">
+      <span class="tag green">工控龙头</span>
+      <span class="tag">人形机器人</span>
+      <span class="tag">伺服/变频</span>
+    </div>
+  </div>
+
+  <!-- 应用层估值对比图 -->
+  <div class="chart-wrap">
+    <div class="chart-title">AI应用层主要标的：估值 vs 业绩增速对比（泡泡面积代表市值大小）</div>
+    <svg viewBox="0 0 800 280" style="width:100%;height:auto">
+      <!-- 坐标轴 -->
+      <line x1="80" y1="240" x2="760" y2="240" stroke="#1e3a5f" stroke-width="1.5"/>
+      <line x1="80" y1="20" x2="80" y2="240" stroke="#1e3a5f" stroke-width="1.5"/>
+      <!-- X轴标签: PE估值 -->
+      <text x="420" y="270" text-anchor="middle" fill="#64748b" font-size="11">PE估值（×）→</text>
+      <text x="200" y="258" text-anchor="middle" fill="#64748b" font-size="10">20×</text>
+      <text x="320" y="258" text-anchor="middle" fill="#64748b" font-size="10">40×</text>
+      <text x="440" y="258" text-anchor="middle" fill="#64748b" font-size="10">60×</text>
+      <text x="560" y="258" text-anchor="middle" fill="#64748b" font-size="10">80×</text>
+      <text x="680" y="258" text-anchor="middle" fill="#64748b" font-size="10">100×+</text>
+      <!-- Y轴标签: 净利润增速 -->
+      <text x="50" y="130" text-anchor="middle" fill="#64748b" font-size="11" transform="rotate(-90,50,130)">净利润增速 →</text>
+      <text x="68" y="200" text-anchor="end" fill="#64748b" font-size="10">0%</text>
+      <text x="68" y="150" text-anchor="end" fill="#64748b" font-size="10">20%</text>
+      <text x="68" y="100" text-anchor="end" fill="#64748b" font-size="10">40%</text>
+      <text x="68" y="50" text-anchor="end" fill="#64748b" font-size="10">60%</text>
+      <!-- 优质区域底色 -->
+      <rect x="80" y="80" width="200" height="160" rx="4" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.15)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="185" y="98" text-anchor="middle" fill="rgba(16,185,129,0.5)" font-size="10">低估值+高增速（理想区）</text>
+      <!-- 各公司气泡 -->
+      <!-- 海康威视: PE=20, 增速=18.5%, 大市值 -->
+      <circle cx="200" cy="162" r="24" fill="rgba(16,185,129,0.25)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="200" y="157" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700">海康</text>
+      <text x="200" y="170" text-anchor="middle" fill="#6ee7b7" font-size="10">PE20×</text>
+      <!-- 金山办公: PE=63, 增速约15% -->
+      <circle cx="450" cy="170" r="16" fill="rgba(167,139,250,0.2)" stroke="#7c3aed" stroke-width="1.5"/>
+      <text x="450" y="165" text-anchor="middle" fill="#c4b5fd" font-size="10" font-weight="700">金山</text>
+      <text x="450" y="178" text-anchor="middle" fill="#a78bfa" font-size="9">PE63×</text>
+      <!-- 广联达: PE=100, 增速约5% -->
+      <circle cx="690" cy="195" r="14" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="690" y="190" text-anchor="middle" fill="#fcd34d" font-size="10" font-weight="700">广联达</text>
+      <text x="690" y="202" text-anchor="middle" fill="#fbbf24" font-size="9">PE100×</text>
+      <!-- 科大讯飞: PE=133, 增速=18% -->
+      <circle cx="740" cy="162" r="18" fill="rgba(239,68,68,0.15)" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="740" y="157" text-anchor="middle" fill="#fca5a5" font-size="10" font-weight="700">讯飞</text>
+      <text x="740" y="170" text-anchor="middle" fill="#f87171" font-size="9">PE133×</text>
+      <!-- 汇川技术: PE=35, 增速=25% -->
+      <circle cx="290" cy="138" r="18" fill="rgba(0,212,255,0.15)" stroke="#00d4ff" stroke-width="1.5"/>
+      <text x="290" y="133" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="700">汇川</text>
+      <text x="290" y="146" text-anchor="middle" fill="#67e8f9" font-size="9">PE35×</text>
+    </svg>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 5: 投资总结
+════════════════════════════════════════════ -->
+<div class="section" id="summary">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(245,158,11,0.12)">🎯</div>
+    投资总结：全链条标的综合评分
+  </div>
+  <p class="section-desc">综合财务质量、估值合理性、赛道景气度、护城河强度四个维度，对25家核心标的给出最终评级与配置建议。</p>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>公司</th>
+        <th>代码</th>
+        <th>所属环节</th>
+        <th>核心逻辑</th>
+        <th>当前PE</th>
+        <th>景气度</th>
+        <th>评级</th>
+        <th>建议</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>中际旭创</strong></td>
+        <td class="code">300308</td>
+        <td>光模块</td>
+        <td>1.6T龙头，订单锁定</td>
+        <td class="neu">~28×</td>
+        <td class="up">⬆⬆⬆</td>
+        <td><span class="badge badge-hot">S级</span></td>
+        <td>核心持仓</td>
+      </tr>
+      <tr>
+        <td><strong>新易盛</strong></td>
+        <td class="code">300502</td>
+        <td>光模块</td>
+        <td>LPO技术，毛利58%</td>
+        <td class="up">~19×</td>
+        <td class="up">⬆⬆⬆</td>
+        <td><span class="badge badge-good">A+级</span></td>
+        <td>重点增持</td>
+      </tr>
+      <tr>
+        <td><strong>浪潮信息</strong></td>
+        <td class="code">000977</td>
+        <td>AI服务器</td>
+        <td>国内市占率52%，利润拐点</td>
+        <td class="up">~18×</td>
+        <td class="up">⬆⬆</td>
+        <td><span class="badge badge-good">A级</span></td>
+        <td>积极配置</td>
+      </tr>
+      <tr>
+        <td><strong>海康威视</strong></td>
+        <td class="code">002415</td>
+        <td>AI视觉应用</td>
+        <td>低估值，AI落地成熟，高分红</td>
+        <td class="up">~20×</td>
+        <td class="up">⬆⬆</td>
+        <td><span class="badge badge-good">A级</span></td>
+        <td>稳健配置</td>
+      </tr>
+      <tr>
+        <td><strong>汇川技术</strong></td>
+        <td class="code">300124</td>
+        <td>AI+机器人</td>
+        <td>工控+人形机器人双驱动</td>
+        <td class="neu">~35×</td>
+        <td class="up">⬆⬆</td>
+        <td><span class="badge badge-good">A-级</span></td>
+        <td>积极关注</td>
+      </tr>
+      <tr>
+        <td><strong>深南电路</strong></td>
+        <td class="code">002916</td>
+        <td>PCB</td>
+        <td>AI PCB占比提升，利润释放</td>
+        <td class="neu">~30×</td>
+        <td class="up">⬆</td>
+        <td><span class="badge badge-watch">B+级</span></td>
+        <td>中等配置</td>
+      </tr>
+      <tr>
+        <td><strong>海光信息</strong></td>
+        <td class="code">688041</td>
+        <td>AI芯片</td>
+        <td>国产替代最硬逻辑，但高估值</td>
+        <td class="down">221×</td>
+        <td class="up">⬆⬆⬆</td>
+        <td><span class="badge badge-watch">B级</span></td>
+        <td>等待买点</td>
+      </tr>
+      <tr>
+        <td><strong>科大讯飞</strong></td>
+        <td class="code">002230</td>
+        <td>AI大模型</td>
+        <td>B端落地扎实，估值偏贵</td>
+        <td class="down">133×</td>
+        <td class="neu">→</td>
+        <td><span class="badge badge-watch">B级</span></td>
+        <td>谨慎观察</td>
+      </tr>
+      <tr>
+        <td><strong>金山办公</strong></td>
+        <td class="code">688111</td>
+        <td>AI+办公</td>
+        <td>5亿月活+AI付费提升</td>
+        <td class="down">63×</td>
+        <td class="neu">→</td>
+        <td><span class="badge badge-watch">B级</span></td>
+        <td>观察验证</td>
+      </tr>
+      <tr>
+        <td><strong>寒武纪</strong></td>
+        <td class="code">688256</td>
+        <td>AI芯片</td>
+        <td>技术好但持续亏损，泡沫估值</td>
+        <td class="down">273×PS</td>
+        <td class="down">↓</td>
+        <td><span class="badge badge-avoid">C级</span></td>
+        <td>暂时回避</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 仓位配置建议 -->
+  <div class="chart-wrap" style="margin-top:24px">
+    <div class="chart-title">AI产业链投资组合建议配置权重</div>
+    <svg viewBox="0 0 700 200" style="width:100%;height:auto">
+      <!-- 条形图 -->
+      <text x="20" y="30" fill="#94a3b8" font-size="12">中际旭创(S)</text>
+      <rect x="160" y="18" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="18" width="288" height="16" rx="4" fill="url(#g1)" opacity="0.9"/>
+      <text x="460" y="30" fill="#00d4ff" font-size="12" font-weight="700">30%</text>
+
+      <text x="20" y="58" fill="#94a3b8" font-size="12">新易盛(A+)</text>
+      <rect x="160" y="46" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="46" width="192" height="16" rx="4" fill="url(#g3)" opacity="0.9"/>
+      <text x="364" y="58" fill="#10b981" font-size="12" font-weight="700">20%</text>
+
+      <text x="20" y="88" fill="#94a3b8" font-size="12">浪潮信息(A)</text>
+      <rect x="160" y="76" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="76" width="144" height="16" rx="4" fill="url(#g3)" opacity="0.7"/>
+      <text x="316" y="88" fill="#10b981" font-size="12" font-weight="700">15%</text>
+
+      <text x="20" y="118" fill="#94a3b8" font-size="12">海康威视(A)</text>
+      <rect x="160" y="106" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="106" width="144" height="16" rx="4" fill="url(#g3)" opacity="0.7"/>
+      <text x="316" y="118" fill="#10b981" font-size="12" font-weight="700">15%</text>
+
+      <text x="20" y="148" fill="#94a3b8" font-size="12">汇川技术(A-)</text>
+      <rect x="160" y="136" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="136" width="96" height="16" rx="4" fill="url(#g2)" opacity="0.7"/>
+      <text x="268" y="148" fill="#a78bfa" font-size="12" font-weight="700">10%</text>
+
+      <text x="20" y="178" fill="#94a3b8" font-size="12">深南/海光等(B级)</text>
+      <rect x="160" y="166" width="480" height="16" rx="4" fill="rgba(30,58,95,0.6)"/>
+      <rect x="160" y="166" width="96" height="16" rx="4" fill="#f59e0b" opacity="0.6"/>
+      <text x="268" y="178" fill="#fbbf24" font-size="12" font-weight="700">10%</text>
+    </svg>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════
+     SECTION 6: 风险清单
+════════════════════════════════════════════ -->
+<div class="section" id="risks">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(239,68,68,0.12)">⚠️</div>
+    不能忽视的六大风险
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:16px">
+    <div class="card" style="border-left:3px solid #ef4444">
+      <div style="font-size:15px;font-weight:700;color:#f87171;margin-bottom:8px">① 地缘政治出口管制升级</div>
+      <p style="font-size:13px;color:var(--text2)">美国持续扩大对华芯片/AI出口管制范围，光模块关键原材料（铟化镓等）或被列入限制清单，影响中际旭创/新易盛生产成本与供应稳定性。</p>
+    </div>
+    <div class="card" style="border-left:3px solid #ef4444">
+      <div style="font-size:15px;font-weight:700;color:#f87171;margin-bottom:8px">② AI资本开支放缓黑天鹅</div>
+      <p style="font-size:13px;color:var(--text2)">若海外超大规模云厂商因AI商业化进展不及预期大幅削减资本开支，将直接重创光模块/服务器订单，且影响会在2-3个季度内集中释放。</p>
+    </div>
+    <div class="card" style="border-left:3px solid #f59e0b">
+      <div style="font-size:15px;font-weight:700;color:#fbbf24;margin-bottom:8px">③ 整体估值偏高，回调风险</div>
+      <p style="font-size:13px;color:var(--text2)">A股AI板块近1年已上涨184%，整体估值中位数PE超过60×，任何宏观扰动（降息预期变化、地缘风险）均可能触发板块系统性回调。</p>
+    </div>
+    <div class="card" style="border-left:3px solid #f59e0b">
+      <div style="font-size:15px;font-weight:700;color:#fbbf24;margin-bottom:8px">④ 技术迭代颠覆现有格局</div>
+      <p style="font-size:13px;color:var(--text2)">硅光集成技术成熟后，传统光模块可能被直接集成进GPU，中际旭创等现有光模块厂商面临长期颠覆风险（3-5年时间窗口）。</p>
+    </div>
+    <div class="card" style="border-left:3px solid #7c3aed">
+      <div style="font-size:15px;font-weight:700;color:#c4b5fd;margin-bottom:8px">⑤ DeepSeek降低算力需求</div>
+      <p style="font-size:13px;color:var(--text2)">DeepSeek等高效模型使训练成本大幅降低，理论上削减了对顶级GPU集群的需求，可能影响AI服务器/光模块的增长节奏（中长期利空）。</p>
+    </div>
+    <div class="card" style="border-left:3px solid #94a3b8">
+      <div style="font-size:15px;font-weight:700;color:#cbd5e1;margin-bottom:8px">⑥ AI应用商业化不及预期</div>
+      <p style="font-size:13px;color:var(--text2)">AI应用层（科大讯飞/金山办公等）的付费转化率若持续低于预期，高估值将难以维持，面临估值塌陷风险。</p>
+    </div>
+  </div>
+
+  <!-- 投资策略总结 -->
+  <div class="card" style="margin-top:32px;background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06));border-color:rgba(0,212,255,0.2)">
+    <div class="card-title" style="margin-bottom:16px">💡 三条核心投资策略</div>
+    <ul class="logic-list">
+      <li><strong>策略一——抓最确定的算力基础设施：</strong>中际旭创+新易盛+浪潮信息组合，占仓位65%。这三家是AI算力需求的"铲子"，订单能见度高，估值相对合理，是AI赛道中风险收益比最佳的选择。</li>
+      <li><strong>策略二——等待高估值标的回调再买：</strong>海光信息（PE 221×）、科大讯飞（PE 133×）逻辑正确但估值透支，不应追高，应等待回调至合理估值区间（PE 60×以下）再建仓。</li>
+      <li><strong>策略三——传统龙头+AI赋能胜过纯AI概念：</strong>海康威视PE 20×、股息4%，是AI应用层中性价比最高的稳健标的，适合不愿承担高估值风险的长期投资者，远好于持续亏损的纯AI概念股。</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- Footer -->
+<div class="footer">
+  <strong>A股AI行业上下游投资全景图谱 · 2025年版</strong><br>
+  研究覆盖算力基础设施→模型平台→行业应用全链条，聚焦A股核心标的<br>
+  数据来源：公司年报、行业研究报告、公开财经资讯 · 本报告仅供研究参考，不构成投资建议<br>
+  <a href="index.html">← 返回报告合集首页</a>
+</div>
+
+<!-- 悬浮返回主页按钮 -->
+<div id="home-fab" onclick="window.location.href='index.html'" title="返回主页"
+  style="position:fixed;bottom:28px;right:24px;z-index:9999;width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#00d4ff,#7c3aed);
+  box-shadow:0 4px 20px rgba(0,212,255,0.4);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;font-size:22px;color:#fff;user-select:none"
+  onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(0,212,255,0.6)'"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(0,212,255,0.4)'">🏠</div>
+
+<script>
+function scrollTo(id){
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.toc-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+// 滚动时自动更新active tab
+const sections = ['overview','upstream','midstream','downstream','summary','risks'];
+const btns = document.querySelectorAll('.toc-btn');
+window.addEventListener('scroll',()=>{
+  let cur = 0;
+  sections.forEach((id,i)=>{
+    const el = document.getElementById(id);
+    if(el && el.getBoundingClientRect().top < 100) cur = i;
+  });
+  btns.forEach((b,i)=>{
+    b.classList.toggle('active', i===cur);
+  });
+},{passive:true});
+</script>
+
+</body>
+</html>
