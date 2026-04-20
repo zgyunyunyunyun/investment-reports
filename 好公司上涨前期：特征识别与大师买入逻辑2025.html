@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>好公司上涨前期：特征识别与大师买入逻辑 2025</title>
+<style>
+:root {
+  --bg: #0b1a0f;
+  --card: #0f2114;
+  --card2: #162b1c;
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #22c55e;
+  --accent-light: #4ade80;
+  --accent-gold: #f59e0b;
+  --accent-blue: #3b82f6;
+  --accent-red: #ef4444;
+  --accent-purple: #8b5cf6;
+  --border: #1c3322;
+  --border2: #2d5040;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;line-height:1.7;font-size:15px;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,26,15,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 24px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;height:52px;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-brand{font-weight:700;color:var(--accent);font-size:14px;white-space:nowrap;margin-right:16px;flex-shrink:0;}
+.nav-inner a{color:var(--text-secondary);text-decoration:none;font-size:12px;white-space:nowrap;padding:4px 10px;border-radius:20px;transition:all .2s;flex-shrink:0;}
+.nav-inner a:hover{color:var(--accent);background:rgba(34,197,94,.12);}
+
+/* LAYOUT */
+.container{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+.hero{padding:72px 0 48px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(34,197,94,.08) 0%,transparent 70%);pointer-events:none;}
+.hero-tag{display:inline-block;background:rgba(34,197,94,.15);color:var(--accent);border:1px solid rgba(34,197,94,.3);border-radius:20px;padding:4px 14px;font-size:12px;margin-bottom:20px;letter-spacing:.05em;}
+.hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.25;margin-bottom:12px;}
+.hero h1 span{color:var(--accent);}
+.hero-sub{color:var(--text-secondary);font-size:clamp(13px,1.5vw,15px);margin-bottom:28px;max-width:700px;margin-left:auto;margin-right:auto;}
+.hero-quote{background:var(--card);border-left:3px solid var(--accent-gold);border-radius:0 12px 12px 0;padding:16px 20px;max-width:720px;margin:0 auto 40px;text-align:left;font-style:italic;color:var(--accent-gold);font-size:14px;line-height:1.8;}
+
+/* KPI CARDS */
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:48px;}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 16px;text-align:center;transition:transform .2s,border-color .2s;}
+.kpi-card:hover{transform:translateY(-3px);border-color:var(--border2);}
+.kpi-num{font-size:clamp(20px,2.5vw,30px);font-weight:800;color:var(--accent);line-height:1.1;margin-bottom:6px;}
+.kpi-num.gold{color:var(--accent-gold);}
+.kpi-num.blue{color:var(--accent-blue);}
+.kpi-num.purple{color:var(--accent-purple);}
+.kpi-num.red{color:var(--accent-red);}
+.kpi-label{font-size:12px;color:var(--text-secondary);line-height:1.4;}
+
+/* SECTION */
+.section{padding:56px 0;border-bottom:1px solid var(--border);}
+.section-header{margin-bottom:36px;}
+.chapter-tag{display:inline-block;background:rgba(34,197,94,.15);color:var(--accent);font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;letter-spacing:.08em;margin-bottom:10px;}
+.section-header h2{font-size:clamp(20px,2.5vw,30px);font-weight:700;line-height:1.3;margin-bottom:10px;}
+.section-header h2 em{color:var(--accent);font-style:normal;}
+.section-header p{color:var(--text-secondary);font-size:14px;max-width:760px;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;}
+.card2{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:20px;}
+.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+/* HIGHLIGHT BOX */
+.highlight{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);border-radius:10px;padding:16px 20px;margin:16px 0;}
+.highlight.gold{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.25);}
+.highlight.red{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25);}
+.highlight h4{font-size:13px;font-weight:700;margin-bottom:6px;}
+.highlight.gold h4{color:var(--accent-gold);}
+.highlight p, .highlight li{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+.highlight ul{padding-left:16px;}
+
+/* TYPOGRAPHY */
+h3{font-size:17px;font-weight:700;color:var(--accent-light);margin-bottom:12px;}
+h4{font-size:14px;font-weight:700;margin-bottom:8px;}
+p{color:var(--text-secondary);font-size:14px;line-height:1.8;margin-bottom:12px;}
+ul,ol{padding-left:20px;}
+li{color:var(--text-secondary);font-size:14px;line-height:1.8;margin-bottom:4px;}
+li strong{color:var(--text);}
+strong{color:var(--text);}
+
+/* BADGE */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
+.badge-green{background:rgba(34,197,94,.2);color:var(--accent);}
+.badge-gold{background:rgba(245,158,11,.2);color:var(--accent-gold);}
+.badge-red{background:rgba(239,68,68,.2);color:var(--accent-red);}
+.badge-blue{background:rgba(59,130,246,.2);color:var(--accent-blue);}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0;}
+thead th{background:var(--card2);color:var(--accent);font-weight:700;padding:10px 12px;text-align:left;border-bottom:2px solid var(--border2);}
+tbody td{padding:10px 12px;border-bottom:1px solid var(--border);color:var(--text-secondary);vertical-align:top;}
+tbody tr:hover td{background:rgba(255,255,255,.02);}
+tbody td:first-child{color:var(--text);font-weight:600;}
+.table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
+
+/* LAYER GRID */
+.layer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;}
+.layer-card{background:var(--card2);border-radius:12px;padding:18px;border-left:3px solid var(--accent);}
+.layer-card:nth-child(2){border-color:#4ade80;}
+.layer-card:nth-child(3){border-color:#a3e635;}
+.layer-card:nth-child(4){border-color:var(--accent-gold);}
+.layer-card:nth-child(5){border-color:#fb923c;}
+.layer-card:nth-child(6){border-color:var(--accent-purple);}
+.layer-num{font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:6px;opacity:.7;}
+.layer-card h4{font-size:14px;color:var(--text);margin-bottom:8px;}
+.layer-card ul{padding-left:14px;}
+.layer-card li{font-size:12px;margin-bottom:3px;}
+
+/* CHECKLIST */
+.checklist{list-style:none;padding-left:0;}
+.checklist li{padding:8px 0 8px 28px;position:relative;border-bottom:1px solid var(--border);font-size:13px;color:var(--text-secondary);}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'□';position:absolute;left:4px;color:var(--accent);font-size:14px;}
+.checklist li strong{color:var(--text);}
+
+/* STEP */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step-item{display:flex;gap:16px;padding:20px 0;border-bottom:1px solid var(--border);}
+.step-item:last-child{border-bottom:none;}
+.step-num{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#0b1a0f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.step-content h4{color:var(--text);margin-bottom:6px;font-size:15px;}
+
+/* QUOTE BLOCK */
+.quote-block{border-left:3px solid var(--accent-gold);padding:12px 20px;margin:20px 0;font-style:italic;color:var(--text-secondary);font-size:14px;background:rgba(245,158,11,.05);border-radius:0 8px 8px 0;}
+.quote-block cite{display:block;margin-top:8px;font-style:normal;font-size:12px;color:var(--accent-gold);font-weight:700;}
+
+/* SCORE TABLE */
+.score-table{width:100%;}
+.score-table th{background:var(--card2);color:var(--accent);padding:10px 14px;text-align:left;font-size:12px;font-weight:700;border-bottom:2px solid var(--border2);}
+.score-table td{padding:10px 14px;border-bottom:1px solid var(--border);font-size:12px;vertical-align:top;}
+.score-table tr:hover td{background:rgba(255,255,255,.02);}
+.score-dot{display:inline-flex;gap:3px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--border2);}
+.dot.fill{background:var(--accent-gold);}
+
+/* SVG CONTAINER */
+.svg-container{background:var(--card2);border-radius:14px;padding:24px;margin-top:24px;border:1px solid var(--border);overflow:hidden;}
+.svg-container svg{display:block;max-width:100%;height:auto;}
+
+/* CASE BOX */
+.case-box{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:20px;}
+.case-header{background:var(--card2);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.case-header h3{margin:0;font-size:15px;}
+.case-body{padding:20px;}
+
+/* TYPE CARD */
+.type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0;}
+.type-card{background:var(--card2);border-radius:12px;padding:20px;border-top:3px solid var(--accent);}
+.type-card.type-b{border-top-color:var(--accent-gold);}
+.type-card.type-c{border-top-color:var(--accent-purple);}
+.type-label{font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:8px;color:var(--accent);}
+.type-card.type-b .type-label{color:var(--accent-gold);}
+.type-card.type-c .type-label{color:var(--accent-purple);}
+
+/* SIGNAL CARD */
+.signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+.signal-item{background:var(--card2);border-radius:10px;padding:16px;border-left:3px solid var(--accent);}
+.signal-item:nth-child(2){border-color:var(--accent-gold);}
+.signal-item:nth-child(3){border-color:var(--accent-blue);}
+.signal-item:nth-child(4){border-color:var(--accent-purple);}
+.signal-item:nth-child(5){border-color:#fb923c;}
+.signal-item:nth-child(6){border-color:var(--accent-red);}
+.signal-item:nth-child(7){border-color:#06b6d4;}
+.signal-num{font-size:11px;font-weight:800;letter-spacing:.08em;opacity:.6;margin-bottom:4px;}
+.signal-item h4{font-size:13px;color:var(--text);margin-bottom:6px;}
+.signal-item p{font-size:12px;margin:0;}
+
+/* TRAP CARD */
+.trap-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+.trap-item{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-radius:10px;padding:14px;}
+.trap-item h4{color:var(--accent-red);font-size:13px;margin-bottom:6px;}
+.trap-item p{font-size:12px;margin:0;}
+
+/* SCAN CARD */
+.scan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px;}
+.scan-card{background:var(--card2);border-radius:12px;padding:20px;border:1px solid var(--border);}
+.scan-card .company{font-weight:800;font-size:15px;color:var(--accent-gold);margin-bottom:4px;}
+.scan-card .metric-row{display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border);}
+.scan-card .metric-row:last-of-type{border-bottom:none;}
+.scan-card .metric-label{color:var(--text-secondary);}
+.scan-card .metric-val{color:var(--text);font-weight:600;}
+.scan-signal{font-size:11px;background:rgba(34,197,94,.15);color:var(--accent);border-radius:4px;padding:3px 7px;margin-top:10px;display:inline-block;}
+
+/* CONCLUSION GRID */
+.conclusion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0;}
+.conclusion-item{background:var(--card2);border-radius:10px;padding:14px;text-align:center;border-top:2px solid var(--accent);}
+.conclusion-item:nth-child(2){border-top-color:var(--accent-gold);}
+.conclusion-item:nth-child(3){border-top-color:var(--accent-blue);}
+.conclusion-item:nth-child(4){border-top-color:var(--accent-purple);}
+.conclusion-item:nth-child(5){border-top-color:#fb923c;}
+.conclusion-icon{font-size:20px;margin-bottom:6px;}
+.conclusion-item h4{font-size:12px;color:var(--text);margin-bottom:4px;}
+.conclusion-item p{font-size:11px;margin:0;}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid var(--border);padding:40px 0;margin-top:0;}
+.footer-inner{max-width:1100px;margin:0 auto;padding:0 24px;text-align:center;}
+.footer-inner p{font-size:12px;color:var(--text-secondary);margin-bottom:10px;}
+.footer-inner a{color:var(--accent);text-decoration:none;font-size:13px;}
+.footer-inner a:hover{color:var(--accent-light);}
+.footer-disclaimer{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:12px 16px;margin-bottom:16px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .kpi-grid{grid-template-columns:repeat(3,1fr);}
+  .kpi-grid .kpi-card:nth-child(4),.kpi-grid .kpi-card:nth-child(5){grid-column:auto;}
+  .card-grid-2,.card-grid-3,.layer-grid,.type-grid,.scan-grid,.signal-grid,.trap-grid,.conclusion-grid{grid-template-columns:1fr;}
+  .case-header{flex-direction:column;}
+  .nav-inner{gap:4px;}
+  .container{padding:0 16px;}
+  table{font-size:11px;}
+  thead th,tbody td{padding:7px 8px;}
+}
+@media(max-width:480px){
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+  .hero{padding:48px 0 32px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">好公司识别手册</span>
+    <a href="#ch1">CH1 价格与价值</a>
+    <a href="#ch2">CH2 六层框架</a>
+    <a href="#ch3">CH3 大师案例</a>
+    <a href="#ch4">CH4 三种类型</a>
+    <a href="#ch5">CH5 买入信号</a>
+    <a href="#ch6">CH6 价值陷阱</a>
+    <a href="#ch7">CH7 方法论</a>
+    <a href="#ch8">CH8 实操手册</a>
+    <a href="#ch9">CH9 2025扫描</a>
+    <a href="#ch10">CH10 总结</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-tag">价值投资 · 2025年版</div>
+    <h1>好公司上涨前期<br><span>特征识别与大师买入逻辑</span></h1>
+    <p class="hero-sub">六层识别体系 · 巴菲特/段永平案例复盘 · 戴维斯双击捕捉框架 · 普通投资者实操手册</p>
+    <div class="hero-quote">
+      "当一家好公司被市场误解或暂时遭遇困境，它的股价会蹲下来等你。这个窗口期，是价值投资者最宝贵的礼物。"
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-num">6层</div>
+        <div class="kpi-label">识别框架<br>从估值到情绪</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num gold">5位</div>
+        <div class="kpi-label">大师案例<br>巴菲特·段永平</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num red">-47%</div>
+        <div class="kpi-label">平均买入前跌幅<br>好公司上涨前大跌</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num blue">3-8×</div>
+        <div class="kpi-label">戴维斯双击<br>平均收益区间</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num purple">6-24月</div>
+        <div class="kpi-label">买入时机<br>窗口期参考</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CH1 -->
+<section class="section" id="ch1">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 01</div>
+      <h2>为什么"好公司"和"好买点"<em>经常不重叠</em>？</h2>
+      <p>好公司为何有时是坏投资？价格与价值的分离是机会的本质。</p>
+    </div>
+
+    <div class="card-grid-2" style="margin-bottom:20px;">
+      <div class="card">
+        <h3>两种最常见的错误</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px;">
+          <div class="highlight red">
+            <h4 style="color:var(--accent-red);">错误①：市场高估时买入好公司</h4>
+            <p>最常见的亏损来源，占A股散户亏损30%以上。PE 40倍买入，即使盈利增长也可能因估值压缩而亏钱。</p>
+          </div>
+          <div class="highlight red">
+            <h4 style="color:var(--accent-red);">错误②：在恐慌中错过好公司底部</h4>
+            <p>大跌时看到的全是利空，恰好是最好的买入窗口。情绪与理性的分离是投资者最大的敌人。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>巴菲特的核心原话</h3>
+        <div class="quote-block">
+          "价格是你付出的，价值是你得到的。"
+          <cite>— 沃伦·巴菲特</cite>
+        </div>
+        <p style="margin-top:12px;">两者的差距就是机会所在。好公司的内在价值在缓慢增长，而股价会因市场情绪剧烈波动。当价格远低于价值，就是价值投资者的买入窗口。</p>
+        <div class="highlight gold">
+          <h4>核心认知</h4>
+          <p>好公司的上涨前期，往往看起来像烂公司。这不是矛盾，而是机会的本质。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 戴维斯双击 -->
+    <div class="card" style="margin-bottom:20px;">
+      <h3>戴维斯双击的完整逻辑</h3>
+      <div class="card-grid-3" style="margin-top:12px;">
+        <div class="card2">
+          <div class="badge badge-green" style="margin-bottom:8px;">第一击</div>
+          <h4 style="color:var(--accent);">盈利增长 EPS↑</h4>
+          <p style="font-size:12px;">公司利润从困境中恢复，每股收益提升。这是基本面改善的直接体现。</p>
+          <p style="font-size:13px;color:var(--accent-light);margin:0;">示例：EPS从1元增长到1.5元 = +50%</p>
+        </div>
+        <div class="card2">
+          <div class="badge badge-gold" style="margin-bottom:8px;">第二击</div>
+          <h4 style="color:var(--accent-gold);">估值扩张 PE↑</h4>
+          <p style="font-size:12px;">市场情绪从悲观转向认可，给予更高市盈率。投资者开始重新发现公司价值。</p>
+          <p style="font-size:13px;color:var(--accent-gold);margin:0;">示例：PE从10倍扩张到20倍 = ×2</p>
+        </div>
+        <div class="card2" style="border:1px solid rgba(34,197,94,.3);">
+          <div class="badge badge-green" style="margin-bottom:8px;">组合效应</div>
+          <h4 style="color:var(--accent-light);">股价 = EPS × PE</h4>
+          <p style="font-size:12px;">盈利增长50% × 估值从10倍扩张到20倍</p>
+          <p style="font-size:15px;font-weight:800;color:var(--accent);margin:6px 0 0;">= 股价涨 <span style="font-size:22px;color:var(--accent-gold);">3倍</span></p>
+        </div>
+      </div>
+      <div class="highlight red" style="margin-top:16px;">
+        <h4 style="color:var(--accent-red);">反向警告：戴维斯双杀</h4>
+        <p>盈利↓ × 估值收缩 = 跌幅远超盈利降幅。盈利下降20%+PE从30倍压缩到15倍，股价实际跌幅可达60%。</p>
+      </div>
+    </div>
+
+    <!-- 三个历史案例 -->
+    <h3>好公司被误解的历史案例</h3>
+    <div class="card-grid-3" style="margin-top:12px;">
+      <div class="card2">
+        <div class="badge badge-gold" style="margin-bottom:8px;">茅台 2014</div>
+        <p style="font-size:13px;">PE <strong style="color:var(--accent);">8.83倍</strong>，创历史最低。当年分析师普遍悲观，媒体充斥"白酒行业终结论"。实际护城河完好，ROE仍高达40%。</p>
+      </div>
+      <div class="card2">
+        <div class="badge badge-blue" style="margin-bottom:8px;">腾讯 2018</div>
+        <p style="font-size:13px;">港股从<strong style="color:var(--accent-red);">476→251港元</strong>，跌幅47%。市场认为游戏业务终结。实际上社交护城河（微信+QQ）从未受损，游戏停发版号是临时政策。</p>
+      </div>
+      <div class="card2">
+        <div class="badge badge-red" style="margin-bottom:8px;">网易 2002</div>
+        <p style="font-size:13px;">股价仅<strong style="color:var(--accent-red);">0.8美元</strong>，媒体标题：「濒临退市的互联网公司」。实际每股现金超过股价。段永平以200万美元买入，最终获30倍回报。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CH2 -->
+<section class="section" id="ch2">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 02</div>
+      <h2>好公司上涨前期的<em>六层特征体系</em></h2>
+      <p>从表层到深层，六层识别维度——越深层越难观测，但预测准确度越高。</p>
+    </div>
+
+    <div class="layer-grid">
+      <div class="layer-card">
+        <div class="layer-num">LAYER 01 · 估值层</div>
+        <h4>最直观但最容易误判</h4>
+        <ul>
+          <li>PE处于历史低分位（&lt;历史30%分位线）</li>
+          <li>PB &lt; 2（ROE&gt;20%公司，PB&lt;3也是低估）</li>
+          <li>PE/ROE &lt; 1（即PEG&lt;1）</li>
+          <li>市值 ≤ 现金储备×2（极端低估信号）</li>
+        </ul>
+        <div style="margin-top:10px;font-size:11px;color:var(--accent-red);">⚠️ 警告：低PE≠值得，需区分"便宜"和"值得"</div>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 02 · 基本面层</div>
+        <h4>最重要的核心层</h4>
+        <ul>
+          <li>ROE连续3年以上&gt;15%</li>
+          <li>毛利率稳定甚至改善</li>
+          <li>自由现金流 &gt; 净利润</li>
+          <li>资产负债率&lt;40%</li>
+          <li><strong>净利润暂时下滑但经营现金流稳定</strong>→ 假性困境</li>
+        </ul>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 03 · 护城河层</div>
+        <h4>段永平最看重的维度</h4>
+        <ul>
+          <li>定价权：涨价不流失用户（茅台/苹果）</li>
+          <li>用户粘性：换用竞品成本极高</li>
+          <li>网络效应：用户越多价值越大</li>
+          <li>规模壁垒：成本比竞争对手低20%+</li>
+          <li><strong>困境期市场份额仍在扩大</strong></li>
+        </ul>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 04 · 管理层层</div>
+        <h4>最难量化但极为重要</h4>
+        <ul>
+          <li>内部人增持：用真金白银买自家股票</li>
+          <li>资本分配能力：ROE高+分红/回购</li>
+          <li>诚实度：年报不回避问题</li>
+          <li>长期主义：不为短期利润牺牲竞争力</li>
+          <li><strong>低点宣布大额回购</strong>（苹果/伯克希尔）</li>
+        </ul>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 05 · 行业位置层</div>
+        <h4>周期判断</h4>
+        <ul>
+          <li>行业正在出清：竞争对手在退出</li>
+          <li>政策周期底部（监管最严时通常是底部）</li>
+          <li>需求端短暂受压但长期趋势不变</li>
+          <li><strong>龙头市场份额↑但股价还在跌</strong></li>
+        </ul>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 06 · 情绪层</div>
+        <h4>短期但有效</h4>
+        <ul>
+          <li>换手率极低（无人关注）</li>
+          <li>分析师覆盖数量减少</li>
+          <li>大股东减持停止/转为增持</li>
+          <li>融资余额持续下降</li>
+          <li><strong>媒体报道从正面转为沉默或负面</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SVG Chart 1: 六层特征散点图 -->
+    <div class="svg-container">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">六层特征体系：可观测难度 vs 预测准确度</h3>
+      <svg viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:380px;">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- background grid -->
+        <rect width="700" height="380" fill="#162b1c" rx="10"/>
+        <!-- grid lines -->
+        <line x1="80" y1="30" x2="80" y2="320" stroke="#1c3322" stroke-width="1"/>
+        <line x1="80" y1="320" x2="650" y2="320" stroke="#1c3322" stroke-width="1"/>
+        <!-- grid dashes -->
+        <line x1="80" y1="220" x2="650" y2="220" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="80" y1="120" x2="650" y2="120" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="220" y1="30" x2="220" y2="320" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="365" y1="30" x2="365" y2="320" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="510" y1="30" x2="510" y2="320" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,4"/>
+        <!-- axis labels -->
+        <text x="360" y="355" fill="#94a3b8" font-size="12" text-anchor="middle">可观测难度（易 → 难）</text>
+        <text x="20" y="180" fill="#94a3b8" font-size="12" text-anchor="middle" transform="rotate(-90,20,180)">预测准确度（低 → 高）</text>
+        <text x="80" y="335" fill="#94a3b8" font-size="10" text-anchor="middle">易</text>
+        <text x="650" y="335" fill="#94a3b8" font-size="10" text-anchor="middle">难</text>
+        <text x="65" y="325" fill="#94a3b8" font-size="10" text-anchor="middle">低</text>
+        <text x="65" y="35" fill="#94a3b8" font-size="10" text-anchor="middle">高</text>
+        <!-- data points: x=difficulty, y=accuracy (inverted for SVG) -->
+        <!-- L1 估值层: easy(120), low-mid accuracy(260) -->
+        <circle cx="130" cy="260" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#22c55e" stroke-width="2" filter="url(#glow)"/>
+        <text x="130" y="255" fill="#22c55e" font-size="11" text-anchor="middle" font-weight="bold">L1</text>
+        <text x="130" y="268" fill="#22c55e" font-size="9" text-anchor="middle">估值层</text>
+        <!-- L2 基本面层: mid-easy(230), mid accuracy(190) -->
+        <circle cx="230" cy="190" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#4ade80" stroke-width="2" filter="url(#glow)"/>
+        <text x="230" y="185" fill="#4ade80" font-size="11" text-anchor="middle" font-weight="bold">L2</text>
+        <text x="230" y="198" fill="#4ade80" font-size="9" text-anchor="middle">基本面层</text>
+        <!-- L3 护城河层: mid(370), mid-high(130) -->
+        <circle cx="370" cy="130" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#a3e635" stroke-width="2" filter="url(#glow)"/>
+        <text x="370" y="125" fill="#a3e635" font-size="11" text-anchor="middle" font-weight="bold">L3</text>
+        <text x="370" y="138" fill="#a3e635" font-size="9" text-anchor="middle">护城河层</text>
+        <!-- L4 管理层层: mid-hard(460), high(90) -->
+        <circle cx="460" cy="90" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#f59e0b" stroke-width="2" filter="url(#glow)"/>
+        <text x="460" y="85" fill="#f59e0b" font-size="11" text-anchor="middle" font-weight="bold">L4</text>
+        <text x="460" y="98" fill="#f59e0b" font-size="9" text-anchor="middle">管理层层</text>
+        <!-- L5 行业位置层: mid-easy(300), mid(160) -->
+        <circle cx="300" cy="160" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#fb923c" stroke-width="2" filter="url(#glow)"/>
+        <text x="300" y="155" fill="#fb923c" font-size="11" text-anchor="middle" font-weight="bold">L5</text>
+        <text x="300" y="168" fill="#fb923c" font-size="9" text-anchor="middle">行业位置</text>
+        <!-- L6 情绪层: easy-mid(170), low(280) -->
+        <circle cx="170" cy="240" r="22" fill="url(#grad1)" fill-opacity="0.25" stroke="#8b5cf6" stroke-width="2" filter="url(#glow)"/>
+        <text x="170" y="235" fill="#8b5cf6" font-size="11" text-anchor="middle" font-weight="bold">L6</text>
+        <text x="170" y="248" fill="#8b5cf6" font-size="9" text-anchor="middle">情绪层</text>
+        <!-- trend arrow -->
+        <path d="M110,290 Q300,180 540,70" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-dasharray="6,4" opacity="0.5"/>
+        <text x="560" y="66" fill="#f59e0b" font-size="10">趋势</text>
+        <!-- legend -->
+        <text x="100" y="25" fill="#94a3b8" font-size="11" text-anchor="start">越深层越难观测，但预测准确度越高 → 六层叠加验证方为最强信号</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CH3 -->
+<section class="section" id="ch3">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 03</div>
+      <h2>大师案例复盘——<em>他们在什么时候买入？</em></h2>
+      <p>五位大师、五次买入，每一次都在别人最恐惧的时候。</p>
+    </div>
+
+    <!-- Case 1 -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>案例一：巴菲特 × 可口可乐（1988年）</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-green">消费品护城河</span>
+          <span class="badge badge-gold">情绪底</span>
+          <span class="badge badge-blue">36年持有</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>指标</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>买入时间</td><td>1988-1989年</td><td>1987年黑色星期一股灾后建仓</td></tr>
+              <tr><td>买入价</td><td>5.22美元/股</td><td>股灾后市场整体被压低</td></tr>
+              <tr><td>买入时PE</td><td>14.5倍</td><td>与标普平均相近，不算便宜——但ROE使其实为低估</td></tr>
+              <tr><td>买入时ROE</td><td>33.3%</td><td>PE/ROE = 0.44，极度低估</td></tr>
+              <tr><td>净现金增长率（7年均）</td><td>17.8%/年</td><td>稳定复利增长</td></tr>
+              <tr><td>分红率</td><td>42%</td><td>高质量分红，股东回报强</td></tr>
+              <tr><td>2024年回报</td><td><strong style="color:var(--accent);">持有36年，增值120+倍</strong></td><td>复利的力量</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight">
+          <h4>关键买入信号</h4>
+          <p>股灾导致市场整体下跌 → 好公司被错杀 → ROE远高于PE隐含的盈利要求（14.5倍PE对33%ROE是明显低估）。新CEO郭思达改革带来的管理层价值被市场忽视。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 2 -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>案例二：段永平 × 网易（2002年）</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-red">现金价值&gt;股价</span>
+          <span class="badge badge-gold">管理层认可</span>
+          <span class="badge badge-green">30倍回报</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>指标</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>买入时间</td><td>2002年4月起</td><td>两个月持续买入</td></tr>
+              <tr><td>买入价均价</td><td>~1美元</td><td>股价0.8-1.2美元区间</td></tr>
+              <tr><td>每股现金储备</td><td>2美元+</td><td><strong style="color:var(--accent-gold);">现金储备 &gt; 股价</strong>，买股如捡钱</td></tr>
+              <tr><td>公司市值</td><td>不足2000万美元</td><td>极端低估</td></tr>
+              <tr><td>背景</td><td>互联网泡沫破裂，亏损2.3亿</td><td>面临退市指控，媒体唱衰</td></tr>
+              <tr><td>投入</td><td>约200万美元（5.05%股权）</td><td>集中重仓</td></tr>
+              <tr><td>卖出价</td><td>30-35美元（持有8-9年）</td><td></td></tr>
+              <tr><td>回报</td><td><strong style="color:var(--accent);">约30-35倍，盈利约2.2亿美元</strong></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight gold">
+          <h4>段永平的决策逻辑</h4>
+          <ul>
+            <li>①每股现金2美元 &gt; 买入价（最硬核的安全边际）</li>
+            <li>②游戏行业从业背景，能看懂游戏业务潜力</li>
+            <li>③专门找律师评估诉讼风险——结论是可控</li>
+            <li>④见到丁磊，亲自判断管理层诚实可信</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 3 -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>案例三：段永平 × 腾讯（2018-2022年）</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-blue">强护城河</span>
+          <span class="badge badge-gold">政策临时压制</span>
+          <span class="badge badge-green">多次加仓</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>阶段</th><th>价格区间</th><th>买入逻辑</th></tr></thead>
+            <tbody>
+              <tr><td>首次买入 2018</td><td>港股 251港元附近（跌幅47%）</td><td>游戏版号停发是临时政策，社交护城河未变</td></tr>
+              <tr><td>加仓 2021</td><td>反垄断跌至300港元区间</td><td>监管是周期性的，护城河在</td></tr>
+              <tr><td>再次加仓 2022</td><td>跌至200港元以下</td><td>"卖苹果买腾讯"——极度低估</td></tr>
+              <tr><td>截至2025年</td><td><strong style="color:var(--accent);">腾讯回升至450+港元</strong></td><td>持仓收益显著</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight">
+          <h4>关键买入信号</h4>
+          <p>护城河完好但受到外部临时性压制 → 股价跌幅远超基本面恶化幅度。将腾讯的广告业务+游戏业务分开看，社交基础设施（微信日活12亿+）的价值不可替代。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 4 -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>案例四：巴菲特 × 苹果（2016年）</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-green">消费品思维</span>
+          <span class="badge badge-blue">重新定义科技股</span>
+          <span class="badge badge-gold">5倍回报</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>指标</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>买入时间</td><td>2016年一季度</td><td>市场认为苹果增长放缓</td></tr>
+              <tr><td>买入时PE</td><td>~13倍</td><td>市场当科技股给低估值</td></tr>
+              <tr><td>买入时市值</td><td>约5000亿美元</td><td></td></tr>
+              <tr><td>累计买入</td><td>约300亿美元</td><td>2018年持仓超400亿美元</td></tr>
+              <tr><td>2024年峰值</td><td><strong style="color:var(--accent);">持仓市值超1500亿美元，约5倍</strong></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight gold">
+          <h4>巴菲特的核心洞见</h4>
+          <p>苹果不是科技公司，是消费品公司。iPhone是生活方式，用户愿意为iPhone支付3000元而非600元买安卓机，说明定价权极强。生态系统粘性=品牌护城河。市场用科技股框架定价，巴菲特用消费品框架定价，这个认知差就是机会。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Case 5 -->
+    <div class="case-box">
+      <div class="case-header">
+        <h3>案例五：A股——贵州茅台（2013-2014年底部）</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="badge badge-red">政策压制</span>
+          <span class="badge badge-gold">ROE 40%</span>
+          <span class="badge badge-green">7年22倍</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>指标</th><th>数值</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>背景</td><td>塑化剂风波+反腐政策</td><td>三公消费消失，机构集体撤退</td></tr>
+              <tr><td>股价跌幅</td><td>从266元跌至116元（-56%）</td><td>最低PE仅8.83倍（历史最低，2014年）</td></tr>
+              <tr><td>当时ROE</td><td>约40%</td><td>PE/ROE = 0.22，历史极低</td></tr>
+              <tr><td>机构态度</td><td>大幅下调评级，媒体"白酒终结论"</td><td>情绪底验证</td></tr>
+              <tr><td>真实情况</td><td>护城河完好，普通消费持续增长</td><td>政策影响的是商务消费，非大众消费</td></tr>
+              <tr><td>之后走势</td><td><strong style="color:var(--accent);">2014-2021年：116元→2627元，7年22倍</strong></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="highlight">
+          <h4>关键买入信号</h4>
+          <p>政策压力是临时性的（反腐打的是商务宴请，不影响品牌价值）。ROE从未低于30%，说明护城河完整。PE&lt;10倍对ROE&gt;30%是极端低估（PE/ROE=0.22，历史上从未这么低）。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG Chart 2 -->
+    <div class="svg-container">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">大师买入时机示意图（相对底部买入→持续上涨）</h3>
+      <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:320px;">
+        <defs>
+          <linearGradient id="coke-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#4ade80;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="163-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#fcd34d;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="tx-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="aapl-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="moutai-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#ef4444;stop-opacity:0.8"/>
+            <stop offset="100%" style="stop-color:#f87171;stop-opacity:1"/>
+          </linearGradient>
+          <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/>
+          </marker>
+        </defs>
+        <rect width="700" height="320" fill="#162b1c" rx="10"/>
+        <!-- axes -->
+        <line x1="60" y1="20" x2="60" y2="270" stroke="#2d5040" stroke-width="1"/>
+        <line x1="60" y1="270" x2="680" y2="270" stroke="#2d5040" stroke-width="1"/>
+        <!-- grid lines -->
+        <line x1="60" y1="120" x2="680" y2="120" stroke="#1c3322" stroke-width="1" stroke-dasharray="3,4"/>
+        <line x1="60" y1="170" x2="680" y2="170" stroke="#1c3322" stroke-width="1" stroke-dasharray="3,4"/>
+        <line x1="60" y1="220" x2="680" y2="220" stroke="#1c3322" stroke-width="1" stroke-dasharray="3,4"/>
+        <!-- axis text -->
+        <text x="370" y="295" fill="#94a3b8" font-size="11" text-anchor="middle">时间轴（相对时间）</text>
+        <text x="30" y="145" fill="#94a3b8" font-size="11" text-anchor="middle" transform="rotate(-90,30,145)">相对价值（倍数）</text>
+        <text x="55" y="275" fill="#94a3b8" font-size="9" text-anchor="end">0</text>
+        <text x="55" y="225" fill="#94a3b8" font-size="9" text-anchor="end">5×</text>
+        <text x="55" y="175" fill="#94a3b8" font-size="9" text-anchor="end">10×</text>
+        <text x="55" y="125" fill="#94a3b8" font-size="9" text-anchor="end">20×</text>
+        <!-- Coke line: buy at x=120,y=240, then rises to x=640,y=50 -->
+        <polyline points="80,230 110,240 120,243 140,240 250,210 380,160 500,110 640,55" fill="none" stroke="url(#coke-g)" stroke-width="2.5" opacity="0.9"/>
+        <circle cx="120" cy="243" r="5" fill="#22c55e"/>
+        <line x1="120" y1="215" x2="120" y2="238" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="125" y="210" fill="#22c55e" font-size="10" font-weight="bold">可口可乐</text>
+        <!-- 163 line -->
+        <polyline points="80,260 160,265 170,268 185,265 280,240 370,200 450,150 550,100 640,80" fill="none" stroke="url(#163-g)" stroke-width="2.5" opacity="0.9"/>
+        <circle cx="170" cy="268" r="5" fill="#f59e0b"/>
+        <line x1="170" y1="245" x2="170" y2="263" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="175" y="242" fill="#f59e0b" font-size="10" font-weight="bold">网易</text>
+        <!-- Tencent line -->
+        <polyline points="80,215 200,220 240,250 260,252 300,248 380,230 460,200 570,165 640,145" fill="none" stroke="url(#tx-g)" stroke-width="2.5" opacity="0.9"/>
+        <circle cx="260" cy="252" r="5" fill="#3b82f6"/>
+        <line x1="260" y1="228" x2="260" y2="247" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="265" y="225" fill="#3b82f6" font-size="10" font-weight="bold">腾讯</text>
+        <!-- Apple line -->
+        <polyline points="80,240 300,245 330,248 350,246 420,225 490,190 580,160 640,135" fill="none" stroke="url(#aapl-g)" stroke-width="2.5" opacity="0.9"/>
+        <circle cx="330" cy="248" r="5" fill="#8b5cf6"/>
+        <line x1="330" y1="225" x2="330" y2="243" stroke="#8b5cf6" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="335" y="222" fill="#8b5cf6" font-size="10" font-weight="bold">苹果</text>
+        <!-- Moutai line -->
+        <polyline points="80,240 360,250 400,265 420,268 450,265 510,240 570,190 630,140 640,130" fill="none" stroke="url(#moutai-g)" stroke-width="2.5" opacity="0.9"/>
+        <circle cx="420" cy="268" r="5" fill="#ef4444"/>
+        <line x1="420" y1="245" x2="420" y2="263" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr)"/>
+        <text x="425" y="242" fill="#ef4444" font-size="10" font-weight="bold">茅台</text>
+        <!-- buy arrow marker -->
+        <text x="420" y="310" fill="#f59e0b" font-size="10" text-anchor="middle">▲ 箭头标注各案例买入点</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CH4 -->
+<section class="section" id="ch4">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 04</div>
+      <h2>上涨前期的<em>三种类型</em></h2>
+      <p>不同形态对应不同逻辑，识别类型是制定策略的前提。</p>
+    </div>
+
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-label">TYPE A · 困境反转型</div>
+        <h4>最高收益潜力，最高难度</h4>
+        <p style="font-size:12px;margin-bottom:10px;">公司面临临时性困境（非结构性衰败）</p>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">区分临时 vs 永久：</div>
+          <div style="font-size:11px;color:var(--accent);">✓ 临时：政策打压/行业供给冲击/需求季节波动</div>
+          <div style="font-size:11px;color:var(--accent-red);">✗ 永久：商业模式被颠覆/核心用户群迁移</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">代表案例：网易2002 · 腾讯2018 · 茅台2013</div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-green">3-10倍收益</span>
+          <span class="badge badge-red">2-3年等待</span>
+        </div>
+      </div>
+      <div class="type-card type-b">
+        <div class="type-label">TYPE B · 价值发现型</div>
+        <h4>中等难度，稳定收益</h4>
+        <p style="font-size:12px;margin-bottom:10px;">优秀公司长期被低估（被市场遗忘）</p>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">识别关键：</div>
+          <div style="font-size:11px;color:var(--accent-gold);">PE&lt;15倍，ROE&gt;20%，稳定增长但机构关注度低</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">代表案例：可口可乐1988 · 苹果2016 · 格力早期</div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-gold">5-20倍收益</span>
+          <span class="badge badge-blue">3-7年等待</span>
+        </div>
+      </div>
+      <div class="type-card type-c">
+        <div class="type-label">TYPE C · 成长加速型</div>
+        <h4>最难判断，估值贵但合理</h4>
+        <p style="font-size:12px;margin-bottom:10px;">公司进入快速成长通道，PE高但PEG低</p>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;">识别关键：</div>
+          <div style="font-size:11px;color:var(--accent-purple);">收入增速&gt;30% + 可见市场空间 + 护城河在扩大</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-secondary);">代表案例：茅台2015-2018扩容 · 迈瑞2018-2020国际化</div>
+        <div style="margin-top:10px;display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge badge-purple" style="background:rgba(139,92,246,.2);color:var(--accent-purple);">难区分真成长</span>
+          <span class="badge badge-red">最高风险</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG Chart 3: Triangle -->
+    <div class="svg-container">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">三种类型定位图：难度 · 收益潜力 · 等待时间</h3>
+      <svg viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:340px;">
+        <rect width="600" height="340" fill="#162b1c" rx="10"/>
+        <!-- gradient triangle -->
+        <defs>
+          <linearGradient id="tri-ab" x1="0%" y1="100%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.15"/>
+            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.15"/>
+          </linearGradient>
+          <linearGradient id="tri-abc" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.2"/>
+            <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.1"/>
+          </linearGradient>
+        </defs>
+        <!-- main triangle -->
+        <polygon points="300,50 100,280 500,280" fill="url(#tri-abc)" stroke="#2d5040" stroke-width="2"/>
+        <!-- inner zone lines -->
+        <polygon points="300,120 170,250 430,250" fill="rgba(255,255,255,0.03)" stroke="#1c3322" stroke-width="1" stroke-dasharray="4,3"/>
+        <!-- difficulty gradient along bottom -->
+        <line x1="100" y1="280" x2="500" y2="280" stroke="url(#tri-ab)" stroke-width="3"/>
+        <!-- vertex labels -->
+        <!-- C top: highest difficulty, highest return -->
+        <circle cx="300" cy="50" r="28" fill="rgba(139,92,246,0.2)" stroke="#8b5cf6" stroke-width="2"/>
+        <text x="300" y="44" fill="#8b5cf6" font-size="12" text-anchor="middle" font-weight="bold">C型</text>
+        <text x="300" y="58" fill="#8b5cf6" font-size="9" text-anchor="middle">成长加速</text>
+        <text x="300" y="26" fill="#8b5cf6" font-size="10" text-anchor="middle">最高收益潜力</text>
+        <text x="300" y="16" fill="#94a3b8" font-size="9" text-anchor="middle">难度★★★★★</text>
+        <!-- A bottom-left:困境反转 -->
+        <circle cx="100" cy="280" r="28" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+        <text x="100" y="274" fill="#22c55e" font-size="12" text-anchor="middle" font-weight="bold">A型</text>
+        <text x="100" y="288" fill="#22c55e" font-size="9" text-anchor="middle">困境反转</text>
+        <text x="50" y="308" fill="#22c55e" font-size="10" text-anchor="middle">3-10倍 · 2-3年</text>
+        <text x="50" y="320" fill="#94a3b8" font-size="9" text-anchor="middle">难度★★★★</text>
+        <!-- B bottom-right: 价值发现 -->
+        <circle cx="500" cy="280" r="28" fill="rgba(245,158,11,0.2)" stroke="#f59e0b" stroke-width="2"/>
+        <text x="500" y="274" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="bold">B型</text>
+        <text x="500" y="288" fill="#f59e0b" font-size="9" text-anchor="middle">价值发现</text>
+        <text x="550" y="308" fill="#f59e0b" font-size="10" text-anchor="middle">5-20倍 · 3-7年</text>
+        <text x="550" y="320" fill="#94a3b8" font-size="9" text-anchor="middle">难度★★★</text>
+        <!-- center -->
+        <text x="300" y="180" fill="#94a3b8" font-size="11" text-anchor="middle">越往顶端</text>
+        <text x="300" y="194" fill="#94a3b8" font-size="11" text-anchor="middle">收益越高 / 难度越大</text>
+        <!-- arrows -->
+        <path d="M300,200 L300,80" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+        <path d="M300,200 L120,270" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+        <path d="M300,200 L480,270" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CH5 -->
+<section class="section" id="ch5">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 05</div>
+      <h2>七个最可靠的<em>买入前信号</em></h2>
+      <p>每个信号单独出现意义有限，多个叠加才是真正的买入窗口。</p>
+    </div>
+
+    <div class="signal-grid">
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 01</div>
+        <h4>PE/ROE比值低于1（最硬核量化信号）</h4>
+        <p>如果ROE=30%，PE=10，花10倍的钱买到能30%回报的资产。茅台2014年：PE=8.83，ROE=40%，比值=<strong style="color:var(--accent);">0.22</strong>（历史最低）</p>
+        <div style="margin-top:8px;font-size:11px;">
+          <span style="color:var(--accent);">比值&lt;0.8 = 极端低估</span> &nbsp;
+          <span style="color:var(--accent-gold);">比值&lt;1 = 低估</span> &nbsp;
+          <span style="color:var(--accent-red);">比值&gt;2 = 需谨慎</span>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 02</div>
+        <h4>自由现金流收益率 &gt; 5%</h4>
+        <p>年度自由现金流÷市值 &gt; 5%，相当于比银行利率高的"买公司收益率"。类似买债券，好公司产生的现金回报你的投资。比PE更难造假。</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 03</div>
+        <h4>内部人大量增持（含回购）</h4>
+        <p>管理层比外部人更了解公司，用真金白银买入是最真实的信号。汇金2015/2022年入市；苹果数千亿美元回购；招商银行管理层增持。</p>
+        <div style="margin-top:6px;font-size:11px;color:var(--accent-red);">⚠️ 区分一次性小额 vs 系统性持续增持</div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 04</div>
+        <h4>行业景气数据触底（PPI/订单/库存）</h4>
+        <p>行业基本面先于股价触底。当PPI从负数转正时，周期型好公司的业绩拐点已来。实战：PMI新订单&gt;50，工业企业利润同比转正，库存同比下降。</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 05</div>
+        <h4>护城河在逆境中得到验证</h4>
+        <p>危机是检验护城河的最佳时机。最强信号：行业普遍亏损时，龙头依然保持正利润且市占率上升。2020年疫情中，迈瑞医疗营收反而增长<strong style="color:var(--accent);">27%</strong>。</p>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">SIGNAL 06</div>
+        <h4>基本面改善但股价未动（认知差窗口）</h4>
+        <p>市场反应有滞后性。当财报开始改善但分析师还在"维持中性"时，是最好的窗口。观察：毛利率趋势（连续2季度改善）、经营现金流改善、存货周转加快。</p>
+      </div>
+      <div class="signal-item" style="grid-column: 1 / -1;">
+        <div class="signal-num">SIGNAL 07</div>
+        <h4>估值处于历史低分位 + 同类比较低估（双重低估）</h4>
+        <p>双重低估才是真低估（自身历史低+同行比较低）。工具：PE百分位+PB百分位同时&lt;30%。单独一个维度低估可能是行业系统性低估，双重叠加才有超额收益。</p>
+      </div>
+    </div>
+
+    <!-- Signal Score Table -->
+    <h3 style="margin-top:28px;margin-bottom:14px;">信号强度评分卡（满分21分）</h3>
+    <div class="table-wrap">
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>信号名称</th>
+            <th>核心逻辑</th>
+            <th>实战工具</th>
+            <th>最高分值</th>
+            <th>当前可用性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>PE/ROE &lt; 1</strong></td>
+            <td>最硬核的估值信号，护城河对价格的验证</td>
+            <td>Wind/同花顺 → 历史PE & ROE</td>
+            <td><span class="badge badge-gold">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot fill"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>FCF收益率&gt;5%</strong></td>
+            <td>真实的现金回报率，比PE更难造假</td>
+            <td>财报→经营现金流-资本支出÷市值</td>
+            <td><span class="badge badge-gold">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot fill"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>内部人持续增持</strong></td>
+            <td>内部人信息优势+真金白银的信心</td>
+            <td>交易所公告→大股东/高管增减持</td>
+            <td><span class="badge badge-gold">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>行业景气触底</strong></td>
+            <td>基本面领先于股价见底</td>
+            <td>国家统计局PPI/PMI/工业利润</td>
+            <td><span class="badge badge-blue">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>护城河逆境验证</strong></td>
+            <td>最强信号——危机中市场份额上升</td>
+            <td>行业报告+竞争对手财报对比</td>
+            <td><span class="badge badge-green">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot"></div><div class="dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>基本面改善股价未动</strong></td>
+            <td>认知差窗口——滞后反应的机会</td>
+            <td>连续2季度毛利率+现金流改善</td>
+            <td><span class="badge badge-green">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot"></div></div></td>
+          </tr>
+          <tr>
+            <td><strong>双重低估</strong></td>
+            <td>历史低分位+同行比较低，双重确认</td>
+            <td>PE/PB百分位同时&lt;30%</td>
+            <td><span class="badge badge-gold">3分</span></td>
+            <td><div class="score-dot"><div class="dot fill"></div><div class="dot fill"></div><div class="dot fill"></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;font-size:12px;">
+      <span style="color:var(--accent);">≥15分 = 强烈买入信号</span>
+      <span style="color:var(--accent-gold);">10-14分 = 关注并等待</span>
+      <span style="color:var(--accent-red);">&lt;10分 = 继续观察</span>
+    </div>
+  </div>
+</section>
+
+<!-- CH6 -->
+<section class="section" id="ch6">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 06</div>
+      <h2>如何区分"<em>价值陷阱</em>"和"真正的低估"？</h2>
+      <p>低PE不等于低风险。识别陷阱与机会的区别，是价值投资最核心的能力。</p>
+    </div>
+
+    <h3 style="margin-bottom:14px;">价值陷阱的五种典型</h3>
+    <div class="trap-grid">
+      <div class="trap-item">
+        <h4>① 护城河正在消失</h4>
+        <p>柯达/诺基亚/传统零售——低PE但基本面在持续恶化。技术颠覆/商业模式颠覆让历史ROE失去参考意义。</p>
+      </div>
+      <div class="trap-item">
+        <h4>② 账上有钱但不分红/不回购</h4>
+        <p>管理层把股东的钱当自己的钱。典型：部分国企。钱在账上但永远不会回报给股东，PB&lt;1也是价值陷阱。</p>
+      </div>
+      <div class="trap-item">
+        <h4>③ 商业模式本身有问题</h4>
+        <p>需要不断烧钱才能维持竞争力的行业（航空/面板）。资本密集+价格竞争+无定价权，这类公司再便宜也是陷阱。</p>
+      </div>
+      <div class="trap-item">
+        <h4>④ 行业天花板已到</h4>
+        <p>市场已经饱和，增长空间有限。历史高ROE是在高增长期实现的，成熟期ROE必然回归行业平均水平。</p>
+      </div>
+    </div>
+    <div class="trap-item" style="margin-top:14px;">
+      <h4>⑤ 表面盈利但现金流差</h4>
+      <p>利润靠应收账款堆砌（工程建设类公司）。账面利润高但经营性现金流为负，说明利润无法变现，是典型的盈利质量差的陷阱。</p>
+    </div>
+
+    <h3 style="margin-top:28px;margin-bottom:14px;">区分框架：三个核心问题</h3>
+    <div class="card-grid-3" style="margin-top:12px;">
+      <div class="card">
+        <div class="badge badge-green" style="margin-bottom:8px;">问题一</div>
+        <h4>护城河是在变强还是变弱？</h4>
+        <p style="font-size:13px;">对比5年前/现在/5年后的竞争格局。是否还有定价权？用户迁移成本是否在下降？新的竞争者是否在蚕食份额？</p>
+        <div style="font-size:11px;margin-top:8px;">
+          <div style="color:var(--accent);">✓ 变强 → 真低估</div>
+          <div style="color:var(--accent-red);">✗ 变弱 → 价值陷阱</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge badge-gold" style="margin-bottom:8px;">问题二</div>
+        <h4>困境是临时性还是结构性？</h4>
+        <p style="font-size:13px;">临时=政策周期/行业供给冲击/意外事件；结构=技术颠覆/商业模式消亡/用户群永久迁移。</p>
+        <div style="font-size:11px;margin-top:8px;">
+          <div style="color:var(--accent);">✓ 临时性 → 等待恢复</div>
+          <div style="color:var(--accent-red);">✗ 结构性 → 不碰</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="badge badge-blue" style="margin-bottom:8px;">问题三</div>
+        <h4>管理层有无与股东利益一致的行为？</h4>
+        <p style="font-size:13px;">回购/增持/诚实披露困境原因。管理层在底部回购是最强的信心信号；持续减持是最强的警告信号。</p>
+        <div style="font-size:11px;margin-top:8px;">
+          <div style="color:var(--accent);">✓ 回购+诚实披露 → 可信</div>
+          <div style="color:var(--accent-red);">✗ 持续减持+回避问题 → 警惕</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CH7 -->
+<section class="section" id="ch7">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 07</div>
+      <h2>段永平和巴菲特的<em>共同方法论</em></h2>
+      <p>两位大师路径不同，核心思想高度一致。</p>
+    </div>
+
+    <div class="table-wrap" style="margin-bottom:24px;">
+      <table>
+        <thead>
+          <tr>
+            <th>维度</th>
+            <th style="color:var(--accent);">巴菲特</th>
+            <th style="color:var(--accent-gold);">段永平</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>核心框架</td><td>内在价值=未来现金流折现</td><td>"什么是好生意，好公司，好价格"</td></tr>
+          <tr><td>买入触发点</td><td>价格&lt;内在价值×0.7（30%安全边际）</td><td>认为长期持有10年有很高确定性</td></tr>
+          <tr><td>护城河理解</td><td>经济护城河（品牌/成本/网络效应/转换成本）</td><td>本分+定价权（好公司不靠价格竞争）</td></tr>
+          <tr><td>管理层</td><td>用人不疑，选正直诚实的人</td><td>"停止做错误的事比开始做正确的事更重要"</td></tr>
+          <tr><td>分散/集中</td><td>15-20只集中持股</td><td>更集中，少则得，多则惑</td></tr>
+          <tr><td>市场情绪</td><td>不看市场报价，但在极端时利用</td><td>把持股当实体公司来看，不关注短期股价</td></tr>
+          <tr><td>等待哲学</td><td>"当机会来了，要大胆押注"</td><td>长期等待，不着急，时间是朋友</td></tr>
+          <tr><td style="color:var(--accent);">一致点1</td><td colspan="2"><strong>好公司被暂时误解时是最好的买点</strong></td></tr>
+          <tr><td style="color:var(--accent);">一致点2</td><td colspan="2"><strong>不懂的不买，能力圈边界坚守</strong></td></tr>
+          <tr><td style="color:var(--accent);">一致点3</td><td colspan="2"><strong>长期持有、复利增长</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-bottom:16px;">五条共同法则</h3>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="card2">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(34,197,94,.2);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);">1</div>
+          <div>
+            <h4>"只在你理解的生意上下注"</h4>
+            <p style="font-size:13px;margin-bottom:0;">能力圈原则。不理解的东西无法判断安全边际，盲目跟风进入陌生领域是散户最常见的亏损来源。巴菲特从不买科技股，直到他真正理解苹果的消费品属性。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(245,158,11,.2);border:1px solid var(--accent-gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent-gold);">2</div>
+          <div>
+            <h4>"市场先生是你的仆人，不是你的主人"</h4>
+            <p style="font-size:13px;margin-bottom:0;">利用市场情绪而非被情绪左右。当市场极度恐惧时，正是理性投资者建仓的时机。市场的短期波动是噪音，长期趋势才是信号。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(59,130,246,.2);border:1px solid var(--accent-blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent-blue);">3</div>
+          <div>
+            <h4>"以合理价格买入优秀公司，好过以便宜价格买入普通公司"</h4>
+            <p style="font-size:13px;margin-bottom:0;">好公司的复利增长会随时间消化估值溢价；普通公司即使买得再便宜，也很难带来长期回报。这是巴菲特在格雷厄姆基础上最重要的进化。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(139,92,246,.2);border:1px solid var(--accent-purple);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent-purple);">4</div>
+          <div>
+            <h4>"护城河是定价权，有定价权才有ROE"</h4>
+            <p style="font-size:13px;margin-bottom:0;">高ROE是好生意的验证。能持续保持高ROE，说明公司有护城河（护城河的本质是定价权）。没有护城河的公司，ROE会被竞争拉低到资本成本水平。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <div style="display:flex;align-items:flex-start;gap:12px;">
+          <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(34,197,94,.2);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--accent);">5</div>
+          <div>
+            <h4>"时间是好公司的朋友，是坏公司的敌人"</h4>
+            <p style="font-size:13px;margin-bottom:0;">复利的力量。好公司随时间价值持续增长；坏公司随时间问题暴露。价值投资者最重要的优势是能承受时间考验，因为他们买的是真正的价值。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CH8 -->
+<section class="section" id="ch8">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 08</div>
+      <h2>普通投资者的<em>实操手册</em></h2>
+      <p>5步买入检查清单——在买入前逐项对照，减少情绪决策。</p>
+    </div>
+
+    <div class="card-grid-2" style="margin-bottom:20px;">
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#0b1a0f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+          <h3 style="margin:0;color:var(--accent);">确认是否是好生意（前提条件）</h3>
+        </div>
+        <ul class="checklist">
+          <li><strong>连续5年ROE&gt;15%</strong>（排除偶发性高利润）</li>
+          <li><strong>毛利率&gt;40%</strong>（有定价权的护城河信号）</li>
+          <li><strong>自由现金流/净利润&gt;80%</strong>（盈利质量验证）</li>
+          <li><strong>资产负债率&lt;50%</strong>（财务安全边际）</li>
+          <li><strong>核心护城河可以用一句话描述清楚</strong>（能力圈验证）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent-gold);color:#0b1a0f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+          <h3 style="margin:0;color:var(--accent-gold);">确认是否处于低估区间</h3>
+        </div>
+        <ul class="checklist">
+          <li><strong>PE&lt;历史30%分位</strong>（自身历史对比）</li>
+          <li><strong>PE/ROE &lt; 1.2</strong>（核心量化低估信号）</li>
+          <li><strong>与同行相比没有明显溢价</strong>（横向比较）</li>
+          <li><strong>现价与内在价值折价&gt;20%</strong>（安全边际）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent-blue);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+          <h3 style="margin:0;color:var(--accent-blue);">确认困境原因（避开价值陷阱）</h3>
+        </div>
+        <ul class="checklist">
+          <li><strong>困境原因是否临时性？</strong>（政策/周期/意外）</li>
+          <li><strong>护城河是否依然完好？</strong>（市占率/毛利率是否在维持）</li>
+          <li><strong>管理层是否值得信任？</strong>（无财务造假/无恶意减持）</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent-purple);color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+          <h3 style="margin:0;color:var(--accent-purple);">等待买入信号</h3>
+        </div>
+        <ul class="checklist">
+          <li><strong>至少2个以上信号同时出现</strong>（见Chapter 5）</li>
+          <li><strong>情绪指标极度悲观</strong>（分析师集体下调/媒体负面）</li>
+          <li><strong>机构持仓下降但产业资本未减持</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:rgba(34,197,94,.3);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);color:#0b1a0f;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">5</div>
+        <h3 style="margin:0;color:var(--accent);">分批建仓，留足子弹</h3>
+      </div>
+      <div class="card-grid-3">
+        <div class="card2" style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--accent);">30%</div>
+          <div style="font-size:13px;color:var(--text);margin:4px 0;">第一批建仓</div>
+          <p style="font-size:12px;margin:0;">初次确认低估后买入。不追求最低价，建立初始仓位。</p>
+        </div>
+        <div class="card2" style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--accent-gold);">40%</div>
+          <div style="font-size:13px;color:var(--text);margin:4px 0;">第二批加仓</div>
+          <p style="font-size:12px;margin:0;">股价进一步下跌后，确认基本面未变时加仓。</p>
+        </div>
+        <div class="card2" style="text-align:center;">
+          <div style="font-size:28px;font-weight:800;color:var(--accent-red);">30%</div>
+          <div style="font-size:13px;color:var(--text);margin:4px 0;">第三批加仓</div>
+          <p style="font-size:12px;margin:0;">极端恐慌时（最难的一步），此时往往是最佳买点。</p>
+        </div>
+      </div>
+      <div class="highlight gold" style="margin-top:14px;">
+        <p>关键原则：每次加仓前重新验证基本面，确认是股价在跌而不是公司在变差。分批建仓的目的是利用不确定性，而不是赌方向。</p>
+      </div>
+    </div>
+
+    <!-- SVG Chart 4: Flow Chart -->
+    <div class="svg-container" style="margin-top:24px;">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">5步买入决策流程图</h3>
+      <svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:420px;">
+        <rect width="680" height="420" fill="#162b1c" rx="10"/>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#2d5040"/>
+          </marker>
+          <marker id="arrow-ok" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#22c55e"/>
+          </marker>
+          <marker id="arrow-no" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#ef4444"/>
+          </marker>
+        </defs>
+        <!-- Step 1 -->
+        <rect x="240" y="20" width="200" height="48" rx="8" fill="rgba(34,197,94,0.15)" stroke="#22c55e" stroke-width="1.5"/>
+        <text x="340" y="40" fill="#22c55e" font-size="12" text-anchor="middle" font-weight="bold">Step 1：是否是好生意？</text>
+        <text x="340" y="58" fill="#94a3b8" font-size="10" text-anchor="middle">ROE&gt;15% · 毛利&gt;40% · FCF强</text>
+        <!-- arrow down -->
+        <line x1="340" y1="68" x2="340" y2="90" stroke="#2d5040" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="355" y="82" fill="#22c55e" font-size="10">通过</text>
+        <!-- fail exit right -->
+        <line x1="440" y1="44" x2="580" y2="44" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-no)"/>
+        <rect x="580" y="28" width="90" height="32" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="625" y="46" fill="#ef4444" font-size="10" text-anchor="middle">不符合→跳过</text>
+        <!-- Step 2 -->
+        <rect x="240" y="90" width="200" height="48" rx="8" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="340" y="110" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="bold">Step 2：是否处于低估？</text>
+        <text x="340" y="128" fill="#94a3b8" font-size="10" text-anchor="middle">PE/ROE&lt;1.2 · 历史低分位</text>
+        <line x1="340" y1="138" x2="340" y2="160" stroke="#2d5040" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="355" y="152" fill="#22c55e" font-size="10">通过</text>
+        <line x1="440" y1="114" x2="580" y2="114" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-no)"/>
+        <rect x="580" y="98" width="90" height="32" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="625" y="116" fill="#ef4444" font-size="10" text-anchor="middle">等待更低估值</text>
+        <!-- Step 3 -->
+        <rect x="240" y="160" width="200" height="48" rx="8" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="1.5"/>
+        <text x="340" y="180" fill="#3b82f6" font-size="12" text-anchor="middle" font-weight="bold">Step 3：困境是临时的吗？</text>
+        <text x="340" y="198" fill="#94a3b8" font-size="10" text-anchor="middle">护城河完好 · 管理层诚实</text>
+        <line x1="340" y1="208" x2="340" y2="230" stroke="#2d5040" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="355" y="222" fill="#22c55e" font-size="10">通过</text>
+        <line x1="440" y1="184" x2="580" y2="184" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arrow-no)"/>
+        <rect x="580" y="168" width="90" height="32" rx="6" fill="rgba(239,68,68,.15)" stroke="#ef4444" stroke-width="1"/>
+        <text x="625" y="186" fill="#ef4444" font-size="10" text-anchor="middle">价值陷阱→回避</text>
+        <!-- Step 4 -->
+        <rect x="240" y="230" width="200" height="48" rx="8" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="340" y="250" fill="#8b5cf6" font-size="12" text-anchor="middle" font-weight="bold">Step 4：等待买入信号</text>
+        <text x="340" y="268" fill="#94a3b8" font-size="10" text-anchor="middle">2+信号叠加 · 情绪极悲观</text>
+        <line x1="340" y1="278" x2="340" y2="300" stroke="#2d5040" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <text x="355" y="292" fill="#22c55e" font-size="10">触发</text>
+        <line x1="440" y1="254" x2="580" y2="254" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arrow-no)"/>
+        <rect x="580" y="238" width="90" height="32" rx="6" fill="rgba(245,158,11,.15)" stroke="#f59e0b" stroke-width="1"/>
+        <text x="625" y="256" fill="#f59e0b" font-size="10" text-anchor="middle">继续等待</text>
+        <!-- Step 5 -->
+        <rect x="220" y="300" width="240" height="48" rx="8" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+        <text x="340" y="320" fill="#4ade80" font-size="13" text-anchor="middle" font-weight="bold">Step 5：分批建仓</text>
+        <text x="340" y="338" fill="#94a3b8" font-size="10" text-anchor="middle">30% → 40% → 30% 分三批</text>
+        <line x1="340" y1="348" x2="340" y2="370" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-ok)"/>
+        <!-- Final -->
+        <rect x="240" y="370" width="200" height="36" rx="20" fill="rgba(34,197,94,0.3)" stroke="#22c55e" stroke-width="2"/>
+        <text x="340" y="392" fill="#22c55e" font-size="13" text-anchor="middle" font-weight="bold">持有，等待戴维斯双击</text>
+        <!-- left side label -->
+        <text x="15" y="210" fill="#94a3b8" font-size="11" transform="rotate(-90,15,210)">5步验证流程</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CH9 -->
+<section class="section" id="ch9">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 09</div>
+      <h2>当前（2025年）哪些好公司<em>可能处于上涨前期？</em></h2>
+      <p>基于六层识别框架的扫描示范——不构成投资建议，仅为框架应用演示。</p>
+    </div>
+
+    <div class="scan-grid">
+      <div class="scan-card">
+        <div class="company">贵州茅台</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-bottom:10px;">白酒龙头 · A股 600519</div>
+        <div class="metric-row"><span class="metric-label">PE区间（2024-25）</span><span class="metric-val">21-25倍</span></div>
+        <div class="metric-row"><span class="metric-label">历史分位</span><span class="metric-val" style="color:var(--accent);">≈30%分位</span></div>
+        <div class="metric-row"><span class="metric-label">ROE</span><span class="metric-val">28-30%</span></div>
+        <div class="metric-row"><span class="metric-label">PE/ROE比值</span><span class="metric-val" style="color:var(--accent);">~0.80 低估区间</span></div>
+        <div class="metric-row"><span class="metric-label">当前背景</span><span class="metric-val">渠道价格倒挂，行业调整期</span></div>
+        <div class="metric-row"><span class="metric-label">护城河状态</span><span class="metric-val" style="color:var(--accent);">完好</span></div>
+        <span class="scan-signal">情绪极悲观 + 估值历史低位</span>
+      </div>
+      <div class="scan-card">
+        <div class="company">迈瑞医疗</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-bottom:10px;">医疗器械龙头 · A股 300760</div>
+        <div class="metric-row"><span class="metric-label">PE区间（2024-25）</span><span class="metric-val">25-28倍</span></div>
+        <div class="metric-row"><span class="metric-label">历史分位</span><span class="metric-val" style="color:var(--accent);">历史低位</span></div>
+        <div class="metric-row"><span class="metric-label">ROE</span><span class="metric-val">约27%</span></div>
+        <div class="metric-row"><span class="metric-label">PE/ROE比值</span><span class="metric-val" style="color:var(--accent-gold);">~1.0 合理偏低估</span></div>
+        <div class="metric-row"><span class="metric-label">当前背景</span><span class="metric-val">集采恐慌+DRG控费</span></div>
+        <div class="metric-row"><span class="metric-label">护城河状态</span><span class="metric-val" style="color:var(--accent);">医院粘性强，海外扩张加速</span></div>
+        <span class="scan-signal">基本面改善 · 股价未动</span>
+      </div>
+      <div class="scan-card">
+        <div class="company">腾讯控股</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-bottom:10px;">科技龙头 · 港股 00700</div>
+        <div class="metric-row"><span class="metric-label">PE（2024，剔投资）</span><span class="metric-val">16-18倍</span></div>
+        <div class="metric-row"><span class="metric-label">历史分位</span><span class="metric-val" style="color:var(--accent);">历史低分位</span></div>
+        <div class="metric-row"><span class="metric-label">ROE</span><span class="metric-val">20%+</span></div>
+        <div class="metric-row"><span class="metric-label">PE/ROE比值</span><span class="metric-val" style="color:var(--accent);">&lt;0.9 低估区间</span></div>
+        <div class="metric-row"><span class="metric-label">回购情况</span><span class="metric-val" style="color:var(--accent);">2023+累计回购超1000亿港元</span></div>
+        <div class="metric-row"><span class="metric-label">护城河状态</span><span class="metric-val" style="color:var(--accent);">微信日活不可撼动</span></div>
+        <span class="scan-signal">管理层用行动证明低估</span>
+      </div>
+    </div>
+
+    <div class="highlight gold" style="margin-top:20px;">
+      <h4>重要免责声明</h4>
+      <p>以上仅为六层识别框架的应用示范，并非投资建议。市场瞬息万变，任何投资决策均应基于独立研究和个人风险承受能力。历史数据不代表未来表现。请自行研究，独立判断。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CH10 -->
+<section class="section" id="ch10">
+  <div class="container">
+    <div class="section-header">
+      <div class="chapter-tag">CHAPTER 10</div>
+      <h2>总结——好公司的最佳买入窗口<em>长什么样？</em></h2>
+      <p>五个条件缺一不可，同时满足时才是真正的黄金买入窗口。</p>
+    </div>
+
+    <div class="conclusion-grid">
+      <div class="conclusion-item">
+        <div class="conclusion-icon">🏰</div>
+        <h4>好生意</h4>
+        <p>ROE持续&gt;15%<br>护城河可描述</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-icon">⚡</div>
+        <h4>临时困境</h4>
+        <p>外部/行业压力<br>非结构性衰败</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-icon">📉</div>
+        <h4>低估值</h4>
+        <p>PE&lt;历史30%<br>PE/ROE&lt;1.2</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-icon">😱</div>
+        <h4>情绪底</h4>
+        <p>市场极度悲观<br>媒体负面集中</p>
+      </div>
+      <div class="conclusion-item">
+        <div class="conclusion-icon">🤝</div>
+        <h4>管理层支撑</h4>
+        <p>回购/增持<br>诚实披露困境</p>
+      </div>
+    </div>
+
+    <!-- Final quotes -->
+    <div class="card-grid-2" style="margin:28px 0;">
+      <div class="quote-block" style="border-radius:8px;">
+        "我不做预测，只做判断。当一家我认为是好公司的股票，因为市场的误解或临时困难跌到一个我觉得很安全的价格，我就买。就这么简单。"
+        <cite>— 段永平</cite>
+      </div>
+      <div class="quote-block" style="border-radius:8px;">
+        "价格是你付出的，价值是你得到的。当两者出现巨大落差时，就是机会。"
+        <cite>— 沃伦·巴菲特</cite>
+      </div>
+    </div>
+
+    <!-- Davis Double Play visualization -->
+    <div class="svg-container" style="margin-bottom:24px;">
+      <h3 style="margin-bottom:16px;font-size:14px;color:var(--text-secondary);">戴维斯双击：好公司上涨的复合引擎</h3>
+      <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:260px;">
+        <rect width="680" height="260" fill="#162b1c" rx="10"/>
+        <!-- left box: EPS -->
+        <rect x="30" y="60" width="160" height="140" rx="10" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1.5"/>
+        <text x="110" y="92" fill="#22c55e" font-size="13" text-anchor="middle" font-weight="bold">盈利增长</text>
+        <text x="110" y="110" fill="#94a3b8" font-size="11" text-anchor="middle">EPS ↑</text>
+        <text x="110" y="138" fill="#4ade80" font-size="28" text-anchor="middle" font-weight="800">+50%</text>
+        <text x="110" y="158" fill="#94a3b8" font-size="10" text-anchor="middle">困境解除后</text>
+        <text x="110" y="172" fill="#94a3b8" font-size="10" text-anchor="middle">业绩恢复增长</text>
+        <text x="110" y="188" fill="#22c55e" font-size="10" text-anchor="middle">第一击</text>
+        <!-- multiply -->
+        <text x="220" y="138" fill="#f59e0b" font-size="32" text-anchor="middle" font-weight="800">×</text>
+        <!-- right box: PE -->
+        <rect x="260" y="60" width="160" height="140" rx="10" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="340" y="92" fill="#f59e0b" font-size="13" text-anchor="middle" font-weight="bold">估值扩张</text>
+        <text x="340" y="110" fill="#94a3b8" font-size="11" text-anchor="middle">PE ↑</text>
+        <text x="340" y="138" fill="#fcd34d" font-size="28" text-anchor="middle" font-weight="800">×2</text>
+        <text x="340" y="158" fill="#94a3b8" font-size="10" text-anchor="middle">10倍→20倍</text>
+        <text x="340" y="172" fill="#94a3b8" font-size="10" text-anchor="middle">市场重新认可</text>
+        <text x="340" y="188" fill="#f59e0b" font-size="10" text-anchor="middle">第二击</text>
+        <!-- equals -->
+        <text x="445" y="138" fill="#94a3b8" font-size="32" text-anchor="middle">=</text>
+        <!-- result box -->
+        <rect x="480" y="40" width="170" height="180" rx="10" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+        <text x="565" y="78" fill="#22c55e" font-size="13" text-anchor="middle" font-weight="bold">股价涨幅</text>
+        <text x="565" y="128" fill="#4ade80" font-size="44" text-anchor="middle" font-weight="900">3倍</text>
+        <text x="565" y="158" fill="#94a3b8" font-size="11" text-anchor="middle">1.5 × 2 = 3×</text>
+        <text x="565" y="178" fill="#94a3b8" font-size="10" text-anchor="middle">戴维斯双击效应</text>
+        <text x="565" y="200" fill="#22c55e" font-size="10" text-anchor="middle">复合收益率远超单独</text>
+        <!-- title -->
+        <text x="340" y="240" fill="#94a3b8" font-size="11" text-anchor="middle">好公司从低估到合理估值的过程，两个引擎同时驱动股价上涨</text>
+      </svg>
+    </div>
+
+    <div class="card" style="border-color:rgba(34,197,94,.3);margin-bottom:0;">
+      <h3 style="color:var(--accent-light);margin-bottom:14px;">结语</h3>
+      <p>好公司的上涨前期，往往是最难熬的时期。它看起来像个问题，感觉像个陷阱，但实际上是市场给出的礼物。</p>
+      <p>真正困难的不是识别，而是在恐惧中有勇气。</p>
+      <p style="margin-bottom:0;">六层框架提供了结构，大师案例提供了勇气，戴维斯双击提供了回报。但最终，每一次成功的投资，都需要独立思考和长期主义——而这两样东西，市场永远不会打折。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
+      <p style="color:var(--accent-gold);font-size:12px;margin:0;">本报告基于历史数据分析，不构成投资建议。好公司的识别需要持续研究和独立判断。市场有风险，投资需谨慎。任何投资决策均应基于个人独立研究和风险评估。</p>
+    </div>
+    <p>好公司上涨前期：特征识别与大师买入逻辑 · 2025年版</p>
+    <p style="margin-bottom:16px;">六层识别体系 · 巴菲特/段永平案例复盘 · 戴维斯双击捕捉框架</p>
+    <a href="index.html">← 返回投资研究报告中心</a>
+  </div>
+</footer>
+
+</body>
+</html>
