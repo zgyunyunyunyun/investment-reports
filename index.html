@@ -50,6 +50,39 @@
     font-size: 12px; color: #58a6ff;
   }
 
+  /* ── 分类Tab导航 ── */
+  .tab-nav {
+    background: #161b22;
+    border-bottom: 1px solid #21262d;
+    padding: 0 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    position: sticky; top: 0; z-index: 50;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-list {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    height: 48px;
+  }
+  .tab-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 0 16px; height: 48px;
+    font-size: 13px; font-weight: 500; color: #8b949e;
+    cursor: pointer; border: none; background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s; white-space: nowrap; text-decoration: none;
+  }
+  .tab-btn:hover { color: #e6edf3; }
+  .tab-btn.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+  .tab-btn.green  { } .tab-btn.green.active  { color: #3fb950; border-bottom-color: #3fb950; }
+  .tab-btn.amber  { } .tab-btn.amber.active  { color: #d29922; border-bottom-color: #d29922; }
+  .tab-btn.orange { } .tab-btn.orange.active { color: #f0883e; border-bottom-color: #f0883e; }
+  .tab-btn.purple { } .tab-btn.purple.active { color: #bc8cff; border-bottom-color: #bc8cff; }
+  .tab-divider { width: 1px; height: 24px; background: #21262d; margin: 0 4px; }
+
   /* ── 流程导航条 ── */
   .process-bar {
     background: #161b22;
@@ -196,13 +229,25 @@
   <h1>投资研究报告中心</h1>
   <p>深度研究 · 价值投资 · 长期视角<br>从投资理念到行业研究，再到个股策略的完整体系</p>
   <div class="hero-stats">
-    <span class="stat-pill">📑 36篇深度研究</span>
+    <span class="stat-pill">📑 37篇深度研究</span>
     <span class="stat-pill">🧭 通用框架 3篇</span>
     <span class="stat-pill">🏢 行业研究 19篇</span>
     <span class="stat-pill">🎯 个股策略 10篇</span>
-    <span class="stat-pill">🔭 专题研究 4篇</span>
+    <span class="stat-pill">🔭 专题研究 5篇</span>
   </div>
 </div>
+
+<!-- 分类Tab导航（sticky） -->
+<nav class="tab-nav">
+  <div class="tab-list">
+    <a href="#sec-all" class="tab-btn active" onclick="setTab(this,'sec-all')">📑 全部</a>
+    <div class="tab-divider"></div>
+    <a href="#sec-framework" class="tab-btn green" onclick="setTab(this,'sec-framework')">🧭 通用框架</a>
+    <a href="#sec-industry" class="tab-btn amber" onclick="setTab(this,'sec-industry')">🏢 行业研究</a>
+    <a href="#sec-stock" class="tab-btn orange" onclick="setTab(this,'sec-stock')">🎯 个股策略</a>
+    <a href="#sec-theme" class="tab-btn purple" onclick="setTab(this,'sec-theme')">🔭 专题研究</a>
+  </div>
+</nav>
 
 <!-- 研究流程导航 -->
 <div class="process-bar">
@@ -216,13 +261,19 @@
     <div class="process-step orange">🎯 Step 4 · 个股深度+交易策略</div>
   </div>
 </div>
+<script>
+function setTab(el, target) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+}
+</script>
 
 <div class="container">
 
   <!-- ════════════════════════════════
        板块一：通用调研框架
        ════════════════════════════════ -->
-  <div class="section-header">
+  <div id="sec-framework" class="section-header">
     <div class="section-icon" style="background:rgba(63,185,80,0.1)">🧭</div>
     <div class="section-meta">
       <h2>通用调研框架</h2>
@@ -303,7 +354,7 @@
   <!-- ════════════════════════════════
        板块二：行业研究
        ════════════════════════════════ -->
-  <div class="section-header" style="margin-top:44px">
+  <div id="sec-industry" class="section-header" style="margin-top:44px">
     <div class="section-icon" style="background:rgba(188,140,255,0.1)">🏢</div>
     <div class="section-meta">
       <h2>行业研究</h2>
@@ -734,7 +785,7 @@
   <!-- ════════════════════════════════
        板块三：个股分析与交易策略
        ════════════════════════════════ -->
-  <div class="section-header" style="margin-top:44px">
+  <div id="sec-stock" class="section-header" style="margin-top:44px">
     <div class="section-icon" style="background:rgba(240,136,62,0.1)">🎯</div>
     <div class="section-meta">
       <h2>个股分析与交易策略</h2>
@@ -975,7 +1026,7 @@
   <!-- ════════════════════════════════
        板块四：专题深度研究
        ════════════════════════════════ -->
-  <div class="section-header" style="margin-top:44px">
+  <div id="sec-theme" class="section-header" style="margin-top:44px">
     <div class="section-icon" style="background:rgba(245,158,11,0.1)">🔭</div>
     <div class="section-meta">
       <h2>专题深度研究</h2>
@@ -1003,6 +1054,31 @@
           <span class="tag">价値陷阱识别</span>
           <span class="tag">5步买入检查清单</span>
           <span class="tag">2025年好公司扫描</span>
+        </div>
+      </div>
+      <div class="card-arrow">›</div>
+    </div>
+  </a>
+
+  <div class="group-label">🔥 周期成因深研 [✨ 最新]</div>
+
+  <a href="周期变化深层成因：行业波动机制与地缘政治2025.html" class="report-card" style="border-left:3px solid #e85d04">
+    <div class="card-top">
+      <div class="card-emoji">🔥</div>
+      <div class="card-body">
+        <div class="card-title">
+          周期变化深层成因：行业波动机制与地缘政治 2025 <span class="badge badge-new">✨ 最新</span>
+        </div>
+        <div class="card-desc">
+          周期报告的深度配套解析。不只是"是什么"，更深入回答"为什么"——供需滞后为何导致大宗超调、信贷杠杆为何放大金融波动、技术革命如何驱动50年康波。加入战争周期、台海地缘风险、中美贸易战、俄乌冲突等地缘政治冲击的行业影响全分析。含8个地缘事件复盘、10章深度内容、行业轮动时钟图。
+        </div>
+        <div class="card-tags">
+          <span class="tag">周期成因深度解析</span>
+          <span class="tag">供需滞后机制</span>
+          <span class="tag">康波成因（5次复盘）</span>
+          <span class="tag">战争行业影响</span>
+          <span class="tag">地缘政治热力矩阵</span>
+          <span class="tag">行业轮动时钟</span>
         </div>
       </div>
       <div class="card-arrow">›</div>

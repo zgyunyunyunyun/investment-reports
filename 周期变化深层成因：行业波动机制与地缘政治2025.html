@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>周期变化深层成因：行业波动机制与地缘政治 2025</title>
+<style>
+:root {
+  --bg: #120a08;
+  --card: #1e100c;
+  --card2: #261510;
+  --text: #f5ede8;
+  --text-secondary: #b8917f;
+  --accent: #e85d04;
+  --accent-light: #fb923c;
+  --accent-gold: #f59e0b;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-blue: #3b82f6;
+  --border: #2d1508;
+  --border2: #3d1e0a;
+  --shadow-orange: 0 0 24px rgba(232,93,4,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.7;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(18,10,8,0.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(12px);padding:0 24px;}
+.nav-inner{display:flex;align-items:center;gap:0;max-width:1200px;margin:0 auto;height:52px;overflow:hidden;}
+.nav-brand{font-size:14px;font-weight:700;color:var(--accent-light);white-space:nowrap;margin-right:20px;letter-spacing:.5px;}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:12px;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .2s;}
+.nav-links a:hover{color:var(--accent-light);background:rgba(232,93,4,0.12);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#120a08 0%,#1e0d07 40%,#2a1005 70%,#120a08 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(232,93,4,0.1) 0%,transparent 70%);pointer-events:none;}
+.hero-label{display:inline-block;background:rgba(232,93,4,0.18);border:1px solid rgba(232,93,4,0.4);color:var(--accent-light);font-size:12px;padding:5px 16px;border-radius:20px;letter-spacing:2px;margin-bottom:20px;}
+.hero-title{font-size:46px;font-weight:900;background:linear-gradient(135deg,#f5ede8,#fb923c,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;margin-bottom:10px;line-height:1.2;}
+.hero-subtitle{font-size:17px;color:var(--text-secondary);margin-bottom:14px;letter-spacing:1px;}
+.hero-sub2{font-size:13px;color:var(--accent-light);opacity:.7;letter-spacing:1px;margin-bottom:44px;}
+.hero-kpis{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:960px;margin:0 auto;}
+.kpi-card{background:rgba(30,16,12,0.85);border:1px solid var(--border2);border-radius:14px;padding:18px 24px;min-width:130px;transition:transform .2s,box-shadow .2s;}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-orange);}
+.kpi-num{font-size:26px;font-weight:800;color:var(--accent-light);margin-bottom:6px;}
+.kpi-label{font-size:11px;color:var(--text-secondary);}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:0 auto;padding:0 24px 60px;}
+
+/* SECTION */
+section{padding:60px 0 40px;}
+.section-header{margin-bottom:36px;}
+.chapter-tag{display:inline-block;background:rgba(232,93,4,0.15);border:1px solid rgba(232,93,4,0.35);color:var(--accent-light);font-size:11px;padding:3px 12px;border-radius:12px;letter-spacing:2px;margin-bottom:14px;}
+.section-title{font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.3;}
+.section-title span{color:var(--accent-light);}
+.section-desc{font-size:15px;color:var(--text-secondary);max-width:760px;line-height:1.8;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
+.card2{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:22px;margin-bottom:16px;}
+.card-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.card-title .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;}
+.card-title .dot-gold{background:var(--accent-gold);}
+.card-title .dot-green{background:var(--accent-green);}
+.card-title .dot-red{background:var(--accent-red);}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:rgba(232,93,4,0.18);color:var(--accent-light);padding:12px 14px;text-align:left;font-weight:600;white-space:nowrap;}
+td{padding:11px 14px;color:var(--text-secondary);border-bottom:1px solid var(--border);vertical-align:top;}
+td:first-child{color:var(--text);font-weight:600;}
+tr:last-child td{border-bottom:none;}
+
+/* HIGHLIGHT */
+.hl-orange{color:var(--accent-light);font-weight:700;}
+.hl-gold{color:var(--accent-gold);font-weight:700;}
+.hl-green{color:var(--accent-green);font-weight:700;}
+.hl-red{color:var(--accent-red);font-weight:700;}
+
+/* INSIGHT BOX */
+.insight{background:linear-gradient(135deg,rgba(232,93,4,0.08),rgba(245,158,11,0.08));border:1px solid rgba(232,93,4,0.25);border-radius:12px;padding:20px 22px;margin:20px 0;}
+.insight-title{font-size:13px;font-weight:700;color:var(--accent-light);margin-bottom:8px;letter-spacing:1px;}
+.insight p{font-size:14px;color:var(--text-secondary);line-height:1.8;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent-gold));}
+.tl-item{position:relative;margin-bottom:22px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+.tl-dot.gold{background:var(--accent-gold);}
+.tl-dot.green{background:var(--accent-green);}
+.tl-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.tl-desc{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+/* METRIC ROW */
+.metric-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
+.metric-row:last-child{border-bottom:none;}
+.metric-name{font-size:14px;color:var(--text);}
+.metric-bar-wrap{flex:1;margin:0 16px;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+.metric-bar{height:100%;border-radius:3px;}
+.metric-val{font-size:13px;font-weight:700;white-space:nowrap;}
+
+/* QUOTE */
+.quote{border-left:3px solid var(--accent);padding:14px 18px;background:rgba(232,93,4,0.06);border-radius:0 10px 10px 0;margin:18px 0;}
+.quote p{font-size:14px;color:var(--text-secondary);line-height:1.8;font-style:italic;}
+.quote cite{font-size:12px;color:var(--accent-light);font-style:normal;margin-top:6px;display:block;}
+
+/* STEP CARDS */
+.steps{display:flex;flex-direction:column;gap:14px;}
+.step-card{display:flex;gap:16px;align-items:flex-start;background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:18px;}
+.step-num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-gold));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.step-content h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.step-content p{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+/* IMPACT BADGE */
+.impact-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;}
+.impact-high{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:#ef4444;}
+.impact-mid{background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);color:#f59e0b;}
+.impact-low{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;}
+
+@media(max-width:768px){
+  .hero-title{font-size:30px;}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .container{padding:0 14px 40px;}
+  .section-title{font-size:22px;}
+  nav{padding:0 12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">🔥 周期成因深研</span>
+    <div class="nav-links">
+      <a href="#ch1">一·周期起源</a>
+      <a href="#ch2">二·行业成因</a>
+      <a href="#ch3">三·康波周期</a>
+      <a href="#ch4">四·信贷周期</a>
+      <a href="#ch5">五·地缘政治</a>
+      <a href="#ch6">六·战争周期</a>
+      <a href="#ch7">七·政策周期</a>
+      <a href="#ch8">八·行业轮动</a>
+      <a href="#ch9">九·周期共振</a>
+      <a href="#ch10">十·实战框架</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">🔥 DEEP RESEARCH · 2025</div>
+  <div class="hero-title">周期变化的深层成因</div>
+  <div class="hero-subtitle">行业波动机制 · 地缘政治放大效应 · 战争与周期</div>
+  <div class="hero-sub2">为什么行业随周期起伏？背后的驱动力究竟是什么？</div>
+  <div class="hero-kpis">
+    <div class="kpi-card">
+      <div class="kpi-num">10</div>
+      <div class="kpi-label">深度章节</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num">5</div>
+      <div class="kpi-label">层级周期体系</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num">50+</div>
+      <div class="kpi-label">年历史案例</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num">15+</div>
+      <div class="kpi-label">行业成因拆解</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num">8</div>
+      <div class="kpi-label">地缘事件复盘</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════════════════════
+     第一章：为什么存在周期
+     ═══════════════════════════════════════ -->
+<section id="ch1">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 01</div>
+    <div class="section-title">为什么存在周期——<span>经济运行的底层逻辑</span></div>
+    <div class="section-desc">周期不是偶然现象，而是经济系统固有的运行规律。四大根本机制共同驱动着这场永无止境的轮回。</div>
+  </div>
+
+  <!-- SVG图表1：经济周期四阶段循环图 -->
+  <div class="card" style="padding:24px;">
+    <div class="card-title"><span class="dot"></span>经济周期四阶段循环——触发机制全图</div>
+    <svg viewBox="0 0 800 480" width="100%" style="max-height:480px;display:block;margin:0 auto;">
+      <defs>
+        <marker id="arr1" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#fb923c"/>
+        </marker>
+        <marker id="arr2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+        </marker>
+        <marker id="arr3" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+        </marker>
+        <marker id="arr4" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+        </marker>
+        <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2a1005"/>
+          <stop offset="100%" stop-color="#1e100c"/>
+        </radialGradient>
+      </defs>
+      <!-- 背景 -->
+      <rect width="800" height="480" fill="#1e100c" rx="12"/>
+      <!-- 中心圆 -->
+      <circle cx="400" cy="240" r="58" fill="rgba(232,93,4,0.1)" stroke="#e85d04" stroke-width="1.5" stroke-dasharray="6 3"/>
+      <text x="400" y="234" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">经济</text>
+      <text x="400" y="252" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">运行轮回</text>
+
+      <!-- 4个象限圆 -->
+      <!-- 复苏期 左上 -->
+      <circle cx="200" cy="130" r="72" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="2"/>
+      <text x="200" y="115" text-anchor="middle" fill="#10b981" font-size="16" font-weight="800">复苏期</text>
+      <text x="200" y="134" text-anchor="middle" fill="#b8917f" font-size="10">📈 GDP回升</text>
+      <text x="200" y="149" text-anchor="middle" fill="#b8917f" font-size="10">📉 利率低位</text>
+      <text x="200" y="164" text-anchor="middle" fill="#b8917f" font-size="10">💰 信贷扩张</text>
+
+      <!-- 过热期 右上 -->
+      <circle cx="600" cy="130" r="72" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="2"/>
+      <text x="600" y="115" text-anchor="middle" fill="#ef4444" font-size="16" font-weight="800">过热期</text>
+      <text x="600" y="134" text-anchor="middle" fill="#b8917f" font-size="10">🔥 通胀上升</text>
+      <text x="600" y="149" text-anchor="middle" fill="#b8917f" font-size="10">📈 加息收紧</text>
+      <text x="600" y="164" text-anchor="middle" fill="#b8917f" font-size="10">⚠️ 资产泡沫</text>
+
+      <!-- 衰退期 左下 -->
+      <circle cx="200" cy="350" r="72" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2"/>
+      <text x="200" y="335" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="800">衰退期</text>
+      <text x="200" y="354" text-anchor="middle" fill="#b8917f" font-size="10">📉 需求萎缩</text>
+      <text x="200" y="369" text-anchor="middle" fill="#b8917f" font-size="10">🏭 产能过剩</text>
+      <text x="200" y="384" text-anchor="middle" fill="#b8917f" font-size="10">💸 企业出清</text>
+
+      <!-- 扩张期 右下 -->
+      <circle cx="600" cy="350" r="72" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="2"/>
+      <text x="600" y="335" text-anchor="middle" fill="#f59e0b" font-size="16" font-weight="800">扩张期</text>
+      <text x="600" y="354" text-anchor="middle" fill="#b8917f" font-size="10">🏗️ 投资加速</text>
+      <text x="600" y="369" text-anchor="middle" fill="#b8917f" font-size="10">👥 就业旺盛</text>
+      <text x="600" y="384" text-anchor="middle" fill="#b8917f" font-size="10">📊 盈利高增</text>
+
+      <!-- 箭头：复苏→扩张 -->
+      <path d="M 268 165 Q 400 80 532 165" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arr4)"/>
+      <text x="400" y="105" text-anchor="middle" fill="#10b981" font-size="11">需求回升 · 盈利改善</text>
+
+      <!-- 箭头：扩张→过热 -->
+      <path d="M 600 202 L 600 202" fill="none"/>
+      <path d="M 628 198 Q 680 240 628 282" fill="none" stroke="#ef4444" stroke-width="2" marker-end="url(#arr2)"/>
+      <text x="722" y="244" text-anchor="middle" fill="#ef4444" font-size="11" transform="rotate(90,722,244)">通胀·加息</text>
+
+      <!-- 箭头：过热→衰退 -->
+      <path d="M 532 315 Q 400 400 268 315" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr3)"/>
+      <text x="400" y="395" text-anchor="middle" fill="#f59e0b" font-size="11">信贷收缩 · 需求下降</text>
+
+      <!-- 箭头：衰退→复苏 -->
+      <path d="M 172 282 Q 120 240 172 198" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#arr1)"/>
+      <text x="60" y="244" text-anchor="middle" fill="#fb923c" font-size="11" transform="rotate(-90,60,244)">降息·刺激</text>
+
+      <!-- 标题 -->
+      <text x="400" y="460" text-anchor="middle" fill="#5c3c28" font-size="12">图1·经济周期四阶段循环 · 各阶段触发机制</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>机制一：供需失衡的自我修复</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">任何商品或资产的<span class="hl-orange">过剩与短缺都是暂时的</span>，因为价格信号会引导供需向均衡收敛——但由于企业决策存在时间滞后（建厂2-3年），调整过程必然形成超调，由此产生周期振荡。</p>
+      <div class="insight" style="margin:0;">
+        <div class="insight-title">🔑 关键机制</div>
+        <p>猪肉价格上涨→养殖户扩产→2年后大量出栏→价格暴跌→养殖户亏损减产→价格再次上涨。这就是"猪周期"，本质是<strong>投资决策时滞+价格信号失灵</strong>的必然结果，在铜、钢铁、半导体、航运等所有行业同样存在。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>机制二：信贷扩张的内生不稳定性</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">达利欧的"债务周期机器"揭示：<span class="hl-gold">信贷扩张时资产升值→抵押物增加→可贷款额度扩大→循环加速</span>，直到债务无法偿还触发去杠杆。这个过程无法避免，每次结束都是经济周期的重要节点。</p>
+      <div class="insight" style="margin:0;">
+        <div class="insight-title">🔑 关键机制</div>
+        <p>短期债务周期（5-8年，受货币政策控制）叠加长期债务周期（75-100年，结构性变化）共同决定了经济的大趋势与波动幅度。利率政策只能平滑短周期，无法消除长周期。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>机制三：人类行为的过度反应</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">贪婪与恐惧驱动的<span class="hl-red">超买超卖</span>，使得资产价格在均衡值附近大幅振荡。牛市顶部，所有人都相信"这次不一样"；熊市底部，所有人都认为"没有底"——情绪的一致性恰恰是反转信号。</p>
+      <div class="insight" style="margin:0;">
+        <div class="insight-title">🔑 关键机制</div>
+        <p>索罗斯的"反身性理论"：市场参与者的预期会影响基本面，基本面变化又修正预期，形成自我强化的循环。泡沫的形成与破裂都是这种反身性的产物，而非偶然事件。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-green"></span>机制四：信息不对称与决策滞后</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">企业无法实时掌握全行业的生产与库存数据，只能根据当前订单做决策。当需求好转时，全行业同时扩产；当需求收缩时，<span class="hl-green">库存积累已无法逆转</span>，去化期往往需要1-2年。</p>
+      <div class="insight" style="margin:0;">
+        <div class="insight-title">🔑 关键机制</div>
+        <p>库存周期（基钦周期，3-4年）本质上就是信息滞后的产物。化工、钢铁、面板、内存芯片等行业的"供给侧崩溃"，往往在需求见顶后12-18个月才传导到企业报表。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第二章：各行业周期波动的底层成因
+     ═══════════════════════════════════════ -->
+<section id="ch2">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 02</div>
+    <div class="section-title">各行业周期波动的底层成因——<span>为什么反应程度不同？</span></div>
+    <div class="section-desc">不同行业对同一宏观周期的反应幅度可能相差3-10倍，这背后有明确的结构性原因。</div>
+  </div>
+
+  <!-- SVG图表2：各行业周期传导链条图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>各行业周期敏感度 · 成因对比图</div>
+    <svg viewBox="0 0 800 400" width="100%" style="display:block;">
+      <rect width="800" height="400" fill="#1e100c" rx="12"/>
+      <!-- 横轴 -->
+      <line x1="140" y1="340" x2="760" y2="340" stroke="#3d1e0a" stroke-width="2"/>
+      <!-- 纵轴 -->
+      <line x1="140" y1="60" x2="140" y2="340" stroke="#3d1e0a" stroke-width="2"/>
+      <!-- 轴标签 -->
+      <text x="450" y="380" text-anchor="middle" fill="#5c3c28" font-size="12">← 防御性强                                          周期敏感性强 →</text>
+      <text x="20" y="200" text-anchor="middle" fill="#5c3c28" font-size="12" transform="rotate(-90,20,200)">盈利波动幅度</text>
+
+      <!-- 数据点（行业） x=敏感性位置(140-760), y=波动幅度(340-60) -->
+      <!-- 大宗商品 -->
+      <circle cx="720" cy="80" r="20" fill="rgba(239,68,68,0.3)" stroke="#ef4444" stroke-width="2"/>
+      <text x="720" y="85" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="700">大宗</text>
+      <text x="720" y="118" text-anchor="middle" fill="#b8917f" font-size="10">资本开支滞后</text>
+
+      <!-- 能源 -->
+      <circle cx="680" cy="110" r="18" fill="rgba(245,158,11,0.25)" stroke="#f59e0b" stroke-width="2"/>
+      <text x="680" y="115" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">能源</text>
+
+      <!-- 金融 -->
+      <circle cx="640" cy="130" r="22" fill="rgba(251,146,60,0.25)" stroke="#fb923c" stroke-width="2"/>
+      <text x="640" y="135" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">金融</text>
+      <text x="640" y="168" text-anchor="middle" fill="#b8917f" font-size="10">三重放大器</text>
+
+      <!-- 可选消费 -->
+      <circle cx="560" cy="170" r="18" fill="rgba(168,85,247,0.2)" stroke="#a855f7" stroke-width="2"/>
+      <text x="560" y="175" text-anchor="middle" fill="#a855f7" font-size="10" font-weight="700">可选消费</text>
+
+      <!-- 工业 -->
+      <circle cx="580" cy="150" r="16" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="2"/>
+      <text x="580" y="155" text-anchor="middle" fill="#3b82f6" font-size="10" font-weight="700">工业</text>
+
+      <!-- 科技 -->
+      <circle cx="500" cy="140" r="20" fill="rgba(232,93,4,0.2)" stroke="#e85d04" stroke-width="2"/>
+      <text x="500" y="145" text-anchor="middle" fill="#e85d04" font-size="10" font-weight="700">科技</text>
+      <text x="500" y="175" text-anchor="middle" fill="#b8917f" font-size="10">估值折现敏感</text>
+
+      <!-- 地产 -->
+      <circle cx="620" cy="100" r="19" fill="rgba(236,72,153,0.2)" stroke="#ec4899" stroke-width="2"/>
+      <text x="620" y="105" text-anchor="middle" fill="#ec4899" font-size="10" font-weight="700">地产</text>
+
+      <!-- 医药 -->
+      <circle cx="340" cy="230" r="16" fill="rgba(16,185,129,0.2)" stroke="#10b981" stroke-width="2"/>
+      <text x="340" y="235" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">医药</text>
+      <text x="340" y="264" text-anchor="middle" fill="#b8917f" font-size="10">政策周期独特</text>
+
+      <!-- 必需消费 -->
+      <circle cx="230" cy="270" r="17" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="2"/>
+      <text x="230" y="267" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">必需</text>
+      <text x="230" y="279" text-anchor="middle" fill="#22c55e" font-size="10" font-weight="700">消费</text>
+
+      <!-- 公用事业 -->
+      <circle cx="175" cy="290" r="15" fill="rgba(99,102,241,0.2)" stroke="#6366f1" stroke-width="2"/>
+      <text x="175" y="293" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">公用</text>
+      <text x="175" y="305" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">事业</text>
+
+      <!-- 图例区 -->
+      <text x="160" y="50" fill="#b8917f" font-size="11">圆圈大小=行业市值体量  · 位置=周期敏感性vs波动幅度</text>
+      <text x="700" y="340" text-anchor="middle" fill="#5c3c28" font-size="10">敏感度→高</text>
+      <text x="155" y="340" text-anchor="middle" fill="#5c3c28" font-size="10">←低</text>
+      <text x="130" y="70" text-anchor="middle" fill="#5c3c28" font-size="10">高↑</text>
+      <text x="130" y="335" text-anchor="middle" fill="#5c3c28" font-size="10">低↓</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>大宗商品/能源/原材料——周期振幅最大</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">供给端资本开支严重滞后（3-7年）</div>
+          <div class="tl-desc">矿山/油田/冶炼厂从投资决策到产出需要3-7年。当价格高位时才开始投资，产能到来时价格已崩溃——这个天然时间差是超级周期的根本成因。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">需求端跟随经济同步波动</div>
+          <div class="tl-desc">铜、铁矿、原油需求与全球制造业PMI高度正相关。经济好时需求暴增，供给还没来；经济差时需求骤降，新产能已建成——双向错配放大价格波动。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">融资成本对利润率的杠杆效应</div>
+          <div class="tl-desc">大宗行业重资产，债务比例高。利率下降不仅降低融资成本，还推高资产重置价值，股价弹性是轻资产行业的3-5倍。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>金融/银行/保险——三重放大器</div>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>利率敏感性</h4>
+            <p>银行净息差随基准利率变化，降息50bp可能使银行净利润下降15-20%。保险公司投资端收益率直接挂钩长债利率，日本90年代零利率令寿险行业全行业亏损。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>信贷扩张收缩乘数</h4>
+            <p>经济好时贷款需求旺盛、不良率低；经济差时呆坏账集中暴露，拨备大幅消耗利润。金融机构是经济波动的放大器，而非稳定器。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>风险偏好估值波动</h4>
+            <p>市场对金融股的估值（PB）在危机时可跌至0.3-0.5倍，繁荣期涨至2-3倍。同样的盈利水平，估值就可以差6-10倍。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>必选消费——防御性的来源与局限</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:12px;"><span class="hl-orange">刚性需求是防御性的核心：</span>无论经济好坏，人们都要吃饭、用牙膏、喝饮料。但"防御"不等于"免疫"——高端白酒在消费降级周期同样受损（茅台2023年渠道库存积压），低价大众消费品在通缩环境下反而受益。</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>子行业</th><th>防御程度</th><th>核心成因</th></tr>
+          <tr><td>方便食品/饮料</td><td><span class="impact-low">强防御</span></td><td>日常消费不可省略</td></tr>
+          <tr><td>高端白酒</td><td><span class="impact-mid">弱防御</span></td><td>礼品属性随商务周期波动</td></tr>
+          <tr><td>超市零售</td><td><span class="impact-low">强防御</span></td><td>量稳，降价压力是风险</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>科技/成长股——三重不确定因子</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">利率折现效应——久期最长</div>
+          <div class="tl-desc">成长股盈利集中在遥远未来，折现率每上升1%，估值下降幅度比价值股大3-5倍。2022年美联储加息导致纳斯达克跌33%，而道琼斯仅跌9%，正是久期差异。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">盈利预期的非线性调整</div>
+          <div class="tl-desc">分析师对成长股的盈利预期在景气度好时大幅上调，差时大幅下调，往往超调。盈利预期本身就是一个内嵌的放大器。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">情绪估值的极端波动</div>
+          <div class="tl-desc">科技股PE在泡沫期可达100-200倍，崩溃期跌至15-20倍。同样的公司，仅因市场情绪变化，股价可相差5-10倍。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-gold"></span>地产/建材——最复杂的行业周期：三周期叠加</div>
+    <div class="grid-3">
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot"></span>利率周期</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">房贷利率从4%降至3%，月供减少约12%，显著刺激购房需求。但反过来，利率上升时购房需求萎缩远比利率下降时扩张更剧烈（非对称响应）。中国历次地产刺激均以降息为核心抓手。</p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot dot-gold"></span>城镇化周期</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">城镇化率从30%到70%是房地产扩张的长期支撑（日本/韩国/中国台湾都经历了这个阶段）。但中国城镇化率接近67%，增量空间大幅收窄，长周期供需结构已根本改变。</p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot dot-red"></span>人口周期</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">25-44岁是购房主力人群，中国这一年龄段人口2022年起开始净减少，叠加生育率下降，意味着住房长期需求结构性收缩。这是日本"失去三十年"的关键背景之一。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第三章：康波周期成因
+     ═══════════════════════════════════════ -->
+<section id="ch3">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 03</div>
+    <div class="section-title">康波周期成因——<span>50-60年大轮回为何出现？</span></div>
+    <div class="section-desc">技术革命的扩散曲线决定了文明级别的经济长波。每次技术奇点都重塑了行业格局。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>五次康波周期 · 技术驱动与萧条根因</div>
+    <div class="table-wrap">
+      <table>
+        <tr>
+          <th>康波次序</th><th>时间跨度</th><th>核心驱动技术</th><th>繁荣行业</th><th>萧条根因</th><th>相对应的A股行业</th>
+        </tr>
+        <tr>
+          <td>第一康波</td><td>1780-1840</td><td>蒸汽机·纺织机械</td><td>纺织业·机械制造</td><td>产能过剩·原料短缺</td><td>（历史参考）</td>
+        </tr>
+        <tr>
+          <td>第二康波</td><td>1840-1895</td><td>铁路·钢铁</td><td>铁路·煤炭·钢铁</td><td>铁路网饱和·价格战</td><td>宝钢/中铁类</td>
+        </tr>
+        <tr>
+          <td>第三康波</td><td>1895-1945</td><td>电力·化工·汽车</td><td>汽车·石油·电气</td><td>两次大战·需求崩溃</td><td>中石油/上汽类</td>
+        </tr>
+        <tr>
+          <td>第四康波</td><td>1945-1990</td><td>石化·航空·电子</td><td>半导体·航空</td><td>日本泡沫·苏联解体</td><td>中芯/中航类</td>
+        </tr>
+        <tr>
+          <td>第五康波</td><td>1990-2030?</td><td>互联网·信息技术</td><td>科技·电商·金融科技</td><td>产能数字化过剩（当前）</td><td>腾讯/阿里/百度</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent-light);font-weight:800;">第六康波萌芽</td><td style="color:var(--accent-light);">2025-2080?</td><td style="color:var(--accent-light);">AI·量子·生物技术</td><td style="color:var(--accent-light);">算力·AI应用·基因</td><td style="color:var(--accent-gold);">（尚在萌芽启动期）</td><td style="color:var(--accent-light);">英伟达/华为类</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>为什么技术革命需要50-60年完整周期？</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">技术创新的"扩散曲线"（S曲线）决定了康波的时间跨度：</p>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>基础设施建设期（10-15年）</h4>
+            <p>新技术需要配套基础设施：蒸汽机需要铁路网，电力需要电网，互联网需要光纤宽带，AI需要算力基础设施。基础设施建设期是资本密集投入期，相关行业大涨。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>技术扩散期（20-25年）</h4>
+            <p>技术普及到各行业，生产率大幅提升，经济高速增长，就业旺盛，这是康波繁荣期。企业ROE达到历史高位，股市大牛市通常出现在这一阶段。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>产能过剩·萧条期（10-15年）</h4>
+            <p>技术扩散完毕，增量空间耗尽，旧行业产能严重过剩，价格崩溃，企业大规模倒闭出清，正是等待下一次技术革命萌芽的"寒冬"。当前（2020-2030年）处于第五康波萧条末段。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>当前位置：第五末+第六萌芽期的投资含义</div>
+      <div class="insight">
+        <div class="insight-title">📍 2025年周期定位</div>
+        <p>我们处于：<strong>第五康波萧条期</strong>（互联网/移动互联网红利耗尽，平台经济增速下滑）叠加<strong>第六康波（AI）萌芽期启动</strong>（大语言模型、AI算力基础设施大规模建设）。</p>
+      </div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin:14px 0;">历史经验：每次康波交替期，旧技术行业的企业市值下降60-80%，新技术基础设施企业市值上涨10-50倍。1995-2000年互联网泡沫破裂不是终点，而是真正应用期（2002-2021）的序章。</p>
+      <div class="grid-2" style="gap:12px;">
+        <div class="card2" style="padding:14px;">
+          <div class="card-title" style="font-size:13px;color:var(--accent-green);">✅ 受益行业</div>
+          <p style="font-size:12px;color:var(--text-secondary);">AI算力/半导体/新能源/生物科技</p>
+          <p style="font-size:12px;color:var(--text-secondary);">→ 第六康波基础设施建设期主线</p>
+        </div>
+        <div class="card2" style="padding:14px;">
+          <div class="card-title" style="font-size:13px;color:var(--accent-red);">⚠️ 承压行业</div>
+          <p style="font-size:12px;color:var(--text-secondary);">传统媒体/线下零售/传统制造</p>
+          <p style="font-size:12px;color:var(--text-secondary);">→ 第五康波旧产业持续出清</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第四章：信贷/债务周期成因
+     ═══════════════════════════════════════ -->
+<section id="ch4">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 04</div>
+    <div class="section-title">信贷与债务周期成因——<span>杠杆膨胀与收缩的必然逻辑</span></div>
+    <div class="section-desc">达利欧的债务周期机器揭示了金融危机的必然性——每次危机都是上一个繁荣期过度借贷的清算。</div>
+  </div>
+
+  <!-- SVG图表3：债务周期杠杆曲线图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>债务周期曲线 · 信贷-资产-盈利的时序传导</div>
+    <svg viewBox="0 0 800 320" width="100%" style="display:block;">
+      <rect width="800" height="320" fill="#1e100c" rx="12"/>
+      <!-- 横轴 -->
+      <line x1="60" y1="260" x2="760" y2="260" stroke="#3d1e0a" stroke-width="1.5"/>
+      <!-- 纵轴 -->
+      <line x1="60" y1="40" x2="60" y2="260" stroke="#3d1e0a" stroke-width="1.5"/>
+      <!-- 零线标记 -->
+      <line x1="60" y1="180" x2="760" y2="180" stroke="#3d1e0a" stroke-width="1" stroke-dasharray="4 4"/>
+      <text x="30" y="184" fill="#5c3c28" font-size="10" text-anchor="middle">0</text>
+
+      <!-- 短期债务周期（5-8年）波形 - 多个小波 -->
+      <polyline points="60,180 120,150 180,120 240,140 300,165 360,130 420,105 480,125 540,155 600,120 660,95 720,115 760,140"
+        fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 2"/>
+
+      <!-- 长期债务周期（75-100年）大波形 -->
+      <path d="M 60,220 Q 200,200 300,170 Q 400,130 480,100 Q 560,70 620,90 Q 680,110 720,150 Q 750,190 760,230"
+        fill="none" stroke="#ef4444" stroke-width="2.5"/>
+
+      <!-- 行业盈利曲线（与信贷高度相关，略滞后） -->
+      <polyline points="60,200 130,180 200,145 260,155 320,175 380,145 440,115 500,135 560,165 620,130 680,105 730,125 760,148"
+        fill="none" stroke="#f59e0b" stroke-width="2"/>
+
+      <!-- 标注：去杠杆区域 -->
+      <rect x="620" y="60" width="130" height="180" fill="rgba(239,68,68,0.06)" rx="4"/>
+      <text x="685" y="56" text-anchor="middle" fill="#ef4444" font-size="11">去杠杆区</text>
+
+      <!-- 标注：信贷高峰 -->
+      <line x1="480" y1="40" x2="480" y2="260" stroke="#fb923c" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="480" y="36" text-anchor="middle" fill="#fb923c" font-size="11">信贷峰值</text>
+
+      <!-- 图例 -->
+      <line x1="70" y1="295" x2="100" y2="295" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 2"/>
+      <text x="106" y="299" fill="#3b82f6" font-size="11">短期债务周期(5-8年)</text>
+      <line x1="260" y1="295" x2="290" y2="295" stroke="#ef4444" stroke-width="2.5"/>
+      <text x="296" y="299" fill="#ef4444" font-size="11">长期债务周期(75-100年)</text>
+      <line x1="470" y1="295" x2="500" y2="295" stroke="#f59e0b" stroke-width="2"/>
+      <text x="506" y="299" fill="#f59e0b" font-size="11">行业综合盈利(滞后)</text>
+
+      <!-- 时间轴标签 -->
+      <text x="60" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2000</text>
+      <text x="200" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2005</text>
+      <text x="340" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2010</text>
+      <text x="480" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2015</text>
+      <text x="620" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2020</text>
+      <text x="760" y="278" text-anchor="middle" fill="#5c3c28" font-size="10">2025</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>信贷扩张的自我强化循环</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">起点：资产价格上涨</div>
+          <div class="tl-desc">房产/股票价格上升，抵押物价值增加，银行愿意放更多贷款。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">加速：信贷扩张→更多资产购买</div>
+          <div class="tl-desc">借贷者用贷款买入更多资产，推高价格，再次触发抵押物升值，银行再次增加贷款。顺周期性导致风险积累。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-title">转折：债务/收入比达到临界点</div>
+          <div class="tl-desc">当利息偿还超过收入增长，债务滚动需要借新还旧。一旦信贷收紧或资产价格小幅下跌，"明斯基时刻"触发，去杠杆雪崩式启动。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">谷底：出清后的新起点</div>
+          <div class="tl-desc">债务通缩完成（资产减记+债务重组+货币宽松），杠杆率降至低位，新一轮信贷扩张的条件重新具备。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>中国房地产2020-2024：债务收缩典型案例</div>
+      <div class="insight">
+        <div class="insight-title">📊 核心数据</div>
+        <p>2020年"三道红线"政策触发房企去杠杆。恒大（负债2.4万亿）、碧桂园（负债1.4万亿）相继陷入流动性危机，带动整个建材/家居/钢铁产业链进入去库存周期。</p>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">新房销售额峰值→谷底</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:78%;background:var(--accent-red)"></div></div>
+        <span class="metric-val hl-red">-42%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">钢铁价格回撤</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:58%;background:var(--accent-gold)"></div></div>
+        <span class="metric-val hl-gold">-35%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">建材股平均最大回撤</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:85%;background:var(--accent-red)"></div></div>
+        <span class="metric-val hl-red">-65%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">房企债务违约规模（万亿）</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:70%;background:var(--accent-light)"></div></div>
+        <span class="metric-val hl-orange">3.8万亿</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-secondary);margin-top:14px;">👉 日本1990年地产泡沫破裂后用了15年出清，中国此轮由于政策干预更积极，预计5-8年完成底部确认（2025-2028年逐步企稳）。</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-green"></span>降息周期对各行业的影响机制（利率敏感性排序）</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>排名</th><th>行业</th><th>敏感性</th><th>影响机制</th><th>滞后时间</th></tr>
+        <tr><td>1</td><td>地产/REITs</td><td><span class="impact-high">极高</span></td><td>直接降低购房月供，刺激需求；降低开发商融资成本</td><td>0-6个月</td></tr>
+        <tr><td>2</td><td>公用事业</td><td><span class="impact-high">极高</span></td><td>类债券属性，利率下降→股息吸引力相对上升→估值扩张</td><td>即时</td></tr>
+        <tr><td>3</td><td>金融/保险</td><td><span class="impact-high">高</span></td><td>银行息差受压，但信贷需求回升；寿险负债成本下降</td><td>3-12个月</td></tr>
+        <tr><td>4</td><td>科技成长</td><td><span class="impact-high">高</span></td><td>折现率下降→远期盈利现值大幅提升→估值扩张</td><td>即时～3个月</td></tr>
+        <tr><td>5</td><td>大宗商品</td><td><span class="impact-mid">中等</span></td><td>融资成本下降；需求刺激→需求复苏→价格回升（间接）</td><td>6-18个月</td></tr>
+        <tr><td>6</td><td>必需消费</td><td><span class="impact-low">低</span></td><td>影响有限；消费需求主要由就业/收入驱动</td><td>12-24个月</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第五章：地缘政治对周期的放大与扭曲
+     ═══════════════════════════════════════ -->
+<section id="ch5">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 05</div>
+    <div class="section-title">地缘政治——<span>周期放大器与供应链重构驱动力</span></div>
+    <div class="section-desc">地缘政治事件往往是周期转折的催化剂，将潜在的结构性矛盾在短时间内激化，同时创造出独立于宏观经济周期的行业性机会。</div>
+  </div>
+
+  <!-- SVG图表4：地缘政治冲击行业影响矩阵 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>地缘政治冲击类型 · 行业受影响热力矩阵</div>
+    <svg viewBox="0 0 800 380" width="100%" style="display:block;">
+      <rect width="800" height="380" fill="#1e100c" rx="12"/>
+      <!-- 标题行（行业） -->
+      <text x="150" y="36" fill="#f59e0b" font-size="11" font-weight="700">能源</text>
+      <text x="216" y="36" fill="#f59e0b" font-size="11" font-weight="700">半导体</text>
+      <text x="284" y="36" fill="#f59e0b" font-size="11" font-weight="700">军工</text>
+      <text x="350" y="36" fill="#f59e0b" font-size="11" font-weight="700">粮食农业</text>
+      <text x="426" y="36" fill="#f59e0b" font-size="11" font-weight="700">金融</text>
+      <text x="490" y="36" fill="#f59e0b" font-size="11" font-weight="700">航运物流</text>
+      <text x="566" y="36" fill="#f59e0b" font-size="11" font-weight="700">黄金</text>
+      <text x="626" y="36" fill="#f59e0b" font-size="11" font-weight="700">科技消费</text>
+      <text x="700" y="36" fill="#f59e0b" font-size="11" font-weight="700">旅游</text>
+
+      <!-- 行标签（冲击类型） -->
+      <text x="10" y="75" fill="#fb923c" font-size="10" font-weight="600">供应链</text>
+      <text x="10" y="87" fill="#fb923c" font-size="10" font-weight="600">断裂</text>
+      <text x="10" y="125" fill="#fb923c" font-size="10" font-weight="600">贸易</text>
+      <text x="10" y="137" fill="#fb923c" font-size="10" font-weight="600">制裁</text>
+      <text x="10" y="175" fill="#fb923c" font-size="10" font-weight="600">战争</text>
+      <text x="10" y="187" fill="#fb923c" font-size="10" font-weight="600">爆发</text>
+      <text x="10" y="225" fill="#fb923c" font-size="10" font-weight="600">资本</text>
+      <text x="10" y="237" fill="#fb923c" font-size="10" font-weight="600">管制</text>
+      <text x="10" y="275" fill="#fb923c" font-size="10" font-weight="600">科技</text>
+      <text x="10" y="287" fill="#fb923c" font-size="10" font-weight="600">脱钩</text>
+      <text x="10" y="325" fill="#fb923c" font-size="10" font-weight="600">地缘</text>
+      <text x="10" y="337" fill="#fb923c" font-size="10" font-weight="600">博弈</text>
+
+      <!-- 热力块定义：列位置 x: 140 210 276 344 416 484 554 620 690
+                       行位置 y: 50  100 150 200 250 300 -->
+      <!-- 函数式绘制色块: 颜色: 深红=高负面, 深绿=高正面, 暗灰=低影响 -->
+      <!-- 行1：供应链断裂 -->
+      <rect x="130" y="48" width="60" height="40" fill="rgba(239,68,68,0.6)" rx="4"/><text x="160" y="73" text-anchor="middle" fill="#fff" font-size="10">高正面</text>
+      <rect x="198" y="48" width="60" height="40" fill="rgba(239,68,68,0.7)" rx="4"/><text x="228" y="73" text-anchor="middle" fill="#fff" font-size="10">极高</text>
+      <rect x="266" y="48" width="60" height="40" fill="rgba(16,185,129,0.6)" rx="4"/><text x="296" y="73" text-anchor="middle" fill="#fff" font-size="10">受益</text>
+      <rect x="334" y="48" width="68" height="40" fill="rgba(245,158,11,0.55)" rx="4"/><text x="368" y="73" text-anchor="middle" fill="#fff" font-size="10">中度</text>
+      <rect x="406" y="48" width="58" height="40" fill="rgba(239,68,68,0.4)" rx="4"/><text x="435" y="73" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+      <rect x="468" y="48" width="68" height="40" fill="rgba(239,68,68,0.55)" rx="4"/><text x="502" y="73" text-anchor="middle" fill="#fff" font-size="10">高负面</text>
+      <rect x="542" y="48" width="58" height="40" fill="rgba(16,185,129,0.4)" rx="4"/><text x="571" y="73" text-anchor="middle" fill="#fff" font-size="10">受益</text>
+      <rect x="606" y="48" width="68" height="40" fill="rgba(239,68,68,0.6)" rx="4"/><text x="640" y="73" text-anchor="middle" fill="#fff" font-size="10">高负面</text>
+      <rect x="678" y="48" width="56" height="40" fill="rgba(59,130,246,0.25)" rx="4"/><text x="706" y="73" text-anchor="middle" fill="#fff" font-size="10">低</text>
+
+      <!-- 行2：贸易制裁 -->
+      <rect x="130" y="98" width="60" height="40" fill="rgba(239,68,68,0.55)" rx="4"/><text x="160" y="123" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+      <rect x="198" y="98" width="60" height="40" fill="rgba(239,68,68,0.75)" rx="4"/><text x="228" y="123" text-anchor="middle" fill="#fff" font-size="10">极高</text>
+      <rect x="266" y="98" width="60" height="40" fill="rgba(16,185,129,0.55)" rx="4"/><text x="296" y="123" text-anchor="middle" fill="#fff" font-size="10">受益</text>
+      <rect x="334" y="98" width="68" height="40" fill="rgba(245,158,11,0.4)" rx="4"/><text x="368" y="123" text-anchor="middle" fill="#fff" font-size="10">中度</text>
+      <rect x="406" y="98" width="58" height="40" fill="rgba(239,68,68,0.5)" rx="4"/><text x="435" y="123" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+      <rect x="468" y="98" width="68" height="40" fill="rgba(245,158,11,0.5)" rx="4"/><text x="502" y="123" text-anchor="middle" fill="#fff" font-size="10">中度</text>
+      <rect x="542" y="98" width="58" height="40" fill="rgba(16,185,129,0.35)" rx="4"/><text x="571" y="123" text-anchor="middle" fill="#fff" font-size="10">微受益</text>
+      <rect x="606" y="98" width="68" height="40" fill="rgba(239,68,68,0.65)" rx="4"/><text x="640" y="123" text-anchor="middle" fill="#fff" font-size="10">高负面</text>
+      <rect x="678" y="98" width="56" height="40" fill="rgba(239,68,68,0.35)" rx="4"/><text x="706" y="123" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+
+      <!-- 行3：战争爆发 -->
+      <rect x="130" y="148" width="60" height="40" fill="rgba(16,185,129,0.7)" rx="4"/><text x="160" y="173" text-anchor="middle" fill="#fff" font-size="10">强受益</text>
+      <rect x="198" y="148" width="60" height="40" fill="rgba(245,158,11,0.45)" rx="4"/><text x="228" y="173" text-anchor="middle" fill="#fff" font-size="10">中度</text>
+      <rect x="266" y="148" width="60" height="40" fill="rgba(16,185,129,0.75)" rx="4"/><text x="296" y="173" text-anchor="middle" fill="#fff" font-size="10">极强受益</text>
+      <rect x="334" y="148" width="68" height="40" fill="rgba(16,185,129,0.6)" rx="4"/><text x="368" y="173" text-anchor="middle" fill="#fff" font-size="10">受益</text>
+      <rect x="406" y="148" width="58" height="40" fill="rgba(239,68,68,0.6)" rx="4"/><text x="435" y="173" text-anchor="middle" fill="#fff" font-size="10">高负面</text>
+      <rect x="468" y="148" width="68" height="40" fill="rgba(239,68,68,0.5)" rx="4"/><text x="502" y="173" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+      <rect x="542" y="148" width="58" height="40" fill="rgba(16,185,129,0.65)" rx="4"/><text x="571" y="173" text-anchor="middle" fill="#fff" font-size="10">强受益</text>
+      <rect x="606" y="148" width="68" height="40" fill="rgba(239,68,68,0.55)" rx="4"/><text x="640" y="173" text-anchor="middle" fill="#fff" font-size="10">负面</text>
+      <rect x="678" y="148" width="56" height="40" fill="rgba(239,68,68,0.7)" rx="4"/><text x="706" y="173" text-anchor="middle" fill="#fff" font-size="10">极高负面</text>
+
+      <!-- 图例 -->
+      <rect x="120" y="348" width="14" height="10" fill="rgba(16,185,129,0.6)" rx="2"/>
+      <text x="140" y="357" fill="#b8917f" font-size="10">受益/正面</text>
+      <rect x="220" y="348" width="14" height="10" fill="rgba(239,68,68,0.6)" rx="2"/>
+      <text x="240" y="357" fill="#b8917f" font-size="10">负面影响</text>
+      <rect x="320" y="348" width="14" height="10" fill="rgba(245,158,11,0.5)" rx="2"/>
+      <text x="340" y="357" fill="#b8917f" font-size="10">中度/混合</text>
+      <rect x="420" y="348" width="14" height="10" fill="rgba(59,130,246,0.25)" rx="2"/>
+      <text x="440" y="357" fill="#b8917f" font-size="10">影响有限</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>地缘政治影响行业的五条路径</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">路径①：供应链断裂</div>
+          <div class="tl-desc">稀土（中国垄断85%+全球供给）、芯片（台积电=全球高端芯片70%）、天然气管道（俄罗斯→欧洲）——关键节点断裂导致下游行业成本骤升、产能受限。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">路径②：贸易制裁与关税</div>
+          <div class="tl-desc">2018年中美贸易战关税最高至25%，直接压缩出口型企业毛利率5-15个百分点。2025年"对等关税"风暴，全球供应链向越南、墨西哥、印度转移，形成新的行业周期。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">路径③：战争溢价</div>
+          <div class="tl-desc">能源、黄金、国防、粮食四大战争溢价品类。俄乌冲突期间布伦特油价从70美元涨至130美元（+86%），欧洲天然气涨至历史价格的10倍。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-title">路径④：资本流动中断</div>
+          <div class="tl-desc">地缘风险上升时，美元作为避险货币大幅升值，资金从新兴市场撤出，导致新兴市场货币贬值+股市下跌+债务成本上升的三重压力（典型：2018年土耳其/阿根廷危机）。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">路径⑤：科技脱钩加速国产替代</div>
+          <div class="tl-desc">美国对华半导体禁运→中芯国际/华虹半导体国内市占率从25%提升至40%+；信创政策（国产化替代）→麒麟、统信OS、达梦数据库等获得行政性市场份额保障，形成独立于市场周期的政策驱动增长。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>四大地缘政治事件复盘</div>
+      <div class="card2" style="margin-bottom:12px;">
+        <div class="card-title" style="font-size:13px;"><span class="dot"></span>海湾战争1990（8月-1991年2月）</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">油价在3个月内从17美元涨至40美元（+135%）。能源股暴涨，航空股（燃油成本占40%）暴跌-30%至-50%。战争结束后油价迅速回落，持续时间短（6个月）但冲击剧烈。<br><strong style="color:var(--accent-light);">→ 短期冲击型地缘事件，重点看能源持续供应是否受损。</strong></p>
+      </div>
+      <div class="card2" style="margin-bottom:12px;">
+        <div class="card-title" style="font-size:13px;"><span class="dot dot-red"></span>俄乌冲突2022（2月至今）</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">欧洲天然气价格涨至历史价格10倍，德国制造业成本崩溃。全球化肥价格+80%（俄罗斯占全球30%供给）。埃克森美孚、BP、壳牌2022年利润创历史新高。同时触发欧洲能源结构转型大投资潮（核能、风电）。<br><strong style="color:var(--accent-light);">→ 持续型冲击，结构性改变欧洲能源格局，受益：清洁能源、LNG、防务。</strong></p>
+      </div>
+      <div class="card2" style="margin-bottom:12px;">
+        <div class="card-title" style="font-size:13px;"><span class="dot dot-gold"></span>中美贸易战2018-2024</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">直接受损：出口型制造业（尤其是纺织/机械/电子）。间接受益：东南亚制造业（越南FDI增长300%+）、国内半导体/信创行业政策性加速。A股科技板块形成独立估值逻辑（国产替代故事溢价）。<br><strong style="color:var(--accent-light);">→ 长期结构性冲击，全球供应链重组，受益：国产替代链、东南亚布局企业。</strong></p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:13px;"><span class="dot dot-green"></span>2025年全球关税风暴</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">特朗普对中国加征145%关税，中国反制125%。直接受损：两国贸易依存度高的行业（电子、家电、汽车零部件）。受益：墨西哥/印度/越南制造业，以及中国内需/内循环相关行业（国内消费、服务业）。<br><strong style="color:var(--accent-light);">→ 触发新一轮供应链重构周期，5-10年内形成新行业格局。</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第六章：战争周期
+     ═══════════════════════════════════════ -->
+<section id="ch6">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 06</div>
+    <div class="section-title">战争周期——<span>战争如何改写行业格局？</span></div>
+    <div class="section-desc">战争是最极端的外生冲击因子。它打破原有的供需均衡，但同时为特定行业创造出历史性的机会窗口。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>战争的三个阶段与行业影响</div>
+    <div class="grid-3">
+      <div class="card2" style="border-left:3px solid #ef4444;">
+        <div class="card-title" style="font-size:14px;color:#ef4444;">阶段一：恐慌期</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;">战争爆发初期，不确定性极度上升，市场普遍抛售风险资产。</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:12px;"><span class="hl-green">↑ 上涨：</span>黄金、美元、国债、防御性消费</div>
+          <div style="font-size:12px;"><span class="hl-red">↓ 下跌：</span>股票（广泛）、旅游航空、新兴市场</div>
+          <div style="font-size:12px;color:#5c3c28;margin-top:8px;">持续时间：1-6周</div>
+        </div>
+      </div>
+      <div class="card2" style="border-left:3px solid #f59e0b;">
+        <div class="card-title" style="font-size:14px;color:#f59e0b;">阶段二：战争持续期</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;">需求从消费转向军事与战略物资，政府支出结构改变。</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:12px;"><span class="hl-green">↑ 上涨：</span>国防军工、能源、钢铁、稀土</div>
+          <div style="font-size:12px;"><span class="hl-red">↓ 下跌：</span>旅游、商业地产、非战略性进口</div>
+          <div style="font-size:12px;color:#5c3c28;margin-top:8px;">持续时间：6个月-数年</div>
+        </div>
+      </div>
+      <div class="card2" style="border-left:3px solid #10b981;">
+        <div class="card-title" style="font-size:14px;color:#10b981;">阶段三：重建期</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px;">战争结束，百废待兴，政府主导重建投资浪潮。</p>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:12px;"><span class="hl-green">↑ 上涨：</span>建筑建材、基础设施、粮食农业、消费</div>
+          <div style="font-size:12px;"><span class="hl-red">↓ 下跌：</span>国防军工（需求退潮）、黄金（避险溢价消退）</div>
+          <div style="font-size:12px;color:#5c3c28;margin-top:8px;">持续时间：3-10年</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>历史战争案例对行业的冲击</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>战争/冲突</th><th>时间</th><th>核心受益行业</th><th>受损行业</th></tr>
+          <tr><td>二战美国参战</td><td>1941-1945</td><td>军工/钢铁/化工（美国工厂变军工产能）</td><td>消费品/进口行业</td></tr>
+          <tr><td>朝鲜战争</td><td>1950-1953</td><td>军工/原材料（美国军备重整）</td><td>债券（财政赤字）</td></tr>
+          <tr><td>越战</td><td>1965-1975</td><td>军工/化工/能源</td><td>美元（布雷顿森林体系瓦解）</td></tr>
+          <tr><td>海湾战争</td><td>1990-1991</td><td>能源（油价飙升）/军工</td><td>航空/旅游</td></tr>
+          <tr><td>伊拉克战争</td><td>2003-2011</td><td>能源/军工/私人安保</td><td>中东市场/旅游</td></tr>
+          <tr><td>俄乌冲突</td><td>2022-至今</td><td>欧洲军工/全球LNG/粮食/稀有金属</td><td>欧洲制造业/旅游/俄相关</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>台海地缘风险对A股的溢出影响</div>
+      <div class="insight">
+        <div class="insight-title">⚠️ 投资者必须理解的风险结构</div>
+        <p>台海紧张局势是A股独有的地缘政治折价来源。MSCI数据显示，台海风险溢价导致A股长期PE折价约15-20%（相对同等经济体）。</p>
+      </div>
+      <div class="steps" style="margin-top:14px;">
+        <div class="step-card">
+          <div class="step-num" style="background:#10b981;">✅</div>
+          <div class="step-content">
+            <h4>风险中的受益行业</h4>
+            <p>国防军工（战机/导弹/舰艇）、军民两用电子（雷达/通信）、稀土磁材（军事级应用）、信创（去美化应急加速）、国产半导体。</p>
+          </div>
+        </div>
+        <div class="step-card">
+          <div class="step-num" style="background:#ef4444;">⚠️</div>
+          <div class="step-content">
+            <h4>风险承担行业</h4>
+            <p>出口依赖型行业（电子/服装/家具）、重度依赖台积电代工的芯片设计企业、在台或涉台供应链的制造业，以及外资重仓的消费蓝筹（外资容易撤离）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第七章：政策周期——A股特有的超级因子
+     ═══════════════════════════════════════ -->
+<section id="ch7">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 07</div>
+    <div class="section-title">政策周期——<span>A股最强干扰因子的运行逻辑</span></div>
+    <div class="section-desc">A股的政策周期敏感性远超全球其他主要市场。理解政策的运作规律，是A股投资者最核心的必修课。</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>五年规划周期对行业格局的重塑</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">"十三五"（2016-2020）→ 新能源元年</div>
+          <div class="tl-desc">电动汽车补贴+光伏装机目标+风电扩张，带动宁德时代、隆基绿能等公司从默默无闻到行业龙头。5年内新能源汽车渗透率从1.5%升至5.4%，完成关键积累期。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">"十四五"（2021-2025）→ 科技自立</div>
+          <div class="tl-desc">半导体国产化、信创替代、AI基础设施（算力）成为主线。配套政策：大基金二期（3440亿）、信创白名单、国产数据库/操作系统采购要求。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">"十五五"（2026-2030）→ 内需主导</div>
+          <div class="tl-desc">预计聚焦：扩内需/消费升级/养老医疗/数字经济深化应用。从"制造大国"向"消费大国"转型的加速期，服务业/高端消费/医疗健康可能是新一轮政策主线。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>监管周期的行业冲击——逆向布局末期的逻辑</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>监管冲击事件</th><th>高峰时间</th><th>打压持续</th><th>底部机会</th></tr>
+          <tr><td>互联网反垄断</td><td>2021年</td><td>约18个月</td><td>腾讯2022Q4 PB≈2.8倍，历史低位</td></tr>
+          <tr><td>医药集采政策</td><td>2021-2022</td><td>持续至今</td><td>创新药（非集采）2022年底估值修复</td></tr>
+          <tr><td>教培行业清退</td><td>2021年7月</td><td>一次性冲击</td><td>K12赛道永久性消失，不适合逆向</td></tr>
+          <tr><td>房地产去杠杆</td><td>2021-2024</td><td>3年+</td><td>2024年底政策转向，建材开始修复</td></tr>
+          <tr><td>游戏版号限制</td><td>2021-2022</td><td>约14个月</td><td>版号恢复后腾讯/网易均有30%+修复</td></tr>
+        </table>
+      </div>
+      <div class="insight" style="margin-top:14px;">
+        <div class="insight-title">🔑 逆向布局原则</div>
+        <p>监管冲击是典型的"临时困境"而非"永久衰退"（除非行业模式本身被法规否定）。当监管周期进入末段（处罚案例减少、政策表述软化、主管领导换届），通常是最好的布局窗口，往往也是企业股价最低迷的时候。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-gold"></span>货币政策传导机制——从央行决策到行业盈利的时序</div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>央行降准降息（T=0）</h4>
+          <p>银行间市场利率下降，DR007、LPR相继调整。债券市场即时反应（价格上涨），股市敏感板块（地产/金融/科技）当天或当周开始反映预期。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>银行信贷宽松（T+1～3个月）</h4>
+          <p>银行按揭利率下调，企业贷款成本降低。新增信贷数据（社融）在1-3个月内出现回升，是观察传导是否成功的关键指标。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>实体经济需求回升（T+6～12个月）</h4>
+          <p>制造业订单增加、消费者信心改善、房地产销售回升。工业企业利润增速由负转正，周期股业绩开始改善，这时候往往正是股价已经涨了30-50%之后。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>上市公司报表验证（T+12～18个月）</h4>
+          <p>业绩改善正式反映到财报，分析师上调盈利预测，追涨资金涌入。此时往往是"利好兑现"的阶段，而非买入时机——真正的机会在T+0到T+3个月之间。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第八章：行业轮动的精确时序
+     ═══════════════════════════════════════ -->
+<section id="ch8">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 08</div>
+    <div class="section-title">行业轮动的精确时序——<span>各周期阶段的最优配置逻辑</span></div>
+    <div class="section-desc">美林时钟提供了框架，但在A股市场，政策与情绪周期往往比经济周期更快、更剧烈，理解时序差异至关重要。</div>
+  </div>
+
+  <!-- SVG图表5：行业轮动时钟图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>行业轮动时钟 · 各阶段最优配置行业分布</div>
+    <svg viewBox="0 0 800 500" width="100%" style="display:block;">
+      <rect width="800" height="500" fill="#1e100c" rx="12"/>
+      <!-- 主圆 -->
+      <circle cx="400" cy="250" r="190" fill="none" stroke="#3d1e0a" stroke-width="1.5"/>
+      <circle cx="400" cy="250" r="120" fill="none" stroke="#3d1e0a" stroke-width="1" stroke-dasharray="4 4"/>
+      <circle cx="400" cy="250" r="55" fill="rgba(232,93,4,0.08)" stroke="#e85d04" stroke-width="1.5" stroke-dasharray="6 3"/>
+      <!-- 中心文字 -->
+      <text x="400" y="245" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">行业</text>
+      <text x="400" y="262" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">轮动钟</text>
+      <!-- 四个象限填充 -->
+      <!-- 复苏期 左上 -->
+      <path d="M400,250 L210,60 A190,190 0,0,1 590,60 Z" fill="rgba(16,185,129,0.08)"/>
+      <!-- 过热期 右上 -->
+      <path d="M400,250 L590,60 A190,190 0,0,1 590,440 Z" fill="rgba(239,68,68,0.07)"/>
+      <!-- 衰退期 右下 -->
+      <path d="M400,250 L590,440 A190,190 0,0,1 210,440 Z" fill="rgba(59,130,246,0.07)"/>
+      <!-- 萧条期 左下 -->
+      <path d="M400,250 L210,440 A190,190 0,0,1 210,60 Z" fill="rgba(245,158,11,0.07)"/>
+      <!-- 分割线 -->
+      <line x1="210" y1="60" x2="590" y2="440" stroke="#3d1e0a" stroke-width="1.5"/>
+      <line x1="590" y1="60" x2="210" y2="440" stroke="#3d1e0a" stroke-width="1.5"/>
+      <!-- 阶段标签 -->
+      <text x="400" y="82" text-anchor="middle" fill="#10b981" font-size="15" font-weight="800">复苏期</text>
+      <text x="400" y="97" text-anchor="middle" fill="#b8917f" font-size="11">金融·消费·可选</text>
+      <text x="640" y="255" text-anchor="middle" fill="#ef4444" font-size="15" font-weight="800">过热期</text>
+      <text x="640" y="270" text-anchor="middle" fill="#b8917f" font-size="11">大宗·能源</text>
+      <text x="400" y="432" text-anchor="middle" fill="#3b82f6" font-size="15" font-weight="800">衰退期</text>
+      <text x="400" y="447" text-anchor="middle" fill="#b8917f" font-size="11">必需消费·医药</text>
+      <text x="160" y="255" text-anchor="middle" fill="#f59e0b" font-size="15" font-weight="800">萧条期</text>
+      <text x="160" y="270" text-anchor="middle" fill="#b8917f" font-size="11">公用·债券</text>
+      <!-- 行业点 -->
+      <!-- 复苏 -->
+      <circle cx="340" cy="115" r="12" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="340" y="120" text-anchor="middle" fill="#10b981" font-size="10">金融</text>
+      <circle cx="420" cy="108" r="12" fill="rgba(16,185,129,0.4)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="420" y="113" text-anchor="middle" fill="#10b981" font-size="10">消费</text>
+      <circle cx="468" cy="130" r="10" fill="rgba(16,185,129,0.3)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="468" y="135" text-anchor="middle" fill="#10b981" font-size="9">科技</text>
+      <!-- 过热 -->
+      <circle cx="580" cy="175" r="14" fill="rgba(239,68,68,0.4)" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="580" y="180" text-anchor="middle" fill="#ef4444" font-size="10">大宗</text>
+      <circle cx="575" cy="215" r="12" fill="rgba(239,68,68,0.35)" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="575" y="220" text-anchor="middle" fill="#ef4444" font-size="10">能源</text>
+      <circle cx="565" cy="255" r="10" fill="rgba(245,158,11,0.35)" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="565" y="260" text-anchor="middle" fill="#f59e0b" font-size="9">工业</text>
+      <!-- 衰退 -->
+      <circle cx="340" cy="400" r="12" fill="rgba(59,130,246,0.4)" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="340" y="405" text-anchor="middle" fill="#3b82f6" font-size="10">医药</text>
+      <circle cx="420" cy="410" r="12" fill="rgba(59,130,246,0.4)" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="420" y="415" text-anchor="middle" fill="#3b82f6" font-size="10">必需消</text>
+      <circle cx="465" cy="390" r="10" fill="rgba(59,130,246,0.3)" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="465" y="395" text-anchor="middle" fill="#3b82f6" font-size="9">公用</text>
+      <!-- 萧条 -->
+      <circle cx="225" cy="255" r="12" fill="rgba(245,158,11,0.35)" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="225" y="260" text-anchor="middle" fill="#f59e0b" font-size="10">债券</text>
+      <circle cx="235" cy="215" r="11" fill="rgba(245,158,11,0.3)" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="235" y="220" text-anchor="middle" fill="#f59e0b" font-size="9">公用</text>
+      <!-- 顺时针箭头 -->
+      <path d="M 455 78 A 180 180 0 0 1 590 180" fill="none" stroke="#fb923c" stroke-width="2" marker-end="url(#arr1)"/>
+      <defs><marker id="arr1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#fb923c"/></marker></defs>
+      <text x="540" y="118" fill="#fb923c" font-size="11" font-weight="600">顺时针轮动</text>
+      <!-- A股特殊标注 -->
+      <rect x="80" y="340" width="130" height="60" fill="rgba(232,93,4,0.08)" rx="6" stroke="rgba(232,93,4,0.3)"/>
+      <text x="145" y="362" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">⚡ A股特殊性</text>
+      <text x="145" y="378" text-anchor="middle" fill="#b8917f" font-size="10">政策催化可跨越</text>
+      <text x="145" y="390" text-anchor="middle" fill="#b8917f" font-size="10">正常时序轮动</text>
+    </svg>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title"><span class="dot dot-gold"></span>各周期阶段配置逻辑详解</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>周期阶段</th><th>经济特征</th><th>首选行业（原因）</th><th>规避行业</th><th>A股特殊性</th></tr>
+        <tr>
+          <td style="color:#10b981;">复苏期</td>
+          <td>GDP回升<br>通胀低位<br>利率低位</td>
+          <td>金融（信贷回升→净息差修复）<br>可选消费（收入预期改善）<br>房地产（低利率刺激）</td>
+          <td>大宗商品<br>（通胀未起）</td>
+          <td>政策宽松信号往往早于经济数据，关注社融和M2拐点</td>
+        </tr>
+        <tr>
+          <td style="color:#ef4444;">扩张期</td>
+          <td>需求旺盛<br>通胀上行<br>加息初期</td>
+          <td>大宗商品（需求旺、供给滞后）<br>工业（资本开支旺盛）<br>能源（通胀受益）</td>
+          <td>科技成长<br>（加息折现）<br>公用事业</td>
+          <td>A股往往在扩张末期出现全面牛市，情绪超调</td>
+        </tr>
+        <tr>
+          <td style="color:#f59e0b;">过热期</td>
+          <td>通胀高位<br>加息收紧<br>流动性紧</td>
+          <td>能源/大宗（通胀持续）<br>高股息股（防御+类债券替代）</td>
+          <td>成长科技<br>地产金融</td>
+          <td>A股过热期短暂，政策往往会主动刺破泡沫</td>
+        </tr>
+        <tr>
+          <td style="color:#3b82f6;">衰退期</td>
+          <td>需求萎缩<br>通胀下行<br>降息初期</td>
+          <td>必需消费（刚需防御）<br>医药（非周期刚需）<br>公用事业（稳定分红）</td>
+          <td>周期行业<br>金融（不良上升）</td>
+          <td>降息预期驱动科技/成长股率先反弹（与标准时钟有偏差）</td>
+        </tr>
+        <tr>
+          <td style="color:#fb923c;">地缘风险期</td>
+          <td>不确定性极高<br>供应链断裂</td>
+          <td>国防军工<br>黄金/稀土<br>国产替代链</td>
+          <td>外向型制造业<br>旅游/航空</td>
+          <td>A股增加"政策优先性"维度，安全领域估值独立运行</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第九章：多因子叠加——周期共振
+     ═══════════════════════════════════════ -->
+<section id="ch9">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 09</div>
+    <div class="section-title">多因子叠加——<span>周期共振与反直觉机会</span></div>
+    <div class="section-desc">最大的投资机会（和风险）往往出现在多个周期同向共振的时刻。识别共振，就是识别超额收益的来源。</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>什么是"周期共振"？</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">当<span class="hl-orange">两个或以上的周期同向运动</span>时，其对行业的影响不是简单相加，而是相互放大。反之，反向周期叠加会导致行业走势与宏观直觉背离。</p>
+      <div class="insight">
+        <div class="insight-title">📐 共振倍数估算</div>
+        <p>单周期顺风 → 行业超额收益约 15-30%<br>双周期共振 → 行业超额收益约 50-100%<br>三周期共振 → 行业超额收益约 100-300%<br>（以上是历史均值估计，个别案例更极端）</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>三个反直觉的周期共振案例</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">2020年：疫情中科技股暴涨</div>
+          <div class="tl-desc">直觉：经济崩溃应该什么都跌。现实：成长周期（云计算/电商/远程工作爆发）× 货币宽松（美联储无限QE）× 需求转移（线上化）三重共振，纳斯达克从3月底到年底涨84%，远超预期。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">2022年：能源独立牛市</div>
+          <div class="tl-desc">直觉：加息年所有股票都应该跌。现实：俄乌供给冲击 × 全球能源供给周期紧张 × 通胀受益三重共振，美国能源ETF全年涨60%+，而标普500跌19%。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot green"></div>
+          <div class="tl-title">2023-2024年：AI独立行情</div>
+          <div class="tl-desc">直觉：美联储高利率应该压制成长股。现实：技术革命启动期（ChatGPT引爆AI浪潮）× 资本涌入（算力投资热潮）× 盈利预期大幅上调，英伟达2年涨超700%。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-red"></span>识别多周期共振的三个核心判断指标</div>
+    <div class="grid-3">
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot"></span>指标①：行业供需结构</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">当行业库存处于历史低位（去化完毕）且新产能投产需要2年以上时，下一个需求脉冲将直接推高价格，没有供给缓冲。这是大宗商品超级周期启动的前提条件。<br><br><strong class="hl-orange">指标：行业库存/销售比</strong></p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot dot-gold"></span>指标②：货币政策方向</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">全球主要央行同向宽松时，流动性共振效应最强（2020年全球QE），行业级别机会扩展到股市层面；反之，全球同步紧缩时（2022年），即使行业基本面好，也会被流动性压制。<br><br><strong class="hl-gold">指标：G20央行资产负债表增速</strong></p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;"><span class="dot dot-green"></span>指标③：情绪/估值位置</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">当行业估值处于历史低分位（近10年PE后10%）且做空比例极高时，任何利好都会触发"踏空式"反弹。这是反向情绪周期与基本面周期共振的典型场景。<br><br><strong class="hl-green">指标：PE百分位+融券余额/流通市值</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     第十章：实战应对框架
+     ═══════════════════════════════════════ -->
+<section id="ch10">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 10</div>
+    <div class="section-title">实战应对框架——<span>用周期成因指导投资决策</span></div>
+    <div class="section-desc">理解周期成因的最终目的是服务于投资决策。以下是将前九章知识转化为可操作框架的完整路径。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>周期成因识别三步法</div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Step 1：宏观数据读取（每月）</h4>
+          <p>重点跟踪：GDP增速趋势（月度PMI为领先指标）、CPI/PPI剪刀差（判断通胀方向）、社融/M2增速（流动性松紧）、LPR/联邦基金利率方向。<br>工具：国家统计局月报、Wind金融终端、美联储官网。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Step 2：行业传导链确认（每季度）</h4>
+          <p>确认宏观数据变化→行业盈利的传导路径是否畅通。核心检验：①上游原材料价格变化是否已传导到中游成本；②终端需求是否真实改善（不只是政策补贴）；③行业库存去化进度（是否到达补库拐点）。</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Step 3：个股催化剂验证（投资决策前）</h4>
+          <p>即使行业周期向上，也需要确认：①公司是否具备行业贝塔以外的阿尔法（市占率提升/成本优化/新产品）；②管理层是否在利用周期扩张而非逆周期硬撑；③估值是否已充分反映乐观预期（别在周期顶部以高PE买入）。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title"><span class="dot dot-gold"></span>投资决策前必须回答的8个周期问题</div>
+    <div class="grid-2">
+      <div class="card2">
+        <p style="font-size:13px;color:var(--accent-light);font-weight:700;margin-bottom:10px;">宏观与行业层面：</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot gold"></div>
+            <div class="tl-title">Q1：当前处于经济周期哪个阶段？</div>
+            <div class="tl-desc">通过GDP趋势+PMI+通胀位置判断（复苏/扩张/过热/衰退），确定大方向。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot gold"></div>
+            <div class="tl-title">Q2：利率趋势向上还是向下？</div>
+            <div class="tl-desc">利率方向决定科技/地产/公用事业的估值走向，是最重要的单一宏观变量。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot gold"></div>
+            <div class="tl-title">Q3：目标行业库存处于什么位置？</div>
+            <div class="tl-desc">高库存=价格压力持续；低库存=补库弹性大，行业景气拐点在即。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot gold"></div>
+            <div class="tl-title">Q4：是否存在地缘政治或政策催化？</div>
+            <div class="tl-desc">A股特别重要：政策支持可以独立于经济周期推动行业估值重估。</div>
+          </div>
+        </div>
+      </div>
+      <div class="card2">
+        <p style="font-size:13px;color:var(--accent-light);font-weight:700;margin-bottom:10px;">个股与时机层面：</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Q5：行业中的哪家公司最受益于本次周期？</div>
+            <div class="tl-desc">找出在周期上行中具备最大操作杠杆的公司（龙头≠最大受益者，有时是二线）。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Q6：当前估值处于历史什么分位？</div>
+            <div class="tl-desc">PE/PB历史百分位低于20%是安全边际，高于80%要警惕周期顶部买入。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Q7：多个周期是否同向共振？</div>
+            <div class="tl-desc">若经济周期+货币周期+行业库存周期三者共振向上，可以适度加大仓位。</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-title">Q8：我的预期是否已是市场共识？</div>
+            <div class="tl-desc">超额收益来自认知差。如果逻辑已是Bloomberg头条，机会大概率已被定价。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title"><span class="dot dot-green"></span>不同周期阶段的仓位管理原则</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>周期阶段</th><th>建议仓位</th><th>核心逻辑</th><th>最大风险</th></tr>
+        <tr><td style="color:#10b981;">复苏期初段</td><td><strong class="hl-green">70-90%</strong></td><td>机会最大，政策已转向，估值低位，进攻型配置</td><td>复苏不及预期，需设止损</td></tr>
+        <tr><td style="color:#f59e0b;">扩张期</td><td><strong class="hl-orange">60-80%</strong></td><td>继续持有，但开始提高配置质量，规避高PE成长</td><td>加息超预期，情绪反转快</td></tr>
+        <tr><td style="color:#ef4444;">过热期</td><td><strong class="hl-gold">40-60%</strong></td><td>开始逐步减仓，锁定利润，转向防御性行业</td><td>泡沫末期难以判断顶部</td></tr>
+        <tr><td style="color:#3b82f6;">衰退期</td><td><strong class="hl-red">20-40%</strong></td><td>防御为主，保留现金等待下一个复苏买点</td><td>政策刺激突然反转（A股常见）</td></tr>
+        <tr><td style="color:#fb923c;">地缘风险激化期</td><td><strong class="hl-orange">30-50%</strong></td><td>降低整体仓位，集中在国防/黄金/国内需求</td><td>风险持续时间难以预判</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;background:linear-gradient(135deg,rgba(232,93,4,0.06),rgba(245,158,11,0.06));border-color:rgba(232,93,4,0.3);">
+    <div class="card-title"><span class="dot dot-gold"></span>📌 核心结论：从"记住规律"到"理解原因"的认知飞跃</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.9;margin-bottom:14px;">大多数投资者记住了"美林时钟"，知道复苏期买金融、过热期买大宗。但<span class="hl-orange">真正的护城河在于理解背后的原因</span>——为什么金融在复苏期涨？因为信贷扩张+坏账出清+净息差修复的三重驱动同时发生，而非只是"轮到它了"。</p>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.9;">理解成因的价值在于：当市场出现"偏差"时（如A股的政策周期打断正常时序），你能判断偏差是暂时的还是结构性的，从而做出比遵循死板框架更聪明的决策。</p>
+      </div>
+      <div>
+        <div class="quote">
+          <p>"规律是地图，成因是罗盘。有地图你能走到曾经去过的地方；有罗盘，你才能走向没有地图的未来。"</p>
+          <cite>— 投资者的周期认知层级</cite>
+        </div>
+        <div class="insight" style="margin-top:10px;">
+          <div class="insight-title">🎯 终极记忆框架</div>
+          <p><strong style="color:var(--accent-light);">供需滞后</strong>→大宗超调 | <strong style="color:var(--accent-gold);">信贷杠杆</strong>→金融放大 | <strong style="color:var(--accent-green);">技术革命</strong>→康波启动 | <strong style="color:var(--accent-red);">地缘冲击</strong>→供应链重构 | <strong style="color:#a855f7;">政策干预</strong>→A股特殊路径</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- 底部 -->
+<div style="background:#0d0704;border-top:1px solid var(--border2);padding:24px 20px;text-align:center;color:#5c3c28;font-size:12px;line-height:1.8;">
+  <strong style="color:var(--text-secondary);">周期变化深层成因研究报告</strong><br>
+  配套报告：<a href="周期的力量：投资者必读的周期深度研究2025.html" style="color:var(--accent-light);text-decoration:none;">《周期的力量》</a> · <a href="2026年周期位置与投资策略2025.html" style="color:var(--accent-light);text-decoration:none;">《2026年周期策略》</a><br>
+  以上内容仅供研究参考，不构成投资建议 · 数据来源：历史经济数据、学术研究、公开财经资讯
+</div>
+
+<!-- 悬浮返回主页按钮 -->
+<a href="index.html" id="home-fab" title="返回主页" style="
+  position:fixed; bottom:28px; right:24px; z-index:999;
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,#e85d04,#f59e0b);
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; font-size:22px;
+  box-shadow:0 4px 20px rgba(232,93,4,0.45);
+  transition:transform .2s,box-shadow .2s;
+" onmouseover="this.style.transform='scale(1.1)';this.style.boxShadow='0 6px 28px rgba(232,93,4,0.6)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(232,93,4,0.45)'">🏠</a>
+
+</body>
+</html>

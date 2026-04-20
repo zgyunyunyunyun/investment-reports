@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国家电行业全市场扫描报告 2024</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .cover {
+            background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 50%, #1a1a2e 100%);
+            padding: 80px 60px;
+            border-bottom: 1px solid #30363d;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(88, 166, 255, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(63, 185, 80, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .cover-tag {
+            display: inline-block;
+            background: rgba(88, 166, 255, 0.15);
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            color: #58a6ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .cover h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #f0f6fc;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+        .cover h2 {
+            font-size: 20px;
+            font-weight: 300;
+            color: #8b949e;
+            margin-bottom: 30px;
+        }
+        .cover-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .cover-meta span {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        .cover-meta strong {
+            color: #58a6ff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .toc {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .toc h3 {
+            color: #f0f6fc;
+            font-size: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toc ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .toc li a {
+            color: #58a6ff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .toc li a:hover { text-decoration: underline; }
+        .section {
+            margin: 50px 0;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 30px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #30363d;
+        }
+        .section-num {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #58a6ff, #3fb950);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .section-header h2 {
+            font-size: 22px;
+            color: #f0f6fc;
+            font-weight: 600;
+        }
+        .section-header p {
+            color: #8b949e;
+            font-size: 13px;
+            margin-top: 3px;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f0f6fc;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-title::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: #58a6ff;
+            border-radius: 2px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13.5px;
+        }
+        thead th {
+            background: #0d1117;
+            color: #8b949e;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #30363d;
+        }
+        tbody tr {
+            border-bottom: 1px solid #21262d;
+            transition: background 0.2s;
+        }
+        tbody tr:hover { background: #1c2128; }
+        tbody td {
+            padding: 11px 14px;
+            color: #c9d1d9;
+            vertical-align: top;
+        }
+        tbody td:first-child { color: #f0f6fc; font-weight: 500; }
+        .highlight-cell {
+            color: #3fb950 !important;
+            font-weight: 600;
+        }
+        .red-cell {
+            color: #f85149 !important;
+            font-weight: 600;
+        }
+        .blue-cell {
+            color: #58a6ff !important;
+        }
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge-green { background: rgba(63, 185, 80, 0.15); color: #3fb950; border: 1px solid rgba(63,185,80,0.3); }
+        .badge-red { background: rgba(248, 81, 73, 0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.3); }
+        .badge-blue { background: rgba(88, 166, 255, 0.15); color: #58a6ff; border: 1px solid rgba(88,166,255,0.3); }
+        .badge-yellow { background: rgba(210, 153, 34, 0.15); color: #d29922; border: 1px solid rgba(210,153,34,0.3); }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        .metric-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-label {
+            font-size: 12px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #f0f6fc;
+        }
+        .metric-sub {
+            font-size: 12px;
+            color: #3fb950;
+            margin-top: 4px;
+        }
+        .metric-sub.down { color: #f85149; }
+        .company-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #21262d;
+        }
+        .company-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #f0f6fc;
+        }
+        .company-sub {
+            font-size: 13px;
+            color: #8b949e;
+            margin-top: 2px;
+        }
+        .company-badge {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .segment-bar {
+            margin: 12px 0;
+        }
+        .segment-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .segment-label {
+            width: 160px;
+            font-size: 12px;
+            color: #8b949e;
+            flex-shrink: 0;
+        }
+        .segment-value {
+            width: 80px;
+            font-size: 12px;
+            color: #c9d1d9;
+            text-align: right;
+            flex-shrink: 0;
+            padding-right: 10px;
+        }
+        .segment-track {
+            flex: 1;
+            height: 8px;
+            background: #21262d;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .segment-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s;
+        }
+        .bar-blue { background: linear-gradient(90deg, #58a6ff, #1f6feb); }
+        .bar-green { background: linear-gradient(90deg, #3fb950, #238636); }
+        .bar-orange { background: linear-gradient(90deg, #d29922, #9e6a03); }
+        .bar-purple { background: linear-gradient(90deg, #bc8cff, #8957e5); }
+        .bar-pink { background: linear-gradient(90deg, #ff7b72, #da3633); }
+        .bar-teal { background: linear-gradient(90deg, #56d364, #2ea043); }
+        .note {
+            background: rgba(88, 166, 255, 0.05);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            border-left: 3px solid #58a6ff;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 12.5px;
+            color: #8b949e;
+            margin-top: 16px;
+        }
+        .warning {
+            background: rgba(210, 153, 34, 0.05);
+            border: 1px solid rgba(210, 153, 34, 0.2);
+            border-left: 3px solid #d29922;
+            border-radius: 6px;
+            padding: 12px 16px;
+            font-size: 12.5px;
+            color: #8b949e;
+            margin-top: 16px;
+        }
+        .valuation-band {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #21262d;
+        }
+        .val-company { width: 130px; font-size: 13px; color: #f0f6fc; font-weight: 500; }
+        .val-bar-wrap {
+            flex: 1;
+            position: relative;
+            height: 24px;
+            background: #21262d;
+            border-radius: 4px;
+            margin: 0 10px;
+        }
+        .val-bar {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+        .val-current {
+            position: absolute;
+            top: -2px;
+            height: 28px;
+            width: 3px;
+            background: #f0f6fc;
+            border-radius: 2px;
+        }
+        .val-label { font-size: 11px; color: #8b949e; width: 80px; text-align: right; }
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+        .insight-item {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 16px;
+            text-align: center;
+        }
+        .insight-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .insight-text {
+            font-size: 13px;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+        .insight-text strong {
+            color: #f0f6fc;
+            display: block;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        footer {
+            background: #161b22;
+            border-top: 1px solid #30363d;
+            padding: 30px 60px;
+            margin-top: 60px;
+            text-align: center;
+            font-size: 12px;
+            color: #484f58;
+        }
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #30363d, transparent);
+            margin: 30px 0;
+        }
+        .rank-badge {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 22px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .rank-1 { background: #d29922; color: #000; }
+        .rank-2 { background: #8b949e; color: #000; }
+        .rank-3 { background: #da3633; color: #fff; }
+        .summary-banner {
+            background: linear-gradient(135deg, rgba(88,166,255,0.08), rgba(63,185,80,0.08));
+            border: 1px solid rgba(88,166,255,0.2);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+        }
+        .summary-banner h4 {
+            color: #58a6ff;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .summary-banner p {
+            color: #c9d1d9;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .cover h1 { font-size: 28px; }
+            .insight-grid { grid-template-columns: 1fr 1fr; }
+            .toc ul { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 封面 -->
+<div class="cover">
+    <div class="container">
+        <div class="cover-tag">行业研究报告</div>
+        <h1>中国家电行业全市场扫描报告</h1>
+        <h2>China Home Appliance Industry Full-Market Scan Report 2024</h2>
+        <div class="cover-meta">
+            <span>报告期：<strong>2024年全年</strong></span>
+            <span>发布日期：<strong>2025年4月（基于2024年报）</strong></span>
+            <span>数据来源：<strong>各公司年报 / 奥维云网(AVC) / 公开财报数据</strong></span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- 目录 -->
+    <div class="toc">
+        <h3>目录 Contents</h3>
+        <ul>
+            <li><a href="#sec-a">A. 白电三巨头2024年财务深度对比（格力 / 美的 / 海尔）</a></li>
+            <li><a href="#sec-b">B. 其他主要家电上市公司数据</a></li>
+            <li><a href="#sec-c">C. 行业子赛道格局与集中度</a></li>
+            <li><a href="#sec-d">D. A股家电板块估值水平</a></li>
+        </ul>
+    </div>
+
+    <!-- ===== A. 白电三巨头 ===== -->
+    <div class="section" id="sec-a">
+        <div class="section-header">
+            <div class="section-num">A</div>
+            <div>
+                <h2>白电三巨头 2024 年财务深度对比</h2>
+                <p>格力电器 / 美的集团 / 海尔智家 — 数据来源：各公司2024年年报</p>
+            </div>
+        </div>
+
+        <!-- 核心指标总览 -->
+        <div class="card">
+            <div class="card-title">核心财务指标总览（2024年全年）</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>指标</th>
+                        <th>美的集团 (000333)</th>
+                        <th>海尔智家 (600690)</th>
+                        <th>格力电器 (000651)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>营业总收入（亿元）</td>
+                        <td class="highlight-cell">4,091</td>
+                        <td>2,860</td>
+                        <td>1,892</td>
+                    </tr>
+                    <tr>
+                        <td>收入同比增长</td>
+                        <td class="highlight-cell">+9.47%</td>
+                        <td>+4.29%</td>
+                        <td class="red-cell">-7.26%</td>
+                    </tr>
+                    <tr>
+                        <td>归母净利润（亿元）</td>
+                        <td class="highlight-cell">385</td>
+                        <td>187</td>
+                        <td>322</td>
+                    </tr>
+                    <tr>
+                        <td>净利润同比增长</td>
+                        <td>+14.29%</td>
+                        <td>+12.92%</td>
+                        <td class="highlight-cell">+10.91%</td>
+                    </tr>
+                    <tr>
+                        <td>净利率</td>
+                        <td>9.52%</td>
+                        <td>6.55%</td>
+                        <td class="highlight-cell">17.11%</td>
+                    </tr>
+                    <tr>
+                        <td>毛利率</td>
+                        <td>26.42%</td>
+                        <td>27.8%</td>
+                        <td class="highlight-cell">30.47%</td>
+                    </tr>
+                    <tr>
+                        <td>ROE（加权）</td>
+                        <td>~17.8%</td>
+                        <td>~17~18%</td>
+                        <td class="highlight-cell">~26~28%</td>
+                    </tr>
+                    <tr>
+                        <td>EPS（元/股）</td>
+                        <td>5.44</td>
+                        <td>2.02</td>
+                        <td>~3.79</td>
+                    </tr>
+                    <tr>
+                        <td>BPS 每股净资产（元）</td>
+                        <td>28.31</td>
+                        <td>—</td>
+                        <td>~14~16</td>
+                    </tr>
+                    <tr>
+                        <td>每股分红（元）</td>
+                        <td class="highlight-cell">3.50</td>
+                        <td>0.965</td>
+                        <td>3.00</td>
+                    </tr>
+                    <tr>
+                        <td>现金分红总额（亿元）</td>
+                        <td class="highlight-cell">267</td>
+                        <td>90</td>
+                        <td>168</td>
+                    </tr>
+                    <tr>
+                        <td>分红率（占净利润）</td>
+                        <td class="highlight-cell">69%</td>
+                        <td>48%</td>
+                        <td>52%</td>
+                    </tr>
+                    <tr>
+                        <td>股息率（参考区间）</td>
+                        <td>~3.5~4%</td>
+                        <td>~3~4%</td>
+                        <td class="highlight-cell">~6~7%</td>
+                    </tr>
+                    <tr>
+                        <td>经营现金流（亿元）</td>
+                        <td>—</td>
+                        <td>265</td>
+                        <td>294</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note">注：ROE、BPS、EPS部分数据为年报推算值或行业分析研报引用。格力每股分红含中报每10股10元+末期每10股20元=全年3元/股。美的每10股35元分红。海尔每10股9.65元分红。</div>
+        </div>
+
+        <!-- 三公司分别详细分析 -->
+        <!-- 格力 -->
+        <div class="card">
+            <div class="company-header">
+                <div>
+                    <div class="company-name">格力电器（000651）</div>
+                    <div class="company-sub">空调龙头 | 高利润率典范 | 强分红策略</div>
+                </div>
+                <div class="company-badge">
+                    <span class="badge badge-blue">空调NO.1</span>
+                    <span class="badge badge-green">ROE最高</span>
+                    <span class="badge badge-yellow">净利率最高</span>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">核心财务数据</div>
+                    <table>
+                        <tbody>
+                            <tr><td>营收</td><td class="blue-cell">1,892亿元（-7.26%）</td></tr>
+                            <tr><td>归母净利润</td><td class="highlight-cell">321.85亿元（+10.91%）</td></tr>
+                            <tr><td>扣非净利润</td><td>301亿元（+9.19%）</td></tr>
+                            <tr><td>净利率</td><td class="highlight-cell">17.11%</td></tr>
+                            <tr><td>毛利率</td><td>30.47%（消费电器34.91%）</td></tr>
+                            <tr><td>ROE（加权，估算）</td><td class="highlight-cell">约26~28%</td></tr>
+                            <tr><td>EPS（估算）</td><td>约3.79元/股</td></tr>
+                            <tr><td>全年分红/股</td><td class="highlight-cell">3.00元</td></tr>
+                            <tr><td>分红总额</td><td>167.55亿元</td></tr>
+                            <tr><td>货币资金</td><td>1,139亿元</td></tr>
+                            <tr><td>研发费用</td><td>69亿元（占营收3.65%）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">业务板块收入拆解</div>
+                    <div class="segment-bar">
+                        <div class="segment-row">
+                            <span class="segment-label">消费电器（空调为主）</span>
+                            <span class="segment-value">1,485.6亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-blue" style="width:78.5%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">工业制品（新能源零件）</span>
+                            <span class="segment-value">100亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-green" style="width:5.3%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">绿色能源</span>
+                            <span class="segment-value">71亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-orange" style="width:3.8%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">智能装备</span>
+                            <span class="segment-value">6.7亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-purple" style="width:0.4%"></div></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px; font-size:12px; color:#8b949e;">
+                        <strong style="color:#3fb950">增速最快板块：</strong>绿色能源+51%、智能装备+55%、工业制品+32%<br>
+                        <strong style="color:#f85149">空调外销Q4：</strong>+20%，内销Q4：+4.5%<br>
+                        <strong style="color:#58a6ff">全球分体空调零售量第一</strong>（欧睿国际数据）
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>战略定位：</strong>格力2024年营收同比下降7.26%，主因空调内销承压+竞争加剧，但通过产品高端化+费用压缩（销售费用-34%），净利润逆势+10.91%，净利率达17.11%创历史新高。工业制品（新能源汽车零部件）+绿色能源已成第二增长曲线。
+            </div>
+        </div>
+
+        <!-- 美的 -->
+        <div class="card">
+            <div class="company-header">
+                <div>
+                    <div class="company-name">美的集团（000333）</div>
+                    <div class="company-sub">白电龙头 | 全品类综合 | 全球化布局 | 2024年H股上市</div>
+                </div>
+                <div class="company-badge">
+                    <span class="badge badge-blue">营收第一</span>
+                    <span class="badge badge-green">净利最高</span>
+                    <span class="badge badge-yellow">分红最多</span>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">核心财务数据</div>
+                    <table>
+                        <tbody>
+                            <tr><td>营收</td><td class="highlight-cell">4,091亿元（+9.47%）</td></tr>
+                            <tr><td>归母净利润</td><td class="highlight-cell">385亿元（+14.29%）</td></tr>
+                            <tr><td>净利率</td><td>9.52%</td></tr>
+                            <tr><td>毛利率</td><td>26.42%</td></tr>
+                            <tr><td>ROE（摊薄）</td><td>约17.78%</td></tr>
+                            <tr><td>ROIC</td><td>15.39%</td></tr>
+                            <tr><td>EPS</td><td class="blue-cell">5.44元/股</td></tr>
+                            <tr><td>BPS 每股净资产</td><td>28.31元</td></tr>
+                            <tr><td>全年分红/股</td><td class="highlight-cell">3.50元</td></tr>
+                            <tr><td>分红总额</td><td class="highlight-cell">267亿元（含股回购271亿）</td></tr>
+                            <tr><td>分红率</td><td>69%</td></tr>
+                            <tr><td>研发费用</td><td>—</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">业务板块收入拆解（2024年）</div>
+                    <div class="segment-bar">
+                        <div class="segment-row">
+                            <span class="segment-label">智能家居（ToC）</span>
+                            <span class="segment-value">2,695亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-blue" style="width:65.9%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">商业及工业解决方案</span>
+                            <span class="segment-value">1,045亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-green" style="width:25.6%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">新能源与工业技术</span>
+                            <span class="segment-value">336亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-orange" style="width:8.2%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">智能建筑科技</span>
+                            <span class="segment-value">285亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-purple" style="width:7.0%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">机器人与自动化</span>
+                            <span class="segment-value">287亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-pink" style="width:7.0%"></div></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px; font-size:12px; color:#8b949e;">
+                        <strong style="color:#3fb950">地区拆分：</strong>国内2,381亿（+7.68%）/ 海外1,690亿（+12.01%）<br>
+                        <strong style="color:#58a6ff">海外占比约41.5%，持续提升</strong><br>
+                        <strong style="color:#d29922">新能源与工业技术：</strong>+20.6%，增速最快
+                    </div>
+                </div>
+            </div>
+            <div class="note">
+                <strong>战略定位：</strong>美的已从家电企业转型为"科技集团"，ToB业务占比33%。2024年H股香港上市，A+H双平台。COLMO/东芝高端品牌零售额增长超45%。全球化+工业技术为核心增长引擎。
+            </div>
+        </div>
+
+        <!-- 海尔 -->
+        <div class="card">
+            <div class="company-header">
+                <div>
+                    <div class="company-name">海尔智家（600690）</div>
+                    <div class="company-sub">冰洗龙头 | 多品牌全球 | 海外收入占比超52%</div>
+                </div>
+                <div class="company-badge">
+                    <span class="badge badge-blue">冰箱NO.1</span>
+                    <span class="badge badge-blue">洗衣机NO.1</span>
+                    <span class="badge badge-green">海外最强</span>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">核心财务数据</div>
+                    <table>
+                        <tbody>
+                            <tr><td>营收</td><td>2,860亿元（+4.29%）</td></tr>
+                            <tr><td>归母净利润</td><td>187亿元（+12.92%）</td></tr>
+                            <tr><td>扣非净利润</td><td>178亿元（+12.52%）</td></tr>
+                            <tr><td>净利率</td><td>6.55%</td></tr>
+                            <tr><td>毛利率</td><td>27.8%</td></tr>
+                            <tr><td>EPS</td><td class="blue-cell">2.02元/股</td></tr>
+                            <tr><td>全年分红</td><td>约90亿元（每10股9.65元）</td></tr>
+                            <tr><td>分红比例</td><td>48%</td></tr>
+                            <tr><td>研发费用</td><td>107亿元（+3.47%）</td></tr>
+                            <tr><td>财务费用</td><td>9.73亿元（+92%，海外收购影响）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="card-title" style="margin-bottom:12px">核心业务数据</div>
+                    <div class="segment-bar">
+                        <div class="segment-row">
+                            <span class="segment-label">冰箱</span>
+                            <span class="segment-value">832亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-blue" style="width:73%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">洗衣机</span>
+                            <span class="segment-value">630亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-green" style="width:55%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">空调（含楼宇）</span>
+                            <span class="segment-value">490亿</span>
+                            <div class="segment-track"><div class="segment-fill bar-orange" style="width:43%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">智慧楼宇</span>
+                            <span class="segment-value">100亿+</span>
+                            <div class="segment-track"><div class="segment-fill bar-purple" style="width:9%"></div></div>
+                        </div>
+                    </div>
+                    <div style="margin-top:12px; font-size:12px; color:#8b949e;">
+                        <strong style="color:#3fb950">海外收入：</strong>1,438亿元（+5.43%），占比52%<br>
+                        欧洲+12.4% / 南亚+21% / 东南亚+15% / 中东非+38%<br>
+                        <strong style="color:#58a6ff">卡萨帝Q4：</strong>增幅超30%
+                    </div>
+                </div>
+            </div>
+
+            <div class="note">
+                <strong>战略定位：</strong>海尔冰箱市占率47%，洗衣机市占率50.8%，均居全球第一。海外收入占比超52%为三巨头中最高。多品牌策略（海尔/卡萨帝/Leader/GE Appliances/Fisher&Paykel/Candy等）构筑全球竞争力。2024年印度业务收入首破10亿美元。
+            </div>
+        </div>
+
+        <!-- PE/PB估值区间对比 -->
+        <div class="card">
+            <div class="card-title">估值对比参考（2024年报发布时段，近5年区间）</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>公司</th>
+                        <th>当前PE（TTM）参考</th>
+                        <th>近5年PE区间</th>
+                        <th>当前PB参考</th>
+                        <th>近5年PB区间</th>
+                        <th>股息率参考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>美的集团</td>
+                        <td class="blue-cell">约14~16倍</td>
+                        <td>12~30倍</td>
+                        <td class="blue-cell">约2.5~3倍</td>
+                        <td>2.0~5.0倍</td>
+                        <td>~3.5~4%</td>
+                    </tr>
+                    <tr>
+                        <td>海尔智家</td>
+                        <td class="blue-cell">约14~16倍</td>
+                        <td>12~28倍</td>
+                        <td class="blue-cell">约2.5~3倍</td>
+                        <td>1.8~4.5倍</td>
+                        <td>~3~4%</td>
+                    </tr>
+                    <tr>
+                        <td>格力电器</td>
+                        <td class="highlight-cell">约8~10倍</td>
+                        <td>8~20倍</td>
+                        <td class="highlight-cell">约1.5~2倍</td>
+                        <td>1.2~4.0倍</td>
+                        <td class="highlight-cell">~6~7%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="note">注：PE/PB数据受股价波动影响较大，此处为2024年末至2025年Q1参考区间，不作为精确当前值。格力估值明显低于美的/海尔，主要系收入增速偏低、业务多元化预期低于美的所致，但其股息率最高，高分红价值明显。</div>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== B. 其他家电公司 ===== -->
+    <div class="section" id="sec-b">
+        <div class="section-header">
+            <div class="section-num">B</div>
+            <div>
+                <h2>其他主要家电上市公司 2024 年数据</h2>
+                <p>小米集团 / 海信家电 / 创维集团 / TCL科技 / 长虹美菱 / 老板电器 / 苏泊尔 / 九阳股份</p>
+            </div>
+        </div>
+
+        <!-- 综合对比表 -->
+        <div class="card">
+            <div class="card-title">家电上市公司综合数据对比（2024年）</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>公司</th>
+                        <th>营收（亿元）</th>
+                        <th>同比</th>
+                        <th>归母净利润（亿元）</th>
+                        <th>净利率</th>
+                        <th>ROE（估）</th>
+                        <th>主营业务</th>
+                        <th>市值规模</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="rank-badge rank-1">1</span> 美的集团</td>
+                        <td class="highlight-cell">4,091</td>
+                        <td class="highlight-cell">+9.47%</td>
+                        <td class="highlight-cell">385</td>
+                        <td>9.52%</td>
+                        <td>~17.8%</td>
+                        <td>白电全品类+ToB+机器人</td>
+                        <td>~4500~5000亿</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge rank-1" style="background:#e8c000">★</span> 小米集团</td>
+                        <td>3,659</td>
+                        <td class="highlight-cell">+35%</td>
+                        <td>236</td>
+                        <td>6.45%</td>
+                        <td>—</td>
+                        <td>手机+AIoT家电+汽车</td>
+                        <td>港股~6000亿港元</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge rank-2">2</span> 海尔智家</td>
+                        <td>2,860</td>
+                        <td>+4.29%</td>
+                        <td>187</td>
+                        <td>6.55%</td>
+                        <td>~17~18%</td>
+                        <td>冰洗+空调+厨电（全球）</td>
+                        <td>~2000~2500亿</td>
+                    </tr>
+                    <tr>
+                        <td><span class="rank-badge rank-3">3</span> 格力电器</td>
+                        <td>1,892</td>
+                        <td class="red-cell">-7.26%</td>
+                        <td>322</td>
+                        <td class="highlight-cell">17.11%</td>
+                        <td class="highlight-cell">~26~28%</td>
+                        <td>空调为主+工业制品+绿色能源</td>
+                        <td>~2000~2500亿</td>
+                    </tr>
+                    <tr>
+                        <td>TCL科技</td>
+                        <td>1,648</td>
+                        <td class="red-cell">-5.47%</td>
+                        <td>15.6</td>
+                        <td class="red-cell">0.95%</td>
+                        <td>低</td>
+                        <td>彩电+面板（TCL华星）+白电</td>
+                        <td>~600~800亿</td>
+                    </tr>
+                    <tr>
+                        <td>海信家电</td>
+                        <td>927</td>
+                        <td>+8.35%</td>
+                        <td>33.5</td>
+                        <td>3.61%</td>
+                        <td class="highlight-cell">23.27%</td>
+                        <td>暖通空调+冰洗+汽车热管理</td>
+                        <td>~400~500亿</td>
+                    </tr>
+                    <tr>
+                        <td>长虹美菱</td>
+                        <td>286</td>
+                        <td class="highlight-cell">+17.32%</td>
+                        <td>7.0</td>
+                        <td>2.44%</td>
+                        <td>—</td>
+                        <td>空调+冰箱（国内+海外）</td>
+                        <td>~100~150亿</td>
+                    </tr>
+                    <tr>
+                        <td>创维集团</td>
+                        <td>650</td>
+                        <td class="red-cell">-5.8%</td>
+                        <td>5.68</td>
+                        <td class="red-cell">0.87%</td>
+                        <td>低</td>
+                        <td>智能家电+智能系统技术+新能源</td>
+                        <td>港股~100亿港元</td>
+                    </tr>
+                    <tr>
+                        <td>苏泊尔</td>
+                        <td>224</td>
+                        <td>+5.27%</td>
+                        <td>22.4</td>
+                        <td>10.0%</td>
+                        <td>高（SEB持股）</td>
+                        <td>炊具+厨房小家电（含出口）</td>
+                        <td>~200~300亿</td>
+                    </tr>
+                    <tr>
+                        <td>老板电器</td>
+                        <td>112</td>
+                        <td>+0.1%</td>
+                        <td>15.8</td>
+                        <td>13.87%</td>
+                        <td>14.44%</td>
+                        <td>油烟机+燃气灶+集成厨电</td>
+                        <td>~200亿</td>
+                    </tr>
+                    <tr>
+                        <td>九阳股份</td>
+                        <td>88.5</td>
+                        <td class="red-cell">-7.94%</td>
+                        <td>1.06</td>
+                        <td class="red-cell">1.20%</td>
+                        <td>极低</td>
+                        <td>豆浆机+料理机+养生壶等小家电</td>
+                        <td>~80亿</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="warning">注：小米集团为港股，家电/AIoT业务为集团整体一部分。市值数据为报告参考区间，实时波动较大。TCL科技受半导体显示业务周期影响，净利率偏低。九阳股份2024年利润大幅下滑为"18年来最差"年报。</div>
+        </div>
+
+        <!-- 海信家电详细 -->
+        <div class="card">
+            <div class="card-title">海信家电（000921）业务拆解</div>
+            <div class="grid-2">
+                <div>
+                    <table>
+                        <tbody>
+                            <tr><td>营收</td><td class="highlight-cell">927亿元（+8.35%）</td></tr>
+                            <tr><td>归母净利润</td><td>33.5亿元（+17.99%）</td></tr>
+                            <tr><td>净利率</td><td>3.61%</td></tr>
+                            <tr><td>ROE</td><td class="highlight-cell">23.27%（高于美的/海尔）</td></tr>
+                            <tr><td>每股分红</td><td>1.23元（每10股12.3元）</td></tr>
+                            <tr><td>境内收入</td><td>480亿（51.75%）</td></tr>
+                            <tr><td>境外收入</td><td>356亿（38.42%）</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <div class="segment-bar">
+                        <div class="segment-row">
+                            <span class="segment-label">暖通空调</span>
+                            <span class="segment-value">403亿 43%</span>
+                            <div class="segment-track"><div class="segment-fill bar-blue" style="width:43.4%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">冰洗</span>
+                            <span class="segment-value">308亿 33%</span>
+                            <div class="segment-track"><div class="segment-fill bar-green" style="width:33.2%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">其他（厨电等）</span>
+                            <span class="segment-value">125亿 13%</span>
+                            <div class="segment-track"><div class="segment-fill bar-orange" style="width:13.5%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">其他业务</span>
+                            <span class="segment-value">91亿 10%</span>
+                            <div class="segment-track"><div class="segment-fill bar-purple" style="width:9.8%"></div></div>
+                        </div>
+                    </div>
+                    <div style="font-size:12px;color:#3fb950;margin-top:8px">璀璨高端套系营收同比+52%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 厨电/小家电公司对比 -->
+        <div class="card">
+            <div class="card-title">厨电与小家电核心公司横向对比</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>公司</th>
+                        <th>营收（亿）</th>
+                        <th>净利润（亿）</th>
+                        <th>净利率</th>
+                        <th>ROE</th>
+                        <th>PE（参考）</th>
+                        <th>核心产品</th>
+                        <th>竞争优势</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>老板电器</td>
+                        <td>112</td>
+                        <td>15.8</td>
+                        <td class="highlight-cell">13.87%</td>
+                        <td>14.44%</td>
+                        <td>约13倍</td>
+                        <td>油烟机、燃气灶</td>
+                        <td>品牌溢价强，高端厨电定位</td>
+                    </tr>
+                    <tr>
+                        <td>苏泊尔</td>
+                        <td>224</td>
+                        <td>22.4</td>
+                        <td>10.0%</td>
+                        <td>高</td>
+                        <td>约20~22倍</td>
+                        <td>炊具、小家电</td>
+                        <td>SEB集团背书，出口外销强</td>
+                    </tr>
+                    <tr>
+                        <td>九阳股份</td>
+                        <td>88.5</td>
+                        <td>1.06</td>
+                        <td class="red-cell">1.20%</td>
+                        <td>极低</td>
+                        <td>高（业绩差）</td>
+                        <td>豆浆机、料理机</td>
+                        <td>品类老化，竞争加剧</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== C. 行业格局 ===== -->
+    <div class="section" id="sec-c">
+        <div class="section-header">
+            <div class="section-num">C</div>
+            <div>
+                <h2>行业子赛道格局与市场集中度</h2>
+                <p>数据来源：奥维云网(AVC) / GfK中怡康 / 各公司年报 / 行业协会</p>
+            </div>
+        </div>
+
+        <!-- 市场规模概览 -->
+        <div class="card">
+            <div class="card-title">2024年中国家电各子品类市场规模（零售端）</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>品类</th>
+                        <th>赛道</th>
+                        <th>2024年零售额</th>
+                        <th>同比增速</th>
+                        <th>景气度</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>空调</td>
+                        <td><span class="badge badge-blue">白电</span></td>
+                        <td class="highlight-cell">2,071亿元</td>
+                        <td class="red-cell">-2.2%</td>
+                        <td><span class="badge badge-yellow">承压</span></td>
+                        <td>全年量降价升，仍为最大品类</td>
+                    </tr>
+                    <tr>
+                        <td>冰箱</td>
+                        <td><span class="badge badge-blue">白电</span></td>
+                        <td>约900亿</td>
+                        <td class="highlight-cell">正增长</td>
+                        <td><span class="badge badge-green">稳健</span></td>
+                        <td>海尔强势垄断，高端化驱动</td>
+                    </tr>
+                    <tr>
+                        <td>洗衣机</td>
+                        <td><span class="badge badge-blue">白电</span></td>
+                        <td>1,014亿元</td>
+                        <td class="highlight-cell">+7.6%</td>
+                        <td><span class="badge badge-green">稳健</span></td>
+                        <td>滚筒高端化+干衣机带动</td>
+                    </tr>
+                    <tr>
+                        <td>彩电</td>
+                        <td><span class="badge badge-yellow">黑电</span></td>
+                        <td>1,271亿元</td>
+                        <td class="highlight-cell">+15.7%</td>
+                        <td><span class="badge badge-green">量减价升</span></td>
+                        <td>量-1.8%，均价大幅提升</td>
+                    </tr>
+                    <tr>
+                        <td>厨房小家电</td>
+                        <td><span class="badge badge-yellow">小家电</span></td>
+                        <td>609亿元</td>
+                        <td class="red-cell">-0.8%</td>
+                        <td><span class="badge badge-red">承压</span></td>
+                        <td>消费降级影响明显，K型分化</td>
+                    </tr>
+                    <tr>
+                        <td>清洁电器</td>
+                        <td><span class="badge badge-yellow">小家电</span></td>
+                        <td>突破400亿</td>
+                        <td class="highlight-cell">+24.4%</td>
+                        <td><span class="badge badge-green">高增长</span></td>
+                        <td>扫地机+吸尘器+洗地机增速最快</td>
+                    </tr>
+                    <tr>
+                        <td>厨卫大电（烟灶洗）</td>
+                        <td><span class="badge badge-yellow">厨电</span></td>
+                        <td>约1,670亿（2023）</td>
+                        <td class="red-cell">承压</td>
+                        <td><span class="badge badge-red">地产拖累</span></td>
+                        <td>与地产周期高度相关</td>
+                    </tr>
+                    <tr>
+                        <td>水家电（净水/热水器）</td>
+                        <td><span class="badge badge-yellow">小家电</span></td>
+                        <td>—</td>
+                        <td class="highlight-cell">+16.3%</td>
+                        <td><span class="badge badge-green">高增长</span></td>
+                        <td>健康赋能，新消费驱动</td>
+                    </tr>
+                    <tr>
+                        <td><strong>全品类合计</strong></td>
+                        <td>—</td>
+                        <td class="highlight-cell"><strong>9,071亿元</strong></td>
+                        <td class="highlight-cell"><strong>+6.4%</strong></td>
+                        <td><span class="badge badge-green">创历史新高</span></td>
+                        <td>2024年以旧换新政策强力拉动</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 市场格局集中度 -->
+        <div class="card">
+            <div class="card-title">各子赛道市场集中度（CR3）</div>
+            <div class="grid-2">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>品类</th>
+                            <th>CR3估算</th>
+                            <th>集中度特征</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>空调</td>
+                            <td class="highlight-cell">>70%</td>
+                            <td>格力31.2% + 美的29.8% = 双寡头</td>
+                        </tr>
+                        <tr>
+                            <td>冰箱</td>
+                            <td class="highlight-cell">>70%</td>
+                            <td>海尔47%，强势垄断</td>
+                        </tr>
+                        <tr>
+                            <td>洗衣机</td>
+                            <td class="highlight-cell">>70%</td>
+                            <td>海尔50.8% + 美的28.2% = 双寡头</td>
+                        </tr>
+                        <tr>
+                            <td>洗碗机</td>
+                            <td>中等</td>
+                            <td>美的/方太/老板/西门子竞争</td>
+                        </tr>
+                        <tr>
+                            <td>油烟机</td>
+                            <td>~55%</td>
+                            <td>方太/老板/海尔三分天下</td>
+                        </tr>
+                        <tr>
+                            <td>彩电</td>
+                            <td>~60%</td>
+                            <td>海信/TCL/创维+小米竞争</td>
+                        </tr>
+                        <tr>
+                            <td>清洁电器</td>
+                            <td>~50%</td>
+                            <td>科沃斯/石头/美的+外资竞争</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <div style="padding:16px 0">
+                        <div style="font-size:13px;color:#f0f6fc;font-weight:600;margin-bottom:12px">2024年增速排名（零售额）</div>
+                        <div class="segment-row">
+                            <span class="segment-label">清洁电器</span>
+                            <span class="segment-value" style="color:#3fb950">+24.4%</span>
+                            <div class="segment-track"><div class="segment-fill bar-green" style="width:95%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">水家电</span>
+                            <span class="segment-value" style="color:#3fb950">+16.3%</span>
+                            <div class="segment-track"><div class="segment-fill bar-teal" style="width:63%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">彩电</span>
+                            <span class="segment-value" style="color:#3fb950">+15.7%</span>
+                            <div class="segment-track"><div class="segment-fill bar-purple" style="width:61%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">洗衣机</span>
+                            <span class="segment-value" style="color:#3fb950">+7.6%</span>
+                            <div class="segment-track"><div class="segment-fill bar-blue" style="width:30%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">冰箱</span>
+                            <span class="segment-value" style="color:#3fb950">正增长</span>
+                            <div class="segment-track"><div class="segment-fill bar-orange" style="width:20%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">厨房小家电</span>
+                            <span class="segment-value" style="color:#f85149">-0.8%</span>
+                            <div class="segment-track"><div class="segment-fill bar-pink" style="width:5%"></div></div>
+                        </div>
+                        <div class="segment-row">
+                            <span class="segment-label">空调</span>
+                            <span class="segment-value" style="color:#f85149">-2.2%</span>
+                            <div class="segment-track"><div class="segment-fill bar-pink" style="width:3%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 行业洞察 -->
+        <div class="summary-banner">
+            <h4>行业关键洞察</h4>
+            <p>
+                <strong style="color:#3fb950">增速最快赛道：</strong>清洁电器(+24.4%)、水家电(+16.3%)，受益健康消费升级，科沃斯/石头科技/追觅等新品牌快速崛起。<br><br>
+                <strong style="color:#f85149">最大压力赛道：</strong>厨卫大电（油烟机/燃气灶）与地产周期深度绑定，地产下行拖累持续；厨房小家电消费降级影响明显。<br><br>
+                <strong style="color:#d29922">白电核心趋势：</strong>整体景气度好于黑电/厨电，海外出口链在欧美补库+新兴市场双轮驱动下延续高景气；以旧换新政策对冰洗空调拉动效果显著。<br><br>
+                <strong style="color:#58a6ff">2024H1子行业增速（利润端）排名：</strong>白电(+14.8%) > 小家电(+6.1%) > 厨卫电器(-23.3%) > 黑电(-49.3%)
+            </p>
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ===== D. 估值水平 ===== -->
+    <div class="section" id="sec-d">
+        <div class="section-header">
+            <div class="section-num">D</div>
+            <div>
+                <h2>A 股家电板块估值水平</h2>
+                <p>整体板块 PE/PB + 各子板块对比 + 近年估值区间</p>
+            </div>
+        </div>
+
+        <!-- 整体估值 -->
+        <div class="grid-3">
+            <div class="metric-card">
+                <div class="metric-label">家电板块整体PE（2024年末）</div>
+                <div class="metric-value">~16倍</div>
+                <div class="metric-sub">近十年PE中位数 19.25x</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">2024年8月低点PE</div>
+                <div class="metric-value">12~13倍</div>
+                <div class="metric-sub">近十年底部分位</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">当前分位数</div>
+                <div class="metric-value">后31%</div>
+                <div class="metric-sub">存在上行空间（2025年1月数据）</div>
+            </div>
+        </div>
+
+        <!-- 子板块估值对比 -->
+        <div class="card" style="margin-top:20px">
+            <div class="card-title">A股家电各子板块估值对比（2024年）</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>子板块</th>
+                        <th>代表公司</th>
+                        <th>PE（TTM）参考</th>
+                        <th>近5年PE区间</th>
+                        <th>PB参考</th>
+                        <th>业绩趋势</th>
+                        <th>估值评价</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>白电</strong></td>
+                        <td>美的/海尔/格力</td>
+                        <td class="blue-cell">13~16倍</td>
+                        <td>10~30倍</td>
+                        <td>1.8~3倍</td>
+                        <td class="highlight-cell">利润+10~15%</td>
+                        <td><span class="badge badge-green">合理偏低</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>厨电</strong></td>
+                        <td>老板/方太/华帝</td>
+                        <td class="blue-cell">10~14倍</td>
+                        <td>10~35倍</td>
+                        <td>1.5~2.5倍</td>
+                        <td class="red-cell">地产承压，利润-</td>
+                        <td><span class="badge badge-yellow">估值低位但基本面弱</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>小家电</strong></td>
+                        <td>苏泊尔/科沃斯</td>
+                        <td class="blue-cell">18~25倍</td>
+                        <td>15~50倍</td>
+                        <td>3~5倍</td>
+                        <td>分化明显</td>
+                        <td><span class="badge badge-blue">清洁电器享溢价</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>黑电</strong></td>
+                        <td>TCL科技/海信视像</td>
+                        <td class="red-cell">估值紊乱</td>
+                        <td>8~25倍</td>
+                        <td>0.8~1.5倍</td>
+                        <td class="red-cell">利润大幅下滑</td>
+                        <td><span class="badge badge-red">估值陷阱风险</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 格力/美的/海尔估值历史区间 -->
+        <div class="card">
+            <div class="card-title">白电三巨头历史PE区间可视化（2020~2024年）</div>
+            <div style="padding: 10px 0;">
+                <div style="font-size:12px;color:#8b949e;margin-bottom:16px">横轴为PE倍数（0~30倍），竖线为估值当前位置参考</div>
+
+                <div class="valuation-band">
+                    <div class="val-company">美的集团</div>
+                    <div class="val-bar-wrap">
+                        <div class="val-bar bar-blue" style="left:40%;width:55%"></div>
+                        <div class="val-current" style="left:50%"></div>
+                    </div>
+                    <div class="val-label">历史区间: 12~30x<br>当前约15x</div>
+                </div>
+                <div class="valuation-band">
+                    <div class="val-company">海尔智家</div>
+                    <div class="val-bar-wrap">
+                        <div class="val-bar bar-green" style="left:37%;width:54%"></div>
+                        <div class="val-current" style="left:50%"></div>
+                    </div>
+                    <div class="val-label">历史区间: 12~28x<br>当前约15x</div>
+                </div>
+                <div class="valuation-band">
+                    <div class="val-company">格力电器</div>
+                    <div class="val-bar-wrap">
+                        <div class="val-bar bar-orange" style="left:25%;width:38%"></div>
+                        <div class="val-current" style="left:28%"></div>
+                    </div>
+                    <div class="val-label">历史区间: 8~20x<br>当前约8~10x</div>
+                </div>
+            </div>
+            <div class="note">
+                白电整体估值处于历史中低位置，受2021~2022年市场情绪消退影响，从高点回落后处于较低分位。格力因增速不及美的/海尔，长期享受较低估值溢价，但股息率最高（约6~7%），具备价值防御属性。
+            </div>
+        </div>
+
+        <!-- 关键结论 -->
+        <div class="insight-grid">
+            <div class="insight-item">
+                <div class="insight-icon">📊</div>
+                <div class="insight-text">
+                    <strong>白电最优子赛道</strong>
+                    估值合理、业绩稳健、股息率高，是家电板块内最具性价比的配置方向
+                </div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-icon">🏗️</div>
+                <div class="insight-text">
+                    <strong>厨电待地产复苏</strong>
+                    估值已处历史低位，但业绩修复需等待地产市场实质改善信号
+                </div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-icon">🧹</div>
+                <div class="insight-text">
+                    <strong>清洁电器高增赛道</strong>
+                    科沃斯/石头享受成长溢价，但竞争加剧+出海挑战需持续关注
+                </div>
+            </div>
+            <div class="insight-item">
+                <div class="insight-icon">📺</div>
+                <div class="insight-text">
+                    <strong>黑电谨慎对待</strong>
+                    面板价格周期波动大，彩电品牌利润薄，需精选个股而非板块配置
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 数据说明 -->
+    <div class="card" style="margin: 40px 0;">
+        <div class="card-title">数据说明与免责声明</div>
+        <div style="font-size:13px;color:#8b949e;line-height:1.8">
+            <p>1. 本报告数据来源：各公司2024年年度报告、年度报告摘要及相关财经媒体报道（东方财富、新浪财经、搜狐财经等）。</p>
+            <p>2. ROE、PE、PB等部分指标为基于公开信息的估算值，实际数据以公司正式年报及证交所公告为准。</p>
+            <p>3. 市值数据存在动态变化，报告中市值均为参考区间，不代表精确当日市值。</p>
+            <p>4. 小米集团家电业务数据含AIoT全业务板块，与纯家电企业口径不完全可比。</p>
+            <p>5. 本报告不构成任何投资建议。</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <strong>中国家电行业全市场扫描报告 2024</strong> | 数据截止：2024年12月31日年报期 | 报告生成：2025年4月<br>
+    数据来源：各公司年度报告 / 奥维云网(AVC) / GfK中怡康 / 公开财经媒体 / 行业分析报告
+</footer>
+
+<!-- 悬浮返回主页 -->
+<a href="index.html" title="返回主页" style="position:fixed;bottom:28px;right:24px;z-index:9999;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;box-shadow:0 4px 20px rgba(59,130,246,0.4);transition:transform .2s,box-shadow .2s;" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(59,130,246,0.65)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(59,130,246,0.4)'">🏠</a>
+</body>
+</html>
