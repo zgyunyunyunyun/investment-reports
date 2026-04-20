@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>药明康德深度投资分析与交易策略 2025</title>
+<style>
+:root {
+  --bg: #0a0f1e;
+  --card: #0f1629;
+  --card2: #151e38;
+  --text: #f0f6ff;
+  --text-secondary: #8ba3c7;
+  --accent: #22c55e;
+  --accent-light: #4ade80;
+  --accent-gold: #f59e0b;
+  --accent-blue: #3b82f6;
+  --accent-red: #ef4444;
+  --accent-purple: #a855f7;
+  --border: #1a2540;
+  --border2: #243055;
+  --shadow-green: 0 0 24px rgba(34,197,94,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.7;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(10,15,30,0.96);border-bottom:1px solid var(--border2);backdrop-filter:blur(12px);padding:0 24px;}
+.nav-inner{display:flex;align-items:center;max-width:1200px;margin:0 auto;height:52px;overflow:hidden;}
+.nav-brand{font-size:14px;font-weight:700;color:var(--accent-light);white-space:nowrap;margin-right:20px;}
+.nav-links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.nav-links::-webkit-scrollbar{display:none;}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:12px;padding:4px 10px;border-radius:6px;white-space:nowrap;transition:all .2s;}
+.nav-links a:hover{color:var(--accent-light);background:rgba(34,197,94,0.1);}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0a0f1e 0%,#0d1830 40%,#0f2040 70%,#0a0f1e 100%);padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(34,197,94,0.08) 0%,transparent 70%);pointer-events:none;}
+.hero-label{display:inline-block;background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.4);color:var(--accent-light);font-size:12px;padding:5px 16px;border-radius:20px;letter-spacing:2px;margin-bottom:20px;}
+.hero-title{font-size:48px;font-weight:900;background:linear-gradient(135deg,#f0f6ff,#4ade80,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:3px;margin-bottom:10px;}
+.hero-subtitle{font-size:17px;color:var(--text-secondary);margin-bottom:14px;}
+.hero-sub2{font-size:13px;color:var(--accent-light);opacity:.7;margin-bottom:44px;}
+.hero-kpis{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto;}
+.kpi-card{background:rgba(15,22,41,0.85);border:1px solid var(--border2);border-radius:14px;padding:18px 22px;min-width:130px;transition:transform .2s,box-shadow .2s;}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-green);}
+.kpi-num{font-size:24px;font-weight:800;margin-bottom:5px;}
+.kpi-label{font-size:11px;color:var(--text-secondary);}
+
+/* CONTAINER */
+.container{max-width:1200px;margin:0 auto;padding:0 24px 60px;}
+section{padding:60px 0 40px;}
+.section-header{margin-bottom:36px;}
+.chapter-tag{display:inline-block;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:var(--accent-light);font-size:11px;padding:3px 12px;border-radius:12px;letter-spacing:2px;margin-bottom:14px;}
+.section-title{font-size:28px;font-weight:800;color:var(--text);margin-bottom:10px;line-height:1.3;}
+.section-title span{color:var(--accent-light);}
+.section-desc{font-size:15px;color:var(--text-secondary);max-width:760px;line-height:1.8;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
+.card2{background:var(--card2);border:1px solid var(--border2);border-radius:12px;padding:20px;margin-bottom:14px;}
+.card-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:var(--accent);}
+.dot-gold{background:var(--accent-gold);}
+.dot-red{background:var(--accent-red);}
+.dot-blue{background:var(--accent-blue);}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+
+/* TABLE */
+.table-wrap{overflow-x:auto;border-radius:12px;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th{background:rgba(34,197,94,0.12);color:var(--accent-light);padding:12px 14px;text-align:left;font-weight:600;white-space:nowrap;}
+td{padding:10px 14px;color:var(--text-secondary);border-bottom:1px solid var(--border);vertical-align:top;}
+td:first-child{color:var(--text);font-weight:600;}
+tr:last-child td{border-bottom:none;}
+
+/* HIGHLIGHT */
+.hl-green{color:var(--accent-light);font-weight:700;}
+.hl-gold{color:var(--accent-gold);font-weight:700;}
+.hl-red{color:var(--accent-red);font-weight:700;}
+.hl-blue{color:var(--accent-blue);font-weight:700;}
+
+/* INSIGHT */
+.insight{background:linear-gradient(135deg,rgba(34,197,94,0.07),rgba(59,130,246,0.07));border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:20px;margin:16px 0;}
+.insight-title{font-size:12px;font-weight:700;color:var(--accent-light);margin-bottom:8px;letter-spacing:1px;}
+.insight p{font-size:14px;color:var(--text-secondary);line-height:1.8;}
+
+/* RISK BOX */
+.risk-box{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.25);border-radius:12px;padding:20px;margin:14px 0;}
+.risk-title{font-size:12px;font-weight:700;color:var(--accent-red);margin-bottom:8px;letter-spacing:1px;}
+
+/* QUOTE */
+.quote{border-left:3px solid var(--accent);padding:14px 18px;background:rgba(34,197,94,0.05);border-radius:0 10px 10px 0;margin:18px 0;}
+.quote p{font-size:14px;color:var(--text-secondary);line-height:1.8;font-style:italic;}
+.quote cite{font-size:12px;color:var(--accent-light);font-style:normal;margin-top:6px;display:block;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:28px;}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent-blue));}
+.tl-item{position:relative;margin-bottom:20px;}
+.tl-dot{position:absolute;left:-24px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
+.tl-dot.gold{background:var(--accent-gold);}
+.tl-dot.red{background:var(--accent-red);}
+.tl-dot.blue{background:var(--accent-blue);}
+.tl-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.tl-desc{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+/* METRIC BAR */
+.metric-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);}
+.metric-row:last-child{border-bottom:none;}
+.metric-name{font-size:14px;color:var(--text);min-width:140px;}
+.metric-bar-wrap{flex:1;margin:0 14px;height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;}
+.metric-bar{height:100%;border-radius:3px;}
+.metric-val{font-size:13px;font-weight:700;white-space:nowrap;min-width:60px;text-align:right;}
+
+/* SCENARIO */
+.scenario-card{border-radius:12px;padding:20px;margin-bottom:12px;}
+.sc-bull{background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);}
+.sc-base{background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.3);}
+.sc-bear{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);}
+.sc-title{font-size:15px;font-weight:700;margin-bottom:8px;}
+
+/* SCORE CARD */
+.score-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);}
+.score-item:last-child{border-bottom:none;}
+.score-label{font-size:14px;color:var(--text);flex:1;}
+.score-stars{font-size:16px;letter-spacing:2px;}
+.score-note{font-size:12px;color:var(--text-secondary);flex:2;}
+
+@media(max-width:768px){
+  .hero-title{font-size:32px;}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .container{padding:0 14px 40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">💊 药明康德深度研究</span>
+    <div class="nav-links">
+      <a href="#ch1">一·公司概览</a>
+      <a href="#ch2">二·财务解析</a>
+      <a href="#ch3">三·护城河</a>
+      <a href="#ch4">四·TIDES爆发</a>
+      <a href="#ch5">五·风险全景</a>
+      <a href="#ch6">六·估值分析</a>
+      <a href="#ch7">七·竞争格局</a>
+      <a href="#ch8">八·投资策略</a>
+      <a href="#ch9">九·大师视角</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">💊 深度投资研究 · 2025</div>
+  <div class="hero-title">药明康德</div>
+  <div class="hero-subtitle">全球CRDMO龙头 · TIDES爆发引擎 · BIOSECURE风险评估</div>
+  <div class="hero-sub2">603259.SH / 02359.HK · 数据截至2025年Q1</div>
+  <div class="hero-kpis">
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#4ade80;">96.55亿</div>
+      <div class="kpi-label">2025Q1营收</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#f59e0b;">+82.5%</div>
+      <div class="kpi-label">Q1净利润增速</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#4ade80;">523亿</div>
+      <div class="kpi-label">在手订单</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#3b82f6;">15.5×</div>
+      <div class="kpi-label">PE（历史11%分位）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#f59e0b;">+187%</div>
+      <div class="kpi-label">TIDES Q1增速</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-num" style="color:#a855f7;">14.3%</div>
+      <div class="kpi-label">全球CDMO市占率#1</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════════════════════ 第一章：公司概览 ═══════════════════════ -->
+<section id="ch1">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 01</div>
+    <div class="section-title">公司概览——<span>全球CRDMO一体化领导者</span></div>
+    <div class="section-desc">药明康德是全球最大的CRDMO（合同研究、开发和制造组织），为全球制药、生物技术和医疗器械公司提供从药物发现到商业化生产的全链条服务。</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>CRDMO商业模式解析</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:16px;">药明康德的核心是"<span class="hl-green">长尾效应</span>"模式——服务客户从Early Discovery阶段开始，通过持续服务逐步转化为Commercial Supply大客户。这种模式创造极强的客户黏性：</p>
+      <div class="grid-2" style="gap:10px;">
+        <div class="card2" style="padding:14px;">
+          <div style="font-size:13px;color:var(--accent-light);font-weight:700;margin-bottom:6px;">C端：药物研究</div>
+          <p style="font-size:12px;color:var(--text-secondary);">靶点验证→先导物发现→候选药筛选</p>
+        </div>
+        <div class="card2" style="padding:14px;">
+          <div style="font-size:13px;color:var(--accent-light);font-weight:700;margin-bottom:6px;">R端：安全评估</div>
+          <p style="font-size:12px;color:var(--text-secondary);">毒理→PK/PD→IND申报支持</p>
+        </div>
+        <div class="card2" style="padding:14px;">
+          <div style="font-size:13px;color:var(--accent-blue);font-weight:700;margin-bottom:6px;">D端：工艺开发</div>
+          <p style="font-size:12px;color:var(--text-secondary);">化学/生物工艺开发→放大→验证</p>
+        </div>
+        <div class="card2" style="padding:14px;">
+          <div style="font-size:13px;color:var(--accent-gold);font-weight:700;margin-bottom:6px;">M端：商业化生产</div>
+          <p style="font-size:12px;color:var(--text-secondary);">GMP生产→全球供应→商业化</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>全球布局与规模</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">全球30+研发/生产基地</div>
+          <div class="tl-desc">中国（上海/无锡/天津/苏州/武汉/成都）、美国（新泽西/明尼苏达）、欧洲（德国/英国）布局完整。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">服务全球5800+客户</div>
+          <div class="tl-desc">包括辉瑞、礼来、诺华、强生等全球TOP20药企中的18家，以及数百家Biotech公司。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-title">超60000名员工</div>
+          <div class="tl-desc">其中研发人员占比超60%，中国工程师红利是核心竞争力之一（同等能力成本约为美国的1/3~1/5）。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">服务药物覆盖全球市场</div>
+          <div class="tl-desc">据估算，全球临床阶段约有25%+的小分子药物曾使用过药明服务，商业化阶段占比约14.3%（全球第一）。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-blue"></span>业务板块结构（2024年全年）</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>业务板块</th><th>2024年收入</th><th>收入占比</th><th>同比增速（剔除特殊项目）</th><th>核心驱动</th></tr>
+        <tr><td>化学业务（WuXi Chemistry）</td><td>290.5亿元</td><td>74.0%</td><td><span class="hl-green">+11.2%</span></td><td>TIDES多肽爆发、小分子CDMO持续增长</td></tr>
+        <tr><td>  ↳ 其中 TIDES业务</td><td>58.0亿元</td><td>14.8%</td><td><span class="hl-green">+70.1%</span></td><td>GLP-1减肥药/多肽API超级需求周期</td></tr>
+        <tr><td>测试业务（WuXi Testing）</td><td>56.7亿元</td><td>14.5%</td><td><span class="hl-red">-4.8%</span></td><td>ATU（先进疗法CDMO）已剥离，影响基数</td></tr>
+        <tr><td>生物学业务（WuXi Biology）</td><td>25.4亿元</td><td>6.5%</td><td>+0.5%</td><td>稳定，受制于Biotech融资环境</td></tr>
+        <tr><td>国内新药研发（DDSU）</td><td>14.2亿元</td><td>3.6%</td><td>-12.3%</td><td>中国创新药投融资放缓影响</td></tr>
+        <tr><td>ATU（细胞基因疗法）</td><td>5.6亿元</td><td>1.4%</td><td>已战略剥离</td><td>战略聚焦，剥离出售</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第二章：财务深度解析 ═══════════════════════ -->
+<section id="ch2">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 02</div>
+    <div class="section-title">财务深度解析——<span>业绩触底反弹，Q1爆发印证逻辑</span></div>
+    <div class="section-desc">2024年全年受BIOSECURE压力影响业绩承压，但2025年Q1数据显示公司进入新的上行周期——净利润同比增长82.5%，TIDES业务收入增长187.6%。</div>
+  </div>
+
+  <!-- SVG图表1：营收&净利润趋势图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>营业收入 & 归母净利润趋势（2021-2025Q1，亿元）</div>
+    <svg viewBox="0 0 800 360" width="100%" style="display:block;">
+      <defs>
+        <marker id="arrowG" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#4ade80"/></marker>
+        <marker id="arrowGold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="#f59e0b"/></marker>
+      </defs>
+      <rect width="800" height="360" fill="#0f1629" rx="12"/>
+      <!-- 网格线 -->
+      <line x1="80" y1="40" x2="80" y2="290" stroke="#1a2540" stroke-width="1.5"/>
+      <line x1="80" y1="290" x2="760" y2="290" stroke="#1a2540" stroke-width="1.5"/>
+      <line x1="80" y1="220" x2="760" y2="220" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="80" y1="160" x2="760" y2="160" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="80" y1="100" x2="760" y2="100" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <!-- Y轴标签 -->
+      <text x="65" y="294" text-anchor="end" fill="#5c7299" font-size="11">0</text>
+      <text x="65" y="224" text-anchor="end" fill="#5c7299" font-size="11">150</text>
+      <text x="65" y="164" text-anchor="end" fill="#5c7299" font-size="11">300</text>
+      <text x="65" y="104" text-anchor="end" fill="#5c7299" font-size="11">450</text>
+      <!-- X轴标签 -->
+      <text x="158" y="312" text-anchor="middle" fill="#5c7299" font-size="11">2021</text>
+      <text x="278" y="312" text-anchor="middle" fill="#5c7299" font-size="11">2022</text>
+      <text x="398" y="312" text-anchor="middle" fill="#5c7299" font-size="11">2023</text>
+      <text x="518" y="312" text-anchor="middle" fill="#5c7299" font-size="11">2024</text>
+      <text x="638" y="312" text-anchor="middle" fill="#5c7299" font-size="11">2025Q1×4</text>
+      <!-- 营收柱状 (按比例: max=500, 290px高度=450亿) -->
+      <!-- 2021: 229亿 → 229/450*290=147.5px, y=290-147=143 -->
+      <rect x="120" y="143" width="50" height="147" fill="rgba(34,197,94,0.25)" rx="4"/>
+      <!-- 2022: 393.5亿 → 393.5/450*290=253.7, y=290-254=36 -->
+      <rect x="240" y="36" width="50" height="254" fill="rgba(34,197,94,0.35)" rx="4"/>
+      <!-- 2023: 403.1亿 → 403.1/450*290=259.9, y=290-260=30 -->
+      <rect x="360" y="30" width="50" height="260" fill="rgba(34,197,94,0.35)" rx="4"/>
+      <!-- 2024: 392.4亿 → 392.4/450*290=253, y=290-253=37 -->
+      <rect x="480" y="37" width="50" height="253" fill="rgba(34,197,94,0.3)" rx="4"/>
+      <!-- 2025Q1×4: 96.55×4=386.2, y=290-249=41 -->
+      <rect x="600" y="41" width="50" height="249" fill="rgba(34,197,94,0.5)" rx="4" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <!-- 净利润折线: 2021=50.6, 2022=88.1, 2023=96.1, 2024=94.5, 2025Q1×4=143.1 -->
+      <!-- 折算: max=160亿, 160亿=250px -->
+      <!-- 2021: 50.6/160*250=79, y=290-79=211; x=145 -->
+      <!-- 2022: 88.1/160*250=137.7, y=290-138=152; x=265 -->
+      <!-- 2023: 96.1/160*250=150.2, y=290-150=140; x=385 -->
+      <!-- 2024: 94.5/160*250=147.7, y=290-148=142; x=505 -->
+      <!-- 2025Q1×4: 143.1/160*250=223.6, y=290-224=66; x=625 -->
+      <polyline points="145,211 265,152 385,140 505,142 625,66"
+        fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="145" cy="211" r="5" fill="#f59e0b"/>
+      <circle cx="265" cy="152" r="5" fill="#f59e0b"/>
+      <circle cx="385" cy="140" r="5" fill="#f59e0b"/>
+      <circle cx="505" cy="142" r="5" fill="#f59e0b"/>
+      <circle cx="625" cy="66" r="6" fill="#f59e0b" stroke="#fff" stroke-width="2"/>
+      <!-- 数据标签 -->
+      <text x="145" y="131" text-anchor="middle" fill="#4ade80" font-size="11">229</text>
+      <text x="265" y="26" text-anchor="middle" fill="#4ade80" font-size="11">393</text>
+      <text x="385" y="20" text-anchor="middle" fill="#4ade80" font-size="11">403</text>
+      <text x="505" y="27" text-anchor="middle" fill="#4ade80" font-size="11">392</text>
+      <text x="625" y="31" text-anchor="middle" fill="#4ade80" font-size="11">386*</text>
+      <!-- 净利润数据标签 -->
+      <text x="145" y="205" text-anchor="middle" fill="#f59e0b" font-size="10">50.6</text>
+      <text x="265" y="146" text-anchor="middle" fill="#f59e0b" font-size="10">88.1</text>
+      <text x="385" y="134" text-anchor="middle" fill="#f59e0b" font-size="10">96.1</text>
+      <text x="505" y="136" text-anchor="middle" fill="#f59e0b" font-size="10">94.5</text>
+      <text x="640" y="60" text-anchor="start" fill="#f59e0b" font-size="10">143*</text>
+      <!-- 图例 -->
+      <rect x="200" y="336" width="14" height="10" fill="rgba(34,197,94,0.4)" rx="2"/>
+      <text x="220" y="345" fill="#8ba3c7" font-size="11">营业收入（亿元）</text>
+      <line x1="330" y1="341" x2="360" y2="341" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="345" cy="341" r="4" fill="#f59e0b"/>
+      <text x="368" y="345" fill="#8ba3c7" font-size="11">归母净利润（亿元）</text>
+      <text x="500" y="345" fill="#5c7299" font-size="10">*2025Q1数据×4年化估算</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>2025Q1业绩超预期亮点</div>
+      <div class="metric-row">
+        <span class="metric-name">营业收入</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:100%;background:var(--accent)"></div></div>
+        <span class="metric-val hl-green">96.55亿 +21%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">归母净利润</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:100%;background:var(--accent-gold)"></div></div>
+        <span class="metric-val hl-gold">35.78亿 +82.5%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">化学业务</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:88%;background:var(--accent)"></div></div>
+        <span class="metric-val hl-green">73.9亿 +32.9%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">TIDES业务</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:100%;background:#a855f7"></div></div>
+        <span class="metric-val" style="color:#a855f7;font-weight:700;">22.4亿 +187.6%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">美国客户收入</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:75%;background:var(--accent-blue)"></div></div>
+        <span class="metric-val hl-blue">63.8亿 +28.4%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-name">在手订单</span>
+        <div class="metric-bar-wrap"><div class="metric-bar" style="width:95%;background:var(--accent-gold)"></div></div>
+        <span class="metric-val hl-gold">523.3亿 +47.1%</span>
+      </div>
+      <div class="insight" style="margin-top:12px;">
+        <div class="insight-title">📌 关键解读</div>
+        <p>美国客户收入+28.4%，证明BIOSECURE法案落地并未导致客户大规模出走。这是2025年最重要的正面验证信号。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>盈利质量指标</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>指标</th><th>2022</th><th>2023</th><th>2024</th><th>2025Q1</th></tr>
+          <tr><td>毛利率</td><td>40.1%</td><td>38.9%</td><td>37.5%</td><td>~42%*</td></tr>
+          <tr><td>净利率</td><td>22.4%</td><td>23.8%</td><td>24.1%</td><td><span class="hl-green">37.1%*</span></td></tr>
+          <tr><td>ROE</td><td>23.5%</td><td>19.8%</td><td>17.2%</td><td>—</td></tr>
+          <tr><td>ROIC</td><td>18.1%</td><td>15.5%</td><td>14.3%</td><td>—</td></tr>
+          <tr><td>自由现金流</td><td>69.2亿</td><td>74.1亿</td><td><span class="hl-green">79.8亿</span></td><td>—</td></tr>
+          <tr><td>资产负债率</td><td>32.8%</td><td>35.1%</td><td>33.7%</td><td>—</td></tr>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--text-secondary);margin-top:8px;">*注：2025Q1净利率37.1%为含股权激励一次性收益，扣非后约为37%，也是历史高位。</p>
+      <div class="insight">
+        <div class="insight-title">💡 自由现金流的含义</div>
+        <p>连续3年自由现金流超过净利润，且2024年创历史新高79.8亿元，说明公司盈利质量极高——账面利润完全由真实现金支撑，没有应收账款虚增利润的问题。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG图表2：业务板块收入占比饼图 -->
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-blue"></span>2024年业务板块收入结构（TIDES专项高亮）</div>
+    <svg viewBox="0 0 800 300" width="100%" style="display:block;">
+      <rect width="800" height="300" fill="#0f1629" rx="12"/>
+      <!-- 饼图（近似） -->
+      <!-- 化学业务（不含TIDES）: 232.5/392=59.3% -->
+      <!-- TIDES: 58/392=14.8% -->
+      <!-- 测试: 56.7/392=14.5% -->
+      <!-- 生物学: 25.4/392=6.5% -->
+      <!-- 其他: 19.8/392=5% -->
+      <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(34,197,94,0.35)" stroke-width="50"
+        stroke-dasharray="186 314" stroke-dashoffset="0"/>
+      <!-- 化学非TIDES: 59.3% = 372度开始画，实际用stroke-dasharray -->
+      <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(34,197,94,0.2)" stroke-width="50"
+        stroke-dasharray="186" stroke-dashoffset="0"/>
+      <circle cx="200" cy="150" r="100" fill="none" stroke="#a855f7" stroke-width="50"
+        stroke-dasharray="46" stroke-dashoffset="-186"/>
+      <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(59,130,246,0.5)" stroke-width="50"
+        stroke-dasharray="46" stroke-dashoffset="-232"/>
+      <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(245,158,11,0.5)" stroke-width="50"
+        stroke-dasharray="20" stroke-dashoffset="-278"/>
+      <circle cx="200" cy="150" r="100" fill="none" stroke="rgba(239,68,68,0.4)" stroke-width="50"
+        stroke-dasharray="16" stroke-dashoffset="-298"/>
+      <!-- 内圈 -->
+      <circle cx="200" cy="150" r="65" fill="#0f1629"/>
+      <text x="200" y="145" text-anchor="middle" fill="#4ade80" font-size="14" font-weight="800">392亿</text>
+      <text x="200" y="162" text-anchor="middle" fill="#8ba3c7" font-size="11">2024年收入</text>
+
+      <!-- 图例 -->
+      <rect x="350" y="50" width="12" height="12" fill="rgba(34,197,94,0.4)" rx="2"/>
+      <text x="370" y="61" fill="#8ba3c7" font-size="13">化学业务（非TIDES）</text>
+      <text x="580" y="61" fill="#4ade80" font-size="13" font-weight="700">59.3% / 232.5亿</text>
+
+      <rect x="350" y="80" width="12" height="12" fill="#a855f7" rx="2"/>
+      <text x="370" y="91" fill="#8ba3c7" font-size="13">⭐ TIDES业务（重点）</text>
+      <text x="580" y="91" fill="#a855f7" font-size="13" font-weight="700">14.8% / 58亿 +70%</text>
+
+      <rect x="350" y="110" width="12" height="12" fill="rgba(59,130,246,0.5)" rx="2"/>
+      <text x="370" y="121" fill="#8ba3c7" font-size="13">测试业务</text>
+      <text x="580" y="121" fill="#3b82f6" font-size="13" font-weight="700">14.5% / 56.7亿</text>
+
+      <rect x="350" y="140" width="12" height="12" fill="rgba(245,158,11,0.5)" rx="2"/>
+      <text x="370" y="151" fill="#8ba3c7" font-size="13">生物学业务</text>
+      <text x="580" y="151" fill="#f59e0b" font-size="13" font-weight="700">6.5% / 25.4亿</text>
+
+      <rect x="350" y="170" width="12" height="12" fill="rgba(239,68,68,0.4)" rx="2"/>
+      <text x="370" y="181" fill="#8ba3c7" font-size="13">其他（DDSU等）</text>
+      <text x="580" y="181" fill="#ef4444" font-size="13" font-weight="700">4.8% / 19.8亿</text>
+
+      <rect x="350" y="220" width="360" height="50" fill="rgba(168,85,247,0.08)" rx="6" stroke="rgba(168,85,247,0.3)"/>
+      <text x="370" y="240" fill="#a855f7" font-size="12" font-weight="700">⚡ TIDES占比：2024年14.8% → 2025Q1已达23.2%（22.4/96.55）</text>
+      <text x="370" y="257" fill="#8ba3c7" font-size="11">TIDES快速提升，将成为未来2-3年公司最大增长引擎</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第三章：护城河评估 ═══════════════════════ -->
+<section id="ch3">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 03</div>
+    <div class="section-title">护城河评估——<span>全球CDMO第一的竞争壁垒究竟有多深？</span></div>
+    <div class="section-desc">药明康德的护城河来自六个相互强化的维度，最核心的是"规模效应×全流程能力×转换成本"的三位一体。</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>六维护城河分析</div>
+      <div class="score-item">
+        <span class="score-label">🔬 全流程CRDMO能力</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">从发现到商业化，全球极少数能独立完成全链条的公司</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">⚗️ 规模效应与效率</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">全球CDMO市占率14.3%第一，规模带来成本优势和报价竞争力</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">🔄 客户转换成本</span>
+        <span class="score-stars">★★★★☆</span>
+        <span class="score-note">药物开发数据、工艺Know-how深度绑定，转移供应商需要1-3年和数千万美元</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">👨‍🔬 人才密度与红利</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">6万+高质量化学/生物学家，成本约为欧美1/3，且规模优势不断复利积累</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">🏭 TIDES产能壁垒</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">多肽固相合成反应釜4.1万升→10万升，新建产能需要3-5年，先发优势极强</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">📋 合规体系与认证</span>
+        <span class="score-stars">★★★★☆</span>
+        <span class="score-note">FDA/EMA/PMDA多国GMP认证，全球监管合规历史清白（无重大483警告信）</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>"长尾效应"——最被低估的商业模式护城河</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">药明的商业模式有一个隐藏的"飞轮效应"：客户在Early Discovery阶段（每年几十万美元）进入后，若分子进入临床，则订单规模增长到几百万；若上市商业化，则增长到几千万乃至数亿美元。这意味着：</p>
+      <div class="grid-2" style="gap:10px;margin-bottom:14px;">
+        <div class="card2" style="padding:14px;text-align:center;">
+          <div style="font-size:22px;font-weight:800;color:#4ade80;">5800+</div>
+          <div style="font-size:11px;color:var(--text-secondary);">活跃客户</div>
+        </div>
+        <div class="card2" style="padding:14px;text-align:center;">
+          <div style="font-size:22px;font-weight:800;color:#f59e0b;">523亿</div>
+          <div style="font-size:11px;color:var(--text-secondary);">在手订单</div>
+        </div>
+        <div class="card2" style="padding:14px;text-align:center;">
+          <div style="font-size:22px;font-weight:800;color:#3b82f6;">18/20</div>
+          <div style="font-size:11px;color:var(--text-secondary);">全球TOP20药企客户</div>
+        </div>
+        <div class="card2" style="padding:14px;text-align:center;">
+          <div style="font-size:22px;font-weight:800;color:#a855f7;">1.3年</div>
+          <div style="font-size:11px;color:var(--text-secondary);">在手订单/年收入覆盖</div>
+        </div>
+      </div>
+      <div class="insight">
+        <div class="insight-title">🔑 关键洞察</div>
+        <p>523亿在手订单意味着即使新订单完全停止，现有订单也能覆盖公司1.3年以上的收入——这是极强的收入能见度，也是2025年指引+10%-15%增速的信心来源。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;">
+    <div class="card-title"><span class="dot dot-blue"></span>护城河的真实考验：BIOSECURE压力下客户是否出走？</div>
+    <div class="grid-3">
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;color:#4ade80;">✅ 美国客户仍在增长</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">2025Q1美国客户收入63.8亿元，同比+28.4%。在BIOSECURE法案正式立法后，美国客户不但没有出走，反而显著加速——因为大型药企已与药明签订多年协议，在法案过渡期内加速采购锁定产能。</p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;color:#3b82f6;">📈 欧洲客户持续扩张</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">2024年欧洲客户收入52.3亿元，同比+14.4%。礼来、诺华、罗氏、阿斯利康等欧洲大药企不受BIOSECURE法案管辖，成为战略增量客户，替代风险持续降低。</p>
+      </div>
+      <div class="card2">
+        <div class="card-title" style="font-size:14px;color:#f59e0b;">⚠️ 中国客户短期承压</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">2024年中国客户收入70.7亿元，同比-3.5%。中国创新药投融资环境收紧，国内Biotech研发支出缩减是主因，与BIOSECURE无关。预计随着国内药企IPO环境改善逐步修复。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第四章：TIDES爆发增长 ═══════════════════════ -->
+<section id="ch4">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 04</div>
+    <div class="section-title">TIDES业务——<span>GLP-1超级周期下的多肽制造爆发机会</span></div>
+    <div class="section-desc">TIDES（Tetranucleotides, Peptides, and Other Large Molecules）是药明康德未来3-5年最确定性的超高增长驱动。GLP-1减肥药的全球爆发需求正在催生史上最大的多肽原料药制造需求。</div>
+  </div>
+
+  <!-- SVG图表3：在手订单增长图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>TIDES在手订单增长 & 产能扩张计划</div>
+    <svg viewBox="0 0 800 280" width="100%" style="display:block;">
+      <rect width="800" height="280" fill="#0f1629" rx="12"/>
+      <!-- 背景网格 -->
+      <line x1="80" y1="30" x2="80" y2="220" stroke="#1a2540" stroke-width="1.5"/>
+      <line x1="80" y1="220" x2="760" y2="220" stroke="#1a2540" stroke-width="1.5"/>
+      <!-- 订单瀑布图 -->
+      <!-- Q4 2022: 30亿（估算）→ height=30/300*190=19 -->
+      <rect x="110" y="201" width="60" height="19" fill="rgba(168,85,247,0.3)" rx="3"/>
+      <text x="140" y="215" text-anchor="middle" fill="#a855f7" font-size="11">~30亿</text>
+      <text x="140" y="238" text-anchor="middle" fill="#5c7299" font-size="10">2022</text>
+      <!-- Q4 2023: 约100亿 → height=63 -->
+      <rect x="230" y="157" width="60" height="63" fill="rgba(168,85,247,0.45)" rx="3"/>
+      <text x="260" y="175" text-anchor="middle" fill="#a855f7" font-size="11">~100亿</text>
+      <text x="260" y="238" text-anchor="middle" fill="#5c7299" font-size="10">2023末</text>
+      <!-- Q3 2024: 438亿 → height=277 → 限制到190 -->
+      <rect x="350" y="82" width="60" height="138" fill="rgba(168,85,247,0.6)" rx="3"/>
+      <text x="380" y="118" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="700">438亿</text>
+      <text x="380" y="238" text-anchor="middle" fill="#5c7299" font-size="10">2024Q3</text>
+      <!-- Q4 2024: 493亿 → 接近最大 -->
+      <rect x="470" y="62" width="60" height="158" fill="rgba(168,85,247,0.75)" rx="3"/>
+      <text x="500" y="100" text-anchor="middle" fill="#c084fc" font-size="12" font-weight="700">493亿</text>
+      <text x="500" y="115" text-anchor="middle" fill="#5c7299" font-size="10">+47%</text>
+      <text x="500" y="238" text-anchor="middle" fill="#5c7299" font-size="10">2024末</text>
+      <!-- Q1 2025: 523亿 -->
+      <rect x="590" y="52" width="60" height="168" fill="#a855f7" rx="3"/>
+      <text x="620" y="88" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">523亿</text>
+      <text x="620" y="105" text-anchor="middle" fill="#f5d0fe" font-size="10">+47.1%</text>
+      <text x="620" y="238" text-anchor="middle" fill="#5c7299" font-size="10">2025Q1</text>
+      <!-- 增速标注 -->
+      <text x="670" y="140" fill="#a855f7" font-size="11">连续3季度</text>
+      <text x="670" y="155" fill="#a855f7" font-size="11">增速>47%</text>
+      <!-- 产能标注 -->
+      <rect x="80" y="248" width="340" height="22" fill="rgba(34,197,94,0.08)" rx="4"/>
+      <text x="250" y="263" text-anchor="middle" fill="#4ade80" font-size="11">产能：2024末4.1万升固相合成釜 → 2025末目标>10万升（+143%）</text>
+      <rect x="430" y="248" width="340" height="22" fill="rgba(245,158,11,0.08)" rx="4"/>
+      <text x="600" y="263" text-anchor="middle" fill="#f59e0b" font-size="11">2026年目标：15万升+（保守估算，实际可能更高）</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:20px;">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>GLP-1市场规模测算</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">全球GLP-1市场2024：约340亿美元</div>
+          <div class="tl-desc">司美格鲁肽（诺和诺德）与替尔泊肽（礼来）双雄争霸，年销售额双双超150亿美元，增速超60%，远超预期。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">2030年市场规模预测：1500-2000亿美元</div>
+          <div class="tl-desc">当前主要限制是产能，而非需求——每个月有数百万患者在等待用药。随着多肽产能扩张，GLP-1市场将进入爆发式渗透期。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-title">药明TIDES的份额：约5-7%</div>
+          <div class="tl-desc">2024年58亿元（约8亿美元）的TIDES收入在340亿美元市场中约占2.4%原料端份额（原料=终端市场的约25-30%），市场份额仍有巨大扩张空间。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>TIDES业务的关键问题与风险</div>
+      <div class="card2">
+        <div class="card-title" style="font-size:13px;color:#f59e0b;">❓ GLP-1需求是否可持续？</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">是的。即使司美格鲁肽专利2026年到期，仿制药只会扩大市场总量，而非替代原研。药明已积极布局下一代GLP-1（口服/月注射），保持技术同步。</p>
+      </div>
+      <div class="card2" style="margin-top:10px;">
+        <div class="card-title" style="font-size:13px;color:#f59e0b;">❓ 产能扩张是否太激进？</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">2025Q1 TIDES在手订单同比+105.5%——订单增速远高于收入增速，说明产能是当前瓶颈，而非需求。产能扩张有明确的客户合同支撑，非激进冒进。</p>
+      </div>
+      <div class="card2" style="margin-top:10px;">
+        <div class="card-title" style="font-size:13px;color:var(--accent-red);">⚠️ 竞争对手追赶风险</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">Bachem（瑞士）、PolyPeptide、凯莱英等均在扩建多肽产能，但药明的4.1→10万升扩张规模最大，且具有规模成本优势，先发壁垒明显。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第五章：核心风险全景 ═══════════════════════ -->
+<section id="ch5">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 05</div>
+    <div class="section-title">核心风险全景——<span>BIOSECURE法案：最大的不确定性来源</span></div>
+    <div class="section-desc">BIOSECURE Act是影响药明康德估值最核心的外部风险因子。理解法案的精确含义、时间表和对冲能力，是投资决策的核心前提。</div>
+  </div>
+
+  <div class="card" style="border-color:rgba(239,68,68,0.3);">
+    <div class="card-title"><span class="dot dot-red"></span>BIOSECURE法案详细时间线</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-title">2024年1-3月：法案提出</div>
+        <div class="tl-desc">美国参众两院分别提出BIOSECURE Act草案，点名BGI、药明康德等中国生命科学企业。股价从160元区域下跌至100元以下（-40%+）。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-title">2024年9月：点名版本受阻</div>
+        <div class="tl-desc">国防授权法案中包含点名药明康德的BIOSECURE条款未能通过，法案被分拆或搁置。股价短暂反弹。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-title">2025年12月18日：法案正式签署生效</div>
+        <div class="tl-desc">特朗普签署FY2026 NDAA（国防授权法案），其中包含修订版BIOSECURE条款——<strong style="color:#fca5a5;">采用"1260H名单"机制</strong>，而非在法律文本中直接点名。BGI、FGI、MGI已在名单内。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-title">2026年1月：1260H名单动态更新</div>
+        <div class="tl-desc">国防部每年更新1260H名单。2025年12月，多个国会议员委员会主席联名致信国防部，建议将WuXi AppTec加入名单。这是当前最大的风险事件。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot gold"></div>
+        <div class="tl-title">2026年12月：OMB完整名单公布</div>
+        <div class="tl-desc">卫生与公共服务部必须在法案生效后1年内，向OMB提交受限企业完整名单。这是最终确定性节点。</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-title">5年合同过渡期</div>
+        <div class="tl-desc">即使药明被列入名单，美国政府机构与已有合同享有5年过渡期（私营企业合同不受BIOSECURE限制）。<strong style="color:#93c5fd;">重要：法案主要限制美国联邦政府资金资助的合同，而非纯私营企业间的合作。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>三种BIOSECURE情景分析</div>
+      <div class="scenario-card sc-bull" style="margin-bottom:10px;">
+        <div class="sc-title" style="color:#4ade80;">🟢 乐观情景（概率约30%）</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">药明未被列入1260H名单，或与美国政府达成协议（如增加美国本土生产、引入第三方审计）。BIOSECURE风险溢价消除，估值修复至20-25倍PE，目标价130-160元。</p>
+      </div>
+      <div class="scenario-card sc-base">
+        <div class="sc-title" style="color:#3b82f6;">🔵 基准情景（概率约50%）</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">药明被列入名单，但5年过渡期保障现有合同，公司加速欧洲+亚洲客户扩展，同时TIDES高增速对冲美国客户影响。2-3年内净利润仍维持增长，目标价100-130元。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>风险对冲能力评估</div>
+      <div class="scenario-card sc-bear" style="margin-bottom:14px;">
+        <div class="sc-title" style="color:#ef4444;">🔴 悲观情景（概率约20%）</div>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">被列入名单且主要大型药企（Biotech/Pharma）预防性转移供应商，美国客户收入在5年内降至0。届时年收入可能下降至200-250亿元，净利润50-60亿元，目标价60-80元。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>对冲维度</th><th>现状</th><th>对冲有效性</th></tr>
+          <tr><td>欧洲客户扩张</td><td>+14.4%，52.3亿元</td><td><span class="hl-green">强</span></td></tr>
+          <tr><td>TIDES高增速</td><td>+70%，非美客户为主</td><td><span class="hl-green">强</span></td></tr>
+          <tr><td>国内市场</td><td>-3.5%，承压中</td><td><span class="hl-red">弱</span></td></tr>
+          <tr><td>亚太其他市场</td><td>快速增长但体量小</td><td><span style="color:#f59e0b;font-weight:700;">中</span></td></tr>
+          <tr><td>合同过渡期保护</td><td>5年，私营不受限</td><td><span class="hl-green">中强</span></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="risk-box" style="margin-top:4px;">
+    <div class="risk-title">⚠️ 其他关键风险</div>
+    <div class="grid-3">
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">集采政策风险</p>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">CXO企业不在药品集采范围内（集采针对成品药，非原料药/CDMO服务）。但间接影响：集采压低国内药企利润→国内创新药研发投入减少→国内客户订单承压。</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">汇率风险</p>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">美元/欧元收入约占总收入80%，人民币升值会压缩汇兑收益。2024年人民币升值约2-3%，对营收有约5-7亿元汇率损失影响，已在"剔除特殊项目"中体现。</p>
+      </div>
+      <div>
+        <p style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">全球Biotech融资周期</p>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.7;">2021-2022年Biotech泡沫破裂导致全球中小型创新药企融资困难，CXO需求端承压。2024-2025年降息周期启动，Biotech融资环境改善，这是正面催化剂。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第六章：估值分析 ═══════════════════════ -->
+<section id="ch6">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 06</div>
+    <div class="section-title">估值分析——<span>历史底部10分位，安全边际明显</span></div>
+    <div class="section-desc">当前PE约15.5倍，处于历史5年11%分位。这意味着过去90%的时间里，市场给予药明更高的估值——即使考虑BIOSECURE折价，当前价位的安全边际相当充裕。</div>
+  </div>
+
+  <!-- SVG图表4：PE历史分位图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>药明康德 PE（TTM）历史走势 & 当前位置（2020-2025）</div>
+    <svg viewBox="0 0 800 300" width="100%" style="display:block;">
+      <rect width="800" height="300" fill="#0f1629" rx="12"/>
+      <!-- 轴 -->
+      <line x1="80" y1="250" x2="760" y2="250" stroke="#1a2540" stroke-width="1.5"/>
+      <line x1="80" y1="40" x2="80" y2="250" stroke="#1a2540" stroke-width="1.5"/>
+      <!-- 参考线 -->
+      <line x1="80" y1="200" x2="760" y2="200" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="80" y1="155" x2="760" y2="155" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="80" y1="110" x2="760" y2="110" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="80" y1="65" x2="760" y2="65" stroke="#243055" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <!-- Y轴标签 (PE: 0, 30, 60, 90, 120, 150+) -->
+      <text x="65" y="254" text-anchor="end" fill="#5c7299" font-size="11">0</text>
+      <text x="65" y="204" text-anchor="end" fill="#5c7299" font-size="11">30x</text>
+      <text x="65" y="159" text-anchor="end" fill="#5c7299" font-size="11">60x</text>
+      <text x="65" y="114" text-anchor="end" fill="#5c7299" font-size="11">90x</text>
+      <text x="65" y="69" text-anchor="end" fill="#5c7299" font-size="11">120x</text>
+      <!-- PE折线：
+        2020年上市初~100x y=65+((120-100)/90)*140=96
+        2021顶峰~184x y=40
+        2022下跌~35x y=250-(35/150)*210=201
+        2023约28x y=250-(28/150)*210=211  
+        2024初约22x y=250-(22/150)*210=219
+        2024末约18x y=250-(18/150)*210=225
+        2025Q1~15.5x y=250-(15.5/150)*210=228 -->
+      <polyline points="100,96 200,40 350,201 450,211 550,219 650,225 720,228"
+        fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+      <!-- 当前位置标注 -->
+      <circle cx="720" cy="228" r="7" fill="#22c55e" stroke="#fff" stroke-width="2"/>
+      <line x1="720" y1="40" x2="720" y2="228" stroke="#22c55e" stroke-width="1" stroke-dasharray="4 3"/>
+      <text x="722" y="55" fill="#4ade80" font-size="11" font-weight="700">当前：15.5x</text>
+      <text x="722" y="70" fill="#4ade80" font-size="10">历史11%分位</text>
+      <!-- 泡沫顶部标注 -->
+      <text x="200" y="30" text-anchor="middle" fill="#ef4444" font-size="11">184x（2021年泡沫顶部）</text>
+      <!-- 低估区域阴影 -->
+      <rect x="80" y="215" width="680" height="35" fill="rgba(34,197,94,0.06)" rx="4"/>
+      <text x="350" y="237" text-anchor="middle" fill="#4ade80" font-size="10">低估区域（PE &lt; 20x）</text>
+      <!-- X轴标签 -->
+      <text x="100" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2020</text>
+      <text x="200" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2021</text>
+      <text x="350" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2022</text>
+      <text x="450" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2023</text>
+      <text x="550" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2024初</text>
+      <text x="650" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2024末</text>
+      <text x="720" y="268" text-anchor="middle" fill="#5c7299" font-size="10">2025</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>五种估值方法目标价测算</div>
+      <div class="table-wrap">
+        <table>
+          <tr><th>估值方法</th><th>基础假设</th><th>目标价区间</th></tr>
+          <tr><td>PE法（基准）</td><td>2025E净利润120亿×15-18倍PE</td><td><span class="hl-green">115-135元</span></td></tr>
+          <tr><td>PE法（乐观）</td><td>2025E净利润130亿×18-22倍PE</td><td><span class="hl-green">150-180元</span></td></tr>
+          <tr><td>PS法</td><td>2025E收入430亿×7-9倍PS</td><td>120-155元</td></tr>
+          <tr><td>EV/EBITDA法</td><td>2025E EBITDA~160亿×18-22倍</td><td>125-160元</td></tr>
+          <tr><td>DCF法（10年）</td><td>WACC 8%，终端增长4%，基准情景</td><td>110-145元</td></tr>
+          <tr><td>历史估值均值法</td><td>2020-2024年均PE约55x（含泡沫，不合理）</td><td>（参考意义有限）</td></tr>
+        </table>
+      </div>
+      <div class="insight" style="margin-top:12px;">
+        <div class="insight-title">📊 综合估值结论</div>
+        <p>剔除BIOSECURE风险折价，合理估值区间<strong style="color:#4ade80;">115-145元</strong>，较当前~100元有约15-45%上涨空间。当前价格已充分反映BIOSECURE的极端悲观预期。</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-blue"></span>当前估值所隐含的市场预期</div>
+      <p style="font-size:14px;color:var(--text-secondary);line-height:1.8;margin-bottom:14px;">当前PE 15.5倍隐含了什么假设？反推市场预期：</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-title">市场隐含预期：美国客户收入3-5年内将大幅下降</div>
+          <div class="tl-desc">按15.5倍PE，相当于市场给出与一般制造业相同的估值——完全不认可药明的护城河溢价。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">但实际数据：2025Q1美国收入+28.4%</div>
+          <div class="tl-desc">实际数据与市场预期严重背离，这是估值修复的核心逻辑——预期差驱动超额收益。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">合理风险折价：10-20倍（而非15倍）</div>
+          <div class="tl-desc">即使考虑BIOSECURE中等风险情景，合理PE应在18-22倍区间。当前15.5倍已过度折价。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第七章：竞争格局 ═══════════════════════ -->
+<section id="ch7">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 07</div>
+    <div class="section-title">竞争格局——<span>行业全景与药明的差异化定位</span></div>
+    <div class="section-desc">中国CXO行业形成梯队竞争格局，药明康德以绝对规模和全流程能力居于第一梯队，但各企业在细分领域各有侧重。</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>中国主要CXO企业横向对比</div>
+    <div class="table-wrap">
+      <table>
+        <tr><th>公司</th><th>2024年营收</th><th>市值</th><th>PE</th><th>核心优势</th><th>主要差异</th></tr>
+        <tr>
+          <td style="color:#4ade80;font-weight:800;">药明康德（603259）</td>
+          <td>392亿</td><td>2965亿</td>
+          <td style="color:#f59e0b;">15.5×</td>
+          <td>全流程CRDMO，TIDES产能第一</td>
+          <td>BIOSECURE风险最大</td>
+        </tr>
+        <tr>
+          <td>药明生物（02269.HK）</td>
+          <td>约183亿港元</td><td>~750亿港元</td>
+          <td>22×</td>
+          <td>生物大分子CDMO绝对龙头</td>
+          <td>同样面临BIOSECURE风险</td>
+        </tr>
+        <tr>
+          <td>凯莱英（002821）</td>
+          <td>约54亿</td><td>约430亿</td>
+          <td>22×</td>
+          <td>商业化小分子CDMO，单聚焦</td>
+          <td>体量小，不在BIOSECURE名单</td>
+        </tr>
+        <tr>
+          <td>康龙化成（300759）</td>
+          <td>约101亿</td><td>约340亿</td>
+          <td>18×</td>
+          <td>CRO+临床，发现阶段强</td>
+          <td>制造能力弱于药明</td>
+        </tr>
+        <tr>
+          <td>泰格医药（300347）</td>
+          <td>约68亿</td><td>约260亿</td>
+          <td>19×</td>
+          <td>临床CRO，亚洲第一</td>
+          <td>聚焦临床阶段，无制造</td>
+        </tr>
+        <tr>
+          <td>博腾股份（300363）</td>
+          <td>约23亿</td><td>约90亿</td>
+          <td>28×</td>
+          <td>化学CDMO，小分子制造</td>
+          <td>体量小，受益GLP-1多肽</td>
+        </tr>
+      </table>
+    </div>
+    <div class="insight" style="margin-top:14px;">
+      <div class="insight-title">💡 药明康德的核心差异</div>
+      <p>与竞争对手最大的区别：药明是唯一能提供从<strong style="color:#4ade80;">Drug Discovery → IND → Phase I/II/III → NDA → Commercial Manufacturing</strong>全流程一站式服务的中国CXO。这种"全流程黏性"创造了竞争对手无法复制的客户关系深度。凯莱英、康龙只能服务部分阶段，客户仍需拼凑多家供应商。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第八章：投资策略 ═══════════════════════ -->
+<section id="ch8">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 08</div>
+    <div class="section-title">投资策略——<span>三情景分析与买卖执行框架</span></div>
+    <div class="section-desc">基于BIOSECURE风险的三种情景，分别给出目标价和仓位建议。核心逻辑：当前价格已过度折价，风险/收益比有利于买入。</div>
+  </div>
+
+  <!-- SVG图表5：三情景目标价柱状图 -->
+  <div class="card">
+    <div class="card-title"><span class="dot"></span>三大情景目标价对比（基于2025-2027年盈利预测）</div>
+    <svg viewBox="0 0 800 300" width="100%" style="display:block;">
+      <rect width="800" height="300" fill="#0f1629" rx="12"/>
+      <!-- 轴 -->
+      <line x1="80" y1="40" x2="80" y2="240" stroke="#1a2540" stroke-width="1.5"/>
+      <line x1="80" y1="240" x2="760" y2="240" stroke="#1a2540" stroke-width="1.5"/>
+      <!-- 参考线：当前价格99元 -->
+      <line x1="80" y1="183" x2="760" y2="183" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="6 3"/>
+      <text x="762" y="187" fill="#fb923c" font-size="11">当前价~99元</text>
+      <!-- Y轴 0到200元，200px高度 -->
+      <text x="65" y="244" text-anchor="end" fill="#5c7299" font-size="11">0</text>
+      <text x="65" y="194" text-anchor="end" fill="#5c7299" font-size="11">50</text>
+      <text x="65" y="144" text-anchor="end" fill="#5c7299" font-size="11">100</text>
+      <text x="65" y="94" text-anchor="end" fill="#5c7299" font-size="11">150</text>
+      <text x="65" y="44" text-anchor="end" fill="#5c7299" font-size="11">200</text>
+
+      <!-- 悲观情景：60-80元，中点70 → 70/200*200=70, y=240-70=170 -->
+      <rect x="130" y="170" width="100" height="70" fill="rgba(239,68,68,0.3)" rx="4" stroke="#ef4444" stroke-width="1.5"/>
+      <text x="180" y="195" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="700">60-80元</text>
+      <text x="180" y="213" text-anchor="middle" fill="#fca5a5" font-size="11">概率20%</text>
+      <text x="180" y="258" text-anchor="middle" fill="#5c7299" font-size="11">🔴 悲观情景</text>
+      <text x="180" y="272" text-anchor="middle" fill="#5c7299" font-size="10">被列入名单+客户出走</text>
+
+      <!-- 基准情景：100-130元，中点115 → y=240-115=125 -->
+      <rect x="310" y="125" width="100" height="115" fill="rgba(59,130,246,0.3)" rx="4" stroke="#3b82f6" stroke-width="1.5"/>
+      <text x="360" y="165" text-anchor="middle" fill="#93c5fd" font-size="13" font-weight="700">100-130元</text>
+      <text x="360" y="183" text-anchor="middle" fill="#93c5fd" font-size="11">概率50%</text>
+      <text x="360" y="258" text-anchor="middle" fill="#5c7299" font-size="11">🔵 基准情景</text>
+      <text x="360" y="272" text-anchor="middle" fill="#5c7299" font-size="10">TIDES对冲+过渡期</text>
+
+      <!-- 乐观情景：150-180元，中点165 → y=240-165=75 -->
+      <rect x="490" y="75" width="100" height="165" fill="rgba(34,197,94,0.3)" rx="4" stroke="#22c55e" stroke-width="1.5"/>
+      <text x="540" y="120" text-anchor="middle" fill="#86efac" font-size="13" font-weight="700">150-180元</text>
+      <text x="540" y="140" text-anchor="middle" fill="#86efac" font-size="11">概率30%</text>
+      <text x="540" y="258" text-anchor="middle" fill="#5c7299" font-size="11">🟢 乐观情景</text>
+      <text x="540" y="272" text-anchor="middle" fill="#5c7299" font-size="10">未被列入+估值修复</text>
+
+      <!-- 期望值标注 -->
+      <rect x="670" y="75" width="100" height="60" fill="rgba(245,158,11,0.1)" rx="6" stroke="rgba(245,158,11,0.4)"/>
+      <text x="720" y="100" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">期望目标价</text>
+      <text x="720" y="118" text-anchor="middle" fill="#fbbf24" font-size="15" font-weight="800">~120元</text>
+      <text x="720" y="130" text-anchor="middle" fill="#5c7299" font-size="10">较当前+20%</text>
+    </svg>
+  </div>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>买入条件清单</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">✅ 当前已满足</div>
+          <div class="tl-desc">PE 15.5倍处于历史11%底部分位；2025Q1业绩超预期（净利润+82.5%）；在手订单523亿（+47%）；TIDES持续高增长（+187.6%）。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">⚠️ 核心风险需承受</div>
+          <div class="tl-desc">买入前必须接受：若被列入1260H名单，股价可能短期再跌20-30%（至70-80元区域）。这是持仓必须承受的尾部风险。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-title">📋 三批建仓策略</div>
+          <div class="tl-desc">第一批（当前~100元）：30%仓位；第二批（若回调至85-88元）：+30%仓位；第三批（等待1260H名单结果明确）：+40%仓位。</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot dot-red"></span>卖出纪律</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-title">🚨 触发止损的条件</div>
+          <div class="tl-desc">1. 药明被正式列入1260H名单 → 观察3个月，若客户加速流失则减仓至10%以下。<br>2. 美国客户收入增速连续2季度负增长（证明客户开始迁移）。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">💰 获利了结的条件</div>
+          <div class="tl-desc">PE突破25倍（约160元）或企业基本面出现逆转（净利润增速连续2季度低于5%）时，开始分批减仓。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">🎯 持有的理由</div>
+          <div class="tl-desc">只要：① TIDES增速维持>50%，② 美国客户收入维持正增长，③ 在手订单维持>400亿，就坚定持有，不因短期波动减仓。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ 第九章：大师视角 ═══════════════════════ -->
+<section id="ch9">
+  <div class="section-header">
+    <div class="chapter-tag">CHAPTER 09</div>
+    <div class="section-title">大师视角——<span>药明康德是否满足"好生意"标准？</span></div>
+    <div class="section-desc">用段永平"好生意/好公司/好价格"三维框架，以及巴菲特的六条法则，综合评估药明康德的投资价值。</div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="dot dot-gold"></span>巴菲特六条法则评分</div>
+      <div class="score-item">
+        <span class="score-label">1. 可理解的生意</span>
+        <span class="score-stars">★★★★☆</span>
+        <span class="score-note">CRDMO模式可理解，但技术细节（多肽合成/GMP认证）有一定专业门槛</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">2. 持久竞争优势</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">规模/全流程/客户黏性/产能，护城河深且多层，且在增强</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">3. 出色的管理层</span>
+        <span class="score-stars">★★★★☆</span>
+        <span class="score-note">李革博士创始人团队，执行力强，主动剥离ATU/DDSU聚焦主业是好信号</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">4. 高ROE/ROIC</span>
+        <span class="score-stars">★★★☆☆</span>
+        <span class="score-note">ROE从23%降至17%（受BIOSECURE影响），ROIC约14%，需关注回升趋势</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">5. 充裕自由现金流</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">自由现金流连续高于净利润，2024年79.8亿历史新高，现金充裕</span>
+      </div>
+      <div class="score-item">
+        <span class="score-label">6. 合理估值</span>
+        <span class="score-stars">★★★★★</span>
+        <span class="score-note">PE 15.5倍处于历史底部，有安全边际——"合理价格的好公司"</span>
+      </div>
+      <div style="text-align:center;margin-top:16px;padding:16px;background:rgba(34,197,94,0.08);border-radius:10px;border:1px solid rgba(34,197,94,0.25);">
+        <div style="font-size:28px;font-weight:900;color:#4ade80;">82 / 100</div>
+        <div style="font-size:13px;color:var(--text-secondary);">巴菲特标准综合评分 · A级</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot"></span>段永平视角：这是"好生意"吗？</div>
+      <div class="quote">
+        <p>"好生意的判断标准：十年后这家公司的生意会比今天更好吗？护城河会比今天更宽吗？"</p>
+        <cite>— 段永平的核心判断框架</cite>
+      </div>
+      <div class="timeline" style="margin-top:14px;">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-title">十年后生意更好？✅ 大概率是</div>
+          <div class="tl-desc">全球创新药研发需求只增不减；多肽/基因疗法等新模态崛起需要更多CDMO服务；AI辅助药物发现加速→需要更多CRO服务。药明处于行业增量的核心位置。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-title">护城河更宽？⚠️ 有BIOSECURE隐患</div>
+          <div class="tl-desc">若无地缘政治风险，护城河十年后必然更宽（规模效应+产能积累）。但BIOSECURE是真实的外生冲击，可能强制分割全球市场，是段永平强调的"不可知因素"。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot blue"></div>
+          <div class="tl-title">段永平会买吗？</div>
+          <div class="tl-desc">段永平的原则："有不确定性的好公司，以合理价格买入，留够安全边际"。药明的BIOSECURE风险是已知的不确定性，市场已给了极大折价（15.5倍PE），符合"以合理价格买好公司"的条件——但仓位不宜过重。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:4px;background:linear-gradient(135deg,rgba(34,197,94,0.06),rgba(59,130,246,0.06));border-color:rgba(34,197,94,0.3);">
+    <div class="card-title"><span class="dot dot-gold"></span>📌 最终投资结论</div>
+    <div class="grid-2">
+      <div>
+        <p style="font-size:15px;color:var(--text);font-weight:700;margin-bottom:12px;">📋 综合评级：<span class="hl-green">谨慎买入</span>，合理仓位5-15%</p>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.9;margin-bottom:12px;"><span class="hl-green">做多逻辑</span>：PE历史底部+业绩反转（Q1净利+82.5%）+TIDES爆发+在手订单锁定确定性。当前市场对BIOSECURE的恐惧已超过合理折价水平，存在明显的"认知差"可利用。</p>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.9;"><span class="hl-red">核心风险</span>：若2026年1月被列入1260H名单，短期股价压力不可避免（-20%~-30%），但长期看5年过渡期+TIDES对冲能力基本面不会立即崩溃。</p>
+      </div>
+      <div>
+        <div class="insight">
+          <div class="insight-title">🎯 关键结论</div>
+          <p><strong style="color:#4ade80;">目标价：115-140元</strong>（基准+乐观情景期望值）<br><strong style="color:#f59e0b;">止损线：70元</strong>（悲观情景保守估值）<br><strong style="color:#3b82f6;">当前价：~100元</strong>，风险/收益比约=1:1.5~1:2</p>
+        </div>
+        <div class="card2" style="margin-top:12px;">
+          <p style="font-size:13px;color:var(--text-secondary);line-height:1.8;">⚠️ <strong style="color:#fca5a5;">本报告仅供研究参考，不构成投资建议</strong>。投资有风险，入市需谨慎。实际投资决策请结合个人风险偏好和资产配置做综合判断。BIOSECURE法案及地缘政治风险具有高度不确定性。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- 底部 -->
+<div style="background:#080c18;border-top:1px solid var(--border2);padding:24px 20px;text-align:center;color:#5c7299;font-size:12px;line-height:1.8;">
+  <strong style="color:var(--text-secondary);">药明康德深度投资分析报告</strong><br>
+  数据截至2025年Q1 · 603259.SH / 02359.HK<br>
+  以上内容仅供研究参考，不构成投资建议 · 数据来源：公司年报、公开财经资讯<br>
+  <a href="index.html" style="color:var(--accent-light);text-decoration:none;">← 返回报告中心</a>
+</div>
+
+<!-- 悬浮返回主页按钮 -->
+<a href="index.html" id="home-fab" title="返回主页" style="
+  position:fixed; bottom:28px; right:24px; z-index:9999;
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,#22c55e,#3b82f6);
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; font-size:22px;
+  box-shadow:0 4px 20px rgba(34,197,94,0.4);
+  transition:transform .2s,box-shadow .2s;
+" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(34,197,94,0.65)'"
+   onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(34,197,94,0.4)'">🏠</a>
+
+</body>
+</html>
