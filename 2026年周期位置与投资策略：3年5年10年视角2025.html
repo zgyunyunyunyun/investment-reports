@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年周期位置全景图与投资策略</title>
+<style>
+:root {
+  --bg: #080c18;
+  --card: #0e1525;
+  --card2: #141e32;
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #f97316;
+  --accent-light: #fb923c;
+  --accent-blue: #3b82f6;
+  --accent-green: #10b981;
+  --accent-purple: #8b5cf6;
+  --accent-gold: #eab308;
+  --border: #1e2d45;
+  --border2: #2d4060;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei',sans-serif;font-size:15px;line-height:1.7;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(8,12,24,0.96);border-bottom:1px solid var(--border);backdrop-filter:blur(10px);padding:0 20px;}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:4px;height:52px;overflow-x:auto;scrollbar-width:none;}
+.nav-inner::-webkit-scrollbar{display:none;}
+.nav-brand{font-weight:700;font-size:15px;color:var(--accent);white-space:nowrap;margin-right:12px;letter-spacing:1px;}
+.nav-inner a{color:var(--text-secondary);text-decoration:none;font-size:12px;white-space:nowrap;padding:4px 8px;border-radius:4px;transition:all .2s;}
+.nav-inner a:hover{color:var(--accent);background:rgba(249,115,22,0.1);}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,#080c18 0%,#0d1830 40%,#0a1020 100%);padding:80px 20px 60px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(59,130,246,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-stars{position:absolute;inset:0;pointer-events:none;}
+.hero h1{font-size:clamp(22px,4vw,38px);font-weight:800;letter-spacing:2px;background:linear-gradient(135deg,#f1f5f9 30%,var(--accent-gold) 70%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px;line-height:1.3;}
+.hero-sub{font-size:clamp(12px,2vw,15px);color:var(--text-secondary);letter-spacing:2px;margin-bottom:28px;}
+.hero-quote{max-width:700px;margin:0 auto 44px;padding:18px 28px;border-left:3px solid var(--accent);background:rgba(249,115,22,0.06);border-radius:0 8px 8px 0;font-size:14px;color:#cbd5e1;font-style:italic;text-align:left;}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1100px;margin:0 auto;}
+.kpi-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 14px;text-align:center;transition:transform .2s,border-color .2s;}
+.kpi-card:hover{transform:translateY(-3px);border-color:var(--border2);}
+.kpi-val{font-size:clamp(18px,2.5vw,26px);font-weight:800;color:var(--accent);line-height:1.1;margin-bottom:6px;}
+.kpi-label{font-size:11px;color:var(--text-secondary);line-height:1.4;}
+.kpi-sub{font-size:11px;color:var(--accent-green);margin-top:4px;}
+
+/* LAYOUT */
+.container{max-width:1200px;margin:0 auto;padding:0 20px;}
+.section{padding:60px 20px;}
+.section-inner{max-width:1200px;margin:0 auto;}
+
+/* CHAPTER HEADER */
+.ch-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;}
+.ch-num{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-gold));display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;flex-shrink:0;}
+.ch-title{font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text);}
+.ch-lead{font-size:13px;color:var(--accent-blue);margin-top:4px;}
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:0 20px;}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;}
+.card2{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:18px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+
+/* QUOTE */
+.blockquote{border-left:3px solid var(--accent);padding:14px 20px;background:rgba(249,115,22,0.05);border-radius:0 8px 8px 0;font-size:14px;color:#cbd5e1;font-style:italic;margin:20px 0;}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:var(--card2);}
+th{padding:12px 14px;text-align:left;color:var(--accent);font-weight:600;border-bottom:1px solid var(--border2);white-space:nowrap;}
+td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text-secondary);}
+td:first-child{color:var(--text);font-weight:500;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(255,255,255,0.02);}
+
+/* BADGE */
+.badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;}
+.badge-green{background:rgba(16,185,129,0.15);color:var(--accent-green);}
+.badge-yellow{background:rgba(234,179,8,0.15);color:var(--accent-gold);}
+.badge-red{background:rgba(239,68,68,0.15);color:#f87171;}
+.badge-blue{background:rgba(59,130,246,0.15);color:var(--accent-blue);}
+
+/* DIRECTION CARD */
+.dir-card{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:22px;border-top:3px solid var(--accent-blue);}
+.dir-card.gold{border-top-color:var(--accent-gold);}
+.dir-card.green{border-top-color:var(--accent-green);}
+.dir-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.dir-data{font-size:12px;color:var(--accent-green);margin:8px 0;}
+.dir-risk{font-size:12px;color:#f87171;margin-top:8px;}
+.tag-list{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0;}
+.tag{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:var(--accent-blue);padding:3px 10px;border-radius:20px;font-size:11px;}
+
+/* TREND ITEM */
+.trend-item{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:18px;margin-bottom:14px;}
+.trend-num{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:13px;text-align:center;line-height:28px;margin-right:8px;flex-shrink:0;}
+.trend-title{font-size:15px;font-weight:700;color:var(--text);display:flex;align-items:center;margin-bottom:8px;}
+.trend-body{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+/* SCENARIO */
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.scenario-card{border-radius:12px;padding:22px;border:1px solid var(--border);}
+.sc-base{background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(59,130,246,0.04));}
+.sc-bull{background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(16,185,129,0.04));}
+.sc-bear{background:linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.02));}
+.sc-prob{font-size:36px;font-weight:800;margin-bottom:8px;}
+.sc-prob-base{color:var(--accent-blue);}
+.sc-prob-bull{color:var(--accent-green);}
+.sc-prob-bear{color:#f87171;}
+.sc-title{font-size:15px;font-weight:700;margin-bottom:10px;}
+.sc-body{font-size:12px;color:var(--text-secondary);line-height:1.7;}
+
+/* PORTFOLIO TABLE */
+.ptf-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.ptf-row:last-child{border-bottom:none;}
+.ptf-layer{font-weight:700;font-size:14px;}
+.ptf-pct{font-size:22px;font-weight:800;}
+
+/* ACTION LIST */
+.action-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);}
+.action-item:last-child{border-bottom:none;}
+.action-num{width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:13px;text-align:center;line-height:28px;flex-shrink:0;}
+.action-text{font-size:13px;color:var(--text-secondary);line-height:1.7;}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid var(--border);padding:40px 20px;margin-top:60px;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-disclaimer{font-size:12px;color:var(--text-secondary);line-height:1.8;border-left:3px solid var(--border2);padding-left:16px;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr);}
+  .kpi-grid .kpi-card:last-child{grid-column:1/-1;}
+  .grid2,.grid3{grid-template-columns:1fr;}
+  .scenario-grid{grid-template-columns:1fr;}
+  .nav-brand{font-size:13px;}
+  .hero{padding:60px 16px 40px;}
+  .section{padding:40px 16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand">周期·策略 2026</span>
+    <a href="#ch1">一·周期定位</a>
+    <a href="#ch2">二·3年视角</a>
+    <a href="#ch3">三·5年视角</a>
+    <a href="#ch4">四·10年视角</a>
+    <a href="#ch5">五·行业评级</a>
+    <a href="#ch6">六·细分机会</a>
+    <a href="#ch7">七·政策变量</a>
+    <a href="#ch8">八·场景假设</a>
+    <a href="#ch9">九·配置框架</a>
+    <a href="#ch10">十·行动清单</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- Stars background SVG -->
+  <svg class="hero-stars" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="5%" cy="20%" r="1" fill="white" opacity="0.4"/>
+    <circle cx="12%" cy="60%" r="1.5" fill="white" opacity="0.3"/>
+    <circle cx="18%" cy="15%" r="1" fill="white" opacity="0.5"/>
+    <circle cx="25%" cy="75%" r="1" fill="#3b82f6" opacity="0.4"/>
+    <circle cx="30%" cy="35%" r="1.5" fill="white" opacity="0.3"/>
+    <circle cx="38%" cy="85%" r="1" fill="white" opacity="0.35"/>
+    <circle cx="45%" cy="25%" r="1" fill="#eab308" opacity="0.4"/>
+    <circle cx="52%" cy="70%" r="1.5" fill="white" opacity="0.3"/>
+    <circle cx="60%" cy="10%" r="1" fill="white" opacity="0.5"/>
+    <circle cx="65%" cy="55%" r="1" fill="#f97316" opacity="0.3"/>
+    <circle cx="72%" cy="30%" r="1.5" fill="white" opacity="0.4"/>
+    <circle cx="80%" cy="80%" r="1" fill="white" opacity="0.35"/>
+    <circle cx="88%" cy="45%" r="1" fill="#3b82f6" opacity="0.4"/>
+    <circle cx="93%" cy="18%" r="1.5" fill="white" opacity="0.3"/>
+    <circle cx="97%" cy="65%" r="1" fill="white" opacity="0.4"/>
+  </svg>
+  <div class="container" style="position:relative;z-index:1;">
+    <h1>2026年周期位置全景图与投资策略</h1>
+    <div class="hero-sub">当前周期坐标 &nbsp;·&nbsp; 3年 / 5年 / 10年机会判断 &nbsp;·&nbsp; 行业配置路线图</div>
+    <div class="hero-quote">
+      2026年，我们处于第五次康波萧条期末段，债务去杠杆中期，经济复苏初期，多重周期叠加下的转折点正在靠近。<br>
+      <strong style="color:var(--accent);">清楚你站在哪里，才能知道该往哪里走。</strong>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-val">5.0%</div>
+        <div class="kpi-label">2026Q1 GDP增速</div>
+        <div class="kpi-sub">"十五五"开局稳健</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--accent-blue);">降息通道</div>
+        <div class="kpi-label">利率周期</div>
+        <div class="kpi-sub">LPR年内预计再降10-20bp</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--accent-gold);">萧条期末段</div>
+        <div class="kpi-label">康波位置</div>
+        <div class="kpi-sub">第五次康波（2020-2028）</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:#f87171;">去杠杆中期</div>
+        <div class="kpi-label">债务周期</div>
+        <div class="kpi-sub">地产投资 -11.2%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-val" style="color:var(--accent-green);">启动期</div>
+        <div class="kpi-label">AI超级周期</div>
+        <div class="kpi-sub">第六次康波核心驱动</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 1 -->
+<section class="section" id="ch1">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">1</div>
+      <div>
+        <div class="ch-title">2026年——我们究竟处于哪里？</div>
+        <div class="ch-lead">五层周期精确定位</div>
+      </div>
+    </div>
+    <div class="blockquote">"把自己放在周期的什么位置，决定了你接下来十年的命运。"</div>
+
+    <!-- SVG Chart 1: 五层周期嵌套图 -->
+    <div class="card" style="margin-bottom:28px;">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">图表一：五层周期嵌套图 — 当前位置标注</div>
+      <div style="display:flex;justify-content:center;overflow-x:auto;">
+        <svg width="520" height="360" viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="rg1" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#141e32"/>
+              <stop offset="100%" stop-color="#080c18"/>
+            </radialGradient>
+          </defs>
+          <rect width="520" height="360" fill="#0a0f1e" rx="10"/>
+          <!-- 同心环 从外到内 -->
+          <!-- 康波 -->
+          <ellipse cx="260" cy="180" rx="230" ry="155" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+          <text x="40" y="55" fill="#f97316" font-size="12" font-weight="700">康波长波 (50-60年)</text>
+          <text x="40" y="72" fill="#94a3b8" font-size="11">第五次萧条期末段 2020-2028</text>
+          <!-- 债务大周期 -->
+          <ellipse cx="260" cy="185" rx="190" ry="126" fill="none" stroke="#f87171" stroke-width="2" stroke-dasharray="5,3" opacity="0.7"/>
+          <text x="68" y="92" fill="#f87171" font-size="11" font-weight="600">债务大周期 (75-100年)</text>
+          <text x="68" y="106" fill="#94a3b8" font-size="10">去杠杆中期 2015-2030</text>
+          <!-- 经济商业周期 -->
+          <ellipse cx="260" cy="188" rx="148" ry="100" fill="none" stroke="#eab308" stroke-width="2" stroke-dasharray="4,3" opacity="0.8"/>
+          <text x="112" y="125" fill="#eab308" font-size="11" font-weight="600">经济/商业周期 (7-10年)</text>
+          <text x="112" y="139" fill="#94a3b8" font-size="10">复苏初期 2024政策刺激后</text>
+          <!-- 库存基钦周期 -->
+          <ellipse cx="260" cy="192" rx="106" ry="73" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2" opacity="0.8"/>
+          <text x="155" y="162" fill="#10b981" font-size="10" font-weight="600">库存/基钦 (3-4年)</text>
+          <text x="155" y="175" fill="#94a3b8" font-size="9.5">主动补库 2025Q4启动</text>
+          <!-- 情绪市场周期 -->
+          <ellipse cx="260" cy="196" rx="60" ry="42" fill="rgba(139,92,246,0.12)" stroke="#8b5cf6" stroke-width="2" opacity="0.9"/>
+          <text x="220" y="194" fill="#8b5cf6" font-size="10" font-weight="700" text-anchor="middle">情绪周期</text>
+          <text x="260" y="206" fill="#94a3b8" font-size="9" text-anchor="middle">中性偏谨慎</text>
+          <!-- 当前位置箭头 -->
+          <line x1="390" y1="80" x2="295" y2="155" stroke="#f97316" stroke-width="2" marker-end="url(#arr)"/>
+          <text x="375" y="73" fill="#f97316" font-size="12" font-weight="700" text-anchor="middle">当前位置</text>
+          <defs>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+            </marker>
+          </defs>
+          <!-- 图例 -->
+          <rect x="20" y="305" width="10" height="10" fill="none" stroke="#f97316" stroke-width="2"/>
+          <text x="35" y="315" fill="#f97316" font-size="10">向好/启动</text>
+          <rect x="120" y="305" width="10" height="10" fill="none" stroke="#eab308" stroke-width="2"/>
+          <text x="135" y="315" fill="#eab308" font-size="10">中性过渡</text>
+          <rect x="220" y="305" width="10" height="10" fill="none" stroke="#f87171" stroke-width="2"/>
+          <text x="235" y="315" fill="#f87171" font-size="10">承压/消化</text>
+          <rect x="320" y="305" width="10" height="10" fill="none" stroke="#10b981" stroke-width="2"/>
+          <text x="335" y="315" fill="#10b981" font-size="10">回升/复苏</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:28px;">
+      <table>
+        <thead>
+          <tr>
+            <th>周期类型</th><th>时长</th><th>当前阶段</th><th>位置判断</th><th>对股市含义</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--accent);">康波长波</strong></td>
+            <td>50-60年</td>
+            <td><span class="badge badge-yellow">第五次萧条期末段</span></td>
+            <td>第六次康波（AI+新能源）正在萌芽</td>
+            <td>成长科技长期看涨；传统周期承压</td>
+          </tr>
+          <tr>
+            <td><strong style="color:#f87171;">债务大周期</strong></td>
+            <td>75-100年</td>
+            <td><span class="badge badge-red">去杠杆中期</span></td>
+            <td>房地产债务仍在消化；政府逆周期加杠杆</td>
+            <td>地产/建材压制；基建/政策受益行业强</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent-gold);">经济/商业周期</strong></td>
+            <td>7-10年</td>
+            <td><span class="badge badge-yellow">复苏初期</span></td>
+            <td>内需弱复苏，出口强，制造业投资主导</td>
+            <td>周期股早期受益；消费修复慢于预期</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent-green);">库存/基钦周期</strong></td>
+            <td>3-4年</td>
+            <td><span class="badge badge-green">主动补库阶段</span></td>
+            <td>PPI从负转正趋势确认，但幅度受限</td>
+            <td>大宗原材料短期机会；关注需求能否承接</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--accent-purple);">情绪/市场周期</strong></td>
+            <td>6-18月</td>
+            <td><span class="badge" style="background:rgba(139,92,246,0.15);color:#a78bfa;">中性偏谨慎</span></td>
+            <td>924亢奋后回归；资金等待盈利兑现</td>
+            <td>不是最好也不是最坏；聚焦盈利改善个股</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="background:var(--card2);">
+      <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:16px;">三大关键矛盾</div>
+      <div class="grid3">
+        <div style="padding:14px;background:rgba(249,115,22,0.05);border-radius:8px;border-left:3px solid var(--accent);">
+          <div style="font-weight:700;color:var(--text);font-size:13px;margin-bottom:6px;">矛盾一：新旧康波冲突</div>
+          <div style="font-size:12px;color:var(--text-secondary);">康波萧条期（传统行业衰退）<strong style="color:var(--accent);">vs</strong> 新康波启动期（AI/新能源崛起）→ 选对赛道是核心</div>
+        </div>
+        <div style="padding:14px;background:rgba(59,130,246,0.05);border-radius:8px;border-left:3px solid var(--accent-blue);">
+          <div style="font-weight:700;color:var(--text);font-size:13px;margin-bottom:6px;">矛盾二：去杠杆vs强刺激</div>
+          <div style="font-size:12px;color:var(--text-secondary);">债务去杠杆（压制信用扩张）<strong style="color:var(--accent-blue);">vs</strong> 政策强刺激（逆周期托底）→ 政策行业 vs 自发增长</div>
+        </div>
+        <div style="padding:14px;background:rgba(16,185,129,0.05);border-radius:8px;border-left:3px solid var(--accent-green);">
+          <div style="font-weight:700;color:var(--text);font-size:13px;margin-bottom:6px;">矛盾三：外需强vs内需弱</div>
+          <div style="font-size:12px;color:var(--text-secondary);">出口增速 +14.7%（强劲）<strong style="color:var(--accent-green);">vs</strong> 社零增速 +2.4%（疲软）→ 出口导向 &gt; 内需驱动</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 2 -->
+<section class="section" id="ch2" style="background:rgba(14,21,37,0.4);">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">2</div>
+      <div>
+        <div class="ch-title">3年视角（2026-2028）</div>
+        <div class="ch-lead">哪些周期正在共振？</div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:22px;background:rgba(59,130,246,0.05);border-color:rgba(59,130,246,0.2);">
+      <div style="font-size:14px;font-weight:700;color:var(--accent-blue);margin-bottom:6px;">2026-2028年主导逻辑：经济复苏 + 利率下行 + AI景气周期三重共振</div>
+      <div style="font-size:13px;color:var(--text-secondary);">三个维度在3年内同向共振，是近10年少见的窗口期——方向对了，持有收益可观；方向错了，即使勤奋也难有超额。</div>
+    </div>
+
+    <!-- SVG Chart 5: 3年机会强度图 -->
+    <div class="card" style="margin-bottom:22px;">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">图表五：3年三大方向机会强度评分</div>
+      <div style="display:flex;justify-content:center;">
+        <svg width="480" height="260" viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="480" height="260" fill="#0a0f1e" rx="10"/>
+          <!-- 标题 -->
+          <text x="240" y="28" fill="#94a3b8" font-size="11" text-anchor="middle">3年机会强度评分（满分10分）</text>
+          <!-- Y轴标签 -->
+          <text x="30" y="56" fill="#94a3b8" font-size="10" text-anchor="end">综合评分</text>
+          <text x="30" y="105" fill="#94a3b8" font-size="10" text-anchor="end">驱动力</text>
+          <text x="30" y="154" fill="#94a3b8" font-size="10" text-anchor="end">确定性</text>
+          <text x="30" y="203" fill="#94a3b8" font-size="10" text-anchor="end">风险度</text>
+          <!-- AI方向 bars -->
+          <!-- 综合评分 -->
+          <rect x="55" y="42" width="108" height="22" rx="4" fill="#3b82f6" opacity="0.85"/>
+          <text x="169" y="56" fill="#3b82f6" font-size="12" font-weight="700">9.2</text>
+          <!-- 驱动力 -->
+          <rect x="55" y="90" width="115" height="22" rx="4" fill="#3b82f6" opacity="0.7"/>
+          <text x="176" y="105" fill="#3b82f6" font-size="12">9.5</text>
+          <!-- 确定性 -->
+          <rect x="55" y="139" width="96" height="22" rx="4" fill="#3b82f6" opacity="0.55"/>
+          <text x="157" y="154" fill="#3b82f6" font-size="12">8.0</text>
+          <!-- 风险度(越高越大,反向) -->
+          <rect x="55" y="188" width="84" height="22" rx="4" fill="#f87171" opacity="0.5"/>
+          <text x="145" y="203" fill="#f87171" font-size="12">7.0(高)</text>
+          <!-- 红利方向 bars -->
+          <rect x="210" y="42" width="102" height="22" rx="4" fill="#eab308" opacity="0.85"/>
+          <text x="318" y="56" fill="#eab308" font-size="12" font-weight="700">8.5</text>
+          <rect x="210" y="90" width="90" height="22" rx="4" fill="#eab308" opacity="0.7"/>
+          <text x="306" y="105" fill="#eab308" font-size="12">7.5</text>
+          <rect x="210" y="139" width="117" height="22" rx="4" fill="#eab308" opacity="0.7"/>
+          <text x="333" y="154" fill="#eab308" font-size="12">9.7</text>
+          <rect x="210" y="188" width="36" height="22" rx="4" fill="#f87171" opacity="0.4"/>
+          <text x="252" y="203" fill="#f87171" font-size="12">3.0(低)</text>
+          <!-- 出海方向 bars -->
+          <rect x="355" y="42" width="90" height="22" rx="4" fill="#10b981" opacity="0.85"/>
+          <text x="451" y="56" fill="#10b981" font-size="12" font-weight="700">7.5</text>
+          <rect x="355" y="90" width="102" height="22" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="463" y="105" fill="#10b981" font-size="12">8.5</text>
+          <rect x="355" y="139" width="84" height="22" rx="4" fill="#10b981" opacity="0.6"/>
+          <text x="445" y="154" fill="#10b981" font-size="12">7.0</text>
+          <rect x="355" y="188" width="60" height="22" rx="4" fill="#f87171" opacity="0.45"/>
+          <text x="421" y="203" fill="#f87171" font-size="12">5.0(中)</text>
+          <!-- 列标签 -->
+          <text x="109" y="235" fill="#3b82f6" font-size="13" font-weight="700" text-anchor="middle">AI科技</text>
+          <text x="261" y="235" fill="#eab308" font-size="13" font-weight="700" text-anchor="middle">高股息红利</text>
+          <text x="400" y="235" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">制造出海</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-bottom:22px;">
+      <div class="dir-card">
+        <div class="dir-title">方向A：AI科技基础设施</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">多重超级周期叠加最强爆发期</div>
+        <div class="dir-data">高技术制造业增加值增速 +12.5% | 对工业利润贡献率 51.8%</div>
+        <div class="tag-list">
+          <span class="tag">算力基础设施</span><span class="tag">光模块</span><span class="tag">AI服务器</span><span class="tag">国产芯片</span>
+          <span class="tag">AI应用软件</span><span class="tag">智能驾驶</span>
+        </div>
+        <div class="dir-risk">风险：估值已部分定价；AI应用兑现慢于预期</div>
+      </div>
+      <div class="dir-card gold">
+        <div class="dir-title">方向B：高股息红利资产</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">利率下行周期中的确定性收益</div>
+        <div class="dir-data" style="color:var(--accent-gold);">A股红利指数股息率 ~5% vs 10年国债 2.2% | 差值近3年最大</div>
+        <div class="tag-list">
+          <span class="tag" style="background:rgba(234,179,8,0.1);border-color:rgba(234,179,8,0.2);color:var(--accent-gold);">公用事业</span>
+          <span class="tag" style="background:rgba(234,179,8,0.1);border-color:rgba(234,179,8,0.2);color:var(--accent-gold);">大行</span>
+          <span class="tag" style="background:rgba(234,179,8,0.1);border-color:rgba(234,179,8,0.2);color:var(--accent-gold);">煤炭股息</span>
+          <span class="tag" style="background:rgba(234,179,8,0.1);border-color:rgba(234,179,8,0.2);color:var(--accent-gold);">水电</span>
+        </div>
+        <div class="dir-risk">风险：利率下行幅度不达预期；经济超预期导致利率反转</div>
+      </div>
+      <div class="dir-card green">
+        <div class="dir-title">方向C：中国制造出海</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">全球化升级的战略机遇期</div>
+        <div class="dir-data" style="color:var(--accent-green);">2026Q1出口增速 +14.7% | 新能源汽车/储能/光伏仍是核心</div>
+        <div class="tag-list">
+          <span class="tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);color:var(--accent-green);">工程机械</span>
+          <span class="tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);color:var(--accent-green);">白色家电</span>
+          <span class="tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);color:var(--accent-green);">电力设备</span>
+          <span class="tag" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);color:var(--accent-green);">新能源车</span>
+        </div>
+        <div class="dir-risk">风险：贸易摩擦/关税壁垒；汇率风险</div>
+      </div>
+    </div>
+
+    <div class="card" style="background:rgba(239,68,68,0.04);border-color:rgba(239,68,68,0.2);">
+      <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:12px;">3年内需要回避的方向</div>
+      <div class="grid3">
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px;background:rgba(239,68,68,0.04);border-radius:6px;border-left:2px solid #f87171;">
+          <div style="font-weight:600;color:#f87171;margin-bottom:4px;">房地产及地产链</div>
+          债务周期未结束，房地产投资降幅 -11.2% 持续压制，底部未现
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px;background:rgba(239,68,68,0.04);border-radius:6px;border-left:2px solid #f87171;">
+          <div style="font-weight:600;color:#f87171;margin-bottom:4px;">白酒高端消费</div>
+          消费信心修复慢；消费降级趋势持续；估值修复需时
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px;background:rgba(239,68,68,0.04);border-radius:6px;border-left:2px solid #f87171;">
+          <div style="font-weight:600;color:#f87171;margin-bottom:4px;">纯周期大宗</div>
+          补库力度弱，PPI难有大行情；需求端支撑不足
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 3 -->
+<section class="section" id="ch3">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">3</div>
+      <div>
+        <div class="ch-title">5年视角（2026-2030）</div>
+        <div class="ch-lead">哪些行业会出现趋势性机会？</div>
+      </div>
+    </div>
+
+    <div class="trend-item">
+      <div class="trend-title"><span class="trend-num">一</span>AI从基础设施投资进入应用爆发阶段（2027-2030）</div>
+      <div class="trend-body">AI大模型从技术竞赛进入商业化变现期，形成三波扩散：<strong style="color:var(--accent-blue);">工业AI</strong>（制造业效率革命/工业软件/机器人）→ <strong style="color:var(--accent-blue);">医疗AI</strong>（辅助诊断/新药研发/CRO+AI）→ <strong style="color:var(--accent-blue);">消费AI</strong>（AI原生应用/智能终端/端侧推理）。每一波都对应不同的投资赛道，时间差约1-2年，可提前布局。</div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-title"><span class="trend-num" style="background:var(--accent-green);">二</span>绿色能源转型加速——新型电力系统（2026-2030）</div>
+      <div class="trend-body">"双碳"目标推进：新能源装机量持续扩大，配套电网改造需求（<strong style="color:var(--accent-green);">特高压/智能电网/储能</strong>）确定性最高。核电重启加速，华能/中广核新项目审批明显加快。电力设备（特变电工）+ 新能源运营商（三峡能源）+ 储能是5年内确定性最高的方向之一。</div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-title"><span class="trend-num" style="background:var(--accent-purple);">三</span>银发经济+医疗健康——人口结构驱动的刚性需求</div>
+      <div class="trend-body">2030年中国60岁以上人口将突破4亿（占比28%+），形成庞大且刚性的医疗健康需求。<strong style="color:var(--accent-purple);">好赛道</strong>：医疗服务（医院/养老机构）、医疗器械（康复设备/手术机器人）、特殊消费（银发服务/保险/财富管理）。注意：创新药/医疗服务部分已定价，需选具备真实护城河的好生意。</div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-title"><span class="trend-num" style="background:var(--accent-gold);">四</span>债务周期尾声——地产相关的反弹机会（预计2027-2028）</div>
+      <div class="trend-body">多家机构判断中国楼市拐点或在2027年前后——届时地产链（<strong style="color:var(--accent-gold);">建材/家电/装修</strong>）将出现强力反弹。当前可低成本埋伏优质地产链公司，等待周期反转。但需严格选股：只选债务低、品牌强、渠道全国化的龙头，不碰高杠杆小公司。</div>
+    </div>
+    <div class="trend-item">
+      <div class="trend-title"><span class="trend-num" style="background:var(--accent-blue);">五</span>消费升级与品牌化——内需修复的第二波</div>
+      <div class="trend-body">"十五五"规划首次将居民消费率提升列为顶层目标；消费品以旧换新政策提供2500亿超长期国债支持（持续到2030年）。<strong style="color:var(--accent-blue);">机会</strong>：必选消费龙头（伊利/海天味业）、出行链（机场/免税）、可选消费中的品牌化企业。等待政策效果传导，在低估值时逐步建仓。</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 4 -->
+<section class="section" id="ch4" style="background:rgba(14,21,37,0.4);">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">4</div>
+      <div>
+        <div class="ch-title">10年视角（2026-2035）</div>
+        <div class="ch-lead">下一个十年的长期赢家</div>
+      </div>
+    </div>
+    <div class="blockquote">结合康波第六次大周期（AI+新能源+生物科技），10年赢家的五大赛道</div>
+
+    <div class="grid2" style="margin-bottom:20px;">
+      <div class="card2" style="border-left:3px solid var(--accent-blue);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;">赛道一：AI原生企业</div>
+        <div style="font-size:12px;color:var(--accent-blue);margin-bottom:6px;">最大机会，最高不确定性</div>
+        <div style="font-size:13px;color:var(--text-secondary);">新康波的核心驱动力，类比第五次康波互联网时代的谷歌/亚马逊。中国视角：大模型公司（百度/腾讯/阿里）+ AI应用层（不确定性高）。挑战：当前A股AI纯粹标的少，更多是基础设施受益方。</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--accent-gold);">潜在回报：3-10倍（极高分散）</div>
+      </div>
+      <div class="card2" style="border-left:3px solid var(--accent-green);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;">赛道二：新能源基础设施</div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:6px;">确定性高，增长持续</div>
+        <div style="font-size:13px;color:var(--text-secondary);">全球能源转型不可逆，碳中和政策驱动20年以上。最确定受益：<strong style="color:var(--accent-green);">水电（永续+高股息）+ 核电（稳定成长）+ 电网（必须投资）</strong>。注意：光伏/风电竞争激烈，需选护城河强的龙头。</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--accent-gold);">潜在回报：2-4倍（高确定性）</div>
+      </div>
+      <div class="card2" style="border-left:3px solid var(--accent-purple);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;">赛道三：医疗+生命科学</div>
+        <div style="font-size:12px;color:var(--accent-purple);margin-bottom:6px;">人口老龄化+科技融合</div>
+        <div style="font-size:13px;color:var(--text-secondary);">中国医疗行业规模3.4万亿，CAGR预测8-10%。好生意：医疗器械龙头（迈瑞医疗）+ 连锁医疗服务（爱尔眼科）。10年视角：AI+医疗融合，推动诊断/手术效率革命，形成全新商业模式。</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--accent-gold);">潜在回报：2-5倍（中确定性）</div>
+      </div>
+      <div class="card2" style="border-left:3px solid var(--accent-gold);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;">赛道四：品牌消费品出海</div>
+        <div style="font-size:12px;color:var(--accent-gold);margin-bottom:6px;">中国品牌崛起</div>
+        <div style="font-size:13px;color:var(--text-secondary);">"中国制造"→"中国品牌"：海外高端化是长期趋势。案例：美的/海尔（家电品牌出海）+ 安踏（运动品牌全球化）。10年机会：中国有能力复制日本品牌在全球消费品市场的地位。</div>
+        <div style="margin-top:10px;font-size:12px;color:var(--accent-gold);">潜在回报：1.5-3倍（稳健增长）</div>
+      </div>
+    </div>
+
+    <div class="card2" style="border-left:3px solid var(--accent);margin-bottom:20px;">
+      <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;">赛道五：金融——资本市场成熟化受益者</div>
+      <div style="font-size:13px;color:var(--text-secondary);">中国资本市场深化：公募基金规模持续扩大（预计10年翻2倍）。受益：证券公司（头部集中化）+ 基金公司 + 保险（老龄化+财富管理）。关注资本市场生态建设政策红利，在PEV估值低位布局大型保险公司。</div>
+    </div>
+
+    <div class="card" style="background:rgba(239,68,68,0.04);border-color:rgba(239,68,68,0.2);">
+      <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:12px;">10年视角最需要规避的</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;">
+        <div style="padding:10px 14px;background:rgba(239,68,68,0.06);border-radius:6px;font-size:12px;color:var(--text-secondary);">
+          <span style="color:#f87171;font-weight:600;">纯传统能源</span> — 煤炭/石油在新能源替代下的长期衰退风险
+        </div>
+        <div style="padding:10px 14px;background:rgba(239,68,68,0.06);border-radius:6px;font-size:12px;color:var(--text-secondary);">
+          <span style="color:#f87171;font-weight:600;">传统燃油汽车</span> — 新能源替代不可逆，份额持续萎缩
+        </div>
+        <div style="padding:10px 14px;background:rgba(239,68,68,0.06);border-radius:6px;font-size:12px;color:var(--text-secondary);">
+          <span style="color:#f87171;font-weight:600;">线下零售/传统媒体</span> — 数字化替代持续，商业模式持续弱化
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 5 -->
+<section class="section" id="ch5">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">5</div>
+      <div>
+        <div class="ch-title">各行业周期位置与机会评级</div>
+        <div class="ch-lead">全景行业热力图</div>
+      </div>
+    </div>
+
+    <!-- SVG Chart 2: 行业热力图 -->
+    <div class="card" style="margin-bottom:24px;">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">图表二：行业机会热力图（3年 / 5年 / 10年）</div>
+      <div style="overflow-x:auto;">
+        <svg width="640" height="370" viewBox="0 0 640 370" xmlns="http://www.w3.org/2000/svg">
+          <rect width="640" height="370" fill="#0a0f1e" rx="10"/>
+          <!-- Header -->
+          <text x="20" y="32" fill="#94a3b8" font-size="12" font-weight="600">行业</text>
+          <text x="240" y="32" fill="#3b82f6" font-size="12" font-weight="700" text-anchor="middle">3年</text>
+          <text x="380" y="32" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle">5年</text>
+          <text x="520" y="32" fill="#f97316" font-size="12" font-weight="700" text-anchor="middle">10年</text>
+          <line x1="10" y1="38" x2="630" y2="38" stroke="#1e2d45" stroke-width="1"/>
+          <!-- Rows: AI/半导体 -->
+          <text x="20" y="58" fill="#f1f5f9" font-size="12">AI / 半导体</text>
+          <rect x="198" y="44" width="84" height="20" rx="4" fill="#10b981" opacity="0.8"/>
+          <text x="240" y="57" fill="#fff" font-size="11" text-anchor="middle">极强 ★★★★★</text>
+          <rect x="338" y="44" width="84" height="20" rx="4" fill="#10b981" opacity="0.8"/>
+          <text x="380" y="57" fill="#fff" font-size="11" text-anchor="middle">极强 ★★★★★</text>
+          <rect x="478" y="44" width="84" height="20" rx="4" fill="#10b981" opacity="0.9"/>
+          <text x="520" y="57" fill="#fff" font-size="11" text-anchor="middle">极强 ★★★★★</text>
+          <!-- 高股息公用事业 -->
+          <text x="20" y="83" fill="#f1f5f9" font-size="12">高股息公用事业</text>
+          <rect x="198" y="69" width="84" height="20" rx="4" fill="#10b981" opacity="0.75"/>
+          <text x="240" y="82" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="338" y="69" width="84" height="20" rx="4" fill="#10b981" opacity="0.65"/>
+          <text x="380" y="82" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="478" y="69" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.5"/>
+          <text x="520" y="82" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <!-- 银行大行 -->
+          <text x="20" y="108" fill="#f1f5f9" font-size="12">银行（大行）</text>
+          <rect x="198" y="94" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="240" y="107" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="338" y="94" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.5"/>
+          <text x="380" y="107" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="478" y="94" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.5"/>
+          <text x="520" y="107" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <!-- 制造出海 -->
+          <text x="20" y="133" fill="#f1f5f9" font-size="12">制造出海</text>
+          <rect x="198" y="119" width="84" height="20" rx="4" fill="#10b981" opacity="0.75"/>
+          <text x="240" y="132" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="338" y="119" width="84" height="20" rx="4" fill="#10b981" opacity="0.75"/>
+          <text x="380" y="132" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="478" y="119" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="520" y="132" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <!-- 新能源/电力设备 -->
+          <text x="20" y="158" fill="#f1f5f9" font-size="12">新能源/电力设备</text>
+          <rect x="198" y="144" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.5"/>
+          <text x="240" y="157" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="338" y="144" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="380" y="157" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="478" y="144" width="84" height="20" rx="4" fill="#10b981" opacity="0.85"/>
+          <text x="520" y="157" fill="#fff" font-size="11" text-anchor="middle">极强 ★★★★★</text>
+          <!-- 医疗器械 -->
+          <text x="20" y="183" fill="#f1f5f9" font-size="12">医疗器械</text>
+          <rect x="198" y="169" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.5"/>
+          <text x="240" y="182" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="338" y="169" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="380" y="182" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <rect x="478" y="169" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="520" y="182" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <!-- 消费必选 -->
+          <text x="20" y="208" fill="#f1f5f9" font-size="12">消费（必选）</text>
+          <rect x="198" y="194" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.45"/>
+          <text x="240" y="207" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="338" y="194" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.45"/>
+          <text x="380" y="207" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="478" y="194" width="84" height="20" rx="4" fill="#10b981" opacity="0.7"/>
+          <text x="520" y="207" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <!-- 白酒高端 -->
+          <text x="20" y="233" fill="#94a3b8" font-size="12">白酒（高端）</text>
+          <rect x="198" y="219" width="84" height="20" rx="4" fill="#ef4444" opacity="0.4"/>
+          <text x="240" y="232" fill="#fff" font-size="11" text-anchor="middle">弱 ★★</text>
+          <rect x="338" y="219" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.35"/>
+          <text x="380" y="232" fill="#fff" font-size="11" text-anchor="middle">中 ★★★</text>
+          <rect x="478" y="219" width="84" height="20" rx="4" fill="#10b981" opacity="0.6"/>
+          <text x="520" y="232" fill="#fff" font-size="11" text-anchor="middle">强 ★★★★</text>
+          <!-- 煤炭 -->
+          <text x="20" y="258" fill="#94a3b8" font-size="12">煤炭（股息）</text>
+          <rect x="198" y="244" width="84" height="20" rx="4" fill="#fbbf24" opacity="0.4"/>
+          <text x="240" y="257" fill="#fff" font-size="11" text-anchor="middle">股息 ★★</text>
+          <rect x="338" y="244" width="84" height="20" rx="4" fill="#ef4444" opacity="0.3"/>
+          <text x="380" y="257" fill="#fff" font-size="11" text-anchor="middle">弱 ★★</text>
+          <rect x="478" y="244" width="84" height="20" rx="4" fill="#ef4444" opacity="0.3"/>
+          <text x="520" y="257" fill="#fff" font-size="11" text-anchor="middle">弱 ★★</text>
+          <!-- 地产 -->
+          <text x="20" y="283" fill="#94a3b8" font-size="12">房地产</text>
+          <rect x="198" y="269" width="84" height="20" rx="4" fill="#ef4444" opacity="0.5"/>
+          <text x="240" y="282" fill="#fff" font-size="11" text-anchor="middle">很弱 ★</text>
+          <rect x="338" y="269" width="84" height="20" rx="4" fill="#ef4444" opacity="0.3"/>
+          <text x="380" y="282" fill="#fff" font-size="11" text-anchor="middle">弱 ★★</text>
+          <rect x="478" y="269" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.4"/>
+          <text x="520" y="282" fill="#fff" font-size="11" text-anchor="middle">反转 ★★★</text>
+          <!-- 铜/黄金 -->
+          <text x="20" y="308" fill="#f1f5f9" font-size="12">铜/黄金大宗</text>
+          <rect x="198" y="294" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.45"/>
+          <text x="240" y="307" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="338" y="294" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.45"/>
+          <text x="380" y="307" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <rect x="478" y="294" width="84" height="20" rx="4" fill="#6ee7b7" opacity="0.45"/>
+          <text x="520" y="307" fill="#fff" font-size="11" text-anchor="middle">中强 ★★★</text>
+          <!-- 图例 -->
+          <rect x="20" y="340" width="14" height="12" rx="2" fill="#10b981" opacity="0.8"/>
+          <text x="38" y="350" fill="#10b981" font-size="10">强烈推荐</text>
+          <rect x="115" y="340" width="14" height="12" rx="2" fill="#6ee7b7" opacity="0.5"/>
+          <text x="133" y="350" fill="#94a3b8" font-size="10">中性/推荐</text>
+          <rect x="225" y="340" width="14" height="12" rx="2" fill="#fbbf24" opacity="0.5"/>
+          <text x="243" y="350" fill="#eab308" font-size="10">谨慎/股息</text>
+          <rect x="330" y="340" width="14" height="12" rx="2" fill="#ef4444" opacity="0.4"/>
+          <text x="348" y="350" fill="#f87171" font-size="10">回避/等待</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>行业</th><th>当前周期位置</th><th>3年</th><th>5年</th><th>10年</th><th>主要风险</th><th>评级</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>AI/半导体</td><td>景气初期+政策支持</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>估值已高/竞争加剧</td><td><span class="badge badge-green">积极布局</span></td></tr>
+          <tr><td>高股息公用事业</td><td>利率下行受益</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>利率转向</td><td><span class="badge badge-green">核心配置</span></td></tr>
+          <tr><td>银行（大行）</td><td>低估值+高股息</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>净息差收窄</td><td><span class="badge badge-yellow">稳健配置</span></td></tr>
+          <tr><td>制造出海</td><td>出口高增+升级</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>贸易摩擦</td><td><span class="badge badge-green">积极布局</span></td></tr>
+          <tr><td>新能源/电力设备</td><td>政策+趋势共振</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>竞争/光伏内卷</td><td><span class="badge badge-yellow">选龙头</span></td></tr>
+          <tr><td>医疗器械</td><td>集采后期修复</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>集采持续</td><td><span class="badge badge-yellow">等待确认</span></td></tr>
+          <tr><td>消费（必选）</td><td>复苏初期低估值</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>消费信心修复慢</td><td><span class="badge badge-yellow">逐步布局</span></td></tr>
+          <tr><td>白酒（高端）</td><td>行业调整期</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐</td><td>消费降级</td><td><span class="badge badge-red">谨慎</span></td></tr>
+          <tr><td>煤炭</td><td>景气下行</td><td>⭐⭐（股息）</td><td>⭐⭐</td><td>⭐⭐</td><td>新能源替代</td><td><span class="badge badge-red">只持股息</span></td></tr>
+          <tr><td>房地产</td><td>债务周期消化中</td><td>⭐</td><td>⭐⭐</td><td>⭐⭐⭐</td><td>去化周期长</td><td><span class="badge badge-red">等待底部</span></td></tr>
+          <tr><td>券商</td><td>市场活跃度驱动</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>市场情绪变化</td><td><span class="badge badge-yellow">弹性配置</span></td></tr>
+          <tr><td>大宗资源（铜/金）</td><td>库存周期+地缘受益</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>全球需求波动</td><td><span class="badge badge-yellow">适度配置</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 6 -->
+<section class="section" id="ch6">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">6</div>
+      <div>
+        <div class="ch-title">2026年特殊机会</div>
+        <div class="ch-lead">五个被低估的细分赛道</div>
+      </div>
+    </div>
+
+    <div class="grid2" style="gap:16px;">
+      <div class="card2" style="border-top:2px solid var(--accent-blue);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-blue);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px;flex-shrink:0;">1</div>
+          <div style="font-size:15px;font-weight:700;">水电——最好的股息资产</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:8px;">长江电力 PE≈18倍（历史低位）| 股息率 4.5%+ | 水资源永续</div>
+        <div style="font-size:13px;color:var(--text-secondary);">与债券比较：10年期国债2.2%，长江电力实际回报5%+且随盈利增长。A股最稀缺的现金流类债券资产，10年复利能力极强。</div>
+      </div>
+      <div class="card2" style="border-top:2px solid var(--accent-purple);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-purple);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px;flex-shrink:0;">2</div>
+          <div style="font-size:15px;font-weight:700;">保险——利率触底后的最大弹性</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:8px;">中国人寿2025年净利润 +44% | PEV 0.6-0.8倍（历史低位区间）</div>
+        <div style="font-size:13px;color:var(--text-secondary);">利率企稳甚至回升时弹性极大。2026年是布局窗口，估值历史低，负债端改善预期明确。</div>
+      </div>
+      <div class="card2" style="border-top:2px solid var(--accent-green);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-green);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px;flex-shrink:0;">3</div>
+          <div style="font-size:15px;font-weight:700;">出海家电——白色家电第二曲线</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:8px;">海信家电 PE=9.81倍 | 海外市场贡献持续提升</div>
+        <div style="font-size:13px;color:var(--text-secondary);">中国家电在性价比+质量上已具全球竞争力，海外市场远未饱和。估值极低，出海增速持续超预期。</div>
+      </div>
+      <div class="card2" style="border-top:2px solid var(--accent-gold);">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent-gold);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px;flex-shrink:0;">4</div>
+          <div style="font-size:15px;font-weight:700;">铜——三重需求叠加超级周期</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:8px;">紫金矿业 PE=12倍 | 2026年净利润预计增长 30%+</div>
+        <div style="font-size:13px;color:var(--text-secondary);">AI数据中心用铜量是传统建筑10倍；新能源车用铜量是燃油车3-4倍。供给端10年资本开支不足形成超级周期。</div>
+      </div>
+      <div class="card2" style="border-top:2px solid var(--accent);grid-column:1/-1;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:13px;flex-shrink:0;">5</div>
+          <div style="font-size:15px;font-weight:700;">CXO（外包研发）——困境反转中的低估机会</div>
+        </div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:8px;">药明康德 PE≈16倍（历史低点）| 受制裁担忧严重低估</div>
+        <div style="font-size:13px;color:var(--text-secondary);">2022-2023年受美国制裁担忧重创，但国内CDMO需求持续旺盛，创新药出海实际影响远小于预期。当前估值已包含太多恐惧，是典型的困境反转机会。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 7 -->
+<section class="section" id="ch7" style="background:rgba(14,21,37,0.4);">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">7</div>
+      <div>
+        <div class="ch-title">周期与政策的叠加</div>
+        <div class="ch-lead">A股独特变量分析</div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-bottom:22px;">
+      <div class="card">
+        <div style="font-size:14px;font-weight:700;color:var(--accent-blue);margin-bottom:12px;">"十五五"规划红利（2026-2030）</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;"><strong style="color:var(--text);">三大战略方向：</strong></div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">① 科技自主可控 → 半导体/AI/机器人</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">② 扩大内需 → 消费品以旧换新/消费率提升</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">③ 绿色转型 → 新能源/低空经济</div>
+        <div style="font-size:12px;color:var(--accent-green);margin-top:10px;">政策逻辑比经济逻辑更重要</div>
+      </div>
+      <div class="card">
+        <div style="font-size:14px;font-weight:700;color:var(--accent-gold);margin-bottom:12px;">政策周期如何识别A股买点</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">A股独特规律（领先顺序）：</div>
+        <div style="font-size:12px;color:var(--accent);margin-bottom:4px;">政策底（先）</div>
+        <div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">↓ 降准降息/汇金增持信号</div>
+        <div style="font-size:12px;color:var(--accent-gold);margin-bottom:4px;">市场底（中）</div>
+        <div style="font-size:10px;color:var(--text-secondary);margin-bottom:4px;">↓ 成交量/情绪触底</div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:4px;">经济底（后）</div>
+        <div style="font-size:10px;color:var(--text-secondary);">↓ PMI/工业利润转正</div>
+      </div>
+      <div class="card">
+        <div style="font-size:14px;font-weight:700;color:var(--accent-purple);margin-bottom:12px;">外资视角与北向资金</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:8px;">十大外资机构共同判断：<strong style="color:var(--text);">结构性机会 &gt; 系统性牛市</strong></div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">外资偏好：高ROE质量因子 + 估值洼地</div>
+        <div style="font-size:12px;color:var(--text-secondary);margin-bottom:6px;">高盛/摩根：科技成长和高股息分化明显，不建议均匀配置</div>
+        <div style="font-size:12px;color:var(--accent-blue);margin-top:6px;">港股：科技+高股息折扣最大</div>
+      </div>
+    </div>
+
+    <div class="card" style="background:rgba(59,130,246,0.04);border-color:rgba(59,130,246,0.2);">
+      <div style="font-size:14px;font-weight:700;color:var(--accent-blue);margin-bottom:12px;">2026年关键政策信号观察清单</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="font-size:13px;color:var(--text-secondary);">📌 <strong style="color:var(--text);">降准降息节奏</strong> — 年内LPR是否再降10-20bp，何时落地</div>
+        <div style="font-size:13px;color:var(--text-secondary);">📌 <strong style="color:var(--text);">汇金增持节奏</strong> — 国家队入场的规模与方向信号</div>
+        <div style="font-size:13px;color:var(--text-secondary);">📌 <strong style="color:var(--text);">专项债发行规模</strong> — 基建+科技方向的财政力度</div>
+        <div style="font-size:13px;color:var(--text-secondary);">📌 <strong style="color:var(--text);">消费政策落地</strong> — 以旧换新资金拨付进度</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 8 -->
+<section class="section" id="ch8">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">8</div>
+      <div>
+        <div class="ch-title">三大场景假设</div>
+        <div class="ch-lead">对应不同投资策略</div>
+      </div>
+    </div>
+
+    <!-- SVG Chart 3: 场景概率图 -->
+    <div class="card" style="margin-bottom:24px;">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">图表三：三大场景概率分布</div>
+      <div style="display:flex;justify-content:center;">
+        <svg width="440" height="200" viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg">
+          <rect width="440" height="200" fill="#0a0f1e" rx="10"/>
+          <!-- 基准场景 60% -->
+          <rect x="40" y="30" width="216" height="48" rx="6" fill="#3b82f6" opacity="0.8"/>
+          <text x="148" y="50" fill="#fff" font-size="18" font-weight="800" text-anchor="middle">60%</text>
+          <text x="148" y="67" fill="#bfdbfe" font-size="11" text-anchor="middle">基准：温和复苏 + AI延续</text>
+          <!-- 乐观场景 25% -->
+          <rect x="40" y="95" width="90" height="40" rx="6" fill="#10b981" opacity="0.8"/>
+          <text x="85" y="111" fill="#fff" font-size="15" font-weight="800" text-anchor="middle">25%</text>
+          <text x="85" y="125" fill="#a7f3d0" font-size="10" text-anchor="middle">乐观：全面回暖</text>
+          <!-- 悲观场景 15% -->
+          <rect x="150" y="95" width="54" height="40" rx="6" fill="#ef4444" opacity="0.7"/>
+          <text x="177" y="111" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">15%</text>
+          <text x="177" y="125" fill="#fca5a5" font-size="10" text-anchor="middle">悲观</text>
+          <!-- 气泡比较图 -->
+          <circle cx="270" cy="55" r="34" fill="#3b82f6" opacity="0.8"/>
+          <text x="270" y="51" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">60%</text>
+          <text x="270" y="66" fill="#bfdbfe" font-size="9" text-anchor="middle">基准</text>
+          <circle cx="340" cy="55" r="20" fill="#10b981" opacity="0.8"/>
+          <text x="340" y="51" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">25%</text>
+          <text x="340" y="64" fill="#a7f3d0" font-size="8" text-anchor="middle">乐观</text>
+          <circle cx="390" cy="55" r="13" fill="#ef4444" opacity="0.7"/>
+          <text x="390" y="51" fill="#fff" font-size="9" font-weight="700" text-anchor="middle">15%</text>
+          <text x="390" y="63" fill="#fca5a5" font-size="7" text-anchor="middle">悲观</text>
+          <text x="260" y="105" fill="#94a3b8" font-size="11" font-weight="600">气泡大小 = 概率权重</text>
+          <text x="260" y="120" fill="#3b82f6" font-size="10">● 基准 60% — 温和复苏+AI景气</text>
+          <text x="260" y="136" fill="#10b981" font-size="10">● 乐观 25% — 全面牛市</text>
+          <text x="260" y="152" fill="#f87171" font-size="10">● 悲观 15% — 外部冲击</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="scenario-grid">
+      <div class="scenario-card sc-base">
+        <div class="sc-prob sc-prob-base">60%</div>
+        <div class="sc-title">基准场景：经济温和复苏，AI景气延续</div>
+        <div class="sc-body">
+          <strong style="color:var(--text);">特征：</strong> GDP维持5%，PPI温和回正，LPR再降10-20bp<br><br>
+          <strong style="color:var(--text);">市场：</strong> 结构性行情，AI+红利双轨并行，无系统性牛熊<br><br>
+          <strong style="color:var(--accent-blue);">策略：</strong><br>
+          科技成长 30%<br>
+          高股息 40%<br>
+          消费修复 20%<br>
+          现金 10%
+        </div>
+      </div>
+      <div class="scenario-card sc-bull">
+        <div class="sc-prob sc-prob-bull">25%</div>
+        <div class="sc-title">乐观场景：内需超预期，经济全面回暖</div>
+        <div class="sc-body">
+          <strong style="color:var(--text);">特征：</strong> 消费大幅改善，房地产提前触底，信贷需求回升<br><br>
+          <strong style="color:var(--text);">市场：</strong> 全面牛市，周期股和消费股大幅补涨<br><br>
+          <strong style="color:var(--accent-green);">策略：</strong><br>
+          减持防御性红利<br>
+          增配消费/周期<br>
+          总仓位提升至 85%+
+        </div>
+      </div>
+      <div class="scenario-card sc-bear">
+        <div class="sc-prob sc-prob-bear">15%</div>
+        <div class="sc-title">悲观场景：外部冲击+内需迟迟不起</div>
+        <div class="sc-body">
+          <strong style="color:var(--text);">特征：</strong> 贸易战升级，出口回落，消费持续低迷，PPI再次转负<br><br>
+          <strong style="color:var(--text);">市场：</strong> 市场重新回调，高股息相对抗跌<br><br>
+          <strong style="color:#f87171;">策略：</strong><br>
+          重仓高股息 60%+<br>
+          （煤炭/水电/大行）<br>
+          减仓成长<br>
+          保留现金 20%
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 9 -->
+<section class="section" id="ch9" style="background:rgba(14,21,37,0.4);">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">9</div>
+      <div>
+        <div class="ch-title">完整投资策略框架</div>
+        <div class="ch-lead">基于周期的分层配置方案</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:22px;background:rgba(249,115,22,0.04);border-color:rgba(249,115,22,0.2);">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:14px;">整体策略原则（三条）</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px 14px;background:rgba(249,115,22,0.05);border-radius:6px;border-left:2px solid var(--accent);">
+          <strong style="color:var(--text);">原则一</strong> — 先确定仓位（周期位置→决定总仓位），再选行业（周期+景气→权重），最后选个股（基本面→具体标的）
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px 14px;background:rgba(249,115,22,0.05);border-radius:6px;border-left:2px solid var(--accent);">
+          <strong style="color:var(--text);">原则二</strong> — 守住"好生意"底仓，用"周期机会"做波段增益，两者不要混淆
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);padding:10px 14px;background:rgba(249,115,22,0.05);border-radius:6px;border-left:2px solid var(--accent);">
+          <strong style="color:var(--text);">原则三</strong> — 以3-5年眼光配置，以1年眼光动态再平衡；不要让短期噪音破坏长期结构
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG Chart 4: 组合配置饼图 -->
+    <div class="card" style="margin-bottom:22px;">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:16px;">图表四：建议组合配置比例（基准场景）</div>
+      <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:24px;align-items:center;">
+        <svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+          <rect width="220" height="220" fill="#0a0f1e" rx="10"/>
+          <!-- 底仓层 50% 从270度到90度（顺时针），即上半部分 -->
+          <path d="M110,110 L110,25 A85,85 0 1,1 109.999,25 Z" fill="#f97316" opacity="0.0"/>
+          <!-- 用精确角度：50%=180度，30%=108度，15%=54度，5%=18度 -->
+          <!-- 底仓50%: 270->90 (180度) -->
+          <path d="M110,110 L110,25 A85,85 0 0,1 195,110 Z" fill="#f97316" opacity="0.85"/>
+          <!-- 成长30%: 90->198 (108度) -->
+          <path d="M110,110 L195,110 A85,85 0 0,1 57.7,173.5 Z" fill="#3b82f6" opacity="0.85"/>
+          <!-- 机会15%: 198->252 (54度) -->
+          <path d="M110,110 L57.7,173.5 A85,85 0 0,1 83.5,26.6 Z" fill="#10b981" opacity="0.85"/>
+          <!-- 现金5%: 252->270 (18度) -->
+          <path d="M110,110 L83.5,26.6 A85,85 0 0,1 110,25 Z" fill="#eab308" opacity="0.85"/>
+          <!-- 中心 -->
+          <circle cx="110" cy="110" r="40" fill="#0a0f1e"/>
+          <text x="110" y="107" fill="#f1f5f9" font-size="11" font-weight="700" text-anchor="middle">基准方案</text>
+          <text x="110" y="122" fill="#94a3b8" font-size="9" text-anchor="middle">总仓位95%</text>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:#f97316;flex-shrink:0;"></div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--text);">底仓层 50%</div><div style="font-size:11px;color:var(--text-secondary);">高股息+好生意 | 5-10年持有</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:#3b82f6;flex-shrink:0;"></div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--text);">成长层 30%</div><div style="font-size:11px;color:var(--text-secondary);">AI科技+新能源 | 3-5年持有</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:#10b981;flex-shrink:0;"></div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--text);">机会层 15%</div><div style="font-size:11px;color:var(--text-secondary);">周期反转+出海 | 1-3年</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:14px;height:14px;border-radius:3px;background:#eab308;flex-shrink:0;"></div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--text);">现金/债券 5%</div><div style="font-size:11px;color:var(--text-secondary);">等待极端机会 | 随时可用</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:24px;">
+      <table>
+        <thead>
+          <tr><th>层次</th><th>类型</th><th>权重</th><th>代表行业/标的</th><th>持仓周期</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong style="color:var(--accent);">底仓层</strong></td><td>高股息+好生意</td><td><strong style="color:var(--accent);font-size:16px;">50%</strong></td><td>长江电力 / 中国神华 / 工商银行 / 招商银行 / 迈瑞医疗</td><td>5-10年</td></tr>
+          <tr><td><strong style="color:var(--accent-blue);">成长层</strong></td><td>AI科技+新能源</td><td><strong style="color:var(--accent-blue);font-size:16px;">30%</strong></td><td>半导体/AI应用/电力设备/新能源运营商</td><td>3-5年</td></tr>
+          <tr><td><strong style="color:var(--accent-green);">机会层</strong></td><td>周期反转+出海</td><td><strong style="color:var(--accent-green);font-size:16px;">15%</strong></td><td>铜金资源 / 出海家电 / 保险 / 券商</td><td>1-3年</td></tr>
+          <tr><td><strong style="color:var(--accent-gold);">现金/债</strong></td><td>等待极端机会</td><td><strong style="color:var(--accent-gold);font-size:16px;">5%</strong></td><td>货币基金 / 短债ETF</td><td>随时可用</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 三类投资者方案 -->
+    <div class="grid3">
+      <div class="card2" style="border-top:3px solid var(--accent-green);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">A型：保守型</div>
+        <div style="font-size:12px;color:var(--accent-green);margin-bottom:12px;">风险承受低 | 目标5-8%/年</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;"><strong style="color:var(--text);">底仓80%：</strong>中国神华+长江电力+工商银行/招商银行</div>
+        <div style="font-size:13px;color:var(--text-secondary);">成长20%：AI+新能源宽基ETF（分散化）</div>
+        <div style="margin-top:10px;padding:8px;background:rgba(16,185,129,0.06);border-radius:6px;font-size:12px;color:var(--accent-green);">股息+价格温和增长，收益稳定</div>
+      </div>
+      <div class="card2" style="border-top:3px solid var(--accent-blue);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">B型：均衡型</div>
+        <div style="font-size:12px;color:var(--accent-blue);margin-bottom:12px;">主流个人投资者 | 目标10-15%/年</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">底仓50%：</strong>高股息组合</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">成长30%：</strong>科技成长（A股+港股）</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">机会15%：</strong>周期/出海波段</div>
+        <div style="font-size:13px;color:var(--text-secondary);">现金5%</div>
+      </div>
+      <div class="card2" style="border-top:3px solid var(--accent);">
+        <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px;">C型：积极成长型</div>
+        <div style="font-size:12px;color:var(--accent);margin-bottom:12px;">高风险承受 | 追求超额收益</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">底仓20%：</strong>迈瑞+腾讯（护城河顶尖）</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">成长60%：</strong>AI/半导体/新能源重点标的</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px;"><strong style="color:var(--text);">机会15%：</strong>困境反转（CXO/保险/地产链）</div>
+        <div style="font-size:13px;color:var(--text-secondary);">现金5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CHAPTER 10 -->
+<section class="section" id="ch10">
+  <div class="section-inner">
+    <div class="ch-header">
+      <div class="ch-num">10</div>
+      <div>
+        <div class="ch-title">给投资者的十年行动清单</div>
+        <div class="ch-lead">从当下到2035年的行动指南</div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-bottom:24px;">
+      <div class="card">
+        <div style="font-size:15px;font-weight:700;color:var(--accent-blue);margin-bottom:16px;">2026-2028（3年内）必做的5件事</div>
+        <div class="action-item">
+          <div class="action-num">1</div>
+          <div class="action-text">在AI科技领域建立认知，选1-2个有护城河的标的，<strong style="color:var(--text);">不追高</strong>，等待合理估值入场</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">2</div>
+          <div class="action-text">用高股息资产（水电/大行）替代理财/存款，<strong style="color:var(--text);">享受利率下行红利</strong>，同时获得通胀保护</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">3</div>
+          <div class="action-text">密切跟踪PPI走势：一旦<strong style="color:var(--text);">PPI连续3个月同比回正</strong>，考虑增配周期股</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num">4</div>
+          <div class="action-text">等待地产链（<strong style="color:var(--text);">家电/建材龙头</strong>）出现极端低估时的布局窗口，提前研究标的名单</div>
+        </div>
+        <div class="action-item" style="border-bottom:none;">
+          <div class="action-num">5</div>
+          <div class="action-text">不要押注纯主题/概念，<strong style="color:var(--text);">只买有真实盈利支撑的标的</strong>，远离纯概念炒作</div>
+        </div>
+      </div>
+      <div class="card">
+        <div style="font-size:15px;font-weight:700;color:var(--accent-gold);margin-bottom:16px;">2029-2035（5-10年）需要关注的信号</div>
+        <div class="action-item">
+          <div class="action-num" style="background:var(--accent-gold);">1</div>
+          <div class="action-text">AI应用层是否出现<strong style="color:var(--text);">爆发性增长</strong>（对应中国互联网2015年的感觉），形成杀手级应用</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num" style="background:var(--accent-gold);">2</div>
+          <div class="action-text">地产行业是否真正触底：<strong style="color:var(--text);">销售面积+价格双稳信号</strong>同时出现，才是真正的底</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num" style="background:var(--accent-gold);">3</div>
+          <div class="action-text">中国品牌出海是否形成<strong style="color:var(--text);">规模效应</strong>（类似韩国三星/LG的成功路径）</div>
+        </div>
+        <div class="action-item">
+          <div class="action-num" style="background:var(--accent-gold);">4</div>
+          <div class="action-text">新能源替代传统能源的速度是否<strong style="color:var(--text);">超出预期</strong>，重新评估传统能源持仓</div>
+        </div>
+        <div class="action-item" style="border-bottom:none;">
+          <div class="action-num" style="background:var(--accent-gold);">5</div>
+          <div class="action-text">医疗+AI融合是否形成<strong style="color:var(--text);">可商业化的杀手级应用</strong>，关注医疗AI上市公司</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 认知升级 -->
+    <div class="card" style="background:linear-gradient(135deg,rgba(249,115,22,0.06),rgba(59,130,246,0.04));border-color:rgba(249,115,22,0.2);">
+      <div style="font-size:15px;font-weight:700;color:var(--accent);margin-bottom:16px;">最后的认知升级（5条）</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="padding:12px 14px;background:rgba(249,115,22,0.05);border-radius:8px;border-left:2px solid var(--accent);">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">周期会变，好生意的定义不变</div>
+          <div style="font-size:12px;color:var(--text-secondary);">无论什么周期，高ROE+低资本开支+定价权的生意永远值得持有</div>
+        </div>
+        <div style="padding:12px 14px;background:rgba(59,130,246,0.05);border-radius:8px;border-left:2px solid var(--accent-blue);">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">主动排除短周期噪音</div>
+          <div style="font-size:12px;color:var(--text-secondary);">短周期（6-18月）的噪音会淹没长周期信号，建立自己的信息过滤机制</div>
+        </div>
+        <div style="padding:12px 14px;background:rgba(234,179,8,0.05);border-radius:8px;border-left:2px solid var(--accent-gold);">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">中国特色：政策周期最重要</div>
+          <div style="font-size:12px;color:var(--text-secondary);">A股最独特的利器：政策底领先市场底，理解政策意图比分析财报更重要</div>
+        </div>
+        <div style="padding:12px 14px;background:rgba(16,185,129,0.05);border-radius:8px;border-left:2px solid var(--accent-green);">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">AI超级周期也有剧烈回调</div>
+          <div style="font-size:12px;color:var(--text-secondary);">即使是AI超级周期，也会有2-3次30%+的剧烈回调，那才是加仓的最好机会</div>
+        </div>
+        <div style="padding:12px 14px;background:rgba(139,92,246,0.05);border-radius:8px;border-left:2px solid var(--accent-purple);grid-column:1/-1;">
+          <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px;">"我不知道"是最诚实也最安全的回答</div>
+          <div style="font-size:12px;color:var(--text-secondary);">承认不确定性，构建抗脆弱的投资组合。你只需要在极端时有所行动——别人恐惧时买入，别人贪婪时审视。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div style="margin-bottom:20px;">
+      <a href="index.html" style="color:var(--accent-blue);text-decoration:none;font-size:14px;">← 返回投资研究报告中心</a>
+    </div>
+    <div class="footer-disclaimer">
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;">免责声明</div>
+      本报告基于2026年4月当前公开数据和机构研究，所有周期判断和行业分析仅代表研究视角，<strong>不构成任何投资建议</strong>。投资有风险，入市需谨慎。任何投资决策请结合个人风险承受能力、资产状况和专业财务顾问意见独立作出。<br><br>
+      <strong>数据来源：</strong>国家统计局 | IMF | 中国人民银行 | 各大券商研报 | Wind数据库<br>
+      <strong>报告时间：</strong>2026年4月（基于2026Q1及2025年年报数据）<br>
+      <strong>版权声明：</strong>本报告内容仅供研究参考，转载请注明来源
+    </div>
+    <div style="margin-top:20px;font-size:12px;color:var(--border2);text-align:center;">
+      周期·策略 2026 &nbsp;|&nbsp; 2026年周期位置全景图与投资策略
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
