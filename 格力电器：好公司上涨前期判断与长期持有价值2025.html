@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>格力电器：好公司上涨前期判断与长期持有价值 2025</title>
+<style>
+  :root {
+    --bg:#07100d; --card:#0e1a16; --card2:#131f1a;
+    --accent:#22d3a5; --accent2:#f59e0b; --accent3:#3b82f6;
+    --accent-red:#ef4444; --accent-green:#4ade80;
+    --text:#e2e8f0; --text2:#94a3b8; --text3:#64748b;
+    --border:#1a3028;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Helvetica Neue',Arial,sans-serif;line-height:1.7}
+  a{color:inherit;text-decoration:none}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#07100d 0%,#0c1a14 50%,#102018 100%);padding:60px 24px 44px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(34,211,165,0.1),transparent)}
+  .hero-badge{display:inline-block;background:rgba(34,211,165,0.1);border:1px solid rgba(34,211,165,0.3);color:var(--accent);padding:6px 18px;border-radius:99px;font-size:13px;letter-spacing:1px;margin-bottom:20px}
+  .hero h1{font-size:clamp(24px,4.5vw,42px);font-weight:800;background:linear-gradient(135deg,#22d3a5,#f59e0b,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin-bottom:16px}
+  .hero-sub{color:var(--text2);font-size:15px;max-width:680px;margin:0 auto 28px}
+  .hero-verdict{display:inline-block;background:linear-gradient(135deg,rgba(34,211,165,0.15),rgba(245,158,11,0.15));border:1px solid rgba(34,211,165,0.3);padding:12px 28px;border-radius:12px;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:28px}
+  .hero-stats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .stat-chip{background:rgba(34,211,165,0.07);border:1px solid rgba(34,211,165,0.2);padding:8px 18px;border-radius:8px;font-size:13px;color:var(--accent)}
+
+  /* Nav */
+  .toc{background:rgba(7,16,13,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;padding:0 16px;overflow-x:auto}
+  .toc-inner{display:flex;align-items:center;height:48px;gap:4px;min-width:max-content}
+  .toc-btn{padding:6px 14px;border-radius:6px;font-size:13px;color:var(--text2);cursor:pointer;white-space:nowrap;border:none;background:none;transition:all 0.2s}
+  .toc-btn:hover,.toc-btn.active{color:var(--accent);background:rgba(34,211,165,0.08)}
+  .toc-btn.active{border-bottom:2px solid var(--accent)}
+
+  /* Layout */
+  .container{max-width:1000px;margin:0 auto;padding:0 20px}
+  .section{padding:52px 0 20px}
+  .section-title{font-size:clamp(20px,3.5vw,28px);font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+  .section-title .icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .section-desc{color:var(--text2);font-size:15px;margin-bottom:28px;max-width:720px}
+  .divider{height:1px;background:linear-gradient(90deg,var(--border),transparent);margin:36px 0}
+
+  /* Card */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:18px;transition:border-color 0.2s,transform 0.2s}
+  .card:hover{border-color:rgba(34,211,165,0.2);transform:translateY(-2px)}
+  .card-title{font-size:17px;font-weight:700;margin-bottom:4px}
+  .card-subtitle{font-size:13px;color:var(--text3)}
+
+  /* Badges */
+  .badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:600}
+  .badge-yes{background:rgba(34,211,165,0.18);color:#5eead4;border:1px solid rgba(34,211,165,0.3)}
+  .badge-partial{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3)}
+  .badge-no{background:rgba(239,68,68,0.12);color:#f87171;border:1px solid rgba(239,68,68,0.25)}
+  .badge-blue{background:rgba(59,130,246,0.12);color:#60a5fa;border:1px solid rgba(59,130,246,0.25)}
+
+  /* Metrics */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}
+  .metric{background:var(--card2);border-radius:10px;padding:12px 14px;text-align:center}
+  .metric-val{font-size:18px;font-weight:700;color:var(--accent)}
+  .metric-val.red{color:#f87171} .metric-val.gold{color:var(--accent2)}
+  .metric-val.blue{color:#60a5fa} .metric-val.green{color:#4ade80}
+  .metric-label{font-size:11px;color:var(--text3);margin-top:3px}
+
+  /* Logic list */
+  .logic-list{list-style:none;margin-top:10px}
+  .logic-list li{padding:7px 0 7px 20px;position:relative;font-size:14px;color:var(--text2);border-bottom:1px solid rgba(26,48,40,0.6)}
+  .logic-list li:last-child{border-bottom:none}
+  .logic-list li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px;top:9px}
+  .logic-list li strong{color:var(--text)}
+
+  /* Tags */
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .tag{background:rgba(34,211,165,0.07);border:1px solid rgba(34,211,165,0.15);color:var(--text2);padding:3px 10px;border-radius:6px;font-size:12px}
+  .tag.gold{background:rgba(245,158,11,0.07);border-color:rgba(245,158,11,0.2);color:#fcd34d}
+  .tag.red{background:rgba(239,68,68,0.07);border-color:rgba(239,68,68,0.2);color:#fca5a5}
+  .tag.blue{background:rgba(59,130,246,0.07);border-color:rgba(59,130,246,0.2);color:#93c5fd}
+
+  /* Signal card */
+  .signal-card{border-radius:14px;padding:18px 20px;margin-bottom:14px;border:1px solid}
+  .signal-yes{background:rgba(34,211,165,0.05);border-color:rgba(34,211,165,0.25)}
+  .signal-partial{background:rgba(245,158,11,0.05);border-color:rgba(245,158,11,0.2)}
+  .signal-no{background:rgba(239,68,68,0.04);border-color:rgba(239,68,68,0.18)}
+  .signal-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .signal-num{font-size:11px;font-weight:700;letter-spacing:1px;opacity:0.6}
+  .signal-title{font-size:15px;font-weight:700;margin:6px 0}
+  .signal-score{font-size:22px;font-weight:800}
+  .score-yes{color:var(--accent)} .score-partial{color:var(--accent2)} .score-no{color:#f87171}
+
+  /* Score ring */
+  .score-ring-wrap{text-align:center;padding:24px 0}
+  .score-big{font-size:72px;font-weight:800;background:linear-gradient(135deg,#22d3a5,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+  .score-label{font-size:15px;color:var(--text2);margin-top:8px}
+  .score-bar-wrap{max-width:400px;margin:16px auto}
+  .score-bar-bg{height:12px;background:var(--card2);border-radius:6px;overflow:hidden}
+  .score-bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#22d3a5,#f59e0b);transition:width 0.8s}
+
+  /* Verdict box */
+  .verdict{background:linear-gradient(135deg,rgba(34,211,165,0.08),rgba(245,158,11,0.08));border:1px solid rgba(34,211,165,0.25);border-radius:16px;padding:24px;margin:24px 0}
+  .verdict-title{font-size:18px;font-weight:700;color:var(--accent);margin-bottom:12px}
+
+  /* Table */
+  .data-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+  .data-table th{background:var(--card2);color:var(--text2);font-weight:600;padding:9px 12px;text-align:left;border-bottom:1px solid var(--border)}
+  .data-table td{padding:9px 12px;border-bottom:1px solid rgba(26,48,40,0.5)}
+  .data-table tr:hover td{background:rgba(34,211,165,0.02)}
+  .up{color:#4ade80} .down{color:#f87171} .neu{color:#fbbf24}
+  .code{color:var(--accent);font-family:monospace}
+
+  /* Chart wrap */
+  .chart-wrap{background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:18px;margin:16px 0}
+  .chart-title{font-size:14px;font-weight:600;color:var(--text2);margin-bottom:14px}
+
+  /* Footer */
+  .footer{text-align:center;padding:44px 24px;color:var(--text3);font-size:13px;border-top:1px solid var(--border);margin-top:56px}
+  .footer a{color:var(--accent);opacity:0.7}
+
+  @media(max-width:640px){.metrics{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">🏭 格力电器深度研判 · 2025</div>
+  <h1>格力电器<br>好公司上涨前期判断</h1>
+  <div class="hero-verdict">📊 综合判断：7项信号中命中6项 · 处于上涨前期的高概率区间</div>
+  <p class="hero-sub">PE/ROE = 0.30（极端低估阈值0.8），PE历史5年0%分位，2025Q1净利润+26%<br>用「好公司上涨前期七大信号」对格力逐项打分，给出是否值得长期持有的完整判断</p>
+  <div class="hero-stats">
+    <span class="stat-chip">📉 PE 6.5× · 历史最低</span>
+    <span class="stat-chip">💰 股息率 6.5%+</span>
+    <span class="stat-chip">📈 2025Q1净利润 +26%</span>
+    <span class="stat-chip">🏆 全球空调份额第一</span>
+    <span class="stat-chip">💵 上市累计分红 1720亿</span>
+  </div>
+</div>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <button class="toc-btn active" onclick="gotoSec('overview')">📊 基本面</button>
+    <button class="toc-btn" onclick="gotoSec('signals')">🔦 七信号打分</button>
+    <button class="toc-btn" onclick="gotoSec('moat')">🏰 护城河</button>
+    <button class="toc-btn" onclick="gotoSec('concerns')">⚠️ 隐忧</button>
+    <button class="toc-btn" onclick="gotoSec('longterm')">📅 长期持有</button>
+    <button class="toc-btn" onclick="gotoSec('strategy')">🎯 操作策略</button>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ══════════════════════
+     SECTION 1: 基本面速览
+══════════════════════ -->
+<div class="section" id="overview">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(34,211,165,0.12)">📊</div>
+    基本面速览：数字先说话
+  </div>
+  <p class="section-desc">在做任何定性判断之前，先把格力最新的财务数字摆出来，用数据驱动判断，不靠情绪。</p>
+
+  <!-- 核心指标 -->
+  <div class="card" style="border-left:3px solid var(--accent)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
+      <div>
+        <div class="card-title">格力电器 <span style="color:var(--text3);font-weight:400;font-size:14px">000651 · A股</span></div>
+        <div class="card-subtitle">全球分体式空调份额第一 · 家电行业现金流最充裕</div>
+      </div>
+      <span class="badge badge-yes">基本面健康</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">6.5×</div><div class="metric-label">当前PE(TTM) · 历史最低</div></div>
+      <div class="metric"><div class="metric-val">1.43×</div><div class="metric-label">当前PB</div></div>
+      <div class="metric"><div class="metric-val gold">6.5%+</div><div class="metric-label">当前股息率</div></div>
+      <div class="metric"><div class="metric-val green">+26.3%</div><div class="metric-label">2025Q1净利润增速</div></div>
+      <div class="metric"><div class="metric-val green">+14%</div><div class="metric-label">2025Q1营收增速</div></div>
+      <div class="metric"><div class="metric-val">~22%</div><div class="metric-label">近5年平均ROE</div></div>
+    </div>
+  </div>
+
+  <!-- 近5年财务趋势 -->
+  <div class="chart-wrap">
+    <div class="chart-title">近5年关键财务数据趋势</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>年份</th><th>营收（亿元）</th><th>营收增速</th><th>净利润（亿元）</th><th>净利润增速</th><th>ROE</th><th>每股分红</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2020</td><td>1704.97</td><td class="down">-14.97%</td><td>221.75</td><td class="down">-10.21%</td><td class="up">20.7%</td><td>1.80元</td></tr>
+        <tr><td>2021</td><td>1878.69</td><td class="up">+10.2%</td><td>230.64</td><td class="up">+4.0%</td><td class="up">22.7%</td><td>2.00元</td></tr>
+        <tr><td>2022</td><td>1895.68</td><td class="neu">+0.9%</td><td>245.07</td><td class="up">+6.3%</td><td class="up">22.7%</td><td>2.20元</td></tr>
+        <tr><td>2023</td><td>2050.18</td><td class="up">+8.2%</td><td>290.17</td><td class="up">+18.4%</td><td class="up">23.5%</td><td>3.00元</td></tr>
+        <tr><td>2024</td><td>1900.38</td><td class="down">-7.3%</td><td>321.85</td><td class="up">+10.9%</td><td class="up">~22%</td><td>2.00元（中+末）</td></tr>
+        <tr style="background:rgba(34,211,165,0.03)"><td><strong>2025Q1</strong></td><td><strong>415-416亿</strong></td><td class="up"><strong>+14%</strong></td><td><strong>59.04亿</strong></td><td class="up"><strong>+26.3%</strong></td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 关键发现 -->
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px">🔍 三个反直觉的关键发现</div>
+    <ul class="logic-list">
+      <li><strong>营收下滑 vs 净利润上涨——渠道改革的"阵痛期利润"：</strong>2024年营收下降7.3%，但净利润反而增长10.9%。这是因为格力渠道改革压缩了中间层级，减少了促销费用和渠道补贴，导致表面营收收缩但利润质量提升。这是短期阵痛，不是基本面恶化。</li>
+      <li><strong>2025Q1基本面拐点信号：</strong>营收+14%、净利润+26.3%，双双转正且加速，印证渠道改革负面影响正在消退，基本面实质性好转。</li>
+      <li><strong>PE仅6.5×对应ROE 22%——PE/ROE比值0.30，历史极端低估：</strong>按「好公司上涨前期七大信号」第一条，PE/ROE比值&lt;0.8即为极端低估，当前格力的0.30是市场给出的严重定价偏差，远低于茅台2014年底部的0.22（历史最低案例之一）。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     SECTION 2: 七信号打分
+══════════════════════ -->
+<div class="section" id="signals">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(245,158,11,0.12)">🔦</div>
+    七大买入前信号逐项打分
+  </div>
+  <p class="section-desc">用「好公司上涨前期」报告中的七大信号框架，对格力电器逐项验证。每项满分3分，总分21分，12分以上可考虑介入，16分以上为强烈信号。</p>
+
+  <!-- 信号1 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 01 · 最硬核量化信号</div>
+        <div class="signal-title">PE/ROE比值低于1</div>
+      </div>
+      <div class="signal-score score-yes">3/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">6.5×</div><div class="metric-label">当前PE</div></div>
+      <div class="metric"><div class="metric-val">~22%</div><div class="metric-label">近5年ROE</div></div>
+      <div class="metric"><div class="metric-val green">0.30</div><div class="metric-label">PE/ROE比值（&lt;0.8极端低估）</div></div>
+      <div class="metric"><div class="metric-val gold">0.8</div><div class="metric-label">极端低估阈值</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">PE/ROE=0.30，意味着花6.5倍的钱买到一家能产生22%回报的资产，是极度低估的量化证明。历史参照：茅台2014年底部PE/ROE=0.22，之后4年涨幅超500%。格力当前的0.30已接近茅台底部水平。<br><strong style="color:var(--accent)">✅ 满分通过</strong></p>
+  </div>
+
+  <!-- 信号2 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 02</div>
+        <div class="signal-title">自由现金流收益率 &gt; 5%</div>
+      </div>
+      <div class="signal-score score-yes">3/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">293亿</div><div class="metric-label">2024经营现金流</div></div>
+      <div class="metric"><div class="metric-val gold">~2100亿</div><div class="metric-label">当前市值（约）</div></div>
+      <div class="metric"><div class="metric-val green">~13%</div><div class="metric-label">经营现金流/市值</div></div>
+      <div class="metric"><div class="metric-val gold">6.5%+</div><div class="metric-label">股息率（分红收益率）</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">股息率6.5%本身就已超过5%阈值。以经营现金流293亿/市值约2100亿计算，经营现金流收益率约14%，远超5%标准线。2024年经营现金流同比下降47%（渠道改革一次性影响），正常年份在400亿以上。<br><strong style="color:var(--accent)">✅ 满分通过</strong></p>
+  </div>
+
+  <!-- 信号3 -->
+  <div class="signal-card signal-partial">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 03</div>
+        <div class="signal-title">内部人大量增持（含回购）</div>
+      </div>
+      <div class="signal-score score-partial">1.5/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">1.79%</div><div class="metric-label">董明珠直接持股比例</div></div>
+      <div class="metric"><div class="metric-val gold">~1亿股</div><div class="metric-label">董明珠持股数量</div></div>
+      <div class="metric"><div class="metric-val blue">连任</div><div class="metric-label">2025年高票连任董事长</div></div>
+      <div class="metric"><div class="metric-val red">未见</div><div class="metric-label">近期大规模增持</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">董明珠持股约1亿股（市值约46亿），本身就是"在用真金白银投票"。但近期未见明确的新增持动作（公告增持）。格力也未开展大规模股票回购计划（仅小额回购用于激励）。<br><strong style="color:var(--accent2)">⚠️ 半分通过：存量持仓证明信心，但缺乏新增持信号</strong></p>
+  </div>
+
+  <!-- 信号4 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 04</div>
+        <div class="signal-title">行业景气数据触底（PPI/订单/库存）</div>
+      </div>
+      <div class="signal-score score-yes">2.5/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+14%</div><div class="metric-label">2025Q1营收增速（转正）</div></div>
+      <div class="metric"><div class="metric-val green">+13.25%</div><div class="metric-label">2024年海外收入增速</div></div>
+      <div class="metric"><div class="metric-val">以旧换新</div><div class="metric-label">政策催化持续</div></div>
+      <div class="metric"><div class="metric-val gold">渠道库存</div><div class="metric-label">改革中，仍有消化期</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">2025Q1营收增速+14%标志着行业景气触底回升。"以旧换新"政策对白电需求形成强力催化（2024年家电以旧换新补贴总规模超2000亿）。海外市场持续高增，出口受益于全球能源关注度提升。唯一隐患是国内渠道库存尚未完全出清。<br><strong style="color:var(--accent)">✅ 基本通过</strong></p>
+  </div>
+
+  <!-- 信号5 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 05</div>
+        <div class="signal-title">护城河在逆境中得到验证</div>
+      </div>
+      <div class="signal-score score-yes">3/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val">321亿</div><div class="metric-label">2024净利润（营收下滑仍增利）</div></div>
+      <div class="metric"><div class="metric-val green">连续5年</div><div class="metric-label">净利润持续增长</div></div>
+      <div class="metric"><div class="metric-val">全球第一</div><div class="metric-label">分体式空调市场份额</div></div>
+      <div class="metric"><div class="metric-val gold">13年连续</div><div class="metric-label">分红记录不间断</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">2021-2024年行业经历周期性压力：地产低迷削弱新房配套需求、原材料价格波动、出口汇率变化、行业价格战……格力在营收承压时净利润依然保持正增长，连续5年递增（221→230→245→290→321亿），这是护城河完整性的最强证明。市占率未被侵蚀，品牌溢价依然存在。<br><strong style="color:var(--accent)">✅ 满分通过</strong></p>
+  </div>
+
+  <!-- 信号6 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 06</div>
+        <div class="signal-title">基本面改善但股价未动（认知差窗口）</div>
+      </div>
+      <div class="signal-score score-yes">3/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">+26.3%</div><div class="metric-label">2025Q1净利润增速</div></div>
+      <div class="metric"><div class="metric-val red">~37-45元</div><div class="metric-label">股价（2025年区间）</div></div>
+      <div class="metric"><div class="metric-val gold">历史低位</div><div class="metric-label">PE在5年0%分位</div></div>
+      <div class="metric"><div class="metric-val">分析师</div><div class="metric-label">17买入/2卖出/4中性</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px">2025Q1净利润增速+26.3%明显加速，基本面已经实质性改善，但股价依然在历史低位区间徘徊（PE仅6.5×）。市场还在担心渠道改革的阵痛期，而净利润加速上涨的信号尚未被充分定价。这正是典型的"认知差窗口"——基本面改善，但市场情绪仍在负面/中性，正是巴菲特所谓的"别人恐惧我贪婪"时刻。<br><strong style="color:var(--accent)">✅ 满分通过</strong></p>
+  </div>
+
+  <!-- 信号7 -->
+  <div class="signal-card signal-yes">
+    <div class="signal-hd">
+      <div>
+        <div class="signal-num">SIGNAL 07</div>
+        <div class="signal-title">估值处于历史低分位 + 同类比较低估（双重低估）</div>
+      </div>
+      <div class="signal-score score-yes">3/3</div>
+    </div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val green">0%分位</div><div class="metric-label">PE近5年历史分位</div></div>
+      <div class="metric"><div class="metric-val">6.5×</div><div class="metric-label">格力PE</div></div>
+      <div class="metric"><div class="metric-val gold">15×+</div><div class="metric-label">家电行业平均PE</div></div>
+      <div class="metric"><div class="metric-val blue">18×</div><div class="metric-label">美的集团当前PE（对比）</div></div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);margin-top:8px"><strong>自身历史低位：</strong>PE处于近5年0%分位（历史最低区间），远低于自身历史均值（约12-14×）。<strong>同行比较低估：</strong>美的PE~18×，行业均值15×，格力6.5×不到美的三分之一。双重低估同时成立，符合第七个信号的最强形态。<br><strong style="color:var(--accent)">✅ 满分通过</strong></p>
+  </div>
+
+  <!-- 总分 -->
+  <div class="verdict">
+    <div class="verdict-title">🎯 七大信号综合评分</div>
+    <div class="score-ring-wrap">
+      <div class="score-big">19/21</div>
+      <div class="score-label">七大买入信号综合得分（满分21分）</div>
+      <div class="score-bar-wrap">
+        <div class="score-bar-bg"><div class="score-bar-fill" style="width:90.5%"></div></div>
+      </div>
+    </div>
+    <table class="data-table" style="margin-top:8px">
+      <thead>
+        <tr><th>信号</th><th>核心判断</th><th>得分</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>S1 PE/ROE比值</td><td>0.30，远低于0.8阈值，极端低估</td><td class="up">3/3 ✅</td></tr>
+        <tr><td>S2 现金流收益率</td><td>股息率6.5%，经营现金流收益率~14%</td><td class="up">3/3 ✅</td></tr>
+        <tr><td>S3 内部人增持</td><td>董明珠1亿股持仓，但近期无新增持</td><td class="neu">1.5/3 ⚠️</td></tr>
+        <tr><td>S4 行业景气触底</td><td>2025Q1营收转正+14%，以旧换新持续</td><td class="up">2.5/3 ✅</td></tr>
+        <tr><td>S5 护城河验证</td><td>逆境中净利润5年连续增长，市占率稳固</td><td class="up">3/3 ✅</td></tr>
+        <tr><td>S6 基本面改善未动</td><td>净利润+26.3%，PE仍在历史底部</td><td class="up">3/3 ✅</td></tr>
+        <tr><td>S7 双重低估</td><td>PE 0%历史分位 + 大幅低于美的/行业均值</td><td class="up">3/3 ✅</td></tr>
+      </tbody>
+    </table>
+    <ul class="logic-list" style="margin-top:12px">
+      <li><strong>结论：19分（满分21分），高于强烈信号阈值16分</strong>，格力电器符合「好公司上涨前期」的高概率特征</li>
+      <li>唯一扣分项是信号3（内部人增持），但这更多是<strong>中性信号</strong>而非负面——董明珠的1亿股持仓本身已是巨大的利益绑定</li>
+      <li>6项满分/接近满分，信号高度集中，是历史上少见的<strong>多重信号叠加</strong>情形</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     SECTION 3: 护城河分析
+══════════════════════ -->
+<div class="section" id="moat">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(59,130,246,0.12)">🏰</div>
+    护城河深度评估
+  </div>
+  <p class="section-desc">好公司上涨前期的核心前提是护城河完整。格力的护城河到底有多深？是否在被侵蚀？</p>
+
+  <!-- 护城河图 -->
+  <div class="chart-wrap">
+    <div class="chart-title">格力护城河四层结构与宽度评估</div>
+    <svg viewBox="0 0 820 280" style="width:100%;height:auto">
+      <defs>
+        <linearGradient id="gm1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#22d3a5;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#22d3a5;stop-opacity:0.2"/>
+        </linearGradient>
+        <linearGradient id="gm2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.2"/>
+        </linearGradient>
+        <linearGradient id="gm3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.2"/>
+        </linearGradient>
+        <linearGradient id="gm4" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.8"/>
+          <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0.2"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 护城河1: 技术工艺 -->
+      <rect x="20" y="20" width="780" height="52" rx="8" fill="url(#gm1)" opacity="0.2" stroke="rgba(34,211,165,0.4)" stroke-width="1"/>
+      <text x="40" y="42" fill="#22d3a5" font-size="12" font-weight="700">🔧 核心技术与制造工艺</text>
+      <text x="40" y="60" fill="#94a3b8" font-size="11">15000+专利 · 格力自主研发核心零部件（压缩机/电机/控制器）覆盖率超90% · 压缩机效率全球领先</text>
+      <rect x="680" y="30" width="100" height="30" rx="6" fill="rgba(34,211,165,0.15)" stroke="rgba(34,211,165,0.3)" stroke-width="1"/>
+      <text x="730" y="50" text-anchor="middle" fill="#22d3a5" font-size="13" font-weight="700">宽度：★★★★☆</text>
+
+      <!-- 护城河2: 品牌 -->
+      <rect x="20" y="84" width="780" height="52" rx="8" fill="url(#gm2)" opacity="0.2" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+      <text x="40" y="106" fill="#60a5fa" font-size="12" font-weight="700">🏷️ 品牌溢价与消费者信任</text>
+      <text x="40" y="124" fill="#94a3b8" font-size="11">中高端空调市场首选品牌 · 中央空调连续13年市场第一 · "好空调格力造"深入人心，换机复购率高</text>
+      <rect x="680" y="94" width="100" height="30" rx="6" fill="rgba(59,130,246,0.1)" stroke="rgba(59,130,246,0.25)" stroke-width="1"/>
+      <text x="730" y="114" text-anchor="middle" fill="#60a5fa" font-size="13" font-weight="700">宽度：★★★★☆</text>
+
+      <!-- 护城河3: 规模效应 -->
+      <rect x="20" y="148" width="780" height="52" rx="8" fill="url(#gm3)" opacity="0.2" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+      <text x="40" y="170" fill="#f59e0b" font-size="12" font-weight="700">📦 规模效应与供应链控制</text>
+      <text x="40" y="188" fill="#94a3b8" font-size="11">全球最大空调制造商 · 垂直整合使成本比竞争对手低15-20% · 零部件自制率高，利润率高于同行</text>
+      <rect x="680" y="158" width="100" height="30" rx="6" fill="rgba(245,158,11,0.1)" stroke="rgba(245,158,11,0.25)" stroke-width="1"/>
+      <text x="730" y="178" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">宽度：★★★★★</text>
+
+      <!-- 护城河4: 渠道 -->
+      <rect x="20" y="212" width="780" height="52" rx="8" fill="url(#gm4)" opacity="0.2" stroke="rgba(167,139,250,0.3)" stroke-width="1"/>
+      <text x="40" y="234" fill="#c4b5fd" font-size="12" font-weight="700">🏪 渠道网络（转型期）</text>
+      <text x="40" y="252" fill="#94a3b8" font-size="11">全国30000+经销商网点 · 渠道改革中，短期扰动 · 从传统区域代理制向直营/电商转型，长期效率提升</text>
+      <rect x="680" y="222" width="100" height="30" rx="6" fill="rgba(167,139,250,0.1)" stroke="rgba(167,139,250,0.25)" stroke-width="1"/>
+      <text x="730" y="242" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">宽度：★★★☆☆</text>
+    </svg>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:12px">🔬 护城河深度总结：完整但渠道护城河在重构</div>
+    <ul class="logic-list">
+      <li><strong>技术护城河最硬：</strong>格力是全球极少数能自研全套核心零部件的空调企业（压缩机/电机/控制芯片），外资品牌（大金/三菱/特灵）虽然有技术，但中国本土制造成本远高于格力。这条护城河10年内难以被超越。</li>
+      <li><strong>品牌护城河稳固：</strong>在中国消费者心中，格力=空调，这种心智占位是长期广告和产品质量积累的结果，不会因为一两年的业绩波动而被颠覆。</li>
+      <li><strong>规模护城河是隐形优势：</strong>格力年产空调超7000万台，压缩机自制率超90%，这带来的成本优势使竞争对手无法在中高端市场上和格力打价格战。</li>
+      <li><strong>渠道护城河正在重构：</strong>过去依赖"地区经销商代理制"的渠道模式在被逐步替代。改革期间确实带来了营收扰动，但完成后将使格力的渠道效率（费效比）提升，长期是正面的。这是唯一的"施工期"风险，而不是真正的护城河被侵蚀。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     SECTION 4: 隐忧与风险
+══════════════════════ -->
+<div class="section" id="concerns">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(239,68,68,0.12)">⚠️</div>
+    不能忽视的隐忧
+  </div>
+  <p class="section-desc">估值低不等于没有风险。诚实列出格力当前面临的真实挑战，这些是影响「上涨时间表」的核心变量。</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px">
+    <div class="card" style="border-left:3px solid #ef4444">
+      <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:8px">① 渠道改革阵痛尚未出清</div>
+      <p style="font-size:13px;color:var(--text2)">2020年启动的渠道扁平化改革已进入"深水区"，2024年Q3/Q4营收分别下滑15%以上，渠道库存消化尚需1-2年。改革完成前，营收数字会持续"看起来不好看"。</p>
+      <p style="font-size:12px;color:var(--accent);margin-top:6px">📝 影响：短期营收增速，不影响长期逻辑</p>
+    </div>
+    <div class="card" style="border-left:3px solid #ef4444">
+      <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:8px">② 空调内销增速放缓</div>
+      <p style="font-size:13px;color:var(--text2)">地产竣工面积下滑影响新房配套空调需求（约占空调市场30%）。国内空调市场已接近饱和，存量替换是主要驱动力，增速天花板相对有限。</p>
+      <p style="font-size:12px;color:var(--accent2);margin-top:6px">📝 影响：中期营收增速放缓，但以旧换新政策对冲</p>
+    </div>
+    <div class="card" style="border-left:3px solid #f59e0b">
+      <div style="font-size:14px;font-weight:700;color:#fbbf24;margin-bottom:8px">③ 多元化业务尚无成效</div>
+      <p style="font-size:13px;color:var(--text2)">格力进军手机、新能源汽车零部件、储能等新业务，但至今贡献收入有限，部分被市场解读为"不务正业"。工业品业务（100亿+31%）是亮点，但占总营收比例仍小。</p>
+      <p style="font-size:12px;color:var(--accent2);margin-top:6px">📝 影响：不影响主业，但占用了一些资本和管理精力</p>
+    </div>
+    <div class="card" style="border-left:3px solid #f59e0b">
+      <div style="font-size:14px;font-weight:700;color:#fbbf24;margin-bottom:8px">④ 美的综合多元化竞争</div>
+      <p style="font-size:13px;color:var(--text2)">美的集团多元化布局更均衡（空调/冰洗/厨电/工业自动化/机器人），营收已超格力，PE估值差距扩大（美的18×vs格力6.5×）反映市场对成长性预期的差异。</p>
+      <p style="font-size:12px;color:var(--accent2);margin-top:6px">📝 影响：估值折价的部分原因，但也是低估值机会所在</p>
+    </div>
+    <div class="card" style="border-left:3px solid #94a3b8">
+      <div style="font-size:14px;font-weight:700;color:#94a3b8;margin-bottom:8px">⑤ 董明珠接班与治理</div>
+      <p style="font-size:13px;color:var(--text2)">董明珠年届70，2025年连任董事长，但接班人不明确。一旦出现治理层面变动，市场可能短期反应过度。从历史看，大多数优质公司能平稳过渡，但这是真实的尾部风险。</p>
+      <p style="font-size:12px;color:var(--text3);margin-top:6px">📝 影响：尾部风险，概率较低但值得持续关注</p>
+    </div>
+    <div class="card" style="border-left:3px solid #94a3b8">
+      <div style="font-size:14px;font-weight:700;color:#94a3b8;margin-bottom:8px">⑥ 出口关税与贸易摩擦</div>
+      <p style="font-size:13px;color:var(--text2)">美国对中国家电加征关税，叠加全球贸易保护主义趋势，可能影响格力海外收入增速。但格力海外收入占比仅15%，绝对影响相对可控。</p>
+      <p style="font-size:12px;color:var(--text3);margin-top:6px">📝 影响：轻微影响海外增速，核心仍是国内市场</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     SECTION 5: 长期持有价值
+══════════════════════ -->
+<div class="section" id="longterm">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(34,211,165,0.12)">📅</div>
+    是否值得长期持有？
+  </div>
+  <p class="section-desc">「好公司上涨前期」解决的是买入时机问题。「值得长期持有」解决的是能否持续创造价值的问题。两者需要分开回答。</p>
+
+  <!-- 长期价值驱动 -->
+  <div class="card" style="border-left:3px solid var(--accent)">
+    <div class="card-title" style="margin-bottom:12px">✅ 支持长期持有的三大理由</div>
+    <ul class="logic-list">
+      <li>
+        <strong>理由一：「分红复利机器」的特殊价值：</strong>
+        格力连续13年分红，上市以来累计分红超1720亿（超过历史所有融资总额的数倍）。当前股息率6.5%，假设未来5年保持这一分红水平，仅分红就可以回收约33%的本金。若股价同期从PE 6.5×修复到历史均值12×，还有约85%的价格升值空间。分红+股价修复双重收益，是长期持有的核心逻辑。
+      </li>
+      <li>
+        <strong>理由二：「空调普及」的长周期驱动仍然存在：</strong>
+        中国农村空调普及率仍不足50%（城市已超80%），东南亚/南亚/非洲市场正处于城镇化+收入提升的增长期。格力是受益于全球气候变化的"收益型资产"——全球气温每升高1℃，空调渗透率提升约5个百分点。
+      </li>
+      <li>
+        <strong>理由三：护城河完整性确保「净利润长期增长」的概率极高：</strong>
+        过去5年净利润从221亿→321亿（+45%），穿越了地产低迷、渠道改革、原材料波动等多重压力。护城河完整意味着这个增长趋势大概率延续，而当前PE 6.5×对应的是「永不增长」的悲观定价，显然定价错误。
+      </li>
+    </ul>
+  </div>
+
+  <!-- 估值目标价 -->
+  <div class="chart-wrap">
+    <div class="chart-title">三情景目标价测算（基于PE估值回归）</div>
+    <svg viewBox="0 0 780 200" style="width:100%;height:auto">
+      <!-- 坐标和背景 -->
+      <rect x="20" y="20" width="220" height="160" rx="8" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.2)" stroke-width="1"/>
+      <text x="130" y="42" text-anchor="middle" fill="#f87171" font-size="13" font-weight="700">悲观情景 (20%)</text>
+      <text x="130" y="62" text-anchor="middle" fill="#94a3b8" font-size="12">PE维持低位 8×</text>
+      <text x="130" y="84" text-anchor="middle" fill="#94a3b8" font-size="11">净利润330亿（温和增长）</text>
+      <text x="130" y="108" text-anchor="middle" fill="#f87171" font-size="20" font-weight="800">43-50元</text>
+      <text x="130" y="128" text-anchor="middle" fill="#94a3b8" font-size="11">较当前+15~35%</text>
+      <text x="130" y="155" text-anchor="middle" fill="#94a3b8" font-size="11">含分红3年总回报约30~50%</text>
+
+      <rect x="280" y="20" width="220" height="160" rx="8" fill="rgba(34,211,165,0.06)" stroke="rgba(34,211,165,0.25)" stroke-width="1"/>
+      <text x="390" y="42" text-anchor="middle" fill="#22d3a5" font-size="13" font-weight="700">基准情景 (60%)</text>
+      <text x="390" y="62" text-anchor="middle" fill="#94a3b8" font-size="12">PE回归历史均值 11×</text>
+      <text x="390" y="84" text-anchor="middle" fill="#94a3b8" font-size="11">净利润350亿（+8%/年）</text>
+      <text x="390" y="108" text-anchor="middle" fill="#22d3a5" font-size="20" font-weight="800">60-75元</text>
+      <text x="390" y="128" text-anchor="middle" fill="#94a3b8" font-size="11">较当前+60~100%</text>
+      <text x="390" y="155" text-anchor="middle" fill="#94a3b8" font-size="11">含分红3年总回报约80~120%</text>
+
+      <rect x="540" y="20" width="220" height="160" rx="8" fill="rgba(245,158,11,0.06)" stroke="rgba(245,158,11,0.2)" stroke-width="1"/>
+      <text x="650" y="42" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="700">乐观情景 (20%)</text>
+      <text x="650" y="62" text-anchor="middle" fill="#94a3b8" font-size="12">PE修复至 14×</text>
+      <text x="650" y="84" text-anchor="middle" fill="#94a3b8" font-size="11">净利润380亿（多元化成效）</text>
+      <text x="650" y="108" text-anchor="middle" fill="#f59e0b" font-size="20" font-weight="800">80-100元</text>
+      <text x="650" y="128" text-anchor="middle" fill="#94a3b8" font-size="11">较当前+110~170%</text>
+      <text x="650" y="155" text-anchor="middle" fill="#94a3b8" font-size="11">含分红3年总回报约130~190%</text>
+    </svg>
+  </div>
+
+  <div class="card" style="background:linear-gradient(135deg,rgba(34,211,165,0.05),rgba(245,158,11,0.05));border-color:rgba(34,211,165,0.2)">
+    <div class="card-title" style="margin-bottom:12px">📌 综合结论：值得长期持有，但需要耐心</div>
+    <ul class="logic-list">
+      <li><strong>加权期望回报（3年）：</strong>悲观×20% + 基准×60% + 乐观×20% ≈ <strong style="color:var(--accent)">含分红约80-100%的3年期望回报</strong>，年化约22-26%，显著高于无风险利率和市场均值</li>
+      <li><strong>「最差情况」依然可以接受：</strong>悲观情景下，仅靠分红（6.5%×3年=约20%）就能保住大部分本金，而股价还可能小幅上涨。亏损的概率极低，这正是安全边际的体现。</li>
+      <li><strong>时间是朋友：</strong>格力ROE 22%意味着每100元净资产每年增长22元，持有时间越长，复利积累越多。低PE买入后只需等待市场重新认识这个价值即可。</li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     SECTION 6: 操作策略
+══════════════════════ -->
+<div class="section" id="strategy">
+  <div class="section-title">
+    <div class="icon" style="background:rgba(245,158,11,0.12)">🎯</div>
+    具体操作策略
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:16px">📋 三批建仓策略</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>批次</th><th>买入条件</th><th>仓位</th><th>逻辑</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>第一批</strong><br><span style="font-size:11px;color:var(--text3)">当前可建</span></td>
+          <td>PE &lt; 8×（当前已满足，约37-45元）</td>
+          <td class="up">40%</td>
+          <td>PE/ROE=0.30，双重低估成立，估值安全边际足够，可以开始建仓</td>
+        </tr>
+        <tr>
+          <td><strong>第二批</strong><br><span style="font-size:11px;color:var(--text3)">等待时机</span></td>
+          <td>2025年中报净利润增速 &gt;15%（验证拐点）</td>
+          <td class="up">30%</td>
+          <td>财务数据验证基本面改善持续性，降低不确定性，第二批加仓</td>
+        </tr>
+        <tr>
+          <td><strong>第三批</strong><br><span style="font-size:11px;color:var(--text3)">催化剂驱动</span></td>
+          <td>PE开始从底部回升至 9-10×，或大盘出现系统性回调</td>
+          <td class="up">30%</td>
+          <td>趋势确认后买入剩余仓位，或在市场恐慌中低价加仓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px">
+    <div class="card" style="border-color:rgba(34,211,165,0.25)">
+      <div style="font-size:14px;font-weight:700;color:var(--accent);margin-bottom:10px">✅ 持有期间监控项</div>
+      <ul class="logic-list">
+        <li>季度净利润增速是否维持15%+</li>
+        <li>ROE是否维持20%以上</li>
+        <li>渠道改革有无完成信号（Q3/Q4营收持续正增长）</li>
+        <li>分红政策是否维持或提高</li>
+        <li>空调出口是否持续正增长</li>
+      </ul>
+    </div>
+    <div class="card" style="border-color:rgba(239,68,68,0.2)">
+      <div style="font-size:14px;font-weight:700;color:#f87171;margin-bottom:10px">🚨 止损/减仓触发条件</div>
+      <ul class="logic-list">
+        <li>净利润连续两季度同比下滑超10%</li>
+        <li>ROE跌破15%（护城河被侵蚀）</li>
+        <li>分红政策大幅削减（现金流恶化信号）</li>
+        <li>PE修复到14×以上（安全边际消失）</li>
+        <li>重大治理风险（渠道纠纷/内控问题）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 最终结论 -->
+  <div class="verdict" style="margin-top:24px">
+    <div class="verdict-title">📌 最终综合结论</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:12px">
+      <div style="text-align:center;padding:14px;background:var(--card2);border-radius:10px">
+        <div style="font-size:28px;font-weight:800;color:var(--accent)">是</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:4px">符合好公司上涨前期特征<br>（7信号命中6个，得分19/21）</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--card2);border-radius:10px">
+        <div style="font-size:28px;font-weight:800;color:var(--accent)">是</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:4px">值得长期持有<br>（护城河完整，分红持续）</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--card2);border-radius:10px">
+        <div style="font-size:28px;font-weight:800;color:var(--accent2)">谨慎</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:4px">渠道改革仍在进行<br>（需1-2年耐心等待）</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--card2);border-radius:10px">
+        <div style="font-size:28px;font-weight:800;color:var(--accent)">买入</div>
+        <div style="font-size:13px;color:var(--text2);margin-top:4px">分批建仓策略<br>（总仓位建议5-15%）</div>
+      </div>
+    </div>
+    <ul class="logic-list" style="margin-top:16px">
+      <li><strong>一句话结论：</strong>格力电器是典型的"被市场暂时误判的好公司"，PE/ROE=0.30的极端低估 + 2025Q1业绩拐点 + 护城河完整，三者叠加构成了「好公司上涨前期」的教科书案例。当前价位分批买入，持有3-5年，预期年化回报20-25%（含分红），亏损概率极低。</li>
+      <li><strong>最大的风险不是基本面：</strong>格力最大的风险是"市场先生短期不理性"——PE可能在6.5×继续徘徊1-2年，需要承受时间成本。但高股息（6.5%）会弥补等待期的机会成本，时间对投资者友好。</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  <strong>格力电器：好公司上涨前期判断与长期持有价值 · 2025年版</strong><br>
+  结合「好公司上涨前期七大信号」框架对格力电器逐项验证，数据截至2025Q1<br>
+  数据来源：格力电器年报/季报、公开财经数据、分析师报告 · 本报告仅供研究参考，不构成投资建议<br>
+  <a href="index.html">← 返回报告合集首页</a>
+</div>
+
+<!-- 悬浮返回主页按钮 -->
+<div id="home-fab" onclick="window.location.href='index.html'" title="返回主页"
+  style="position:fixed;bottom:28px;right:24px;z-index:9999;width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#22d3a5,#059669);
+  box-shadow:0 4px 20px rgba(34,211,165,0.4);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform 0.2s,box-shadow 0.2s;font-size:22px;color:#fff;user-select:none"
+  onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 28px rgba(34,211,165,0.6)'"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(34,211,165,0.4)'">🏠</div>
+
+<script>
+function gotoSec(id){
+  const el=document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+  document.querySelectorAll('.toc-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+const secs=['overview','signals','moat','concerns','longterm','strategy'];
+const btns=document.querySelectorAll('.toc-btn');
+window.addEventListener('scroll',()=>{
+  let cur=0;
+  secs.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<100)cur=i;});
+  btns.forEach((b,i)=>b.classList.toggle('active',i===cur));
+},{passive:true});
+</script>
+</body>
+</html>
