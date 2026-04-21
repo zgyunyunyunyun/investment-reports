@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国移动深度分析：价值重估与AI转型突破口 2025</title>
+<style>
+:root {
+  --bg:#060c18;
+  --surface:#0d1830;
+  --surface2:#111e38;
+  --border:#1a2e55;
+  --accent:#3b82f6;
+  --accent2:#22d3ee;
+  --accent3:#f59e0b;
+  --accent4:#10b981;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --red:#f43f5e;
+  --green:#10b981;
+  --amber:#f59e0b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.7;min-height:100vh;}
+a{color:var(--accent2);text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+/* ── Hero ── */
+.hero{
+  background:linear-gradient(135deg,#020810 0%,#060c20 40%,#091428 100%);
+  padding:60px 20px 48px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero::before{
+  content:'';
+  position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(59,130,246,.15) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';
+  position:absolute;bottom:-40px;right:10%;
+  width:300px;height:300px;
+  background:radial-gradient(ellipse,rgba(34,211,238,.06) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;
+  background:rgba(59,130,246,.15);
+  border:1px solid rgba(59,130,246,.3);
+  color:var(--accent2);
+  padding:4px 14px;border-radius:20px;
+  font-size:12px;font-weight:600;
+  margin-bottom:16px;letter-spacing:.5px;
+}
+.hero h1{
+  font-size:clamp(24px,5vw,38px);
+  font-weight:800;
+  color:#fff;
+  margin-bottom:8px;
+  letter-spacing:-1px;
+  line-height:1.2;
+}
+.hero-sub{
+  color:var(--muted);
+  font-size:15px;
+  max-width:560px;
+  margin:0 auto 28px;
+}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px;
+  justify-content:center;margin-bottom:24px;
+}
+.meta-tag{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;padding:4px 12px;
+  font-size:12px;color:#94a3b8;
+}
+.meta-tag strong{color:#e2e8f0;}
+.score-hero{
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(59,130,246,.1);
+  border:2px solid rgba(59,130,246,.3);
+  border-radius:16px;
+  padding:14px 28px;
+  margin-top:8px;
+}
+.score-big{font-size:48px;font-weight:900;color:var(--accent2);line-height:1;}
+.score-label{text-align:left;}
+.score-label div:first-child{font-size:13px;color:var(--muted);}
+.score-label div:last-child{font-size:18px;font-weight:700;color:#fbbf24;}
+
+/* ── 导航Tab ── */
+.tab-nav{
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+  overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;
+}
+.tab-nav::-webkit-scrollbar{display:none}
+.tab-list{
+  display:inline-flex;
+  height:48px;
+  padding:0 20px;
+  gap:0;
+}
+.tab-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:0 16px;height:48px;
+  font-size:13px;font-weight:500;
+  color:var(--muted);cursor:pointer;
+  border:none;background:none;
+  border-bottom:2px solid transparent;
+  transition:all .2s;white-space:nowrap;
+}
+.tab-btn:hover{color:var(--text);}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
+
+/* ── 主体容器 ── */
+.main{max-width:960px;margin:0 auto;padding:32px 20px 80px;}
+
+/* ── 区块 ── */
+.section{margin-bottom:40px;}
+.section-title{
+  font-size:20px;font-weight:700;
+  color:#fff;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.section-title .icon{
+  width:32px;height:32px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;flex-shrink:0;
+}
+
+/* ── 卡片 ── */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:16px;
+}
+.card-header{
+  display:flex;justify-content:space-between;
+  align-items:center;margin-bottom:14px;
+  flex-wrap:wrap;gap:8px;
+}
+.card-title{font-size:15px;font-weight:700;color:#fff;}
+
+/* ── 数据网格 ── */
+.kpi-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;
+  margin-bottom:20px;
+}
+.kpi-card{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 16px;
+}
+.kpi-label{font-size:11px;color:var(--muted);margin-bottom:4px;letter-spacing:.3px;}
+.kpi-value{font-size:22px;font-weight:800;color:#fff;line-height:1;}
+.kpi-change{font-size:11px;margin-top:4px;}
+.up{color:var(--green);}
+.down{color:var(--red);}
+.neutral{color:var(--muted);}
+
+/* ── 表格 ── */
+.table-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead{background:var(--surface2);}
+th{padding:10px 14px;text-align:left;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.3px;border-bottom:1px solid var(--border);}
+td{padding:10px 14px;border-bottom:1px solid rgba(26,46,85,.5);}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(59,130,246,.04);}
+.td-num{text-align:right;font-weight:600;font-variant-numeric:tabular-nums;}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;}
+.badge-green{background:rgba(16,185,129,.15);color:#34d399;}
+.badge-amber{background:rgba(245,158,11,.15);color:#fbbf24;}
+.badge-red{background:rgba(244,63,94,.15);color:#fb7185;}
+.badge-blue{background:rgba(59,130,246,.15);color:#93c5fd;}
+.badge-purple{background:rgba(139,92,246,.15);color:#c4b5fd;}
+
+/* ── 七大信号评分 ── */
+.signal-grid{display:grid;gap:14px;}
+.signal-card{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+}
+.signal-card::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:4px;
+  background:var(--bar-color,var(--accent));
+  border-radius:4px 0 0 4px;
+}
+.signal-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;}
+.signal-name{font-size:14px;font-weight:700;color:#fff;}
+.signal-code{font-size:11px;color:var(--muted);margin-top:2px;}
+.signal-score{
+  display:flex;align-items:center;gap:8px;flex-shrink:0;
+}
+.score-dots{display:flex;gap:4px;}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--border);}
+.dot.filled{background:var(--bar-color,var(--accent));}
+.dot.half{background:linear-gradient(90deg,var(--bar-color,var(--accent)) 50%,var(--border) 50%);}
+.score-val{font-size:16px;font-weight:800;color:var(--bar-color,var(--accent));}
+.signal-body{margin-top:12px;font-size:13px;color:var(--muted);line-height:1.6;}
+.signal-data{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:10px;
+}
+.data-chip{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:6px;
+  padding:4px 10px;
+  font-size:12px;color:var(--text);
+  font-weight:500;
+}
+.data-chip .val{color:var(--accent2);font-weight:700;}
+
+/* ── 总评分栏 ── */
+.score-summary{
+  background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(34,211,238,.08));
+  border:1px solid rgba(59,130,246,.25);
+  border-radius:14px;
+  padding:24px;
+  text-align:center;
+  margin-bottom:32px;
+}
+.score-row{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;}
+.total-score{
+  font-size:64px;font-weight:900;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.score-info{text-align:left;}
+.score-info .level{font-size:22px;font-weight:700;color:#fbbf24;}
+.score-info .desc{font-size:13px;color:var(--muted);margin-top:4px;max-width:280px;}
+.progress-bar-wrap{margin-top:16px;}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px;}
+.progress-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:4px;transition:width .6s;}
+
+/* ── SVG图表容器 ── */
+.chart-wrap{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:20px;
+  overflow:hidden;
+}
+.chart-title{font-size:13px;color:var(--muted);margin-bottom:16px;font-weight:600;}
+
+/* ── 两列布局 ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.two-col{grid-template-columns:1fr;}}
+
+/* ── 战略卡片 ── */
+.strategy-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+.strategy-card{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:16px;
+}
+.strategy-card .s-icon{font-size:24px;margin-bottom:8px;}
+.strategy-card .s-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;}
+.strategy-card .s-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* ── 建仓策略 ── */
+.position-table{width:100%;}
+.pos-row{
+  display:grid;
+  grid-template-columns:auto 1fr auto auto;
+  gap:12px;align-items:center;
+  padding:14px 16px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:10px;
+}
+.pos-batch{
+  width:32px;height:32px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.pos-info .pos-name{font-size:13px;font-weight:600;color:#fff;}
+.pos-info .pos-cond{font-size:11px;color:var(--muted);margin-top:2px;}
+.pos-price{font-size:14px;font-weight:700;color:var(--accent2);white-space:nowrap;}
+.pos-ratio{
+  background:rgba(59,130,246,.1);
+  border:1px solid rgba(59,130,246,.2);
+  border-radius:6px;padding:3px 10px;
+  font-size:13px;font-weight:700;color:var(--accent);
+  white-space:nowrap;
+}
+
+/* ── 目标价区间 ── */
+.target-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:20px;
+}
+.target-card{
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
+}
+.target-card.bear{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.2);}
+.target-card.base{background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);}
+.target-card.bull{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);}
+.target-card .t-label{font-size:11px;font-weight:600;letter-spacing:.5px;margin-bottom:6px;}
+.target-card.bear .t-label{color:#f43f5e;}
+.target-card.base .t-label{color:#93c5fd;}
+.target-card.bull .t-label{color:#34d399;}
+.target-card .t-price{font-size:26px;font-weight:900;color:#fff;}
+.target-card .t-upside{font-size:12px;margin-top:4px;}
+.target-card.bear .t-upside{color:#f43f5e;}
+.target-card.base .t-upside{color:#93c5fd;}
+.target-card.bull .t-upside{color:#34d399;}
+.target-card .t-desc{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4;}
+
+/* ── 风险提示 ── */
+.risk-list{display:grid;gap:10px;}
+.risk-item{
+  display:flex;gap:12px;align-items:flex-start;
+  background:rgba(244,63,94,.05);
+  border:1px solid rgba(244,63,94,.15);
+  border-radius:8px;padding:12px 14px;
+}
+.risk-icon{font-size:16px;flex-shrink:0;margin-top:1px;}
+.risk-content .risk-title{font-size:13px;font-weight:600;color:#fb7185;margin-bottom:3px;}
+.risk-content .risk-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* ── 悬浮FAB ── */
+#home-fab{
+  position:fixed;bottom:28px;right:24px;z-index:9999;
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#3b82f6,#22d3ee);
+  border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(59,130,246,.5);
+  font-size:20px;
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+}
+#home-fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(59,130,246,.7);}
+
+/* ── 结论框 ── */
+.verdict-box{
+  background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(34,211,238,.06));
+  border:2px solid rgba(59,130,246,.25);
+  border-radius:16px;
+  padding:28px;
+  margin-bottom:32px;
+}
+.verdict-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;}
+.verdict-body{font-size:14px;color:var(--muted);line-height:1.8;}
+.verdict-body strong{color:var(--text);}
+.verdict-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+.vtag{
+  padding:5px 12px;border-radius:6px;
+  font-size:12px;font-weight:700;
+}
+.vtag-blue{background:rgba(59,130,246,.15);color:#93c5fd;}
+.vtag-green{background:rgba(16,185,129,.15);color:#34d399;}
+.vtag-amber{background:rgba(245,158,11,.15);color:#fbbf24;}
+.vtag-red{background:rgba(244,63,94,.15);color:#fb7185;}
+
+/* ── 竞争对比 ── */
+.compare-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;}
+.compare-card{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px 16px;
+  position:relative;
+}
+.compare-card.highlight{
+  border-color:rgba(59,130,246,.4);
+  background:rgba(59,130,246,.06);
+}
+.compare-card .cc-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;}
+.compare-card .cc-badge{
+  position:absolute;top:10px;right:10px;
+  background:rgba(59,130,246,.15);color:var(--accent);
+  padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;
+}
+.compare-item{display:flex;justify-content:space-between;margin-bottom:5px;font-size:12px;}
+.compare-item .cl{color:var(--muted);}
+.compare-item .cv{font-weight:600;color:var(--text);}
+.compare-item .cv.best{color:var(--green);}
+
+@media(max-width:480px){
+  .pos-row{grid-template-columns:auto 1fr;grid-template-rows:auto auto;}
+  .target-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-badge">📡 电信龙头深度研究</div>
+  <h1>中国移动：价值重估与AI转型突破口</h1>
+  <p class="hero-sub">全球最大移动运营商 × 万亿营收 × 算力/智能双引擎 × 5%高股息防御</p>
+  <div class="hero-meta">
+    <span class="meta-tag">A股 <strong>600941</strong></span>
+    <span class="meta-tag">港股 <strong>00941.HK</strong></span>
+    <span class="meta-tag">行业 <strong>电信运营</strong></span>
+    <span class="meta-tag">市值 <strong>~2万亿元</strong></span>
+    <span class="meta-tag">报告日期 <strong>2025年4月</strong></span>
+  </div>
+  <div class="score-hero">
+    <div class="score-big">16</div>
+    <div class="score-label">
+      <div>七大信号综合评分（满分21）</div>
+      <div>⭐ 价值+成长双属性</div>
+    </div>
+  </div>
+</div>
+
+<!-- 导航 -->
+<nav class="tab-nav">
+  <div class="tab-list">
+    <button class="tab-btn active" onclick="scrollTo('s0')">📊 核心数据</button>
+    <button class="tab-btn" onclick="scrollTo('s1')">🔍 七大信号</button>
+    <button class="tab-btn" onclick="scrollTo('s2')">🚀 AI转型</button>
+    <button class="tab-btn" onclick="scrollTo('s3')">⚔️ 竞争格局</button>
+    <button class="tab-btn" onclick="scrollTo('s4')">🎯 估值与策略</button>
+    <button class="tab-btn" onclick="scrollTo('s5')">⚠️ 风险</button>
+    <button class="tab-btn" onclick="scrollTo('s6')">📋 结论</button>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ═══════════ 核心数据 ═══════════ -->
+<div id="s0" class="section">
+  <div class="section-title">
+    <div class="icon">📊</div>核心财务数据速览
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">2025年营运收入</div>
+      <div class="kpi-value">1.05<span style="font-size:14px;color:var(--muted)">万亿</span></div>
+      <div class="kpi-change up">▲ +0.9% YoY</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">2025年归母净利润</div>
+      <div class="kpi-value">1371<span style="font-size:14px;color:var(--muted)">亿</span></div>
+      <div class="kpi-change down">▼ -0.9%（5年来首降）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">PE（TTM）</div>
+      <div class="kpi-value">14.7<span style="font-size:14px;color:var(--muted)">×</span></div>
+      <div class="kpi-change neutral">历史33%分位（偏低）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">PB</div>
+      <div class="kpi-value">1.42<span style="font-size:14px;color:var(--muted)">×</span></div>
+      <div class="kpi-change neutral">每股净资产 64.37元</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">ROE（2025）</div>
+      <div class="kpi-value">~13<span style="font-size:14px;color:var(--muted)">%</span></div>
+      <div class="kpi-change neutral">稳定在12-14%区间</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">股息率（A股）</div>
+      <div class="kpi-value">5.06<span style="font-size:14px;color:var(--muted)">%</span></div>
+      <div class="kpi-change up">历史97.5%分位（极高）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">2025年自由现金流</div>
+      <div class="kpi-value">820<span style="font-size:14px;color:var(--muted)">亿</span></div>
+      <div class="kpi-change neutral">派息率提至75%</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">算力服务收入（2025）</div>
+      <div class="kpi-value">898<span style="font-size:14px;color:var(--muted)">亿</span></div>
+      <div class="kpi-change up">▲ +11.1% / 智算+279%</div>
+    </div>
+  </div>
+
+  <!-- 业务结构 -->
+  <div class="card">
+    <div class="card-header">
+      <span class="card-title">📦 CHBN四轮驱动：业务结构全解析（2025年）</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>业务板块</th><th>2025年收入</th><th>增速</th><th>核心亮点</th><th>增长预期</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>C 通信服务</strong><br><span style="font-size:11px;color:var(--muted)">个人+家庭移动/宽带</span></td>
+            <td class="td-num">7,149亿</td>
+            <td><span class="badge badge-red">-1.0%</span></td>
+            <td>5G客户6.42亿户（渗透率63.9%）；移动ARPU仍承压</td>
+            <td><span class="badge badge-amber">微压</span></td>
+          </tr>
+          <tr>
+            <td><strong>B 算力服务</strong><br><span style="font-size:11px;color:var(--muted)">移动云/IDC/算力租用</span></td>
+            <td class="td-num">898亿</td>
+            <td><span class="badge badge-green">+11.1%</span></td>
+            <td>智算服务增279%；自建算力29.2 EFLOPS；移动云超1000亿</td>
+            <td><span class="badge badge-green">强增长</span></td>
+          </tr>
+          <tr>
+            <td><strong>N 智能服务</strong><br><span style="font-size:11px;color:var(--muted)">九天大模型/数字化</span></td>
+            <td class="td-num">908亿</td>
+            <td><span class="badge badge-green">+5.3%</span></td>
+            <td>AI+产品超100款；九天大模型3.0；数智文化+13.3%</td>
+            <td><span class="badge badge-green">加速</span></td>
+          </tr>
+          <tr>
+            <td><strong>H 家庭宽带</strong><br><span style="font-size:11px;color:var(--muted)">千兆宽带/智慧家庭</span></td>
+            <td class="td-num">~1,350亿</td>
+            <td><span class="badge badge-green">+~10%</span></td>
+            <td>宽带客户3.29亿；家庭宽带+10.1%；智慧家庭生态扩展</td>
+            <td><span class="badge badge-blue">稳增</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;">
+      ⚡ 结构迁移核心逻辑：算力+智能服务收入占比从2021年不足10%→2025年达<strong style="color:var(--accent2)">20.2%</strong>，持续扩大，是未来估值重估的核心驱动力。
+    </p>
+  </div>
+
+  <!-- SVG：营收结构 -->
+  <div class="chart-wrap">
+    <div class="chart-title">📈 营收与净利润趋势（2021-2025）</div>
+    <svg viewBox="0 0 860 240" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gRev" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#3b82f6" stop-opacity=".6"/>
+          <stop offset="100%" stop-color="#3b82f6" stop-opacity=".05"/>
+        </linearGradient>
+        <linearGradient id="gProfit" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#22d3ee" stop-opacity=".6"/>
+          <stop offset="100%" stop-color="#22d3ee" stop-opacity=".05"/>
+        </linearGradient>
+      </defs>
+      <!-- 背景格线 -->
+      <line x1="80" y1="20" x2="80" y2="190" stroke="#1a2e55" stroke-width="1"/>
+      <line x1="80" y1="190" x2="820" y2="190" stroke="#1a2e55" stroke-width="1"/>
+      <line x1="80" y1="140" x2="820" y2="140" stroke="#1a2e55" stroke-width=".5" stroke-dasharray="4,4"/>
+      <line x1="80" y1="100" x2="820" y2="100" stroke="#1a2e55" stroke-width=".5" stroke-dasharray="4,4"/>
+      <line x1="80" y1="60" x2="820" y2="60" stroke="#1a2e55" stroke-width=".5" stroke-dasharray="4,4"/>
+      <!-- Y轴标签 -->
+      <text x="72" y="195" font-size="10" fill="#64748b" text-anchor="end">0</text>
+      <text x="72" y="145" font-size="10" fill="#64748b" text-anchor="end">4,000</text>
+      <text x="72" y="105" font-size="10" fill="#64748b" text-anchor="end">7,000</text>
+      <text x="72" y="65" font-size="10" fill="#64748b" text-anchor="end">10,000亿</text>
+      <!-- X轴年份 -->
+      <text x="160" y="210" font-size="11" fill="#94a3b8" text-anchor="middle">2021</text>
+      <text x="295" y="210" font-size="11" fill="#94a3b8" text-anchor="middle">2022</text>
+      <text x="430" y="210" font-size="11" fill="#94a3b8" text-anchor="middle">2023</text>
+      <text x="565" y="210" font-size="11" fill="#94a3b8" text-anchor="middle">2024</text>
+      <text x="700" y="210" font-size="11" fill="#94a3b8" text-anchor="middle">2025</text>
+
+      <!-- 营收柱（亿：8,862 / 9,374 / 10,092 / 10,408 / 10,502） -->
+      <!-- 比例：(val/12000)*130，底在190 -->
+      <rect x="130" y="94" width="60" height="96" fill="url(#gRev)" rx="4"/>
+      <rect x="265" y="88" width="60" height="102" fill="url(#gRev)" rx="4"/>
+      <rect x="400" y="81" width="60" height="109" fill="url(#gRev)" rx="4"/>
+      <rect x="535" y="78" width="60" height="112" fill="url(#gRev)" rx="4"/>
+      <rect x="670" y="77" width="60" height="113" fill="url(#gRev)" rx="4"/>
+      <!-- 营收文字 -->
+      <text x="160" y="90" font-size="10" fill="#93c5fd" text-anchor="middle">8,862</text>
+      <text x="295" y="84" font-size="10" fill="#93c5fd" text-anchor="middle">9,374</text>
+      <text x="430" y="77" font-size="10" fill="#93c5fd" text-anchor="middle">10,092</text>
+      <text x="565" y="74" font-size="10" fill="#93c5fd" text-anchor="middle">10,408</text>
+      <text x="700" y="73" font-size="10" fill="#93c5fd" text-anchor="middle">10,502</text>
+
+      <!-- 净利润折线（亿：1,169 / 1,280 / 1,318 / 1,384 / 1,371） -->
+      <!-- 比例：(val/1600)*80，底190 -->
+      <polyline points="160,131 295,126 430,124 565,121 700,122"
+        fill="none" stroke="#22d3ee" stroke-width="2.5" stroke-linejoin="round"/>
+      <circle cx="160" cy="131" r="5" fill="#22d3ee"/>
+      <circle cx="295" cy="126" r="5" fill="#22d3ee"/>
+      <circle cx="430" cy="124" r="5" fill="#22d3ee"/>
+      <circle cx="565" cy="121" r="5" fill="#22d3ee"/>
+      <circle cx="700" cy="122" r="5" fill="#f43f5e"/>
+      <text x="160" y="126" font-size="9" fill="#67e8f9" text-anchor="middle">1,169</text>
+      <text x="295" y="121" font-size="9" fill="#67e8f9" text-anchor="middle">1,280</text>
+      <text x="430" y="119" font-size="9" fill="#67e8f9" text-anchor="middle">1,318</text>
+      <text x="565" y="116" font-size="9" fill="#67e8f9" text-anchor="middle">1,384</text>
+      <text x="700" y="117" font-size="9" fill="#fb7185" text-anchor="middle">1,371▼</text>
+
+      <!-- 图例 -->
+      <rect x="600" y="18" width="12" height="12" fill="#3b82f6" rx="2" opacity=".7"/>
+      <text x="616" y="28" font-size="11" fill="#94a3b8">营运收入（亿）</text>
+      <line x1="600" y1="44" x2="612" y2="44" stroke="#22d3ee" stroke-width="2.5"/>
+      <circle cx="606" cy="44" r="3" fill="#22d3ee"/>
+      <text x="616" y="48" font-size="11" fill="#94a3b8">归母净利润（亿）</text>
+    </svg>
+  </div>
+
+  <!-- 近期季报 -->
+  <div class="card" style="margin-top:16px;">
+    <div class="card-header">
+      <span class="card-title">⚠️ 2026年Q1最新：净利润连续两季下滑信号</span>
+      <span class="badge badge-red">需关注</span>
+    </div>
+    <div class="kpi-grid" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr))">
+      <div class="kpi-card">
+        <div class="kpi-label">Q1营业收入</div>
+        <div class="kpi-value" style="font-size:18px;">2,665亿</div>
+        <div class="kpi-change up">▲ +1.0%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q1归母净利润</div>
+        <div class="kpi-value" style="font-size:18px;">293亿</div>
+        <div class="kpi-change down">▼ -4.2%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Q1主营收入</div>
+        <div class="kpi-value" style="font-size:18px;">2,199亿</div>
+        <div class="kpi-change down">▼ -1.1%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">5G客户数</div>
+        <div class="kpi-value" style="font-size:18px;">6.68亿</div>
+        <div class="kpi-change up">渗透率提升中</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px;">
+      ⚠️ 2025全年净利润-0.9%、2026Q1继续-4.2%，属于<strong style="color:#fbbf24">5年来首次利润下滑周期</strong>。原因：移动通信ARPU持续承压 + 算力投资仍处高峰期成本端较重。但"其他业务"同比+12.7%，算力/智能服务加速，预示结构性转折。
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════ 七大信号 ═══════════ -->
+<div id="s1" class="section">
+  <div class="section-title">
+    <div class="icon">🔍</div>七大信号评分框架——好公司上涨前期判断
+  </div>
+
+  <!-- 总分汇总 -->
+  <div class="score-summary">
+    <div class="score-row">
+      <div class="total-score">16</div>
+      <div class="score-info">
+        <div class="level">⭐ 价值+成长双属性 中强信号</div>
+        <div class="desc">满分21分 · 16分及以上为明确买入区间<br>当前核心矛盾：价值属性极强 vs. 短期利润承压</div>
+      </div>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-label"><span>总分进度</span><span>16 / 21</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:76.2%"></div></div>
+    </div>
+  </div>
+
+  <div class="signal-grid">
+
+    <!-- S1 PE/ROE -->
+    <div class="signal-card" style="--bar-color:#22d3ee">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S1 · PE/ROE 比值——核心量化低估指标</div>
+          <div class="signal-code">PE(TTM) ÷ ROE × 100 → 值越小越低估，&lt;0.8为明显低估</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+          <div class="score-val">3/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        PE约14.7×，ROE约13%，PE/ROE比值 = <strong style="color:#22d3ee">1.13</strong>。
+        对于央企电信龙头，这一比值处于合理偏低区间。更重要的是，与全球电信可比公司（Verizon PE 9×/ROE 20%；AT&amp;T PE 17×/ROE 12%）相比，中国移动估值并无溢价，而其增长潜力（算力/AI转型）显著优于美国传统运营商。
+        相较历史区间，当前PE处于历史33%低分位，充分反映利润短期承压预期。<strong style="color:#22d3ee">✅ 定量低估明确。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">PE <span class="val">14.7×</span></div>
+        <div class="data-chip">PB <span class="val">1.42×</span></div>
+        <div class="data-chip">ROE <span class="val">~13%</span></div>
+        <div class="data-chip">PE/ROE <span class="val">1.13</span></div>
+        <div class="data-chip">历史PE分位 <span class="val">33%</span></div>
+      </div>
+    </div>
+
+    <!-- S2 自由现金流 -->
+    <div class="signal-card" style="--bar-color:#10b981">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S2 · 自由现金流收益率 &gt; 5%</div>
+          <div class="signal-code">FCF / 市值 → 真实盈利能力，抵御虚假利润</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+          <div class="score-val">3/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        2025年自由现金流820亿元（2024年高达1,517亿，同比+22.9%）。以当前约2万亿市值计算，
+        自由现金流收益率约 <strong style="color:#10b981">4.1-7.6%</strong>（取2024/2025均值），远超无风险收益率。
+        历史上每年维持800亿以上FCF，分红能力极强。2025年派息率提至75%，全年股息每股5.27港元，
+        A股股息率高达5.06%，处于历史97.5%分位极高水平。<strong style="color:#10b981">✅ 现金流质量一流。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">FCF(2025) <span class="val">820亿</span></div>
+        <div class="data-chip">FCF(2024) <span class="val">1,517亿</span></div>
+        <div class="data-chip">股息率 <span class="val">5.06%</span></div>
+        <div class="data-chip">派息率 <span class="val">75%</span></div>
+        <div class="data-chip">股息分位 <span class="val">97.5%</span></div>
+      </div>
+    </div>
+
+    <!-- S3 内部人增持 -->
+    <div class="signal-card" style="--bar-color:#f59e0b">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S3 · 内部人增持信号</div>
+          <div class="signal-code">高管/大股东持续买入，说明内部人对低估有信心</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+          <div class="score-val">2/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        国资委持股约74%，国家持股结构稳定。2024年起推行央企市值管理要求，中国移动于2023年10月启动
+        <strong style="color:#fbbf24">A股史上最大规模回购计划</strong>（1000亿元），截至2024年底已回购约570亿。
+        公司层面持续增持回购，实质等同于大股东买入。但市场上无高管个人主动增持公告，
+        故扣0.5分。<strong style="color:#f59e0b">✅ 机构级增持（回购）强力背书。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">国资委持股 <span class="val">~74%</span></div>
+        <div class="data-chip">A股回购计划 <span class="val">1,000亿</span></div>
+        <div class="data-chip">已完成回购 <span class="val">~570亿</span></div>
+        <div class="data-chip">央企市值管理 <span class="val">强制要求</span></div>
+      </div>
+    </div>
+
+    <!-- S4 行业景气触底 -->
+    <div class="signal-card" style="--bar-color:#a78bfa">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S4 · 行业景气触底回升</div>
+          <div class="signal-code">行业从低谷恢复，而股价往往领先反应</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot half"></div><div class="dot"></div>
+          </div>
+          <div class="score-val">1.5/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        电信运营商行业整体处于"传统业务见顶 + 新兴业务崛起"的结构性转型期：
+        移动通信ARPU连续多年下滑（2025年ARPU承压），仍处底部区域。但：
+        ①5G渗透率63.9%，IoT连接数15亿，有望进入换机升ARPU周期；
+        ②算力服务收入2025年898亿（+11.1%），智算服务增279%，确认接棒增长；
+        ③DeepSeek爆发后算力需求激增3倍，加速B端政企采购；
+        ④AI应用产品超100款，九天3.0发布，商业化加速。
+        行业整体仍处于转型阵痛期，给1.5分。<strong style="color:#a78bfa">⚠️ 行业转型期，新引擎正在点火。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">5G渗透率 <span class="val">63.9%</span></div>
+        <div class="data-chip">IoT连接 <span class="val">15亿</span></div>
+        <div class="data-chip">智算增速 <span class="val">+279%</span></div>
+        <div class="data-chip">AI产品 <span class="val">100+款</span></div>
+      </div>
+    </div>
+
+    <!-- S5 护城河 -->
+    <div class="signal-card" style="--bar-color:#22d3ee">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S5 · 护城河逆境验证</div>
+          <div class="signal-code">在不利环境下护城河是否真实有效</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+          <div class="score-val">3/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        护城河极宽广且经历过充分验证：① <strong style="color:#22d3ee">牌照垄断护城河</strong>——全国唯三运营商，无新进入者可能；
+        ② <strong style="color:#22d3ee">基础设施护城河</strong>——686万+基站、3586万皮长公里光缆，重建成本数万亿；
+        ③ <strong style="color:#22d3ee">用户粘性护城河</strong>——10亿移动用户基数，手机号码本身具有极高转换成本；
+        ④ <strong style="color:#22d3ee">规模经济护城河</strong>——全球最大电信运营商，单位成本优势显著；
+        ⑤ <strong style="color:#22d3ee">政策护城河</strong>——国企央企属性，有政策托底支持。
+        即使在ARPU承压、5G资本支出高峰期，护城河依然完整。<strong style="color:#22d3ee">✅ 护城河宽阔稳固。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">基站 <span class="val">686万+</span></div>
+        <div class="data-chip">光缆 <span class="val">3,586万皮公里</span></div>
+        <div class="data-chip">移动用户 <span class="val">10亿</span></div>
+        <div class="data-chip">市场份额 <span class="val">约60%</span></div>
+      </div>
+    </div>
+
+    <!-- S6 基本面改善股价未动 -->
+    <div class="signal-card" style="--bar-color:#f59e0b">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S6 · 基本面改善 vs. 股价滞后</div>
+          <div class="signal-code">基本面在修复，但股价尚未体现——上涨前期特征</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot half"></div><div class="dot"></div>
+          </div>
+          <div class="score-val">1.5/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        当前股价约93元，年内下跌约7.7%，反映市场对净利润下滑的担忧。
+        但以下结构性改善正在发生：① 算力+智能收入占比2025年突破20%，2026年有望超25%；
+        ② 资本开支2025年降8%至1,509亿，向好的FCF转化已现；③ 派息率提升路径清晰（75%→未来更高）；
+        ④ DeepSeek爆发后B端算力需求几何级增加，GPU利用率从20%→68%。
+        然而，由于连续两季净利润同比下降，市场情绪偏谨慎，股价未能完全跟上结构改善，给1.5分。
+        <strong style="color:#f59e0b">⚠️ 市场定价滞后于结构性转型。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">年内股价 <span class="val" style="color:#f43f5e">-7.7%</span></div>
+        <div class="data-chip">算力占比 <span class="val">20.2%→↑</span></div>
+        <div class="data-chip">资本开支 <span class="val">-8%</span></div>
+        <div class="data-chip">GPU利用率 <span class="val">68%</span></div>
+      </div>
+    </div>
+
+    <!-- S7 双重低估 -->
+    <div class="signal-card" style="--bar-color:#10b981">
+      <div class="signal-top">
+        <div>
+          <div class="signal-name">S7 · 双重低估——绝对估值+相对估值均低估</div>
+          <div class="signal-code">相对同类 + DCF内在价值均低估，安全边际厚</div>
+        </div>
+        <div class="signal-score">
+          <div class="score-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+          <div class="score-val">3/3</div>
+        </div>
+      </div>
+      <div class="signal-body">
+        <strong>绝对估值维度：</strong>PE 14.7×，PB 1.42×，市现率8.7×，与万亿以上规模央企相比估值极低。
+        股息率5.06%处历史97.5%分位，以通讯基础设施的抗周期属性，5%+股息率提供极厚安全边际。
+        <br><br>
+        <strong>相对估值维度：</strong>全球同类电信龙头（NTT、SK电讯等）PE普遍12-20×，中国移动与之持平但业务多元化更高。
+        国内TMT板块均值PE超30×，中国移动明显被"传统股"折价。若按科技成长股估值重评价，
+        空间巨大。<strong style="color:#10b981">✅ 双重低估确认，安全边际极厚。</strong>
+      </div>
+      <div class="signal-data">
+        <div class="data-chip">股息率历史分位 <span class="val">97.5%</span></div>
+        <div class="data-chip">PE历史分位 <span class="val">33%</span></div>
+        <div class="data-chip">PB <span class="val">1.42×</span></div>
+        <div class="data-chip">市现率 <span class="val">8.7×</span></div>
+      </div>
+    </div>
+
+  </div><!-- signal-grid end -->
+
+  <!-- 评分汇总表 -->
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title" style="margin-bottom:14px;">📊 七大信号得分汇总</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>信号</th><th>指标</th><th>得分</th><th>关键依据</th><th>判断</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S1 PE/ROE比值</td><td>PE/ROE=1.13（历史低33%分位）</td><td class="td-num"><strong style="color:#22d3ee">3/3</strong></td><td>PE 14.7×，历史偏低区间</td><td><span class="badge badge-green">✅ 低估</span></td></tr>
+          <tr><td>S2 自由现金流</td><td>FCF收益率4-7.6%，股息率5.06%</td><td class="td-num"><strong style="color:#10b981">3/3</strong></td><td>FCF稳定，派息率75%</td><td><span class="badge badge-green">✅ 充沛</span></td></tr>
+          <tr><td>S3 内部人增持</td><td>千亿回购计划（≈国家队买入）</td><td class="td-num"><strong style="color:#fbbf24">2/3</strong></td><td>大规模回购替代增持</td><td><span class="badge badge-green">✅ 支撑</span></td></tr>
+          <tr><td>S4 行业触底</td><td>传统业务承压，算力新引擎点火</td><td class="td-num"><strong style="color:#a78bfa">1.5/3</strong></td><td>转型阵痛期未完全过渡</td><td><span class="badge badge-amber">⚠️ 进行中</span></td></tr>
+          <tr><td>S5 护城河</td><td>牌照+基础设施+用户粘性三重护城河</td><td class="td-num"><strong style="color:#22d3ee">3/3</strong></td><td>宽护城河经逆境验证</td><td><span class="badge badge-green">✅ 宽阔</span></td></tr>
+          <tr><td>S6 基本面改善</td><td>算力占比↑，资本开支↓，结构向好</td><td class="td-num"><strong style="color:#fbbf24">1.5/3</strong></td><td>股价已下调但净利润仍跌</td><td><span class="badge badge-amber">⚠️ 滞后</span></td></tr>
+          <tr><td>S7 双重低估</td><td>绝对+相对均低估，股息率极高分位</td><td class="td-num"><strong style="color:#10b981">3/3</strong></td><td>安全边际极厚</td><td><span class="badge badge-green">✅ 确认</span></td></tr>
+          <tr style="background:rgba(59,130,246,.05)"><td colspan="2"><strong>综合评分</strong></td><td class="td-num"><strong style="color:#3b82f6;font-size:16px;">16 / 21</strong></td><td colspan="2"><strong style="color:#fbbf24">⭐ 中强信号——价值防御+成长转型双属性</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ AI转型 ═══════════ -->
+<div id="s2" class="section">
+  <div class="section-title">
+    <div class="icon">🚀</div>AI转型核心逻辑：从"管道"到"算力+智能"服务商
+  </div>
+
+  <!-- SVG：算力/智能收入占比变化 -->
+  <div class="chart-wrap">
+    <div class="chart-title">⚡ 算力+智能服务收入占总收入比例提升路径（2021→2025→2027E）</div>
+    <svg viewBox="0 0 860 200" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gAI" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#3b82f6"/>
+          <stop offset="100%" stop-color="#22d3ee"/>
+        </linearGradient>
+      </defs>
+      <!-- 年份标 -->
+      <text x="100" y="175" font-size="12" fill="#94a3b8" text-anchor="middle">2021</text>
+      <text x="225" y="175" font-size="12" fill="#94a3b8" text-anchor="middle">2022</text>
+      <text x="350" y="175" font-size="12" fill="#94a3b8" text-anchor="middle">2023</text>
+      <text x="475" y="175" font-size="12" fill="#94a3b8" text-anchor="middle">2024</text>
+      <text x="600" y="175" font-size="12" fill="#94a3b8" text-anchor="middle">2025</text>
+      <text x="725" y="175" font-size="12" fill="#a78bfa" text-anchor="middle">2027E</text>
+
+      <!-- 比例柱（算力+智能/总营收：~7% / ~10% / ~14% / ~17% / ~20.2% / ~28%E） -->
+      <!-- 高度比例：比例*5，底160 -->
+      <rect x="70" y="125" width="60" height="35" fill="url(#gAI)" rx="4" opacity=".7"/>
+      <rect x="195" y="110" width="60" height="50" fill="url(#gAI)" rx="4" opacity=".75"/>
+      <rect x="320" y="90" width="60" height="70" fill="url(#gAI)" rx="4" opacity=".8"/>
+      <rect x="445" y="75" width="60" height="85" fill="url(#gAI)" rx="4" opacity=".85"/>
+      <rect x="570" y="59" width="60" height="101" fill="url(#gAI)" rx="4" opacity=".9"/>
+      <rect x="695" y="20" width="60" height="140" fill="#a78bfa" rx="4" opacity=".5"/>
+
+      <!-- 文字标注 -->
+      <text x="100" y="120" font-size="11" fill="#93c5fd" text-anchor="middle">~7%</text>
+      <text x="225" y="105" font-size="11" fill="#93c5fd" text-anchor="middle">~10%</text>
+      <text x="350" y="85" font-size="11" fill="#93c5fd" text-anchor="middle">~14%</text>
+      <text x="475" y="70" font-size="11" fill="#93c5fd" text-anchor="middle">~17%</text>
+      <text x="600" y="54" font-size="13" fill="#22d3ee" text-anchor="middle" font-weight="bold">20.2%</text>
+      <text x="725" y="15" font-size="13" fill="#c4b5fd" text-anchor="middle" font-weight="bold">~28%E</text>
+
+      <!-- 趋势线 -->
+      <polyline points="100,125 225,110 350,90 475,75 600,59 725,20"
+        fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="6,4" opacity=".6"/>
+
+      <!-- 参考线：20% -->
+      <line x1="50" y1="60" x2="800" y2="60" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
+      <text x="808" y="64" font-size="10" fill="#fbbf24">20%</text>
+
+      <text x="430" y="195" font-size="11" fill="#64748b" text-anchor="middle">算力服务+智能服务收入占总营运收入比例（越高→越像科技公司→估值重评价潜力越大）</text>
+    </svg>
+  </div>
+
+  <div class="strategy-list" style="margin-top:16px;">
+    <div class="strategy-card">
+      <div class="s-icon">🖥️</div>
+      <div class="s-title">九天大模型 3.0</div>
+      <div class="s-desc">入选央企十大国之重器；2025年升级至3.0；AI+产品超100款；自研行业大模型50+；DeepSeek适配后GPU利用率从20%→68%</div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">⚡</div>
+      <div class="s-title">算力基础设施</div>
+      <div class="s-desc">自建算力29.2 EFLOPS（全球领先）；第三方可调度30 EFLOPS；万卡级智算中心持续扩容；2025年算力投资373亿（占资本开支25%）</div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">☁️</div>
+      <div class="s-title">移动云超千亿</div>
+      <div class="s-desc">2024年移动云收入突破1000亿，进入互联网云第一阵营；AIDC收入+35.4%；IaaS→AI PaaS→MaaS全栈布局</div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">🌐</div>
+      <div class="s-title">B端政企数字化</div>
+      <div class="s-desc">政企客户3,259万（+14.9%）；AI+DICT应用39个；覆盖97个国民经济大类中80个；数字政府全省总集成项目落地</div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">📡</div>
+      <div class="s-title">卫星+低空经济</div>
+      <div class="s-desc">卫星通信迈入商业化运营；天基+地基融合通信布局；低空经济配套通信基础设施；未来增量市场</div>
+    </div>
+    <div class="strategy-card">
+      <div class="s-icon">🔗</div>
+      <div class="s-title">IoT生态</div>
+      <div class="s-desc">物联网连接15.04亿（+7.6%）；全球最大物联网平台；每个连接产生的ARPU虽低但数量庞大，未来应用层变现空间</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 竞争格局 ═══════════ -->
+<div id="s3" class="section">
+  <div class="section-title">
+    <div class="icon">⚔️</div>竞争格局：三大运营商横向对比
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card highlight">
+      <div class="cc-name">中国移动 A股</div>
+      <div class="cc-badge">首选</div>
+      <div class="compare-item"><span class="cl">代码</span><span class="cv">600941.SH</span></div>
+      <div class="compare-item"><span class="cl">市值</span><span class="cv">~2.02万亿</span></div>
+      <div class="compare-item"><span class="cl">PE(TTM)</span><span class="cv best">14.7×</span></div>
+      <div class="compare-item"><span class="cl">PB</span><span class="cv">1.42×</span></div>
+      <div class="compare-item"><span class="cl">股息率</span><span class="cv best">5.06%</span></div>
+      <div class="compare-item"><span class="cl">ROE</span><span class="cv best">~13%</span></div>
+      <div class="compare-item"><span class="cl">净利润（2025）</span><span class="cv">1,371亿</span></div>
+      <div class="compare-item"><span class="cl">移动市占率</span><span class="cv best">~60%</span></div>
+      <div class="compare-item"><span class="cl">算力收入</span><span class="cv best">898亿</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="cc-name">中国电信 A股</div>
+      <div class="compare-item"><span class="cl">代码</span><span class="cv">601728.SH</span></div>
+      <div class="compare-item"><span class="cl">市值</span><span class="cv">~4,700亿</span></div>
+      <div class="compare-item"><span class="cl">PE(TTM)</span><span class="cv">15-17×</span></div>
+      <div class="compare-item"><span class="cl">股息率</span><span class="cv">~4.5%</span></div>
+      <div class="compare-item"><span class="cl">ROE</span><span class="cv">~8%</span></div>
+      <div class="compare-item"><span class="cl">净利润（2024）</span><span class="cv">~300亿</span></div>
+      <div class="compare-item"><span class="cl">天翼云</span><span class="cv">~700亿</span></div>
+      <div class="compare-item"><span class="cl">特点</span><span class="cv">固网+政企优势</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="cc-name">中国联通 A股</div>
+      <div class="compare-item"><span class="cl">代码</span><span class="cv">600050.SH</span></div>
+      <div class="compare-item"><span class="cl">市值</span><span class="cv">~2,800亿</span></div>
+      <div class="compare-item"><span class="cl">PE(TTM)</span><span class="cv">16-20×</span></div>
+      <div class="compare-item"><span class="cl">股息率</span><span class="cv">~3.5%</span></div>
+      <div class="compare-item"><span class="cl">ROE</span><span class="cv">~7%</span></div>
+      <div class="compare-item"><span class="cl">净利润（2024）</span><span class="cv">~170亿</span></div>
+      <div class="compare-item"><span class="cl">特点</span><span class="cv">混改先锋</span></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="card-title" style="margin-bottom:10px;">🏆 中国移动核心竞争优势</div>
+    <div class="two-col">
+      <div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:8px;"><strong style="color:var(--green)">优势项：</strong></p>
+        <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px;">
+          <li>移动用户数10亿，市占率约60%，护城河最宽</li>
+          <li>ROE最高（13% vs 电信8% vs 联通7%）</li>
+          <li>净利润规模是其他两家总和的3倍以上</li>
+          <li>算力收入898亿，移动云超千亿，领先同行</li>
+          <li>股息率最高，安全边际最厚</li>
+          <li>现金储备最雄厚，回购能力最强</li>
+        </ul>
+      </div>
+      <div>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:8px;"><strong style="color:var(--amber)">相对劣势：</strong></p>
+        <ul style="font-size:13px;color:var(--muted);line-height:2;padding-left:18px;">
+          <li>固网/宽带市场中国电信占据先发优势</li>
+          <li>体量最大，增速弹性相对低于中小对手</li>
+          <li>国企管理机制灵活性不及民营科技</li>
+          <li>AH股溢价（A股相对港股溢价约30%）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 估值与策略 ═══════════ -->
+<div id="s4" class="section">
+  <div class="section-title">
+    <div class="icon">🎯</div>目标价区间与建仓策略
+  </div>
+
+  <div class="target-row">
+    <div class="target-card bear">
+      <div class="t-label">■ 悲观情景</div>
+      <div class="t-price">75–85元</div>
+      <div class="t-upside">当前93元，下行-9%~-19%</div>
+      <div class="t-desc">净利润持续下滑、算力收入增速放缓、ARPU继续恶化，市场给予12×PE</div>
+    </div>
+    <div class="target-card base">
+      <div class="t-label">▶ 基准情景</div>
+      <div class="t-price">100–115元</div>
+      <div class="t-upside">当前93元，上行+7%~+23%</div>
+      <div class="t-desc">净利润2026年企稳回升，算力服务继续双位数增长，PE修复至17-18×</div>
+    </div>
+    <div class="target-card bull">
+      <div class="t-label">▲ 乐观情景</div>
+      <div class="t-price">125–150元</div>
+      <div class="t-upside">当前93元，上行+34%~+61%</div>
+      <div class="t-desc">AI业务爆发、算力收入超预期、央企重估逻辑打通，PE提升至20-22×</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title" style="margin-bottom:14px;">📅 分批建仓策略</div>
+
+    <div class="pos-row">
+      <div class="pos-batch">1</div>
+      <div class="pos-info">
+        <div class="pos-name">第一批：现价区间建仓</div>
+        <div class="pos-cond">条件：当前90-95元区间 · 股息率&gt;5% · 已具备安全边际</div>
+      </div>
+      <div class="pos-price">90-95元</div>
+      <div class="pos-ratio">30%</div>
+    </div>
+
+    <div class="pos-row">
+      <div class="pos-batch">2</div>
+      <div class="pos-info">
+        <div class="pos-name">第二批：加仓（Q1净利润企稳确认）</div>
+        <div class="pos-cond">条件：2026Q2净利润同比跌幅收窄确认 / 或股价回调至85-88元区间</div>
+      </div>
+      <div class="pos-price">85-92元</div>
+      <div class="pos-ratio">40%</div>
+    </div>
+
+    <div class="pos-row">
+      <div class="pos-batch">3</div>
+      <div class="pos-info">
+        <div class="pos-name">第三批：满仓（基本面反转确认）</div>
+        <div class="pos-cond">条件：净利润重回增长 + 算力收入占比25%+ / 算力服务利润率提升确认</div>
+      </div>
+      <div class="pos-price">88-98元</div>
+      <div class="pos-ratio">30%</div>
+    </div>
+
+    <div style="background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.15);border-radius:8px;padding:12px;margin-top:12px;font-size:12px;color:var(--muted);">
+      💡 <strong style="color:#fbbf24">持有逻辑</strong>：每年5%+股息率相当于白吃利息，等待净利润反转和算力重估期间的持股成本极低。
+      止损建议：若净利润连续4季度同比跌幅超10%且无改善信号，可减仓至5成。
+    </div>
+  </div>
+
+  <!-- SVG：价值三驱动 -->
+  <div class="chart-wrap" style="margin-top:16px;">
+    <div class="chart-title">🔮 未来估值重评价的三大催化剂时间表</div>
+    <svg viewBox="0 0 860 180" style="width:100%;height:auto;" xmlns="http://www.w3.org/2000/svg">
+      <!-- 时间轴 -->
+      <line x1="60" y1="90" x2="810" y2="90" stroke="#1a2e55" stroke-width="2"/>
+      <!-- 节点 -->
+      <!-- 2026H1 -->
+      <circle cx="180" cy="90" r="12" fill="#3b82f6"/>
+      <text x="180" y="95" font-size="10" fill="#fff" text-anchor="middle">Q2</text>
+      <line x1="180" y1="78" x2="180" y2="40" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <rect x="110" y="18" width="140" height="26" rx="6" fill="rgba(59,130,246,.15)" stroke="rgba(59,130,246,.3)" stroke-width="1"/>
+      <text x="180" y="35" font-size="10" fill="#93c5fd" text-anchor="middle">净利润同比跌幅收窄</text>
+
+      <!-- 2026年底 -->
+      <circle cx="370" cy="90" r="12" fill="#22d3ee"/>
+      <text x="370" y="95" font-size="10" fill="#fff" text-anchor="middle">Q4</text>
+      <line x1="370" y1="102" x2="370" y2="140" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <rect x="285" y="138" width="170" height="26" rx="6" fill="rgba(34,211,238,.1)" stroke="rgba(34,211,238,.25)" stroke-width="1"/>
+      <text x="370" y="155" font-size="10" fill="#67e8f9" text-anchor="middle">算力收入占比突破25%</text>
+
+      <!-- 2027 -->
+      <circle cx="570" cy="90" r="12" fill="#10b981"/>
+      <text x="570" y="95" font-size="9" fill="#fff" text-anchor="middle">2027</text>
+      <line x1="570" y1="78" x2="570" y2="40" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <rect x="488" y="18" width="165" height="26" rx="6" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.25)" stroke-width="1"/>
+      <text x="570" y="35" font-size="10" fill="#34d399" text-anchor="middle">净利润重回增长，AI贡献</text>
+
+      <!-- 长期 -->
+      <circle cx="755" cy="90" r="12" fill="#f59e0b"/>
+      <text x="755" y="95" font-size="9" fill="#fff" text-anchor="middle">长期</text>
+      <line x1="755" y1="102" x2="755" y2="140" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3,2"/>
+      <rect x="672" y="138" width="165" height="26" rx="6" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.25)" stroke-width="1"/>
+      <text x="755" y="155" font-size="10" fill="#fbbf24" text-anchor="middle">央企AI龙头估值体系重评</text>
+
+      <!-- 时间标 -->
+      <text x="180" y="175" font-size="10" fill="#64748b" text-anchor="middle">2026H1</text>
+      <text x="370" y="175" font-size="10" fill="#64748b" text-anchor="middle">2026H2</text>
+      <text x="570" y="175" font-size="10" fill="#64748b" text-anchor="middle">2027</text>
+      <text x="755" y="175" font-size="10" fill="#64748b" text-anchor="middle">2028+</text>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══════════ 风险 ═══════════ -->
+<div id="s5" class="section">
+  <div class="section-title">
+    <div class="icon">⚠️</div>主要风险与缓解因素
+  </div>
+
+  <div class="risk-list">
+    <div class="risk-item">
+      <div class="risk-icon">📉</div>
+      <div class="risk-content">
+        <div class="risk-title">核心风险：净利润连续下滑超预期</div>
+        <div class="risk-desc">2025年净利润-0.9%，2026Q1-4.2%，若连续多季超预期下滑，可能引发估值体系重新下调。缓解：算力/智能服务每季度高增速对冲，2025年资本开支已降8%，自由现金流趋势向好。</div>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">🔥</div>
+      <div class="risk-content">
+        <div class="risk-title">AI算力竞争激烈，云业务利润率受压</div>
+        <div class="risk-desc">阿里云、腾讯云、华为云在AI云领域投入巨大，价格战压力传导至移动云。DeepSeek推理效率提升可能导致单位算力需求下降。缓解：B端政企客户粘性高，中移动具有"安全可信"的国家背书优势。</div>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">📱</div>
+      <div class="risk-content">
+        <div class="risk-title">移动通信ARPU持续承压</div>
+        <div class="risk-desc">主营收入2025年-1%（含ARPU下滑因素），若无换机周期带动，个人通信业务长期见顶。缓解：5G渗透率从63.9%向80%+提升过程中，高速率套餐升级有望拉动ARPU；IoT应用商业化。</div>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">🏛️</div>
+      <div class="risk-content">
+        <div class="risk-title">监管政策与政治风险</div>
+        <div class="risk-desc">行业监管加强（资费管控、普遍服务义务）可能限制盈利能力。AH股之间的套利机制若被收窄，A股溢价可能收缩。缓解：央企属性在政策环境下是双刃剑，稳定性强于纯市场化竞争。</div>
+      </div>
+    </div>
+    <div class="risk-item">
+      <div class="risk-icon">🌏</div>
+      <div class="risk-content">
+        <div class="risk-title">汇率与国际业务风险</div>
+        <div class="risk-desc">港股派息以港元计算，人民币升值对港股股东不利。国际业务收入228亿元，地缘政治风险可能影响国际漫游和跨境通信。缓解：国际业务占比仅约2%，影响有限。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 结论 ═══════════ -->
+<div id="s6" class="section">
+  <div class="section-title">
+    <div class="icon">📋</div>综合结论与投资建议
+  </div>
+
+  <div class="verdict-box">
+    <div class="verdict-title">⭐ 综合判断：防御性价值股中最具成长潜力的"转型期"标的</div>
+    <div class="verdict-body">
+      中国移动当前处于一个特殊的历史节点：<strong>传统业务见顶 + 算力/AI业务加速崛起</strong>，两个周期叠加造成短期净利润承压，但恰恰提供了高性价比的买入时机。
+      <br><br>
+      <strong>为什么值得持有？</strong>
+      ① <strong>极厚安全边际</strong>：5.06%股息率处历史97.5%分位，每年白领5%利息等待基本面反转；
+      ② <strong>宽护城河无可撼动</strong>：10亿用户基盘、686万基站、牌照垄断，竞争格局30年不变；
+      ③ <strong>AI转型实质性进展</strong>：算力+智能服务占比已达20.2%，智算增速279%，不是PPT概念；
+      ④ <strong>央企市值管理护航</strong>：1000亿回购计划+派息率稳步提升，股东回报路径清晰；
+      ⑤ <strong>估值全面偏低</strong>：PE历史33%分位，PB仅1.42×，相比万亿体量的基础设施价值显著低估。
+      <br><br>
+      <strong>最大风险是什么？</strong>净利润下滑周期比预期更长，以及算力业务利润转化速度低于预期。但以当前5%股息率托底，持有成本极低，充分消化了短期风险。
+    </div>
+    <div class="verdict-tags">
+      <span class="vtag vtag-blue">📡 全球最大运营商</span>
+      <span class="vtag vtag-green">💰 高股息防御</span>
+      <span class="vtag vtag-green">🔋 宽护城河</span>
+      <span class="vtag vtag-amber">⚡ AI转型加速</span>
+      <span class="vtag vtag-amber">⚠️ 净利润短期承压</span>
+      <span class="vtag vtag-blue">🏛️ 央企市值管理</span>
+    </div>
+  </div>
+
+  <!-- 最终评分卡 -->
+  <div class="card">
+    <div class="card-title" style="margin-bottom:16px;">📋 综合评分卡</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>评分</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>🏆 护城河宽度</td><td><strong style="color:#10b981">★★★★★</strong></td><td>牌照垄断+基础设施+10亿用户，极难复制</td></tr>
+          <tr><td>💰 股息安全性</td><td><strong style="color:#10b981">★★★★★</strong></td><td>FCF充沛，派息率75%，路径清晰</td></tr>
+          <tr><td>📈 成长潜力</td><td><strong style="color:#22d3ee">★★★★☆</strong></td><td>算力/AI业务加速，但传统业务拖累</td></tr>
+          <tr><td>💲 当前估值</td><td><strong style="color:#22d3ee">★★★★☆</strong></td><td>PE历史低位，股息率历史高位</td></tr>
+          <tr><td>⚡ 短期催化剂</td><td><strong style="color:#f59e0b">★★★☆☆</strong></td><td>净利润仍在下滑，需等待反转信号</td></tr>
+          <tr><td>🔮 长期展望</td><td><strong style="color:#10b981">★★★★★</strong></td><td>AI基础设施国家队，长期价值明确</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.15);border-radius:8px;padding:16px;margin-top:12px;">
+      <p style="font-size:13px;color:#34d399;font-weight:700;margin-bottom:6px;">📌 核心操作建议</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;">
+        <strong style="color:var(--text)">适合人群：</strong>追求高股息防御型收益 + 愿意等待AI转型红利的中长期投资者。<br>
+        <strong style="color:var(--text)">不适合人群：</strong>追求短期快速盈利、不能承受短期净利润下滑的投资者。<br>
+        <strong style="color:var(--text)">建仓参考价位：</strong>90-95元区间逢低布局，80-85元为理想加仓区；持有目标价100-115元（基准），长期乐观125+元。<br>
+        <strong style="color:var(--text)">核心监控指标：</strong>① 每季净利润同比变化趋势；② 算力服务收入增速；③ 自由现金流；④ 派息率变化公告。
+      </p>
+    </div>
+  </div>
+
+  <!-- 免责声明 -->
+  <div style="font-size:11px;color:#475569;margin-top:24px;padding:14px;background:rgba(255,255,255,.02);border-radius:8px;border:1px solid #1a2e55;">
+    ⚠️ <strong>免责声明：</strong>本报告仅供个人研究学习参考，不构成投资建议。股票投资有风险，过往表现不代表未来收益。数据来源：中国移动官方公告、财报、公开信息，截至2025年4月。
+  </div>
+</div>
+
+</div><!-- main end -->
+
+<!-- 悬浮FAB -->
+<a href="index.html" id="home-fab" title="返回首页">🏠</a>
+
+<script>
+// Tab高亮滚动
+const sections = document.querySelectorAll('[id^="s"]');
+const tabBtns = document.querySelectorAll('.tab-btn');
+function scrollTo(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+window.addEventListener('scroll',()=>{
+  let cur = '';
+  sections.forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 80) cur = s.id;
+  });
+  tabBtns.forEach(b=>{
+    b.classList.toggle('active', b.getAttribute('onclick')?.includes(cur));
+  });
+},{passive:true});
+</script>
+</body>
+</html>
