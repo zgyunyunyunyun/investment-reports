@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>个股深度重审：v3.0大师框架批判性评估 2025</title>
+<style>
+:root{
+  --bg:#0a0e1a;
+  --bg2:#111827;
+  --bg3:#1a2235;
+  --border:#1e293b;
+  --text:#e2e8f0;
+  --muted:#64748b;
+  --green:#22c55e;
+  --green-bg:rgba(34,197,94,.1);
+  --green-border:rgba(34,197,94,.3);
+  --yellow:#f59e0b;
+  --yellow-bg:rgba(245,158,11,.1);
+  --yellow-border:rgba(245,158,11,.3);
+  --red:#ef4444;
+  --red-bg:rgba(239,68,68,.1);
+  --red-border:rgba(239,68,68,.3);
+  --black:#6b7280;
+  --black-bg:rgba(107,114,128,.1);
+  --black-border:rgba(107,114,128,.3);
+  --accent:#6366f1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.7;font-size:15px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* 顶部横幅 */
+.hero{
+  background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0f172a 100%);
+  border-bottom:1px solid var(--border);
+  padding:48px 24px 40px;
+  text-align:center;
+}
+.hero h1{font-size:clamp(22px,4vw,34px);font-weight:800;letter-spacing:-.5px;
+  background:linear-gradient(90deg,#6366f1,#a78bfa,#e879f9);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);margin-top:10px;font-size:14px}
+.hero-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hero-tag{background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);color:#a78bfa;
+  padding:4px 12px;border-radius:20px;font-size:12px}
+
+/* 摘要栏 */
+.summary-bar{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:1px;background:var(--border);border-bottom:1px solid var(--border)
+}
+.summary-item{background:var(--bg2);padding:16px;text-align:center}
+.summary-item .num{font-size:24px;font-weight:800}
+.summary-item .lbl{font-size:11px;color:var(--muted);margin-top:2px}
+.num-green{color:var(--green)}
+.num-yellow{color:var(--yellow)}
+.num-red{color:var(--red)}
+.num-black{color:var(--black)}
+
+/* 警告横幅 */
+.warn-banner{
+  background:linear-gradient(90deg,rgba(239,68,68,.15),rgba(245,158,11,.1));
+  border:1px solid var(--red-border);
+  border-left:4px solid var(--red);
+  margin:24px auto;max-width:920px;border-radius:8px;padding:16px 20px;
+  display:flex;align-items:flex-start;gap:12px
+}
+.warn-banner .icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.warn-banner strong{color:var(--red)}
+
+/* 主内容区 */
+.container{max-width:960px;margin:0 auto;padding:0 20px 80px}
+
+/* 章节标题 */
+.section-header{
+  margin:40px 0 20px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--border);
+  display:flex;align-items:center;gap:10px
+}
+.section-header h2{font-size:19px;font-weight:700}
+.section-num{
+  background:var(--accent);color:#fff;
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;flex-shrink:0
+}
+
+/* 个股卡片 */
+.stock-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  margin-bottom:20px;
+  overflow:hidden
+}
+.stock-card-header{
+  padding:16px 20px 14px;
+  display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+}
+.stock-card-header:hover{background:rgba(255,255,255,.02)}
+.stock-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stock-name{font-size:17px;font-weight:700}
+.stock-code{color:var(--muted);font-size:12px;font-family:monospace}
+.verdict-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 14px;border-radius:20px;font-size:13px;font-weight:700;
+  white-space:nowrap
+}
+.verdict-green{background:rgba(34,197,94,.15);border:2px solid var(--green);color:var(--green)}
+.verdict-yellow{background:rgba(245,158,11,.15);border:2px solid var(--yellow);color:var(--yellow)}
+.verdict-red{background:rgba(239,68,68,.15);border:2px solid var(--red);color:var(--red)}
+.verdict-black{background:rgba(107,114,128,.15);border:2px solid var(--black);color:#9ca3af}
+
+.stock-card-body{padding:20px;display:none}
+.stock-card-body.open{display:block}
+
+/* 内部分栏 */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.two-col{grid-template-columns:1fr}}
+
+/* 指标格 */
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));
+  gap:8px;margin:12px 0
+}
+.metric-box{
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:6px;padding:10px;text-align:center
+}
+.metric-box .val{font-size:16px;font-weight:700}
+.metric-box .key{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* 子标题 */
+.sub-title{
+  font-size:13px;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.5px;
+  margin:16px 0 8px
+}
+
+/* 评分条 */
+.score-bar-wrap{margin:10px 0}
+.score-bar-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.score-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.score-bar-fill{height:100%;border-radius:3px;transition:width .6s}
+.fill-green{background:var(--green)}
+.fill-yellow{background:var(--yellow)}
+.fill-red{background:var(--red)}
+
+/* 红旗 */
+.red-flags{
+  background:var(--red-bg);
+  border:1px solid var(--red-border);
+  border-left:3px solid var(--red);
+  border-radius:6px;padding:12px 14px;margin:10px 0
+}
+.red-flags .rf-title{color:var(--red);font-weight:700;font-size:13px;margin-bottom:8px}
+.red-flags li{font-size:13px;color:#fca5a5;list-style:none;margin:4px 0;padding-left:16px;position:relative}
+.red-flags li::before{content:'🚩';position:absolute;left:0;font-size:11px}
+
+/* 绿旗 */
+.green-flags{
+  background:var(--green-bg);
+  border:1px solid var(--green-border);
+  border-left:3px solid var(--green);
+  border-radius:6px;padding:12px 14px;margin:10px 0
+}
+.green-flags .gf-title{color:var(--green);font-weight:700;font-size:13px;margin-bottom:8px}
+.green-flags li{font-size:13px;color:#86efac;list-style:none;margin:4px 0;padding-left:16px;position:relative}
+.green-flags li::before{content:'✅';position:absolute;left:0;font-size:11px}
+
+/* 四层过滤器 */
+.filter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+@media(max-width:600px){.filter-grid{grid-template-columns:repeat(2,1fr)}}
+.filter-box{
+  background:var(--bg3);border-radius:6px;padding:8px;text-align:center;
+  font-size:11px;border-top:3px solid
+}
+.filter-box .f-title{font-weight:700;margin-bottom:4px}
+.filter-box .f-val{font-size:16px}
+.fb-green{border-color:var(--green)}
+.fb-yellow{border-color:var(--yellow)}
+.fb-red{border-color:var(--red)}
+
+/* 终极审判 */
+.verdict-block{
+  border-radius:10px;padding:16px 20px;margin:16px 0;
+  display:flex;align-items:flex-start;gap:14px
+}
+.verdict-block .v-icon{font-size:28px;flex-shrink:0}
+.verdict-block .v-text strong{font-size:15px}
+.verdict-block .v-text p{font-size:13px;margin-top:6px;line-height:1.6}
+.vb-green{background:rgba(34,197,94,.08);border:1px solid var(--green-border)}
+.vb-yellow{background:rgba(245,158,11,.08);border:1px solid var(--yellow-border)}
+.vb-red{background:rgba(239,68,68,.08);border:1px solid var(--red-border)}
+.vb-black{background:rgba(107,114,128,.08);border:1px solid var(--black-border)}
+
+/* "原报告问题" */
+.original-issue{
+  background:rgba(99,102,241,.06);
+  border:1px solid rgba(99,102,241,.2);
+  border-left:3px solid var(--accent);
+  border-radius:6px;padding:12px 14px;margin:10px 0
+}
+.original-issue .oi-title{color:#a78bfa;font-weight:700;font-size:12px;margin-bottom:6px;text-transform:uppercase}
+.original-issue p{font-size:13px;color:#c4b5fd}
+
+/* 对比表 */
+.compare-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+.compare-table th{background:var(--bg3);padding:8px 10px;text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase}
+.compare-table td{padding:8px 10px;border-bottom:1px solid var(--border)}
+.compare-table tr:hover td{background:rgba(255,255,255,.02)}
+
+/* 总结排名表 */
+.ranking-table{width:100%;border-collapse:collapse;font-size:14px}
+.ranking-table th{background:var(--bg3);padding:10px 12px;text-align:center;color:var(--muted);font-size:11px;text-transform:uppercase;border-bottom:2px solid var(--border)}
+.ranking-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:center}
+.ranking-table td:first-child{text-align:left;font-weight:600}
+.ranking-table tr:hover td{background:rgba(255,255,255,.02)}
+.rank-badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.rb-s{background:rgba(34,197,94,.2);color:var(--green);border:1px solid var(--green)}
+.rb-a{background:rgba(99,102,241,.2);color:#a78bfa;border:1px solid #6366f1}
+.rb-b{background:rgba(245,158,11,.2);color:var(--yellow);border:1px solid var(--yellow)}
+.rb-c{background:rgba(239,68,68,.2);color:var(--red);border:1px solid var(--red)}
+.rb-d{background:rgba(107,114,128,.2);color:#9ca3af;border:1px solid var(--black)}
+
+/* 挂篮按钮 */
+#home-fab{
+  position:fixed;bottom:28px;right:24px;z-index:9999;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;text-decoration:none;
+  box-shadow:0 4px 20px rgba(99,102,241,.5);
+  transition:transform .2s,box-shadow .2s
+}
+#home-fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(99,102,241,.7)}
+
+/* 折叠展开 */
+.toggle-icon{transition:transform .3s;font-size:12px;color:var(--muted)}
+.toggle-icon.open{transform:rotate(180deg)}
+</style>
+</head>
+<body>
+
+<!-- 顶部横幅 -->
+<div class="hero">
+  <h1>⚖️ 个股深度重审报告</h1>
+  <p>v3.0 大师框架批判性评估 · 巴菲特 · 芒格 · 林奇 · 段永平 · 2025年4月</p>
+  <div class="hero-tags">
+    <span class="hero-tag">🔍 10只个股全覆盖</span>
+    <span class="hero-tag">⚔️ 强制批判性分析</span>
+    <span class="hero-tag">🚩 原报告问题揭示</span>
+    <span class="hero-tag">⚫🔴🟡🟢 四级重新评级</span>
+  </div>
+</div>
+
+<!-- 摘要栏 -->
+<div class="summary-bar">
+  <div class="summary-item"><div class="num num-green">3</div><div class="lbl">🟢 推荐买入</div></div>
+  <div class="summary-item"><div class="num num-yellow">4</div><div class="lbl">🟡 观望等待</div></div>
+  <div class="summary-item"><div class="num num-red">2</div><div class="lbl">🔴 明确回避</div></div>
+  <div class="summary-item"><div class="num num-black">1</div><div class="lbl">⚫ 强烈警告</div></div>
+  <div class="summary-item"><div class="num" style="color:#a78bfa">10</div><div class="lbl">个股总数</div></div>
+  <div class="summary-item"><div class="num" style="color:#f472b6">7</div><div class="lbl">发现新问题</div></div>
+</div>
+
+<div class="container">
+
+<!-- 总体警告 -->
+<div class="warn-banner">
+  <div class="icon">⚠️</div>
+  <div>
+    <strong>原报告存在"说好话偏差"警示</strong>
+    <p style="font-size:13px;margin-top:4px;color:#fca5a5">
+      经v3.0框架重审，原报告普遍存在以下问题：①对所有标的均给出"积极买入"建议，无一例外；②风险章节篇幅显著少于机会章节；③对歌尔股份、顺络电子等代工/低利润率标的，原报告未能严格应用"商业模式第一层过滤"；④药明康德的BIOSECURE风险已构成⚫级别，但原报告给出"谨慎买入"，明显过于乐观。以下逐一重审。
+    </p>
+  </div>
+</div>
+
+<!-- 总排名表 -->
+<div class="section-header">
+  <div class="section-num">★</div>
+  <h2>v3.0 重审综合排名总表</h2>
+</div>
+
+<table class="ranking-table">
+  <thead>
+    <tr>
+      <th style="text-align:left">标的</th>
+      <th>原评级</th>
+      <th>v3.0新评级</th>
+      <th>变化</th>
+      <th>核心变化原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>格力电器 000651</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-s">🟢 推荐买入</span></td>
+      <td>⬆️ 升级</td>
+      <td>ROE 25%+护城河真实+估值极度低估，满足大师框架三层</td>
+    </tr>
+    <tr>
+      <td>招商银行 600036</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-s">🟢 推荐买入</span></td>
+      <td>➡️ 维持</td>
+      <td>护城河最深、ROE最稳、估值合理，零售银行护城河罕见</td>
+    </tr>
+    <tr>
+      <td>中国海油 600938</td>
+      <td><span class="rank-badge rb-a">S级</span></td>
+      <td><span class="rank-badge rb-s">🟢 推荐买入</span></td>
+      <td>➡️ 维持</td>
+      <td>全球最低桶油成本是真实护城河，高股息有保障，但须接受油价周期</td>
+    </tr>
+    <tr>
+      <td>中国神华 601088</td>
+      <td><span class="rank-badge rb-a">S级</span></td>
+      <td><span class="rank-badge rb-b">🟡 观望等待</span></td>
+      <td>⬇️ 降级</td>
+      <td>强周期行业原则上需回避；商业模式优秀但煤价下行压力真实，需等更低价</td>
+    </tr>
+    <tr>
+      <td>中国平安 601318</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-b">🟡 观望等待</span></td>
+      <td>⬇️ 降级</td>
+      <td>利差损是结构性问题非短期波动；商业模式复杂度高；需进一步等待NIM改善证据</td>
+    </tr>
+    <tr>
+      <td>中国移动 600941</td>
+      <td><span class="rank-badge rb-a">16/21</span></td>
+      <td><span class="rank-badge rb-b">🟡 观望等待</span></td>
+      <td>⬇️ 降级</td>
+      <td>净利润已连续下滑；AI算力转化不确定；5%股息防守但无成长驱动</td>
+    </tr>
+    <tr>
+      <td>顺丰控股 002352</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-b">🟡 观望等待</span></td>
+      <td>⬇️ 降级</td>
+      <td>行业护城河真实但净利率3.59%触顶风险；18×PE尚非便宜；等更好价格</td>
+    </tr>
+    <tr>
+      <td>顺络电子 002138</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-c">🔴 明确回避</span></td>
+      <td>⬇️ 大幅降级</td>
+      <td>PE 28×对低ROE(16%)标的过贵；代工天花板；AI景气依赖度高；PEG>1</td>
+    </tr>
+    <tr>
+      <td>歌尔股份 002241</td>
+      <td><span class="rank-badge rb-a">A级</span></td>
+      <td><span class="rank-badge rb-c">🔴 明确回避</span></td>
+      <td>⬇️ 大幅降级</td>
+      <td>ROIC仅5.84%低于资金成本；净利率2.6%代工天花板；Meta集中度风险；段永平第一层即不通过</td>
+    </tr>
+    <tr>
+      <td>药明康德 603259</td>
+      <td><span class="rank-badge rb-a">A级谨慎</span></td>
+      <td><span class="rank-badge rb-d">⚫ 强烈警告</span></td>
+      <td>⬇️ 大幅降级</td>
+      <td>BIOSECURE法案是存亡威胁而非普通风险；62%收入来自美国；不可知风险不可下注</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ===== 个股详细重审 ===== -->
+
+<div class="section-header">
+  <div class="section-num">1</div>
+  <h2>格力电器（000651）— 重审结论：🟢 推荐买入</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">格力电器</span>
+      <span class="stock-code">000651 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-green">🟢 推荐买入</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body open">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--green)">6.5×</div><div class="key">PE (历史0%分位)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">25%</div><div class="key">ROE (超高)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">6.4%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">0.30</div><div class="key">PE/ROE比值</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">37元</div><div class="key">当前价格</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">50-75元</div><div class="key">目标价(3年)</div></div>
+    </div>
+
+    <div class="filter-grid">
+      <div class="filter-box fb-green"><div class="f-title">商业模式</div><div class="f-val">✅</div><div>空调品牌+专利，差异化清晰</div></div>
+      <div class="filter-box fb-green"><div class="f-title">护城河</div><div class="f-val">✅</div><div>专利壁垒15000+，难以复制</div></div>
+      <div class="filter-box fb-yellow"><div class="f-title">管理层</div><div class="f-val">⚠️</div><div>董明珠接班未明确，轻微隐忧</div></div>
+      <div class="filter-box fb-green"><div class="f-title">估值</div><div class="f-val">✅</div><div>PE/ROE=0.30，历史极低</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">核心优势（v3.0验证通过）</div>
+          <ul>
+            <li>ROE连续5年>20%，资本回报极强</li>
+            <li>PE/ROE=0.30，格雷厄姆安全边际充足</li>
+            <li>2025Q1净利润+26.3%，基本面拐点确认</li>
+            <li>6.4%股息率=高股息兜底，持有成本极低</li>
+            <li>15000+专利+核心零部件自制≥90%，护城河真实</li>
+            <li>5年累计分红1720亿，对股东极为友善</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">必须正视的风险（原报告轻描淡写）</div>
+          <ul>
+            <li>营收连续两年下滑(-7.3%)，需求端真实疲软</li>
+            <li>渠道改革代价巨大，短期影响仍在消化</li>
+            <li>多元化（智能家居、工业）十年无突破，成本消耗陷阱</li>
+            <li>董明珠单人依赖风险，接班人问题无解</li>
+            <li>美的多元化竞争优势已拉开差距</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告"说了太多好话"——v3.0纠正</div>
+      <p>原报告七大信号打出19/21分（极高），语气过于乐观。纠正：格力的多元化失败是<strong>结构性问题</strong>，非短期波动，"多元化占比提升"是原报告的美化表达。实际上格力在新能源汽车、半导体、手机三个方向均折戟沉沙，资本大量消耗。这与段永平"专注本业"原则相悖，应该更重地标注此风险。</p>
+    </div>
+
+    <div class="verdict-block vb-green">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：推荐买入（有条件）</strong>
+        <p>格力在PE/ROE层面是市场上罕见的"好公司+便宜价格"组合，通过四层过滤器三层。<strong>真正的硬伤只有一个：多元化方向迷失。</strong>但这个问题已被6.5×PE的价格充分折价。适合有耐心（3年以上）、对管理层有信任的投资者。建议仓位上限15%，并在董明珠公开接班安排后可增仓。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 招商银行 -->
+<div class="section-header">
+  <div class="section-num">2</div>
+  <h2>招商银行（600036）— 重审结论：🟢 推荐买入</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">招商银行</span>
+      <span class="stock-code">600036 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-green">🟢 推荐买入</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body open">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--green)">6.6×</div><div class="key">PE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">0.91×</div><div class="key">PB</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">13.44%</div><div class="key">ROE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">5.1%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">0.94%</div><div class="key">不良率(低)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">1.87%</div><div class="key">NIM(企稳)</div></div>
+    </div>
+
+    <div class="filter-grid">
+      <div class="filter-box fb-green"><div class="f-title">商业模式</div><div class="f-val">✅</div><div>零售银行+财富管理，轻资本</div></div>
+      <div class="filter-box fb-green"><div class="f-title">护城河</div><div class="f-val">✅</div><div>2亿客户+15万亿AUM黏性极高</div></div>
+      <div class="filter-box fb-green"><div class="f-title">管理层</div><div class="f-val">✅</div><div>战略稳定，文化驱动优于同业</div></div>
+      <div class="filter-box fb-green"><div class="f-title">估值</div><div class="f-val">✅</div><div>PB<1，历史10%分位低估</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">真正稀缺的优势</div>
+          <ul>
+            <li>零售银行模式：客户粘性极高，转换成本真实存在</li>
+            <li>财富管理收入占比持续提升，ROE可持续性强</li>
+            <li>不良率0.94%全行业最低，资产质量远超同业</li>
+            <li>NIM 2025Q1企稳（+3bp），拐点出现</li>
+            <li>PB<1×，净资产都没买到，安全边际充足</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">被原报告低估的风险</div>
+          <ul>
+            <li>ROE从20%→13.44%，下行趋势已持续3年，非短期</li>
+            <li>房地产敞口仍有隐忧，对公不良仍有尾巴</li>
+            <li>信用卡不良上升已是趋势，零售端压力加大</li>
+            <li>无风险利率持续下行，NIM长期中枢可能更低</li>
+            <li>贸易摩擦冲击出口企业，波及对公信贷质量</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告问题：对银行ROE下行趋势认识不足</div>
+      <p>原报告说NIM已见底，但从13.44%的ROE来看，招行的盈利能力相比5年前（ROE~20%）已实质性下降。这不是短期波动，而是利率市场化+LPR多次降息造成的<strong>结构性均值回归</strong>。原报告在"拐点已现"上过于乐观，应更保守地表述为"尚未确认的潜在拐点"。</p>
+    </div>
+
+    <div class="verdict-block vb-green">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：推荐买入（核心重仓候选）</strong>
+        <p>招商银行是A股银行板块中唯一通过v3.0四层过滤器全部四层的标的。<strong>零售银行护城河在中国银行业中是真正稀缺资产，芒格也说过银行中最好的是消费者金融。</strong> PB<1是历史罕见机会，但ROE下行是真实代价，需接受低于历史水平的回报。目标价48-55元（3年），配置上限20%。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 中国海油 -->
+<div class="section-header">
+  <div class="section-num">3</div>
+  <h2>中国海油（600938）— 重审结论：🟢 推荐买入（接受周期）</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">中国海油</span>
+      <span class="stock-code">600938 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-green">🟢 推荐买入</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--green)">14×</div><div class="key">PE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">19.4%</div><div class="key">ROE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">32.7%</div><div class="key">净利率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">4.2%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">28$/桶</div><div class="key">桶油成本</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">23.4%</div><div class="key">资产负债率</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">真实护城河——不是吹出来的</div>
+          <ul>
+            <li>28$/桶桶油成本=全球最低，大萧条都能盈利</li>
+            <li>净利率32.7%在制造/能源领域极为罕见</li>
+            <li>ROE 19.4%体现资产回报效率极高</li>
+            <li>净现金1554亿+资负率23.4%，财务堡垒</li>
+            <li>国家战略资产属性，政策风险反而是保护</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">原报告未充分揭示的弱点</div>
+          <ul>
+            <li>强周期行业：油价60$以下，盈利大幅压缩</li>
+            <li>盈利质量高度依赖全球油价，非自主可控</li>
+            <li>能源转型大背景下，长期增长天花板明确</li>
+            <li>中美贸易战升级可能影响上游融资渠道</li>
+            <li>新项目开发成本不断攀升，桶油成本护城河是否可持续？</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告核心问题：段永平明确回避强周期行业，原报告绕过了这一准则</div>
+      <p>段永平投资哲学"不为清单"明确：强周期行业（能源/化工/矿业）因利润不可预测应回避。原报告通过"桶油成本护城河"逻辑绕过了这一准则。<strong>v3.0修正：</strong>中国海油的桶油成本护城河确实真实且持久，但投资者必须清醒接受"油价下到60$以下，即便护城河也保不住当期利润"。这是主动接受周期风险的投资，不是防御性投资，仓位应控制在10%以内。</p>
+    </div>
+
+    <div class="verdict-block vb-green">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：推荐买入（接受周期，仓位≤10%）</strong>
+        <p>中国海油的护城河是周期股中最真实的，28$/桶成本领先竞争对手30%+。但必须以"接受周期"的心态持有，而非当成防御性配置。<strong>买入前需自问：如果油价跌到60$/桶且持续2年，你能否心平气和持有？</strong>能则买，不能则不买。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 中国神华 -->
+<div class="section-header">
+  <div class="section-num">4</div>
+  <h2>中国神华（601088）— 重审结论：🟡 观望等待</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">中国神华</span>
+      <span class="stock-code">601088 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-yellow">🟡 观望等待</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">14×</div><div class="key">PE（非低估）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">2.3×</div><div class="key">PB（偏贵）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">16.5%</div><div class="key">ROE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">5.4%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">-1.7%</div><div class="key">净利润增速</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">~41元</div><div class="key">当前价</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">一体化护城河的真实价值</div>
+          <ul>
+            <li>煤矿→铁路→港口→电厂全链条垄断，复制成本数千亿</li>
+            <li>5.4%股息率提供防守底线</li>
+            <li>ROE 16.5%在强周期中属于优质</li>
+            <li>净现金状态，无财务风险</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">被严重低估的结构性风险</div>
+          <ul>
+            <li>强周期行业：煤价从高点已下跌30%+，仍在下行</li>
+            <li>能源转型：碳中和目标下，煤炭是10年衰退赛道</li>
+            <li>PB 2.3×对周期股而言估值不便宜，非低点买入</li>
+            <li>净利润同比-1.7%，衰退周期已经开始</li>
+            <li>进口煤冲击内生，价格中枢系统性下移</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告的根本性错误：给周期股用了价值股框架</div>
+      <p>原报告评分106/120（S级），几乎与中国海油并列最高。但<strong>这是把周期股当价值股评分的系统性错误。</strong>中国神华的一体化护城河确实让其成为同类中最好的周期股，但"最好的周期股"不等于值得以当前价格买入。煤炭是必然衰退的赛道，当前PB 2.3×并非便宜，应等煤价进一步下行带来更低估值（PB 1.5×以下）再介入。</p>
+    </div>
+
+    <div class="verdict-block vb-yellow">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：观望等待（等PB降至1.5×以下）</strong>
+        <p>神华是煤炭股最好选择，但不是现在最好的投资选择。<strong>段永平说：强周期不在清单里。</strong>即便你决定投资周期股，也需要在景气底部（PB<1.5×，PE<10×）才有足够安全边际。当前41元/PB 2.3×的神华，5.4%股息能保证你不亏大钱，但很难赚大钱。等待目标价：28-33元。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 中国平安 -->
+<div class="section-header">
+  <div class="section-num">5</div>
+  <h2>中国平安（601318）— 重审结论：🟡 观望等待</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">中国平安</span>
+      <span class="stock-code">601318 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-yellow">🟡 观望等待</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--green)">7.4×</div><div class="key">PE</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">0.69×</div><div class="key">PEV (低估)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">14%</div><div class="key">ROE (下行中)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">4.8%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">+29.3%</div><div class="key">NBV增速</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">利差损</div><div class="key">最大风险</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">真实亮点</div>
+          <ul>
+            <li>NBV+29.3%，新业务价值拐点已现</li>
+            <li>综合金融生态：跨产品协同是真实护城河</li>
+            <li>PEV 0.69×，低于内含价值有安全边际</li>
+            <li>综投收益率6.3%，5年最高</li>
+            <li>OPAT+13%增速健康</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">利差损：这是定时炸弹，不是短期波动</div>
+          <ul>
+            <li>负债端成本3.5%+已锁定，资产端收益率持续下行</li>
+            <li>利差损一旦爆发，将大幅侵蚀EV，PEV折价将消失</li>
+            <li>平安银行不良率2.08%，需要持续拨备消耗利润</li>
+            <li>商业模式复杂：保险+银行+资管+医疗，难以在2分钟内解释清楚（林奇两分钟测试不过）</li>
+            <li>历史上的"综合金融协同"概念，在下行利率环境下验证困难</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告高分(98/120)的根本问题：林奇"两分钟测试"没有认真执行</div>
+      <p>原报告给平安98/120的高分，接近于中国海油/神华。但林奇的选股标准之一是："我能在两分钟内向13岁的孩子解释清楚这家公司如何赚钱吗？"——中国平安显然不能。<strong>保险+银行+资管+科技+医疗+养老</strong>的复合商业模式，意味着你不得不同时分析六个行业，这种复杂度本身就是风险因子，被原报告忽视。</p>
+    </div>
+
+    <div class="verdict-block vb-yellow">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：观望等待（监控利差损动向，等PEV<0.55×）</strong>
+        <p>平安不是坏公司，但现在不是最佳买入时机。<strong>核心等待事件：①无风险利率触底并企稳的信号；②利差损风险被充分计提体现在EV中；③平安银行不良明确见顶。</strong>出现上述信号前，在PEV 0.55×以下介入是合理的，当前0.69×略贵。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 中国移动 -->
+<div class="section-header">
+  <div class="section-num">6</div>
+  <h2>中国移动（600941）— 重审结论：🟡 观望等待</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">中国移动</span>
+      <span class="stock-code">600941 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-yellow">🟡 观望等待</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">14.7×</div><div class="key">PE（合理非低估）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">13%</div><div class="key">ROE（一般）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">5.06%</div><div class="key">股息率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">-0.9%</div><div class="key">净利润增速</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">16/21</div><div class="key">七大信号</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">算力</div><div class="key">增长引擎(待验证)</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">防御优势</div>
+          <ul>
+            <li>5.06%股息率提供底线保护</li>
+            <li>10亿用户+基础设施垄断，护城河极宽</li>
+            <li>1000亿回购计划彰显管理层信心</li>
+            <li>算力/智算业务高速增长(+279%)</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">成长故事尚未兑现</div>
+          <ul>
+            <li>净利润5年来首次下滑(-0.9%)，且2026Q1继续-4.2%</li>
+            <li>算力业务占比20.2%，利润贡献远低于传统业务</li>
+            <li>ROE 13%，在垄断企业中属于偏低水平</li>
+            <li>话音业务ARPU持续承压，无反转迹象</li>
+            <li>PE 14.7×，对零增长乃至负增长企业并非便宜</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告的乐观偏差：把"算力潜力"当成已实现的价值</div>
+      <p>原报告将算力业务+279%增速作为重要加分项，给出16/21分。但<strong>算力占总收入比例仅20.2%，且算力业务的净利润率远低于传统运营业务</strong>——这意味着算力增速再快，对整体利润的拉动是有限且滞后的。原报告在"AI转型突破口"上着墨过多，而对"净利润当前仍在下行"的事实着墨不够。</p>
+    </div>
+
+    <div class="verdict-block vb-yellow">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：观望等待（5%股息托底，但非主动加仓时机）</strong>
+        <p>中国移动是优质防御股，不是进攻型成长股。如果你把它当成5%股息的"债券替代品"，是合理的配置。但如果期待它在算力转型上带来超额回报，当前14.7×PE下的预期过于激进。<strong>等待净利润增速重回正值（≥+3%）再积极配置；当前持有者无需卖出，新资金可等待更好时机。</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 顺丰控股 -->
+<div class="section-header">
+  <div class="section-num">7</div>
+  <h2>顺丰控股（002352）— 重审结论：🟡 观望等待</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">顺丰控股</span>
+      <span class="stock-code">002352 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-yellow">🟡 观望等待</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">18×</div><div class="key">PE（合理区间）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">8.06%</div><div class="key">ROIC（偏低）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">3.59%</div><div class="key">净利率（天花板）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">223亿</div><div class="key">FCF (+70%)</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">+23.5%</div><div class="key">净利润增速</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">37元</div><div class="key">当前价</div></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">真实差异化竞争优势</div>
+          <ul>
+            <li>自营航空机队：时效件单票18元=行业均值2.25倍</li>
+            <li>鄂州花湖机场：货运枢纽，独一无二基础设施</li>
+            <li>FCF +70%创历史新高，盈利质量大幅提升</li>
+            <li>嘉里物流：国际化布局已打通</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">物流行业天花板——原报告轻描淡写</div>
+          <ul>
+            <li>净利率3.59%是行业天花板，很难显著突破</li>
+            <li>ROIC仅8.06%，接近资金成本，资本回报率平庸</li>
+            <li>18×PE对净利率3.59%的公司，成长溢价要求较高</li>
+            <li>京东物流/极兔持续侵蚀高端市场边界</li>
+            <li>国际业务整合嘉里耗资巨大，协同效应验证中</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告给出"强烈买入"评级，v3.0降级理由</div>
+      <p>顺丰是好公司，但18×PE+3.59%净利率的组合，意味着你用价值股的价格买了一只成长股。<strong>芒格说：平庸行业中最好的公司，也只是平庸的投资。</strong>物流行业的净利率天花板是真实的——亚马逊物流、联邦快递全球净利率也仅在5-8%。顺丰已是天花板级别，但这个天花板本身并不高。<strong>合理入场价格：28-33元（PE≤14×）。当前37元/18×PE的溢价需要持续高增长验证。</strong></p>
+    </div>
+
+    <div class="verdict-block vb-yellow">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：观望等待（等PE降至14×以下再买）</strong>
+        <p>顺丰是高质量物流标的，护城河是真实的，FCF创新高是真实的。但当前18×PE是否合理，取决于国际业务能否将净利率从3.59%提升至5%+——这个假设尚未验证。<strong>建议等待至PE降至13-15×区间（约28-33元），届时进入的安全边际才充足。</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 顺络电子 -->
+<div class="section-header">
+  <div class="section-num">8</div>
+  <h2>顺络电子（002138）— 重审结论：🔴 明确回避</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">顺络电子</span>
+      <span class="stock-code">002138 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-red">🔴 明确回避</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--red)">28×</div><div class="key">PE（贵）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">16%</div><div class="key">ROE（一般）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">1.18</div><div class="key">PEG（>1偏贵）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">36.6%</div><div class="key">毛利率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">2.1%</div><div class="key">股息率（极低）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">代工</div><div class="key">商业模式属性</div></div>
+    </div>
+
+    <div class="red-flags">
+      <div class="rf-title">v3.0四层过滤器逐层审判</div>
+      <ul>
+        <li><strong>第一层商业模式</strong>：电感元器件代工，客户转换成本低，差异化有限。全球市占率7%不代表护城河，只代表规模。❌</li>
+        <li><strong>第二层护城河</strong>：860项专利在元器件行业是正常水平，日本TDK/村田同样有大量专利且技术更深。护城河3-5年，芒格标准不够格。⚠️</li>
+        <li><strong>第三层管理层</strong>：无明显问题。✅</li>
+        <li><strong>第四层估值</strong>：PE 28×对ROE 16%的制造业公司，明显高估。安全边际为负。❌</li>
+        <li><strong>FCF收益率</strong>：约3.6%，低于无风险利率+4%的要求。❌</li>
+      </ul>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告给出99/120（A级），v3.0的批判：AI景气泡沫溢价被错误计入护城河</div>
+      <p>原报告的高分来自于"AI服务器需求爆发→电感需求猛增→顺络受益"的逻辑链。这个逻辑本身没错，但<strong>这是景气度驱动，不是护城河驱动。</strong>当AI服务器景气退潮时（历史上每一次科技周期都会有景气退潮），顺络的"护城河"会被证明是幻象。28×PE对一个没有真正差异化护城河的代工企业是不合理的溢价。<strong>合理PE应在15-18×区间，对应价格19-23元，当前35.5元需要下跌40%+才合理。</strong></p>
+    </div>
+
+    <div class="verdict-block vb-red">
+      <div class="v-icon">🔴</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：明确回避（估值过高，护城河不足）</strong>
+        <p>顺络是一家好的代工企业，但28×PE+ROE 16%+PEG 1.18的组合，没有安全边际。<strong>如果AI服务器景气度回落，这家公司将面临双重杀：业绩下滑+估值收缩，可能跌幅超50%。</strong>段永平不会买这样的标的：代工模式、高度依赖客户、景气驱动。如果你已持有，需认真考虑是否有更好的资产配置选项。等待价格：合理买点20-22元。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 歌尔股份 -->
+<div class="section-header">
+  <div class="section-num">9</div>
+  <h2>歌尔股份（002241）— 重审结论：🔴 明确回避</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">歌尔股份</span>
+      <span class="stock-code">002241 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-red">🔴 明确回避</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--red)">30×</div><div class="key">PE（过高）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">5.84%</div><div class="key">ROIC（低于资金成本）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">2.6%</div><div class="key">净利率（代工天花板）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">11.1%</div><div class="key">毛利率（极低）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">Meta集中</div><div class="key">客户单一风险</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">贸易战</div><div class="key">最大外部风险</div></div>
+    </div>
+
+    <div class="red-flags">
+      <div class="rf-title">商业模式第一层即不通过——段永平视角</div>
+      <ul>
+        <li><strong>代工/OEM模式</strong>：段永平第一条不为清单：代工模式没有定价权，护城河随时可被替代</li>
+        <li><strong>ROIC仅5.84%</strong>：低于A股加权平均资金成本（约8-10%），即长期在<strong>毁灭价值</strong></li>
+        <li><strong>净利率2.6%</strong>：意味着任何原材料涨价/汇率波动/客户提价要求都会大幅侵蚀利润</li>
+        <li><strong>Meta单一客户占比过高</strong>：VR代工70%市场份额听起来很好，但这意味着Meta一砍单就重创</li>
+        <li><strong>中美贸易战</strong>：供应链在中国，大客户在美国，地缘政治是存亡风险</li>
+        <li><strong>PE 30×</strong>：给一个净利率2.6%、ROIC 5.84%的代工企业30倍PE，是AI眼镜概念泡沫</li>
+      </ul>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告97/120=A级，这是v3.0框架能揭示的最典型错误之一</div>
+      <p>原报告用"净利润+144.9%"来证明歌尔股份价值，但这是从2022年大规模计提资产损失的超低基数反弹的，并非真实的业务高速增长。<strong>更关键的是：ROIC 5.84%的公司长期无法创造股东价值，无论PE多低都是价值陷阱。</strong>芒格说：宁愿以合理价格买优秀企业，也不愿以便宜价格买糟糕企业。歌尔的净利率2.6%就是糟糕企业的信号，30×PE更是毫无安全边际。</p>
+    </div>
+
+    <div class="verdict-block vb-red">
+      <div class="v-icon">🔴</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：明确回避（商业模式根本缺陷+估值泡沫）</strong>
+        <p>歌尔不过四层过滤器的第一层。<strong>代工模式+2.6%净利率+5.84% ROIC，这是一家在长期毁灭股东价值的企业，"AI眼镜概念"是短暂的景气泡沫，不是护城河。</strong>如果中美贸易战升级或Meta削减VR投资，歌尔股份可能面临50-70%的下跌。当前持有者应认真评估退出策略。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 药明康德 -->
+<div class="section-header">
+  <div class="section-num">10</div>
+  <h2>药明康德（603259）— 重审结论：⚫ 强烈警告</h2>
+</div>
+
+<div class="stock-card">
+  <div class="stock-card-header" onclick="toggleCard(this)">
+    <div class="stock-title">
+      <span class="stock-name">药明康德</span>
+      <span class="stock-code">603259 · A股</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="verdict-badge verdict-black">⚫ 强烈警告</span>
+      <span class="toggle-icon">▼</span>
+    </div>
+  </div>
+  <div class="stock-card-body">
+    <div class="metrics-grid">
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">15.5×</div><div class="key">PE（含不确定性）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--yellow)">17%</div><div class="key">ROE（下行中）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">24.1%</div><div class="key">净利率</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--green)">79.8亿</div><div class="key">FCF（历史新高）</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">62%</div><div class="key">美国收入占比</div></div>
+      <div class="metric-box"><div class="val" style="color:var(--red)">⚫</div><div class="key">BIOSECURE威胁</div></div>
+    </div>
+
+    <div style="background:rgba(107,114,128,.08);border:1px solid rgba(107,114,128,.3);border-left:4px solid #6b7280;border-radius:8px;padding:16px;margin:12px 0">
+      <div style="color:#9ca3af;font-weight:700;font-size:14px;margin-bottom:10px">⚫ 强烈警告级别触发条件：不可知风险+存亡威胁</div>
+      <p style="font-size:13px;color:#d1d5db;line-height:1.7">
+        BIOSECURE法案是一个<strong>二元事件</strong>（0或1），不是概率分布上可以定价的风险。如果被列入1260H名单，美国客户（62%收入来源）将在过渡期后全部流失，公司将直接失去超过一半的收入。这不是"业绩压力"，而是<strong>商业模式存亡威胁</strong>。芒格说：永远不要将自己置于被对手一击致命的位置。药明康德当前就在这个位置。
+      </p>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div class="green-flags">
+          <div class="gf-title">公司质量确实优秀（但无法对冲政治风险）</div>
+          <ul>
+            <li>全球CDMO市占率14.3%第一，技术真实</li>
+            <li>2025Q1净利润+82.5%，经营层面强劲</li>
+            <li>FCF 79.8亿超净利润，现金创造力强</li>
+            <li>523亿在手订单，短期收入有保障</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="red-flags">
+          <div class="rf-title">为什么原报告"谨慎买入"是错误的</div>
+          <ul>
+            <li>62%收入来自美国，这是致命集中度</li>
+            <li>BIOSECURE是政治决策，无法用DCF定价</li>
+            <li>从160元→100元(-40%)已经是恐慌，但若被列名还会再跌50%+</li>
+            <li>中国客户-3.5%，两端同时承压</li>
+            <li>管理层无法控制最大变量（美国国会投票）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="original-issue">
+      <div class="oi-title">⚡ 原报告最大的分析错误：把政治风险当成可管理的经营风险</div>
+      <p>原报告在风险章节提到了BIOSECURE，但仍给出"谨慎买入"建议，理由是"5年过渡期"和"Q1仍在增长"。这是根本性的认知错误：<strong>BIOSECURE法案不是经营风险，而是政治风险。政治风险的特征是：无法用财务模型对冲，无法通过分散化消除，是否实现完全取决于政治逻辑而非商业逻辑。</strong>巴菲特从不投资他无法预测的事情；段永平的"不为清单"第一条就是"不做超出自己能力圈的事"。判断BIOSECURE法案是否会列入药明，超出了任何投资者的能力圈。</p>
+    </div>
+
+    <div class="verdict-block vb-black">
+      <div class="v-icon">⚫</div>
+      <div class="v-text">
+        <strong>v3.0终极审判：强烈警告（持仓者认真考虑退出）</strong>
+        <p>药明康德是一家<strong>极其优秀的公司，但处于极其不确定的政治处境。</strong>v3.0对⚫级别的处理规则是：不生成买入策略，明确提示退出风险。<strong>已持仓者：应评估自己能否承受在被列名情况下的50%额外下跌。如果不能，应在当前价格逐步减仓。</strong>如果BIOSECURE确定性被排除（如法案落空或明确排除药明），该公司将重回🟢级别，这是可能的。但在此之前，不应以"价格合理"为由增持。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 最终对比总结 -->
+<div class="section-header">
+  <div class="section-num">★</div>
+  <h2>重审总结：原报告 vs v3.0 系统性差异</h2>
+</div>
+
+<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px">
+  <div class="sub-title">核心发现：原报告普遍存在的五大偏差</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+    <div style="background:var(--bg3);border-radius:8px;padding:14px">
+      <div style="color:var(--red);font-weight:700;font-size:13px;margin-bottom:8px">❌ 原报告偏差</div>
+      <ul style="list-style:none;font-size:13px">
+        <li style="margin:6px 0">1. 10只个股全部给出"买入"建议</li>
+        <li style="margin:6px 0">2. 代工/低利润率标的未过第一层过滤</li>
+        <li style="margin:6px 0">3. AI景气溢价被错误计入护城河</li>
+        <li style="margin:6px 0">4. BIOSECURE政治风险用经营框架分析</li>
+        <li style="margin:6px 0">5. 周期股用价值股框架评分</li>
+      </ul>
+    </div>
+    <div style="background:var(--bg3);border-radius:8px;padding:14px">
+      <div style="color:var(--green);font-weight:700;font-size:13px;margin-bottom:8px">✅ v3.0修正</div>
+      <ul style="list-style:none;font-size:13px">
+        <li style="margin:6px 0">1. 3绿4黄2红1黑，分层明确</li>
+        <li style="margin:6px 0">2. 代工模式第一层直接不通过</li>
+        <li style="margin:6px 0">3. 景气度≠护城河，区分清楚</li>
+        <li style="margin:6px 0">4. 政治风险=不可知风险=⚫级</li>
+        <li style="margin:6px 0">5. 周期股单独框架，看PB底部</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:20px">
+  <div class="sub-title">四大师视角总结</div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>大师</th>
+        <th>核心准则</th>
+        <th>本次重审主要应用</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>巴菲特</strong></td>
+        <td>护城河的持久性</td>
+        <td>顺络/歌尔护城河不持久，神华护城河真实但赛道衰退</td>
+      </tr>
+      <tr>
+        <td><strong>芒格</strong></td>
+        <td>宁要好公司合理价，避免平庸业务</td>
+        <td>歌尔2.6%净利率是平庸企业特征，不能因为便宜而投</td>
+      </tr>
+      <tr>
+        <td><strong>林奇</strong></td>
+        <td>两分钟测试（能说清才能投）</td>
+        <td>平安商业模式复杂未通过，顺络/歌尔的AI叙事太复杂</td>
+      </tr>
+      <tr>
+        <td><strong>段永平</strong></td>
+        <td>不为清单：代工/强周期/不确定性</td>
+        <td>歌尔(代工)❌，顺络(代工+景气依赖)❌，药明(政治不确定)⚫</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div style="background:linear-gradient(90deg,rgba(34,197,94,.05),rgba(245,158,11,.05));border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:40px">
+  <div style="font-weight:700;font-size:15px;margin-bottom:12px">📌 行动建议摘要</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px">
+    <div style="background:rgba(34,197,94,.08);border:1px solid var(--green-border);border-radius:8px;padding:12px">
+      <div style="color:var(--green);font-weight:700;font-size:12px;margin-bottom:6px">🟢 可积极配置</div>
+      <div style="font-size:13px">格力电器 · 招商银行 · 中国海油</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">均有真实护城河+低估值+安全边际</div>
+    </div>
+    <div style="background:rgba(245,158,11,.08);border:1px solid var(--yellow-border);border-radius:8px;padding:12px">
+      <div style="color:var(--yellow);font-weight:700;font-size:12px;margin-bottom:6px">🟡 等待更好价格</div>
+      <div style="font-size:13px">中国神华(<28元) · 中国平安(PEV<0.55×) · 中国移动(净利润转正) · 顺丰(<33元)</div>
+    </div>
+    <div style="background:rgba(239,68,68,.08);border:1px solid var(--red-border);border-radius:8px;padding:12px">
+      <div style="color:var(--red);font-weight:700;font-size:12px;margin-bottom:6px">🔴 回避/考虑减仓</div>
+      <div style="font-size:13px">顺络电子(估值泡沫) · 歌尔股份(代工陷阱)</div>
+    </div>
+    <div style="background:rgba(107,114,128,.08);border:1px solid var(--black-border);border-radius:8px;padding:12px">
+      <div style="color:#9ca3af;font-weight:700;font-size:12px;margin-bottom:6px">⚫ 强烈警告</div>
+      <div style="font-size:13px">药明康德(BIOSECURE=存亡风险)</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px">持仓者评估退出策略</div>
+    </div>
+  </div>
+</div>
+
+<p style="font-size:12px;color:var(--muted);text-align:center;padding:0 20px 20px">
+  本报告基于v3.0大师框架（巴菲特·芒格·林奇·段永平），所有评级为重新审视性分析，不构成投资建议。市场有风险，投资需谨慎。
+  数据截止：2025年4月。
+</p>
+
+</div><!-- /container -->
+
+<a href="index.html" id="home-fab" title="返回首页">🏠</a>
+
+<script>
+function toggleCard(header){
+  const body = header.nextElementSibling;
+  const icon = header.querySelector('.toggle-icon');
+  const open = body.classList.toggle('open');
+  icon.classList.toggle('open', open);
+}
+</script>
+</body>
+</html>
