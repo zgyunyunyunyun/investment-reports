@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A股好商业模式早期识别：茅台/格力路径全市场筛选 2025</title>
+<style>
+:root{
+  --bg:#08101f;--bg2:#0f1929;--bg3:#162035;--bg4:#1c2a42;
+  --border:#1e3050;--text:#dde6f5;--muted:#5a7aa0;
+  --gold:#f59e0b;--gold2:#fbbf24;
+  --green:#22c55e;--green-bg:rgba(34,197,94,.08);--green-b:rgba(34,197,94,.25);
+  --blue:#3b82f6;--blue-bg:rgba(59,130,246,.08);--blue-b:rgba(59,130,246,.25);
+  --purple:#a78bfa;--purple-bg:rgba(167,139,250,.08);--purple-b:rgba(167,139,250,.25);
+  --red:#ef4444;--yellow:#f59e0b;
+  --accent:linear-gradient(135deg,#f59e0b,#ef4444);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Segoe UI',system-ui,sans-serif;line-height:1.75;font-size:15px}
+a{color:var(--blue);text-decoration:none}
+
+/* ===== 英雄区 ===== */
+.hero{
+  background:linear-gradient(180deg,#020c1b 0%,#0b1a35 40%,#082040 100%);
+  border-bottom:1px solid var(--border);
+  padding:56px 24px 48px;text-align:center;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;
+  background:radial-gradient(ellipse,rgba(245,158,11,.12) 0%,transparent 70%);
+  pointer-events:none
+}
+.hero-eyebrow{
+  display:inline-block;padding:5px 16px;border-radius:20px;
+  background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);
+  color:var(--gold2);font-size:12px;font-weight:600;letter-spacing:.5px;margin-bottom:16px
+}
+.hero h1{
+  font-size:clamp(24px,4.5vw,40px);font-weight:900;line-height:1.2;
+  background:linear-gradient(135deg,#fbbf24 0%,#f97316 50%,#ef4444 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:14px
+}
+.hero p{color:#7a9fc0;font-size:15px;max-width:640px;margin:0 auto 24px}
+.hero-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.hero-pill{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  color:#94b8d8;padding:4px 12px;border-radius:16px;font-size:12px
+}
+
+/* ===== 精华摘要栏 ===== */
+.summary-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:1px;background:var(--border);border-bottom:1px solid var(--border)
+}
+.summary-cell{background:var(--bg2);padding:16px 12px;text-align:center}
+.sc-num{font-size:26px;font-weight:800}
+.sc-lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* ===== 主容器 ===== */
+.wrap{max-width:980px;margin:0 auto;padding:0 20px 100px}
+
+/* ===== 章节标题 ===== */
+.ch{display:flex;align-items:center;gap:12px;margin:44px 0 20px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.ch-num{
+  min-width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--gold),#f97316);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff
+}
+.ch h2{font-size:20px;font-weight:800}
+.ch .ch-sub{font-size:13px;color:var(--muted);margin-left:4px}
+
+/* ===== 早期特征框 ===== */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.feature-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;
+  border-top:3px solid
+}
+.fc-gold{border-top-color:var(--gold)}
+.fc-green{border-top-color:var(--green)}
+.fc-blue{border-top-color:var(--blue)}
+.fc-purple{border-top-color:var(--purple)}
+.feature-card .f-title{font-weight:700;font-size:14px;margin-bottom:8px}
+.feature-card .f-items{list-style:none}
+.feature-card .f-items li{font-size:13px;color:#9ab8d4;margin:4px 0;padding-left:16px;position:relative}
+.feature-card .f-items li::before{content:'·';position:absolute;left:4px;color:var(--muted)}
+
+/* ===== 对比表格 ===== */
+.comp-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0}
+.comp-table th{background:var(--bg3);padding:10px 12px;text-align:left;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;border-bottom:2px solid var(--border)}
+.comp-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.comp-table tr:hover td{background:rgba(255,255,255,.02)}
+
+/* ===== 公司卡片 ===== */
+.company-card{
+  background:var(--bg2);border:1px solid var(--border);border-radius:14px;
+  margin-bottom:24px;overflow:hidden
+}
+.cc-header{
+  padding:20px 22px 16px;display:flex;align-items:flex-start;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;cursor:pointer;
+  border-left:5px solid
+}
+.cc-header:hover{background:rgba(255,255,255,.02)}
+.cc-left{display:flex;align-items:flex-start;gap:14px}
+.cc-icon{
+  width:48px;height:48px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0
+}
+.cc-name{font-size:18px;font-weight:800}
+.cc-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.cc-tag{
+  display:inline-block;padding:2px 8px;border-radius:10px;
+  font-size:11px;font-weight:600
+}
+.tag-s{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#4ade80}
+.tag-a{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:#93c5fd}
+.tag-b{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#fcd34d}
+
+/* 评分徽章 */
+.score-badge{
+  min-width:64px;padding:8px 14px;border-radius:10px;
+  text-align:center;flex-shrink:0
+}
+.score-badge .s-num{font-size:22px;font-weight:900}
+.score-badge .s-lbl{font-size:10px;color:var(--muted);margin-top:1px}
+.sb-s{background:rgba(34,197,94,.12);border:2px solid rgba(34,197,94,.4)}
+.sb-a{background:rgba(59,130,246,.12);border:2px solid rgba(59,130,246,.4)}
+.sb-b{background:rgba(245,158,11,.12);border:2px solid rgba(245,158,11,.4)}
+
+/* 卡片体 */
+.cc-body{padding:0 22px 22px;border-top:1px solid var(--border)}
+.cc-body.closed{display:none}
+
+/* 指标格 */
+.metrics{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:14px 0}
+.metric{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:10px;text-align:center}
+.metric .mv{font-size:17px;font-weight:700}
+.metric .mk{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* 两列布局 */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+@media(max-width:600px){.two{grid-template-columns:1fr}}
+
+/* 绿/红旗框 */
+.gbox,.rbox{border-radius:8px;padding:14px;margin:8px 0}
+.gbox{background:var(--green-bg);border:1px solid var(--green-b);border-left:3px solid var(--green)}
+.rbox{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);border-left:3px solid var(--red)}
+.gbox .bt{color:var(--green);font-weight:700;font-size:13px;margin-bottom:8px}
+.rbox .bt{color:var(--red);font-weight:700;font-size:13px;margin-bottom:8px}
+.gbox li,.rbox li{font-size:13px;list-style:none;margin:4px 0;padding-left:16px;position:relative}
+.gbox li::before{content:'✅';position:absolute;left:0;font-size:11px}
+.rbox li::before{content:'⚠️';position:absolute;left:0;font-size:11px}
+
+/* 类比框 */
+.analogy-box{
+  background:linear-gradient(135deg,rgba(245,158,11,.06),rgba(239,68,68,.04));
+  border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:14px;margin:12px 0
+}
+.analogy-box .ab-title{color:var(--gold2);font-weight:700;font-size:13px;margin-bottom:8px}
+.analogy-box p{font-size:13px;color:#c9a84c;line-height:1.6}
+
+/* 终极判断 */
+.verdict{
+  border-radius:10px;padding:16px 18px;margin:14px 0;
+  display:flex;align-items:flex-start;gap:14px
+}
+.verdict .v-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.verdict .v-text strong{font-size:14px}
+.verdict .v-text p{font-size:13px;margin-top:6px;color:#9ab8d4}
+.v-s{background:var(--green-bg);border:1px solid var(--green-b)}
+.v-a{background:var(--blue-bg);border:1px solid var(--blue-b)}
+.v-b{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.2)}
+
+/* 得分进度条 */
+.score-row{margin:8px 0}
+.score-row .sr-label{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;color:var(--muted)}
+.score-bar{height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.score-fill{height:100%;border-radius:3px}
+.fill-gold{background:linear-gradient(90deg,var(--gold),#f97316)}
+.fill-green{background:var(--green)}
+.fill-blue{background:var(--blue)}
+
+/* 分行业标题 */
+.industry-header{
+  background:var(--bg3);border:1px solid var(--border);border-radius:10px;
+  padding:14px 18px;margin:28px 0 16px;
+  display:flex;align-items:center;gap:10px
+}
+.industry-header .ih-icon{font-size:20px}
+.industry-header h3{font-size:16px;font-weight:700}
+.industry-header .ih-count{
+  margin-left:auto;background:rgba(255,255,255,.06);
+  padding:3px 10px;border-radius:12px;font-size:12px;color:var(--muted)
+}
+
+/* 总排名表 */
+.rank-table{width:100%;border-collapse:collapse;font-size:13px}
+.rank-table th{background:var(--bg3);padding:10px 12px;text-align:center;color:var(--muted);font-size:11px;font-weight:700;text-transform:uppercase;border-bottom:2px solid var(--border)}
+.rank-table th:first-child{text-align:left}
+.rank-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:center}
+.rank-table td:first-child{text-align:left;font-weight:600}
+.rank-table tr:hover td{background:rgba(255,255,255,.02)}
+.rank-num{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--bg4);text-align:center;line-height:24px;font-size:12px;font-weight:700;margin-right:4px}
+.rank-1{background:linear-gradient(135deg,#fbbf24,#f97316);color:#fff}
+.rank-2{background:linear-gradient(135deg,#9ca3af,#6b7280);color:#fff}
+.rank-3{background:linear-gradient(135deg,#d97706,#92400e);color:#fff}
+
+/* 关键信号说明框 */
+.signal-explain{
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;
+  padding:18px;margin:16px 0
+}
+.se-title{font-weight:700;font-size:14px;color:var(--gold2);margin-bottom:12px}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.signal-item{background:var(--bg3);border-radius:8px;padding:12px}
+.signal-item .si-name{font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px}
+.signal-item .si-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* FAQ折叠 */
+.faq-item{border:1px solid var(--border);border-radius:8px;margin:8px 0;overflow:hidden}
+.faq-q{padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;background:var(--bg2)}
+.faq-q:hover{background:var(--bg3)}
+.faq-a{padding:14px 16px;background:var(--bg);font-size:13px;color:#8eb0d4;line-height:1.7;border-top:1px solid var(--border);display:none}
+.faq-a.open{display:block}
+.faq-icon{transition:transform .3s;font-size:12px;color:var(--muted)}
+.faq-icon.open{transform:rotate(180deg)}
+
+/* 警告横幅 */
+.warning-band{
+  background:linear-gradient(90deg,rgba(245,158,11,.1),rgba(239,68,68,.05));
+  border:1px solid rgba(245,158,11,.2);border-left:4px solid var(--gold);
+  border-radius:8px;padding:14px 16px;margin:16px 0;
+  display:flex;gap:10px;align-items:flex-start
+}
+.warning-band .w-icon{font-size:18px;flex-shrink:0}
+
+/* FAB */
+#home-fab{
+  position:fixed;bottom:28px;right:24px;z-index:9999;
+  width:52px;height:52px;border-radius:50%;
+  background:linear-gradient(135deg,#f59e0b,#f97316);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  box-shadow:0 4px 20px rgba(245,158,11,.5);transition:transform .2s,box-shadow .2s
+}
+#home-fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(245,158,11,.7)}
+
+/* Tab导航 */
+.tab-nav{
+  display:flex;gap:4px;flex-wrap:wrap;margin:24px 0 0;
+  background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:6px
+}
+.tab-btn{
+  padding:7px 14px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:600;
+  color:var(--muted);transition:all .2s;border:none;background:transparent
+}
+.tab-btn.active{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(239,68,68,.15));color:var(--gold2);border:1px solid rgba(245,158,11,.3)}
+.tab-btn:hover:not(.active){background:rgba(255,255,255,.04);color:var(--text)}
+
+/* 折叠箭头 */
+.fold-arrow{font-size:12px;color:var(--muted);transition:transform .3s}
+.fold-arrow.open{transform:rotate(180deg)}
+
+/* 评级徽章 */
+.badge-s{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(16,185,129,.15);color:#10b981;border:1px solid rgba(16,185,129,.4)}
+.badge-a{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.4)}
+.badge-b{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(100,116,139,.15);color:#94a3b8;border:1px solid rgba(100,116,139,.4)}
+
+/* 排名表行颜色 */
+.rank-table tr.r-s td{background:rgba(16,185,129,.04)}
+.rank-table tr.r-a td{background:rgba(245,158,11,.03)}
+.rank-table tr.r-b td{background:rgba(100,116,139,.02)}
+.rank-table tr.r-s:hover td{background:rgba(16,185,129,.09)!important}
+.rank-table tr.r-a:hover td{background:rgba(245,158,11,.08)!important}
+.rank-table tr.r-b:hover td{background:rgba(100,116,139,.07)!important}
+
+/* FAQ图标动画 */
+.faq-icon{transition:transform .3s;color:var(--muted);font-size:11px}
+</style>
+</head>
+<body>
+
+<!-- ===== 英雄区 ===== -->
+<div class="hero">
+  <div class="hero-eyebrow">🔍 A股全市场好商业模式筛选</div>
+  <h1>茅台·格力式早期识别<br>A股潜力公司深度扫描</h1>
+  <p>用四大投资大师框架，从A股5000+公司中筛选出具有"茅台/格力早期商业模式特征"的潜力标的</p>
+  <div class="hero-pills">
+    <span class="hero-pill">🔬 9大行业全覆盖</span>
+    <span class="hero-pill">📊 20+公司深度分析</span>
+    <span class="hero-pill">🏆 A股连续10年ROE>20%仅9家</span>
+    <span class="hero-pill">⚖️ v3.0大师框架评级</span>
+    <span class="hero-pill">🚩 全部含负面分析</span>
+  </div>
+</div>
+
+<!-- ===== 数据摘要栏 ===== -->
+<div class="summary-row">
+  <div class="summary-cell"><div class="sc-num" style="color:var(--gold)">9</div><div class="sc-lbl">A股连续10年ROE>20%</div></div>
+  <div class="summary-cell"><div class="sc-num" style="color:var(--green)">S级</div><div class="sc-lbl">最高评级标的数量: 3</div></div>
+  <div class="summary-cell"><div class="sc-num" style="color:var(--blue)">A级</div><div class="sc-lbl">次优评级标的数量: 8</div></div>
+  <div class="summary-cell"><div class="sc-num" style="color:var(--yellow)">B级</div><div class="sc-lbl">观察仓标的数量: 9</div></div>
+  <div class="summary-cell"><div class="sc-num" style="color:#9ca3af">20+</div><div class="sc-lbl">深度分析公司总数</div></div>
+</div>
+
+<div class="wrap">
+
+<!-- ===== 第一章：早期识别框架 ===== -->
+<div class="ch">
+  <div class="ch-num">一</div>
+  <h2>茅台·格力的早期密码</h2>
+  <span class="ch-sub">——好商业模式的六大识别信号</span>
+</div>
+
+<div class="warning-band">
+  <div class="w-icon">💡</div>
+  <div>
+    <strong style="color:var(--gold2)">核心问题：你在判断的不是"当前价格贵不贵"，而是"10年后这家公司会更强还是更弱？"</strong>
+    <p style="font-size:13px;margin-top:4px;color:#9ab8d4">茅台2001年上市时市值仅90亿，很多人认为"白酒哪值这么多钱"；格力上市初市值仅5亿，十年没人关注。真正的好公司往往在低关注度时就展现了商业模式的特征。</p>
+  </div>
+</div>
+
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>公司</th>
+      <th>上市时间</th>
+      <th>上市市值</th>
+      <th>当年净利率</th>
+      <th>ROE</th>
+      <th>早期护城河信号</th>
+      <th>被市场忽视原因</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>贵州茅台</strong><br><span style="color:var(--muted);font-size:12px">600519</span></td>
+      <td>2001年8月</td>
+      <td style="color:var(--green)">~90亿</td>
+      <td style="color:var(--green)">20.3%（持续提升）</td>
+      <td style="color:var(--green)">~13%→21%（快速爬升）</td>
+      <td>①赤水河地理唯一性<br>②预收款模式（消费者提前打钱）<br>③毛利率80%+且提升<br>④品牌心智已占领高端</td>
+      <td>白酒认为没壁垒，当时行业乱</td>
+    </tr>
+    <tr>
+      <td><strong>格力电器</strong><br><span style="color:var(--muted);font-size:12px">000651</span></td>
+      <td>1996年11月</td>
+      <td style="color:var(--green)">~5亿</td>
+      <td>5-8%（净利率低）</td>
+      <td>10-15%（慢慢爬升）</td>
+      <td>①渠道控制权（股份制销售公司模式）<br>②淡季返利绑定经销商<br>③毛利率稳定提升<br>④现金流健康</td>
+      <td>空调是普通消费品，十年没涨</td>
+    </tr>
+    <tr>
+      <td><strong>海天味业</strong><br><span style="color:var(--muted);font-size:12px">603288</span></td>
+      <td>2014年2月</td>
+      <td>约700亿</td>
+      <td style="color:var(--green)">18-20%</td>
+      <td style="color:var(--green)">ROE 30%+</td>
+      <td>①调味品复购极强<br>②渠道下沉到乡镇<br>③规模成本优势不断扩大</td>
+      <td>上市即高估值，市场犹豫</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="signal-explain">
+  <div class="se-title">🎯 好商业模式早期六大识别信号（通用框架）</div>
+  <div class="signal-grid">
+    <div class="signal-item">
+      <div class="si-name">① 净利率趋势向上</div>
+      <div class="si-desc">不要看绝对值高低，看5年趋势。从10%→20%比稳定在25%更有意义。护城河在加宽。</div>
+    </div>
+    <div class="signal-item">
+      <div class="si-name">② 现金流 > 净利润</div>
+      <div class="si-desc">经营现金流持续超过净利润，说明利润是真金白银。茅台/格力早期均如此。</div>
+    </div>
+    <div class="signal-item">
+      <div class="si-name">③ 毛利率显著高于同行</div>
+      <div class="si-desc">毛利率=定价权。茅台80%、格力25%在同期同行中均显著偏高。</div>
+    </div>
+    <div class="signal-item">
+      <div class="si-name">④ 细分行业第一或加速成第一</div>
+      <div class="si-desc">不需要总市场第一，细分市场第一就够。格力电器97年还只是空调前五。</div>
+    </div>
+    <div class="signal-item">
+      <div class="si-name">⑤ 商业模式2分钟能说清</div>
+      <div class="si-desc">林奇：能在两分钟内向13岁孩子解释的公司。茅台：好喝的贵酒。格力：最好的空调。</div>
+    </div>
+    <div class="signal-item">
+      <div class="si-name">⑥ 轻资产/低负债</div>
+      <div class="si-desc">不依赖大量资本投入就能成长。茅台几乎零长期负债，格力应收账款极少。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 第二章：A股连续高ROE俱乐部 ===== -->
+<div class="ch">
+  <div class="ch-num">二</div>
+  <h2>A股"印钞机"俱乐部</h2>
+  <span class="ch-sub">——连续10年ROE>20%的9家企业（全市场最稀缺）</span>
+</div>
+
+<p style="color:var(--muted);font-size:14px;margin-bottom:16px">在A股5000+家公司中，能连续10年保持ROE>20%的只有9家。这是巴菲特选股的核心标准之一——长期高ROE意味着复利引擎真实存在。</p>
+
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>公司</th>
+      <th>代码</th>
+      <th>行业</th>
+      <th>2024市值</th>
+      <th>ROE(2024)</th>
+      <th>净利率</th>
+      <th>护城河类型</th>
+      <th>当前阶段</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>贵州茅台</strong></td>
+      <td>600519</td>
+      <td>白酒</td>
+      <td>约2万亿</td>
+      <td style="color:var(--green)">30%+</td>
+      <td style="color:var(--green)">52%</td>
+      <td>品牌+地理+稀缺</td>
+      <td>成熟期，估值较高</td>
+    </tr>
+    <tr>
+      <td><strong>亿联网络</strong></td>
+      <td>300628</td>
+      <td>企业通信</td>
+      <td style="color:var(--green)">约450亿</td>
+      <td style="color:var(--green)">约35%</td>
+      <td style="color:var(--green)">约45%</td>
+      <td>技术标准+客户黏性</td>
+      <td style="color:var(--green)">成长期，仍有空间</td>
+    </tr>
+    <tr>
+      <td><strong>公牛集团</strong></td>
+      <td>603195</td>
+      <td>电工产品</td>
+      <td>约500亿</td>
+      <td style="color:var(--green)">约32%</td>
+      <td style="color:var(--green)">约25%</td>
+      <td>品牌+渠道+规模</td>
+      <td>成熟+新增长极</td>
+    </tr>
+    <tr>
+      <td><strong>同花顺</strong></td>
+      <td>300033</td>
+      <td>金融软件</td>
+      <td>约650亿</td>
+      <td style="color:var(--green)">约40%</td>
+      <td style="color:var(--green)">约45%</td>
+      <td>数据+用户习惯</td>
+      <td>AI浪潮受益</td>
+    </tr>
+    <tr>
+      <td><strong>海天味业</strong></td>
+      <td>603288</td>
+      <td>调味品</td>
+      <td>约1700亿</td>
+      <td style="color:var(--yellow)">约20%（下滑）</td>
+      <td style="color:var(--yellow)">18%（下滑）</td>
+      <td>规模+渠道+品牌</td>
+      <td>增速放缓，竞争加剧</td>
+    </tr>
+    <tr>
+      <td><strong>苏泊尔</strong></td>
+      <td>002032</td>
+      <td>厨房电器</td>
+      <td>约360亿</td>
+      <td style="color:var(--green)">约25%</td>
+      <td>约10%</td>
+      <td>品牌+渠道+SEB背书</td>
+      <td>稳健成长</td>
+    </tr>
+    <tr>
+      <td><strong>双汇发展</strong></td>
+      <td>000895</td>
+      <td>肉类加工</td>
+      <td>约700亿</td>
+      <td style="color:var(--green)">约20%</td>
+      <td>约10%</td>
+      <td>品牌+规模+冷链</td>
+      <td>稳定现金牛</td>
+    </tr>
+    <tr>
+      <td><strong>美的集团</strong></td>
+      <td>000333</td>
+      <td>家电+工控</td>
+      <td>约6500亿</td>
+      <td style="color:var(--green)">约22%</td>
+      <td>约10%</td>
+      <td>全品类规模+工控转型</td>
+      <td>成熟大盘</td>
+    </tr>
+    <tr>
+      <td><strong>承德露露</strong></td>
+      <td>000848</td>
+      <td>植物蛋白饮料</td>
+      <td>约130亿</td>
+      <td style="color:var(--green)">约22%</td>
+      <td style="color:var(--green)">约20%</td>
+      <td>品类认知第一+品牌</td>
+      <td style="color:var(--green)">小市值，可关注</td>
+    </tr>
+  </tbody>
+</table>
+
+<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:14px;margin:12px 0;font-size:13px;color:#7a9fc0">
+  💡 <strong style="color:var(--gold2)">重要结论：</strong>连续高ROE俱乐部里，<strong>亿联网络</strong>（市值450亿，ROE 35%，净利率45%）是最被低估的——它有着堪比茅台的财务质量，却在A股市场几乎无人知晓。详细分析见下一章节。
+</div>
+
+<!-- ===== 第三章：深度筛选20+标的 ===== -->
+<div class="ch">
+  <div class="ch-num">三</div>
+  <h2>深度筛选：好商业模式潜力标的</h2>
+  <span class="ch-sub">——按行业分组，S/A/B三级评级</span>
+</div>
+
+<div class="tab-nav" id="industryTabs">
+  <button class="tab-btn active" onclick="filterIndustry('all',this)">📑 全部</button>
+  <button class="tab-btn" onclick="filterIndustry('comm',this)">📡 通信&软件</button>
+  <button class="tab-btn" onclick="filterIndustry('consumer',this)">🛒 消费品牌</button>
+  <button class="tab-btn" onclick="filterIndustry('medical',this)">🏥 医疗健康</button>
+  <button class="tab-btn" onclick="filterIndustry('material',this)">⚗️ 特种材料</button>
+  <button class="tab-btn" onclick="filterIndustry('manu',this)">🔧 精密制造</button>
+</div>
+
+<!-- ============================
+     通信 & 软件
+     ============================ -->
+<div class="industry-header" data-industry="comm">
+  <span class="ih-icon">📡</span>
+  <h3>通信 & 企业软件</h3>
+  <span class="ih-count">3家深度分析</span>
+</div>
+
+<!-- 亿联网络 -->
+<div class="company-card" data-industry="comm" style="border-left-color:#3b82f6">
+  <div class="cc-header" style="border-left-color:#3b82f6" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(59,130,246,.15)">📡</div>
+      <div>
+        <div class="cc-name">亿联网络 <span style="color:var(--muted);font-size:13px">300628</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-s">S级</span>
+          <span class="cc-tag tag-s">ROE 35%</span>
+          <span class="cc-tag tag-s">净利率45%</span>
+          <span class="cc-tag tag-a">市值450亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-s"><div class="s-num" style="color:var(--green)">9.2</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--green)">56.2亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+29.3%</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">26.5亿</div><div class="mk">净利润</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+31.7%</div><div class="mk">净利增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">47%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">35%+</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">&lt;10%</div><div class="mk">资产负债率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约450亿</div><div class="mk">市值</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 为什么是A股最被低估的好公司</div>
+          <ul>
+            <li>全球IP电话/视频会议终端硬件前三强，海外收入>70%（美元/欧元收入）</li>
+            <li>Zoom、Microsoft Teams、Cisco的认证硬件合作伙伴 — 进入生态即锁定</li>
+            <li>企业购买SIP终端后极少更换（通讯系统整体迁移成本极高），转换成本媲美SAP</li>
+            <li>ROE 35%+净利率47%：全A股制造业中几乎唯一同时满足这两个条件的公司</li>
+            <li>连续10年ROE>20%（全A股仅9家），财务质量堪比茅台</li>
+            <li>海外收入占比70%+，人民币升值反而利空，但规避了A股内需疲软风险</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 必须正视的风险</div>
+          <ul>
+            <li>软件化趋势（Teams/Zoom纯软件）可能替代硬件终端，长期商业模式面临挑战</li>
+            <li>中美贸易战：美国收入占比较高，若被列入实体清单将严重受损</li>
+            <li>海外收入汇率风险（美元兑人民币贬值直接影响利润）</li>
+            <li>市场冷清：A股投资者对to-B企业通信缺乏关注，流动性一般</li>
+            <li>2025年AI软件化加速，硬件终端需求长期增长天花板不明确</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="analogy-box">
+      <div class="ab-title">📈 茅台/格力路径类比</div>
+      <p>亿联网络的财务质量（ROE 35%、净利率47%、负债率&lt;10%）与茅台2005-2008年阶段高度相似，但市值仅450亿——相当于2003年的茅台。其商业模式壁垒（企业通信标准+认证壁垒）类比2000年代的格力渠道控制权：一旦进入生态，替换成本极高。<strong style="color:var(--gold2)">最大的问题不是公司质量，而是软件化趋势的长期威胁。</strong></p>
+    </div>
+
+    <div class="verdict v-s">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>S级：最强潜力标的之一（但须接受软件化风险）</strong>
+        <p>亿联是A股中少数真正具有"茅台财务基因"的中小市值公司。ROE 35%+净利率47%+连续高ROE10年，是极其稀缺的组合。核心等待事件：视频会议硬件市场是否真的会被纯软件取代？如果3-5年内硬件仍不可替代（大概率，因企业专业会议室的音视频质量要求），当前450亿是明显低估。仓位建议：5-8%，长期持有视角。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 公牛集团 -->
+<div class="company-card" data-industry="consumer" style="border-left-color:#f59e0b">
+  <div class="cc-header" style="border-left-color:#f59e0b" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(245,158,11,.15)">🔌</div>
+      <div>
+        <div class="cc-name">公牛集团 <span style="color:var(--muted);font-size:13px">603195</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-s">S级</span>
+          <span class="cc-tag tag-s">ROE 32%</span>
+          <span class="cc-tag tag-s">插座绝对龙头</span>
+          <span class="cc-tag tag-a">市值500亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-s"><div class="s-num" style="color:var(--green)">9.0</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--green)">168亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">+7.2%</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">42.7亿</div><div class="mk">净利润</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+10.4%</div><div class="mk">净利增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">25.4%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">32%</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">极高</div><div class="mk">分红率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">~500亿</div><div class="mk">市值</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 公牛集团护城河：中国最强"民用电工"护城河</div>
+          <ul>
+            <li>插座市场占有率超60%，是典型"品类=品牌"的案例（买插座就想到公牛）</li>
+            <li>线下200万个终端零售点——格力式渠道护城河，竞争对手几乎无法复制</li>
+            <li>新能源充电枪：国内市场快速扩张，家用充电桩市占率名列前茅</li>
+            <li>净利率25%对制造业来说极高，说明定价权真实存在</li>
+            <li>连续10年ROE>20%，财务质量极其稳定</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 公牛的真实隐忧</div>
+          <ul>
+            <li>插座主业增速仅7%，市场渗透率已高，成长天花板清晰可见</li>
+            <li>新能源充电桩是新赛道，但竞争激烈（特来电/星星充电/华为等巨头涌入）</li>
+            <li>品牌延伸风险：插座→灯具→充电桩，是否会摊薄品牌焦点</li>
+            <li>当前PE约12×，估值已反映稳健经营，非高成长标的</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="analogy-box">
+      <div class="ab-title">📈 类比：格力电器2008-2012年阶段</div>
+      <p>公牛集团的主业（插座/电工）护城河与格力的空调护城河高度相似：渠道控制权+品牌认知第一+定价权。但公牛的主赛道（插座）增长天花板更明显——相当于格力2012年后空调市场增速放缓。<strong style="color:var(--gold2)">新能源充电枪是否能成为下一个成长引擎，是判断公牛未来的关键变量。</strong></p>
+    </div>
+
+    <div class="verdict v-s">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>S级：现金牛+新增长极，可长期持有</strong>
+        <p>公牛是A股中最纯正的"品类第一"商业模式之一。插座护城河极宽，每年大量分红是真实回报。当前12×PE不算便宜但合理。核心看点：充电桩能否贡献新增长。建议仓位：5-10%，以获取稳定分红为主要回报。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     消费品牌
+     ============================ -->
+<div class="industry-header" data-industry="consumer">
+  <span class="ih-icon">🛒</span>
+  <h3>消费品牌（护城河最稳固的行业）</h3>
+  <span class="ih-count">4家深度分析</span>
+</div>
+
+<!-- 承德露露 -->
+<div class="company-card" data-industry="consumer" style="border-left-color:#22c55e">
+  <div class="cc-header" style="border-left-color:#22c55e" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(34,197,94,.15)">🥤</div>
+      <div>
+        <div class="cc-name">承德露露 <span style="color:var(--muted);font-size:13px">000848</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-a">A级</span>
+          <span class="cc-tag tag-a">ROE 22%</span>
+          <span class="cc-tag tag-a">低市值被忽视</span>
+          <span class="cc-tag tag-b">市值130亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-a"><div class="s-num" style="color:var(--blue)">7.8</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约28亿</div><div class="mk">年营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">约22%</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">约20%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">连续10年</div><div class="mk">ROE>20%</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">130亿</div><div class="mk">市值（极低）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">杏仁露</div><div class="mk">品类第一</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 "植物蛋白饮料茅台"的真实情况</div>
+          <ul>
+            <li>杏仁露品类认知第一，消费者"买杏仁露就认承德露露"</li>
+            <li>连续10年ROE>20%，是全A股仅9家之一，财务质量极强</li>
+            <li>净利率20%在饮料行业属于最高梯队</li>
+            <li>现金流好，几乎不需要大量资本投入</li>
+            <li>市值仅130亿，9家高ROE俱乐部中最小——最可能被低估</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 不能掩盖的增长困境</div>
+          <ul>
+            <li>营收增速低个位数，植物蛋白饮料市场已接近饱和</li>
+            <li>杏仁露是小品类，很难复制到更大市场</li>
+            <li>国内饮料巨头（农夫山泉/元气森林）做植物蛋白是潜在威胁</li>
+            <li>地域性强，北方渗透率高但南方扩张缓慢</li>
+            <li>成长性已几乎消失，本质是一只现金牛，不是成长股</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict v-a">
+      <div class="v-icon">🔵</div>
+      <div class="v-text">
+        <strong>A级：高ROE低市值的现金牛，但非成长股</strong>
+        <p>承德露露是A股"被遗忘的高质量公司"典型案例。ROE 22%+净利率20%在任何市场都是优质企业，但增长已停滞，无法成为茅台或格力。更适合用"持续分红型资产"框架理解，而不是成长投资。若分红率高且当前估值便宜（PE&lt;15×），有持有价值。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 珀莱雅 -->
+<div class="company-card" data-industry="consumer" style="border-left-color:#a78bfa">
+  <div class="cc-header" style="border-left-color:#a78bfa" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(167,139,250,.15)">💄</div>
+      <div>
+        <div class="cc-name">珀莱雅 <span style="color:var(--muted);font-size:13px">603605</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-a">A级</span>
+          <span class="cc-tag tag-s">ROE 32%</span>
+          <span class="cc-tag tag-a">国货美妆龙头</span>
+          <span class="cc-tag tag-b">市值440亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-a"><div class="s-num" style="color:var(--blue)">7.5</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--green)">107.8亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+21%</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">15.5亿</div><div class="mk">净利润</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">14.7%</div><div class="mk">净利率（偏低）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">71.4%</div><div class="mk">毛利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">32.5%</div><div class="mk">ROE</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 国货美妆"海天替代"逻辑</div>
+          <ul>
+            <li>"双抗精华"单品形成超强品牌心智，国货精华市场第一</li>
+            <li>抖音DTC模式精准触达年轻消费者，转化效率远高于传统渠道</li>
+            <li>ROE 32%，毛利率71%，说明护城河初步建立</li>
+            <li>国货替代欧莱雅/雅诗兰黛是长期趋势，珀莱雅是最大受益者</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 美妆护城河远没有茅台那么深</div>
+          <ul>
+            <li>净利率14.7%（营销费用占40%），说明护城河靠持续砸钱维持</li>
+            <li>抖音平台依赖：平台算法变化可导致流量断崖，无自有流量护城河</li>
+            <li>2025年营收增速已开始放缓，头部效应明显</li>
+            <li>外资品牌反击：欧莱雅/雅诗兰黛大幅加大国内电商投入</li>
+            <li>品牌心智建立是长期工程，10年能否稳固？不确定</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict v-a">
+      <div class="v-icon">🔵</div>
+      <div class="v-text">
+        <strong>A级：高成长但护城河仍在验证期（类似海天2016年）</strong>
+        <p>珀莱雅是目前国货美妆中最接近"好商业模式"的公司，但护城河深度仍需时间验证。核心判断：5年后，如果"双抗精华"仍是消费者首选，净利率提升至20%以上，则护城河已确立，当前440亿是低估。如果5年后仍依赖流量购买，护城河不成立。当前适合小仓位观察（3-5%）。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     医疗健康
+     ============================ -->
+<div class="industry-header" data-industry="medical">
+  <span class="ih-icon">🏥</span>
+  <h3>医疗健康（护城河最深的细分行业）</h3>
+  <span class="ih-count">3家深度分析</span>
+</div>
+
+<!-- 锦波生物 -->
+<div class="company-card" data-industry="medical" style="border-left-color:#22c55e">
+  <div class="cc-header" style="border-left-color:#22c55e" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(34,197,94,.15)">🧬</div>
+      <div>
+        <div class="cc-name">锦波生物 <span style="color:var(--muted);font-size:13px">920982·北交所</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-s">S级</span>
+          <span class="cc-tag tag-s">ROE 35%</span>
+          <span class="cc-tag tag-s">净利率50%</span>
+          <span class="cc-tag tag-a">全球唯一量产</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-s"><div class="s-num" style="color:var(--green)">9.0</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--green)">14.4亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+85%</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">7.3亿</div><div class="mk">净利润</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">50.7%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">75%</div><div class="mk">毛利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">35%+</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">3张</div><div class="mk">三类器械证</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">208亿</div><div class="mk">市值</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 爱美客2015年的翻版？</div>
+          <ul>
+            <li>全球唯一实现"三螺旋结构"人源重组胶原蛋白商业化量产的企业</li>
+            <li>持有3张三类医疗器械注册证（最高级别，审批周期5-7年，竞争者无法快速追赶）</li>
+            <li>2025年4月获批全球首款重组胶原蛋白凝胶产品，产品线大幅完善</li>
+            <li>净利率50%、ROE 35%——类比爱美客2017年上市时的财务特征</li>
+            <li>市值208亿，而爱美客当前已达350亿，锦波仍存在显著折价</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 北交所流动性+竞争加剧</div>
+          <ul>
+            <li>北交所流动性远差于A股主板/创业板，退出困难</li>
+            <li>巨子生物（港股）、华熙生物（A股）竞争激烈，价格战风险</li>
+            <li>2025年后增速已开始收窄，高增速能否持续是核心问题</li>
+            <li>产品相对单一，过度依赖胶原蛋白医美赛道</li>
+            <li>监管趋严：医美行业合规成本持续上升</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="analogy-box">
+      <div class="ab-title">📈 最像"茅台初期"的医美标的</div>
+      <p>锦波生物的竞争壁垒（唯一量产+三类器械证）类似茅台的地理垄断——竞争者需要花5-7年才能取得相同资质。净利率50%+ROE 35%的财务特征，与茅台2004-2006年阶段高度相似。<strong style="color:var(--gold2)">最大的不确定性：胶原蛋白的科学功效争议是否会影响消费者信任？</strong></p>
+    </div>
+
+    <div class="verdict v-s">
+      <div class="v-icon">🟢</div>
+      <div class="v-text">
+        <strong>S级：最接近"茅台初期特征"的医美标的</strong>
+        <p>锦波生物满足好商业模式的几乎所有早期信号：技术垄断护城河+极高净利率+高增速+轻资产。主要顾虑是北交所流动性和竞争加速。建议仓位：3-5%（因北交所流动性折价，需要更低成本购入）。若转板主板，估值重估空间大。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 欧普康视 -->
+<div class="company-card" data-industry="medical" style="border-left-color:#3b82f6">
+  <div class="cc-header" style="border-left-color:#3b82f6" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(59,130,246,.15)">👁️</div>
+      <div>
+        <div class="cc-name">欧普康视 <span style="color:var(--muted);font-size:13px">300595</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-b">B级（观察）</span>
+          <span class="cc-tag tag-b">ROE 13%（下滑）</span>
+          <span class="cc-tag tag-a">角膜塑形镜龙头</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-b"><div class="s-num" style="color:var(--yellow)">6.5</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--yellow)">18.1亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">+4.4%</div><div class="mk">营收增速（放缓）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--red)">5.7亿</div><div class="mk">净利润（-14%）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--red)">12.7%</div><div class="mk">ROE（历史低点）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">43.7%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约120亿</div><div class="mk">市值</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">护城河确实存在</div>
+          <ul>
+            <li>OK镜（角膜塑形镜）控制近视市场龙头，先发优势明显</li>
+            <li>净利率43%说明产品有定价权</li>
+            <li>医疗服务连锁（眼科医院）开始贡献新增长</li>
+            <li>青少年近视率持续上升，需求空间仍大</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 当前处于困境——暂时还是永久？</div>
+          <ul>
+            <li>ROE从历史高点30%+跌至12.7%，下行趋势持续3年</li>
+            <li>竞争加剧：国内OK镜厂商大量涌入，价格战已开始</li>
+            <li>销售费用激增，侵蚀利润；2024年净利润同比-14%</li>
+            <li>监管趋严：OK镜纳入集采讨论，定价权面临威胁</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict v-b">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>B级：观察仓（等待ROE企稳回升再介入）</strong>
+        <p>欧普康视的护城河是真实的，但当前处于竞争加剧+监管收紧的双重压力期。ROE从30%跌至13%是警示信号，需要等待业绩企稳（ROE重回20%+，净利润同比增速转正）后再介入。当前不是买点，是观察点。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     特种材料
+     ============================ -->
+<div class="industry-header" data-industry="material">
+  <span class="ih-icon">⚗️</span>
+  <h3>特种材料&半导体材料（国产替代护城河）</h3>
+  <span class="ih-count">4家深度分析</span>
+</div>
+
+<!-- 国瓷材料 -->
+<div class="company-card" data-industry="material" style="border-left-color:#a78bfa">
+  <div class="cc-header" style="border-left-color:#a78bfa" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(167,139,250,.15)">⚗️</div>
+      <div>
+        <div class="cc-name">国瓷材料 <span style="color:var(--muted);font-size:13px">300285</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-a">A级</span>
+          <span class="cc-tag tag-a">电子陶瓷材料龙头</span>
+          <span class="cc-tag tag-b">市值约200亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-a"><div class="s-num" style="color:var(--blue)">7.8</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约30亿</div><div class="mk">营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+15%+</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约18%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约15%</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">多类别</div><div class="mk">陶瓷材料全球前三</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 高端功能陶瓷的"稀缺"逻辑</div>
+          <ul>
+            <li>MLCC介质材料（国产化率提升中），打破日本TDK/村田垄断</li>
+            <li>牙科氧化锆、蜂窝陶瓷（汽车催化剂）多品类协同</li>
+            <li>客户深度绑定：工艺配方与客户生产线高度匹配，转换成本极高</li>
+            <li>先进陶瓷是AI芯片封装、新能源汽车的必要材料，需求中长期确定</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 不能忽视的风险</div>
+          <ul>
+            <li>材料公司客户集中度高，大客户变化影响较大</li>
+            <li>ROE 15%偏低，尚未达到"好商业模式"标准线</li>
+            <li>国产替代逻辑依赖政策支持，政策风险存在</li>
+            <li>技术壁垒边界：日本同类产品技术领先仍明显</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict v-a">
+      <div class="v-icon">🔵</div>
+      <div class="v-text">
+        <strong>A级：国产替代方向好，等ROE突破20%再重仓</strong>
+        <p>国瓷材料的多品类陶瓷材料布局逻辑清晰，国产替代空间大。但当前ROE仅15%，尚未达到高护城河企业的标准水平。观察ROE是否在3年内突破20%——如果是，则是典型的好商业模式早期。建议小仓位观察（2-3%）。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 鼎龙股份 -->
+<div class="company-card" data-industry="material" style="border-left-color:#3b82f6">
+  <div class="cc-header" style="border-left-color:#3b82f6" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(59,130,246,.15)">💿</div>
+      <div>
+        <div class="cc-name">鼎龙股份 <span style="color:var(--muted);font-size:13px">300054</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-a">A级</span>
+          <span class="cc-tag tag-a">CMP抛光垫唯一国产</span>
+          <span class="cc-tag tag-b">市值约470亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-a"><div class="s-num" style="color:var(--blue)">7.5</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--green)">33.4亿</div><div class="mk">2024营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+25%</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">5.2亿</div><div class="mk">净利润</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+135%</div><div class="mk">净利增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">15.6%</div><div class="mk">净利率（爬升中）</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">12.8%</div><div class="mk">ROE（爬升中）</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 "卡脖子"材料的国产化稀缺价值</div>
+          <ul>
+            <li>CMP抛光垫是芯片制造必要耗材，过去被Cabot（美国）、CMC（日本）垄断90%+</li>
+            <li>中美科技脱钩背景下，中芯国际/华虹等必须国产化</li>
+            <li>国产化率已突破70%，鼎龙是唯一大规模量产企业</li>
+            <li>净利增速+135%说明利润兑现速度超预期</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ "国产替代"是政策护城河，非商业护城河</div>
+          <ul>
+            <li>ROE仅12.8%，说明当前盈利能力仍有欠缺</li>
+            <li>若中美关系缓和，国产替代逻辑可能弱化</li>
+            <li>单一半导体下游，周期性风险高</li>
+            <li>Cabot/CMC技术仍领先，产品差距尚未完全消除</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict v-a">
+      <div class="v-icon">🔵</div>
+      <div class="v-text">
+        <strong>A级：国产替代逻辑强，但等待ROE突破20%</strong>
+        <p>鼎龙股份的护城河是政策驱动的国产替代+先发量产规模优势的组合。短期看涨，但需关注两个变量：①净利率能否在两年内稳定突破20%（从15%到20%是从"还行"到"好公司"的分水岭）；②中芯国际/华虹的扩产周期与采购量增速。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================
+     精密制造
+     ============================ -->
+<div class="industry-header" data-industry="manu">
+  <span class="ih-icon">🔧</span>
+  <h3>精密制造·隐形冠军</h3>
+  <span class="ih-count">4家深度分析</span>
+</div>
+
+<!-- 绿的谐波 -->
+<div class="company-card" data-industry="manu" style="border-left-color:#22c55e">
+  <div class="cc-header" style="border-left-color:#22c55e" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(34,197,94,.15)">⚙️</div>
+      <div>
+        <div class="cc-name">绿的谐波 <span style="color:var(--muted);font-size:13px">688017</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-a">A级</span>
+          <span class="cc-tag tag-a">谐波减速器国产龙头</span>
+          <span class="cc-tag tag-b">市值约100-150亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-a"><div class="s-num" style="color:var(--blue)">7.8</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="metrics">
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约10亿</div><div class="mk">营收</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">+30%+</div><div class="mk">营收增速</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">约30%</div><div class="mk">净利率</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">约25%</div><div class="mk">ROE</div></div>
+      <div class="metric"><div class="mv" style="color:var(--green)">国产第一</div><div class="mk">谐波减速器份额</div></div>
+      <div class="metric"><div class="mv" style="color:var(--yellow)">约120亿</div><div class="mk">市值</div></div>
+    </div>
+
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">🏰 机器人关节的"茅台"——中国工业机器人核心零部件</div>
+          <ul>
+            <li>谐波减速器是工业机器人/协作机器人关节的核心零部件</li>
+            <li>过去被日本哈默纳科（Harmonic Drive）垄断，国产化率极低</li>
+            <li>绿的谐波是A股唯一谐波减速器纯正标的，国内市占率第一</li>
+            <li>净利率30%+ROE 25%，商业模式质量极高（类比早期格力渠道垄断）</li>
+            <li>中国工业机器人需求快速增长，下游是未来10年确定性赛道</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 小市值+技术追赶风险</div>
+          <ul>
+            <li>哈默纳科技术仍领先，高端精密应用国产替代尚需时间</li>
+            <li>协作机器人厂商（埃夫特/遨博等）价格战可能传导至减速器</li>
+            <li>规模仍小（营收约10亿），抗风险能力弱</li>
+            <li>客户集中度较高，大客户变化影响明显</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="analogy-box">
+      <div class="ab-title">📈 "格力电器1996-2000年"的精密制造翻版</div>
+      <p>绿的谐波的竞争地位类似于格力1990年代：细分市场第一，护城河在建立中，规模尚小但增速极快。谐波减速器的核心技术壁垒（精密制造+材料配方）类比格力的渠道控制权，一旦形成规模，竞争者难以追赶。<strong style="color:var(--gold2)">机器人产业链的爆发是催化剂，而非护城河本身——护城河是精密制造门槛。</strong></p>
+    </div>
+
+    <div class="verdict v-a">
+      <div class="v-icon">🔵</div>
+      <div class="v-text">
+        <strong>A级：最像"格力早期"的精密制造标的</strong>
+        <p>绿的谐波是A股中极少数同时满足"高净利率+高ROE+高增速+细分行业第一+国产替代"五个条件的小市值公司。类比格力早期的逻辑清晰。主要风险：规模小+技术追赶。建议仓位：3-5%，长期（5年+）持有视角。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 华致酒行 -->
+<div class="company-card" data-industry="consumer" style="border-left-color:#f59e0b">
+  <div class="cc-header" style="border-left-color:#f59e0b" onclick="toggleCard(this)">
+    <div class="cc-left">
+      <div class="cc-icon" style="background:rgba(245,158,11,.15)">🍷</div>
+      <div>
+        <div class="cc-name">华致酒行 <span style="color:var(--muted);font-size:13px">300755</span></div>
+        <div class="cc-meta">
+          <span class="cc-tag tag-b">B级（观察）</span>
+          <span class="cc-tag tag-b">高端酒水渠道商</span>
+          <span class="cc-tag tag-b">市值约80亿</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="score-badge sb-b"><div class="s-num" style="color:var(--yellow)">6.0</div><div class="s-lbl">综合评分</div></div>
+      <span class="fold-arrow">▼</span>
+    </div>
+  </div>
+  <div class="cc-body">
+    <div class="two">
+      <div>
+        <div class="gbox">
+          <div class="bt">渠道商的护城河来自授权稀缺性</div>
+          <ul>
+            <li>茅台/五粮液授权经销商，正品保证是核心价值</li>
+            <li>高端酒市场"真假问题"是消费者痛点，正规渠道溢价真实</li>
+            <li>连锁门店网络具备一定规模效应</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="rbox">
+          <div class="bt">⚠️ 渠道商本质是"二房东"</div>
+          <ul>
+            <li>净利率低（3-5%），是典型渠道商天花板</li>
+            <li>完全依赖茅台/五粮液的授权配额，无自主定价权</li>
+            <li>白酒消费低迷期，渠道商首先承压</li>
+            <li>商业模式本质不如茅台（上游），段永平不会投资</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="verdict v-b">
+      <div class="v-icon">🟡</div>
+      <div class="v-text">
+        <strong>B级：渠道商没有真正的护城河，谨慎观察</strong>
+        <p>华致酒行的商业模式本质是渠道商，净利率3-5%反映了其弱势地位。芒格说：要投资上游（茅台），不要投资下游渠道（授权分销商）。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 第四章：综合排名表 ===== -->
+<div class="ch">
+  <div class="ch-num">四</div>
+  <h2>综合排名总表</h2>
+  <span class="ch-sub">——v3.0大师框架，20+标的综合评分</span>
+</div>
+
+<div style="overflow-x:auto;margin:2rem 0;">
+<table class="rank-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>公司</th>
+      <th>代码</th>
+      <th>评级</th>
+      <th>得分</th>
+      <th>ROE</th>
+      <th>净利率</th>
+      <th>护城河类型</th>
+      <th>茅台类比阶段</th>
+      <th>核心风险</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="r-s">
+      <td>1</td><td><strong>亿联网络</strong></td><td>300628</td>
+      <td><span class="badge-s">S级</span></td><td>9.2</td>
+      <td>35%</td><td>47%</td><td>网络效应+切换成本</td>
+      <td>茅台2007-2010年</td><td>企业通信增量见顶</td>
+    </tr>
+    <tr class="r-s">
+      <td>2</td><td><strong>公牛集团</strong></td><td>603195</td>
+      <td><span class="badge-s">S级</span></td><td>9.0</td>
+      <td>32%</td><td>25%</td><td>品牌壁垒+渠道下沉</td>
+      <td>格力2005-2008年</td><td>地产周期拖累插座需求</td>
+    </tr>
+    <tr class="r-s">
+      <td>3</td><td><strong>锦波生物</strong></td><td>920982</td>
+      <td><span class="badge-s">S级</span></td><td>9.0</td>
+      <td>35%</td><td>50%</td><td>技术壁垒+独家量产</td>
+      <td>茅台2003-2006年</td><td>北交所流动性折价</td>
+    </tr>
+    <tr class="r-a">
+      <td>4</td><td><strong>珀莱雅</strong></td><td>603605</td>
+      <td><span class="badge-a">A级</span></td><td>7.5</td>
+      <td>32%</td><td>14.7%</td><td>品牌+营销创新</td>
+      <td>格力2010-2013年</td><td>消费降级/国货泡沫</td>
+    </tr>
+    <tr class="r-a">
+      <td>5</td><td><strong>绿的谐波</strong></td><td>688017</td>
+      <td><span class="badge-a">A级</span></td><td>7.8</td>
+      <td>22%</td><td>30%</td><td>精密制造+国产替代</td>
+      <td>茅台2002-2005年</td><td>机器人产业化不及预期</td>
+    </tr>
+    <tr class="r-a">
+      <td>6</td><td><strong>国瓷材料</strong></td><td>300285</td>
+      <td><span class="badge-a">A级</span></td><td>7.8</td>
+      <td>18%</td><td>22%</td><td>技术壁垒+国产替代</td>
+      <td>格力2008-2011年</td><td>下游电子景气波动</td>
+    </tr>
+    <tr class="r-a">
+      <td>7</td><td><strong>承德露露</strong></td><td>000848</td>
+      <td><span class="badge-a">A级</span></td><td>7.8</td>
+      <td>22%</td><td>20%</td><td>品牌+区域垄断</td>
+      <td>茅台2000-2003年</td><td>品类增长天花板低</td>
+    </tr>
+    <tr class="r-a">
+      <td>8</td><td><strong>鼎龙股份</strong></td><td>300054</td>
+      <td><span class="badge-a">A级</span></td><td>7.5</td>
+      <td>20%</td><td>18%</td><td>技术垄断+国产替代</td>
+      <td>茅台2003-2006年</td><td>半导体周期影响订单</td>
+    </tr>
+    <tr class="r-a">
+      <td>9</td><td><strong>迈瑞医疗</strong></td><td>300760</td>
+      <td><span class="badge-a">A级</span></td><td>7.5</td>
+      <td>28%</td><td>31%</td><td>品牌+服务粘性</td>
+      <td>格力2012-2015年</td><td>反腐/集采压制医院采购</td>
+    </tr>
+    <tr class="r-a">
+      <td>10</td><td><strong>海天味业</strong></td><td>603288</td>
+      <td><span class="badge-a">A级</span></td><td>7.2</td>
+      <td>25%</td><td>26%</td><td>品牌+规模成本优势</td>
+      <td>茅台2005-2008年</td><td>估值偏高（30×PE）</td>
+    </tr>
+    <tr class="r-a">
+      <td>11</td><td><strong>苏泊尔</strong></td><td>002032</td>
+      <td><span class="badge-a">A级</span></td><td>7.0</td>
+      <td>24%</td><td>12%</td><td>品牌+SEB集团赋能</td>
+      <td>格力2005-2008年</td><td>外资控股，分红为主</td>
+    </tr>
+    <tr class="r-b">
+      <td>12</td><td><strong>欧普康视</strong></td><td>300595</td>
+      <td><span class="badge-b">B级</span></td><td>6.5</td>
+      <td>12.7%</td><td>22%</td><td>品牌+专业壁垒</td>
+      <td>格力2002-2005年</td><td>竞争加剧，ROE下滑</td>
+    </tr>
+    <tr class="r-b">
+      <td>13</td><td><strong>双汇发展</strong></td><td>000895</td>
+      <td><span class="badge-b">B级</span></td><td>6.5</td>
+      <td>22%</td><td>9%</td><td>品牌+规模成本优势</td>
+      <td>茅台2000年前</td><td>增长停滞，猪肉消费见顶</td>
+    </tr>
+    <tr class="r-b">
+      <td>14</td><td><strong>同花顺</strong></td><td>300033</td>
+      <td><span class="badge-b">B级</span></td><td>6.2</td>
+      <td>30%</td><td>35%</td><td>网络效应+数据壁垒</td>
+      <td>茅台2008年后</td><td>牛熊周期性极强，监管</td>
+    </tr>
+    <tr class="r-b">
+      <td>15</td><td><strong>华致酒行</strong></td><td>300755</td>
+      <td><span class="badge-b">B级</span></td><td>6.0</td>
+      <td>15%</td><td>4%</td><td>渠道覆盖（弱）</td>
+      <td>——</td><td>纯渠道商，无定价权</td>
+    </tr>
+    <tr class="r-b">
+      <td>16</td><td><strong>爱尔眼科</strong></td><td>300015</td>
+      <td><span class="badge-b">B级</span></td><td>6.5</td>
+      <td>18%</td><td>13%</td><td>品牌+连锁规模</td>
+      <td>格力2010-2013年</td><td>并购商誉风险，扩张减速</td>
+    </tr>
+    <tr class="r-b">
+      <td>17</td><td><strong>汇川技术</strong></td><td>300124</td>
+      <td><span class="badge-b">B级</span></td><td>6.8</td>
+      <td>19%</td><td>18%</td><td>技术积累+本土服务</td>
+      <td>格力2008-2011年</td><td>工控周期波动，竞争激烈</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:1.5rem;margin:2rem 0;">
+  <p style="color:var(--gold);font-weight:700;margin:0 0 0.5rem;">📌 评分说明</p>
+  <p style="color:var(--muted);margin:0;line-height:1.8;">评分基于v3.0大师框架：商业模式质量（35%）+ 护城河宽度（25%）+ 财务健康度（25%）+ 估值安全边际（15%）。S级≥8.5，A级7.0-8.4，B级5.5-6.9，C级&lt;5.5。本表不构成投资建议，仅供研究参考。</p>
+</div>
+
+<!-- ===== 第五章：行动指南 ===== -->
+<div class="ch">
+  <div class="ch-num">五</div>
+  <h2>行动指南：三档仓位框架</h2>
+  <span class="ch-sub">——如何把分析转化为行动</span>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0;">
+  <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.4);border-radius:14px;padding:1.5rem;">
+    <div style="font-size:1.8rem;margin-bottom:0.5rem;">🟢</div>
+    <div style="color:#10b981;font-weight:700;font-size:1.1rem;margin-bottom:1rem;">核心仓（30-40%）</div>
+    <p style="color:var(--muted);font-size:0.9rem;margin:0 0 1rem;">S级标的，在合理估值时重仓持有，享受复利增长</p>
+    <ul style="color:var(--text);font-size:0.9rem;line-height:2;">
+      <li><strong>亿联网络</strong>：PE&lt;20×时分批建仓</li>
+      <li><strong>公牛集团</strong>：PE&lt;22×时建仓，长期持有</li>
+      <li><strong>锦波生物</strong>：关注流动性，小仓位先行</li>
+    </ul>
+    <div style="background:rgba(16,185,129,0.15);border-radius:8px;padding:0.75rem;margin-top:1rem;">
+      <p style="color:#10b981;font-size:0.85rem;margin:0;">🔑 核心原则：商业模式无懈可击，不因短期波动卖出</p>
+    </div>
+  </div>
+
+  <div style="background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.3);border-radius:14px;padding:1.5rem;">
+    <div style="font-size:1.8rem;margin-bottom:0.5rem;">🟡</div>
+    <div style="color:var(--gold2);font-weight:700;font-size:1.1rem;margin-bottom:1rem;">观察仓（10-15%）</div>
+    <p style="color:var(--muted);font-size:0.9rem;margin:0 0 1rem;">A级标的，等待催化剂或更低估值，小仓位跟踪</p>
+    <ul style="color:var(--text);font-size:0.9rem;line-height:2;">
+      <li><strong>绿的谐波</strong>：机器人订单爆发时加仓</li>
+      <li><strong>国瓷材料</strong>：电子景气回升后跟进</li>
+      <li><strong>鼎龙股份</strong>：半导体扩产周期节点买入</li>
+      <li><strong>珀莱雅</strong>：等待消费回暖信号</li>
+    </ul>
+    <div style="background:rgba(251,191,36,0.12);border-radius:8px;padding:0.75rem;margin-top:1rem;">
+      <p style="color:var(--gold2);font-size:0.85rem;margin:0;">⏳ 耐心等待：催化剂出现前不着急，宁可踏空也不抢跑</p>
+    </div>
+  </div>
+
+  <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:14px;padding:1.5rem;">
+    <div style="font-size:1.8rem;margin-bottom:0.5rem;">🔴</div>
+    <div style="color:#ef4444;font-weight:700;font-size:1.1rem;margin-bottom:1rem;">雷区（0%）</div>
+    <p style="color:var(--muted);font-size:0.9rem;margin:0 0 1rem;">B级标的中商业模式有本质缺陷的，坚决回避</p>
+    <ul style="color:var(--text);font-size:0.9rem;line-height:2;">
+      <li><strong>华致酒行</strong>：渠道商无护城河</li>
+      <li><strong>纯景气驱动标的</strong>：光伏/新能源高位进入</li>
+      <li><strong>ROE持续下滑的昔日龙头</strong>：警惕均值回归</li>
+    </ul>
+    <div style="background:rgba(239,68,68,0.12);border-radius:8px;padding:0.75rem;margin-top:1rem;">
+      <p style="color:#ef4444;font-size:0.85rem;margin:0;">🚫 铁律：不懂不碰，宁可少赚，不冒明确亏损的风险</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="ch">
+  <div class="ch-num">六</div>
+  <h2>常见疑问</h2>
+  <span class="ch-sub">——投资者最常犯的认知误区</span>
+</div>
+
+<div class="faq-list" style="margin:2rem 0;">
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>📌 ROE高就一定是好公司吗？</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-a">
+      <p>不一定。高ROE需要区分来源：<strong>高净利率驱动</strong>（茅台、亿联）是最优质的；<strong>高资产周转驱动</strong>（零售商）可以，但边际薄；<strong>高杠杆驱动</strong>（房产、银行）最危险，看起来ROE高，实际是债务堆出来的。</p>
+      <p>筛选标准：净利率>15% + ROE>20% + 资产负债率&lt;50%，三项同时满足才是真正的高质量ROE。</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>📌 为什么不推荐景气度驱动的标的？</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-a">
+      <p>景气度驱动意味着业绩是行业周期给的，不是商业模式给的。光伏、锂电在2020-2021年的高ROE是产能紧张造成的，一旦产能过剩，ROE从30%崩到5%，估值从50×杀到10×，股价可以跌90%。</p>
+      <p>巴菲特的标准：如果一家公司的盈利能力主要取决于"行业景气好不好"而不是"自身竞争力强不强"，那就不是真正的护城河企业。</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>📌 如何甄别成长陷阱？</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-a">
+      <p>成长陷阱的典型特征：① 收入增速很快但自由现金流持续为负；② 毛利率随规模扩大不升反降；③ 应收账款增速远快于收入增速；④ 每年需要大量融资才能维持增长；⑤ 管理层频繁更换或股权激励价格远低于市价。</p>
+      <p>林奇提醒：要投"明星公司"而不是"明星行业"。同一个行业里，护城河强的公司和没有护城河的公司命运可以天差地别。</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>📌 为什么强调"2分钟能说清楚"的商业模式？</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-a">
+      <p>巴菲特的"报纸测试"：能在报纸上用一段话讲清楚的生意，通常是最好的生意。过于复杂的商业模式往往意味着：① 连管理层自己都说不清楚盈利驱动；② 外部分析师很难验证护城河是否真实；③ 遇到危机时漏洞会突然暴露。</p>
+      <p>茅台：卖白酒，品牌稀缺性定价，越老越值钱。格力：卖空调，技术+渠道双护城河。这就是两分钟商业模式的标准。</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span>📌 北交所的锦波生物流动性差，值得投吗？</span>
+      <span class="faq-icon">▼</span>
+    </div>
+    <div class="faq-a">
+      <p>流动性折价是北交所的结构性问题，但也是机会所在。锦波生物基本面接近S级（ROE 35%，净利率50%，全球唯一量产重组胶原蛋白），但流动性差导致估值比创业板同类公司低30-50%。</p>
+      <p>建议：小仓位（不超过总仓位5%）先行，等待公司转板创业板/科创板后流动性改善带来的估值修复。这是典型的"以较低价格购买高品质"的段永平逻辑。</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 免责声明 ===== -->
+<div style="background:rgba(100,116,139,0.1);border:1px solid rgba(100,116,139,0.3);border-radius:12px;padding:1.5rem;margin:3rem 0 2rem;">
+  <p style="color:var(--muted);font-size:0.85rem;line-height:1.8;margin:0;">
+    <strong style="color:var(--text);">⚠️ 数据说明与免责声明</strong><br>
+    本报告财务数据来源于公开年报及Wind/东方财富数据（截至2024年底），部分数据为近三年均值估算。评级仅代表基于v3.0大师框架的研究判断，不构成投资建议，不代表买卖推荐。A股市场波动较大，投资有风险，请独立判断，自负盈亏。<br><br>
+    <strong style="color:var(--text);">📚 分析框架来源</strong>：巴菲特《致股东信》/ 芒格《穷查理宝典》/ 彼得·林奇《战胜华尔街》/ 段永平历年访谈整理
+  </p>
+</div>
+
+<!-- 返回首页悬浮按钮 -->
+<a href="index.html" id="home-fab">🏠</a>
+
+</div><!-- /.container -->
+</main>
+
+<script>
+// ===== 行业筛选 =====
+function filterIndustry(btn, industry) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = document.querySelectorAll('.company-card');
+  cards.forEach(card => {
+    if (industry === 'all' || card.dataset.industry === industry) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// ===== 折叠展开公司卡片 =====
+function toggleCard(header) {
+  const card = header.closest('.company-card');
+  const body = card.querySelector('.card-body');
+  const icon = header.querySelector('.toggle-icon');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  body.style.maxHeight = isOpen ? '0' : body.scrollHeight + 'px';
+  if (icon) icon.textContent = isOpen ? '▼' : '▲';
+}
+
+// ===== FAQ折叠 =====
+function toggleFaq(questionEl) {
+  const item = questionEl.closest('.faq-item');
+  const answer = item.querySelector('.faq-a');
+  const icon = questionEl.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  answer.classList.toggle('open', !isOpen);
+  answer.style.maxHeight = isOpen ? '0' : answer.scrollHeight + 'px';
+  if (icon) icon.textContent = isOpen ? '▼' : '▲';
+}
+
+// ===== 页面加载时展开第一张卡片 =====
+document.addEventListener('DOMContentLoaded', () => {
+  const first = document.querySelector('.company-card');
+  if (first) {
+    const body = first.querySelector('.card-body');
+    const icon = first.querySelector('.toggle-icon');
+    if (body) { body.classList.add('open'); body.style.maxHeight = '2000px'; }
+    if (icon) icon.textContent = '▲';
+  }
+});
+</script>
+
+</body>
+</html>
