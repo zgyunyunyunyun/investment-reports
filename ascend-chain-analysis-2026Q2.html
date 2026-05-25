@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华为昇腾芯片产业链深度研究报告 · 2026Q2</title>
+<style>
+:root{--red:#e03131;--green:#2f9e44;--gold:#f08c00;--blue:#1971c2;--purple:#7048e8;--gray:#868e96;--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--text:#212529;--text-light:#6c757d;--huawei-red:#cf0a2c;--dark:#1a1a2e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 40%,#cf0a2c 100%);color:#fff;padding:48px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(207,10,44,.15) 0%,transparent 60%);animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.hero h1{font-size:30px;font-weight:800;letter-spacing:3px;margin-bottom:10px;position:relative}
+.hero .subtitle{color:#adb5bd;font-size:14px;position:relative}
+.hero .meta{display:flex;gap:16px;justify-content:center;margin-top:14px;flex-wrap:wrap;position:relative}
+.hero .meta span{font-size:12px;padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px)}
+
+.section-title{padding:28px 24px 12px;font-size:20px;font-weight:800;color:var(--dark);border-bottom:3px solid var(--huawei-red);margin:0 24px}
+.section-title .en{font-size:12px;color:var(--text-light);font-weight:400;margin-left:8px}
+.section-sub{padding:8px 24px 16px;font-size:13px;color:var(--text-light);margin:0 24px}
+
+/* Overview Cards */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding:0 24px 24px}
+.overview-card{background:#fff;border-radius:10px;padding:18px;border:1px solid var(--border);text-align:center;transition:transform .2s}
+.overview-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.overview-card .num{font-size:28px;font-weight:800;margin-bottom:4px}
+.overview-card .label{font-size:12px;color:var(--text-light)}
+
+/* Chain Diagram */
+.chain-flow{padding:16px 24px 24px;overflow-x:auto}
+.chain-row{display:flex;gap:8px;align-items:stretch;min-width:900px}
+.chain-node{flex:1;background:#fff;border-radius:10px;border:1px solid var(--border);padding:14px;min-width:140px;position:relative}
+.chain-node .node-title{font-size:12px;font-weight:700;color:#fff;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:8px}
+.node-design{background:var(--huawei-red)}
+.node-fab{background:var(--purple)}
+.node-pkg{background:var(--gold)}
+.node-part{background:var(--blue)}
+.node-int{background:#0ca678}
+.node-sw{background:var(--gray)}
+.chain-node .node-body{font-size:12px;line-height:1.8}
+.chain-node .node-body strong{color:var(--text)}
+.chain-arrow{display:flex;align-items:center;font-size:20px;color:var(--huawei-red);font-weight:800;padding:0 2px;flex-shrink:0}
+
+/* Stock Card */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(370px,1fr));gap:16px;padding:0 24px 24px}
+.stock-card{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.stock-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+
+.sc-header{padding:14px 18px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start}
+.sc-header .left .name{font-size:17px;font-weight:700}
+.sc-header .left .code{font-size:11px;color:var(--text-light);margin-top:2px}
+.sc-header .left .role{font-size:11px;padding:2px 8px;border-radius:10px;margin-top:5px;display:inline-block;color:#fff}
+.sc-header .right{text-align:right}
+.sc-header .right .price{font-size:20px;font-weight:800}
+.sc-header .right .change{font-size:13px;font-weight:600;margin-top:2px}
+
+.sc-metrics{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.sc-metrics .m-item{padding:10px 8px;text-align:center;border-right:1px solid #f1f3f5}
+.sc-metrics .m-item:last-child{border-right:none}
+.sc-metrics .m-label{font-size:10px;color:var(--text-light);margin-bottom:3px}
+.sc-metrics .m-val{font-size:14px;font-weight:700}
+
+.sc-bar{padding:10px 18px;border-bottom:1px solid var(--border)}
+.sc-bar-title{font-size:11px;color:var(--text-light);margin-bottom:6px}
+.sc-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sc-bar-row .dim{font-size:11px;width:52px;color:var(--text-light);flex-shrink:0}
+.sc-bar-row .bar-bg{flex:1;height:5px;background:#f1f3f5;border-radius:3px;overflow:hidden}
+.sc-bar-row .bar-fill{height:100%;border-radius:3px}
+.fill-5{width:100%;background:var(--green)}.fill-4{width:80%;background:#74c0fc}.fill-3{width:60%;background:var(--gold)}.fill-2{width:40%;background:#ff922b}.fill-1{width:20%;background:var(--red)}
+.sc-bar-row .score{font-size:11px;font-weight:700;width:18px;text-align:right;flex-shrink:0}
+
+.sc-analysis{padding:10px 18px;border-bottom:1px solid var(--border)}
+.sc-analysis .a-label{font-size:10px;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.sc-analysis .a-text{font-size:12px;line-height:1.7;color:var(--text)}
+
+.sc-verdict{padding:10px 18px 12px}
+.sc-verdict .v-label{font-size:10px;color:var(--text-light);font-weight:600;margin-bottom:4px}
+.sc-verdict .v-text{font-size:13px;font-weight:700}
+
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{font-size:10px;padding:2px 7px;border-radius:8px;background:#f1f3f5;color:#495057}
+.tag-pos{background:#d3f9d8;color:#2b8a3e}.tag-neg{background:#ffe3e3;color:#c92a2a}.tag-neu{background:#e7f5ff;color:#1864ab}.tag-hot{background:#fff0f6;color:#c2255c}
+
+/* Potential Company */
+.potential-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;padding:0 24px 24px}
+.pot-card{background:#fff;border-radius:10px;border:1px dashed var(--purple);padding:16px;transition:all .2s}
+.pot-card:hover{border-style:solid;box-shadow:0 4px 12px rgba(112,72,232,.1)}
+.pot-card .pot-name{font-size:15px;font-weight:700;margin-bottom:2px}
+.pot-card .pot-code{font-size:11px;color:var(--text-light)}
+.pot-card .pot-role{font-size:11px;padding:2px 8px;border-radius:8px;background:#f3f0ff;color:var(--purple);display:inline-block;margin:6px 0}
+.pot-card .pot-logic{font-size:12px;color:#555;line-height:1.6;margin-top:6px}
+.pot-card .pot-prob{margin-top:8px;font-size:12px;font-weight:700}
+.prob-high{color:var(--green)}.prob-mid{color:var(--gold)}.prob-low{color:var(--blue)}
+
+/* Summary Table */
+.table-wrap{padding:0 24px 32px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--dark);color:#fff;padding:10px 12px;text-align:left;white-space:nowrap;position:sticky;top:0}
+td{padding:9px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
+tr:hover td{background:#f8f9fa}
+
+/* Conclusion */
+.conclusion{background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;padding:32px 24px;margin:0 24px 32px;border-radius:16px}
+.conclusion h3{font-size:18px;margin-bottom:16px;text-align:center}
+.conclusion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.conclusion-item{background:rgba(255,255,255,.08);border-radius:10px;padding:16px;backdrop-filter:blur(4px)}
+.conclusion-item .ci-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.conclusion-item .ci-text{font-size:12px;line-height:1.7;opacity:.9}
+
+.footer{text-align:center;padding:24px;font-size:12px;color:var(--text-light);border-top:1px solid var(--border);background:#fff}
+
+.val-red{color:var(--red)}.val-green{color:var(--green)}.val-gold{color:var(--gold)}.val-blue{color:var(--blue)}.val-purple{color:var(--purple)}
+
+/* Rating Badge */
+.rating{padding:4px 10px;border-radius:14px;font-size:11px;font-weight:700;color:#fff;display:inline-block}
+.r-buy{background:var(--green)}.r-hold{background:var(--gold);color:#333}.r-watch{background:var(--blue)}.r-spec{background:var(--purple)}
+
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}.overview-grid{grid-template-columns:1fr 1fr}.sc-metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <h1>🔶 华为昇腾芯片产业链深度研究报告</h1>
+  <div class="subtitle">国产AI算力核心底座 · 从芯片到集群的全链路价值拆解</div>
+  <div class="meta">
+    <span>📅 2026年5月25日</span>
+    <span>📊 覆盖20+公司</span>
+    <span>🔥 昇腾950量产元年</span>
+    <span>💰 字节+阿里475亿锁单</span>
+  </div>
+</div>
+
+<!-- ========== 总：行业全景 ========== -->
+<div class="section-title">总 · 产业链全景概览<span class="en">Panorama</span></div>
+<div class="section-sub">华为昇腾已形成"芯片设计→晶圆代工→先进封装→核心零部件→整机集成→软件生态"全链条国产化布局。2026年是昇腾950量产元年，全年目标80-100万片，字节跳动+阿里巴巴锁定40万颗/475亿元订单。</div>
+
+<div class="overview-grid">
+  <div class="overview-card"><div class="num val-red">75万颗</div><div class="label">昇腾950PR全年量产规划</div></div>
+  <div class="overview-card"><div class="num val-blue">475亿</div><div class="label">字节+阿里锁单金额</div></div>
+  <div class="overview-card"><div class="num val-green">81.2万张</div><div class="label">2025年昇腾出货量</div></div>
+  <div class="overview-card"><div class="num val-gold">160万片</div><div class="label">2026年晶圆产量目标</div></div>
+  <div class="overview-card"><div class="num val-purple">55%→</div><div class="label">英伟达市占率降幅</div></div>
+  <div class="overview-card"><div class="num" style="color:var(--huawei-red)">50%+</div><div class="label">国产AI芯片市占目标</div></div>
+</div>
+
+<!-- Chain Flow -->
+<div class="chain-flow">
+  <div class="chain-row">
+    <div class="chain-node">
+      <span class="node-title node-design">芯片设计</span>
+      <div class="node-body"><strong>华为海思</strong><br>昇腾910/950系列<br>Ascend架构<br>未来：960/970</div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">
+      <span class="node-title node-fab">晶圆代工</span>
+      <div class="node-body"><strong>中芯国际</strong>（独家）<br>N+2/N+3工艺<br>7nm量产/5nm小规模<br>华虹（辅助）</div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">
+      <span class="node-title node-pkg">先进封装</span>
+      <div class="node-body"><strong>长电科技</strong>（核心36.9%）<br>XDFOI Chiplet<br><strong>盛合晶微</strong>（2.5D 85%）<br>通富微电/华天科技</div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">
+      <span class="node-title node-part">核心零部件</span>
+      <div class="node-body">连接器：华丰/意华<br>载板：兴森/深南<br>PCB：沪电/生益<br>光模块：华工/中际旭创<br>电源：泰嘉/欧陆通</div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">
+      <span class="node-title node-int">整机集成</span>
+      <div class="node-body"><strong>高新发展</strong>（华鲲振宇50%）<br><strong>拓维信息</strong>（15-20%）<br><strong>神州数码</strong>（30%+）<br>散热：英维克/申菱</div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="chain-node">
+      <span class="node-title node-sw">软件生态</span>
+      <div class="node-body"><strong>润和软件</strong>（CANN/MindSpore）<br><strong>软通动力</strong>（一体机）<br>DeepSeek V4适配<br>400万+开发者</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 分：各环节深度分析 ========== -->
+<div class="section-title">分 · 产业链各环节核心标的<span class="en">Deep Dive by Segment</span></div>
+
+<!-- === 1. 芯片制造 === -->
+<div class="section-sub" style="font-weight:700;color:var(--purple);font-size:14px">🔬 环节一：芯片设计与制造（价值金字塔顶端）</div>
+
+<div class="card-grid">
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">中芯国际</div>
+      <div class="code">688981 · 科创板</div>
+      <div class="role" style="background:var(--purple)">昇腾芯片独家代工厂</div>
+    </div>
+    <div class="right">
+      <div class="price val-red">¥156.00</div>
+      <div class="change val-red">+18.78% 🔥今日涨停</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">55-75%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">37x</div></div>
+    <div class="m-item"><div class="m-label">代工收入(昇腾)</div><div class="m-val val-blue">&gt;50亿</div></div>
+    <div class="m-item"><div class="m-label">7nm良率</div><div class="m-val val-green">40%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">昇腾芯片<strong>唯一代工厂</strong>，与华为联合计划将产能扩至160万片。5nm已小规模量产，7nm良率40%持续提升。完成收购中芯北方49%股权实现全资控股，产能整合加速。今日涨停18.78%，主力净流入37亿，市场共识极强。</div>
+    <div class="tags"><span class="tag tag-pos">独家代工</span><span class="tag tag-pos">产能扩张</span><span class="tag tag-neg">PE 37x偏贵</span><span class="tag tag-hot">今日涨停</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-red">⚡ 年初至今涨幅已超60%，今日放量大涨18%创近期新高。短期获利盘丰厚，注意回调风险；但产业逻辑极强，中期依然看多。建议回调10-15%后介入更安全。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- === 2. 先进封装 === -->
+<div class="section-sub" style="font-weight:700;color:var(--gold);font-size:14px">📦 环节二：先进封装与载板（当前最紧张环节）</div>
+
+<div class="card-grid">
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">长电科技</div>
+      <div class="code">600584 · 上交所</div>
+      <div class="role" style="background:var(--gold);color:#333">先进封装龙头·市占36.9%</div>
+    </div>
+    <div class="right">
+      <div class="price val-red">¥80.17</div>
+      <div class="change val-red">+10.00% 🔥今日涨停</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">70-90%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">33x</div></div>
+    <div class="m-item"><div class="m-label">AI封装占比</div><div class="m-val val-blue">38%</div></div>
+    <div class="m-item"><div class="m-label">Q1净利增速</div><div class="m-val val-green">+42.7%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">全球第三大封测厂、国内第一。XDFOI高密度Chiplet+HBM合封技术<strong>国内独家</strong>，良率99.95%。AI芯片先进封装单颗价值量为传统5-10倍，产线24小时轮转仍供不应求。4个交易日累计涨幅31.8%。</div>
+    <div class="tags"><span class="tag tag-pos">先进封装核心</span><span class="tag tag-pos">HBM合封</span><span class="tag tag-pos">业绩加速</span><span class="tag tag-neg">短期涨幅过大</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-red">⚡ 4日连涨31.8%，今日涨停。短期严重超买需消化，但先进封装是AI算力瓶颈中的瓶颈，中线逻辑极硬。建议等回调至68-72元区间再介入。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">兴森科技</div>
+      <div class="code">002436 · 深交所</div>
+      <div class="role" style="background:var(--gold);color:#333">ABF载板·国内唯一量产</div>
+    </div>
+    <div class="right">
+      <div class="price val-green">¥37.31</div>
+      <div class="change val-green">+5.34%</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">+213%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">36x</div></div>
+    <div class="m-item"><div class="m-label">ABF载板占比</div><div class="m-val val-blue">70%→华为</div></div>
+    <div class="m-item"><div class="m-label">52周区间</div><div class="m-val val-gold">11-36元</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text"><strong>国内唯一量产ABF载板</strong>企业，全球ABF载板供给极度紧张。昇腾+存储芯片占营收约70%，珠海基地72亿产能专为昇腾定制。单颗910B消耗约1.5片ABF载板，成本较海外低30%。2026年净利预增213%，业绩拐点已确认。</div>
+    <div class="tags"><span class="tag tag-pos">ABF载板垄断</span><span class="tag tag-pos">业绩爆发</span><span class="tag tag-pos">全球短缺</span><span class="tag tag-neu">良率爬坡中</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 从11元涨至37元已涨3倍+，但ABF载板是全产业链最紧缺环节，业绩爆发才刚开始。短期注意36-39元压力区，中期看好至50元+。回调至30元附近可加仓。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">深南电路</div>
+      <div class="code">002916 · 深交所</div>
+      <div class="role" style="background:var(--gold);color:#333">FC-BGA载板·14层量产</div>
+    </div>
+    <div class="right">
+      <div class="price">¥168.50</div>
+      <div class="change val-green">稳步上行</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">60-80%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">39x</div></div>
+    <div class="m-item"><div class="m-label">PCB层数</div><div class="m-val val-blue">最高120层</div></div>
+    <div class="m-item"><div class="m-label">FC-BGA</div><div class="m-val val-green">唯一国产</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">国内<strong>唯一能量产14层以上FC-BGA</strong>基板和120层高频高速PCB的企业。昇腾950互联带宽升级至2TB/s，PCB层数从8层升至20层+，价值量数倍提升。双重受益于封装基板+高端PCB需求爆发。</div>
+    <div class="tags"><span class="tag tag-pos">FC-BGA唯一国产</span><span class="tag tag-pos">120层PCB</span><span class="tag tag-pos">双重受益</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 走势稳健上行，技术壁垒高+业绩确定性强。39x PE在成长股中合理，中线持有看至200元+。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- === 3. 核心零部件 === -->
+<div class="section-sub" style="font-weight:700;color:var(--blue);font-size:14px">⚙️ 环节三：核心零部件（技术壁垒高，弹性最大）</div>
+
+<div class="card-grid">
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">华丰科技</div>
+      <div class="code">688629 · 科创板</div>
+      <div class="role" style="background:var(--blue)">高速连接器·市占70%</div>
+    </div>
+    <div class="right">
+      <div class="price val-red">¥147.24</div>
+      <div class="change val-red">+11.71% 近期强势</div>
+      <span class="rating r-spec">🔥 高弹性</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">120-150%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-red">157x</div></div>
+    <div class="m-item"><div class="m-label">连接器市占</div><div class="m-val val-green">70%+</div></div>
+    <div class="m-item"><div class="m-label">哈勃持股</div><div class="m-val val-blue">2.95%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-1"></div></div><span class="score" style="color:var(--red)">1</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-1"></div></div><span class="score" style="color:var(--red)">1</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">华为哈勃投资持股，昇腾高速背板连接器<strong>市占70%+</strong>。单台超节点需500个连接器，价值量是传统3-5倍。112G已批量交付，224G新品过审。2026年净利预增120-150%，业绩确定性板块第一。但PE 157x极度高估。</div>
+    <div class="tags"><span class="tag tag-pos">哈勃入股</span><span class="tag tag-pos">业绩增速最高</span><span class="tag tag-neg">PE 157x极贵</span><span class="tag tag-hot">高波动</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-gold">⚠️ 产业逻辑极强但估值泡沫严重。适合风险偏好高的短线博弈，不适合价值投资。回调至100元以下可考虑，追高风险极大。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">华工科技</div>
+      <div class="code">000988 · 深交所</div>
+      <div class="role" style="background:var(--blue)">1.6T光模块核心供应商</div>
+    </div>
+    <div class="right">
+      <div class="price">¥52.80</div>
+      <div class="change val-green">稳步上行</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">80-100%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-green">32x</div></div>
+    <div class="m-item"><div class="m-label">Q1光模块增速</div><div class="m-val val-green">+140倍</div></div>
+    <div class="m-item"><div class="m-label">产品升级</div><div class="m-val val-blue">800G→1.6T</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">不可替代</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">昇腾超节点1.6T光模块核心供应商，Q1'26 800G以上光模块销售额同比增<strong>近140倍</strong>。同时布局硅光器件和激光芯片，受益AI算力集群扩容和海内外云厂商需求。PE仅32x在成长股中极具性价比。</div>
+    <div class="tags"><span class="tag tag-pos">1.6T光模块</span><span class="tag tag-pos">Q1暴增140倍</span><span class="tag tag-pos">PE合理</span><span class="tag tag-pos">海外+国内双受益</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 业绩弹性极大+估值合理，是昇腾链中性价比最高的标的之一。走势稳健上行，中线看至70元+，可逢低建仓。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">沪电股份</div>
+      <div class="code">002463 · 深交所</div>
+      <div class="role" style="background:var(--blue)">高端PCB·连续8季环比增长</div>
+    </div>
+    <div class="right">
+      <div class="price">¥38.50</div>
+      <div class="change val-green">稳步上行</div>
+      <span class="rating r-buy">稳健配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">净利趋势</div><div class="m-val val-green">8季环比↑</div></div>
+    <div class="m-item"><div class="m-label">扩产计划</div><div class="m-val val-gold">177亿</div></div>
+    <div class="m-item"><div class="m-label">PCB层数</div><div class="m-val val-blue">20层+</div></div>
+    <div class="m-item"><div class="m-label">扩产倍数</div><div class="m-val val-red">5.5x</div></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">昇腾AI服务器PCB核心供应商，单季归母净利连续8个季度环比稳步上涨。1-4月扩产计划累积177亿元（2025年全年资本开支32亿元的5.5倍），充分体现对AI PCB需求的信心。风险是扩产带来的折旧压力。</div>
+    <div class="tags"><span class="tag tag-pos">8季环比增长</span><span class="tag tag-pos">产能大扩张</span><span class="tag tag-neg">折旧压力</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 走势最稳健的昇腾链标的之一，业绩逐季改善确定性高。38元附近可逢低配置，中线目标48-50元。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- === 4. 整机集成 === -->
+<div class="section-sub" style="font-weight:700;color:#0ca678;font-size:14px">🖥️ 环节四：整机集成与散热（业绩兑现最快）</div>
+
+<div class="card-grid">
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">高新发展</div>
+      <div class="code">000628 · 深交所</div>
+      <div class="role" style="background:#0ca678">昇腾服务器整机龙头·市占50%</div>
+    </div>
+    <div class="right">
+      <div class="price">¥58.06</div>
+      <div class="change val-red">-6.94% 近期回调</div>
+      <span class="rating r-spec">🔥 高弹性</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">180-220%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">38x</div></div>
+    <div class="m-item"><div class="m-label">在手订单</div><div class="m-val val-blue">&gt;120亿</div></div>
+    <div class="m-item"><div class="m-label">昇腾市占率</div><div class="m-val val-green">50%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">行业地位</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">控股华鲲振宇70%，昇腾服务器<strong>市占率50%</strong>，2026年在手订单超120亿，是整机环节<strong>绝对龙头</strong>。但公司澄清"未开展题述相关业务"，华鲲振宇并表进度存疑，股价波动剧烈（昨日-6.94%）。</div>
+    <div class="tags"><span class="tag tag-pos">整机市占第一</span><span class="tag tag-pos">订单120亿+</span><span class="tag tag-neg">并表存疑</span><span class="tag tag-hot">高波动</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-gold">⚠️ 逻辑最正但波动最大，适合趋势交易者。58元已从高点回调，若企稳可轻仓博弈反弹，但需严设止损（跌破52元离场）。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">拓维信息</div>
+      <div class="code">002261 · 深交所</div>
+      <div class="role" style="background:#0ca678">鲲鹏+昇腾+鸿蒙+海思四合一</div>
+    </div>
+    <div class="right">
+      <div class="price">¥33.17</div>
+      <div class="change val-green">+2.92%</div>
+      <span class="rating r-buy">核心配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">500%+</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">34x</div></div>
+    <div class="m-item"><div class="m-label">在手算力订单</div><div class="m-val val-blue">&gt;90亿</div></div>
+    <div class="m-item"><div class="m-label">算力毛利率</div><div class="m-val val-green">52-65%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">价值评分</div>
+    <div class="sc-bar-row"><span class="dim">战略地位</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">业绩弹性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">股价位置</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">A股<strong>唯一覆盖鲲鹏+昇腾+鸿蒙+海思四大根技术</strong>的战略伙伴。自研"兆瀚"AI服务器，整机市占15-20%。算力服务毛利率高达52-65%（远超同行），2025年昇腾业务营收同比+280%。今日主力净流入9661万。</div>
+    <div class="tags"><span class="tag tag-pos">四大根技术全覆盖</span><span class="tag tag-pos">算力高毛利</span><span class="tag tag-pos">500%业绩增速</span><span class="tag tag-neu">估值适中</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 昇腾链中基本面最扎实的整机标的，33元处于合理区间。业绩爆发确定性高（500%+），可分批建仓，中线看至45-50元。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">英维克</div>
+      <div class="code">002837 · 深交所</div>
+      <div class="role" style="background:#0ca678">液冷温控·独家供应商</div>
+    </div>
+    <div class="right">
+      <div class="price">¥68.20</div>
+      <div class="change val-green">稳步上行</div>
+      <span class="rating r-buy">稳健配置</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">85-105%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-gold">36x</div></div>
+    <div class="m-item"><div class="m-label">液冷渗透率</div><div class="m-val val-blue">15%→50%</div></div>
+    <div class="m-item"><div class="m-label">AI液冷收入</div><div class="m-val val-green">&gt;40%</div></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">昇腾服务器液冷温控<strong>独家供应商</strong>，冷板式液冷国内市场份额第一。AI芯片功耗飙升（950单卡600W+），液冷从可选变必选，渗透率从15%向50%跃升。AI液冷收入占比超40%，同比增长80%+。</div>
+    <div class="tags"><span class="tag tag-pos">液冷龙头</span><span class="tag tag-pos">刚需爆发</span><span class="tag tag-pos">渗透率跃升</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 液冷是AI算力确定性最高的配套环节之一，业绩增速85%+。68元位置合理，回调至60元以下更佳，中线看至85元+。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- === 5. 软件生态 === -->
+<div class="section-sub" style="font-weight:700;color:var(--gray);font-size:14px">💻 环节五：软件生态与分销</div>
+
+<div class="card-grid">
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">神州数码</div>
+      <div class="code">000034 · 深交所</div>
+      <div class="role" style="background:var(--gray)">整机+分销·PE最低</div>
+    </div>
+    <div class="right">
+      <div class="price">¥42.50</div>
+      <div class="change val-green">稳步上行</div>
+      <span class="rating r-buy">性价比最高</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2026E净利增速</div><div class="m-val val-green">60-80%</div></div>
+    <div class="m-item"><div class="m-label">PE</div><div class="m-val val-green">28x ⭐</div></div>
+    <div class="m-item"><div class="m-label">双认证</div><div class="m-val val-blue">唯一A股</div></div>
+    <div class="m-item"><div class="m-label">中标移动</div><div class="m-val val-gold">50亿</div></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">昇腾生态<strong>唯一获鲲鹏+昇腾双认证</strong>的A股公司。自有"神州鲲泰"服务器年产能50万台，分销+整机双轮驱动。中标中国移动50亿算力订单。<strong>PE仅28x，是昇腾链中安全边际最足的标的</strong>。</div>
+    <div class="tags"><span class="tag tag-pos">双认证唯一</span><span class="tag tag-pos">PE最低28x</span><span class="tag tag-pos">50亿大单</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-green">✅ 昇腾链中PE最低的标的（28x），性价比最高。适合稳健型投资者配置，42元可建仓，中线看至55-60元。</div>
+  </div>
+</div>
+
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">润和软件</div>
+      <div class="code">300339 · 创业板</div>
+      <div class="role" style="background:var(--gray)">昇腾950全适配·AI Agent</div>
+    </div>
+    <div class="right">
+      <div class="price">¥52.30</div>
+      <div class="change val-green">概念活跃</div>
+      <span class="rating r-watch">概念博弈</span>
+    </div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">生态角色</div><div class="m-val val-blue">CANN+MindSpore</div></div>
+    <div class="m-item"><div class="m-label">鸿蒙工具链</div><div class="m-val val-green">市占30%+</div></div>
+    <div class="m-item"><div class="m-label">DeepSeek</div><div class="m-val val-gold">V4适配</div></div>
+    <div class="m-item"><div class="m-label">估值</div><div class="m-val val-red">偏高</div></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">深度参与CANN异构计算架构与MindSpore框架建设，助力DeepSeek V4在昇腾芯片实现推理性能跃升。鸿蒙工具链市占超30%。但软件生态公司<strong>业绩兑现慢</strong>，主要靠概念驱动，波动大。</div>
+    <div class="tags"><span class="tag tag-pos">CANN核心</span><span class="tag tag-pos">鸿蒙生态</span><span class="tag tag-neg">业绩兑现慢</span><span class="tag tag-neu">概念驱动</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">涨势判断</div>
+    <div class="v-text val-gold">⚖️ 适合概念炒作阶段的短线博弈，昇腾/鸿蒙有事件催化时弹性大。但基本面支撑弱，不适合长期重仓。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- ========== 汇总表 ========== -->
+<div class="section-title">分 · 全链路标的汇总<span class="en">Summary Table</span></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>环节</th><th>公司</th><th>代码</th><th>现价</th><th>2026E增速</th><th>PE</th><th>核心壁垒</th><th>涨势</th><th>操作建议</th></tr></thead>
+<tbody>
+<tr><td>芯片设计</td><td style="font-weight:700">华为海思</td><td>未上市</td><td>—</td><td>—</td><td>—</td><td>Ascend架构</td><td>—</td><td style="color:var(--gray)">不可投</td></tr>
+<tr><td>晶圆代工</td><td style="font-weight:700">中芯国际</td><td>688981</td><td>¥156</td><td style="color:var(--green)">55-75%</td><td>37x</td><td>独家代工</td><td style="color:var(--red)">🔥今日涨停</td><td style="color:var(--gold)">等回调</td></tr>
+<tr><td>先进封装</td><td style="font-weight:700">长电科技</td><td>600584</td><td>¥80.17</td><td style="color:var(--green)">70-90%</td><td>33x</td><td>XDFOI Chiplet</td><td style="color:var(--red)">🔥4日+31.8%</td><td style="color:var(--gold)">等回调</td></tr>
+<tr><td>ABF载板</td><td style="font-weight:700">兴森科技</td><td>002436</td><td>¥37.31</td><td style="color:var(--green)">+213%</td><td>36x</td><td>国内唯一量产</td><td style="color:var(--green)">强势上行</td><td style="color:var(--green)">可加仓</td></tr>
+<tr><td>FC-BGA载板</td><td style="font-weight:700">深南电路</td><td>002916</td><td>¥168</td><td style="color:var(--green)">60-80%</td><td>39x</td><td>14层唯一国产</td><td style="color:var(--green)">稳步上行</td><td style="color:var(--green)">持有</td></tr>
+<tr><td>连接器</td><td style="font-weight:700">华丰科技</td><td>688629</td><td>¥147</td><td style="color:var(--green)">120-150%</td><td style="color:var(--red)">157x</td><td>哈勃入股70%</td><td style="color:var(--red)">高波动</td><td style="color:var(--red)">高风险</td></tr>
+<tr><td>光模块</td><td style="font-weight:700">华工科技</td><td>000988</td><td>¥52.8</td><td style="color:var(--green)">80-100%</td><td>32x</td><td>1.6T光模块</td><td style="color:var(--green)">稳步上行</td><td style="color:var(--green)">⭐逢低买</td></tr>
+<tr><td>PCB</td><td style="font-weight:700">沪电股份</td><td>002463</td><td>¥38.5</td><td>—</td><td>—</td><td>8季环比增长</td><td style="color:var(--green)">稳健上行</td><td style="color:var(--green)">可配置</td></tr>
+<tr><td>整机龙头</td><td style="font-weight:700">高新发展</td><td>000628</td><td>¥58</td><td style="color:var(--green)">180-220%</td><td>38x</td><td>华鲲振宇50%</td><td style="color:var(--gold)">高波动</td><td style="color:var(--gold)">轻仓博弈</td></tr>
+<tr><td>整机+算力</td><td style="font-weight:700">拓维信息</td><td>002261</td><td>¥33.17</td><td style="color:var(--green)">500%+</td><td>34x</td><td>四合一战略</td><td style="color:var(--green)">主力流入</td><td style="color:var(--green)">⭐逢低买</td></tr>
+<tr><td>分销+整机</td><td style="font-weight:700">神州数码</td><td>000034</td><td>¥42.5</td><td style="color:var(--green)">60-80%</td><td style="color:var(--green)">28x</td><td>双认证唯一</td><td style="color:var(--green)">稳步上行</td><td style="color:var(--green)">⭐性价比最高</td></tr>
+<tr><td>液冷</td><td style="font-weight:700">英维克</td><td>002837</td><td>¥68.2</td><td style="color:var(--green)">85-105%</td><td>36x</td><td>液冷独家</td><td style="color:var(--green)">稳步上行</td><td style="color:var(--green)">可配置</td></tr>
+<tr><td>软件生态</td><td style="font-weight:700">润和软件</td><td>300339</td><td>¥52.3</td><td>—</td><td>偏高</td><td>CANN+鸿蒙</td><td style="color:var(--gold)">概念活跃</td><td style="color:var(--gold)">短线博弈</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ========== 潜在入链公司 ========== -->
+<div class="section-title">分 · 潜在入链公司挖掘<span class="en">Potential Supply Chain Entrants</span></div>
+<div class="section-sub">以下公司目前尚未深度绑定昇腾供应链，但具备技术能力或战略逻辑，有望在未来1-2年进入产业链。</div>
+
+<div class="potential-grid">
+
+<div class="pot-card">
+  <div class="pot-name">华海诚科</div><div class="pot-code">688535 · 科创板</div>
+  <div class="pot-role">HBM封装材料(GMC)·国内唯一认证</div>
+  <div class="pot-logic">国内唯一量产HBM封装必需材料GMC的企业，适配12层HBM3E堆叠。2025年GMC产能2000吨，HBM业务收入占比预计超40%。长鑫存储HBM3已供样华为昇腾910C，华海诚科作为长鑫GMC独家供应商，<strong>间接受益昇腾HBM需求</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐ 高</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">雅克科技</div><div class="pot-code">002409 · 深交所</div>
+  <div class="pot-role">HBM前驱体材料·国产唯一</div>
+  <div class="pot-logic">国产唯一HBM介电层前驱体材料供应商，纯度99.9999%，直供SK海力士。联合华为开发HBM4用前驱体。随着华为自研HBM推进，雅克科技有望从间接供应商升级为<strong>直供华为</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐ 高</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">赛腾股份</div><div class="pot-code">603283 · 上交所</div>
+  <div class="pot-role">HBM量测设备·国内唯一量产</div>
+  <div class="pot-logic">A股唯一实现HBM量测设备量产的企业，通过收购日本Optima掌握全球领先HBM全制程检测技术（精度0.1μm）。已与国内头部FAB厂商建立合作并实现出货。若华为自建HBM产线，<strong>检测设备必选赛腾</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐ 高</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">华正新材</div><div class="pot-code">603186 · 上交所</div>
+  <div class="pot-role">CBF膜(ABF替代)·已过910C验证</div>
+  <div class="pot-logic">CBF膜作为ABF膜替代方案已通过昇腾910C验证，6亿产能产线投用。2025年预计量产贡献收入10亿元。若ABF载板持续短缺，CBF膜替代方案有望<strong>从备选升级为主供</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐ 高（已在验证中）</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">鼎龙股份</div><div class="pot-code">300054 · 创业板</div>
+  <div class="pot-role">CMP抛光液·半导体材料平台</div>
+  <div class="pot-logic">国内CMP抛光液领先企业，已进入中芯国际供应链。随着昇腾芯片制造量放大，CMP材料需求同步增长。同时布局光敏聚酰亚胺(PSPI)等先进封装材料，<strong>有望切入封装材料环节</strong>。</div>
+  <div class="pot-prob prob-mid">入链概率：⭐⭐⭐ 中</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">海光信息</div><div class="pot-code">688041 · 科创板</div>
+  <div class="pot-role">昇腾生态CPU/GPU·异构方案</div>
+  <div class="pot-logic">昇腾生态CPU/GPU核心供应商，海光C860处理器与昇腾芯片联合开发异构方案。2025年上半年昇腾配套芯片出货超50万颗。虽已入链但市场关注度偏低，<strong>存在预期差</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐⭐ 已入链（预期差标的）</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">兆易创新</div><div class="pot-code">603986 · 上交所</div>
+  <div class="pot-role">NOR Flash·存储芯片</div>
+  <div class="pot-logic">国内NOR Flash龙头，产品已进入华为昇腾供应链。昇腾服务器对存储芯片需求增长，兆易有望随昇腾放量而受益。同时布局DRAM，<strong>长期有望切入HBM领域</strong>。</div>
+  <div class="pot-prob prob-mid">入链概率：⭐⭐⭐ 中</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">联瑞新材</div><div class="pot-code">688300 · 科创板</div>
+  <div class="pot-role">Low-α球硅·全球3家量产</div>
+  <div class="pot-logic">全球仅3家量产Low-α球硅的企业之一，该材料是HBM封装基板的核心填料。随着华为自研HBM推进，对Low-α球硅需求将大幅增长，<strong>联瑞新材是稀缺标的</strong>。</div>
+  <div class="pot-prob prob-mid">入链概率：⭐⭐⭐ 中</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">安集科技</div><div class="pot-code">688019 · 科创板</div>
+  <div class="pot-role">CMP抛光液·国产HBM核心</div>
+  <div class="pot-logic">国产HBM CMP抛光液核心供应商，已进入中芯国际和长鑫存储供应链。随昇腾芯片+自研HBM产能扩张，CMP材料需求同步爆发。<strong>间接受益确定性高</strong>。</div>
+  <div class="pot-prob prob-mid">入链概率：⭐⭐⭐ 中</div>
+</div>
+
+<div class="pot-card">
+  <div class="pot-name">澜起科技</div><div class="pot-code">688008 · 科创板</div>
+  <div class="pot-role">DDR5接口芯片·已入六成服务器</div>
+  <div class="pot-logic">DDR5接口芯片塞进六成以上昇腾服务器，虽已入链但市场对昇腾业务贡献认知不足。同时布局CXL互连芯片和MRCD/MDB（服务器内存接口），<strong>随AI算力升级持续受益</strong>。</div>
+  <div class="pot-prob prob-high">入链概率：⭐⭐⭐⭐⭐ 已入链（预期差标的）</div>
+</div>
+
+</div>
+
+<!-- ========== 总：投资策略 ========== -->
+<div class="section-title">总 · 投资策略与结论<span class="en">Conclusion & Strategy</span></div>
+
+<div class="conclusion">
+  <h3>🎯 核心结论：昇腾链是2026年A股最强产业主线之一</h3>
+  <div class="conclusion-grid">
+    <div class="conclusion-item">
+      <div class="ci-title">1️⃣ 产业趋势确认</div>
+      <div class="ci-text">昇腾950量产元年+475亿大单锁定+DeepSeek V4适配，国产AI算力闭环正式落地。英伟达市占率从95%降至55%，华为目标50%+，这是一场<strong>不可逆的国产替代浪潮</strong>。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">2️⃣ 瓶颈即价值</div>
+      <div class="ci-text">全产业链最紧缺环节：<strong>ABF载板（兴森科技）> 先进封装（长电科技）> 高端PCB（深南/沪电）</strong>。越紧缺的环节，议价能力越强，业绩弹性越大。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">3️⃣ 性价比排序</div>
+      <div class="ci-text">从PE/增速匹配度看：<strong>神州数码(28x) > 华工科技(32x) > 拓维信息(34x) > 长电科技(33x)</strong>。华丰科技(157x)和高新发展估值泡沫明显，仅适合短线博弈。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">4️⃣ 操作节奏</div>
+      <div class="ci-text">当前（5月25日）中芯国际+长电科技双双涨停，短期过热。<strong>建议等待6月回调后建仓</strong>，优先配置神州数码、华工科技、拓维信息。兴森科技等回调至30元以下更佳。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">5️⃣ 潜在入链机会</div>
+      <div class="ci-text">HBM国产化是下一个爆发点。华海诚科(GMC)、雅克科技(前驱体)、赛腾股份(量测设备)入链概率最高。华正新材(CBF膜)已过验证，值得重点跟踪。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">6️⃣ 风险提示</div>
+      <div class="ci-text">⚠️ 中美科技博弈升级风险 · 昇腾950产能爬坡不及预期 · ABF载板良率波动 · 估值已处高位，追高风险大 · 部分公司并表/业绩兑现存疑</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📅 报告日期：2026年5月25日 · 数据来源：公司年报、东方财富、同花顺、雪球研究、百度爱企查</p>
+  <p style="margin-top:6px">本报告基于公开信息整理，仅供研究参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+</div>
+
+</body>
+</html>
