@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>投资研究报告集合</title>
+<style>
+:root{--dark:#1a1a2e;--blue:#1971c2;--red:#cf0a2c;--green:#2f9e44;--gold:#f08c00;--purple:#7048e8;--gray:#868e96;--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--text:#212529}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
+
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 50%,#16213e 100%);color:#fff;padding:48px 24px 36px;text-align:center}
+.hero h1{font-size:28px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.hero .subtitle{color:#adb5bd;font-size:14px}
+.hero .meta{display:flex;gap:12px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.hero .meta span{font-size:12px;padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.12)}
+
+.container{max-width:800px;margin:0 auto;padding:32px 24px}
+
+.report-card{background:var(--card);border-radius:16px;border:1px solid var(--border);overflow:hidden;margin-bottom:24px;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.report-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
+
+.rc-banner{padding:24px 28px;position:relative;overflow:hidden}
+.rc-banner.stock{background:linear-gradient(135deg,#0f3460 0%,#1971c2 100%)}
+.rc-banner.chain{background:linear-gradient(135deg,#1a1a2e 0%,#cf0a2c 100%)}
+.rc-banner *{color:#fff;position:relative;z-index:1}
+.rc-banner::after{content:'';position:absolute;top:-30%;right:-10%;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
+.rc-banner .rc-icon{font-size:36px;margin-bottom:8px}
+.rc-banner .rc-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.rc-banner .rc-desc{font-size:13px;opacity:.85;line-height:1.6}
+
+.rc-body{padding:20px 28px}
+.rc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.rc-tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600}
+.tag-blue{background:#e7f5ff;color:#1864ab}
+.tag-red{background:#fff0f0;color:#c92a2a}
+.tag-green{background:#d3f9d8;color:#2b8a3e}
+.tag-gold{background:#fff9db;color:#e67700}
+.tag-purple{background:#f3f0ff;color:#6741d9}
+
+.rc-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.rc-meta-item{background:#f8f9fa;border-radius:8px;padding:10px 14px}
+.rc-meta-item .label{font-size:11px;color:var(--gray);margin-bottom:2px}
+.rc-meta-item .value{font-size:14px;font-weight:700}
+
+.rc-action{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)}
+.rc-date{font-size:12px;color:var(--gray)}
+.rc-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:#1864ab}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:#a8071a}
+
+.footer{text-align:center;padding:24px;font-size:12px;color:var(--gray);border-top:1px solid var(--border);margin-top:24px}
+
+@media(max-width:600px){.container{padding:20px 16px}.rc-meta{grid-template-columns:1fr}.rc-banner .rc-title{font-size:18px}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📊 投资研究报告集合</h1>
+  <div class="subtitle">基于价值投资框架 · 好生意 × 好商业模式 × 合理估值</div>
+  <div class="meta">
+    <span>📋 标准ROE&gt;15% · 毛利率&gt;15% · 增长率&gt;15%</span>
+    <span>📅 持续更新</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Report 1: 同花顺自选股 -->
+  <a href="./watchlist-analysis-2026Q2.html" style="text-decoration:none;color:inherit">
+  <div class="report-card">
+    <div class="rc-banner stock">
+      <div class="rc-icon">📈</div>
+      <div class="rc-title">同花顺自选股 · 投资价值分析报告</div>
+      <div class="rc-desc">12只自选股全方位体检：贵州茅台、宁德时代、中国平安、招商银行、工业富联、中国海油、中国移动、工商银行、农业银行、建设银行、中国石油、中国银行</div>
+    </div>
+    <div class="rc-body">
+      <div class="rc-tags">
+        <span class="rc-tag tag-green">🟢 强烈推荐 2只</span>
+        <span class="rc-tag tag-blue">🔵 值得关注 4只</span>
+        <span class="rc-tag tag-gold">🟡 持有观望 4只</span>
+        <span class="rc-tag tag-red">🔴 暂不推荐 2只</span>
+      </div>
+      <div class="rc-meta">
+        <div class="rc-meta-item"><div class="label">最高评级</div><div class="value" style="color:var(--green)">S级 · 贵州茅台 / 工业富联</div></div>
+        <div class="rc-meta-item"><div class="label">性价比最优</div><div class="value" style="color:var(--blue)">工业富联 PE 15x</div></div>
+        <div class="rc-meta-item"><div class="label">分析维度</div><div class="value">ROE / 毛利率 / 增速 / 估值 / 护城河</div></div>
+        <div class="rc-meta-item"><div class="label">报告日期</div><div class="value">2026年4月25日</div></div>
+      </div>
+      <div class="rc-action">
+        <div class="rc-date">涵盖银行·消费·科技·能源·保险·电信</div>
+        <div class="rc-btn btn-blue">查看报告 →</div>
+      </div>
+    </div>
+  </div>
+  </a>
+
+  <!-- Report 2: 华为昇腾产业链 -->
+  <a href="./ascend-chain-analysis-2026Q2.html" style="text-decoration:none;color:inherit">
+  <div class="report-card">
+    <div class="rc-banner chain">
+      <div class="rc-icon">🔶</div>
+      <div class="rc-title">华为昇腾芯片产业链深度研究报告</div>
+      <div class="rc-desc">从芯片设计到集群的全链路价值拆解：晶圆代工·先进封装·核心零部件·整机集成·软件生态·潜在入链公司</div>
+    </div>
+    <div class="rc-body">
+      <div class="rc-tags">
+        <span class="rc-tag tag-red">🔥 昇腾950量产元年</span>
+        <span class="rc-tag tag-gold">💰 字节+阿里475亿锁单</span>
+        <span class="rc-tag tag-purple">🆕 10家潜在入链公司</span>
+        <span class="rc-tag tag-green">📊 13只核心标的</span>
+      </div>
+      <div class="rc-meta">
+        <div class="rc-meta-item"><div class="label">最紧缺环节</div><div class="value" style="color:var(--red)">ABF载板 · 先进封装</div></div>
+        <div class="rc-meta-item"><div class="label">性价比最高</div><div class="value" style="color:var(--blue)">神州数码 PE 28x</div></div>
+        <div class="rc-meta-item"><div class="label">覆盖公司</div><div class="value">20+ 家产业链公司</div></div>
+        <div class="rc-meta-item"><div class="label">报告日期</div><div class="value">2026年5月25日</div></div>
+      </div>
+      <div class="rc-action">
+        <div class="rc-date">5月25日：中芯国际+长电科技双双涨停</div>
+        <div class="rc-btn btn-red">查看报告 →</div>
+      </div>
+    </div>
+  </div>
+  </a>
+
+</div>
+
+<div class="footer">
+  <p>本站报告仅供研究参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+</div>
+
+</body>
+</html>
