@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中国上市游戏公司投资价值横向对比报告 · 2026</title>
+<style>
+:root{--red:#e03131;--green:#2f9e44;--gold:#f08c00;--blue:#1971c2;--purple:#7048e8;--gray:#868e96;--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--text:#212529;--text-light:#6c757d;--dark:#16213e;--game:#7048e8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+.hero{background:linear-gradient(135deg,#16213e 0%,#3a1c71 45%,#7048e8 100%);color:#fff;padding:48px 24px 36px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'🎮';position:absolute;font-size:200px;opacity:.05;top:-30px;right:20px;transform:rotate(-15deg)}
+.hero h1{font-size:28px;font-weight:800;letter-spacing:2px;margin-bottom:10px;position:relative}
+.hero .subtitle{color:#c8b6ff;font-size:14px;position:relative}
+.hero .meta{display:flex;gap:14px;justify-content:center;margin-top:14px;flex-wrap:wrap;position:relative}
+.hero .meta span{font-size:12px;padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.12);backdrop-filter:blur(4px)}
+
+.section-title{padding:28px 24px 12px;font-size:20px;font-weight:800;color:var(--dark);border-bottom:3px solid var(--game);margin:0 24px}
+.section-title .en{font-size:12px;color:var(--text-light);font-weight:400;margin-left:8px}
+.section-sub{padding:8px 24px 16px;font-size:13px;color:var(--text-light);margin:0 24px}
+
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:0 24px 24px}
+.overview-card{background:#fff;border-radius:10px;padding:18px;border:1px solid var(--border);text-align:center;transition:transform .2s}
+.overview-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.overview-card .num{font-size:26px;font-weight:800;margin-bottom:4px}
+.overview-card .label{font-size:12px;color:var(--text-light)}
+
+/* 价值投资框架提示 */
+.framework{margin:0 24px 24px;background:linear-gradient(135deg,#f3f0ff,#e7f5ff);border-radius:12px;padding:18px 22px;border-left:4px solid var(--game)}
+.framework .f-title{font-size:14px;font-weight:700;color:var(--game);margin-bottom:8px}
+.framework .f-text{font-size:13px;color:#444;line-height:1.7}
+.framework .f-text b{color:var(--red)}
+
+/* 排行榜 */
+.rank-wrap{padding:0 24px 24px}
+.rank-row{display:flex;align-items:center;background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 16px;margin-bottom:8px;gap:14px;transition:transform .2s}
+.rank-row:hover{transform:translateX(4px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+.rank-num{font-size:22px;font-weight:800;width:36px;text-align:center;flex-shrink:0}
+.rank-1{color:#f59f00}.rank-2{color:#adb5bd}.rank-3{color:#e8590c}.rank-o{color:#dee2e6}
+.rank-info{flex:1;min-width:0}
+.rank-info .r-name{font-size:15px;font-weight:700}
+.rank-info .r-code{font-size:11px;color:var(--text-light)}
+.rank-bar-wrap{flex:2;display:flex;flex-direction:column;gap:3px;min-width:120px}
+.rank-bar-bg{height:8px;background:#f1f3f5;border-radius:4px;overflow:hidden}
+.rank-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#7048e8,#9775fa)}
+.rank-val{font-size:16px;font-weight:800;width:80px;text-align:right;flex-shrink:0}
+
+/* 卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:16px;padding:0 24px 24px}
+.stock-card{background:#fff;border-radius:12px;border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s}
+.stock-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.1)}
+.stock-card.top{border:2px solid var(--green)}
+.sc-header{padding:14px 18px 10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start}
+.sc-header .left .name{font-size:18px;font-weight:700}
+.sc-header .left .code{font-size:11px;color:var(--text-light);margin-top:2px}
+.sc-header .left .role{font-size:11px;padding:2px 8px;border-radius:10px;margin-top:5px;display:inline-block;color:#fff}
+.sc-header .right{text-align:right}
+.sc-header .right .rating{padding:4px 12px;border-radius:14px;font-size:12px;font-weight:700;color:#fff;display:inline-block}
+.r-buy{background:var(--green)}.r-watch{background:var(--blue)}.r-hold{background:var(--gold);color:#333}.r-avoid{background:var(--gray)}
+.sc-metrics{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.sc-metrics .m-item{padding:10px 6px;text-align:center;border-right:1px solid #f1f3f5}
+.sc-metrics .m-item:last-child{border-right:none}
+.sc-metrics .m-label{font-size:10px;color:var(--text-light);margin-bottom:3px}
+.sc-metrics .m-val{font-size:14px;font-weight:700}
+.sc-bar{padding:10px 18px;border-bottom:1px solid var(--border)}
+.sc-bar-title{font-size:11px;color:var(--text-light);margin-bottom:6px}
+.sc-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sc-bar-row .dim{font-size:11px;width:52px;color:var(--text-light);flex-shrink:0}
+.sc-bar-row .bar-bg{flex:1;height:5px;background:#f1f3f5;border-radius:3px;overflow:hidden}
+.sc-bar-row .bar-fill{height:100%;border-radius:3px}
+.fill-5{width:100%;background:var(--green)}.fill-4{width:80%;background:#74c0fc}.fill-3{width:60%;background:var(--gold)}.fill-2{width:40%;background:#ff922b}.fill-1{width:20%;background:var(--red)}
+.sc-bar-row .score{font-size:11px;font-weight:700;width:18px;text-align:right;flex-shrink:0}
+.sc-analysis{padding:10px 18px;border-bottom:1px solid var(--border)}
+.sc-analysis .a-label{font-size:10px;color:var(--text-light);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.sc-analysis .a-text{font-size:12px;line-height:1.7;color:var(--text)}
+.tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{font-size:10px;padding:2px 7px;border-radius:8px;background:#f1f3f5;color:#495057}
+.tag-pos{background:#d3f9d8;color:#2b8a3e}.tag-neg{background:#ffe3e3;color:#c92a2a}.tag-neu{background:#e7f5ff;color:#1864ab}
+.sc-verdict{padding:10px 18px 12px}
+.sc-verdict .v-label{font-size:10px;color:var(--text-light);font-weight:600;margin-bottom:4px}
+.sc-verdict .v-text{font-size:13px;font-weight:700}
+
+/* 大表 */
+.table-wrap{padding:0 24px 32px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:760px}
+th{background:var(--dark);color:#fff;padding:10px 10px;text-align:center;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--border);white-space:nowrap;text-align:center}
+td.name-cell{text-align:left;font-weight:700}
+tr:hover td{background:#f8f9fa}
+.cell-good{color:var(--green);font-weight:700}
+.cell-bad{color:var(--red);font-weight:700}
+.cell-mid{color:var(--gold);font-weight:700}
+
+/* 结论 */
+.conclusion{background:linear-gradient(135deg,#16213e,#3a1c71);color:#fff;padding:32px 24px;margin:0 24px 32px;border-radius:16px}
+.conclusion h3{font-size:18px;margin-bottom:16px;text-align:center}
+.conclusion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.conclusion-item{background:rgba(255,255,255,.08);border-radius:10px;padding:16px;backdrop-filter:blur(4px)}
+.conclusion-item .ci-title{font-size:14px;font-weight:700;margin-bottom:8px}
+.conclusion-item .ci-text{font-size:12px;line-height:1.7;opacity:.9}
+.footer{text-align:center;padding:24px;font-size:12px;color:var(--text-light);border-top:1px solid var(--border);background:#fff}
+.val-red{color:var(--red)}.val-green{color:var(--green)}.val-gold{color:var(--gold)}.val-blue{color:var(--blue)}.val-purple{color:var(--purple)}
+@media(max-width:600px){.card-grid{grid-template-columns:1fr}.overview-grid{grid-template-columns:1fr 1fr}.sc-metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>🎮 中国上市游戏公司投资价值横向对比</h1>
+  <div class="subtitle">基于价值投资框架 · 好生意 × 强成长 × 合理估值 · 多维度深度对比</div>
+  <div class="meta">
+    <span>📅 2026年6月12日</span>
+    <span>📊 覆盖A股23家游戏公司</span>
+    <span>💎 三高筛选：ROE/毛利率/增速&gt;15%</span>
+  </div>
+</div>
+
+<!-- ========== 总 ========== -->
+<div class="section-title">总 · 行业格局与筛选框架<span class="en">Overview</span></div>
+<div class="section-sub">2025年A股17家游戏公司合计营收961亿元（+25.8%），归母净利润151亿元（+128%），毛利率均值60.73%。行业呈"强者恒强、出海加速、AI重构"三大主线。本报告聚焦你偏好的"三高"（ROE、毛利率、增长率均&gt;15%）+ 合理估值标准筛选。</div>
+
+<div class="overview-grid">
+  <div class="overview-card"><div class="num val-purple">961亿</div><div class="label">A股游戏公司合计营收</div></div>
+  <div class="overview-card"><div class="num val-green">+128%</div><div class="label">合计净利润增速</div></div>
+  <div class="overview-card"><div class="num val-blue">60.7%</div><div class="label">行业毛利率均值</div></div>
+  <div class="overview-card"><div class="num val-gold">409亿</div><div class="label">境外收入(+38%)</div></div>
+  <div class="overview-card"><div class="num val-red">3508亿</div><div class="label">国内游戏市场规模</div></div>
+</div>
+
+<div class="framework">
+  <div class="f-title">💎 价值投资筛选框架（贴合你的小盘+三高偏好）</div>
+  <div class="f-text">
+    本报告采用五维评分：<b>① 盈利质量</b>（ROE、毛利率、净利率）· <b>② 成长性</b>（营收/净利增速、产品管线）· <b>③ 估值安全</b>（PE、PEG、股息率）· <b>④ 商业模式</b>（自研占比、IP壁垒、现金流）· <b>⑤ 第二曲线</b>（出海、AI布局）。<br>
+    💡 严格满足"三高"（ROE&gt;15% + 毛利率&gt;15% + 增速&gt;15%）的公司：<b>吉比特、恺英网络、三七互娱、世纪华通、巨人网络（2025年报口径）</b>。其中吉比特、恺英为高弹性小盘成长股，最契合你的偏好。
+  </div>
+</div>
+
+<!-- ========== 分1：综合评分排行 ========== -->
+<div class="section-title">分 · 综合投资价值排行榜<span class="en">Ranking</span></div>
+<div class="section-sub">基于盈利质量、成长性、估值、商业模式、第二曲线五维加权评分（满分100）</div>
+
+<div class="rank-wrap">
+  <div class="rank-row">
+    <div class="rank-num rank-1">①</div>
+    <div class="rank-info"><div class="r-name">吉比特 <span class="val-green" style="font-size:11px">强烈推荐</span></div><div class="r-code">603444 · 沪市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:91%"></div></div></div>
+    <div class="rank-val val-green">91分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-2">②</div>
+    <div class="rank-info"><div class="r-name">恺英网络 <span class="val-green" style="font-size:11px">强烈推荐</span></div><div class="r-code">002517 · 深市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:86%"></div></div></div>
+    <div class="rank-val val-green">86分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-3">③</div>
+    <div class="rank-info"><div class="r-name">三七互娱 <span class="val-blue" style="font-size:11px">值得关注</span></div><div class="r-code">002555 · 深市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:80%"></div></div></div>
+    <div class="rank-val val-blue">80分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-o">④</div>
+    <div class="rank-info"><div class="r-name">世纪华通 <span class="val-blue" style="font-size:11px">值得关注</span></div><div class="r-code">002602 · 深市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:76%"></div></div></div>
+    <div class="rank-val val-blue">76分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-o">⑤</div>
+    <div class="rank-info"><div class="r-name">巨人网络 <span class="val-gold" style="font-size:11px">持有观望</span></div><div class="r-code">002558 · 深市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:72%"></div></div></div>
+    <div class="rank-val val-gold">72分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-o">⑥</div>
+    <div class="rank-info"><div class="r-name">神州泰岳 <span class="val-gold" style="font-size:11px">持有观望</span></div><div class="r-code">300002 · 创业板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:60%"></div></div></div>
+    <div class="rank-val val-gold">60分</div>
+  </div>
+  <div class="rank-row">
+    <div class="rank-num rank-o">⑦</div>
+    <div class="rank-info"><div class="r-name">完美世界 <span class="val-gold" style="font-size:11px">困境反转</span></div><div class="r-code">002624 · 深市主板</div></div>
+    <div class="rank-bar-wrap"><div class="rank-bar-bg"><div class="rank-bar-fill" style="width:55%"></div></div></div>
+    <div class="rank-val val-gold">55分</div>
+  </div>
+</div>
+
+<!-- ========== 分2：核心标的卡片 ========== -->
+<div class="section-title">分 · 核心标的深度剖析<span class="en">Deep Dive</span></div>
+
+<div class="card-grid">
+
+<!-- 吉比特 -->
+<div class="stock-card top">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">吉比特 🏆</div>
+      <div class="code">603444 · 沪市主板</div>
+      <div class="role" style="background:var(--game)">精品研发·高分红现金牛</div>
+    </div>
+    <div class="right"><span class="rating r-buy">强烈推荐</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-green">33.3%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">93.9%</div></div>
+    <div class="m-item"><div class="m-label">净利率</div><div class="m-val val-green">34.6%</div></div>
+    <div class="m-item"><div class="m-label">分红</div><div class="m-val val-red">10派70元</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">全行业<strong>毛利率最高（93.9%）</strong>+ROE最高（33.3%）的精品研发龙头。2025Q3营收19.7亿创历史新高（+129%），净利5.69亿（+307%），<strong>《杖剑传说》成出海爆款</strong>跃居Q3境外增长第6。2026Q1净利预增59-87%。常年高分红（2025全年10派70元+中报66元），是游戏股中罕见的"现金牛+成长"双击标的。</div>
+    <div class="tags"><span class="tag tag-pos">毛利率第一</span><span class="tag tag-pos">ROE第一</span><span class="tag tag-pos">杖剑传说爆款</span><span class="tag tag-pos">超高分红</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-green">✅ 最契合你"三高+小盘"偏好的标的。基本面无可挑剔，唯一风险是单品依赖度高、股价已从250涨至600+。建议回调时分批建仓，长线持有吃分红+成长。</div>
+  </div>
+</div>
+
+<!-- 恺英网络 -->
+<div class="stock-card top">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">恺英网络 🏆</div>
+      <div class="code">002517 · 深市主板</div>
+      <div class="role" style="background:var(--game)">传奇IP平台·高增长</div>
+    </div>
+    <div class="right"><span class="rating r-buy">强烈推荐</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-green">23.1%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">80.8%</div></div>
+    <div class="m-item"><div class="m-label">Q1营收增速</div><div class="m-val val-green">+64.2%</div></div>
+    <div class="m-item"><div class="m-label">Q1净利增速</div><div class="m-val val-green">+50.7%</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">2025年营收53.25亿（ROE 23.1%），<strong>"传奇盒子"平台化战略成型</strong>形成平台效应。2026Q1营收暴增64.2%至22.2亿，净利7.81亿（+50.7%），增速冠绝行业（Q1利润含一次性和解金）。《热血江湖》等IP产品持续兑现。估值在头部中相对偏低，安全边际较足。</div>
+    <div class="tags"><span class="tag tag-pos">营收增速第一</span><span class="tag tag-pos">传奇IP平台</span><span class="tag tag-neu">Q1含一次性收益</span><span class="tag tag-pos">估值合理</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-green">✅ 高成长+合理估值的典型小盘成长股。需注意Q1净利含和解金一次性因素，剔除后内生增速仍强劲。重点跟踪传奇盒子平台ARPU和新游表现。</div>
+  </div>
+</div>
+
+<!-- 三七互娱 -->
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">三七互娱</div>
+      <div class="code">002555 · 深市主板</div>
+      <div class="role" style="background:var(--blue)">买量发行龙头·出海</div>
+    </div>
+    <div class="right"><span class="rating r-watch">值得关注</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-green">21.7%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">75.9%</div></div>
+    <div class="m-item"><div class="m-label">2025营收</div><div class="m-val val-blue">159.7亿</div></div>
+    <div class="m-item"><div class="m-label">2025净利</div><div class="m-val val-blue">29.0亿</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">营收规模A股第二（159.7亿），ROE 21.7%扎实。<strong>买量发行+出海双轮</strong>，境外收入规模行业前二。2025"增利不增收"——销售费用从97亿降至77.6亿，降本增效见效。短板：存量游戏老化、出海增速放缓、新品周期切换承压。<strong>估值是头部中最低的，安全边际足</strong>。</div>
+    <div class="tags"><span class="tag tag-pos">规模第二</span><span class="tag tag-pos">降本增效</span><span class="tag tag-pos">PE低</span><span class="tag tag-neg">增长放缓</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-blue">🔵 低估值的价值型选择，适合稳健投资者。成长性不如吉比特/恺英，但胜在安全边际。需观察出海新品和AI降本成效。</div>
+  </div>
+</div>
+
+<!-- 世纪华通 -->
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">世纪华通</div>
+      <div class="code">002602 · 深市主板</div>
+      <div class="role" style="background:var(--blue)">营收规模王·出海第一</div>
+    </div>
+    <div class="right"><span class="rating r-watch">值得关注</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-green">20.3%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">70.0%</div></div>
+    <div class="m-item"><div class="m-label">2025营收</div><div class="m-val val-blue">379亿</div></div>
+    <div class="m-item"><div class="m-label">2025净利</div><div class="m-val val-blue">56亿</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-5"></div></div><span class="score" style="color:var(--green)">5</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">A股游戏营收规模<strong>绝对第一（379亿）</strong>，净利56亿，ROE 20.3%。<strong>境外收入规模+增速双第一</strong>（出海接近100%增长），《Whiteout Survival》等海外爆款扛旗。同时布局数据中心（算力）第二曲线。体量大、抗风险强，但曾因ST经历股价波动。</div>
+    <div class="tags"><span class="tag tag-pos">营收第一</span><span class="tag tag-pos">出海最强</span><span class="tag tag-pos">算力布局</span><span class="tag tag-neu">体量大弹性弱</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-blue">🔵 出海最强的龙头，适合看好游戏全球化的投资者。大盘股，不符合你的小盘偏好，但基本面扎实，可作为板块配置。</div>
+  </div>
+</div>
+
+<!-- 巨人网络 -->
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">巨人网络</div>
+      <div class="code">002558 · 深市主板</div>
+      <div class="role" style="background:var(--gold);color:#333">超高毛利·AI布局激进</div>
+    </div>
+    <div class="right"><span class="rating r-hold">持有观望</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-gold">12.5%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">91.0%</div></div>
+    <div class="m-item"><div class="m-label">2025净利</div><div class="m-val val-blue">17.6亿</div></div>
+    <div class="m-item"><div class="m-label">PE(中位)</div><div class="m-val val-red">42x</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">毛利率91%（行业第二），《征途》《球球大作战》长青。<strong>AI布局最激进</strong>——成立AI Lab探索AI+游戏。但2025出海境外毛利率下滑46个百分点至43%、境外收入腰斩，出海严重受挫。估值偏高（中位PE 42x），需警惕业绩波动。</div>
+    <div class="tags"><span class="tag tag-pos">毛利率高</span><span class="tag tag-pos">AI激进</span><span class="tag tag-neg">出海受挫</span><span class="tag tag-neg">估值偏高</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-gold">⚖️ AI游戏概念弹性大，但估值已不便宜+出海拖累。适合博弈AI主题，不适合纯价值买入。等回调或AI产品落地再考虑。</div>
+  </div>
+</div>
+
+<!-- 完美世界 -->
+<div class="stock-card">
+  <div class="sc-header">
+    <div class="left">
+      <div class="name">完美世界</div>
+      <div class="code">002624 · 深市主板</div>
+      <div class="role" style="background:var(--gold);color:#333">困境反转·端游强IP</div>
+    </div>
+    <div class="right"><span class="rating r-hold">困境反转</span></div>
+  </div>
+  <div class="sc-metrics">
+    <div class="m-item"><div class="m-label">2025 ROE</div><div class="m-val val-gold">10.6%</div></div>
+    <div class="m-item"><div class="m-label">毛利率</div><div class="m-val val-green">60.3%</div></div>
+    <div class="m-item"><div class="m-label">2025净利</div><div class="m-val val-blue">7.3亿</div></div>
+    <div class="m-item"><div class="m-label">状态</div><div class="m-val val-green">扭亏为盈</div></div>
+  </div>
+  <div class="sc-bar">
+    <div class="sc-bar-title">五维评分</div>
+    <div class="sc-bar-row"><span class="dim">盈利质量</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">成长性</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+    <div class="sc-bar-row"><span class="dim">估值安全</span><div class="bar-bg"><div class="bar-fill fill-2"></div></div><span class="score" style="color:#ff922b">2</span></div>
+    <div class="sc-bar-row"><span class="dim">商业模式</span><div class="bar-bg"><div class="bar-fill fill-4"></div></div><span class="score" style="color:#74c0fc">4</span></div>
+    <div class="sc-bar-row"><span class="dim">出海/AI</span><div class="bar-bg"><div class="bar-fill fill-3"></div></div><span class="score" style="color:var(--gold)">3</span></div>
+  </div>
+  <div class="sc-analysis">
+    <div class="a-label">核心逻辑</div>
+    <div class="a-text">2025年扭亏为盈（净利7.3亿），《诛仙》《完美新世界》等强端游IP。但2025Q1达20.2亿峰值后<strong>逐季下滑</strong>，新品周期切换导致收入承压，2026Q1每股收益仅0.27元、PE高达56x。困境反转逻辑需新品验证。</div>
+    <div class="tags"><span class="tag tag-pos">扭亏为盈</span><span class="tag tag-pos">端游IP强</span><span class="tag tag-neg">收入下滑</span><span class="tag tag-neg">PE偏高</span></div>
+  </div>
+  <div class="sc-verdict">
+    <div class="v-label">投资判断</div>
+    <div class="v-text val-gold">⚖️ 典型困境反转股，赌新品周期。当前盈利质量和估值都不算优秀，适合左侧布局者，需密切跟踪《诛仙2》等新品表现。</div>
+  </div>
+</div>
+
+</div>
+
+<!-- ========== 分3：横向对比大表 ========== -->
+<div class="section-title">分 · 全维度横向对比矩阵<span class="en">Comparison Matrix</span></div>
+<div class="section-sub">数据来源：2025年报 / 2026一季报（同花顺F10）。<b>绿色=优秀，金色=中等，红色=较弱</b></div>
+<div class="table-wrap">
+<table>
+<thead><tr>
+<th>公司</th><th>代码</th><th>2025营收(亿)</th><th>2025净利(亿)</th><th>ROE</th><th>毛利率</th><th>净利率</th><th>2026Q1增速</th><th>出海</th><th>综合评级</th>
+</tr></thead>
+<tbody>
+<tr><td class="name-cell">吉比特</td><td>603444</td><td>62.1</td><td>17.9</td><td class="cell-good">33.3%</td><td class="cell-good">93.9%</td><td class="cell-good">34.6%</td><td class="cell-good">净利+59~87%</td><td class="cell-good">爆款</td><td class="cell-good">★★★★★</td></tr>
+<tr><td class="name-cell">恺英网络</td><td>002517</td><td>53.3</td><td>19.0</td><td class="cell-good">23.1%</td><td class="cell-good">80.8%</td><td class="cell-good">35.8%</td><td class="cell-good">营收+64%</td><td class="cell-mid">中等</td><td class="cell-good">★★★★★</td></tr>
+<tr><td class="name-cell">三七互娱</td><td>002555</td><td>159.7</td><td>29.0</td><td class="cell-good">21.7%</td><td class="cell-good">75.9%</td><td class="cell-mid">18.3%</td><td class="cell-mid">平稳</td><td class="cell-good">前二</td><td class="cell-good">★★★★</td></tr>
+<tr><td class="name-cell">世纪华通</td><td>002602</td><td class="cell-good">379</td><td class="cell-good">56.0</td><td class="cell-good">20.3%</td><td class="cell-good">70.0%</td><td class="cell-mid">14.8%</td><td class="cell-good">高增</td><td class="cell-good">第一</td><td class="cell-good">★★★★</td></tr>
+<tr><td class="name-cell">巨人网络</td><td>002558</td><td>50.5</td><td>17.6</td><td class="cell-mid">12.5%</td><td class="cell-good">91.0%</td><td class="cell-good">34.8%</td><td class="cell-mid">平稳</td><td class="cell-bad">受挫</td><td class="cell-mid">★★★</td></tr>
+<tr><td class="name-cell">神州泰岳</td><td>300002</td><td>58.2</td><td>8.0</td><td class="cell-mid">10.9%</td><td class="cell-mid">57.7%</td><td class="cell-mid">13.8%</td><td class="cell-bad">下滑</td><td class="cell-good">前三</td><td class="cell-mid">★★★</td></tr>
+<tr><td class="name-cell">完美世界</td><td>002624</td><td>66.6</td><td>7.3</td><td class="cell-mid">10.6%</td><td class="cell-mid">60.3%</td><td class="cell-mid">11.0%</td><td class="cell-bad">下滑</td><td class="cell-bad">下滑</td><td class="cell-mid">★★★</td></tr>
+<tr><td class="name-cell">姚记科技</td><td>002605</td><td>26.9</td><td>4.7</td><td class="cell-mid">12.7%</td><td class="cell-bad">43.5%</td><td class="cell-mid">17.4%</td><td class="cell-mid">平稳</td><td class="cell-bad">弱</td><td class="cell-mid">★★★</td></tr>
+<tr><td class="name-cell">星辉娱乐</td><td>300043</td><td>20.9</td><td>3.0</td><td class="cell-good">18.9%</td><td class="cell-mid">57.6%</td><td class="cell-mid">14.4%</td><td class="cell-mid">平稳</td><td class="cell-good">改善</td><td class="cell-mid">★★★</td></tr>
+<tr><td class="name-cell">浙数文化</td><td>600633</td><td>30.8</td><td>5.7</td><td class="cell-bad">5.7%</td><td class="cell-bad">49.3%</td><td class="cell-mid">18.6%</td><td class="cell-bad">弱</td><td class="cell-bad">弱</td><td class="cell-mid">★★</td></tr>
+<tr style="opacity:.6"><td class="name-cell">昆仑万维</td><td>300418</td><td>82.0</td><td class="cell-bad">-15.9</td><td class="cell-bad">-11.6%</td><td class="cell-mid">68.6%</td><td class="cell-bad">亏损</td><td class="cell-bad">亏损</td><td class="cell-mid">AI重投入</td><td class="cell-bad">★★</td></tr>
+<tr style="opacity:.6"><td class="name-cell">游族网络</td><td>002174</td><td>14.0</td><td class="cell-bad">-3.5</td><td class="cell-bad">-8.0%</td><td class="cell-bad">39.0%</td><td class="cell-bad">亏损</td><td class="cell-bad">弱</td><td class="cell-mid">前五</td><td class="cell-bad">★</td></tr>
+<tr style="opacity:.6"><td class="name-cell">汤姆猫</td><td>300459</td><td>9.3</td><td class="cell-bad">-12.0</td><td class="cell-bad">-73.7%</td><td class="cell-good">87.3%</td><td class="cell-bad">亏损</td><td class="cell-bad">亏损</td><td class="cell-mid">AI陪伴</td><td class="cell-bad">★</td></tr>
+</tbody>
+</table>
+</div>
+
+<!-- ========== 总 ========== -->
+<div class="section-title">总 · 投资结论与配置建议<span class="en">Conclusion</span></div>
+
+<div class="conclusion">
+  <h3>🎯 核心结论：吉比特 & 恺英网络 = 最契合"三高+小盘"的双子星</h3>
+  <div class="conclusion-grid">
+    <div class="conclusion-item">
+      <div class="ci-title">🥇 首选：吉比特（603444）</div>
+      <div class="ci-text">全行业ROE(33.3%)+毛利率(93.9%)双第一，《杖剑传说》出海爆款驱动Q1净利预增59-87%。超高分红的"现金牛+成长"双击，最符合你的价值投资标准。<b>策略：回调分批建仓，长线持有。</b></div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">🥈 次选：恺英网络（002517）</div>
+      <div class="ci-text">营收增速行业第一（Q1+64%），传奇盒子平台化成型，ROE 23.1%+估值合理。高弹性小盘成长股。<b>注意：Q1净利含和解金一次性因素，重点看内生增速。</b></div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">🥉 价值选择：三七互娱（002555）</div>
+      <div class="ci-text">头部中估值最低，ROE 21.7%扎实，降本增效见效。成长性偏弱但安全边际足。<b>适合稳健型，等出海/AI新催化。</b></div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">📊 大盘配置：世纪华通（002602）</div>
+      <div class="ci-text">营收+出海双第一，《Whiteout Survival》海外扛旗+算力第二曲线。体量大不符小盘偏好，但板块配置首选。</div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">⚡ 主题博弈：巨人网络（002558）</div>
+      <div class="ci-text">AI+游戏布局最激进，毛利率91%。但估值偏高+出海受挫。<b>适合博弈AI主题，非价值买入，等回调。</b></div>
+    </div>
+    <div class="conclusion-item">
+      <div class="ci-title">⚠️ 风险提示</div>
+      <div class="ci-text">① 单品/IP依赖度高，新游表现决定业绩 · ② 版号政策与监管 · ③ 出海地缘风险 · ④ 头部股价已高位，注意回调 · ⑤ 昆仑万维/汤姆猫等AI重投入公司仍亏损，勿盲目追AI概念。</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>📅 报告日期：2026年6月12日 · 数据来源：同花顺F10、东方财富、雪球、各公司年报及一季报</p>
+  <p style="margin-top:6px">本报告基于公开信息整理，仅供研究参考，不构成投资建议。股市有风险，投资需谨慎。</p>
+</div>
+
+</body>
+</html>
