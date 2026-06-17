@@ -8,27 +8,24 @@
 :root{--dark:#1a1a2e;--blue:#1971c2;--red:#cf0a2c;--green:#2f9e44;--gold:#f08c00;--purple:#7048e8;--gray:#868e96;--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--text:#212529}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh}
-
 .hero{background:linear-gradient(135deg,#1a1a2e 0%,#0f3460 50%,#16213e 100%);color:#fff;padding:48px 24px 36px;text-align:center}
 .hero h1{font-size:28px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
 .hero .subtitle{color:#adb5bd;font-size:14px}
 .hero .meta{display:flex;gap:12px;justify-content:center;margin-top:14px;flex-wrap:wrap}
 .hero .meta span{font-size:12px;padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.12)}
-
 .container{max-width:800px;margin:0 auto;padding:32px 24px}
-
 .report-card{background:var(--card);border-radius:16px;border:1px solid var(--border);overflow:hidden;margin-bottom:24px;transition:transform .2s,box-shadow .2s;cursor:pointer}
 .report-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.12)}
-
 .rc-banner{padding:24px 28px;position:relative;overflow:hidden}
 .rc-banner.stock{background:linear-gradient(135deg,#0f3460 0%,#1971c2 100%)}
 .rc-banner.chain{background:linear-gradient(135deg,#1a1a2e 0%,#cf0a2c 100%)}
+.rc-banner.game{background:linear-gradient(135deg,#16213e 0%,#7048e8 100%)}
+.rc-banner.deep{background:linear-gradient(135deg,#3a1c71 0%,#d63384 70%,#7048e8 100%)}
 .rc-banner *{color:#fff;position:relative;z-index:1}
 .rc-banner::after{content:'';position:absolute;top:-30%;right:-10%;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06)}
 .rc-banner .rc-icon{font-size:36px;margin-bottom:8px}
 .rc-banner .rc-title{font-size:22px;font-weight:800;margin-bottom:6px}
 .rc-banner .rc-desc{font-size:13px;opacity:.85;line-height:1.6}
-
 .rc-body{padding:20px 28px}
 .rc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .rc-tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600}
@@ -37,22 +34,18 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
 .tag-green{background:#d3f9d8;color:#2b8a3e}
 .tag-gold{background:#fff9db;color:#e67700}
 .tag-purple{background:#f3f0ff;color:#6741d9}
-
 .rc-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
 .rc-meta-item{background:#f8f9fa;border-radius:8px;padding:10px 14px}
 .rc-meta-item .label{font-size:11px;color:var(--gray);margin-bottom:2px}
 .rc-meta-item .value{font-size:14px;font-weight:700}
-
 .rc-action{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border)}
 .rc-date{font-size:12px;color:var(--gray)}
 .rc-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:20px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s}
-.btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:#1864ab}
-.btn-red{background:var(--red);color:#fff}
-.btn-red:hover{background:#a8071a}
-
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:#1864ab}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:#a8071a}
+.btn-purple{background:var(--purple);color:#fff}.btn-purple:hover{background:#5f3dc4}
+.btn-pink{background:#d63384;color:#fff}.btn-pink:hover{background:#c2255c}
 .footer{text-align:center;padding:24px;font-size:12px;color:var(--gray);border-top:1px solid var(--border);margin-top:24px}
-
 @media(max-width:600px){.container{padding:20px 16px}.rc-meta{grid-template-columns:1fr}.rc-banner .rc-title{font-size:18px}}
 </style>
 </head>
@@ -64,44 +57,45 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
   <div class="meta">
     <span>📋 标准ROE&gt;15% · 毛利率&gt;15% · 增长率&gt;15%</span>
     <span>📅 持续更新</span>
+    <span>📄 4篇报告</span>
   </div>
 </div>
 
 <div class="container">
 
-  <!-- Report 1: 同花顺自选股 -->
-  <a href="./watchlist-analysis-2026Q2.html" style="text-decoration:none;color:inherit">
+  <!-- Report 1: 5家游戏公司深度画像 -->
+  <a href="./game-company-deep-dive-2026.html" style="text-decoration:none;color:inherit">
   <div class="report-card">
-    <div class="rc-banner stock">
-      <div class="rc-icon">📈</div>
-      <div class="rc-title">同花顺自选股 · 投资价值分析报告</div>
-      <div class="rc-desc">12只自选股全方位体检：贵州茅台、宁德时代、中国平安、招商银行、工业富联、中国海油、中国移动、工商银行、农业银行、建设银行、中国石油、中国银行</div>
+    <div class="rc-banner deep">
+      <div class="rc-icon">🎭</div>
+      <div class="rc-title">5家A股游戏公司全方位深度画像</div>
+      <div class="rc-desc">世纪华通·完美世界·三七互娱·吉比特·巨人网络——优势·劣势·机会·风险·现状·未来，一家公司一个完整故事</div>
     </div>
     <div class="rc-body">
       <div class="rc-tags">
-        <span class="rc-tag tag-green">🟢 强烈推荐 2只</span>
-        <span class="rc-tag tag-blue">🔵 值得关注 4只</span>
-        <span class="rc-tag tag-gold">🟡 持有观望 4只</span>
-        <span class="rc-tag tag-red">🔴 暂不推荐 2只</span>
+        <span class="rc-tag tag-green">🟢 吉比特 强烈推荐</span>
+        <span class="rc-tag tag-blue">🔵 世纪华通/三七 值得关注</span>
+        <span class="rc-tag tag-gold">🟡 巨人/完美 持有观望</span>
+        <span class="rc-tag tag-purple">🔍 SWOT深度分析</span>
       </div>
       <div class="rc-meta">
-        <div class="rc-meta-item"><div class="label">最高评级</div><div class="value" style="color:var(--green)">S级 · 贵州茅台 / 工业富联</div></div>
-        <div class="rc-meta-item"><div class="label">性价比最优</div><div class="value" style="color:var(--blue)">工业富联 PE 15x</div></div>
-        <div class="rc-meta-item"><div class="label">分析维度</div><div class="value">ROE / 毛利率 / 增速 / 估值 / 护城河</div></div>
-        <div class="rc-meta-item"><div class="label">报告日期</div><div class="value">2026年4月25日</div></div>
+        <div class="rc-meta-item"><div class="label">最契合你的偏好</div><div class="value" style="color:var(--green)">吉比特 ROE33%+分红78%</div></div>
+        <div class="rc-meta-item"><div class="label">出海最强</div><div class="value" style="color:var(--blue)">世纪华通 境外70%+</div></div>
+        <div class="rc-meta-item"><div class="label">PE最低</div><div class="value">三七互娱 16.5x</div></div>
+        <div class="rc-meta-item"><div class="label">报告日期</div><div class="value">2026年6月17日</div></div>
       </div>
       <div class="rc-action">
-        <div class="rc-date">涵盖银行·消费·科技·能源·保险·电信</div>
-        <div class="rc-btn btn-blue">查看报告 →</div>
+        <div class="rc-date">五维SWOT + 现状与未来 + 投资判断</div>
+        <div class="rc-btn btn-pink">查看报告 →</div>
       </div>
     </div>
   </div>
   </a>
 
-  <!-- Report 3: 游戏公司投资分析 -->
+  <!-- Report 2: 游戏公司横向对比 -->
   <a href="./game-stocks-analysis-2026.html" style="text-decoration:none;color:inherit">
   <div class="report-card">
-    <div class="rc-banner" style="background:linear-gradient(135deg,#16213e 0%,#7048e8 100%)">
+    <div class="rc-banner game">
       <div class="rc-icon">🎮</div>
       <div class="rc-title">中国上市游戏公司投资价值横向对比</div>
       <div class="rc-desc">23家A股游戏公司多维度深度对比：吉比特、恺英网络、三七互娱、世纪华通、巨人网络、完美世界、神州泰岳等，五维评分+三高筛选</div>
@@ -121,13 +115,13 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
       </div>
       <div class="rc-action">
         <div class="rc-date">盈利·成长·估值·商业模式·出海AI 五维</div>
-        <div class="rc-btn" style="background:#7048e8;color:#fff">查看报告 →</div>
+        <div class="rc-btn btn-purple">查看报告 →</div>
       </div>
     </div>
   </div>
   </a>
 
-  <!-- Report 2: 华为昇腾产业链 -->
+  <!-- Report 3: 华为昇腾产业链 -->
   <a href="./ascend-chain-analysis-2026Q2.html" style="text-decoration:none;color:inherit">
   <div class="report-card">
     <div class="rc-banner chain">
@@ -151,6 +145,35 @@ body{font-family:-apple-system,'PingFang SC','Helvetica Neue',sans-serif;backgro
       <div class="rc-action">
         <div class="rc-date">5月25日：中芯国际+长电科技双双涨停</div>
         <div class="rc-btn btn-red">查看报告 →</div>
+      </div>
+    </div>
+  </div>
+  </a>
+
+  <!-- Report 4: 同花顺自选股 -->
+  <a href="./watchlist-analysis-2026Q2.html" style="text-decoration:none;color:inherit">
+  <div class="report-card">
+    <div class="rc-banner stock">
+      <div class="rc-icon">📈</div>
+      <div class="rc-title">同花顺自选股 · 投资价值分析报告</div>
+      <div class="rc-desc">12只自选股全方位体检：贵州茅台、宁德时代、中国平安、招商银行、工业富联、中国海油、中国移动、工商银行、农业银行、建设银行、中国石油、中国银行</div>
+    </div>
+    <div class="rc-body">
+      <div class="rc-tags">
+        <span class="rc-tag tag-green">🟢 强烈推荐 2只</span>
+        <span class="rc-tag tag-blue">🔵 值得关注 4只</span>
+        <span class="rc-tag tag-gold">🟡 持有观望 4只</span>
+        <span class="rc-tag tag-red">🔴 暂不推荐 2只</span>
+      </div>
+      <div class="rc-meta">
+        <div class="rc-meta-item"><div class="label">最高评级</div><div class="value" style="color:var(--green)">S级 · 贵州茅台 / 工业富联</div></div>
+        <div class="rc-meta-item"><div class="label">性价比最优</div><div class="value" style="color:var(--blue)">工业富联 PE 15x</div></div>
+        <div class="rc-meta-item"><div class="label">分析维度</div><div class="value">ROE / 毛利率 / 增速 / 估值 / 护城河</div></div>
+        <div class="rc-meta-item"><div class="label">报告日期</div><div class="value">2026年4月25日</div></div>
+      </div>
+      <div class="rc-action">
+        <div class="rc-date">涵盖银行·消费·科技·能源·保险·电信</div>
+        <div class="rc-btn btn-blue">查看报告 →</div>
       </div>
     </div>
   </div>
